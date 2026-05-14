@@ -1,11 +1,3 @@
 # Architecture
 
-This directory holds the formal architecture map for Control Center.
-
-## Contents
-
-- system model
-- layer definitions
-- engine boundaries
-- orchestration rules
-- interface contracts
+Defines sovereign ecosystem architecture, runtime topology, orchestration flow, subsystem ownership, propagation pipelines, runtime graph authority, and cross-platform synchronization.

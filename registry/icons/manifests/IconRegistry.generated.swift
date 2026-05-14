@@ -1,6 +1,7 @@
 import Foundation
 
 enum DSCIconRegistry {
+  static let runtime/runtime_activity = "runtime/runtime-activity"
   static let core/actions/404/404 = "core/actions/404/404"
   static let core/actions/about_featured_functions/about_featured_functions = "core/actions/about-featured-functions/about-featured-functions"
   static let core/actions/about_featured_functions_title/about_featured_functions_title = "core/actions/about-featured-functions-title/about-featured-functions-title"

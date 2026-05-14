@@ -1,0 +1,15 @@
+{
+  "system": "ControlCenter-DSC",
+  "version": "1.0",
+  "authority": "single-source-of-truth",
+  "layers": {
+    "tokens": {
+      "colors": {},
+      "spacing": {},
+      "radius": {},
+      "typography": {}
+    },
+    "components": {},
+    "themes": {}
+  }
+}

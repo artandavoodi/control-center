@@ -1,32 +1,40 @@
-# Control Center
+# Neuroartan Control Center
 
-Control Center is the top-level orchestration layer for the Neuroartan ecosystem.
+Sovereign orchestration, registry, runtime, propagation, and ecosystem authority for the Neuroartan platform.
 
-## Purpose
+## Core Responsibilities
 
-Control Center governs the internal operating structure that connects:
-- DSC
-- Registry
-- Runtime
-- UI
-- Studio
-- UAPIS
-- UVS
-- Marketplace
+- Runtime orchestration
+- Cross-platform propagation
+- Token authority
+- SVG authority
+- Registry synchronization
+- Studio orchestration
+- Swift runtime exports
+- Website runtime exports
+- Ecosystem SDK generation
+- Diagnostics and governance
 
-## System Direction
+## Canonical Authorities
 
-This repository is evolving into the governance layer for a human-directed AI studio system:
-- design is controlled, not hardcoded
-- structure is reusable, not isolated
-- intelligence is assisted, not automated away
-- style is authored, not generated blindly
-- public ecosystem access is built on top of internal control
+### Tokens
+registry/tokens
 
-## Current Priority
+### Icons
+registry/icons/source
 
-- document the studio vision
-- define the missing studio layer
-- create missing engines and skeletons
-- connect design control to registry identity
-- keep human taste at the center of system behavior
+### Runtime
+dsc/runtime
+
+### Studio
+studio
+
+### Propagation
+registry/propagation
+
+## Platform Structure
+
+- Website → visual/runtime source layer
+- Control Center → orchestration/registry authority
+- ICOS Runtime → native execution/runtime layer
+
