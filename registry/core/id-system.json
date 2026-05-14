@@ -1,0 +1,15 @@
+{
+  "system": "CONTROL_CENTER",
+  "version": "0.1",
+  "rules": {
+    "id_required": true,
+    "id_format": "CC-[layer]-[type]-[0000]",
+    "registry_enforced": true,
+    "global_uniqueness": true
+  },
+  "layers": {
+    "dsc": "design-system-core",
+    "uvs": "unified-voice-system",
+    "uapis": "unified-api-system"
+  }
+}
