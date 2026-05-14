@@ -1,0 +1,20 @@
+{
+  "system": "CONTROL_CENTER",
+  "layer": "dsc",
+  "type": "semantic-spacing",
+  "version": "0.1",
+  "tokens": {
+    "page": {
+      "x": "token.space.page.x",
+      "y": "token.space.page.y"
+    },
+    "section": {
+      "x": "token.space.section.x",
+      "y": "token.space.section.y"
+    },
+    "component": {
+      "inner": "token.space.component.inner",
+      "outer": "token.space.component.outer"
+    }
+  }
+}

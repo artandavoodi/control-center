@@ -1,0 +1,12 @@
+{
+  "system": "CONTROL_CENTER",
+  "layer": "dsc",
+  "type": "semantic-radius",
+  "version": "0.1",
+  "tokens": {
+    "panel": "token.radius.panel",
+    "card": "token.radius.card",
+    "control": "token.radius.control",
+    "surface": "token.radius.surface"
+  }
+}

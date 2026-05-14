@@ -1,0 +1,28 @@
+{
+  "system": "CONTROL_CENTER",
+  "layer": "dsc",
+  "type": "semantic-colors",
+  "version": "0.1",
+  "tokens": {
+    "text": {
+      "primary": "token.text.primary",
+      "secondary": "token.text.secondary",
+      "muted": "token.text.muted"
+    },
+    "surface": {
+      "base": "token.surface.base",
+      "raised": "token.surface.raised",
+      "overlay": "token.surface.overlay"
+    },
+    "border": {
+      "subtle": "token.border.subtle",
+      "strong": "token.border.strong"
+    },
+    "status": {
+      "success": "token.status.success",
+      "warning": "token.status.warning",
+      "danger": "token.status.danger",
+      "info": "token.status.info"
+    }
+  }
+}
