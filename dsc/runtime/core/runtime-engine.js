@@ -1,3 +1,4 @@
+import { bindRuntimeConsumers } from "./consumers/runtime-consumer-bridge.js"
 /**
  * DSC Runtime Engine
  * Central runtime orchestration authority.
@@ -13,6 +14,7 @@ import { runtimeDiagnostics } from "../diagnostics/runtime-diagnostics.js";
 export class RuntimeEngine {
   constructor() {
     this.initialized = false;
+    this.state = {};
   }
 
   initialize() {

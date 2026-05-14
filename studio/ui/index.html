@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neuroartan Control Center Studio</title>
+  <link rel="stylesheet" href="./styles/studio.css">
+</head>
+<body>
+  <main class="cc-studio">
+    <aside class="cc-studio__sidebar">
+      <h1>Control Center</h1>
+      <button data-view="tokens">Tokens</button>
+      <button data-view="themes">Themes</button>
+      <button data-view="icons">Icons</button>
+      <button data-view="components">Components</button>
+    </aside>
+
+    <section class="cc-studio__workspace">
+      <header class="cc-studio__topbar">
+        <strong>Design Operating System</strong>
+        <button id="cc-propagate">Propagate</button>
+      </header>
+
+      <section id="cc-studio-view" class="cc-studio__view">
+        Runtime surface ready.
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="./scripts/studio.js"></script>
+</body>
+</html>
