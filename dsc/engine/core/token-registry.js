@@ -1,21 +1,21 @@
 export const Tokens = {
   colors: {
-    background: "#0B0F14",
-    surface: "#121821",
-    primary: "#7C5CFF",
-    text: "#E6EAF2"
+    background: "token.color.background",
+    surface: "token.color.surface",
+    primary: "token.color.primary",
+    text: "token.color.text"
   },
   spacing: {
-    xs: 4,
-    sm: 8,
-    md: 12,
-    lg: 16,
-    xl: 24
+    xs: "token.space.xs",
+    sm: "token.space.sm",
+    md: "token.space.md",
+    lg: "token.space.lg",
+    xl: "token.space.xl"
   },
   radius: {
-    sm: 4,
-    md: 8,
-    lg: 12,
-    xl: 16
+    sm: "token.radius.sm",
+    md: "token.radius.md",
+    lg: "token.radius.lg",
+    xl: "token.radius.xl"
   }
 };

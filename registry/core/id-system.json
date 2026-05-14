@@ -1,6 +1,6 @@
 {
   "system": "CONTROL_CENTER",
-  "version": "0.1",
+  "version": "0.2",
   "rules": {
     "id_required": true,
     "id_format": "CC-[layer]-[type]-[0000]",
@@ -9,7 +9,9 @@
   },
   "layers": {
     "dsc": "design-system-core",
+    "registry": "identity-and-asset-authority",
     "uvs": "unified-voice-system",
-    "uapis": "unified-api-system"
+    "uapis": "unified-api-system",
+    "ui": "control-surface"
   }
 }
