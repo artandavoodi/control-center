@@ -1,11 +1,12 @@
 {
   "system": "CONTROL_CENTER",
-  "version": "0.2",
+  "version": "0.3",
   "rules": {
     "id_required": true,
     "id_format": "CC-[layer]-[type]-[0000]",
     "registry_enforced": true,
-    "global_uniqueness": true
+    "global_uniqueness": true,
+    "id_lookup_required": true
   },
   "layers": {
     "dsc": "design-system-core",
@@ -13,5 +14,13 @@
     "uvs": "unified-voice-system",
     "uapis": "unified-api-system",
     "ui": "control-surface"
+  },
+  "namespaces": {
+    "tokens": "CC-DSC-TOKEN",
+    "themes": "CC-DSC-THEME",
+    "components": "CC-UI-COMP",
+    "assets": "CC-ASSET",
+    "voices": "CC-UVS-VOICE",
+    "apis": "CC-UAPIS-API"
   }
 }

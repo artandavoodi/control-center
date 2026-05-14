@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control Center — Editor</title>
+</head>
+<body>
+  <main id="shell-root"></main>
+  <script type="module">
+    import { renderSharedShell } from "../shared/shell.js";
+    renderSharedShell("shell-root", {
+      title: "Editor",
+      intro: "System configuration editing surface."
+    });
+  </script>
+</body>
+</html>

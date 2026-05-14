@@ -1,13 +1,13 @@
 # DSC Adapters
 
-This directory contains platform bridges for DSC.
+This directory holds platform bridges for the Design System Core.
 
 ## Scope
 
-- web adapter
-- iOS adapter
-- software adapter
+- web theme bridge
+- iOS theme bridge
+- future software bridges
 
 ## Current State
 
-Adapters exist and should remain aligned with the core token and theme model.
+Web and iOS bridge files exist. Adapter ownership still needs formalization.

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Control Center — Shared UI</title>
+</head>
+<body>
+  <main>
+    <h1>Shared UI</h1>
+    <section>
+      <h2>Runtime</h2>
+      <p id="runtime-status">Runtime status view placeholder.</p>
+    </section>
+    <section>
+      <h2>Registry</h2>
+      <p id="registry-status">Registry status view placeholder.</p>
+    </section>
+    <section>
+      <h2>DSC</h2>
+      <p id="dsc-status">DSC status view placeholder.</p>
+    </section>
+  </main>
+  <script type="module">
+    import { bindSharedStatus } from "./app.js";
+    bindSharedStatus();
+  </script>
+</body>
+</html>

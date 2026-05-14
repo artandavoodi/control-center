@@ -1,7 +1,7 @@
 # UI Editor
 
-Editing surface for system configuration and registry-linked controls.
+This directory holds the editor surface for Control Center.
 
 ## Current State
 
-Skeleton in place. Implementation pending.
+Skeleton created. Editor wiring still needs implementation.

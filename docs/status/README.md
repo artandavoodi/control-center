@@ -1,10 +1,18 @@
 # Status
 
-This directory holds live status reports for Control Center.
+This directory holds live progress reporting for Control Center.
 
 ## Contents
 
-- current state
-- progress tracking
-- unresolved gaps
-- implementation checkpoints
+- current status
+- implementation status
+- remaining gaps
+- token registry status
+- theme registry status
+- adapter status
+- runtime status
+- studio status
+
+## Purpose
+
+Status files track what exists, what is stable, and what still needs to be built.

@@ -6,9 +6,13 @@
   <title>Control Center</title>
 </head>
 <body>
-  <main>
-    <h1>Control Center Active</h1>
-    <p>System orchestration, registry, DSC, UAPIS, UVS, and UI coordination.</p>
-  </main>
+  <main id="shell-root"></main>
+  <script type="module">
+    import { renderSharedShell } from "../shared/shell.js";
+    renderSharedShell("shell-root", {
+      title: "Control Center",
+      intro: "System orchestration, registry, and DSC coordination."
+    });
+  </script>
 </body>
 </html>

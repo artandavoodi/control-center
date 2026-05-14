@@ -1,0 +1,14 @@
+{
+  "system": "CONTROL_CENTER",
+  "version": "0.1",
+  "themes": {
+    "dark": {
+      "background": { "id": "CC-THEME-DARK-0001", "ref": "token.color.background.dark" },
+      "surface": { "id": "CC-THEME-DARK-0002", "ref": "token.color.surface.dark" }
+    },
+    "light": {
+      "background": { "id": "CC-THEME-LIGHT-0001", "ref": "token.color.background.light" },
+      "surface": { "id": "CC-THEME-LIGHT-0002", "ref": "token.color.surface.light" }
+    }
+  }
+}

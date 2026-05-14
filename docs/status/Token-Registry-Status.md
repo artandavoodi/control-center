@@ -4,6 +4,7 @@
 - Control Center repository scaffold created
 - DSC token structure created
 - Semantic token files added
+- token refs now resolve through registry-aware lookup
 
 ## In Progress
 - token normalization

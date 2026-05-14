@@ -1,10 +1,12 @@
 # Remaining Gaps
 
-- formal runtime enforcement
+- deeper token resolver binding
 - registry object graph expansion
-- voice system definition
-- API contract specification
 - dashboard implementation
 - settings panel implementation
-- theme resolver normalization
-- token ownership binding
+- voice system definition
+- API contract specification
+- full cross-layer runtime enforcement
+- final Control Center execution rules
+- studio engine expansion
+- public marketplace layer

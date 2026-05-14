@@ -1,7 +1,7 @@
 # UI Settings
 
-Settings surface for system-wide configuration.
+This directory holds the settings surface for Control Center.
 
 ## Current State
 
-Skeleton in place. Implementation pending.
+Skeleton created. Settings wiring still needs implementation.
