@@ -1,0 +1,149 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) LANGUAGE TOGGLE SYSTEM
+   03) LANGUAGE DROPDOWN SHELL
+   04) LANGUAGE OPTION SYSTEM
+   05) LIGHT EFFECTIVE MODE ADJUSTMENTS
+   06) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/04-systems/locale.css */
+
+/* =============================================================================
+   02) LANGUAGE TOGGLE SYSTEM
+============================================================================= */
+#language-toggle{
+  background:none;
+  border:none;
+  padding:var(--spacing-none);
+  margin:var(--spacing-none);
+  font:inherit;
+  font-size:var(--body-3-size);
+  font-weight:var(--type-body-regular-weight);
+  letter-spacing:var(--tracking-ui);
+  text-transform:uppercase;
+  color:var(--control-text-unified);
+  opacity:var(--state-opacity-high);
+  transition:var(--interaction-transition-control);
+}
+
+#language-toggle:hover{
+  opacity:var(--overlay-opacity-open);
+  color:var(--control-text-hover-unified);
+}
+
+/* =============================================================================
+   03) LANGUAGE DROPDOWN SHELL
+============================================================================= */
+.language-dropdown{
+  position:absolute;
+  bottom:calc(var(--size-full) + var(--space-3));
+  right:var(--spacing-none);
+  min-width:var(--control-width-min);
+  padding:var(--space-2);
+  background-color:var(--panel-surface-unified);
+  border:var(--border-width-hairline) solid var(--panel-border-unified);
+  border-radius:var(--panel-radius-unified);
+  box-shadow:var(--panel-shadow-unified);
+  display:none;
+  z-index:var(--z-language-dropdown);
+}
+
+.language-dropdown.visible,
+.language-dropdown[aria-hidden="false"]{
+  display:block;
+}
+
+.language-dropdown > *{
+  width:var(--size-full);
+}
+
+/* =============================================================================
+   04) LANGUAGE OPTION SYSTEM
+============================================================================= */
+.language-dropdown button,
+.language-dropdown a,
+.language-dropdown [role="menuitem"],
+.language-dropdown .language-option,
+.language-dropdown .lang-option{
+  appearance:none;
+  -webkit-appearance:none;
+  width:var(--size-full);
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  padding:var(--space-3) var(--space-4);
+  border-radius:var(--shape-control-radius);
+  background:transparent;
+  border:none;
+  font:inherit;
+  font-size:var(--body-3-size);
+  font-weight:var(--type-body-regular-weight);
+  letter-spacing:var(--tracking-ui);
+  text-transform:uppercase;
+  color:var(--control-text-unified);
+  text-decoration:none;
+  transition:var(--interaction-transition-control);
+}
+
+.language-dropdown button:hover,
+.language-dropdown a:hover,
+.language-dropdown [role="menuitem"]:hover,
+.language-dropdown .language-option:hover,
+.language-dropdown .lang-option:hover{
+  background-color:var(--control-surface-hover);
+  color:var(--control-text-hover-unified);
+  opacity:var(--state-opacity-high);
+}
+
+.language-dropdown button[aria-pressed="true"],
+.language-dropdown a[aria-pressed="true"],
+.language-dropdown [role="menuitem"][aria-pressed="true"],
+.language-dropdown .language-option[aria-pressed="true"],
+.language-dropdown .lang-option[aria-pressed="true"],
+.language-dropdown button.is-selected,
+.language-dropdown a.is-selected,
+.language-dropdown [role="menuitem"].is-selected,
+.language-dropdown .language-option.is-selected,
+.language-dropdown .lang-option.is-selected{
+  background-color:var(--control-surface-hover);
+  color:var(--control-text-hover-unified);
+  opacity:var(--overlay-opacity-open);
+}
+
+/* =============================================================================
+   05) LIGHT EFFECTIVE MODE ADJUSTMENTS
+============================================================================= */
+html[data-theme-effective="light"] .language-dropdown{
+  border:var(--border-width-hairline) solid var(--panel-border-unified);
+  box-shadow:var(--panel-shadow-unified);
+}
+
+html[data-theme-effective="light"] .language-dropdown button:hover,
+html[data-theme-effective="light"] .language-dropdown a:hover,
+html[data-theme-effective="light"] .language-dropdown [role="menuitem"]:hover,
+html[data-theme-effective="light"] .language-dropdown .language-option:hover,
+html[data-theme-effective="light"] .language-dropdown .lang-option:hover{
+  background-color:var(--control-surface-hover);
+}
+
+html[data-theme-effective="light"] .language-dropdown button[aria-pressed="true"],
+html[data-theme-effective="light"] .language-dropdown a[aria-pressed="true"],
+html[data-theme-effective="light"] .language-dropdown [role="menuitem"][aria-pressed="true"],
+html[data-theme-effective="light"] .language-dropdown .language-option[aria-pressed="true"],
+html[data-theme-effective="light"] .language-dropdown .lang-option[aria-pressed="true"],
+html[data-theme-effective="light"] .language-dropdown button.is-selected,
+html[data-theme-effective="light"] .language-dropdown a.is-selected,
+html[data-theme-effective="light"] .language-dropdown [role="menuitem"].is-selected,
+html[data-theme-effective="light"] .language-dropdown .language-option.is-selected,
+html[data-theme-effective="light"] .language-dropdown .lang-option.is-selected{
+  background-color:var(--control-surface-hover);
+}
+
+/* =============================================================================
+   06) END OF FILE
+============================================================================= */

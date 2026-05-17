@@ -1,0 +1,225 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) FORM STACK
+   03) FORM ROWS
+   04) LABEL SYSTEM
+   05) HELP / ERROR TEXT
+   06) SETTINGS ROW PRIMITIVE
+   07) CHECK / CHOICE ROWS
+   08) CHECKBOX / RADIO INPUTS
+   09) CHECKMARK PRIMITIVE
+   10) RESPONSIVE REFINEMENTS
+   11) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/03-primitives/forms.css */
+
+/* =============================================================================
+   02) FORM STACK
+============================================================================= */
+.ui-form{
+  display:grid;
+  gap:var(--spacing-md);
+}
+
+.ui-form--compact{
+  gap:var(--spacing-sm);
+}
+
+.ui-form--relaxed{
+  gap:var(--spacing-lg);
+}
+
+/* =============================================================================
+   03) FORM ROWS
+============================================================================= */
+.ui-form-row{
+  display:grid;
+  gap:var(--spacing-xs);
+}
+
+.ui-form-row--inline{
+  grid-template-columns:repeat(2, minmax(var(--spacing-none), 1fr));
+  gap:var(--spacing-sm);
+}
+
+/* =============================================================================
+   04) LABEL SYSTEM
+============================================================================= */
+.ui-label{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--control-gap);
+  color:var(--text-color);
+  font-size:var(--body-3-size);
+  font-weight:var(--body-3-weight);
+  letter-spacing:var(--tracking-ui);
+  line-height:var(--control-line-height);
+}
+
+.ui-label__text{
+  display:inline-block;
+  min-width:var(--spacing-none);
+}
+
+/* =============================================================================
+   05) HELP / ERROR TEXT
+============================================================================= */
+.ui-help-text,
+.ui-error-text{
+  margin:var(--spacing-none);
+  font-size:var(--body-3-size);
+  line-height:var(--body-3-line-height);
+  letter-spacing:var(--body-3-tracking);
+}
+
+.ui-help-text{
+  color:var(--text-secondary-color);
+}
+
+.ui-error-text{
+  color:var(--color-primary7);
+}
+
+/* =============================================================================
+   06) SETTINGS ROW PRIMITIVE
+============================================================================= */
+.ui-settings-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:var(--spacing-md);
+  width:var(--size-full);
+  padding:var(--space-4) var(--spacing-none);
+  border-top:var(--border-width-hairline) solid color-mix(in srgb, var(--text-color) 8%, transparent);
+}
+
+.ui-settings-row:first-child{
+  padding-top:var(--spacing-none);
+  border-top:var(--spacing-none);
+}
+
+.ui-settings-row__copy{
+  display:flex;
+  flex:1 1 auto;
+  flex-direction:column;
+  gap:var(--spacing-3xs);
+  min-width:var(--spacing-none);
+}
+
+.ui-settings-row__title{
+  margin:var(--spacing-none);
+  color:var(--text-color);
+  font-size:var(--body-2-size);
+  font-weight:var(--body-2-weight);
+  line-height:var(--type-body-sm-line-height);
+}
+
+.ui-settings-row__description{
+  margin:var(--spacing-none);
+  color:var(--text-secondary-color);
+  font-size:var(--body-3-size);
+  line-height:var(--body-3-line-height);
+  letter-spacing:var(--body-3-tracking);
+}
+
+.ui-settings-row__control{
+  flex:0 0 auto;
+  align-self:center;
+}
+
+/* =============================================================================
+   07) CHECK / CHOICE ROWS
+============================================================================= */
+.ui-choice-row{
+  display:flex;
+  align-items:flex-start;
+  gap:var(--spacing-sm);
+}
+
+.ui-choice-row__copy{
+  display:flex;
+  flex:1 1 auto;
+  flex-direction:column;
+  gap:var(--spacing-3xs);
+  min-width:var(--spacing-none);
+}
+
+.ui-choice-row__title{
+  margin:var(--spacing-none);
+  color:var(--text-color);
+  font-size:var(--body-3-size);
+  font-weight:var(--body-3-weight);
+  line-height:var(--type-body-sm-line-height);
+}
+
+.ui-choice-row__description{
+  margin:var(--spacing-none);
+  color:var(--text-secondary-color);
+  font-size:var(--body-3-size);
+  line-height:var(--body-3-line-height);
+  letter-spacing:var(--body-3-tracking);
+}
+
+/* =============================================================================
+   08) CHECKBOX / RADIO INPUTS
+============================================================================= */
+.ui-check,
+.ui-radio{
+  width:var(--close-control-line-width);
+  height:var(--close-control-line-width);
+  margin-top:var(--spacing-3xs);
+  accent-color:var(--color-primary1);
+  flex:0 0 auto;
+}
+
+.ui-check:focus-visible,
+.ui-radio:focus-visible{
+  outline:var(--border-width-thin) solid color-mix(in srgb, var(--color-primary1) 42%, transparent);
+  outline-offset:var(--border-width-thin);
+}
+
+/* =============================================================================
+   09) CHECKMARK PRIMITIVE
+============================================================================= */
+.ui-checkmark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:var(--close-control-line-width);
+  height:var(--close-control-line-width);
+  flex:0 0 auto;
+}
+
+.ui-checkmark > svg,
+.ui-checkmark > img{
+  display:block;
+  width:var(--size-full);
+  height:var(--size-full);
+}
+
+/* =============================================================================
+   10) RESPONSIVE REFINEMENTS
+============================================================================= */
+@media (max-width:640px){
+  .ui-form-row--inline{
+    grid-template-columns:var(--grid-column-single);
+  }
+
+  .ui-settings-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .ui-settings-row__control{
+    align-self:flex-start;
+  }
+}
+
+/* =============================================================================
+   11) END OF FILE
+============================================================================= */
