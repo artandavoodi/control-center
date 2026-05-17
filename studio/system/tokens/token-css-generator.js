@@ -9,7 +9,7 @@ const INPUT =
 "/Users/artan/Documents/Neuroartan/control-center/studio/registry/tokens/core-tokens.json";
 
 const OUTPUT =
-"/Users/artan/Documents/Neuroartan/website/docs/assets/css/system/generated-tokens.css";
+"/Users/artan/Documents/Neuroartan/control-center/studio/ui/styles/generated-tokens.css";
 
 const tokens =
 JSON.parse(

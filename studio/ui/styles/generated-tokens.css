@@ -1,0 +1,17 @@
+/* ==========================================================================
+   GENERATED CONTROL CENTER TOKEN OVERRIDES
+   SINGLE TOKEN AUTHORITY ONLY
+   ========================================================================== */
+
+:root {
+  --surface-1: #0A0A0A;
+  --surface-2: #111111;
+  --text-color: #FFFFFF;
+  --text-secondary-color: rgba(255,255,255,0.64);
+  --radius-dialog: 24px;
+  --radius-lg: 18px;
+  --section-padding-y: 120px;
+  --spacing-lg: 24px;
+  --duration-fast: 160ms;
+  --duration-slow: 280ms;
+}

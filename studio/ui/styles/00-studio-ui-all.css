@@ -2,6 +2,7 @@
    STUDIO UI ORCHESTRATOR
    ========================================================================== */
 
+@import "./generated-tokens.css";
 @import "./studio.css";
 @import "./fragments/studio-shell.css";
 @import "./fragments/studio-sidebar.css";

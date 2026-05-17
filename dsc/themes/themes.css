@@ -17,7 +17,7 @@
    they need the governance layer directly; the website shell still owns the
    full visual cascade through its core orchestrator.
 ============================================================================= */
-@import url('/control-center/registry/tokens/manifests/control-center.tokens.css');
+@import url('/registry/tokens/manifests/control-center.tokens.css');
 
 /* =============================================================================
    03) END OF FILE

@@ -2,10 +2,6 @@
    STUDIO ROOT UI
    ========================================================================== */
 
-:root {
-  color-scheme: dark;
-}
-
 * {
   box-sizing: border-box;
 }

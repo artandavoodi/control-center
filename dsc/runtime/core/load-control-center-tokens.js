@@ -1,7 +1,7 @@
 export async function loadControlCenterTokens() {
 
   const response = await fetch(
-    "/control-center/registry/tokens/manifests/control-center.tokens.css"
+    "/registry/tokens/manifests/control-center.tokens.css"
   );
 
   const css = await response.text();

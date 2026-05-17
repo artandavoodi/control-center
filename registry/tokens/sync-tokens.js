@@ -328,22 +328,6 @@ export function syncTokens() {
     CONTROL_CENTER_TOKEN_SOURCE
   );
 
-  for (const file of walk(WEBSITE_TOKEN_ROOT)) {
-    if (!file.endsWith(".css")) {
-      continue;
-    }
-
-    const destination =
-      path.join(
-        CONTROL_CENTER_TOKEN_SOURCE,
-        path.relative(WEBSITE_TOKEN_ROOT, file)
-      );
-
-    fs.copyFileSync(
-      file,
-      destination
-    );
-  }
 
   fs.mkdirSync(
     MANIFEST_ROOT,
