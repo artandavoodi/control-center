@@ -1,0 +1,57 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) DIVIDER BASE
+   03) DIVIDER SOFT VARIANT
+   04) DIVIDER STRONG VARIANT
+   05) DIVIDER DOT TOKEN HELPER
+   06) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/03-primitives/dividers.css */
+
+/* =============================================================================
+   02) DIVIDER BASE
+============================================================================= */
+.ui-divider{
+  width:var(--size-full);
+  height:var(--spacing-none);
+  border:var(--spacing-none);
+  border-top:var(--border-width-hairline) solid var(--border-color);
+  margin:var(--spacing-none);
+}
+
+/* =============================================================================
+   03) DIVIDER SOFT VARIANT
+============================================================================= */
+.ui-divider--soft{
+  border-top-color:var(--border-color);
+  opacity:var(--state-opacity-muted);
+}
+
+/* =============================================================================
+   04) DIVIDER STRONG VARIANT
+============================================================================= */
+.ui-divider--strong{
+  border-top-width:var(--stroke-strong);
+  opacity:var(--overlay-opacity-open);
+}
+
+/* =============================================================================
+   05) DIVIDER DOT TOKEN HELPER
+============================================================================= */
+.ui-divider-dot{
+  margin:var(--spacing-none) var(--control-gap);
+  opacity:var(--state-opacity-high);
+  user-select:none;
+  display:inline-block;
+  line-height:var(--control-line-height);
+  transform:translateY(calc(var(--border-width-hairline) * -0.5));
+}
+
+/* =============================================================================
+   06) END OF FILE
+============================================================================= */

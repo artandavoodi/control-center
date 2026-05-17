@@ -2,5 +2,11 @@
   "name": "neuroartan-control-center",
   "version": "0.1.0",
   "type": "module",
-  "main": "index.js"
+  "main": "index.js",
+  "scripts": {
+    "sync:icons": "node registry/icons/sync-icons.js",
+    "sync:tokens": "node registry/tokens/sync-tokens.js",
+    "sync:registry": "node registry/sync-control-center-registry.js",
+    "check": "node --check registry/icons/compiler/icon-compiler.js && node --check registry/icons/sync-icons.js && node --check registry/icons/exporters/swift/swift-icon-exporter.js && node --check registry/tokens/sync-tokens.js && node --check registry/sync-control-center-registry.js"
+  }
 }

@@ -1,0 +1,322 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) NAVIGATION SHELL
+   03) NAVIGATION GROUPS
+   04) NAVIGATION ROWS
+   05) NAVIGATION LABELS / ICONS / META
+   06) ACTIVE / HOVER / FOCUS STATES
+   07) BREADCRUMB PRIMITIVE
+   08) SIDEBAR / STACK NAVIGATION
+   09) COLLAPSIBLE GROUP HOOKS
+   10) RESPONSIVE REFINEMENTS
+   11) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/03-primitives/navigation.css */
+
+/* =============================================================================
+   02) NAVIGATION SHELL
+============================================================================= */
+.ui-nav{
+  display:flex;
+  flex-direction:column;
+  gap:var(--nav-primitive-shell-gap);
+  width:100%;
+  min-width:0;
+}
+
+.ui-nav__section{
+  display:flex;
+  flex-direction:column;
+  gap:var(--nav-primitive-section-gap);
+  min-width:0;
+}
+
+.ui-nav__section + .ui-nav__section{
+  padding-top:var(--nav-primitive-section-padding-top);
+  border-top:var(--nav-primitive-section-border);
+}
+
+/* =============================================================================
+   03) NAVIGATION GROUPS
+============================================================================= */
+.ui-nav__group{
+  display:flex;
+  flex-direction:column;
+  gap:var(--nav-primitive-group-gap);
+  min-width:0;
+}
+
+.ui-nav__group-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--nav-primitive-group-header-gap);
+  min-width:0;
+}
+
+.ui-nav__group-title{
+  margin:0;
+  color:var(--text-secondary-color);
+  font-size:var(--nav-primitive-group-title-size);
+  font-weight:var(--nav-primitive-group-title-weight);
+  letter-spacing:var(--nav-primitive-group-title-tracking);
+  line-height:var(--nav-primitive-group-title-line-height);
+  text-transform:uppercase;
+}
+
+/* =============================================================================
+   04) NAVIGATION ROWS
+============================================================================= */
+.ui-nav__item,
+.ui-nav__link,
+.ui-nav__button{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--nav-primitive-row-gap);
+  width:100%;
+  min-width:0;
+  min-height:var(--nav-primitive-row-min-height);
+  padding:var(--nav-primitive-row-padding-y) var(--nav-primitive-row-padding-x);
+  border:var(--nav-primitive-row-border);
+  border-radius:var(--nav-primitive-row-radius);
+  background:transparent;
+  color:var(--text-color);
+  text-decoration:none;
+  text-align:left;
+  transition:
+    border-color var(--nav-primitive-row-transition-duration) ease,
+    background var(--nav-primitive-row-transition-duration) ease,
+    color var(--nav-primitive-row-transition-duration) ease,
+    opacity var(--nav-primitive-row-transition-duration) ease,
+    transform var(--nav-primitive-row-transition-duration) ease;
+}
+
+.ui-nav__button{
+  border:0;
+  appearance:none;
+  -webkit-appearance:none;
+}
+
+.ui-nav__item-body{
+  display:flex;
+  align-items:center;
+  gap:var(--nav-primitive-row-gap);
+  flex:1 1 auto;
+  min-width:0;
+}
+
+/* =============================================================================
+   05) NAVIGATION LABELS / ICONS / META
+============================================================================= */
+.ui-nav__icon,
+.ui-nav__meta,
+.ui-nav__chevron{
+  flex:0 0 auto;
+}
+
+.ui-nav__icon,
+.ui-nav__chevron{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:var(--nav-primitive-icon-size);
+  height:var(--nav-primitive-icon-size);
+}
+
+.ui-nav__icon > svg,
+.ui-nav__icon > img,
+.ui-nav__chevron > svg,
+.ui-nav__chevron > img{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.ui-nav__text{
+  display:flex;
+  flex:1 1 auto;
+  flex-direction:column;
+  gap:var(--nav-primitive-text-gap);
+  min-width:0;
+}
+
+.ui-nav__label{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:var(--nav-primitive-label-size);
+  font-weight:var(--nav-primitive-label-weight);
+  line-height:var(--nav-primitive-label-line-height);
+}
+
+.ui-nav__description,
+.ui-nav__meta{
+  min-width:0;
+  color:var(--text-secondary-color);
+  font-size:var(--nav-primitive-description-size);
+  line-height:var(--nav-primitive-description-line-height);
+}
+
+.ui-nav__description{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* =============================================================================
+   06) ACTIVE / HOVER / FOCUS STATES
+============================================================================= */
+.ui-nav__item:hover,
+.ui-nav__item:focus-visible,
+.ui-nav__link:hover,
+.ui-nav__link:focus-visible,
+.ui-nav__button:hover,
+.ui-nav__button:focus-visible{
+  border-color:var(--nav-primitive-hover-border);
+  background:var(--nav-primitive-hover-background);
+  outline:none;
+  transform:translateY(var(--nav-primitive-hover-y));
+}
+
+.ui-nav__item[aria-current="page"],
+.ui-nav__link[aria-current="page"],
+.ui-nav__button[aria-current="page"],
+.ui-nav__item.is-active,
+.ui-nav__link.is-active,
+.ui-nav__button.is-active{
+  border-color:var(--nav-primitive-active-border);
+  background:var(--nav-primitive-active-background);
+  color:var(--text-color);
+}
+
+.ui-nav__item[aria-disabled="true"],
+.ui-nav__link[aria-disabled="true"],
+.ui-nav__button[aria-disabled="true"],
+.ui-nav__item:disabled,
+.ui-nav__button:disabled{
+  opacity:var(--nav-primitive-disabled-opacity);
+}
+
+/* =============================================================================
+   07) BREADCRUMB PRIMITIVE
+============================================================================= */
+.ui-breadcrumbs{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:var(--nav-primitive-breadcrumb-gap);
+  min-width:0;
+}
+
+.ui-breadcrumbs__item{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--nav-primitive-breadcrumb-gap);
+  min-width:0;
+}
+
+.ui-breadcrumbs__link,
+.ui-breadcrumbs__current{
+  min-width:0;
+  color:var(--text-secondary-color);
+  font-size:var(--nav-primitive-breadcrumb-size);
+  line-height:var(--nav-primitive-breadcrumb-line-height);
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.ui-breadcrumbs__link:hover,
+.ui-breadcrumbs__link:focus-visible{
+  color:var(--text-color);
+  outline:none;
+}
+
+.ui-breadcrumbs__current{
+  color:var(--text-color);
+  font-weight:var(--nav-primitive-breadcrumb-current-weight);
+}
+
+.ui-breadcrumbs__separator{
+  color:var(--text-secondary-color);
+  opacity:var(--nav-primitive-breadcrumb-separator-opacity);
+}
+
+/* =============================================================================
+   08) SIDEBAR / STACK NAVIGATION
+============================================================================= */
+.ui-sidebar-nav{
+  display:flex;
+  flex-direction:column;
+  gap:var(--nav-primitive-sidebar-gap);
+  width:100%;
+  min-width:0;
+}
+
+.ui-sidebar-nav__header{
+  display:flex;
+  flex-direction:column;
+  gap:var(--nav-primitive-sidebar-header-gap);
+  min-width:0;
+}
+
+.ui-sidebar-nav__title{
+  margin:0;
+  font-size:var(--nav-primitive-sidebar-title-size);
+  font-weight:var(--nav-primitive-sidebar-title-weight);
+  line-height:var(--nav-primitive-sidebar-title-line-height);
+}
+
+.ui-sidebar-nav__caption{
+  margin:0;
+  color:var(--text-secondary-color);
+  font-size:var(--nav-primitive-sidebar-caption-size);
+  line-height:var(--nav-primitive-sidebar-caption-line-height);
+}
+
+/* =============================================================================
+   09) COLLAPSIBLE GROUP HOOKS
+============================================================================= */
+.ui-nav__group[data-collapsible="true"] .ui-nav__group-body{
+  display:flex;
+  flex-direction:column;
+  gap:var(--nav-primitive-collapsible-gap);
+}
+
+.ui-nav__group[data-state="collapsed"] .ui-nav__group-body{
+  display:none;
+}
+
+.ui-nav__group[data-state="expanded"] .ui-nav__chevron{
+  transform:rotate(var(--nav-primitive-chevron-open-rotation));
+}
+
+.ui-nav__chevron{
+  transition:transform var(--nav-primitive-chevron-transition-duration) ease;
+}
+
+/* =============================================================================
+   10) RESPONSIVE REFINEMENTS
+============================================================================= */
+@media (max-width:640px){
+  .ui-nav__item,
+  .ui-nav__link,
+  .ui-nav__button{
+    min-height:var(--nav-primitive-mobile-row-min-height);
+    padding:var(--nav-primitive-mobile-row-padding-y) var(--nav-primitive-mobile-row-padding-x);
+  }
+
+  .ui-nav__description{
+    white-space:normal;
+  }
+}
+
+/* =============================================================================
+   11) END OF FILE
+============================================================================= */

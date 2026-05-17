@@ -5,12 +5,22 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { iconRegistry }
 from "../core/icon-registry.js";
 
+const MODULE_DIR =
+  path.dirname(
+    fileURLToPath(import.meta.url)
+  );
+
 const ICON_ROOT =
-"/Users/artan/Documents/Neuroartan/control-center/registry/icons/source";
+  path.resolve(
+    MODULE_DIR,
+    "..",
+    "source"
+  );
 
 export class IconCompiler {
   load() {
@@ -21,12 +31,6 @@ export class IconCompiler {
       if (!file.endsWith(".svg")) {
         continue;
       }
-
-      const svg =
-        fs.readFileSync(
-          file,
-          "utf-8"
-        );
 
       const relative =
         path.relative(
@@ -41,7 +45,12 @@ export class IconCompiler {
 
       iconRegistry.register(
         normalized,
-        svg
+        {
+          id: normalized,
+          path: `${normalized}.svg`,
+          publicPath: `/registry/icons/public/assets/${normalized}.svg`,
+          sourcePath: file
+        }
       );
     }
 

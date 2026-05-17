@@ -19,8 +19,11 @@ console.log(
   "\n[Loading SVG Registry]\n"
 );
 
-console.table(
-  iconCompiler.load()
+const registryState =
+  iconCompiler.load();
+
+console.log(
+  `Loaded ${registryState.totalIcons} icons.`
 );
 
 console.log(

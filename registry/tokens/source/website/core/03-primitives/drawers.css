@@ -1,0 +1,62 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) SHARED DRAWER SHELL
+   03) SHARED DRAWER WIDTH VARIANTS
+   04) SHARED DRAWER PANEL STATES
+   05) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/03-primitives/drawers.css */
+
+/* =============================================================================
+   02) SHARED DRAWER SHELL
+============================================================================= */
+.ui-drawer-shell{
+  width:min(var(--size-full), var(--drawer-width-md));
+  padding:var(--drawer-padding);
+  border-radius:var(--panel-radius-unified);
+  border:var(--border-width-hairline) solid var(--panel-border-unified);
+  background:var(--panel-surface-unified);
+  box-shadow:var(--panel-shadow-unified);
+  backdrop-filter:blur(var(--panel-blur-unified)) saturate(var(--panel-saturate-unified));
+  -webkit-backdrop-filter:blur(var(--panel-blur-unified)) saturate(var(--panel-saturate-unified));
+  transition:var(--interaction-transition-control);
+}
+
+/* =============================================================================
+   03) SHARED DRAWER WIDTH VARIANTS
+============================================================================= */
+.ui-drawer-shell--sm{
+  width:min(var(--size-full), var(--drawer-width-sm));
+}
+
+.ui-drawer-shell--md{
+  width:min(var(--size-full), var(--drawer-width-md));
+}
+
+.ui-drawer-shell--lg{
+  width:min(var(--size-full), var(--drawer-width-lg));
+}
+
+/* =============================================================================
+   04) SHARED DRAWER PANEL STATES
+============================================================================= */
+.ui-drawer-hidden{
+  opacity:var(--overlay-opacity-closed);
+  pointer-events:none;
+  transform:translateX(calc(var(--space-4) * -1));
+}
+
+.ui-drawer-visible{
+  opacity:var(--overlay-opacity-open);
+  pointer-events:auto;
+  transform:translateX(var(--spacing-none));
+}
+
+/* =============================================================================
+   05) END OF FILE
+============================================================================= */

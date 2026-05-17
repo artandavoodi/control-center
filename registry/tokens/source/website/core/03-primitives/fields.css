@@ -1,0 +1,62 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) SHARED FIELD BASE
+   03) HOVER / FOCUS STATES
+   04) PLACEHOLDER STATES
+   05) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/03-primitives/fields.css */
+
+/* =============================================================================
+   02) SHARED FIELD BASE
+============================================================================= */
+.ui-field{
+  width:var(--size-full);
+  min-height:var(--control-height-lg);
+  padding:var(--space-4) var(--control-padding-x-md);
+  border-radius:var(--shape-control-radius);
+  border:var(--border-width-hairline) solid var(--control-border-unified);
+  background:var(--control-surface);
+  color:var(--control-text-unified);
+  font-family:var(--font-family);
+  font-size:var(--control-font-size);
+  font-weight:var(--control-font-weight);
+  line-height:var(--control-line-height);
+  letter-spacing:var(--control-tracking);
+  box-shadow:none;
+  transition:var(--interaction-transition-control);
+}
+
+/* =============================================================================
+   03) HOVER / FOCUS STATES
+============================================================================= */
+.ui-field:hover{
+  border-color:var(--control-border-hover-unified);
+  background:var(--control-surface-hover);
+  color:var(--control-text-hover-unified);
+}
+
+.ui-field:focus,
+.ui-field:focus-visible{
+  background:var(--control-surface-hover);
+  border-color:var(--control-border-hover-unified);
+  outline:none;
+  box-shadow:var(--focus-ring-shadow);
+}
+
+/* =============================================================================
+   04) PLACEHOLDER STATES
+============================================================================= */
+.ui-field::placeholder{
+  color:var(--text-secondary-color);
+  opacity:var(--state-opacity-high);
+}
+
+/* =============================================================================
+   05) END OF FILE
+============================================================================= */

@@ -30,59 +30,59 @@
   --country-close-button-color:var(--global-close-button-color);
   --country-close-button-hover-color:var(--global-close-button-hover-color);
   --country-container-max: var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)));
-  --country-container-pad:var(--cc-country-container-pad);
+  --country-container-pad:var(--layout-country-container-pad);
   --country-motion-fast:var(--interaction-motion-fast);
   --country-motion-medium:var(--interaction-motion-medium);
   --country-motion-overlay:var(--overlay-motion-duration);
-  --country-motion-inner-transform:var(--cc-country-motion-inner-transform);
-  --country-motion-inner-opacity:var(--cc-country-motion-inner-opacity);
-  --country-motion-close-transform:var(--cc-country-motion-close-transform);
-  --country-motion-close-opacity:var(--cc-country-motion-close-opacity);
-  --country-motion-item-transform:var(--cc-country-motion-item-transform);
-  --country-motion-item-opacity:var(--cc-country-motion-item-opacity);
+  --country-motion-inner-transform:var(--layout-country-motion-inner-transform);
+  --country-motion-inner-opacity:var(--layout-country-motion-inner-opacity);
+  --country-motion-close-transform:var(--layout-country-motion-close-transform);
+  --country-motion-close-opacity:var(--layout-country-motion-close-opacity);
+  --country-motion-item-transform:var(--layout-country-motion-item-transform);
+  --country-motion-item-opacity:var(--layout-country-motion-item-opacity);
   --country-motion-ease:var(--overlay-motion-ease);
-  --country-overlay-blur:var(--cc-country-overlay-blur);
-  --country-overlay-separator-bg:var(--cc-secondary-color);
-  --country-overlay-separator-opacity:var(--cc-country-overlay-separator-opacity);
-  --country-heading-opacity:var(--cc-country-heading-opacity);
-  --country-option-opacity:var(--cc-country-option-opacity);
-  --country-option-hover-opacity:var(--cc-country-option-hover-opacity);
-  --country-overlay-padding-block:var(--cc-country-overlay-padding-block);
-  --country-overlay-inner-gap:var(--cc-country-overlay-inner-gap);
-  --country-overlay-inner-enter-y:var(--cc-country-overlay-inner-enter-y);
-  --country-overlay-inner-enter-scale:var(--cc-country-overlay-inner-enter-scale);
-  --country-overlay-inner-close-y:var(--cc-country-overlay-inner-close-y);
-  --country-overlay-inner-close-scale:var(--cc-country-overlay-inner-close-scale);
-  --country-title-size:var(--cc-country-title-size);
-  --country-title-size-mobile:var(--cc-country-title-size-mobile);
-  --country-title-size-small:var(--cc-country-title-size-small);
-  --country-title-weight:var(--cc-country-title-weight);
-  --country-title-line-height:var(--cc-country-title-line-height);
-  --country-title-tracking:var(--cc-country-title-tracking);
-  --country-region-gap:var(--cc-country-region-gap);
-  --country-region-title-size:var(--cc-country-region-title-size);
-  --country-region-title-size-mobile:var(--cc-country-region-title-size-mobile);
-  --country-region-title-size-small:var(--cc-country-region-title-size-small);
-  --country-region-title-weight:var(--cc-country-region-title-weight);
-  --country-region-title-margin-bottom:var(--cc-country-region-title-margin-bottom);
-  --country-separator-margin-top:var(--cc-country-separator-margin-top);
-  --country-separator-margin-bottom:var(--cc-country-separator-margin-bottom);
-  --country-separator-height:var(--cc-country-separator-height);
-  --country-list-row-gap:var(--cc-country-list-row-gap);
-  --country-list-column-gap:var(--cc-country-list-column-gap);
-  --country-list-width-large:var(--cc-country-list-width-large);
-  --country-list-gap-large:var(--cc-country-list-gap-large);
-  --country-list-width-default:var(--cc-country-list-width-default);
-  --country-list-gap-default:var(--cc-country-list-gap-default);
-  --country-list-width-tablet:var(--cc-country-list-width-tablet);
-  --country-list-gap-tablet:var(--cc-country-list-gap-tablet);
-  --country-list-width-mobile:var(--cc-country-list-width-mobile);
-  --country-list-min-width:var(--cc-country-list-min-width);
-  --country-item-enter-y:var(--cc-country-item-enter-y);
-  --country-option-size:var(--cc-country-option-size);
-  --country-option-size-mobile:var(--cc-country-option-size-mobile);
-  --country-option-size-small:var(--cc-country-option-size-small);
-  --country-option-weight:var(--cc-country-option-weight);
+  --country-overlay-blur:var(--layout-country-overlay-blur);
+  --country-overlay-separator-bg:var(--text-secondary-color);
+  --country-overlay-separator-opacity:var(--layout-country-overlay-separator-opacity);
+  --country-heading-opacity:var(--layout-country-heading-opacity);
+  --country-option-opacity:var(--layout-country-option-opacity);
+  --country-option-hover-opacity:var(--layout-country-option-hover-opacity);
+  --country-overlay-padding-block:var(--layout-country-overlay-padding-block);
+  --country-overlay-inner-gap:var(--layout-country-overlay-inner-gap);
+  --country-overlay-inner-enter-y:var(--layout-country-overlay-inner-enter-y);
+  --country-overlay-inner-enter-scale:var(--layout-country-overlay-inner-enter-scale);
+  --country-overlay-inner-close-y:var(--layout-country-overlay-inner-close-y);
+  --country-overlay-inner-close-scale:var(--layout-country-overlay-inner-close-scale);
+  --country-title-size:var(--layout-country-title-size);
+  --country-title-size-mobile:var(--layout-country-title-size-mobile);
+  --country-title-size-small:var(--layout-country-title-size-small);
+  --country-title-weight:var(--layout-country-title-weight);
+  --country-title-line-height:var(--layout-country-title-line-height);
+  --country-title-tracking:var(--layout-country-title-tracking);
+  --country-region-gap:var(--layout-country-region-gap);
+  --country-region-title-size:var(--layout-country-region-title-size);
+  --country-region-title-size-mobile:var(--layout-country-region-title-size-mobile);
+  --country-region-title-size-small:var(--layout-country-region-title-size-small);
+  --country-region-title-weight:var(--layout-country-region-title-weight);
+  --country-region-title-margin-bottom:var(--layout-country-region-title-margin-bottom);
+  --country-separator-margin-top:var(--layout-country-separator-margin-top);
+  --country-separator-margin-bottom:var(--layout-country-separator-margin-bottom);
+  --country-separator-height:var(--layout-country-separator-height);
+  --country-list-row-gap:var(--layout-country-list-row-gap);
+  --country-list-column-gap:var(--layout-country-list-column-gap);
+  --country-list-width-large:var(--layout-country-list-width-large);
+  --country-list-gap-large:var(--layout-country-list-gap-large);
+  --country-list-width-default:var(--layout-country-list-width-default);
+  --country-list-gap-default:var(--layout-country-list-gap-default);
+  --country-list-width-tablet:var(--layout-country-list-width-tablet);
+  --country-list-gap-tablet:var(--layout-country-list-gap-tablet);
+  --country-list-width-mobile:var(--layout-country-list-width-mobile);
+  --country-list-min-width:var(--layout-country-list-min-width);
+  --country-item-enter-y:var(--layout-country-item-enter-y);
+  --country-option-size:var(--layout-country-option-size);
+  --country-option-size-mobile:var(--layout-country-option-size-mobile);
+  --country-option-size-small:var(--layout-country-option-size-small);
+  --country-option-weight:var(--layout-country-option-weight);
 }
 
 /* =============================================================================
@@ -91,7 +91,7 @@
 #country-overlay.country-overlay,
 .country-overlay{
   --co-bg:var(--bg-color);
-  --co-fg:var(--cc-color);
+  --co-fg:var(--text-color);
   --co-border:color-mix(in srgb, var(--co-fg) 18%, transparent);
   --co-wash:color-mix(in srgb, var(--co-fg) 7%, transparent);
   --co-glass:color-mix(in srgb, var(--co-bg) 52%, transparent);
@@ -116,7 +116,7 @@
   backdrop-filter:blur(var(--country-overlay-blur));
   -webkit-backdrop-filter:blur(var(--country-overlay-blur));
 
-  color: var(--cc-color);
+  color: var(--text-color);
   direction: ltr;
   text-align: left;
 
@@ -317,55 +317,55 @@ body.country-active .stage-circle{
 #country-overlay.active .country-list li:nth-child(1),
 #country-overlay.visible .country-list li:nth-child(1),
 .country-overlay.active .country-list li:nth-child(1),
-.country-overlay.visible .country-list li:nth-child(1){transition-delay: var(--cc-country-item-delay-01);}
+.country-overlay.visible .country-list li:nth-child(1){transition-delay: var(--layout-country-item-delay-01);}
 #country-overlay.active .country-list li:nth-child(2),
 #country-overlay.visible .country-list li:nth-child(2),
 .country-overlay.active .country-list li:nth-child(2),
-.country-overlay.visible .country-list li:nth-child(2){transition-delay: var(--cc-country-item-delay-02);}
+.country-overlay.visible .country-list li:nth-child(2){transition-delay: var(--layout-country-item-delay-02);}
 #country-overlay.active .country-list li:nth-child(3),
 #country-overlay.visible .country-list li:nth-child(3),
 .country-overlay.active .country-list li:nth-child(3),
-.country-overlay.visible .country-list li:nth-child(3){transition-delay: var(--cc-country-item-delay-03);}
+.country-overlay.visible .country-list li:nth-child(3){transition-delay: var(--layout-country-item-delay-03);}
 #country-overlay.active .country-list li:nth-child(4),
 #country-overlay.visible .country-list li:nth-child(4),
 .country-overlay.active .country-list li:nth-child(4),
-.country-overlay.visible .country-list li:nth-child(4){transition-delay: var(--cc-country-item-delay-04);}
+.country-overlay.visible .country-list li:nth-child(4){transition-delay: var(--layout-country-item-delay-04);}
 #country-overlay.active .country-list li:nth-child(5),
 #country-overlay.visible .country-list li:nth-child(5),
 .country-overlay.active .country-list li:nth-child(5),
-.country-overlay.visible .country-list li:nth-child(5){transition-delay: var(--cc-country-item-delay-05);}
+.country-overlay.visible .country-list li:nth-child(5){transition-delay: var(--layout-country-item-delay-05);}
 #country-overlay.active .country-list li:nth-child(6),
 #country-overlay.visible .country-list li:nth-child(6),
 .country-overlay.active .country-list li:nth-child(6),
-.country-overlay.visible .country-list li:nth-child(6){transition-delay: var(--cc-country-item-delay-06);}
+.country-overlay.visible .country-list li:nth-child(6){transition-delay: var(--layout-country-item-delay-06);}
 #country-overlay.active .country-list li:nth-child(7),
 #country-overlay.visible .country-list li:nth-child(7),
 .country-overlay.active .country-list li:nth-child(7),
-.country-overlay.visible .country-list li:nth-child(7){transition-delay: var(--cc-country-item-delay-07);}
+.country-overlay.visible .country-list li:nth-child(7){transition-delay: var(--layout-country-item-delay-07);}
 #country-overlay.active .country-list li:nth-child(8),
 #country-overlay.visible .country-list li:nth-child(8),
 .country-overlay.active .country-list li:nth-child(8),
-.country-overlay.visible .country-list li:nth-child(8){transition-delay: var(--cc-country-item-delay-08);}
+.country-overlay.visible .country-list li:nth-child(8){transition-delay: var(--layout-country-item-delay-08);}
 
 #country-overlay.active .country-list li:nth-child(9),
 #country-overlay.visible .country-list li:nth-child(9),
 .country-overlay.active .country-list li:nth-child(9),
-.country-overlay.visible .country-list li:nth-child(9){transition-delay: var(--cc-country-item-delay-09);}
+.country-overlay.visible .country-list li:nth-child(9){transition-delay: var(--layout-country-item-delay-09);}
 
 #country-overlay.active .country-list li:nth-child(10),
 #country-overlay.visible .country-list li:nth-child(10),
 .country-overlay.active .country-list li:nth-child(10),
-.country-overlay.visible .country-list li:nth-child(10){transition-delay: var(--cc-country-item-delay-10);}
+.country-overlay.visible .country-list li:nth-child(10){transition-delay: var(--layout-country-item-delay-10);}
 
 #country-overlay.active .country-list li:nth-child(11),
 #country-overlay.visible .country-list li:nth-child(11),
 .country-overlay.active .country-list li:nth-child(11),
-.country-overlay.visible .country-list li:nth-child(11){transition-delay: var(--cc-country-item-delay-11);}
+.country-overlay.visible .country-list li:nth-child(11){transition-delay: var(--layout-country-item-delay-11);}
 
 #country-overlay.active .country-list li:nth-child(12),
 #country-overlay.visible .country-list li:nth-child(12),
 .country-overlay.active .country-list li:nth-child(12),
-.country-overlay.visible .country-list li:nth-child(12){transition-delay: var(--cc-country-item-delay-12);}
+.country-overlay.visible .country-list li:nth-child(12){transition-delay: var(--layout-country-item-delay-12);}
 
 #country-overlay .country-option,
 .country-overlay .country-option{
@@ -378,7 +378,7 @@ body.country-active .stage-circle{
   font-size: var(--country-option-size);
   font-weight: var(--country-title-weight);
   line-height: inherit;
-  color: var(--cc-color);
+  color: var(--text-color);
 
   opacity:var(--country-option-opacity);
   transition:
@@ -509,91 +509,4 @@ body.country-active .stage-circle{
 
   #country-overlay .country-option,
   .country-overlay .country-option{font-size: var(--country-option-size-small);}
-}
-
-
-/* ========================================================================== */
-/* CONTROL CENTER TOKEN ALIASES — PRODUCTION OWNER BOUND */
-/* ========================================================================== */
-
-:root {
-  --cc-country-container-pad: var(--country-container-pad);
-  --cc-country-heading-opacity: var(--country-heading-opacity);
-  --cc-country-item-enter-y: var(--country-item-enter-y);
-  --cc-country-list-column-gap: var(--country-list-column-gap);
-  --cc-country-list-gap-default: var(--country-list-gap-default);
-  --cc-country-list-gap-large: var(--country-list-gap-large);
-  --cc-country-list-gap-tablet: var(--country-list-gap-tablet);
-  --cc-country-list-min-width: var(--country-list-min-width);
-  --cc-country-list-row-gap: var(--country-list-row-gap);
-  --cc-country-list-width-default: var(--country-list-width-default);
-  --cc-country-list-width-large: var(--country-list-width-large);
-  --cc-country-list-width-mobile: var(--country-list-width-mobile);
-  --cc-country-list-width-tablet: var(--country-list-width-tablet);
-  --cc-country-motion-close-opacity: var(--country-motion-close-opacity);
-  --cc-country-motion-close-transform: var(--country-motion-close-transform);
-  --cc-country-motion-inner-opacity: var(--country-motion-inner-opacity);
-  --cc-country-motion-inner-transform: var(--country-motion-inner-transform);
-  --cc-country-motion-item-opacity: var(--country-motion-item-opacity);
-  --cc-country-motion-item-transform: var(--country-motion-item-transform);
-  --cc-country-option-hover-opacity: var(--country-option-hover-opacity);
-  --cc-country-option-opacity: var(--country-option-opacity);
-  --cc-country-option-size: var(--country-option-size);
-  --cc-country-option-size-mobile: var(--country-option-size-mobile);
-  --cc-country-option-size-small: var(--country-option-size-small);
-  --cc-country-option-weight: var(--country-option-weight);
-  --cc-country-overlay-blur: var(--country-overlay-blur);
-  --cc-country-overlay-inner-close-scale: var(--country-overlay-inner-close-scale);
-  --cc-country-overlay-inner-close-y: var(--country-overlay-inner-close-y);
-  --cc-country-overlay-inner-enter-scale: var(--country-overlay-inner-enter-scale);
-  --cc-country-overlay-inner-enter-y: var(--country-overlay-inner-enter-y);
-  --cc-country-overlay-inner-gap: var(--country-overlay-inner-gap);
-  --cc-country-overlay-padding-block: var(--country-overlay-padding-block);
-  --cc-country-overlay-separator-opacity: var(--country-overlay-separator-opacity);
-  --cc-country-region-gap: var(--country-region-gap);
-  --cc-country-region-title-margin-bottom: var(--country-region-title-margin-bottom);
-  --cc-country-region-title-size: var(--country-region-title-size);
-  --cc-country-region-title-size-mobile: var(--country-region-title-size-mobile);
-  --cc-country-region-title-size-small: var(--country-region-title-size-small);
-  --cc-country-region-title-weight: var(--country-region-title-weight);
-  --cc-country-separator-height: var(--country-separator-height);
-  --cc-country-separator-margin-bottom: var(--country-separator-margin-bottom);
-  --cc-country-separator-margin-top: var(--country-separator-margin-top);
-  --cc-country-title-line-height: var(--country-title-line-height);
-  --cc-country-title-size: var(--country-title-size);
-  --cc-country-title-size-mobile: var(--country-title-size-mobile);
-  --cc-country-title-size-small: var(--country-title-size-small);
-  --cc-country-title-tracking: var(--country-title-tracking);
-  --cc-country-title-weight: var(--country-title-weight);
-}
-
-
-/* ========================================================================== */
-/* FINAL PRODUCTION TOKEN DEFINITIONS — LIVE OWNER VALUES */
-/* ========================================================================== */
-
-:root {
-  --cc-country-item-delay-01: flex-start;
-  --cc-country-item-delay-02: 0 1 calc(var(--country-list-width-default) - var(--country-list-gap-default));
-  --cc-country-item-delay-03: var(--overlay-opacity-closed);
-  --cc-country-item-delay-04: translateY(var(--country-item-enter-y));
-  --cc-country-item-delay-05: var(--overlay-opacity-open);
-  --cc-country-item-delay-06: var(--overlay-opacity-open);
-  --cc-country-item-delay-07: nth-child(1),
-#country-overlay.visible .country-list li:nth-child(1),
-.country-overlay.active .country-list li:nth-child(1),
-.country-overlay.visible .country-list li:nth-child(1){transition-delay: var(--cc-country-item-delay-01);
-  --cc-country-item-delay-08: nth-child(1),
-.country-overlay.active .country-list li:nth-child(1),
-.country-overlay.visible .country-list li:nth-child(1){transition-delay: var(--cc-country-item-delay-01);
-  --cc-country-item-delay-09: nth-child(2),
-.country-overlay.visible .country-list li:nth-child(2){transition-delay: var(--cc-country-item-delay-02);
-  --cc-country-item-delay-10: nth-child(3){transition-delay: var(--cc-country-item-delay-03);
-  --cc-country-item-delay-11: nth-child(5),
-#country-overlay.visible .country-list li:nth-child(5),
-.country-overlay.active .country-list li:nth-child(5),
-.country-overlay.visible .country-list li:nth-child(5){transition-delay: var(--cc-country-item-delay-05);
-  --cc-country-item-delay-12: nth-child(6),
-.country-overlay.active .country-list li:nth-child(6),
-.country-overlay.visible .country-list li:nth-child(6){transition-delay: var(--cc-country-item-delay-06);
 }

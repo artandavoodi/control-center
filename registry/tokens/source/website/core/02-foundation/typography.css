@@ -1,0 +1,84 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) HEADING SYSTEM
+   03) BODY COPY SYSTEM
+   04) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/core/02-foundation/typography.css */
+
+/* =============================================================================
+   02) HEADING SYSTEM
+============================================================================= */
+h1{
+  font-size:var(--headline-1-size);
+  font-weight:var(--headline-1-weight);
+  line-height:var(--headline-1-line-height);
+  letter-spacing:var(--headline-1-tracking);
+  margin-bottom:var(--spacing-lg);
+}
+
+h2{
+  font-size:var(--headline-2-size);
+  font-weight:var(--headline-2-weight);
+  line-height:var(--headline-2-line-height);
+  letter-spacing:var(--headline-2-tracking);
+  margin-bottom:var(--spacing-md);
+}
+
+h3{
+  font-size:var(--headline-3-size);
+  font-weight:var(--headline-3-weight);
+  line-height:var(--headline-3-line-height);
+  letter-spacing:var(--headline-3-tracking);
+  margin-bottom:var(--spacing-sm);
+}
+
+h4{
+  font-size:var(--headline-4-size);
+  font-weight:var(--headline-4-weight);
+  line-height:var(--headline-4-line-height);
+  letter-spacing:var(--headline-4-tracking);
+  margin-bottom:var(--spacing-sm);
+}
+
+h5{
+  font-size:var(--headline-5-size);
+  font-weight:var(--headline-5-weight);
+  line-height:var(--headline-5-line-height);
+  letter-spacing:var(--headline-5-tracking);
+  margin-bottom:var(--spacing-xs);
+}
+
+h6{
+  font-size:var(--headline-6-size);
+  font-weight:var(--headline-6-weight);
+  line-height:var(--headline-6-line-height);
+  letter-spacing:var(--headline-6-tracking);
+  margin-bottom:var(--spacing-xs);
+}
+
+/* =============================================================================
+   03) BODY COPY SYSTEM
+============================================================================= */
+p,
+section p{
+  font-size:var(--body-2-size);
+  font-weight:var(--body-2-weight);
+  line-height:var(--body-2-line-height);
+  letter-spacing:var(--body-2-tracking);
+  margin-bottom:var(--spacing-md);
+  color:var(--text-secondary-color);
+}
+
+html[data-theme-effective="light"] div[style*='flex-direction:column'] p{
+  color:var(--color-black);
+}
+
+/* =============================================================================
+   04) END OF FILE
+============================================================================= */

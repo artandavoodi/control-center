@@ -13,6 +13,24 @@ const OUTPUT =
 "./registry/icons/manifests/IconRegistry.generated.swift";
 
 export class SwiftIconExporter {
+  swiftIdentifier(name) {
+    const normalized =
+      String(name)
+        .replace(/[^a-zA-Z0-9_]/g, "_")
+        .replace(/_+/g, "_")
+        .replace(/^_+|_+$/g, "");
+
+    if (!normalized) {
+      return "icon";
+    }
+
+    if (/^[0-9]/.test(normalized)) {
+      return `icon_${normalized}`;
+    }
+
+    return normalized;
+  }
+
   export() {
     const icons =
       iconRegistry.export();
@@ -26,7 +44,7 @@ export class SwiftIconExporter {
       "enum DSCIconRegistry {",
       ...entries.map(
         (name) =>
-`  static let ${name.replace(/-/g, "_")} = "${name}"`
+`  static let ${this.swiftIdentifier(name)} = "${name}"`
       ),
       "}"
     ].join("\n");

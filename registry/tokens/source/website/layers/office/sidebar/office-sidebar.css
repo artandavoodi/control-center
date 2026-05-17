@@ -23,55 +23,55 @@
    02) OFFICE SIDEBAR TOKENS
 ============================================================================= */
 :root {
-  --office-sidebar-width:var(--cc-office-sidebar-width);
-  --office-sidebar-collapsed-width:var(--cc-office-sidebar-collapsed-width);
-  --office-sidebar-bg:var(--cc-office-sidebar-bg);
-  --office-sidebar-border:var(--cc-color, var(--cc-office-sidebar-border-fallback));
-  --office-sidebar-text:var(--cc-color, var(--cc-office-sidebar-text-fallback));
-  --office-sidebar-muted:var(--cc-secondary-color, var(--cc-office-sidebar-muted-fallback));
-  --office-sidebar-soft:var(--cc-color, var(--cc-office-sidebar-soft-fallback));
-  --office-sidebar-shadow:var(--cc-office-sidebar-shadow);
-  --office-sidebar-radius:var(--cc-office-sidebar-radius);
-  --office-sidebar-gap:var(--cc-office-sidebar-gap);
-  --office-sidebar-inner-padding-y:var(--cc-office-sidebar-inner-padding-y);
-  --office-sidebar-inner-padding-x:var(--cc-office-sidebar-inner-padding-x);
-  --office-sidebar-inner-motion:var(--cc-office-sidebar-inner-motion);
-  --office-sidebar-top-gap:var(--cc-office-sidebar-top-gap);
-  --office-sidebar-brand-gap:var(--cc-office-sidebar-brand-gap);
-  --office-sidebar-eyebrow-size:var(--cc-office-sidebar-eyebrow-size);
-  --office-sidebar-eyebrow-weight:var(--cc-office-sidebar-eyebrow-weight);
-  --office-sidebar-eyebrow-tracking:var(--cc-office-sidebar-eyebrow-tracking);
-  --office-sidebar-title-size:var(--cc-office-sidebar-title-size);
-  --office-sidebar-title-line-height:var(--cc-office-sidebar-title-line-height);
-  --office-sidebar-title-tracking:var(--cc-office-sidebar-title-tracking);
-  --office-sidebar-title-weight:var(--cc-office-sidebar-title-weight);
-  --office-sidebar-copy-size:var(--cc-office-sidebar-copy-size);
-  --office-sidebar-copy-line-height:var(--cc-office-sidebar-copy-line-height);
-  --office-sidebar-toggle-min-height:var(--cc-office-sidebar-toggle-min-height);
-  --office-sidebar-toggle-padding-x:var(--cc-office-sidebar-toggle-padding-x);
-  --office-sidebar-toggle-radius:var(--cc-office-sidebar-toggle-radius);
-  --office-sidebar-toggle-hover-bg:var(--cc-office-sidebar-toggle-hover-bg);
-  --office-sidebar-nav-gap:var(--cc-office-sidebar-nav-gap);
-  --office-sidebar-link-gap:var(--cc-office-sidebar-link-gap);
-  --office-sidebar-link-padding-y:var(--cc-office-sidebar-link-padding-y);
-  --office-sidebar-link-padding-x:var(--cc-office-sidebar-link-padding-x);
-  --office-sidebar-link-radius:var(--cc-office-sidebar-link-radius);
-  --office-sidebar-link-bg:var(--cc-office-sidebar-link-bg);
-  --office-sidebar-link-bg-active:var(--cc-office-sidebar-link-bg-active);
-  --office-sidebar-link-opacity:var(--cc-office-sidebar-link-opacity);
-  --office-sidebar-link-opacity-active:var(--cc-office-sidebar-link-opacity-active);
-  --office-sidebar-link-label-size:var(--cc-office-sidebar-link-label-size);
-  --office-sidebar-link-label-weight:var(--cc-office-sidebar-link-label-weight);
-  --office-sidebar-link-label-tracking:var(--cc-office-sidebar-link-label-tracking);
-  --office-sidebar-link-meta-size:var(--cc-office-sidebar-link-meta-size);
-  --office-sidebar-link-meta-tracking:var(--cc-office-sidebar-link-meta-tracking);
-  --office-sidebar-collapsed-padding-y:var(--cc-office-sidebar-collapsed-padding-y);
-  --office-sidebar-collapsed-padding-x:var(--cc-office-sidebar-collapsed-padding-x);
-  --office-sidebar-collapsed-title-size:var(--cc-office-sidebar-collapsed-title-size);
-  --office-sidebar-tablet-padding-y:var(--cc-office-sidebar-tablet-padding-y);
-  --office-sidebar-tablet-padding-x:var(--cc-office-sidebar-tablet-padding-x);
-  --office-sidebar-mobile-padding-y:var(--cc-office-sidebar-mobile-padding-y);
-  --office-sidebar-mobile-padding-x:var(--cc-office-sidebar-mobile-padding-x);
+  --office-sidebar-width:var(--layout-office-sidebar-width);
+  --office-sidebar-collapsed-width:var(--layout-office-sidebar-collapsed-width);
+  --office-sidebar-bg:var(--layout-office-sidebar-bg);
+  --office-sidebar-border:var(--border-color, var(--layout-office-sidebar-border-fallback));
+  --office-sidebar-text:var(--text-color, var(--layout-office-sidebar-text-fallback));
+  --office-sidebar-muted:var(--text-secondary-color, var(--layout-office-sidebar-muted-fallback));
+  --office-sidebar-soft:var(--border-color, var(--layout-office-sidebar-soft-fallback));
+  --office-sidebar-shadow:var(--layout-office-sidebar-shadow);
+  --office-sidebar-radius:var(--layout-office-sidebar-radius);
+  --office-sidebar-gap:var(--layout-office-sidebar-gap);
+  --office-sidebar-inner-padding-y:var(--layout-office-sidebar-inner-padding-y);
+  --office-sidebar-inner-padding-x:var(--layout-office-sidebar-inner-padding-x);
+  --office-sidebar-inner-motion:var(--layout-office-sidebar-inner-motion);
+  --office-sidebar-top-gap:var(--layout-office-sidebar-top-gap);
+  --office-sidebar-brand-gap:var(--layout-office-sidebar-brand-gap);
+  --office-sidebar-eyebrow-size:var(--layout-office-sidebar-eyebrow-size);
+  --office-sidebar-eyebrow-weight:var(--layout-office-sidebar-eyebrow-weight);
+  --office-sidebar-eyebrow-tracking:var(--layout-office-sidebar-eyebrow-tracking);
+  --office-sidebar-title-size:var(--layout-office-sidebar-title-size);
+  --office-sidebar-title-line-height:var(--layout-office-sidebar-title-line-height);
+  --office-sidebar-title-tracking:var(--layout-office-sidebar-title-tracking);
+  --office-sidebar-title-weight:var(--layout-office-sidebar-title-weight);
+  --office-sidebar-copy-size:var(--layout-office-sidebar-copy-size);
+  --office-sidebar-copy-line-height:var(--layout-office-sidebar-copy-line-height);
+  --office-sidebar-toggle-min-height:var(--layout-office-sidebar-toggle-min-height);
+  --office-sidebar-toggle-padding-x:var(--layout-office-sidebar-toggle-padding-x);
+  --office-sidebar-toggle-radius:var(--layout-office-sidebar-toggle-radius);
+  --office-sidebar-toggle-hover-bg:var(--layout-office-sidebar-toggle-hover-bg);
+  --office-sidebar-nav-gap:var(--layout-office-sidebar-nav-gap);
+  --office-sidebar-link-gap:var(--layout-office-sidebar-link-gap);
+  --office-sidebar-link-padding-y:var(--layout-office-sidebar-link-padding-y);
+  --office-sidebar-link-padding-x:var(--layout-office-sidebar-link-padding-x);
+  --office-sidebar-link-radius:var(--layout-office-sidebar-link-radius);
+  --office-sidebar-link-bg:var(--layout-office-sidebar-link-bg);
+  --office-sidebar-link-bg-active:var(--layout-office-sidebar-link-bg-active);
+  --office-sidebar-link-opacity:var(--layout-office-sidebar-link-opacity);
+  --office-sidebar-link-opacity-active:var(--layout-office-sidebar-link-opacity-active);
+  --office-sidebar-link-label-size:var(--layout-office-sidebar-link-label-size);
+  --office-sidebar-link-label-weight:var(--layout-office-sidebar-link-label-weight);
+  --office-sidebar-link-label-tracking:var(--layout-office-sidebar-link-label-tracking);
+  --office-sidebar-link-meta-size:var(--layout-office-sidebar-link-meta-size);
+  --office-sidebar-link-meta-tracking:var(--layout-office-sidebar-link-meta-tracking);
+  --office-sidebar-collapsed-padding-y:var(--layout-office-sidebar-collapsed-padding-y);
+  --office-sidebar-collapsed-padding-x:var(--layout-office-sidebar-collapsed-padding-x);
+  --office-sidebar-collapsed-title-size:var(--layout-office-sidebar-collapsed-title-size);
+  --office-sidebar-tablet-padding-y:var(--layout-office-sidebar-tablet-padding-y);
+  --office-sidebar-tablet-padding-x:var(--layout-office-sidebar-tablet-padding-x);
+  --office-sidebar-mobile-padding-y:var(--layout-office-sidebar-mobile-padding-y);
+  --office-sidebar-mobile-padding-x:var(--layout-office-sidebar-mobile-padding-x);
 }
 
 /* =============================================================================
@@ -89,7 +89,7 @@
   display: grid;
   gap: var(--office-sidebar-gap);
   padding: var(--office-sidebar-inner-padding-y) var(--office-sidebar-inner-padding-x);
-  border: var(--cc-width-hairline) solid var(--office-sidebar-border);
+  border: var(--border-width-hairline) solid var(--office-sidebar-border);
   border-radius: var(--office-sidebar-radius);
   background: var(--office-sidebar-bg);
   box-shadow: var(--office-sidebar-shadow);
@@ -175,7 +175,7 @@
   display: grid;
   gap: var(--office-sidebar-link-gap);
   padding: var(--office-sidebar-link-padding-y) var(--office-sidebar-link-padding-x);
-  border: var(--cc-width-hairline) solid transparent;
+  border: var(--border-width-hairline) solid transparent;
   border-radius: var(--office-sidebar-link-radius);
   background: var(--office-sidebar-link-bg);
   color: var(--office-sidebar-text);
@@ -245,77 +245,4 @@
   .office-sidebar__toggle {
     width: 100%;
   }
-}
-
-
-/* ========================================================================== */
-/* CONTROL CENTER TOKEN ALIASES — PRODUCTION OWNER BOUND */
-/* ========================================================================== */
-
-:root {
-  --cc-office-sidebar-bg: var(--office-sidebar-bg);
-  --cc-office-sidebar-brand-gap: var(--office-sidebar-brand-gap);
-  --cc-office-sidebar-collapsed-padding-x: var(--office-sidebar-collapsed-padding-x);
-  --cc-office-sidebar-collapsed-padding-y: var(--office-sidebar-collapsed-padding-y);
-  --cc-office-sidebar-collapsed-title-size: var(--office-sidebar-collapsed-title-size);
-  --cc-office-sidebar-collapsed-width: var(--office-sidebar-collapsed-width);
-  --cc-office-sidebar-copy-line-height: var(--office-sidebar-copy-line-height);
-  --cc-office-sidebar-copy-size: var(--office-sidebar-copy-size);
-  --cc-office-sidebar-eyebrow-size: var(--office-sidebar-eyebrow-size);
-  --cc-office-sidebar-eyebrow-tracking: var(--office-sidebar-eyebrow-tracking);
-  --cc-office-sidebar-eyebrow-weight: var(--office-sidebar-eyebrow-weight);
-  --cc-office-sidebar-gap: var(--office-sidebar-gap);
-  --cc-office-sidebar-inner-motion: var(--office-sidebar-inner-motion);
-  --cc-office-sidebar-inner-padding-x: var(--office-sidebar-inner-padding-x);
-  --cc-office-sidebar-inner-padding-y: var(--office-sidebar-inner-padding-y);
-  --cc-office-sidebar-link-bg: var(--office-sidebar-link-bg);
-  --cc-office-sidebar-link-bg-active: var(--office-sidebar-link-bg-active);
-  --cc-office-sidebar-link-gap: var(--office-sidebar-link-gap);
-  --cc-office-sidebar-link-label-size: var(--office-sidebar-link-label-size);
-  --cc-office-sidebar-link-label-tracking: var(--office-sidebar-link-label-tracking);
-  --cc-office-sidebar-link-label-weight: var(--office-sidebar-link-label-weight);
-  --cc-office-sidebar-link-meta-size: var(--office-sidebar-link-meta-size);
-  --cc-office-sidebar-link-meta-tracking: var(--office-sidebar-link-meta-tracking);
-  --cc-office-sidebar-link-opacity: var(--office-sidebar-link-opacity);
-  --cc-office-sidebar-link-opacity-active: var(--office-sidebar-link-opacity-active);
-  --cc-office-sidebar-link-padding-x: var(--office-sidebar-link-padding-x);
-  --cc-office-sidebar-link-padding-y: var(--office-sidebar-link-padding-y);
-  --cc-office-sidebar-link-radius: var(--office-sidebar-link-radius);
-  --cc-office-sidebar-mobile-padding-x: var(--office-sidebar-mobile-padding-x);
-  --cc-office-sidebar-mobile-padding-y: var(--office-sidebar-mobile-padding-y);
-  --cc-office-sidebar-nav-gap: var(--office-sidebar-nav-gap);
-  --cc-office-sidebar-radius: var(--office-sidebar-radius);
-  --cc-office-sidebar-shadow: var(--office-sidebar-shadow);
-  --cc-office-sidebar-tablet-padding-x: var(--office-sidebar-tablet-padding-x);
-  --cc-office-sidebar-tablet-padding-y: var(--office-sidebar-tablet-padding-y);
-  --cc-office-sidebar-title-line-height: var(--office-sidebar-title-line-height);
-  --cc-office-sidebar-title-size: var(--office-sidebar-title-size);
-  --cc-office-sidebar-title-tracking: var(--office-sidebar-title-tracking);
-  --cc-office-sidebar-title-weight: var(--office-sidebar-title-weight);
-  --cc-office-sidebar-toggle-hover-bg: var(--office-sidebar-toggle-hover-bg);
-  --cc-office-sidebar-toggle-min-height: var(--office-sidebar-toggle-min-height);
-  --cc-office-sidebar-toggle-padding-x: var(--office-sidebar-toggle-padding-x);
-  --cc-office-sidebar-toggle-radius: var(--office-sidebar-toggle-radius);
-  --cc-office-sidebar-top-gap: var(--office-sidebar-top-gap);
-  --cc-office-sidebar-width: var(--office-sidebar-width);
-}
-
-
-/* ========================================================================== */
-/* FINAL PRODUCTION TOKEN DEFINITIONS — LIVE OWNER VALUES */
-/* ========================================================================== */
-
-:root {
-  --cc-office-sidebar-muted-fallback: var(--cc-office-sidebar-width);
-  --cc-office-sidebar-soft-fallback: var(--cc-office-sidebar-width);
-  --cc-office-sidebar-text-fallback: var(--cc-office-sidebar-width);
-}
-
-
-/* ========================================================================== */
-/* CANONICAL TOKEN DEFINITIONS — VERIFIED PRODUCTION OWNERS */
-/* ========================================================================== */
-
-:root {
-  --cc-office-sidebar-border-fallback: var(--border-subtle);
 }

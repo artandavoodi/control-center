@@ -1,0 +1,46 @@
+/* =============================================================================
+   NEUROARTAN · HOME STAGE · DEVELOPER OPERATIONS SUMMARY
+   -----------------------------------------------------------------------------
+   Purpose: Owns Developer Operations summary/footer styling. Console shell,
+   panel frame, scroll, and runtime summary rendering remain separately owned.
+============================================================================= */
+
+/* =============================================================================
+   00) FILE INDEX
+   -----------------------------------------------------------------------------
+   01) SUMMARY SURFACE
+   02) SUMMARY ITEMS
+   03) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) SUMMARY SURFACE
+============================================================================= */
+.home-stage-developer-operations-panel__summary{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(var(--spacing-none), 1fr));
+  gap:var(--home-stage-developer-operations-gap-compact);
+  min-width:0;
+  padding-top:var(--home-stage-developer-operations-gap-compact);
+  border-top:0;
+}
+
+/* =============================================================================
+   02) SUMMARY ITEMS
+============================================================================= */
+.home-stage-developer-operations-panel__summary-item{
+  margin:var(--spacing-none);
+  min-width:0;
+  color:var(--home-stage-developer-operations-muted);
+  font-size:var(--home-stage-developer-operations-label-font-size);
+  font-weight:var(--font-weight-light);
+  letter-spacing:var(--tracking-copy);
+  line-height:var(--line-height-tight);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* =============================================================================
+   03) END OF FILE
+============================================================================= */
