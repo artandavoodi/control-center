@@ -3822,22 +3822,10 @@
     "file": "footer-about.svg"
   },
   {
-    "id": "layers/website/home/footer/footer-platform-legacy",
-    "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/home/footer/footer-platform-legacy.svg",
-    "category": "layers/website/home/footer",
-    "file": "footer-platform-legacy.svg"
-  },
-  {
     "id": "layers/website/home/footer/footer-platform",
     "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/home/footer/footer-platform.svg",
     "category": "layers/website/home/footer",
     "file": "footer-platform.svg"
-  },
-  {
-    "id": "layers/website/home/footer/footer-updates-legacy",
-    "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/home/footer/footer-updates-legacy.svg",
-    "category": "layers/website/home/footer",
-    "file": "footer-updates-legacy.svg"
   },
   {
     "id": "layers/website/home/footer/footer-updates",
@@ -4074,24 +4062,6 @@
     "file": "interaction-settings.svg"
   },
   {
-    "id": "layers/website/legacy/event",
-    "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/legacy/event.svg",
-    "category": "layers/website/legacy",
-    "file": "event.svg"
-  },
-  {
-    "id": "layers/website/legacy/hover-to-social-media-and-music",
-    "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/legacy/hover-to-social-media-and-music.svg",
-    "category": "layers/website/legacy",
-    "file": "hover-to-social-media-and-music.svg"
-  },
-  {
-    "id": "layers/website/legacy/music",
-    "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/legacy/music.svg",
-    "category": "layers/website/legacy",
-    "file": "music.svg"
-  },
-  {
     "id": "layers/website/navigation/actions/account-menu-panel",
     "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/navigation/actions/account-menu-panel.svg",
     "category": "layers/website/navigation/actions",
@@ -4168,6 +4138,12 @@
     "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/navigation/actions/explore-icos.svg",
     "category": "layers/website/navigation/actions",
     "file": "explore-icos.svg"
+  },
+  {
+    "id": "layers/website/navigation/actions/hover-social-music-rail",
+    "absolutePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/public/assets/layers/website/navigation/actions/hover-social-music-rail.svg",
+    "category": "layers/website/navigation/actions",
+    "file": "hover-social-music-rail.svg"
   },
   {
     "id": "layers/website/navigation/actions/icos-menu-panel",

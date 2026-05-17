@@ -6,6 +6,9 @@
 import { iconCompiler }
 from "./compiler/icon-compiler.js";
 
+import { publicIconExporter }
+from "./exporters/public/public-icon-exporter.js";
+
 import { runtimeIconExporter }
 from "./exporters/runtime/runtime-icon-exporter.js";
 
@@ -18,6 +21,14 @@ console.log(
 
 console.table(
   iconCompiler.load()
+);
+
+console.log(
+  "\n[Publishing Public Icon Assets]\n"
+);
+
+console.log(
+  publicIconExporter.export()
 );
 
 console.log(
