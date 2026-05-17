@@ -60,6 +60,10 @@ cssTokenExporter.export(
   "./registry/tokens/manifests/tokens.css"
 );
 
+cssTokenExporter.export(
+  "./registry/tokens/manifests/control-center.tokens.css"
+);
+
 swiftTokenExporter.export(
   "./registry/tokens/manifests/DSCTokens.generated.swift"
 );

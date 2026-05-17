@@ -220,6 +220,26 @@
   --layout-home-intro-logo-scale-start:0.68;
   --layout-home-intro-logo-scale-settle:0.94;
   --layout-home-intro-logo-scale-fade:0.30;
+  
+  /* Home composition tokens */
+  --home-composition-footer-clearance:2.5rem;
+  --home-composition-panel-to-response-gap:1.2rem;
+  --home-composition-shell-block-padding:1.5rem;
+  --home-composition-stage-component-gap:1.8rem;
+  --home-composition-stage-width:960px;
+  --home-composition-stage-width-mobile:100%;
+  --home-composition-topbar-clearance:72px;
+  
+  /* Home hero shader tokens */
+  --home-hero-shader-canvas-softness:20px;
+  --home-hero-shader-matte-blur:30px;
+  --home-hero-shader-matte-opacity:0.92;
+  --home-hero-shader-matte-surface-dark:rgba(0,0,0,0.85);
+  --home-hero-shader-matte-surface-light:rgba(255,255,255,0.92);
+  --home-hero-shader-opacity:0.88;
+  --home-hero-shader-transition:opacity 0.6s ease;
+  --home-hero-shader-veil-blur:25px;
+  --home-hero-shader-veil-opacity:0.94;
 }
 
 /* =============================================================================

@@ -8,4 +8,4 @@ export * from "../ui/editor/00-editor-all.js";
 
 export * from "../ui/settings/00-settings-all.js";
 
-export * from "../ui/studio/00-studio-all.js";
+export * from "../studio/00-studio-all.js";

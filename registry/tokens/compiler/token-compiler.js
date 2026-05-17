@@ -7,6 +7,30 @@ import { tokenRegistry }
 from "../core/token-registry.js";
 
 export class TokenCompiler {
+  swiftIdentifier(key) {
+    const normalized =
+      key
+        .replace(/[^a-zA-Z0-9_]/g, "_")
+        .replace(/_+/g, "_")
+        .replace(/^_+|_+$/g, "");
+
+    if (!normalized) {
+      return "token";
+    }
+
+    if (/^[0-9]/.test(normalized)) {
+      return `token_${normalized}`;
+    }
+
+    return normalized;
+  }
+
+  swiftString(value) {
+    return String(value)
+      .replace(/\\/g, "\\\\")
+      .replace(/"/g, "\\\"");
+  }
+
   compile() {
     const tokens =
       tokenRegistry.export();
@@ -44,9 +68,16 @@ export class TokenCompiler {
       "import SwiftUI",
       "",
       "enum DSCTokens {",
+      "  static let values: [String: String] = [",
       ...entries.map(
         ([key, value]) =>
-          `  static let ${key.replace(/\./g, "_")} = "${value}"`
+          `    "${this.swiftString(key)}": "${this.swiftString(value)}",`
+      ),
+      "  ]",
+      "",
+      ...entries.map(
+        ([key, value]) =>
+          `  static let ${this.swiftIdentifier(key)} = "${this.swiftString(value)}"`
       ),
       "}"
     ].join("\n");

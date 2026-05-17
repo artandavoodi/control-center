@@ -1,99 +1,20 @@
-const view = document.querySelector("#cc-studio-view");
+/* ==========================================================================
+   STUDIO UI RUNTIME
+   ========================================================================== */
 
-let TOKENS = {};
+import "../../system/orchestration/studio-system-orchestrator.js";
 
-async function loadTokens() {
+async function bootStudio() {
+  document.body.dataset.runtime = "active";
 
-  const response = await fetch(
-    "/control-center/registry/tokens/core-tokens.json"
-  );
+  const runtime =
+  document.querySelector("[data-runtime-status]");
 
-  TOKENS = await response.json();
+  if (runtime) {
+    runtime.textContent = "Studio Runtime Active";
+  }
 
-  renderTokens();
-
+  console.log("[Studio] UI runtime active.");
 }
 
-function renderTokens() {
-
-  view.innerHTML = `
-    <h2>Tokens</h2>
-
-    <div class="cc-token-grid">
-      ${Object.entries(TOKENS).map(([id, value]) => `
-        <div class="cc-token-card">
-          <label>${id}</label>
-
-          <input
-            data-token="${id}"
-            value="${value}"
-          />
-        </div>
-      `).join("")}
-    </div>
-  `;
-
-  document
-    .querySelectorAll("[data-token]")
-    .forEach((input) => {
-
-      input.addEventListener("input", () => {
-
-        TOKENS[input.dataset.token] = input.value;
-
-        window.dispatchEvent(
-          new CustomEvent("CC_TOKEN_UPDATED", {
-            detail: {
-              id: input.dataset.token,
-              value: input.value
-            }
-          })
-        );
-
-      });
-
-    });
-
-}
-
-document
-  .querySelectorAll("[data-view]")
-  .forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-      const section = button.dataset.view;
-
-      if (section === "tokens") {
-        renderTokens();
-        return;
-      }
-
-      view.innerHTML = `
-        <h2>${section}</h2>
-        <p>Control Center runtime surface active.</p>
-      `;
-
-    });
-
-  });
-
-document
-  .querySelector("#cc-propagate")
-  .addEventListener("click", () => {
-
-    Object.entries(TOKENS).forEach(([id, value]) => {
-
-      window.dispatchEvent(
-        new CustomEvent("CC_TOKEN_UPDATED", {
-          detail: { id, value }
-        })
-      );
-
-    });
-
-    alert("Control Center propagation complete.");
-
-  });
-
-loadTokens();
+bootStudio();

@@ -1,0 +1,24 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) CONTROL CENTER THEME BRIDGE
+   03) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /control-center/dsc/themes/themes.css */
+
+/* =============================================================================
+   02) CONTROL CENTER THEME BRIDGE
+   The Control Center exposes the achieved website token language through a
+   routable design-kernel stylesheet. Platform pages may import this file when
+   they need the governance layer directly; the website shell still owns the
+   full visual cascade through its core orchestrator.
+============================================================================= */
+@import url('/control-center/registry/tokens/manifests/control-center.tokens.css');
+
+/* =============================================================================
+   03) END OF FILE
+============================================================================= */

@@ -1,7 +1,13 @@
 {
   "system": "CONTROL_CENTER",
-  "version": "0.1",
+  "version": "1.0",
   "themes": {
+    "neuroartan-achieved": {
+      "background": { "id": "CC-DSC-THEME-0001", "ref": "token.website.background" },
+      "surface": { "id": "CC-DSC-THEME-0002", "ref": "token.website.surface" },
+      "accent": { "id": "CC-DSC-THEME-0003", "ref": "token.website.accent" },
+      "stroke": { "id": "CC-DSC-THEME-0004", "ref": "token.website.stroke" }
+    },
     "dark": {
       "background": { "id": "CC-THEME-DARK-0001", "ref": "token.color.background.dark" },
       "surface": { "id": "CC-THEME-DARK-0002", "ref": "token.color.surface.dark" }

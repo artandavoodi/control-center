@@ -1,0 +1,377 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) OFFICE MENU TOKENS
+   03) MENU SHELL
+   04) INNER RAIL
+   05) BRAND BLOCK
+   06) NAVIGATION LINKS
+   07) UTILITY BLOCK
+   08) MOBILE PANEL
+   09) RESPONSIVE ADJUSTMENTS
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+   - Office menu layer stylesheet.
+   - Lives in the website canonical source under the Office layer branch.
+   - Preserves sovereign Office menu composition while consuming canonical core tokens.
+============================================================================= */
+
+/* =============================================================================
+   02) OFFICE MENU TOKENS
+============================================================================= */
+:root {
+  --office-menu-bg:var(--cc-office-menu-bg);
+  --office-menu-panel:var(--cc-office-menu-panel);
+  --office-menu-border:var(--cc-color, var(--cc-office-menu-border-fallback));
+  --office-menu-text:var(--cc-color, var(--cc-office-menu-text-fallback));
+  --office-menu-muted:var(--cc-secondary-color, var(--cc-office-menu-muted-fallback));
+  --office-menu-soft:var(--cc-color, var(--cc-office-menu-soft-fallback));
+  --office-menu-max-width:var(--cc-office-menu-max-width);
+  --office-menu-radius:var(--cc-office-menu-radius);
+  --office-menu-shadow:var(--cc-office-menu-shadow);
+  --office-menu-blur:var(--cc-office-menu-blur);
+  --office-menu-shell-padding-inline:var(--cc-office-menu-shell-padding-inline);
+  --office-menu-shell-padding-top:var(--cc-office-menu-shell-padding-top);
+  --office-menu-shell-gap:var(--cc-office-menu-shell-gap);
+  --office-menu-inner-min-height:var(--cc-office-menu-inner-min-height);
+  --office-menu-inner-gap:var(--cc-office-menu-inner-gap);
+  --office-menu-inner-padding-y:var(--cc-office-menu-inner-padding-y);
+  --office-menu-inner-padding-x:var(--cc-office-menu-inner-padding-x);
+  --office-menu-brand-gap:var(--cc-office-menu-brand-gap);
+  --office-menu-brand-size:var(--cc-office-menu-brand-size);
+  --office-menu-brand-weight:var(--cc-office-menu-brand-weight);
+  --office-menu-brand-tracking:var(--cc-office-menu-brand-tracking);
+  --office-menu-context-size:var(--cc-office-menu-context-size);
+  --office-menu-context-tracking:var(--cc-office-menu-context-tracking);
+  --office-menu-nav-gap:var(--cc-office-menu-nav-gap);
+  --office-menu-link-motion:var(--cc-office-menu-link-motion);
+  --office-menu-link-padding-y:var(--cc-office-menu-link-padding-y);
+  --office-menu-link-padding-x:var(--cc-office-menu-link-padding-x);
+  --office-menu-link-size:var(--cc-office-menu-link-size);
+  --office-menu-link-opacity:var(--cc-office-menu-link-opacity);
+  --office-menu-link-opacity-active:var(--cc-office-menu-link-opacity-active);
+  --office-menu-utility-gap:var(--cc-office-menu-utility-gap);
+  --office-menu-status-min-height:var(--cc-office-menu-status-min-height);
+  --office-menu-status-padding-x:var(--cc-office-menu-status-padding-x);
+  --office-menu-status-radius:var(--cc-office-menu-status-radius);
+  --office-menu-status-size:var(--cc-office-menu-status-size);
+  --office-menu-status-tracking:var(--cc-office-menu-status-tracking);
+  --office-menu-toggle-min-height:var(--cc-office-menu-toggle-min-height);
+  --office-menu-toggle-padding-x:var(--cc-office-menu-toggle-padding-x);
+  --office-menu-mobile-panel-gap:var(--cc-office-menu-mobile-panel-gap);
+  --office-menu-mobile-panel-padding:var(--cc-office-menu-mobile-panel-padding);
+  --office-menu-mobile-panel-bg:var(--cc-office-menu-mobile-panel-bg);
+  --office-menu-mobile-link-min-height:var(--cc-office-menu-mobile-link-min-height);
+  --office-menu-mobile-link-padding-x:var(--cc-office-menu-mobile-link-padding-x);
+  --office-menu-mobile-link-radius:var(--cc-office-menu-mobile-link-radius);
+  --office-menu-mobile-link-opacity:var(--cc-office-menu-mobile-link-opacity);
+  --office-menu-tablet-nav-gap:var(--cc-office-menu-tablet-nav-gap);
+  --office-menu-tablet-link-size:var(--cc-office-menu-tablet-link-size);
+  --office-menu-mobile-shell-padding-top:var(--cc-office-menu-mobile-shell-padding-top);
+  --office-menu-mobile-shell-padding-inline:var(--cc-office-menu-mobile-shell-padding-inline);
+  --office-menu-mobile-inner-gap:var(--cc-office-menu-mobile-inner-gap);
+  --office-menu-mobile-inner-padding-y:var(--cc-office-menu-mobile-inner-padding-y);
+  --office-menu-mobile-inner-padding-x:var(--cc-office-menu-mobile-inner-padding-x);
+}
+
+/* =============================================================================
+   03) MENU SHELL
+============================================================================= */
+.office-menu {
+  position: sticky;
+  top: var(--spacing-none);
+  z-index: 1200;
+  width: 100%;
+  padding: var(--office-menu-shell-padding-top) var(--office-menu-shell-padding-inline) var(--spacing-none);
+  backdrop-filter: blur(var(--office-menu-blur));
+  -webkit-backdrop-filter: blur(var(--office-menu-blur));
+}
+
+/* =============================================================================
+   04) INNER RAIL
+============================================================================= */
+.office-menu__inner {
+  width: min(100%, var(--office-menu-max-width));
+  margin: var(--spacing-none) auto;
+  min-height: var(--office-menu-inner-min-height);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--office-menu-inner-gap);
+  padding: var(--office-menu-inner-padding-y) var(--office-menu-inner-padding-x);
+  border: 1px solid var(--office-menu-border);
+  border-radius: var(--office-menu-radius);
+  background: var(--office-menu-bg);
+  box-shadow: var(--office-menu-shadow);
+}
+
+/* =============================================================================
+   05) BRAND BLOCK
+============================================================================= */
+.office-menu__brand-block {
+  display: grid;
+  gap: var(--office-menu-brand-gap);
+  min-width: 0;
+}
+
+.office-menu__brand {
+  width: fit-content;
+  color: var(--office-menu-text);
+  text-decoration: none;
+  font-size: var(--office-menu-brand-size);
+  font-weight: var(--office-menu-brand-weight);
+  letter-spacing: var(--office-menu-brand-tracking);
+}
+
+.office-menu__context {
+  margin: var(--spacing-none);
+  color: var(--office-menu-muted);
+  font-size: var(--office-menu-context-size);
+  letter-spacing: var(--office-menu-context-tracking);
+}
+
+.office-menu__brand,
+.office-menu__context,
+.office-menu__link,
+.office-menu__mobile-link,
+.office-menu__status,
+.office-menu__toggle {
+  white-space: nowrap;
+}
+
+/* =============================================================================
+   06) NAVIGATION LINKS
+============================================================================= */
+.office-menu__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--office-menu-nav-gap);
+  min-width: 0;
+}
+
+.office-menu__link,
+.office-menu__mobile-link {
+  color: var(--office-menu-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:border-color var(--office-menu-link-motion) var(--interaction-ease-standard), opacity var(--office-menu-link-motion) var(--interaction-ease-standard), color var(--office-menu-link-motion) var(--interaction-ease-standard), background-color var(--office-menu-link-motion) var(--interaction-ease-standard);
+}
+
+.office-menu__link {
+  padding: var(--office-menu-link-padding-y) var(--office-menu-link-padding-x);
+  font-size: var(--office-menu-link-size);
+  opacity: var(--office-menu-link-opacity);
+  white-space: nowrap;
+}
+
+.office-menu__link:hover,
+.office-menu__link:focus-visible,
+.office-menu__link[aria-current="page"] {
+  opacity: var(--office-menu-link-opacity-active);
+  border-color: var(--office-menu-soft);
+  outline: none;
+}
+
+.office-menu__link.is-active,
+.office-menu__mobile-link.is-active {
+  opacity: var(--office-menu-link-opacity-active);
+}
+
+/* =============================================================================
+   07) UTILITY BLOCK
+============================================================================= */
+.office-menu__utility {
+  display: flex;
+  align-items: center;
+  gap: var(--office-menu-utility-gap);
+}
+
+.office-menu__status {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--office-menu-status-min-height);
+  padding: var(--spacing-none) var(--office-menu-status-padding-x);
+  border: 1px solid var(--office-menu-border);
+  border-radius: var(--office-menu-status-radius);
+  background: var(--office-menu-panel);
+  color: var(--office-menu-muted);
+  font-size: var(--office-menu-status-size);
+  letter-spacing: var(--office-menu-status-tracking);
+  text-transform: uppercase;
+}
+
+.office-menu__toggle {
+  display: none;
+  min-height: var(--office-menu-toggle-min-height);
+  padding: var(--spacing-none) var(--office-menu-toggle-padding-x);
+  border: 1px solid var(--office-menu-border);
+  border-radius: var(--control-radius-pill);
+  background: transparent;
+  color: var(--office-menu-text);
+  font: inherit;
+}
+
+.office-menu__toggle:hover,
+.office-menu__toggle:focus-visible {
+  border-color: var(--office-menu-soft);
+  outline: none;
+}
+
+/* =============================================================================
+   08) MOBILE PANEL
+============================================================================= */
+.office-menu__mobile-panel {
+  width: min(100%, var(--office-menu-max-width));
+  margin: var(--office-menu-shell-gap) auto var(--spacing-none);
+  display: none;
+  gap: var(--office-menu-mobile-panel-gap);
+  padding: var(--office-menu-mobile-panel-padding);
+  border: 1px solid var(--office-menu-border);
+  border-radius: var(--office-menu-radius);
+  background: var(--office-menu-mobile-panel-bg);
+  box-shadow: var(--office-menu-shadow);
+}
+
+.office-menu__mobile-panel.is-open {
+  display: grid;
+}
+
+.office-menu__mobile-link {
+  min-height: var(--office-menu-mobile-link-min-height);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-none) var(--office-menu-mobile-link-padding-x);
+  border: 1px solid transparent;
+  border-radius: var(--office-menu-mobile-link-radius);
+  opacity: var(--office-menu-mobile-link-opacity);
+}
+
+.office-menu__mobile-link:hover,
+.office-menu__mobile-link:focus-visible,
+.office-menu__mobile-link[aria-current="page"] {
+  border-color: var(--office-menu-soft);
+  background: var(--office-menu-panel);
+  opacity: var(--office-menu-link-opacity-active);
+  outline: none;
+}
+
+/* =============================================================================
+   09) RESPONSIVE ADJUSTMENTS
+============================================================================= */
+@media (max-width: 1100px) {
+  .office-menu__nav {
+    gap: var(--office-menu-tablet-nav-gap);
+  }
+
+  .office-menu__link {
+    font-size: var(--office-menu-tablet-link-size);
+  }
+}
+
+@media (max-width: 900px) {
+  .office-menu {
+    padding: var(--office-menu-mobile-shell-padding-top) var(--office-menu-mobile-shell-padding-inline) var(--spacing-none);
+  }
+  .office-menu__brand,
+  .office-menu__context,
+  .office-menu__mobile-link,
+  .office-menu__toggle {
+    white-space: normal;
+  }
+
+  .office-menu__inner {
+    grid-template-columns: 1fr auto;
+    gap: var(--office-menu-mobile-inner-gap);
+    padding: var(--office-menu-mobile-inner-padding-y) var(--office-menu-mobile-inner-padding-x);
+  }
+
+  .office-menu__nav,
+  .office-menu__status {
+    display: none;
+  }
+
+  .office-menu__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+/* ========================================================================== */
+/* CONTROL CENTER TOKEN ALIASES — PRODUCTION OWNER BOUND */
+/* ========================================================================== */
+
+:root {
+  --cc-office-menu-bg: var(--office-menu-bg);
+  --cc-office-menu-blur: var(--office-menu-blur);
+  --cc-office-menu-brand-gap: var(--office-menu-brand-gap);
+  --cc-office-menu-brand-size: var(--office-menu-brand-size);
+  --cc-office-menu-brand-tracking: var(--office-menu-brand-tracking);
+  --cc-office-menu-brand-weight: var(--office-menu-brand-weight);
+  --cc-office-menu-context-size: var(--office-menu-context-size);
+  --cc-office-menu-context-tracking: var(--office-menu-context-tracking);
+  --cc-office-menu-inner-gap: var(--office-menu-inner-gap);
+  --cc-office-menu-inner-min-height: var(--office-menu-inner-min-height);
+  --cc-office-menu-inner-padding-x: var(--office-menu-inner-padding-x);
+  --cc-office-menu-inner-padding-y: var(--office-menu-inner-padding-y);
+  --cc-office-menu-link-motion: var(--office-menu-link-motion);
+  --cc-office-menu-link-opacity: var(--office-menu-link-opacity);
+  --cc-office-menu-link-opacity-active: var(--office-menu-link-opacity-active);
+  --cc-office-menu-link-padding-x: var(--office-menu-link-padding-x);
+  --cc-office-menu-link-padding-y: var(--office-menu-link-padding-y);
+  --cc-office-menu-link-size: var(--office-menu-link-size);
+  --cc-office-menu-max-width: var(--office-menu-max-width);
+  --cc-office-menu-mobile-inner-gap: var(--office-menu-mobile-inner-gap);
+  --cc-office-menu-mobile-inner-padding-x: var(--office-menu-mobile-inner-padding-x);
+  --cc-office-menu-mobile-inner-padding-y: var(--office-menu-mobile-inner-padding-y);
+  --cc-office-menu-mobile-link-min-height: var(--office-menu-mobile-link-min-height);
+  --cc-office-menu-mobile-link-opacity: var(--office-menu-mobile-link-opacity);
+  --cc-office-menu-mobile-link-padding-x: var(--office-menu-mobile-link-padding-x);
+  --cc-office-menu-mobile-link-radius: var(--office-menu-mobile-link-radius);
+  --cc-office-menu-mobile-panel-bg: var(--office-menu-mobile-panel-bg);
+  --cc-office-menu-mobile-panel-gap: var(--office-menu-mobile-panel-gap);
+  --cc-office-menu-mobile-panel-padding: var(--office-menu-mobile-panel-padding);
+  --cc-office-menu-mobile-shell-padding-inline: var(--office-menu-mobile-shell-padding-inline);
+  --cc-office-menu-mobile-shell-padding-top: var(--office-menu-mobile-shell-padding-top);
+  --cc-office-menu-nav-gap: var(--office-menu-nav-gap);
+  --cc-office-menu-panel: var(--office-menu-panel);
+  --cc-office-menu-radius: var(--office-menu-radius);
+  --cc-office-menu-shadow: var(--office-menu-shadow);
+  --cc-office-menu-shell-gap: var(--office-menu-shell-gap);
+  --cc-office-menu-shell-padding-inline: var(--office-menu-shell-padding-inline);
+  --cc-office-menu-shell-padding-top: var(--office-menu-shell-padding-top);
+  --cc-office-menu-status-min-height: var(--office-menu-status-min-height);
+  --cc-office-menu-status-padding-x: var(--office-menu-status-padding-x);
+  --cc-office-menu-status-radius: var(--office-menu-status-radius);
+  --cc-office-menu-status-size: var(--office-menu-status-size);
+  --cc-office-menu-status-tracking: var(--office-menu-status-tracking);
+  --cc-office-menu-tablet-link-size: var(--office-menu-tablet-link-size);
+  --cc-office-menu-tablet-nav-gap: var(--office-menu-tablet-nav-gap);
+  --cc-office-menu-toggle-min-height: var(--office-menu-toggle-min-height);
+  --cc-office-menu-toggle-padding-x: var(--office-menu-toggle-padding-x);
+  --cc-office-menu-utility-gap: var(--office-menu-utility-gap);
+}
+
+
+/* ========================================================================== */
+/* FINAL PRODUCTION TOKEN DEFINITIONS — LIVE OWNER VALUES */
+/* ========================================================================== */
+
+:root {
+  --cc-office-menu-muted-fallback: var(--cc-office-menu-bg);
+  --cc-office-menu-soft-fallback: var(--cc-office-menu-bg);
+  --cc-office-menu-text-fallback: var(--cc-office-menu-bg);
+}
+
+
+/* ========================================================================== */
+/* CANONICAL TOKEN DEFINITIONS — VERIFIED PRODUCTION OWNERS */
+/* ========================================================================== */
+
+:root {
+  --cc-office-menu-border-fallback: var(--border-subtle);
+}

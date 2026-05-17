@@ -1,0 +1,283 @@
+/* =============================================================================
+   NEUROARTAN · HOME STAGE · INTERACTION RESPONSE PANEL
+   -----------------------------------------------------------------------------
+   Purpose: Owns only the visible response output component, its internal scroller,
+   and response typography. Stage spacing, footer clearance, viewport composition,
+   and panel-stack layout are owned by `home-composition.css`.
+============================================================================= */
+
+/* =============================================================================
+   00) FILE INDEX
+   -----------------------------------------------------------------------------
+   01) RESPONSE PANEL TOKENS
+   02) RESPONSE PANEL ROOT
+   02A) TEMPORARY RESPONSE PANEL VISUAL MARKER
+   03) RESPONSE SCROLLER
+   04) RESPONSE CONTENT
+   05) RESPONSIVE
+   06) END OF FILE
+============================================================================= */
+
+/* =============================================================================
+   01) RESPONSE PANEL TOKENS
+============================================================================= */
+:root{
+  --home-interaction-response-panel-width:min(42rem, calc(100vw - (2 * var(--site-gutter))));
+  --home-interaction-response-panel-max-height:18rem;
+  --home-interaction-response-panel-padding:0.18rem 0.18rem 0.18rem;
+  --home-interaction-response-panel-content-max-width:52rem;
+  --home-interaction-response-panel-content-align:left;
+  --home-interaction-response-panel-radius:var(--control-radius-composer);
+  --home-interaction-response-panel-surface:transparent;
+  --home-interaction-response-panel-text:var(--cc-primary-color);
+  --home-interaction-response-panel-muted:var(--cc-secondary-color);
+  --home-interaction-response-panel-font-size:1.06rem;
+  --home-interaction-response-panel-font-weight:300;
+  --home-interaction-response-panel-line-height:1.92;
+  --home-interaction-response-panel-letter-spacing:-0.012em;
+  --home-interaction-response-panel-scrollbar:color-mix(in srgb, var(--cc-secondary-color) 22%, transparent);
+  --home-interaction-response-panel-scrollbar-hover:color-mix(in srgb, var(--cc-secondary-color) 38%, transparent);
+  --home-interaction-response-panel-motion-fast:var(--interaction-motion-medium);
+}
+
+/* =============================================================================
+   02) RESPONSE PANEL ROOT
+============================================================================= */
+.home-interaction-response-panel{
+  display:flex;
+  flex:0 1 auto;
+  flex-direction:column;
+  width:var(--cc-interaction-response-panel-width);
+  max-width:100%;
+  max-height:auto;
+  height:auto;
+  min-height:0;
+  margin:0 auto;
+  padding:var(--cc-interaction-response-panel-padding);
+  box-sizing:border-box;
+  border:0;
+  border-radius:var(--cc-interaction-response-panel-radius);
+  background:var(--cc-interaction-response-panel-surface);
+  color:var(--cc-interaction-response-panel-text);
+  text-align:var(--cc-interaction-response-panel-content-align);
+  overflow:hidden;
+}
+
+/* =============================================================================
+   02A) TEMPORARY RESPONSE PANEL VISUAL MARKER
+============================================================================= */
+.home-interaction-response-panel{
+  border:none;
+}
+
+.home-interaction-response-panel[hidden],
+.home-interaction-response-panel[data-home-interaction-response-state="idle"]{
+  display:none;
+}
+
+.home-interaction-response-panel[data-home-interaction-response-state="responding"]{
+  display:flex;
+}
+
+/* =============================================================================
+   03) RESPONSE SCROLLER
+============================================================================= */
+.home-interaction-response-panel__scroller{
+  display:block;
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  max-height:auto;
+  box-sizing:border-box;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:var(--cc-interaction-response-panel-scrollbar) transparent;
+  outline:none;
+  border-radius:var(--cc-interaction-response-panel-radius);
+  scroll-padding-bottom:var(--spacing-md);
+}
+
+.home-interaction-response-panel__scroller::-webkit-scrollbar{
+  display:none;
+  width:0;
+  height:0;
+}
+
+.home-interaction-response-panel__scroller::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.home-interaction-response-panel__scroller::-webkit-scrollbar-thumb{
+  border-radius:var(--control-radius-pill);
+  background:var(--cc-interaction-response-panel-scrollbar);
+}
+
+.home-interaction-response-panel__scroller::-webkit-scrollbar-thumb:hover{
+  background:var(--cc-interaction-response-panel-scrollbar-hover);
+}
+
+/* =============================================================================
+   04) RESPONSE CONTENT
+============================================================================= */
+.home-interaction-response-panel__content{
+  margin:0;
+  max-width:var(--cc-interaction-response-panel-content-max-width);
+  padding:0.75rem 0.95rem 1rem;
+  color:var(--cc-interaction-response-panel-text);
+  font-size:var(--cc-interaction-response-panel-font-size);
+  font-weight:var(--cc-interaction-response-panel-font-weight);
+  line-height:var(--cc-interaction-response-panel-line-height);
+  letter-spacing:var(--cc-interaction-response-panel-letter-spacing);
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.home-interaction-response-panel__content:empty{
+  display:none;
+}
+
+/* =============================================================================
+   05) RESPONSIVE
+============================================================================= */
+@media (max-width:760px){
+  :root{
+    --home-interaction-response-panel-width:min(42rem, calc(100vw - (2 * var(--site-gutter))));
+    --home-interaction-response-panel-max-height:18rem;
+    --home-interaction-response-panel-content-max-width:100%;
+    --home-interaction-response-panel-font-size:0.96rem;
+    --home-interaction-response-panel-line-height:1.66;
+  }
+}
+
+
+
+/* =============================================================================
+   05A) IMMERSIVE COGNITION TYPOGRAPHY
+============================================================================= */
+
+.home-interaction-response-panel__content{
+  display:grid;
+  gap:1.2rem;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  text-wrap:pretty;
+}
+
+.home-interaction-response-panel__content > *{
+  margin:0;
+}
+
+.home-interaction-response-panel__content p{
+  opacity:0;
+  transform:translateY(0.4rem);
+  animation:home-response-emergence 680ms var(--interaction-ease-standard) forwards;
+}
+
+.home-interaction-response-panel__content p + p{
+  margin-top:0.2rem;
+}
+
+.home-interaction-response-panel__content h1,
+.home-interaction-response-panel__content h2,
+.home-interaction-response-panel__content h3{
+  font-weight:500;
+  letter-spacing:-0.03em;
+  line-height:1.18;
+}
+
+.home-interaction-response-panel__content strong{
+  font-weight:520;
+  color:var(--cc-primary-color);
+}
+
+.home-interaction-response-panel__content code{
+  padding:0.14rem 0.38rem;
+  border-radius:0.5rem;
+  background:color-mix(in srgb, var(--cc-primary-color) 8%, transparent);
+  font-size:0.92em;
+}
+
+.home-interaction-response-panel__content pre{
+  overflow:auto;
+  padding:1rem 1.1rem;
+  border-radius:1rem;
+  background:color-mix(in srgb, var(--surface-elevated) 42%, transparent);
+  scrollbar-width:thin;
+}
+
+.home-interaction-response-panel__content pre::-webkit-scrollbar{
+  display:none;
+}
+
+.home-interaction-response-panel__scroller::after{
+  content:"";
+  position:sticky;
+  display:block;
+  bottom:0;
+  width:100%;
+  height:3.5rem;
+  pointer-events:none;
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    var(--page-bg)
+  );
+}
+
+@keyframes home-response-emergence{
+  from{
+    opacity:0;
+    transform:translateY(0.4rem);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+
+/* =============================================================================
+   06) END OF FILE
+============================================================================= */
+
+
+/* ========================================================================== */
+/* CONTROL CENTER TOKEN ALIASES — PRODUCTION OWNER BOUND */
+/* ========================================================================== */
+
+:root {
+  --cc-interaction-response-panel-width: var(--panel-width);
+}
+
+
+/* ========================================================================== */
+/* CANONICAL TOKEN DEFINITIONS — EXTRACTED FROM LIVE OWNER VALUES */
+/* ========================================================================== */
+
+:root {
+  --cc-interaction-response-panel-font-size: var(--cc-interaction-response-panel-font-size);
+  --cc-interaction-response-panel-font-weight: var(--cc-interaction-response-panel-font-weight);
+  --cc-interaction-response-panel-line-height: var(--cc-interaction-response-panel-line-height);
+  --cc-interaction-response-panel-padding: var(--cc-interaction-response-panel-padding);
+  --cc-interaction-response-panel-radius: var(--cc-interaction-response-panel-radius);
+  --cc-interaction-response-panel-surface: var(--cc-interaction-response-panel-surface);
+}
+
+
+/* ========================================================================== */
+/* FINAL PRODUCTION TOKEN DEFINITIONS — LIVE OWNER VALUES */
+/* ========================================================================== */
+
+:root {
+  --cc-interaction-response-panel-content-align: var(--cc-primary-color);
+  --cc-interaction-response-panel-content-max-width: var(--cc-interaction-response-panel-content-max-width);
+  --cc-interaction-response-panel-letter-spacing: :-webkit-scrollbar{
+  display:none;
+  --cc-interaction-response-panel-scrollbar: 100%;
+  --cc-interaction-response-panel-scrollbar-hover: var(--cc-interaction-response-panel-scrollbar) transparent;
+  --cc-interaction-response-panel-text: transparent;
+}

@@ -1,107 +1,101 @@
+/* ==========================================================================
+   STUDIO ROOT UI
+   ========================================================================== */
+
 :root {
-  --cc-studio-bg: #0b0b0c;
-  --cc-studio-surface: #111214;
-  --cc-studio-border: rgba(255,255,255,0.08);
-  --cc-studio-text: #f5f7fa;
-  --cc-studio-muted: rgba(255,255,255,0.56);
-  --cc-studio-radius: 18px;
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
 body {
   margin: 0;
-  background: var(--cc-studio-bg);
-  color: var(--cc-studio-text);
+  background: #050505;
+  color: white;
   font-family: Inter, sans-serif;
 }
 
-.cc-studio {
+.studio-shell {
   display: grid;
   grid-template-columns: 280px 1fr;
   min-height: 100vh;
 }
 
-.cc-studio__sidebar {
-  border-right: 1px solid var(--cc-studio-border);
-  background: var(--cc-studio-surface);
+.studio-sidebar {
+  border-right: 1px solid rgba(255,255,255,0.08);
   padding: 24px;
 }
 
-.cc-studio__sidebar h1 {
+.studio-logo {
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.studio-navigation {
+  display: grid;
+  gap: 12px;
+}
+
+.studio-navigation button {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: white;
+  border-radius: 14px;
+  padding: 14px;
+  text-align: left;
+}
+
+.studio-main {
+  display: grid;
+  grid-template-rows: 72px 1fr;
+}
+
+.studio-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.studio-workspace {
+  padding: 24px;
+}
+
+.studio-panel {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 32px;
+}
+
+
+.studio-panel-title {
   font-size: 18px;
   margin-bottom: 24px;
 }
 
-.cc-studio__sidebar button {
-  width: 100%;
-  margin-bottom: 12px;
-  border: 1px solid var(--cc-studio-border);
-  background: transparent;
-  color: var(--cc-studio-text);
-  padding: 14px 16px;
-  border-radius: var(--cc-studio-radius);
-  text-align: left;
-  cursor: pointer;
-}
-
-.cc-studio__workspace {
-  display: flex;
-  flex-direction: column;
-}
-
-.cc-studio__topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 28px;
-  border-bottom: 1px solid var(--cc-studio-border);
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(24px);
-}
-
-.cc-studio__view {
-  padding: 32px;
-}
-
-#cc-propagate {
-  border: 1px solid var(--cc-studio-border);
-  background: white;
-  color: black;
-  border-radius: 999px;
-  padding: 12px 18px;
-  cursor: pointer;
-}
-
-.cc-token-grid {
+.studio-token-panel {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+  gap: 14px;
+}
+
+.studio-token-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
   gap: 18px;
-  margin-top: 24px;
+  align-items: center;
 }
 
-.cc-token-card {
-  border: 1px solid var(--cc-studio-border);
-  background: rgba(255,255,255,0.03);
-  border-radius: var(--cc-studio-radius);
-  padding: 18px;
-}
-
-.cc-token-card label {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--cc-studio-muted);
+.studio-token-key {
+  opacity: 0.7;
   font-size: 13px;
 }
 
-.cc-token-card input {
-  width: 100%;
-  background: transparent;
-  border: 1px solid var(--cc-studio-border);
-  border-radius: 12px;
+.studio-token-row input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   color: white;
+  border-radius: 12px;
   padding: 12px;
 }

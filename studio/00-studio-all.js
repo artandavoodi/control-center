@@ -1,11 +1,9 @@
 /**
- * Global Studio Aggregator
+ * Canonical Studio Aggregator
  */
 
-export * from "../runtime/00-runtime-all.js";
+export * from "./runtime/00-studio-runtime-all.js";
 
-export * from "../ui/00-ui-all.js";
+export * from "./state/00-studio-state-all.js";
 
-export * from "../registry/00-registry-all.js";
-
-export * from "../orchestration/00-orchestration-all.js";
+export * from "./orchestration/00-studio-orchestration-all.js";

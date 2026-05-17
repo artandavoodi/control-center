@@ -1,0 +1,11 @@
+/* === STUDIO SHELL === */
+
+:root {
+  --studio-sidebar-width: 320px;
+  --studio-toolbar-height: 56px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}

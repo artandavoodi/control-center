@@ -1,0 +1,45 @@
+/* ========================================================================== */
+/* HOME-STAGE-DEVELOPER-OPERATIONS */
+/* Auto-completed canonical token definitions. */
+/* ========================================================================== */
+
+:root {
+  --home-stage-developer-operations-border: var(--cc-interaction-panel-border);
+  --home-stage-developer-operations-button-radius: var(--cc-search-shell-input-row-radius);
+  --home-stage-developer-operations-control-focus-border: var(--cc-search-shell-input-row-border-focus, var(--cc-platform-shell-nav-item-border-hover, var(--cc-stage-developer-operations-border)));
+  --home-stage-developer-operations-control-font-size: var(--cc-platform-shell-nav-text-size);
+  --home-stage-developer-operations-control-height: var(--cc-search-shell-input-row-min-height, var(--cc-interaction-panel-control-height));
+  --home-stage-developer-operations-control-icon-offset: var(--cc-search-shell-input-row-padding-x);
+  --home-stage-developer-operations-control-inline-padding: var(--cc-search-shell-input-row-padding-x);
+  --home-stage-developer-operations-control-padding: var(--cc-interaction-panel-control-padding);
+  --home-stage-developer-operations-copy-font-size: var(--font-size-body-3);
+  --home-stage-developer-operations-full-body-gap: var(--cc-stage-developer-operations-gap-compact);
+  --home-stage-developer-operations-full-border: var(--cc-stage-developer-operations-border);
+  --home-stage-developer-operations-full-gap: var(--cc-stage-developer-operations-gap-spacious);
+  --home-stage-developer-operations-full-height: calc(100dvh - var(--cc-stage-developer-operations-full-top));
+  --home-stage-developer-operations-full-inset: 0px;
+  --home-stage-developer-operations-full-padding-block: var(--cc-platform-shell-padding);
+  --home-stage-developer-operations-full-padding-inline: max(var(--site-gutter), calc((100vw - var(--site-rail-width)) / 2));
+  --home-stage-developer-operations-full-surface: var(--cc-stage-developer-operations-surface);
+  --home-stage-developer-operations-full-text: var(--cc-stage-developer-operations-text);
+  --home-stage-developer-operations-full-top: 3.55rem;
+  --home-stage-developer-operations-full-z-index: 9990;
+  --home-stage-developer-operations-gap: var(--cc-interaction-panel-gap);
+  --home-stage-developer-operations-gap-compact: var(--spacing-sm);
+  --home-stage-developer-operations-gap-spacious: var(--spacing-md);
+  --home-stage-developer-operations-gap-tight: var(--spacing-xs);
+  --home-stage-developer-operations-icon-gap: var(--cc-platform-shell-nav-item-gap);
+  --home-stage-developer-operations-icon-opacity: var(--cc-platform-shell-nav-icon-opacity);
+  --home-stage-developer-operations-icon-opacity-active: var(--cc-platform-shell-nav-hover-opacity);
+  --home-stage-developer-operations-icon-size: var(--cc-platform-shell-nav-icon-size);
+  --home-stage-developer-operations-label-font-size: var(--font-size-caption);
+  --home-stage-developer-operations-max-height: min(28vh, 14rem);
+  --home-stage-developer-operations-muted: var(--cc-interaction-panel-muted);
+  --home-stage-developer-operations-padding: var(--cc-interaction-panel-padding);
+  --home-stage-developer-operations-radius: var(--cc-interaction-panel-radius);
+  --home-stage-developer-operations-search-icon-size: var(--cc-search-shell-icon-size);
+  --home-stage-developer-operations-shadow: var(--cc-interaction-panel-shadow);
+  --home-stage-developer-operations-surface: var(--cc-interaction-panel-surface);
+  --home-stage-developer-operations-text: var(--cc-interaction-panel-text);
+  --home-stage-developer-operations-width: var(--cc-interaction-panel-width);
+}

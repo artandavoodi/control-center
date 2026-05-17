@@ -9,21 +9,41 @@ import fs from "fs";
 import { tokenRegistry }
 from "./core/token-registry.js";
 
-const WEBSITE_TOKEN_FILE =
-"/Users/artan/Documents/Neuroartan/website/docs/assets/css/core/00-core-all.css";
+const WEBSITE_TOKEN_DIR =
+  "/Users/artan/Documents/Neuroartan/website/docs/assets/css/core/01-tokens";
 
-const content =
-  fs.readFileSync(
-    WEBSITE_TOKEN_FILE,
-    "utf-8"
-  );
+const tokenFiles = [
+  "color.tokens.css",
+  "typography.tokens.css",
+  "spacing.tokens.css",
+  "radius.tokens.css",
+  "shadow.tokens.css",
+  "interaction.tokens.css",
+  "motion.tokens.css",
+  "zindex.tokens.css",
+  "layout.tokens.css",
+  "control.tokens.css",
+  "overlay.tokens.css",
+  "navigation.tokens.css",
+  "feedback.tokens.css",
+  "data.tokens.css",
+  "editor.tokens.css"
+];
 
-const tokenMatches =
-  [...content.matchAll(
-    /--([a-zA-Z0-9-_]+)\s*:\s*([^;]+);/g
-  )];
+let allTokenMatches = [];
 
-for (const match of tokenMatches) {
+for (const file of tokenFiles) {
+  const filePath = `${WEBSITE_TOKEN_DIR}/${file}`;
+  try {
+    const content = fs.readFileSync(filePath, "utf-8");
+    const matches = [...content.matchAll(/--([a-zA-Z0-9-_]+)\s*:\s*([^;]+);/g)];
+    allTokenMatches.push(...matches);
+  } catch (error) {
+    console.log(`Skipping ${file}: ${error.message}`);
+  }
+}
+
+for (const match of allTokenMatches) {
   const [, key, value] = match;
 
   tokenRegistry.register(

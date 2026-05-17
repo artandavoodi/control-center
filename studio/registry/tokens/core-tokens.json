@@ -1,0 +1,23 @@
+{
+  "color": {
+    "surface-primary": "#0A0A0A",
+    "surface-secondary": "#111111",
+    "text-primary": "#FFFFFF",
+    "text-secondary": "rgba(255,255,255,0.64)"
+  },
+
+  "radius": {
+    "panel": "24px",
+    "button": "18px"
+  },
+
+  "spacing": {
+    "section": "120px",
+    "panel-padding": "24px"
+  },
+
+  "motion": {
+    "fast": "160ms",
+    "medium": "280ms"
+  }
+}

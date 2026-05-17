@@ -1,0 +1,651 @@
+/* =============================================================================
+   00) FILE INDEX
+   00A) HOME LAYOUT TOKENS
+   01) GLOBAL SAFETY
+   02) ANNOUNCEMENT + CTA BASE
+   03) ENTER BUTTON ICON
+   05) HOME STAGE BACKGROUND VIDEO
+   06) HOME STAGE VIDEO OVERLAY
+   07) HOME LANDING STACK
+   08) HOME STAGE REGION LAYOUT
+   09) HOME HERO ENTERED STATE
+   10) HOME HERO MOBILE / TABLET REFINEMENTS
+   11) HOME HERO PAINT CONTAINMENT
+   12) HOME PRE-ENTER ISOLATION
+   13) HOME INTRO LOGO ANIMATION
+============================================================================= */
+
+/* =============================================================================
+   00A) HOME LAYOUT TOKENS
+============================================================================= */
+:root{
+  --home-layout-dial-rgb:145,124,111;
+  --home-layout-enter-color:color-mix(in srgb, var(--cc-primary-color) 92%, transparent);
+  --home-layout-enter-border:color-mix(in srgb, var(--cc-primary-color) 32%, transparent);
+  --home-layout-enter-transition:600ms;
+  --home-layout-enter-text-motion:600ms;
+  --home-layout-stage-video-motion:620ms;
+  --home-layout-essence-highlight:color-mix(in srgb, var(--color-primary1) 34%, transparent);
+  --home-layout-stage-color:color-mix(in srgb, var(--cc-primary-color) 92%, transparent);
+  --home-layout-stage-video-overlay:radial-gradient(circle at center, color-mix(in srgb, var(--color-primary1) 34%, transparent) 0%, color-mix(in srgb, var(--color-primary1) 24%, transparent) 24%, color-mix(in srgb, var(--bg-color) 40%, transparent) 54%, color-mix(in srgb, var(--bg-color) 60%, transparent) 100%);
+  --home-layout-announcement-size:var(--cc-home-announcement-size);
+  --home-layout-announcement-weight:var(--cc-home-announcement-weight);
+  --home-layout-announcement-tracking:var(--cc-home-announcement-tracking);
+  --home-layout-announcement-secondary-size:var(--cc-home-announcement-secondary-size);
+  --home-layout-announcement-secondary-weight:var(--cc-home-announcement-secondary-weight);
+  --home-layout-announcement-secondary-tracking:var(--cc-home-announcement-secondary-tracking);
+  --home-layout-announcement-mobile-size:var(--cc-home-announcement-mobile-size);
+  --home-layout-announcement-mobile-line-height:var(--cc-home-announcement-mobile-line-height);
+  --home-layout-announcement-secondary-mobile-size:var(--cc-home-announcement-secondary-mobile-size);
+  --home-layout-announcement-secondary-mobile-tracking:var(--cc-home-announcement-secondary-mobile-tracking);
+  --home-layout-enter-width:var(--cc-home-enter-width);
+  --home-layout-enter-height:var(--cc-home-enter-height);
+  --home-layout-enter-padding-y:var(--cc-home-enter-padding-y);
+  --home-layout-enter-padding-x:var(--cc-home-enter-padding-x);
+  --home-layout-enter-size:var(--cc-home-enter-size);
+  --home-layout-enter-weight:var(--cc-home-enter-weight);
+  --home-layout-enter-tracking:var(--cc-home-enter-tracking);
+  --home-layout-enter-border-width:var(--cc-home-enter-border-width);
+  --home-layout-enter-radius:var(--control-radius);
+  --home-layout-enter-icon-size:var(--cc-home-enter-icon-size);
+  --home-layout-enter-hover-y:var(--cc-home-enter-hover-y);
+  --home-layout-enter-hover-opacity:var(--cc-home-enter-hover-opacity);
+  --home-layout-enter-breathe-duration:var(--cc-home-enter-breathe-duration);
+  --home-layout-enter-breathe-y:var(--cc-home-enter-breathe-y);
+  --home-layout-enter-mobile-width:var(--cc-home-enter-mobile-width);
+  --home-layout-enter-mobile-height:var(--cc-home-enter-mobile-height);
+  --home-layout-enter-mobile-padding-y:var(--cc-home-enter-mobile-padding-y);
+  --home-layout-enter-mobile-padding-x:var(--cc-home-enter-mobile-padding-x);
+  --home-layout-enter-mobile-size:var(--cc-home-enter-mobile-size);
+  --home-layout-video-overlay-blur:var(--cc-home-video-overlay-blur);
+  --home-layout-video-overlay-saturate:var(--cc-home-video-overlay-saturate);
+  --home-layout-video-overlay-motion:var(--cc-home-video-overlay-motion);
+  --home-layout-video-overlay-reveal-opacity:var(--cc-home-video-overlay-reveal-opacity);
+  --home-layout-logo-width:var(--cc-home-logo-width);
+  --home-layout-logo-width-mobile:var(--cc-home-logo-width-mobile);
+  --home-layout-logo-margin-bottom:var(--cc-home-logo-margin-bottom);
+  --home-layout-logo-docked-margin-bottom:var(--cc-home-logo-docked-margin-bottom);
+  --home-layout-logo-transition-opacity:var(--cc-home-logo-transition-opacity);
+  --home-layout-logo-transition-transform:var(--cc-home-logo-transition-transform);
+  --home-layout-stage-copy-margin-top:var(--cc-home-stage-copy-margin-top);
+  --home-layout-stage-bottom-margin-top:var(--cc-home-stage-bottom-margin-top);
+  --home-layout-stage-bottom-margin-top-mobile:var(--cc-home-stage-bottom-margin-top-mobile);
+  --home-layout-stage-intro-max-height:var(--cc-home-stage-intro-max-height);
+  --home-layout-stage-intro-opacity-duration:var(--cc-home-stage-intro-opacity-duration);
+  --home-layout-stage-intro-transform-duration:var(--cc-home-stage-intro-transform-duration);
+  --home-layout-stage-intro-reveal-duration:var(--cc-home-stage-intro-reveal-duration);
+  --home-layout-intro-reveal-y:var(--cc-home-intro-reveal-y);
+  --home-layout-intro-content-opacity-duration:var(--cc-home-intro-content-opacity-duration);
+  --home-layout-intro-content-transform-duration:var(--cc-home-intro-content-transform-duration);
+  --home-layout-intro-logo-scale-start:var(--cc-home-intro-logo-scale-start);
+  --home-layout-intro-logo-scale-settle:var(--cc-home-intro-logo-scale-settle);
+  --home-layout-intro-logo-scale-fade:var(--cc-home-intro-logo-scale-fade);
+}
+
+/* =============================================================================
+   01) GLOBAL SAFETY
+============================================================================= */
+html,
+body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  overflow-x:hidden;
+}
+
+/* =============================================================================
+   02) ANNOUNCEMENT + CTA BASE
+============================================================================= */
+#announcement{
+  max-width:90%;
+  font-size:var(--cc-layout-announcement-size);
+  font-weight:var(--cc-layout-announcement-weight);
+  letter-spacing:var(--cc-layout-announcement-tracking);
+  text-align:center;
+  margin:0 auto;
+}
+
+#announcement.secondary{
+  font-size:var(--cc-layout-announcement-secondary-size);
+  font-weight:var(--cc-layout-announcement-secondary-weight);
+  text-transform:uppercase;
+  letter-spacing:var(--cc-layout-announcement-secondary-tracking);
+}
+
+
+.enter-button{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:var(--cc-layout-enter-width);
+  height:var(--cc-layout-enter-height);
+  min-width:var(--cc-layout-enter-width);
+  min-height:var(--cc-layout-enter-height);
+  padding:var(--cc-layout-enter-padding-y) var(--cc-layout-enter-padding-x);
+  background:transparent;
+  color:var(--cc-layout-enter-color);
+  font-size:var(--cc-layout-enter-size);
+  font-weight:var(--cc-layout-enter-weight);
+  letter-spacing:var(--cc-layout-enter-tracking);
+  text-transform:uppercase;
+  border:var(--cc-layout-enter-border-width) solid var(--cc-layout-enter-border);
+  border-radius:var(--control-radius);
+  overflow:hidden;
+  transition:border-color var(--cc-layout-enter-transition) var(--interaction-ease-standard), opacity var(--cc-layout-enter-transition) var(--interaction-ease-standard);
+  animation:enter-breathe var(--cc-layout-enter-breathe-duration) var(--interaction-ease-standard) infinite;
+  margin:0 auto;
+}
+
+/* =============================================================================
+   03) ENTER BUTTON ICON
+============================================================================= */
+.enter-button-icon{
+  display:block;
+  width:var(--cc-layout-enter-icon-size);
+  height:var(--cc-layout-enter-icon-size);
+  object-fit:contain;
+  object-position:center;
+  opacity:1;
+  filter:brightness(0) invert(1);
+  pointer-events:none;
+}
+
+.enter-button span{
+  position:relative;
+  z-index:2;
+  display:inline-block;
+  transition:transform var(--cc-layout-enter-text-motion) var(--interaction-ease-standard), color var(--cc-layout-enter-text-motion) var(--interaction-ease-standard);
+}
+
+.enter-button:hover span{
+  transform:translateY(var(--cc-layout-enter-hover-y));
+}
+
+.enter-button:hover{
+  opacity:var(--cc-layout-enter-hover-opacity);
+}
+
+@keyframes enter-breathe{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(var(--cc-layout-enter-breathe-y));}
+  100%{transform:translateY(0);}
+}
+
+
+
+/* =============================================================================
+   05) HOME STAGE BACKGROUND VIDEO
+============================================================================= */
+.stage-video,
+#hero-video,
+#stage .stage-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:0;
+  visibility:hidden;
+  transition:
+    opacity var(--cc-layout-stage-video-motion) var(--interaction-ease-standard),
+    visibility var(--cc-layout-stage-video-motion) var(--interaction-ease-standard);
+}
+
+.stage-video video,
+#hero-video video,
+#stage video.stage-video-media,
+#stage .stage-video-media,
+#stage .hero-video-media{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  margin:0;
+  padding:0;
+}
+
+.stage-video::after,
+#hero-video::after,
+#stage .stage-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:transparent;
+}
+
+html[data-homepage-theme-cinematic-background="false"] .stage-video,
+html[data-homepage-theme-cinematic-background="false"] #hero-video,
+html[data-homepage-theme-cinematic-background="false"] #stage .stage-video{
+  opacity:0;
+  visibility:hidden;
+}
+
+html[data-homepage-theme-cinematic-background="true"] .stage-video,
+html[data-homepage-theme-cinematic-background="true"] #hero-video,
+html[data-homepage-theme-cinematic-background="true"] #stage .stage-video{
+  opacity:1;
+  visibility:visible;
+}
+
+/* =============================================================================
+   06) HOME STAGE VIDEO OVERLAY
+============================================================================= */
+.stage-video-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:var(--cc-layout-stage-video-overlay);
+  backdrop-filter:blur(var(--cc-layout-video-overlay-blur)) saturate(var(--cc-layout-video-overlay-saturate));
+  -webkit-backdrop-filter:blur(var(--cc-layout-video-overlay-blur)) saturate(var(--cc-layout-video-overlay-saturate));
+  opacity:0;
+  visibility:hidden;
+  transition:opacity var(--cc-layout-video-overlay-motion) var(--interaction-ease-standard), visibility var(--cc-layout-video-overlay-motion) var(--interaction-ease-standard);
+}
+
+html[data-homepage-theme-cinematic-background="false"] .stage-video-overlay{
+  opacity:0;
+  visibility:hidden;
+}
+
+html[data-homepage-theme-cinematic-background="true"] .stage-video-overlay{
+  opacity:1;
+  visibility:visible;
+}
+
+html[data-homepage-theme-cinematic-background="true"] body.home-page.intro-loading .stage-video-overlay{
+  opacity:1;
+  visibility:visible;
+}
+
+html[data-homepage-theme-cinematic-background="true"] body.home-page.intro-reveal .stage-video-overlay{
+  opacity:var(--cc-layout-video-overlay-reveal-opacity);
+  visibility:visible;
+}
+
+html[data-homepage-theme-cinematic-background="true"] body.home-page.site-entered.hero-lock-released .stage-video-overlay{
+  opacity:1;
+  visibility:visible;
+}
+
+/* =============================================================================
+   07) HOME LANDING STACK
+============================================================================= */
+#stage{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:clip;
+  z-index:auto;
+  height:100vh;
+  height:100svh;
+  min-height:100vh;
+  min-height:100svh;
+  box-sizing:border-box;
+  background:transparent;
+  color:var(--cc-layout-stage-color);
+}
+
+@supports (height:100dvh){
+  #stage{
+    min-height:100dvh;
+    height:100dvh;
+  }
+}
+
+#stage .stage-container{
+  position:relative;
+  z-index:40;
+  width:100%;
+  max-width:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  margin:0 auto;
+  padding:0;
+  min-height:100%;
+}
+
+#stage .logo-container .site-logo{
+  position:relative;
+  z-index:4;
+  display:block;
+  width:min(var(--cc-layout-logo-width), 72vw);
+  height:auto;
+  margin:0 auto var(--cc-layout-logo-margin-bottom) auto;
+  pointer-events:auto;
+  will-change:transform, opacity;
+  transition:opacity var(--cc-layout-logo-transition-opacity) var(--interaction-ease-standard), transform var(--cc-layout-logo-transition-transform) var(--interaction-ease-standard);
+  transition-delay:0ms;
+}
+
+#stage #announcement{
+  width:100%;
+  max-width:90%;
+  margin:var(--cc-layout-stage-copy-margin-top) auto 0 auto;
+  text-align:center;
+}
+
+#stage .enter-button,
+#stage #enter-button{
+  display:inline-flex;
+  width:fit-content;
+  margin:0 auto;
+  align-self:center;
+  justify-content:center;
+  text-align:center;
+  pointer-events:auto;
+}
+
+
+/* =============================================================================
+   08) HOME STAGE REGION LAYOUT
+============================================================================= */
+#stage-intro{
+  position:relative;
+  z-index:40;
+  width:100%;
+  display:grid;
+  align-items:center;
+  justify-items:center;
+  text-align:center;
+  opacity:1;
+  transform:translateY(0);
+  max-height:var(--cc-layout-stage-intro-max-height);
+  overflow:visible;
+  transition:
+    opacity var(--cc-layout-stage-intro-opacity-duration) var(--interaction-ease-standard),
+    transform var(--cc-layout-stage-intro-transform-duration) var(--interaction-ease-standard),
+    max-height var(--cc-layout-stage-intro-transform-duration) var(--interaction-ease-standard);
+}
+
+
+
+
+/* =============================================================================
+   09) HOME HERO ENTERED STATE
+============================================================================= */
+html[data-homepage-theme-cinematic-background="false"] body.home-page.site-entered.hero-lock-released .stage-video,
+html[data-homepage-theme-cinematic-background="false"] body.home-page.site-entered.hero-lock-released #hero-video,
+html[data-homepage-theme-cinematic-background="false"] body.home-page.site-entered.hero-lock-released #stage .stage-video,
+html[data-homepage-theme-cinematic-background="false"] body.home-page.site-entered.hero-lock-released .stage-video-overlay{
+  opacity:0;
+  visibility:hidden;
+}
+html[data-homepage-theme-cinematic-background="true"] body.home-page.site-entered.hero-lock-released .stage-video,
+html[data-homepage-theme-cinematic-background="true"] body.home-page.site-entered.hero-lock-released #hero-video,
+html[data-homepage-theme-cinematic-background="true"] body.home-page.site-entered.hero-lock-released #stage .stage-video{
+  opacity:1;
+  visibility:visible;
+}
+/* =============================================================================
+   10) HOME HERO MOBILE / TABLET REFINEMENTS
+============================================================================= */
+@media (max-width:820px){
+  :root{
+  }
+
+  #stage .stage-container{
+    max-width:none;
+    padding:0;
+  }
+
+
+  #stage .logo-container .site-logo{
+    width:min(var(--cc-layout-logo-width-mobile), 68vw);
+  }
+
+  #announcement{
+    font-size:var(--cc-layout-announcement-mobile-size);
+    line-height:var(--cc-layout-announcement-mobile-line-height);
+  }
+
+  #announcement.secondary{
+    font-size:var(--cc-layout-announcement-secondary-mobile-size);
+    letter-spacing:var(--cc-layout-announcement-secondary-mobile-tracking);
+  }
+
+  .enter-button{
+    width:var(--cc-layout-enter-mobile-width);
+    height:var(--cc-layout-enter-mobile-height);
+    min-width:var(--cc-layout-enter-mobile-width);
+    min-height:var(--cc-layout-enter-mobile-height);
+    padding:var(--cc-layout-enter-mobile-padding-y) var(--cc-layout-enter-mobile-padding-x);
+    font-size:var(--cc-layout-enter-mobile-size);
+  }
+}
+
+@media (max-width:820px){
+  .stage-video,
+  #hero-video,
+  #stage .stage-video{
+    inset:0;
+    width:100vw;
+    height:100svh;
+  }
+
+  @supports (height:100dvh){
+    .stage-video,
+    #hero-video,
+    #stage .stage-video{
+      height:100dvh;
+    }
+  }
+
+  .stage-video video,
+  #hero-video video,
+  #stage video.stage-video-media,
+  #stage .stage-video-media,
+  #stage .hero-video-media{
+    height:100svh;
+    object-fit:cover;
+    object-position:center center;
+  }
+
+  @supports (height:100dvh){
+    .stage-video video,
+    #hero-video video,
+    #stage video.stage-video-media,
+    #stage .stage-video-media,
+    #stage .hero-video-media{
+      height:100dvh;
+    }
+  }
+}
+
+/* =============================================================================
+   11) HOME HERO PAINT CONTAINMENT
+============================================================================= */
+.stage-video,
+#hero-video,
+.stage-video-overlay{
+  contain:paint;
+}
+
+#stage,
+#stage-intro{
+  position:relative;
+}
+
+#stage > :not(.home-hero-matte):not(.stage-video):not(.stage-video-overlay):not(.home-hero-shader):not(#home-hero-shader),
+#stage-intro{
+  position:relative;
+  z-index:40;
+}
+
+
+/* =============================================================================
+   12) HOME PRE-ENTER ISOLATION
+============================================================================= */
+body.home-page:not(.site-entered) #menu-mount,
+body.home-page:not(.site-entered) #footer-mount,
+body.home-page:not(.site-entered) footer,
+body.home-page:not(.site-entered) .site-footer,
+body.home-page:not(.site-entered) .country-overlay,
+body.home-page:not(.site-entered) .country-selector,
+body.home-page:not(.site-entered) [data-country-overlay]{
+  display:none;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+body.home-page:not(.site-entered) #site-main,
+body.home-page:not(.site-entered) main{
+  display:none;
+}
+
+/* =============================================================================
+   13) HOME INTRO LOGO ANIMATION
+============================================================================= */
+body.home-page.intro-loading{
+  overflow:hidden;
+}
+
+body.home-page.intro-loading #header-controls,
+body.home-page.intro-loading #home-dashboard-topbar-mount,
+body.home-page.intro-loading .home-shell__topbar,
+body.home-page.intro-loading .site-footer,
+body.home-page.intro-loading #home-footer-mount,
+body.home-page.intro-loading .home-shell__footer,
+body.home-page.intro-loading .footer-separator,
+body.home-page.intro-loading .home-shell__footer-separator,
+body.home-page.intro-loading #menu-overlay,
+body.home-page.intro-loading #stage-intro,
+body.home-page.intro-loading #announcement,
+body.home-page.intro-loading #enter-button,
+body.home-page.intro-loading .enter-button{
+  opacity:0;
+  pointer-events:none;
+}
+
+body.home-page.intro-loading #announcement,
+body.home-page.intro-loading #enter-button,
+body.home-page.intro-loading .enter-button{
+  transform:translateY(var(--cc-layout-intro-reveal-y));
+}
+
+body.home-page.intro-reveal #stage-intro,
+body.home-page.site-entered #stage-intro{
+  opacity:1;
+  pointer-events:auto;
+  transition:opacity var(--cc-layout-stage-intro-reveal-duration) var(--intro-ease);
+}
+
+body.home-page.intro-reveal #announcement,
+body.home-page.intro-reveal #enter-button,
+body.home-page.intro-reveal .enter-button{
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity var(--cc-layout-intro-content-opacity-duration) var(--interaction-ease-standard), transform var(--cc-layout-intro-content-transform-duration) var(--intro-ease);
+}
+
+.site-logo.intro-logo{
+  position:fixed;
+  left:50%;
+  top:50%;
+  right:auto;
+  bottom:auto;
+  display:block;
+  width:min(62vw, var(--intro-logo-max));
+  height:auto;
+  margin:0;
+  z-index:300000;
+  opacity:0;
+  transform:translate(-50%, -50%) scale(var(--cc-layout-intro-logo-scale-start));
+  transition:opacity var(--intro-pop-duration) var(--interaction-ease-standard), transform var(--intro-settle-duration) var(--intro-ease);
+  will-change:transform, opacity;
+  backface-visibility:hidden;
+}
+
+.site-logo.intro-logo.intro-pop{
+  opacity:1;
+  transform:translate(-50%, -50%) scale(1);
+}
+
+.site-logo.intro-logo.intro-settle{
+  transform:translate(-50%, -50%) scale(var(--cc-layout-intro-logo-scale-settle));
+}
+
+.site-logo.intro-logo.intro-fade{
+  opacity:0;
+  transform:translate(-50%, -50%) scale(var(--cc-layout-intro-logo-scale-fade));
+  transition:opacity var(--intro-fade-duration) var(--interaction-ease-standard), transform var(--intro-fade-duration) var(--intro-ease);
+}
+
+html[dir="rtl"] .site-logo.intro-logo,
+body[dir="rtl"] .site-logo.intro-logo{
+  left:50%;
+  right:auto;
+}
+
+.site-logo.intro-docked{
+  position:relative;
+  left:auto;
+  top:auto;
+  transform:none;
+  width:var(--cc-layout-logo-width);
+  margin:0 auto var(--cc-layout-logo-docked-margin-bottom) auto;
+  z-index:1;
+  opacity:1;
+  will-change:transform, opacity;
+  transition:opacity var(--cc-layout-logo-transition-opacity) var(--interaction-ease-standard), transform var(--cc-layout-logo-transition-transform) var(--interaction-ease-standard);
+}
+
+@media (max-width:640px){
+  .site-logo.intro-logo{
+    width:min(78vw, var(--intro-logo-mobile-max));
+  }
+
+  .site-logo.intro-docked{
+    width:var(--cc-layout-logo-width-mobile);
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  body.home-page.intro-loading{
+    overflow:auto;
+  }
+
+  .site-logo.intro-logo,
+  .site-logo.intro-logo.intro-fade,
+  body.home-page.intro-reveal #announcement,
+  body.home-page.intro-reveal #enter-button,
+  body.home-page.intro-reveal .enter-button{
+    transition:none;
+    animation:none;
+    transform:none;
+  }
+}
+
+
+/* ========================================================================== */
+/* CONTROL CENTER TOKEN REGISTRATION — EXISTING PRODUCTION VALUE */
+/* ========================================================================== */
+
+:root {
+  --cc-layout-enter-border: var(--home-layout-enter-border);
+  --cc-layout-enter-color: var(--home-layout-enter-color);
+  --cc-layout-enter-text-motion: var(--home-layout-enter-text-motion);
+  --cc-layout-enter-transition: var(--home-layout-enter-transition);
+  --cc-layout-stage-color: var(--home-layout-stage-color);
+  --cc-layout-stage-video-motion: var(--home-layout-stage-video-motion);
+  --cc-layout-stage-video-overlay: var(--home-layout-stage-video-overlay);
+}

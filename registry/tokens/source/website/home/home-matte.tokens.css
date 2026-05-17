@@ -1,0 +1,32 @@
+/* ========================================================================== */
+/* HOME-MATTE */
+/* Auto-completed canonical token definitions. */
+/* ========================================================================== */
+
+:root {
+  --home-matte-blur: 20px;
+  --home-matte-opacity-bottom: 1;
+  --home-matte-opacity-bottom-clear: 0.42;
+  --home-matte-opacity-bottom-light: 1;
+  --home-matte-opacity-bottom-soft: 0.96;
+  --home-matte-opacity-bottom-solid-softedge: 1;
+  --home-matte-opacity-low: 0.76;
+  --home-matte-opacity-low-clear: 0.20;
+  --home-matte-opacity-low-light: 0.86;
+  --home-matte-opacity-low-soft: 0.82;
+  --home-matte-opacity-low-solid-softedge: 0.992;
+  --home-matte-opacity-mid: 0.60;
+  --home-matte-opacity-mid-clear: 0.12;
+  --home-matte-opacity-mid-light: 0.70;
+  --home-matte-opacity-mid-soft: 0.68;
+  --home-matte-opacity-mid-solid-softedge: 0.97;
+  --home-matte-opacity-top: 0.64;
+  --home-matte-opacity-top-clear: 0.16;
+  --home-matte-opacity-top-light: 0.74;
+  --home-matte-opacity-top-soft: 0.62;
+  --home-matte-opacity-top-solid-softedge: 0.94;
+  --home-matte-rgb-dark: 12, 10, 8;
+  --home-matte-saturate: 1.1;
+  --home-matte-transition-duration: 0.95s;
+  --home-matte-transition-ease: var(--interaction-ease-standard);
+}

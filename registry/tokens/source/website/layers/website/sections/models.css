@@ -1,0 +1,380 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   01A) MODELS DIRECTORY TOKENS
+   02) TOOLBAR
+   03) FILTERS
+   04) CARD SYSTEM
+   05) RESPONSIVE
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+/* /website/docs/assets/css/layers/website/sections/models.css */
+
+/* =============================================================================
+   01A) MODELS DIRECTORY TOKENS
+============================================================================= */
+:root{
+  --models-toolbar-gap:var(--cc-models-toolbar-gap);
+  --models-toolbar-top-gap:var(--cc-models-toolbar-top-gap);
+  --models-sort-gap:var(--cc-models-sort-gap);
+  --models-sort-label-size:var(--cc-models-sort-label-size);
+  --models-sort-label-line-height:var(--cc-models-sort-label-line-height);
+  --models-select-min-height:var(--cc-models-select-min-height);
+  --models-select-padding-x:var(--cc-models-select-padding-x);
+  --models-select-radius:var(--cc-models-select-radius);
+  --models-filter-row-gap:var(--cc-models-filter-row-gap);
+  --models-filter-chip-min-height:var(--cc-models-filter-chip-min-height);
+  --models-filter-chip-padding-x:var(--cc-models-filter-chip-padding-x);
+  --models-filter-chip-radius:var(--cc-models-filter-chip-radius);
+  --models-motion:var(--cc-models-motion);
+  --models-filter-groups-count:var(--cc-models-filter-groups-count);
+  --models-filter-groups-gap:var(--cc-models-filter-groups-gap);
+  --models-filter-group-gap:var(--cc-models-filter-group-gap);
+  --models-filter-label-size:var(--cc-models-filter-label-size);
+  --models-filter-label-weight:var(--cc-models-filter-label-weight);
+  --models-filter-label-tracking:var(--cc-models-filter-label-tracking);
+  --models-card-column-span:var(--cc-models-card-column-span);
+  --models-card-column-span-mobile:var(--cc-models-card-column-span-mobile);
+  --models-card-identity-gap:var(--cc-models-card-identity-gap);
+  --models-avatar-size:var(--cc-models-avatar-size);
+  --models-avatar-radius:var(--cc-models-avatar-radius);
+  --models-avatar-fallback-size:var(--cc-models-avatar-fallback-size);
+  --models-avatar-fallback-weight:var(--cc-models-avatar-fallback-weight);
+  --models-avatar-fallback-tracking:var(--cc-models-avatar-fallback-tracking);
+  --models-identity-copy-gap:var(--cc-models-identity-copy-gap);
+  --models-title-row-gap:var(--cc-models-title-row-gap);
+  --models-verification-gap:var(--cc-models-verification-gap);
+  --models-verification-min-height:var(--cc-models-verification-min-height);
+  --models-verification-padding-x:var(--cc-models-verification-padding-x);
+  --models-verification-radius:var(--cc-models-verification-radius);
+  --models-verification-blue:var(--cc-models-verification-blue);
+  --models-verification-border-mix:var(--cc-models-verification-border-mix);
+  --models-verification-bg-mix:var(--cc-models-verification-bg-mix);
+  --models-verification-size:var(--cc-models-verification-size);
+  --models-verification-weight:var(--cc-models-verification-weight);
+  --models-verification-tracking:var(--cc-models-verification-tracking);
+  --models-verification-icon-size:var(--cc-models-verification-icon-size);
+  --models-handle-size:var(--cc-models-handle-size);
+  --models-handle-tracking:var(--cc-models-handle-tracking);
+  --models-meta-gap:var(--cc-models-meta-gap);
+  --models-meta-row-gap:var(--cc-models-meta-row-gap);
+  --models-meta-size:var(--cc-models-meta-size);
+  --models-meta-line-height:var(--cc-models-meta-line-height);
+  --models-meta-strong-weight:var(--cc-models-meta-strong-weight);
+  --models-actions-gap:var(--cc-models-actions-gap);
+  --models-action-min-height:var(--cc-models-action-min-height);
+  --models-action-padding-x:var(--cc-models-action-padding-x);
+  --models-action-radius:var(--cc-models-action-radius);
+}
+
+/* =============================================================================
+   02) TOOLBAR
+============================================================================= */
+.models-directory-toolbar{
+  display:grid;
+  gap:var(--models-toolbar-gap);
+}
+
+.models-directory-toolbar__top{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto;
+  gap:var(--models-toolbar-top-gap);
+  align-items:end;
+}
+
+.models-directory-sort{
+  display:grid;
+  gap:var(--models-sort-gap);
+}
+
+.models-directory-sort__label{
+  margin:var(--spacing-none);
+  color:var(--cc-secondary-color);
+  font-size:var(--models-sort-label-size);
+  line-height:var(--models-sort-label-line-height);
+}
+
+.models-directory-sort__select{
+  min-height:var(--models-select-min-height);
+  padding:var(--spacing-none) var(--models-select-padding-x);
+  border:1px solid var(--field-border);
+  border-radius:var(--models-select-radius);
+  background:var(--field-bg);
+  color:var(--cc-primary-color);
+  font:inherit;
+}
+
+/* =============================================================================
+   03) FILTERS
+============================================================================= */
+.models-directory-filter-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--models-filter-row-gap);
+}
+
+.models-directory-filter-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:var(--models-filter-chip-min-height);
+  padding:var(--spacing-none) var(--models-filter-chip-padding-x);
+  border:1px solid var(--control-border);
+  border-radius:var(--models-filter-chip-radius);
+  background:transparent;
+  color:var(--cc-secondary-color);
+  font:inherit;
+  transition:
+    color var(--models-motion) ease,
+    background-color var(--models-motion) ease,
+    border-color var(--models-motion) ease;
+}
+
+.models-directory-filter-chip:hover,
+.models-directory-filter-chip:focus-visible,
+.models-directory-filter-chip[aria-pressed="true"]{
+  color:var(--cc-primary-color);
+  background:var(--control-bg);
+  border-color:var(--control-border-strong);
+  outline:none;
+}
+
+.models-directory-filter-groups{
+  display:grid;
+  grid-template-columns:repeat(var(--models-filter-groups-count), minmax(0, 1fr));
+  gap:var(--models-filter-groups-gap);
+}
+
+.models-directory-filter-group{
+  display:grid;
+  gap:var(--models-filter-group-gap);
+}
+
+.models-directory-filter-group__label{
+  margin:var(--spacing-none);
+  color:var(--cc-secondary-color);
+  font-size:var(--models-filter-label-size);
+  font-weight:var(--models-filter-label-weight);
+  letter-spacing:var(--models-filter-label-tracking);
+  text-transform:uppercase;
+}
+
+/* =============================================================================
+   04) CARD SYSTEM
+============================================================================= */
+.models-directory-card{
+  grid-column:span var(--models-card-column-span);
+}
+
+.models-directory-card__identity{
+  display:flex;
+  align-items:flex-start;
+  gap:var(--models-card-identity-gap);
+}
+
+.models-directory-card__avatar{
+  width:var(--models-avatar-size);
+  height:var(--models-avatar-size);
+  border-radius:var(--models-filter-chip-radius);
+  overflow:hidden;
+  border:1px solid var(--control-border);
+  background:var(--control-bg-hover);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+
+.models-directory-card__avatar-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.models-directory-card__avatar-fallback{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  color:var(--cc-primary-color);
+  font-size:var(--models-avatar-fallback-size);
+  font-weight:var(--models-avatar-fallback-weight);
+  letter-spacing:var(--models-avatar-fallback-tracking);
+  text-transform:uppercase;
+}
+
+.models-directory-card__identity-copy{
+  display:grid;
+  gap:var(--models-identity-copy-gap);
+  min-width:0;
+}
+
+.models-directory-card__title-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--models-title-row-gap);
+  align-items:center;
+}
+
+.models-directory-card__verification{
+  display:inline-flex;
+  align-items:center;
+  gap:var(--models-verification-gap);
+  min-height:var(--models-verification-min-height);
+  padding:var(--spacing-none) var(--models-verification-padding-x);
+  border:1px solid color-mix(in srgb, var(--models-verification-blue) var(--models-verification-border-mix), transparent);
+  border-radius:var(--models-filter-chip-radius);
+  background:color-mix(in srgb, var(--models-verification-blue) var(--models-verification-bg-mix), transparent);
+  color:var(--models-verification-blue);
+  font-size:var(--models-verification-size);
+  font-weight:var(--models-verification-weight);
+  letter-spacing:var(--models-verification-tracking);
+  text-transform:uppercase;
+}
+
+.models-directory-card__verification-icon{
+  display:block;
+  width:var(--models-verification-icon-size);
+  height:var(--models-verification-icon-size);
+}
+
+.models-directory-card__handle{
+  margin:var(--spacing-none);
+  color:var(--cc-secondary-color);
+  font-size:var(--models-handle-size);
+  letter-spacing:var(--models-verification-tracking);
+  text-transform:uppercase;
+}
+
+.models-directory-card__meta{
+  display:grid;
+  gap:var(--models-meta-gap);
+}
+
+.models-directory-card__meta-row{
+  display:flex;
+  justify-content:space-between;
+  gap:var(--models-meta-row-gap);
+  margin:var(--spacing-none);
+  color:var(--cc-secondary-color);
+  font-size:var(--models-handle-size);
+  line-height:var(--models-meta-line-height);
+}
+
+.models-directory-card__meta-row strong{
+  color:var(--cc-primary-color);
+  font-weight:var(--models-meta-strong-weight);
+}
+
+.models-directory-card__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:var(--models-actions-gap);
+}
+
+.models-directory-card__action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:var(--models-action-min-height);
+  padding:var(--spacing-none) var(--models-action-padding-x);
+  border:1px solid var(--control-border);
+  border-radius:var(--models-filter-chip-radius);
+  background:transparent;
+  color:var(--cc-primary-color);
+  font:inherit;
+  text-decoration:none;
+  transition:
+    color var(--models-motion) ease,
+    background-color var(--models-motion) ease,
+    border-color var(--models-motion) ease;
+}
+
+.models-directory-card__action:hover,
+.models-directory-card__action:focus-visible{
+  background:var(--control-bg);
+  border-color:var(--control-border-strong);
+  outline:none;
+}
+
+.models-directory-card__action--primary{
+  background:var(--control-bg);
+}
+
+/* =============================================================================
+   05) RESPONSIVE
+============================================================================= */
+@media (max-width: 980px){
+  .models-directory-toolbar__top,
+  .models-directory-filter-groups{
+    grid-template-columns:var(--grid-column-single);
+  }
+
+  .models-directory-card{
+    grid-column:span var(--models-card-column-span-mobile);
+  }
+}
+
+
+/* ========================================================================== */
+/* CONTROL CENTER TOKEN ALIASES — PRODUCTION OWNER BOUND */
+/* ========================================================================== */
+
+:root {
+  --cc-models-action-min-height: var(--models-action-min-height);
+  --cc-models-action-padding-x: var(--models-action-padding-x);
+  --cc-models-action-radius: var(--models-action-radius);
+  --cc-models-actions-gap: var(--models-actions-gap);
+  --cc-models-avatar-fallback-size: var(--models-avatar-fallback-size);
+  --cc-models-avatar-fallback-tracking: var(--models-avatar-fallback-tracking);
+  --cc-models-avatar-fallback-weight: var(--models-avatar-fallback-weight);
+  --cc-models-avatar-radius: var(--models-avatar-radius);
+  --cc-models-avatar-size: var(--models-avatar-size);
+  --cc-models-card-column-span: var(--models-card-column-span);
+  --cc-models-card-column-span-mobile: var(--models-card-column-span-mobile);
+  --cc-models-card-identity-gap: var(--models-card-identity-gap);
+  --cc-models-filter-chip-min-height: var(--models-filter-chip-min-height);
+  --cc-models-filter-chip-padding-x: var(--models-filter-chip-padding-x);
+  --cc-models-filter-chip-radius: var(--models-filter-chip-radius);
+  --cc-models-filter-group-gap: var(--models-filter-group-gap);
+  --cc-models-filter-groups-count: var(--models-filter-groups-count);
+  --cc-models-filter-groups-gap: var(--models-filter-groups-gap);
+  --cc-models-filter-label-size: var(--models-filter-label-size);
+  --cc-models-filter-label-tracking: var(--models-filter-label-tracking);
+  --cc-models-filter-label-weight: var(--models-filter-label-weight);
+  --cc-models-filter-row-gap: var(--models-filter-row-gap);
+  --cc-models-handle-size: var(--models-handle-size);
+  --cc-models-handle-tracking: var(--models-handle-tracking);
+  --cc-models-identity-copy-gap: var(--models-identity-copy-gap);
+  --cc-models-meta-gap: var(--models-meta-gap);
+  --cc-models-meta-line-height: var(--models-meta-line-height);
+  --cc-models-meta-row-gap: var(--models-meta-row-gap);
+  --cc-models-meta-size: var(--models-meta-size);
+  --cc-models-meta-strong-weight: var(--models-meta-strong-weight);
+  --cc-models-motion: var(--models-motion);
+  --cc-models-select-min-height: var(--models-select-min-height);
+  --cc-models-select-padding-x: var(--models-select-padding-x);
+  --cc-models-select-radius: var(--models-select-radius);
+  --cc-models-sort-gap: var(--models-sort-gap);
+  --cc-models-sort-label-line-height: var(--models-sort-label-line-height);
+  --cc-models-sort-label-size: var(--models-sort-label-size);
+  --cc-models-title-row-gap: var(--models-title-row-gap);
+  --cc-models-toolbar-gap: var(--models-toolbar-gap);
+  --cc-models-toolbar-top-gap: var(--models-toolbar-top-gap);
+  --cc-models-verification-bg-mix: var(--models-verification-bg-mix);
+  --cc-models-verification-blue: var(--models-verification-blue);
+  --cc-models-verification-border-mix: var(--models-verification-border-mix);
+  --cc-models-verification-gap: var(--models-verification-gap);
+  --cc-models-verification-icon-size: var(--models-verification-icon-size);
+  --cc-models-verification-min-height: var(--models-verification-min-height);
+  --cc-models-verification-padding-x: var(--models-verification-padding-x);
+  --cc-models-verification-radius: var(--models-verification-radius);
+  --cc-models-verification-size: var(--models-verification-size);
+  --cc-models-verification-tracking: var(--models-verification-tracking);
+  --cc-models-verification-weight: var(--models-verification-weight);
+}

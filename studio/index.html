@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Neuroartan Studio</title>
+
+  <link
+    rel="stylesheet"
+    href="./ui/styles/studio.css"
+  />
+
+</head>
+
+<body>
+
+  <main class="studio-shell">
+
+    <aside class="studio-sidebar">
+
+      <div class="studio-logo">
+        Neuroartan Studio
+      </div>
+
+      <nav class="studio-navigation">
+
+        <button data-panel="tokens">
+          Tokens
+        </button>
+
+        <button data-panel="icons">
+          Icons
+        </button>
+
+        <button data-panel="components">
+          Components
+        </button>
+
+        <button data-panel="templates">
+          Templates
+        </button>
+
+      </nav>
+
+    </aside>
+
+    <section class="studio-main">
+
+      <header class="studio-toolbar">
+
+        <div data-runtime-status>
+          Initializing Runtime...
+        </div>
+
+      </header>
+
+      <section class="studio-workspace">
+
+        
+<div class="studio-panel">
+
+  <div class="studio-panel-title">
+    Token Registry
+  </div>
+
+  <div
+    class="studio-token-panel"
+    data-token-panel
+  ></div>
+
+</div>
+
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="./00-studio-all.js"></script>
+
+
+  <script
+    type="module"
+    src="./ui/scripts/token-panel.js"
+  ></script>
+
+</body>
+
+
+</html>

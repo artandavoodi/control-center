@@ -1,0 +1,52 @@
+{
+  "system": "CONTROL_CENTER",
+  "version": "1.0",
+  "active": "neuroartan-achieved",
+  "palettes": {
+    "neuroartan-achieved": {
+      "id": "CC-DSC-THEME-0001",
+      "label": "Neuroartan Achieved",
+      "description": "Canonical website palette preserving the achieved public Neuroartan visual language.",
+      "mode": "dark",
+      "tokens": {
+        "background": "var(--bg-color)",
+        "surface": "var(--surface-color)",
+        "surfaceGlass": "var(--surface-glass)",
+        "text": "var(--text-color)",
+        "mutedText": "var(--text-muted)",
+        "accent": "var(--color-primary1)",
+        "stroke": "var(--control-border-unified)",
+        "separator": "var(--border-color)"
+      },
+      "routes": {
+        "website": "/assets/css/core/00-orchestrator/core.css",
+        "controlCenter": "/control-center/dsc/themes/themes.css"
+      }
+    },
+    "neuroartan-light": {
+      "id": "CC-DSC-THEME-0002",
+      "label": "Neuroartan Light",
+      "description": "Light effective-mode mapping for the achieved website system.",
+      "mode": "light",
+      "tokens": {
+        "background": "var(--bg-color)",
+        "surface": "var(--surface-color)",
+        "surfaceGlass": "var(--surface-glass)",
+        "text": "var(--text-color)",
+        "mutedText": "var(--text-muted)",
+        "accent": "var(--color-primary1)",
+        "stroke": "var(--control-border-unified)",
+        "separator": "var(--border-color)"
+      },
+      "routes": {
+        "website": "/assets/css/core/00-orchestrator/core.css",
+        "controlCenter": "/control-center/dsc/themes/themes.css"
+      }
+    }
+  },
+  "themes": {
+    "default": "neuroartan-achieved",
+    "dark": "neuroartan-achieved",
+    "light": "neuroartan-light"
+  }
+}

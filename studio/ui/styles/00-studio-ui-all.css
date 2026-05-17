@@ -1,0 +1,10 @@
+/* ==========================================================================
+   STUDIO UI ORCHESTRATOR
+   ========================================================================== */
+
+@import "./studio.css";
+@import "./fragments/studio-shell.css";
+@import "./fragments/studio-sidebar.css";
+@import "./fragments/studio-toolbar.css";
+@import "./fragments/studio-canvas.css";
+@import "./fragments/studio-inspector.css";

@@ -63,9 +63,5 @@ for (const file of files) {
 }
 
 console.log(
-  "\n[Canonical Website Tokens Loaded]\n"
-);
-
-console.table(
-  tokenRegistry.inspect()
+  `\n[Canonical Website Tokens Loaded] ${tokenRegistry.inspect().totalTokens} tokens\n`
 );
