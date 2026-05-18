@@ -1,0 +1,395 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) MODULE IDENTITY
+   02) ROOT TOKENS
+   03) SURFACE ROOT
+   04) PANEL
+   05) HEADER
+   06) BACK CONTROL
+   07) TOOLBAR
+   08) SEARCH FIELD
+   09) REGIONS MOUNT
+   09A) COUNTRY ITEM
+   10) HIDDEN STATUS CARRIER
+   11) REDUCED MOTION
+   12) RESPONSIVE — 768PX
+============================================================================= */
+
+/* =============================================================================
+   01) MODULE IDENTITY
+============================================================================= */
+
+/* =============================================================================
+   02) ROOT TOKENS
+============================================================================= */
+:root{
+  --cookie-language-overlay-surface:var(--panel-surface-unified);
+  --cookie-language-overlay-border:var(--panel-border-unified);
+  --cookie-language-overlay-shadow:var(--panel-shadow-unified);
+  --cookie-language-overlay-width:var(--layout-cookie-language-overlay-width);
+  --cookie-language-overlay-max-height:var(--layout-cookie-language-overlay-max-height);
+  --cookie-language-overlay-min-height:var(--layout-cookie-language-overlay-min-height);
+  --cookie-language-overlay-radius:var(--dialog-radius-unified);
+  --cookie-language-overlay-divider:var(--panel-border-unified);
+  --cookie-language-overlay-muted: color-mix(in srgb, var(--text-primary-color) 58%, transparent);
+  --cookie-language-overlay-soft: color-mix(in srgb, var(--text-primary-color) 3%, transparent);
+  --cookie-language-overlay-soft-strong: color-mix(in srgb, var(--text-primary-color) 6%, transparent);
+  --cookie-language-overlay-sticky-toolbar-surface: transparent;
+  --cookie-language-overlay-sticky-toolbar-divider:var(--panel-border-unified);
+  --cookie-language-overlay-toolbar-padding-top:var(--layout-cookie-language-overlay-toolbar-padding-top);
+  --cookie-language-overlay-toolbar-padding-bottom: var(--cookie-language-overlay-search-to-list-gap);
+  --cookie-language-overlay-toolbar-gap:var(--layout-cookie-language-overlay-toolbar-gap);
+  --cookie-language-overlay-search-to-list-gap:var(--layout-cookie-language-overlay-search-to-list-gap);
+  --cookie-language-overlay-list-padding-top:var(--layout-cookie-language-overlay-list-padding-top);
+  --cookie-language-overlay-list-padding-bottom:var(--layout-cookie-language-overlay-list-padding-bottom);
+  --cookie-language-overlay-search-border:var(--control-border-unified);
+  --cookie-language-overlay-status-surface: color-mix(in srgb, var(--text-primary-color) 3%, transparent);
+  --cookie-language-overlay-country-surface: color-mix(in srgb, var(--text-primary-color) 2%, transparent);
+  --cookie-language-overlay-country-border:var(--control-border-unified);
+  --cookie-language-overlay-country-hover:var(--control-surface-hover);
+  --cookie-language-overlay-country-hover-border:var(--control-border-hover-unified);
+  --cookie-language-overlay-country-selected:var(--control-surface-hover);
+  --cookie-language-overlay-country-selected-border:var(--control-border-hover-unified);
+  --cookie-language-overlay-country-selected-shadow:none;
+  --cookie-language-overlay-country-copy: color-mix(in srgb, var(--text-primary-color) 68%, transparent);
+  --cookie-language-overlay-country-code: color-mix(in srgb, var(--text-primary-color) 54%, transparent);
+  --cookie-language-overlay-back-icon-size:var(--layout-cookie-language-overlay-back-icon-size);
+  --cookie-language-overlay-back-icon-filter: var(--icon-image-filter, none);
+  --cookie-language-overlay-motion-fast:var(--interaction-motion-fast);
+}
+
+html[data-theme-effective="light"]{
+  --cookie-language-overlay-surface:var(--panel-surface-unified);
+}
+
+html[data-theme-effective="dark"]{
+  --cookie-language-overlay-surface:var(--panel-surface-unified);
+  --cookie-language-overlay-border:var(--panel-border-unified);
+  --cookie-language-overlay-shadow:var(--panel-shadow-unified);
+  --cookie-language-overlay-divider:color-mix(in srgb, var(--text-primary-color) 8%, transparent);
+  --cookie-language-overlay-muted:color-mix(in srgb, var(--text-primary-color) 68%, transparent);
+  --cookie-language-overlay-soft:color-mix(in srgb, var(--text-primary-color) 3%, transparent);
+  --cookie-language-overlay-soft-strong:color-mix(in srgb, var(--text-primary-color) 5%, transparent);
+  --cookie-language-overlay-sticky-toolbar-surface:transparent;
+  --cookie-language-overlay-sticky-toolbar-divider:var(--panel-border-unified);
+  --cookie-language-overlay-search-border:var(--control-border-unified);
+  --cookie-language-overlay-status-surface:color-mix(in srgb, var(--text-primary-color) 3%, transparent);
+  --cookie-language-overlay-country-surface:color-mix(in srgb, var(--text-primary-color) 2.2%, transparent);
+  --cookie-language-overlay-country-border:var(--control-border-unified);
+  --cookie-language-overlay-country-hover:var(--control-surface-hover);
+  --cookie-language-overlay-country-hover-border:var(--control-border-hover-unified);
+  --cookie-language-overlay-country-selected:var(--control-surface-hover);
+  --cookie-language-overlay-country-selected-border:var(--control-border-hover-unified);
+  --cookie-language-overlay-country-selected-shadow:none;
+  --cookie-language-overlay-country-copy:color-mix(in srgb, var(--text-primary-color) 72%, transparent);
+  --cookie-language-overlay-country-code:color-mix(in srgb, var(--text-primary-color) 56%, transparent);
+  --cookie-language-overlay-back-icon-filter:var(--icon-image-filter, none);
+}
+
+/* =============================================================================
+   03) SURFACE ROOT
+============================================================================= */
+.cookie-language-overlay{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  min-height: var(--spacing-none);
+  height: auto;
+  margin: var(--spacing-none);
+  padding: var(--spacing-none);
+  overflow: hidden;
+  background: transparent;
+  opacity: var(--overlay-opacity-open);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+/* =============================================================================
+   04) PANEL
+============================================================================= */
+.cookie-language-overlay-inner{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  min-height: var(--spacing-none);
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: var(--spacing-none);
+  padding: var(--spacing-none);
+  overflow: hidden;
+  border: var(--spacing-none);
+  border-radius: var(--radius-none);
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  transition: none;
+}
+
+
+/* =============================================================================
+   07) TOOLBAR
+============================================================================= */
+.cookie-language-overlay-toolbar{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  gap: var(--cookie-language-overlay-toolbar-gap);
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  min-height: var(--spacing-none);
+  margin: var(--spacing-none);
+  padding-top: var(--cookie-language-overlay-toolbar-padding-top);
+  padding-right: var(--spacing-none);
+  padding-bottom: var(--cookie-language-overlay-toolbar-padding-bottom);
+  padding-left: var(--spacing-none);
+  overflow: visible;
+  background: transparent;
+}
+
+
+/* =============================================================================
+   08) SEARCH FIELD
+============================================================================= */
+.cookie-language-overlay-search-shell{
+  display: flex;
+  align-items: stretch;
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  margin: var(--spacing-none);
+  padding-left: var(--spacing-none);
+  padding-right: var(--spacing-none);
+}
+
+.cookie-language-overlay-search{
+  width: var(--size-full);
+  min-height: var(--layout-cookie-language-overlay-search-min-height);
+  padding: var(--layout-cookie-language-overlay-search-padding-y) var(--layout-cookie-language-overlay-search-padding-x);
+  border: var(--border-width-hairline) solid var(--cookie-language-overlay-search-border);
+  border-radius: var(--layout-cookie-language-overlay-search-radius);
+  background: var(--cookie-language-overlay-soft);
+  color: var(--text-primary-color);
+  font-size: var(--layout-cookie-language-overlay-search-size);
+  font-weight: var(--layout-cookie-language-overlay-search-weight);
+  letter-spacing: var(--layout-cookie-language-overlay-search-tracking);
+  line-height: var(--layout-cookie-language-overlay-search-line-height);
+  transition:var(--interaction-transition-control);
+}
+
+.cookie-language-overlay-search::placeholder{
+  color: var(--cookie-language-overlay-muted);
+}
+
+.cookie-language-overlay-search:focus-visible{
+  outline: none;
+}
+
+.cookie-language-overlay-search:hover{
+  background: var(--cookie-language-overlay-soft-strong);
+}
+
+.cookie-language-overlay-search:focus-visible{
+  border-color: var(--cookie-language-overlay-country-selected-border);
+  background: var(--cookie-language-overlay-soft-strong);
+}
+
+/* =============================================================================
+   09) REGIONS MOUNT
+============================================================================= */
+.cookie-language-overlay-regions{
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: flex-start;
+  gap: var(--layout-cookie-language-overlay-regions-gap);
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  min-height: var(--spacing-none);
+  height: auto;
+  margin: var(--spacing-none);
+  padding-top: var(--cookie-language-overlay-list-padding-top);
+  padding-right: var(--spacing-none);
+  padding-bottom: var(--cookie-language-overlay-list-padding-bottom);
+  padding-left: var(--spacing-none);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-gutter: auto;
+  scrollbar-width: none;
+  border-bottom: var(--spacing-none);
+}
+
+.cookie-language-overlay-regions::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+
+.cookie-language-overlay-regions > *{
+  flex: 0 0 auto;
+}
+
+.cookie-language-overlay-section{
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-cookie-language-overlay-section-gap);
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  margin: var(--spacing-none);
+  padding-left: var(--spacing-none);
+  padding-right: var(--spacing-none);
+}
+
+.cookie-language-overlay-group{
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-cookie-language-overlay-group-gap);
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  min-height: var(--spacing-none);
+  margin: var(--spacing-none);
+  padding: var(--spacing-none);
+}
+
+/* =============================================================================
+   09A) COUNTRY ITEM
+============================================================================= */
+.cookie-language-overlay-country{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--layout-cookie-language-overlay-country-gap);
+  width: var(--size-full);
+  min-width: var(--spacing-none);
+  align-self: stretch;
+  flex: 0 0 auto;
+  margin: var(--spacing-none);
+  padding: var(--layout-cookie-language-overlay-country-padding-y) var(--layout-cookie-language-overlay-country-padding-x);
+  border: var(--border-width-hairline) solid var(--cookie-language-overlay-country-border);
+  border-radius: var(--layout-cookie-language-overlay-country-radius);
+  background: var(--cookie-language-overlay-country-surface);
+  color: var(--text-primary-color);
+  text-align: left;
+  box-sizing: border-box;
+  transition:var(--interaction-transition-control);
+}
+
+.cookie-language-overlay-country-copy{
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--layout-cookie-language-overlay-country-copy-gap);
+  min-width: var(--spacing-none);
+}
+
+.cookie-language-overlay-country-copy strong{
+  color: inherit;
+  font-size: var(--layout-cookie-language-overlay-country-title-size);
+  font-weight: var(--layout-cookie-language-overlay-country-title-weight);
+  letter-spacing: var(--layout-cookie-language-overlay-country-title-tracking);
+  line-height: var(--layout-cookie-language-overlay-country-title-line-height);
+  min-width: var(--spacing-none);
+}
+
+.cookie-language-overlay-country-copy span{
+  color: var(--cookie-language-overlay-country-copy);
+  font-size: var(--layout-cookie-language-overlay-country-subtitle-size);
+  font-weight: var(--layout-cookie-language-overlay-country-subtitle-weight);
+  letter-spacing: var(--layout-cookie-language-overlay-country-subtitle-tracking);
+  line-height: var(--layout-cookie-language-overlay-country-subtitle-line-height);
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cookie-language-overlay-country-code{
+  display: none;
+}
+
+.cookie-language-overlay-country:hover,
+.cookie-language-overlay-country:focus-visible,
+.cookie-language-overlay-country:active{
+  background:var(--cookie-language-overlay-country-hover);
+  border-color:var(--cookie-language-overlay-country-hover-border);
+  outline:none;
+}
+
+.cookie-language-overlay-country.is-selected{
+  background:var(--cookie-language-overlay-country-selected);
+  border-color:var(--cookie-language-overlay-country-selected-border);
+  box-shadow:var(--cookie-language-overlay-country-selected-shadow);
+}
+
+
+/* =============================================================================
+   10) HIDDEN STATUS CARRIER
+============================================================================= */
+.cookie-consent-language-status[hidden]{
+  display: none !important;
+}
+
+/* =============================================================================
+   11) REDUCED MOTION
+============================================================================= */
+@media (prefers-reduced-motion: reduce){
+  .cookie-language-overlay,
+  .cookie-language-overlay-inner{
+    transition: none !important;
+  }
+}
+
+/* =============================================================================
+   12) RESPONSIVE — 768PX
+============================================================================= */
+@media (max-width:768px){
+  :root{
+    --cookie-language-overlay-min-height:var(--layout-cookie-language-overlay-min-height);
+    --cookie-language-overlay-max-height:var(--layout-cookie-language-overlay-max-height-mobile);
+  }
+
+  .cookie-language-overlay-inner{
+    flex: 1 1 auto;
+    min-height: var(--spacing-none);
+    height: auto;
+    padding: var(--spacing-none);
+    border-radius: var(--radius-none);
+  }
+
+  .cookie-language-overlay-regions{
+    min-height: var(--layout-cookie-language-overlay-region-min-height-mobile);
+    padding-top: var(--cookie-language-overlay-list-padding-top);
+    padding-bottom: var(--spacing-none);
+  }
+
+  .cookie-language-overlay-toolbar{
+    padding-top: calc(var(--cookie-language-overlay-toolbar-padding-top) - var(--layout-cookie-language-overlay-toolbar-mobile-offset));
+    padding-bottom: var(--cookie-language-overlay-toolbar-padding-bottom);
+  }
+
+
+  .cookie-language-overlay-country{
+    align-items: center;
+  }
+
+  .cookie-language-overlay-country-copy{
+    gap: var(--layout-cookie-language-overlay-country-copy-gap-mobile);
+  }
+
+  .cookie-language-overlay-country-copy strong{
+    font-size: var(--layout-cookie-language-overlay-country-title-size-mobile);
+  }
+
+  .cookie-language-overlay-country-copy span{
+    font-size: var(--layout-cookie-language-overlay-country-subtitle-size-mobile);
+  }
+}
