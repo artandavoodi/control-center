@@ -5,6 +5,8 @@
   --profile-header-verified-color:var(--color-primary1);
   --profile-header-verified-border:color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent);
   --profile-header-verified-bg:color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent);
+  --profile-header-avatar-placeholder-icon-size:var(--profile-private-hero-media-action-size);
+  --profile-header-avatar-bg:var(--bg-color);
 }
 
 /* =============================================================================
@@ -99,6 +101,8 @@
   color:inherit;
 }
 
+
+
 .profile-header__creator-line,
 .profile-header__meta-item{
   font-size:var(--body-3-size);
@@ -187,33 +191,29 @@
 
 .profile-header__avatar-shell{
   position:relative;
-  width:min-content;
+  z-index:999;
 }
 
 .profile-header__avatar-surface{
   width:7rem;
   height:7rem;
   border-radius:var(--control-radius-pill);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:block;
+  position:relative;
   overflow:hidden;
+  background:transparent;
+  isolation:isolate;
+  z-index:999;
 }
 
 .profile-header__avatar-image{
   width:100%;
   height:100%;
-  object-fit:cover;
   display:block;
+  object-fit:cover;
+  object-position:center center;
 }
 
-.profile-header__avatar-placeholder{
-  font-size:var(--headline-4-size);
-  font-weight:var(--headline-4-weight);
-  line-height:1;
-  letter-spacing:var(--headline-4-tracking);
-  color:var(--text-color);
-}
 
 .profile-header__avatar-action{
   position:absolute;
@@ -307,6 +307,9 @@
   .profile-header__avatar-surface{
     width:5.5rem;
     height:5.5rem;
+      z-index:10;
+    background:transparent;
+    position:relative;
   }
 
   .profile-header__metrics{

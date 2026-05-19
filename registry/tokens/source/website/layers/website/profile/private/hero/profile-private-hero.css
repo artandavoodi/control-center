@@ -20,22 +20,29 @@
 ============================================================================= */
 :root{
   --profile-private-hero-cover-height:13.5rem;
+  --profile-private-hero-cover-height-mobile:10.5rem;
   --profile-private-hero-cover-radius:1.4rem;
   --profile-private-hero-cover-offset-top:var(--spacing-md);
   --profile-private-hero-avatar-size:7.25rem;
   --profile-private-hero-avatar-border-width:4px;
   --profile-private-hero-media-action-size:2.15rem;
+  --profile-private-hero-avatar-scale-active:0.82;
+  --profile-private-hero-media-action-opacity:1;
+  --profile-private-hero-media-action-opacity-hidden:0;
   --profile-private-hero-scroll-overlay-opacity:0;
   --profile-private-hero-scroll-overlay-opacity-active:0.58;
   --profile-private-hero-cover-blur-active:var(--effect-blur-md);
   --profile-private-hero-surface-layer-bg:var(--bg-color);
-  --profile-private-hero-surface-layer-opacity:0;
+  --profile-private-hero-surface-layer-opacity:1;
   --profile-private-hero-surface-layer-opacity-active:1;
   --profile-private-hero-surface-layer-border:var(--border-width-hairline) solid var(--border-color);
   --profile-private-hero-cover-bg:color-mix(in srgb, var(--text-primary-color) 5%, transparent);
+  --profile-private-hero-cover-default-image:url('/assets/images/layers/website/sections/home/hero/Salim%20Sky.jpg');
   --profile-private-hero-cover-border:color-mix(in srgb, var(--text-primary-color) 8%, transparent);
-  --profile-private-hero-avatar-bg:var(--surface-secondary);
+  --profile-private-hero-avatar-bg:var(--bg-color);
   --profile-private-hero-avatar-border:var(--bg-color);
+  --profile-private-hero-avatar-placeholder-icon-size:var(--profile-private-hero-media-action-size);
+  --profile-private-hero-avatar-placeholder-icon-opacity:var(--state-opacity-muted);
   --profile-private-hero-control-bg:color-mix(in srgb, var(--bg-color) 88%, transparent);
   --profile-private-hero-control-border:color-mix(in srgb, var(--text-primary-color) 10%, transparent);
   --profile-private-hero-motion-fast:var(--interaction-motion-medium);
@@ -49,6 +56,8 @@
   --profile-private-hero-media-action-hover-opacity:1;
   --profile-private-hero-tab-indicator-opacity:0;
   --profile-private-hero-tab-indicator-opacity-active:var(--selected-indicator-opacity);
+  --profile-private-hero-tab-indicator-bottom:calc((var(--products-local-nav-height, 3.55rem) - 100%) / -2);
+  --profile-private-hero-tab-indicator-height:var(--border-width-hairline);
   --profile-private-hero-tab-color:var(--nav-local-color);
   --profile-private-hero-tab-hover-color:var(--local-nav-hover-text-color);
   --profile-private-hero-tab-active-underline-bg:var(--local-nav-active-indicator-color);
@@ -87,6 +96,8 @@
   background:var(--profile-private-hero-surface-layer-bg);
   opacity:var(--profile-private-hero-surface-layer-opacity);
   pointer-events:none;
+  backdrop-filter:blur(var(--effect-blur-sm)) saturate(120%);
+  -webkit-backdrop-filter:blur(var(--effect-blur-sm)) saturate(120%);
   transition:opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease);
 }
 
@@ -105,6 +116,9 @@
   border:1px solid var(--profile-private-hero-cover-border);
   border-radius:var(--profile-private-hero-cover-radius);
   background:var(--profile-private-hero-cover-bg);
+  background-image:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-color) 16%, transparent), color-mix(in srgb, var(--bg-color) 46%, transparent)),
+    var(--profile-private-hero-cover-default-image);
   background-size:cover;
   background-position:center;
   overflow:hidden;
@@ -155,7 +169,7 @@
   padding-inline:var(--spacing-md);
   margin-top:calc((var(--profile-private-hero-avatar-size) / -2) - var(--spacing-sm));
   position:relative;
-  z-index:1;
+  z-index:4;
 }
 
 /* =============================================================================
@@ -163,26 +177,31 @@
 ============================================================================= */
 .profile-private-hero__avatar-wrap{
   position:relative;
+  z-index:5;
   width:var(--profile-private-hero-avatar-size);
   height:var(--profile-private-hero-avatar-size);
   flex:0 0 auto;
+  transform-origin:left top;
+  transition:transform var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease);
+  overflow:visible;
 }
 
 .profile-private-hero__avatar{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  position:relative;
+  display:grid;
+  place-items:center;
   width:100%;
   height:100%;
   border-radius:var(--control-radius-pill);
-  border:var(--profile-private-hero-avatar-border-width) solid var(--profile-private-hero-avatar-border);
-  background:var(--profile-private-hero-avatar-bg);
   color:var(--text-primary-color);
-  overflow:hidden;
+  overflow:visible;
   box-sizing:border-box;
+  line-height:var(--line-height-ui);
+  isolation:isolate;
 }
 
 .profile-private-hero__avatar-initials{
+  display:none;
   font-size:var(--profile-private-hero-avatar-initials-size);
   font-weight:var(--profile-private-hero-avatar-initials-weight);
   line-height:var(--profile-private-hero-avatar-initials-line-height);
@@ -190,9 +209,13 @@
 }
 
 .profile-private-hero__avatar-image{
+  position:relative;
+  z-index:1;
   display:block;
   width:100%;
   height:100%;
+  object-fit:cover;
+  opacity:1;
   object-fit:cover;
   object-position:center;
 }
@@ -200,7 +223,7 @@
 .profile-private-hero__media-action{
   appearance:none;
   -webkit-appearance:none;
-  display:inline-flex;
+  display:flex;
   align-items:center;
   justify-content:center;
   width:var(--profile-private-hero-media-action-size);
@@ -210,9 +233,15 @@
   border-radius:var(--control-radius-pill);
   background:var(--profile-private-hero-control-bg);
   color:var(--text-primary-color);
+  cursor:pointer;
+  opacity:var(--profile-private-hero-media-action-opacity);
   backdrop-filter:blur(var(--effect-blur-sm)) saturate(120%);
   -webkit-backdrop-filter:blur(var(--effect-blur-sm)) saturate(120%);
-  transition:var(--interaction-transition-control);
+  transition:
+    opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease),
+    color var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease),
+    border-color var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease),
+    background-color var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease);
 }
 
 .profile-private-hero__media-action img{
@@ -238,7 +267,16 @@
   position:absolute;
   right:0;
   bottom:0;
-  z-index:2;
+  z-index:10;
+}
+
+.profile-private-hero[data-profile-hero-stuck="true"] .profile-private-hero__avatar-wrap{
+  transform:scale(var(--profile-private-hero-avatar-scale-active));
+}
+
+.profile-private-hero[data-profile-hero-stuck="true"] .profile-private-hero__media-action{
+  opacity:var(--profile-private-hero-media-action-opacity-hidden);
+  pointer-events:none;
 }
 
 /* =============================================================================
@@ -372,8 +410,8 @@
   position:absolute;
   left:0;
   right:0;
-  bottom:calc((3.55rem - 100%) / -2);
-  height:0.35px;
+  bottom:var(--profile-private-hero-tab-indicator-bottom);
+  height:var(--profile-private-hero-tab-indicator-height);
   background:var(--profile-private-hero-tab-active-underline-bg);
   opacity:var(--profile-private-hero-tab-indicator-opacity);
   pointer-events:none;
@@ -412,7 +450,7 @@
 
 @media (max-width:720px){
   :root{
-    --profile-private-hero-cover-height:10.5rem;
+    --profile-private-hero-cover-height:var(--profile-private-hero-cover-height-mobile);
     --profile-private-hero-avatar-size:6rem;
   }
 
