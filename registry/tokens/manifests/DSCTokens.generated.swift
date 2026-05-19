@@ -5234,6 +5234,11 @@ enum DSCTokens {
     "nav-institutional-panel-closing-y": "-0.95rem",
     "nav-institutional-panel-closing-scale": "0.988",
     "nav-institutional-panel-closing-opacity": "0.001",
+    "nav-institutional-panel-content-y": "0.36rem",
+    "nav-institutional-panel-content-motion": "420ms",
+    "nav-institutional-panel-content-exit-motion": "180ms",
+    "nav-institutional-panel-content-delay": "70ms",
+    "nav-institutional-panel-content-stagger": "34ms",
     "nav-institutional-panel-padding-y": "5.15rem",
     "nav-institutional-panel-padding-x-fallback": "3.2rem",
     "nav-institutional-panel-padding-bottom": "3.9rem",
@@ -7490,6 +7495,11 @@ enum DSCTokens {
     "institutional-menu-panel-closing-y": "var(--nav-institutional-panel-closing-y)",
     "institutional-menu-panel-closing-scale": "var(--nav-institutional-panel-closing-scale)",
     "institutional-menu-panel-closing-opacity": "var(--nav-institutional-panel-closing-opacity)",
+    "institutional-menu-panel-content-y": "var(--nav-institutional-panel-content-y)",
+    "institutional-menu-panel-content-motion": "var(--nav-institutional-panel-content-motion)",
+    "institutional-menu-panel-content-exit-motion": "var(--nav-institutional-panel-content-exit-motion)",
+    "institutional-menu-panel-content-delay": "var(--nav-institutional-panel-content-delay)",
+    "institutional-menu-panel-content-stagger": "var(--nav-institutional-panel-content-stagger)",
     "institutional-menu-panel-padding-y": "var(--nav-institutional-panel-padding-y)",
     "institutional-menu-panel-padding-x-fallback": "var(--nav-institutional-panel-padding-x-fallback)",
     "institutional-menu-panel-padding-bottom": "var(--nav-institutional-panel-padding-bottom)",
@@ -14121,6 +14131,11 @@ enum DSCTokens {
   static let nav_institutional_panel_closing_y = "-0.95rem"
   static let nav_institutional_panel_closing_scale = "0.988"
   static let nav_institutional_panel_closing_opacity = "0.001"
+  static let nav_institutional_panel_content_y = "0.36rem"
+  static let nav_institutional_panel_content_motion = "420ms"
+  static let nav_institutional_panel_content_exit_motion = "180ms"
+  static let nav_institutional_panel_content_delay = "70ms"
+  static let nav_institutional_panel_content_stagger = "34ms"
   static let nav_institutional_panel_padding_y = "5.15rem"
   static let nav_institutional_panel_padding_x_fallback = "3.2rem"
   static let nav_institutional_panel_padding_bottom = "3.9rem"
@@ -16377,6 +16392,11 @@ enum DSCTokens {
   static let institutional_menu_panel_closing_y = "var(--nav-institutional-panel-closing-y)"
   static let institutional_menu_panel_closing_scale = "var(--nav-institutional-panel-closing-scale)"
   static let institutional_menu_panel_closing_opacity = "var(--nav-institutional-panel-closing-opacity)"
+  static let institutional_menu_panel_content_y = "var(--nav-institutional-panel-content-y)"
+  static let institutional_menu_panel_content_motion = "var(--nav-institutional-panel-content-motion)"
+  static let institutional_menu_panel_content_exit_motion = "var(--nav-institutional-panel-content-exit-motion)"
+  static let institutional_menu_panel_content_delay = "var(--nav-institutional-panel-content-delay)"
+  static let institutional_menu_panel_content_stagger = "var(--nav-institutional-panel-content-stagger)"
   static let institutional_menu_panel_padding_y = "var(--nav-institutional-panel-padding-y)"
   static let institutional_menu_panel_padding_x_fallback = "var(--nav-institutional-panel-padding-x-fallback)"
   static let institutional_menu_panel_padding_bottom = "var(--nav-institutional-panel-padding-bottom)"
