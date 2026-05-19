@@ -85,6 +85,7 @@ enum DSCIconRegistry {
   static let core_actions_help_help = "core/actions/help/help"
   static let core_actions_import_import = "core/actions/import/import"
   static let core_actions_info_info = "core/actions/info/info"
+  static let core_actions_interact_interact = "core/actions/interact/interact"
   static let core_actions_launch_launch = "core/actions/launch/launch"
   static let core_actions_like_like = "core/actions/like/like"
   static let core_actions_link_link = "core/actions/link/link"

@@ -528,6 +528,9 @@ enum DSCTokens {
     "cc-home-search-empty-text-size": "var(--layout-home-search-empty-text-size)",
     "cc-home-search-empty-title-size": "var(--layout-home-search-empty-title-size)",
     "cc-home-search-empty-title-weight": "var(--layout-home-search-empty-title-weight)",
+    "cc-home-search-filter-panel-width": "var(--layout-home-search-filter-panel-width)",
+    "cc-home-search-filter-panel-max-height": "var(--layout-home-search-filter-panel-max-height)",
+    "cc-home-search-filter-panel-padding": "var(--layout-home-search-filter-panel-padding)",
     "cc-home-search-eyebrow-margin-bottom": "var(--layout-home-search-eyebrow-margin-bottom)",
     "cc-home-search-eyebrow-size": "var(--layout-home-search-eyebrow-size)",
     "cc-home-search-eyebrow-tracking": "var(--layout-home-search-eyebrow-tracking)",
@@ -1143,6 +1146,9 @@ enum DSCTokens {
     "cc-search-shell-empty-text-line-height": "var(--layout-home-search-empty-text-line-height)",
     "cc-search-shell-empty-text-size": "var(--layout-home-search-empty-text-size)",
     "cc-search-shell-empty-title-size": "var(--layout-home-search-empty-title-size)",
+    "cc-search-shell-filter-panel-width": "var(--layout-home-search-filter-panel-width)",
+    "cc-search-shell-filter-panel-max-height": "var(--layout-home-search-filter-panel-max-height)",
+    "cc-search-shell-filter-panel-padding": "var(--layout-home-search-filter-panel-padding)",
     "cc-search-shell-eyebrow-margin-bottom": "var(--layout-home-search-eyebrow-margin-bottom)",
     "cc-search-shell-eyebrow-size": "var(--layout-home-search-eyebrow-size)",
     "cc-search-shell-eyebrow-tracking": "var(--layout-home-search-eyebrow-tracking)",
@@ -2690,7 +2696,7 @@ enum DSCTokens {
     "account-button-hover-lift-y": "var(--button-hover-lift-y-subtle)",
     "account-button-hover-scale": "var(--button-hover-scale-subtle)",
     "account-field-height": "var(--input-height-md)",
-    "account-field-radius": "var(--input-radius-md)",
+    "account-field-radius": "var(--radius-sm)",
     "account-field-padding-x": "var(--input-padding-x-md)",
     "account-field-font-size": "var(--input-font-size)",
     "account-field-line-height": "var(--input-line-height)",
@@ -3068,6 +3074,18 @@ enum DSCTokens {
     "control-surface-active": "var(--active-bg-medium)",
     "control-border-unified": "var(--control-border-color, var(--border-color))",
     "control-border-hover-unified": "var(--hover-border-medium)",
+    "overlay-popover-surface": "color-mix(in srgb, var(--surface-color, var(--bg-color)) 96%, var(--bg-color))",
+    "overlay-popover-border": "var(--control-border-unified)",
+    "search-field-border-width": "var(--border-width-hairline)",
+    "search-field-border": "var(--control-border-unified)",
+    "search-field-border-focus": "var(--control-border-hover-unified)",
+    "search-field-radius": "var(--control-radius-composer)",
+    "search-field-surface": "var(--field-bg)",
+    "search-field-surface-clear": "transparent",
+    "search-field-text": "var(--text-primary-color)",
+    "search-field-placeholder": "var(--text-secondary-color)",
+    "search-field-placeholder-opacity": "0.72",
+    "search-field-caret": "var(--text-primary-color)",
     "control-text-unified": "var(--text-color)",
     "control-text-hover-unified": "var(--hover-text-color)",
     "close-control-size": "2.4rem",
@@ -3082,6 +3100,8 @@ enum DSCTokens {
     "close-control-color": "var(--text-color)",
     "close-control-color-hover": "var(--text-color)",
     "panel-surface-unified": "color-mix(in srgb, var(--surface-color, var(--bg-color)) 86%, transparent)",
+    "panel-surface-solid-unified": "color-mix(in srgb, var(--surface-color, var(--bg-color)) 94%, transparent)",
+    "panel-surface-dropdown-unified": "color-mix(in srgb, var(--surface-color, var(--bg-color)) 98%, transparent)",
     "panel-border-unified": "var(--control-border-color, var(--border-color))",
     "panel-shadow-unified": "var(--dialog-overlay-shadow)",
     "panel-blur-unified": "var(--dialog-overlay-panel-blur)",
@@ -3135,6 +3155,8 @@ enum DSCTokens {
     "selected-border-color": "color-mix(in srgb, var(--text-primary-color) 20%, transparent)",
     "selected-indicator-color": "var(--text-primary-color)",
     "selected-indicator-opacity": "1",
+    "interactive-cursor": "pointer",
+    "text-input-cursor": "text",
     "disabled-opacity": "var(--state-opacity-disabled)",
     "disabled-cursor": "not-allowed",
     "disabled-filter": "saturate(0.4)",
@@ -3197,8 +3219,8 @@ enum DSCTokens {
     "dialog-consent-header-gap-mobile": "0.72rem",
     "dialog-consent-header-padding-bottom": "1.14rem",
     "dialog-consent-header-padding-bottom-mobile": "0.97rem",
-    "dialog-consent-body-padding-top": "0.64rem",
-    "dialog-consent-body-padding-top-mobile": "0.51rem",
+    "dialog-consent-body-padding-top": "1.92rem",
+    "dialog-consent-body-padding-top-mobile": "1.53rem",
     "dialog-consent-body-padding-inline": "0.52rem",
     "dialog-consent-body-padding-inline-mobile": "0.36rem",
     "dialog-consent-content-gutter": "1.42rem",
@@ -3308,8 +3330,8 @@ enum DSCTokens {
     "dialog-consent-subitem-state-weight": "400",
     "dialog-consent-subitem-state-line-height": "1.2",
     "dialog-consent-subitem-state-tracking": "-0.01em",
-    "dialog-consent-sticky-actions-padding-top": "0.72rem",
-    "dialog-consent-sticky-actions-padding-top-mobile": "0.62rem",
+    "dialog-consent-sticky-actions-padding-top": "0.48rem",
+    "dialog-consent-sticky-actions-padding-top-mobile": "0.42rem",
     "dialog-consent-sticky-actions-padding-bottom": "1.12rem",
     "dialog-consent-sticky-actions-padding-bottom-mobile": "1rem",
     "dialog-consent-footer-gap": "1rem",
@@ -3630,7 +3652,7 @@ enum DSCTokens {
     "layout-home-search-header-gap": "1rem",
     "layout-home-search-header-padding-y": "1.45rem",
     "layout-home-search-header-padding-x-fallback": "2.8rem",
-    "layout-home-search-header-padding-bottom": "1.05rem",
+    "layout-home-search-header-padding-bottom": "0.2rem",
     "layout-home-search-eyebrow-margin-bottom": "0.35rem",
     "layout-home-search-eyebrow-size": "0.72rem",
     "layout-home-search-eyebrow-weight": "500",
@@ -3696,13 +3718,13 @@ enum DSCTokens {
     "layout-home-search-result-badge-size": "0.7rem",
     "layout-home-search-result-badge-weight": "600",
     "layout-home-search-result-badge-tracking": "0.08em",
-    "layout-home-search-result-badge-icon-size": "0.82rem",
+    "layout-home-search-result-badge-icon-size": "1.5rem",
     "layout-home-search-result-tags-gap": "0.45rem",
     "layout-home-search-result-tag-min-height": "1.85rem",
     "layout-home-search-result-tag-padding-x": "0.7rem",
     "layout-home-search-result-tag-size": "0.72rem",
     "layout-home-search-result-tag-tracking": "0.04em",
-    "layout-home-search-result-actions-gap": "0.55rem",
+    "layout-home-search-result-actions-gap": "0.8rem",
     "layout-home-search-result-action-min-height": "2.4rem",
     "layout-home-search-result-action-min-width": "10.5rem",
     "layout-home-search-result-action-padding-x": "0.95rem",
@@ -3710,6 +3732,9 @@ enum DSCTokens {
     "layout-home-search-result-action-weight": "500",
     "layout-home-search-result-action-tracking": "0.08em",
     "layout-home-search-result-action-line-height": "1",
+    "layout-home-search-filter-panel-width": "34rem",
+    "layout-home-search-filter-panel-max-height": "28rem",
+    "layout-home-search-filter-panel-padding": "1rem",
     "layout-home-search-light-border": "rgba(0, 0, 0, 0.12)",
     "layout-home-search-dark-border": "rgba(255, 255, 255, 0.16)",
     "layout-home-search-mobile-padding-x-fallback": "1rem",
@@ -4315,7 +4340,7 @@ enum DSCTokens {
     "layout-cookie-language-overlay-min-height": "24rem",
     "layout-cookie-language-overlay-region-min-height-mobile": "12rem",
     "layout-cookie-language-overlay-radius": "1.9rem",
-    "layout-cookie-language-overlay-toolbar-padding-top": "1.02rem",
+    "layout-cookie-language-overlay-toolbar-padding-top": "3.06rem",
     "layout-cookie-language-overlay-toolbar-gap": "0.44rem",
     "layout-cookie-language-overlay-toolbar-mobile-offset": "0.2rem",
     "layout-cookie-language-overlay-search-to-list-gap": "0.68rem",
@@ -7011,11 +7036,11 @@ enum DSCTokens {
     "home-search-shell-input-row-min-height": "var(--layout-home-search-input-row-min-height)",
     "home-search-shell-input-row-padding-y": "var(--layout-home-search-input-row-padding-y)",
     "home-search-shell-input-row-padding-x": "var(--layout-home-search-input-row-padding-x)",
-    "home-search-shell-input-row-radius": "var(--control-radius-composer)",
+    "home-search-shell-input-row-radius": "var(--search-field-radius)",
     "home-search-shell-input-row-line-height": "var(--layout-home-search-input-row-line-height)",
     "home-search-shell-input-row-opacity": "var(--layout-home-search-input-row-opacity)",
-    "home-search-shell-input-row-border": "var(--layout-home-search-input-row-border)",
-    "home-search-shell-input-row-border-focus": "var(--layout-home-search-input-row-border-focus)",
+    "home-search-shell-input-row-border": "var(--search-field-border)",
+    "home-search-shell-input-row-border-focus": "var(--search-field-border-focus)",
     "home-search-shell-icon-size": "var(--layout-home-search-icon-size)",
     "home-search-shell-icon-opacity": "var(--layout-home-search-icon-opacity)",
     "home-search-shell-voice-motion": "var(--layout-home-search-voice-motion)",
@@ -7067,7 +7092,7 @@ enum DSCTokens {
     "home-search-shell-result-tag-padding-x": "var(--layout-home-search-result-tag-padding-x)",
     "home-search-shell-result-tag-size": "var(--layout-home-search-result-tag-size)",
     "home-search-shell-result-tag-tracking": "var(--layout-home-search-result-tag-tracking)",
-    "home-search-shell-result-actions-gap": "var(--layout-home-search-result-actions-gap)",
+    "home-search-shell-result-actions-gap": "1.1rem",
     "home-search-shell-result-action-min-height": "var(--layout-home-search-result-action-min-height)",
     "home-search-shell-result-action-min-width": "var(--layout-home-search-result-action-min-width)",
     "home-search-shell-result-action-padding-x": "var(--layout-home-search-result-action-padding-x)",
@@ -7094,6 +7119,10 @@ enum DSCTokens {
     "home-search-shell-divider-border": "var(--border-color)",
     "home-search-shell-control-bg": "var(--control-bg)",
     "home-search-shell-transparent": "transparent",
+    "home-search-shell-filter-panel-width": "var(--layout-home-search-filter-panel-width)",
+    "home-search-shell-filter-panel-max-height": "var(--layout-home-search-filter-panel-max-height)",
+    "home-search-shell-filter-panel-padding": "var(--layout-home-search-filter-panel-padding)",
+    "home-search-shell-filter-panel-top": "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap))",
     "home-interaction-panel-width": "var(--layout-home-interaction-panel-width)",
     "home-interaction-panel-gap": "var(--layout-home-interaction-panel-gap)",
     "home-interaction-panel-padding": "var(--layout-home-interaction-panel-padding)",
@@ -7453,7 +7482,7 @@ enum DSCTokens {
     "institutional-menu-panel-shell-bg": "var(--glass-overlay-shell-bg)",
     "institutional-menu-panel-backdrop-bg": "var(--glass-overlay-backdrop-bg)",
     "institutional-menu-panel-shadow": "var(--panel-shadow-unified)",
-    "institutional-menu-search-border": "var(--control-border-unified)",
+    "institutional-menu-search-border": "var(--search-field-border)",
     "institutional-menu-closed-y": "var(--nav-institutional-closed-y)",
     "institutional-menu-panel-closed-y": "var(--nav-institutional-panel-closed-y)",
     "institutional-menu-panel-closed-scale": "var(--nav-institutional-panel-closed-scale)",
@@ -7538,8 +7567,9 @@ enum DSCTokens {
     "products-local-nav-indicator-opacity": "0",
     "products-local-nav-indicator-opacity-active": "var(--selected-indicator-opacity)",
     "products-local-nav-inner-gap": "var(--nav-local-gap)",
-    "products-local-nav-responsive-row-gap": "0.75rem",
-    "products-local-nav-responsive-link-gap": "1rem",
+    "products-local-nav-responsive-row-gap": "var(--space-2)",
+    "products-local-nav-responsive-link-gap": "var(--nav-local-gap)",
+    "products-local-nav-mobile-link-min-height": "var(--nav-local-min-height)",
     "account-drawer-panel-width": "var(--layout-account-drawer-panel-width)",
     "account-drawer-surface": "var(--glass-overlay-drawer-shell-bg)",
     "account-drawer-border": "var(--panel-border-unified)",
@@ -7628,6 +7658,11 @@ enum DSCTokens {
     "account-drawer-close-hover-color": "var(--global-close-button-hover-color)",
     "account-drawer-close-duration": "var(--global-close-button-duration)",
     "account-drawer-close-ease": "var(--global-close-button-ease)",
+    "account-drawer-dialog-radius": "var(--dialog-radius-unified)",
+    "account-drawer-dialog-max-height": "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, 4rem)) - var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)))",
+    "account-drawer-dialog-viewport-gap": "var(--dialog-overlay-viewport-gap)",
+    "account-drawer-panel-transform-closed": "var(--overlay-transform-closed)",
+    "account-drawer-panel-transform-open": "var(--overlay-transform-open)",
     "account-drawer-shell-padding-y": "var(--layout-account-drawer-shell-padding-y)",
     "account-drawer-shell-padding-x": "var(--layout-account-drawer-shell-padding-x)",
     "account-drawer-shell-padding-y-tablet": "var(--layout-account-drawer-shell-padding-y-tablet)",
@@ -7751,6 +7786,7 @@ enum DSCTokens {
     "account-phone-auth-input-border": "var(--control-border-unified)",
     "account-phone-auth-input-surface": "var(--control-surface)",
     "account-phone-auth-input-focus": "var(--control-border-hover-unified)",
+    "account-phone-auth-dropdown-surface": "var(--panel-surface-dropdown-unified)",
     "account-phone-auth-input-height": "var(--account-field-height)",
     "account-phone-auth-input-radius": "var(--account-field-radius)",
     "account-phone-auth-input-padding-inline": "var(--account-field-padding-x)",
@@ -8306,7 +8342,7 @@ enum DSCTokens {
     "cookie-language-overlay-search-to-list-gap": "var(--layout-cookie-language-overlay-search-to-list-gap)",
     "cookie-language-overlay-list-padding-top": "var(--layout-cookie-language-overlay-list-padding-top)",
     "cookie-language-overlay-list-padding-bottom": "var(--layout-cookie-language-overlay-list-padding-bottom)",
-    "cookie-language-overlay-search-border": "var(--control-border-unified)",
+    "cookie-language-overlay-search-border": "var(--search-field-border)",
     "cookie-language-overlay-status-surface": "color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "cookie-language-overlay-country-surface": "color-mix(in srgb, var(--text-primary-color) 2%, transparent)",
     "cookie-language-overlay-country-border": "var(--control-border-unified)",
@@ -8631,7 +8667,7 @@ enum DSCTokens {
     "catalog-filter-note-line-height": "var(--layout-catalog-filter-note-line-height)",
     "catalog-search-row-min-height": "var(--layout-catalog-search-row-min-height)",
     "catalog-search-row-padding-x": "var(--layout-catalog-search-row-padding-x)",
-    "catalog-search-row-radius": "var(--layout-catalog-search-row-radius)",
+    "catalog-search-row-radius": "var(--search-field-radius)",
     "catalog-grid-gap": "var(--layout-catalog-grid-gap)",
     "catalog-grid-compact-gap": "var(--layout-catalog-grid-compact-gap)",
     "catalog-card-radius": "var(--layout-catalog-card-radius)",
@@ -9379,6 +9415,9 @@ enum DSCTokens {
   static let cc_home_search_empty_text_size = "var(--layout-home-search-empty-text-size)"
   static let cc_home_search_empty_title_size = "var(--layout-home-search-empty-title-size)"
   static let cc_home_search_empty_title_weight = "var(--layout-home-search-empty-title-weight)"
+  static let cc_home_search_filter_panel_width = "var(--layout-home-search-filter-panel-width)"
+  static let cc_home_search_filter_panel_max_height = "var(--layout-home-search-filter-panel-max-height)"
+  static let cc_home_search_filter_panel_padding = "var(--layout-home-search-filter-panel-padding)"
   static let cc_home_search_eyebrow_margin_bottom = "var(--layout-home-search-eyebrow-margin-bottom)"
   static let cc_home_search_eyebrow_size = "var(--layout-home-search-eyebrow-size)"
   static let cc_home_search_eyebrow_tracking = "var(--layout-home-search-eyebrow-tracking)"
@@ -9994,6 +10033,9 @@ enum DSCTokens {
   static let cc_search_shell_empty_text_line_height = "var(--layout-home-search-empty-text-line-height)"
   static let cc_search_shell_empty_text_size = "var(--layout-home-search-empty-text-size)"
   static let cc_search_shell_empty_title_size = "var(--layout-home-search-empty-title-size)"
+  static let cc_search_shell_filter_panel_width = "var(--layout-home-search-filter-panel-width)"
+  static let cc_search_shell_filter_panel_max_height = "var(--layout-home-search-filter-panel-max-height)"
+  static let cc_search_shell_filter_panel_padding = "var(--layout-home-search-filter-panel-padding)"
   static let cc_search_shell_eyebrow_margin_bottom = "var(--layout-home-search-eyebrow-margin-bottom)"
   static let cc_search_shell_eyebrow_size = "var(--layout-home-search-eyebrow-size)"
   static let cc_search_shell_eyebrow_tracking = "var(--layout-home-search-eyebrow-tracking)"
@@ -11541,7 +11583,7 @@ enum DSCTokens {
   static let account_button_hover_lift_y = "var(--button-hover-lift-y-subtle)"
   static let account_button_hover_scale = "var(--button-hover-scale-subtle)"
   static let account_field_height = "var(--input-height-md)"
-  static let account_field_radius = "var(--input-radius-md)"
+  static let account_field_radius = "var(--radius-sm)"
   static let account_field_padding_x = "var(--input-padding-x-md)"
   static let account_field_font_size = "var(--input-font-size)"
   static let account_field_line_height = "var(--input-line-height)"
@@ -11919,6 +11961,18 @@ enum DSCTokens {
   static let control_surface_active = "var(--active-bg-medium)"
   static let control_border_unified = "var(--control-border-color, var(--border-color))"
   static let control_border_hover_unified = "var(--hover-border-medium)"
+  static let overlay_popover_surface = "color-mix(in srgb, var(--surface-color, var(--bg-color)) 96%, var(--bg-color))"
+  static let overlay_popover_border = "var(--control-border-unified)"
+  static let search_field_border_width = "var(--border-width-hairline)"
+  static let search_field_border = "var(--control-border-unified)"
+  static let search_field_border_focus = "var(--control-border-hover-unified)"
+  static let search_field_radius = "var(--control-radius-composer)"
+  static let search_field_surface = "var(--field-bg)"
+  static let search_field_surface_clear = "transparent"
+  static let search_field_text = "var(--text-primary-color)"
+  static let search_field_placeholder = "var(--text-secondary-color)"
+  static let search_field_placeholder_opacity = "0.72"
+  static let search_field_caret = "var(--text-primary-color)"
   static let control_text_unified = "var(--text-color)"
   static let control_text_hover_unified = "var(--hover-text-color)"
   static let close_control_size = "2.4rem"
@@ -11933,6 +11987,8 @@ enum DSCTokens {
   static let close_control_color = "var(--text-color)"
   static let close_control_color_hover = "var(--text-color)"
   static let panel_surface_unified = "color-mix(in srgb, var(--surface-color, var(--bg-color)) 86%, transparent)"
+  static let panel_surface_solid_unified = "color-mix(in srgb, var(--surface-color, var(--bg-color)) 94%, transparent)"
+  static let panel_surface_dropdown_unified = "color-mix(in srgb, var(--surface-color, var(--bg-color)) 98%, transparent)"
   static let panel_border_unified = "var(--control-border-color, var(--border-color))"
   static let panel_shadow_unified = "var(--dialog-overlay-shadow)"
   static let panel_blur_unified = "var(--dialog-overlay-panel-blur)"
@@ -11986,6 +12042,8 @@ enum DSCTokens {
   static let selected_border_color = "color-mix(in srgb, var(--text-primary-color) 20%, transparent)"
   static let selected_indicator_color = "var(--text-primary-color)"
   static let selected_indicator_opacity = "1"
+  static let interactive_cursor = "pointer"
+  static let text_input_cursor = "text"
   static let disabled_opacity = "var(--state-opacity-disabled)"
   static let disabled_cursor = "not-allowed"
   static let disabled_filter = "saturate(0.4)"
@@ -12048,8 +12106,8 @@ enum DSCTokens {
   static let dialog_consent_header_gap_mobile = "0.72rem"
   static let dialog_consent_header_padding_bottom = "1.14rem"
   static let dialog_consent_header_padding_bottom_mobile = "0.97rem"
-  static let dialog_consent_body_padding_top = "0.64rem"
-  static let dialog_consent_body_padding_top_mobile = "0.51rem"
+  static let dialog_consent_body_padding_top = "1.92rem"
+  static let dialog_consent_body_padding_top_mobile = "1.53rem"
   static let dialog_consent_body_padding_inline = "0.52rem"
   static let dialog_consent_body_padding_inline_mobile = "0.36rem"
   static let dialog_consent_content_gutter = "1.42rem"
@@ -12159,8 +12217,8 @@ enum DSCTokens {
   static let dialog_consent_subitem_state_weight = "400"
   static let dialog_consent_subitem_state_line_height = "1.2"
   static let dialog_consent_subitem_state_tracking = "-0.01em"
-  static let dialog_consent_sticky_actions_padding_top = "0.72rem"
-  static let dialog_consent_sticky_actions_padding_top_mobile = "0.62rem"
+  static let dialog_consent_sticky_actions_padding_top = "0.48rem"
+  static let dialog_consent_sticky_actions_padding_top_mobile = "0.42rem"
   static let dialog_consent_sticky_actions_padding_bottom = "1.12rem"
   static let dialog_consent_sticky_actions_padding_bottom_mobile = "1rem"
   static let dialog_consent_footer_gap = "1rem"
@@ -12481,7 +12539,7 @@ enum DSCTokens {
   static let layout_home_search_header_gap = "1rem"
   static let layout_home_search_header_padding_y = "1.45rem"
   static let layout_home_search_header_padding_x_fallback = "2.8rem"
-  static let layout_home_search_header_padding_bottom = "1.05rem"
+  static let layout_home_search_header_padding_bottom = "0.2rem"
   static let layout_home_search_eyebrow_margin_bottom = "0.35rem"
   static let layout_home_search_eyebrow_size = "0.72rem"
   static let layout_home_search_eyebrow_weight = "500"
@@ -12547,13 +12605,13 @@ enum DSCTokens {
   static let layout_home_search_result_badge_size = "0.7rem"
   static let layout_home_search_result_badge_weight = "600"
   static let layout_home_search_result_badge_tracking = "0.08em"
-  static let layout_home_search_result_badge_icon_size = "0.82rem"
+  static let layout_home_search_result_badge_icon_size = "1.5rem"
   static let layout_home_search_result_tags_gap = "0.45rem"
   static let layout_home_search_result_tag_min_height = "1.85rem"
   static let layout_home_search_result_tag_padding_x = "0.7rem"
   static let layout_home_search_result_tag_size = "0.72rem"
   static let layout_home_search_result_tag_tracking = "0.04em"
-  static let layout_home_search_result_actions_gap = "0.55rem"
+  static let layout_home_search_result_actions_gap = "0.8rem"
   static let layout_home_search_result_action_min_height = "2.4rem"
   static let layout_home_search_result_action_min_width = "10.5rem"
   static let layout_home_search_result_action_padding_x = "0.95rem"
@@ -12561,6 +12619,9 @@ enum DSCTokens {
   static let layout_home_search_result_action_weight = "500"
   static let layout_home_search_result_action_tracking = "0.08em"
   static let layout_home_search_result_action_line_height = "1"
+  static let layout_home_search_filter_panel_width = "34rem"
+  static let layout_home_search_filter_panel_max_height = "28rem"
+  static let layout_home_search_filter_panel_padding = "1rem"
   static let layout_home_search_light_border = "rgba(0, 0, 0, 0.12)"
   static let layout_home_search_dark_border = "rgba(255, 255, 255, 0.16)"
   static let layout_home_search_mobile_padding_x_fallback = "1rem"
@@ -13166,7 +13227,7 @@ enum DSCTokens {
   static let layout_cookie_language_overlay_min_height = "24rem"
   static let layout_cookie_language_overlay_region_min_height_mobile = "12rem"
   static let layout_cookie_language_overlay_radius = "1.9rem"
-  static let layout_cookie_language_overlay_toolbar_padding_top = "1.02rem"
+  static let layout_cookie_language_overlay_toolbar_padding_top = "3.06rem"
   static let layout_cookie_language_overlay_toolbar_gap = "0.44rem"
   static let layout_cookie_language_overlay_toolbar_mobile_offset = "0.2rem"
   static let layout_cookie_language_overlay_search_to_list_gap = "0.68rem"
@@ -15862,11 +15923,11 @@ enum DSCTokens {
   static let home_search_shell_input_row_min_height = "var(--layout-home-search-input-row-min-height)"
   static let home_search_shell_input_row_padding_y = "var(--layout-home-search-input-row-padding-y)"
   static let home_search_shell_input_row_padding_x = "var(--layout-home-search-input-row-padding-x)"
-  static let home_search_shell_input_row_radius = "var(--control-radius-composer)"
+  static let home_search_shell_input_row_radius = "var(--search-field-radius)"
   static let home_search_shell_input_row_line_height = "var(--layout-home-search-input-row-line-height)"
   static let home_search_shell_input_row_opacity = "var(--layout-home-search-input-row-opacity)"
-  static let home_search_shell_input_row_border = "var(--layout-home-search-input-row-border)"
-  static let home_search_shell_input_row_border_focus = "var(--layout-home-search-input-row-border-focus)"
+  static let home_search_shell_input_row_border = "var(--search-field-border)"
+  static let home_search_shell_input_row_border_focus = "var(--search-field-border-focus)"
   static let home_search_shell_icon_size = "var(--layout-home-search-icon-size)"
   static let home_search_shell_icon_opacity = "var(--layout-home-search-icon-opacity)"
   static let home_search_shell_voice_motion = "var(--layout-home-search-voice-motion)"
@@ -15918,7 +15979,7 @@ enum DSCTokens {
   static let home_search_shell_result_tag_padding_x = "var(--layout-home-search-result-tag-padding-x)"
   static let home_search_shell_result_tag_size = "var(--layout-home-search-result-tag-size)"
   static let home_search_shell_result_tag_tracking = "var(--layout-home-search-result-tag-tracking)"
-  static let home_search_shell_result_actions_gap = "var(--layout-home-search-result-actions-gap)"
+  static let home_search_shell_result_actions_gap = "1.1rem"
   static let home_search_shell_result_action_min_height = "var(--layout-home-search-result-action-min-height)"
   static let home_search_shell_result_action_min_width = "var(--layout-home-search-result-action-min-width)"
   static let home_search_shell_result_action_padding_x = "var(--layout-home-search-result-action-padding-x)"
@@ -15945,6 +16006,10 @@ enum DSCTokens {
   static let home_search_shell_divider_border = "var(--border-color)"
   static let home_search_shell_control_bg = "var(--control-bg)"
   static let home_search_shell_transparent = "transparent"
+  static let home_search_shell_filter_panel_width = "var(--layout-home-search-filter-panel-width)"
+  static let home_search_shell_filter_panel_max_height = "var(--layout-home-search-filter-panel-max-height)"
+  static let home_search_shell_filter_panel_padding = "var(--layout-home-search-filter-panel-padding)"
+  static let home_search_shell_filter_panel_top = "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap))"
   static let home_interaction_panel_width = "var(--layout-home-interaction-panel-width)"
   static let home_interaction_panel_gap = "var(--layout-home-interaction-panel-gap)"
   static let home_interaction_panel_padding = "var(--layout-home-interaction-panel-padding)"
@@ -16304,7 +16369,7 @@ enum DSCTokens {
   static let institutional_menu_panel_shell_bg = "var(--glass-overlay-shell-bg)"
   static let institutional_menu_panel_backdrop_bg = "var(--glass-overlay-backdrop-bg)"
   static let institutional_menu_panel_shadow = "var(--panel-shadow-unified)"
-  static let institutional_menu_search_border = "var(--control-border-unified)"
+  static let institutional_menu_search_border = "var(--search-field-border)"
   static let institutional_menu_closed_y = "var(--nav-institutional-closed-y)"
   static let institutional_menu_panel_closed_y = "var(--nav-institutional-panel-closed-y)"
   static let institutional_menu_panel_closed_scale = "var(--nav-institutional-panel-closed-scale)"
@@ -16389,8 +16454,9 @@ enum DSCTokens {
   static let products_local_nav_indicator_opacity = "0"
   static let products_local_nav_indicator_opacity_active = "var(--selected-indicator-opacity)"
   static let products_local_nav_inner_gap = "var(--nav-local-gap)"
-  static let products_local_nav_responsive_row_gap = "0.75rem"
-  static let products_local_nav_responsive_link_gap = "1rem"
+  static let products_local_nav_responsive_row_gap = "var(--space-2)"
+  static let products_local_nav_responsive_link_gap = "var(--nav-local-gap)"
+  static let products_local_nav_mobile_link_min_height = "var(--nav-local-min-height)"
   static let account_drawer_panel_width = "var(--layout-account-drawer-panel-width)"
   static let account_drawer_surface = "var(--glass-overlay-drawer-shell-bg)"
   static let account_drawer_border = "var(--panel-border-unified)"
@@ -16479,6 +16545,11 @@ enum DSCTokens {
   static let account_drawer_close_hover_color = "var(--global-close-button-hover-color)"
   static let account_drawer_close_duration = "var(--global-close-button-duration)"
   static let account_drawer_close_ease = "var(--global-close-button-ease)"
+  static let account_drawer_dialog_radius = "var(--dialog-radius-unified)"
+  static let account_drawer_dialog_max_height = "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, 4rem)) - var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)))"
+  static let account_drawer_dialog_viewport_gap = "var(--dialog-overlay-viewport-gap)"
+  static let account_drawer_panel_transform_closed = "var(--overlay-transform-closed)"
+  static let account_drawer_panel_transform_open = "var(--overlay-transform-open)"
   static let account_drawer_shell_padding_y = "var(--layout-account-drawer-shell-padding-y)"
   static let account_drawer_shell_padding_x = "var(--layout-account-drawer-shell-padding-x)"
   static let account_drawer_shell_padding_y_tablet = "var(--layout-account-drawer-shell-padding-y-tablet)"
@@ -16602,6 +16673,7 @@ enum DSCTokens {
   static let account_phone_auth_input_border = "var(--control-border-unified)"
   static let account_phone_auth_input_surface = "var(--control-surface)"
   static let account_phone_auth_input_focus = "var(--control-border-hover-unified)"
+  static let account_phone_auth_dropdown_surface = "var(--panel-surface-dropdown-unified)"
   static let account_phone_auth_input_height = "var(--account-field-height)"
   static let account_phone_auth_input_radius = "var(--account-field-radius)"
   static let account_phone_auth_input_padding_inline = "var(--account-field-padding-x)"
@@ -17157,7 +17229,7 @@ enum DSCTokens {
   static let cookie_language_overlay_search_to_list_gap = "var(--layout-cookie-language-overlay-search-to-list-gap)"
   static let cookie_language_overlay_list_padding_top = "var(--layout-cookie-language-overlay-list-padding-top)"
   static let cookie_language_overlay_list_padding_bottom = "var(--layout-cookie-language-overlay-list-padding-bottom)"
-  static let cookie_language_overlay_search_border = "var(--control-border-unified)"
+  static let cookie_language_overlay_search_border = "var(--search-field-border)"
   static let cookie_language_overlay_status_surface = "color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let cookie_language_overlay_country_surface = "color-mix(in srgb, var(--text-primary-color) 2%, transparent)"
   static let cookie_language_overlay_country_border = "var(--control-border-unified)"
@@ -17482,7 +17554,7 @@ enum DSCTokens {
   static let catalog_filter_note_line_height = "var(--layout-catalog-filter-note-line-height)"
   static let catalog_search_row_min_height = "var(--layout-catalog-search-row-min-height)"
   static let catalog_search_row_padding_x = "var(--layout-catalog-search-row-padding-x)"
-  static let catalog_search_row_radius = "var(--layout-catalog-search-row-radius)"
+  static let catalog_search_row_radius = "var(--search-field-radius)"
   static let catalog_grid_gap = "var(--layout-catalog-grid-gap)"
   static let catalog_grid_compact_gap = "var(--layout-catalog-grid-compact-gap)"
   static let catalog_card_radius = "var(--layout-catalog-card-radius)"

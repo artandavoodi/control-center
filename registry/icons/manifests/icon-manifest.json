@@ -503,6 +503,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/info/info.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/info/info.svg"
   },
+  "core/actions/interact/interact": {
+    "id": "core/actions/interact/interact",
+    "path": "core/actions/interact/interact.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/interact/interact.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/interact/interact.svg"
+  },
   "core/actions/launch/launch": {
     "id": "core/actions/launch/launch",
     "path": "core/actions/launch/launch.svg",
