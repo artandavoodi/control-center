@@ -7126,6 +7126,7 @@
   --home-search-shell-filter-panel-max-height: var(--layout-home-search-filter-panel-max-height);
   --home-search-shell-filter-panel-padding: var(--layout-home-search-filter-panel-padding);
   --home-search-shell-filter-panel-top: calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap));
+  --home-search-shell-dialog-surface: color-mix(in srgb, var(--bg-color) 58%, transparent);
   --home-interaction-panel-width: var(--layout-home-interaction-panel-width);
   --home-interaction-panel-gap: var(--layout-home-interaction-panel-gap);
   --home-interaction-panel-padding: var(--layout-home-interaction-panel-padding);
@@ -8607,7 +8608,18 @@
   --profile-private-hero-avatar-size: 7.25rem;
   --profile-private-hero-avatar-border-width: 4px;
   --profile-private-hero-media-action-size: 2.15rem;
+  --profile-private-hero-identity-layer: var(--z-raised);
+  --profile-private-hero-avatar-layer: var(--z-raised);
+  --profile-private-hero-media-action-layer: var(--z-above);
   --profile-private-hero-avatar-scale-active: 0.82;
+  --profile-private-hero-copy-stuck-offset: calc(var(--spacing-md) * -1);
+  --profile-private-hero-title-size-stuck: var(--headline-4-size);
+  --profile-private-hero-title-line-height-stuck: var(--headline-4-line-height);
+  --profile-private-hero-meta-size-stuck: var(--body-3-size);
+  --profile-private-hero-details-max-height: calc(var(--body-2-line-height) + var(--spacing-sm));
+  --profile-private-hero-details-max-height-hidden: 0;
+  --profile-private-hero-info-popover-width: min(22rem, calc(100vw - (var(--site-gutter) * 2)));
+  --profile-private-hero-actions-layer: var(--z-above);
   --profile-private-hero-media-action-opacity: 1;
   --profile-private-hero-media-action-opacity-hidden: 0;
   --profile-private-hero-scroll-overlay-opacity: 0;
@@ -8624,8 +8636,10 @@
   --profile-private-hero-avatar-border: var(--bg-color);
   --profile-private-hero-avatar-placeholder-icon-size: var(--profile-private-hero-media-action-size);
   --profile-private-hero-avatar-placeholder-icon-opacity: var(--state-opacity-muted);
-  --profile-private-hero-control-bg: color-mix(in srgb, var(--bg-color) 88%, transparent);
-  --profile-private-hero-control-border: color-mix(in srgb, var(--text-primary-color) 10%, transparent);
+  --profile-private-hero-control-bg: var(--control-surface);
+  --profile-private-hero-control-bg-hover: var(--panel-surface-solid-unified);
+  --profile-private-hero-control-border: var(--control-border-unified);
+  --profile-private-hero-control-border-hover: var(--control-border-hover-unified);
   --profile-private-hero-motion-fast: var(--interaction-motion-medium);
   --profile-private-hero-motion-ease: var(--interaction-ease-standard);
   --profile-private-hero-avatar-initials-size: var(--data-value-lg-size);
@@ -8638,6 +8652,7 @@
   --profile-private-hero-tab-indicator-opacity: 0;
   --profile-private-hero-tab-indicator-opacity-active: var(--selected-indicator-opacity);
   --profile-private-hero-tab-indicator-bottom: calc((var(--products-local-nav-height, 3.55rem) - 100%) / -2);
+  --profile-private-hero-tab-indicator-bottom-mobile: calc(var(--spacing-md) * -1);
   --profile-private-hero-tab-indicator-height: var(--border-width-hairline);
   --profile-private-hero-tab-color: var(--nav-local-color);
   --profile-private-hero-tab-hover-color: var(--local-nav-hover-text-color);
@@ -8662,8 +8677,6 @@
   --profile-settings-status-error-color: var(--status-danger-color, var(--color-primary7));
   --profile-settings-motion-fast: var(--interaction-motion-medium);
   --profile-settings-control-radius: var(--account-field-radius);
-  --profile-settings-avatar-bg: var(--bg-color);
-  --profile-settings-avatar-icon-size: var(--profile-header-avatar-placeholder-icon-size);
   --profile-shell-rail-width: var(--site-rail-width);
   --profile-shell-group-gap: var(--spacing-md);
   --profile-shell-mount-gap: var(--spacing-lg);
