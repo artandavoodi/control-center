@@ -1,18 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- =============================================================================
+       01) DOCUMENT METADATA
+  ============================================================================= -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =============================================================================
+       02) TITLE
+  ============================================================================= -->
   <title>Control Center</title>
+  <!-- =============================================================================
+       03) DASHBOARD STYLES
+  ============================================================================= -->
+  <link
+    rel="stylesheet"
+    href="./styles/fragments/verification-queue.css"
+  />
 </head>
+
 <body>
-  <main id="shell-root"></main>
+  <!-- =============================================================================
+       03) DASHBOARD ROOT
+  ============================================================================= -->
+  <main
+    id="shell-root"
+    data-dashboard-root
+  ></main>
+
+  <!-- =============================================================================
+       04) DASHBOARD ORCHESTRATION RUNTIME
+  ============================================================================= -->
   <script type="module">
     import { renderSharedShell } from "../shared/shell.js";
-    renderSharedShell("shell-root", {
-      title: "Control Center",
-      intro: "System orchestration, registry, and DSC coordination."
-    });
+    import { initVerificationQueue } from "./runtime/verification-queue.js";
+
+    async function mountDashboard() {
+      const response = await fetch(
+        "./fragments/verification/index.html"
+      );
+
+      const fragment = await response.text();
+
+      renderSharedShell("shell-root", {
+        title: "Control Center",
+        intro: "Governance, orchestration, verification, and runtime coordination.",
+        content: fragment
+      });
+
+      await initVerificationQueue(document);
+    }
+
+    mountDashboard();
   </script>
 </body>
 </html>

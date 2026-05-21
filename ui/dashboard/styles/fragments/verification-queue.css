@@ -1,0 +1,201 @@
+/* =============================================================================
+   01) PAGE ROOT
+============================================================================= */
+
+.cc-verification-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 48px;
+  background: var(--cc-color-background, #050505);
+  color: var(--cc-color-text-primary, #f5f5f5);
+}
+
+/* =============================================================================
+   02) PAGE CONTAINER
+============================================================================= */
+
+.cc-verification-page__header,
+.cc-verification-page__queue {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* =============================================================================
+   03) PAGE HEADER
+============================================================================= */
+
+.cc-verification-page__header {
+  margin-bottom: 40px;
+}
+
+.cc-verification-page__eyebrow {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cc-color-text-secondary, rgba(255,255,255,0.48));
+}
+
+.cc-verification-page__title {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+
+/* =============================================================================
+   04) QUEUE GRID
+============================================================================= */
+
+.cc-verification-page__queue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+/* =============================================================================
+   05) VERIFICATION CARD
+============================================================================= */
+
+.cc-verification-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px;
+  border-radius: 32px;
+  background: var(--cc-color-surface, rgba(255,255,255,0.04));
+  border: 1px solid var(--cc-color-border, rgba(255,255,255,0.08));
+  backdrop-filter: blur(24px);
+}
+
+.cc-verification-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cc-verification-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cc-color-text-secondary, rgba(255,255,255,0.52));
+}
+
+.cc-verification-card__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #f59e0b;
+}
+
+.cc-verification-card[data-status="verified"] .cc-verification-card__status-dot {
+  background: #22c55e;
+}
+
+.cc-verification-card[data-status="rejected"] .cc-verification-card__status-dot {
+  background: #ef4444;
+}
+
+.cc-verification-card__timestamp {
+  font-size: 12px;
+  color: var(--cc-color-text-secondary, rgba(255,255,255,0.42));
+}
+
+.cc-verification-card__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cc-verification-card__name {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+}
+
+.cc-verification-card__username {
+  margin: 0;
+  font-size: 14px;
+  color: var(--cc-color-text-secondary, rgba(255,255,255,0.56));
+}
+
+.cc-verification-card__note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--cc-color-text-muted, rgba(255,255,255,0.72));
+}
+
+.cc-verification-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cc-verification-card__button {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  font: inherit;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    background 160ms ease;
+}
+
+.cc-verification-card__button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.cc-verification-card__button--approve:hover {
+  background: rgba(34,197,94,0.18);
+}
+
+.cc-verification-card__button--reject:hover {
+  background: rgba(239,68,68,0.18);
+}
+
+/* =============================================================================
+   06) EMPTY STATE
+============================================================================= */
+
+.cc-verification-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  border-radius: 32px;
+  border: 1px dashed rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.42);
+  font-size: 14px;
+}
+
+/* =============================================================================
+   07) RESPONSIVE
+============================================================================= */
+
+@media (max-width: 768px) {
+  .cc-verification-page {
+    padding: 24px;
+  }
+
+  .cc-verification-page__queue {
+    grid-template-columns: 1fr;
+  }
+}
