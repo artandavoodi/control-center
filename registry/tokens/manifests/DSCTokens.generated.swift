@@ -5993,7 +5993,7 @@ enum DSCTokens {
     "z-overlay-control": "10020",
     "z-menu": "100000",
     "z-header-controls": "100001",
-    "profile-topbar-z-index": "1501",
+    "profile-topbar-z-index": "5000",
     "z-country-overlay": "100100",
     "z-language-dropdown": "200001",
     "theme-mode": "dark",
@@ -8604,6 +8604,8 @@ enum DSCTokens {
     "profile-header-verified-bg": "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)",
     "profile-header-avatar-placeholder-icon-size": "var(--profile-private-hero-media-action-size)",
     "profile-header-avatar-bg": "var(--bg-color)",
+    "profile-header-border-color": "color-mix(in srgb, var(--text-color) 12%, transparent)",
+    "profile-header-border": "var(--border-width-hairline) solid var(--profile-header-border-color)",
     "profile-private-hero-cover-height": "13.5rem",
     "profile-private-hero-cover-height-mobile": "10.5rem",
     "profile-private-hero-cover-radius": "1.4rem",
@@ -8614,11 +8616,6 @@ enum DSCTokens {
     "profile-private-hero-identity-layer": "var(--z-raised)",
     "profile-private-hero-avatar-layer": "var(--z-raised)",
     "profile-private-hero-media-action-layer": "var(--z-above)",
-    "profile-private-hero-avatar-scale-active": "0.82",
-    "profile-private-hero-copy-stuck-offset": "calc(var(--spacing-md) * -1)",
-    "profile-private-hero-title-size-stuck": "var(--headline-4-size)",
-    "profile-private-hero-title-line-height-stuck": "var(--headline-4-line-height)",
-    "profile-private-hero-meta-size-stuck": "var(--body-3-size)",
     "profile-private-hero-details-max-height": "calc(var(--body-2-line-height) + var(--spacing-sm))",
     "profile-private-hero-details-max-height-hidden": "0",
     "profile-private-hero-info-popover-width": "min(22rem, calc(100vw - (var(--site-gutter) * 2)))",
@@ -8627,23 +8624,22 @@ enum DSCTokens {
     "profile-private-hero-media-action-opacity-hidden": "0",
     "profile-private-hero-scroll-overlay-opacity": "0",
     "profile-private-hero-scroll-overlay-opacity-active": "0.58",
-    "profile-private-hero-cover-blur-active": "var(--effect-blur-md)",
     "profile-private-hero-surface-layer-bg": "var(--bg-color)",
     "profile-private-hero-surface-layer-opacity": "1",
     "profile-private-hero-surface-layer-opacity-active": "1",
     "profile-private-hero-surface-layer-border": "var(--border-width-hairline) solid var(--border-color)",
     "profile-private-hero-cover-bg": "color-mix(in srgb, var(--text-primary-color) 5%, transparent)",
     "profile-private-hero-cover-default-image": "url('/assets/images/layers/website/sections/home/hero/Salim%20Sky.jpg')",
-    "profile-private-hero-cover-border": "color-mix(in srgb, var(--text-primary-color) 8%, transparent)",
+    "profile-private-hero-cover-border": "var(--border-color)",
     "profile-private-hero-avatar-bg": "var(--bg-color)",
-    "profile-private-hero-avatar-border": "var(--bg-color)",
+    "profile-private-hero-avatar-border": "var(--border-color)",
     "profile-private-hero-avatar-placeholder-icon-size": "var(--profile-private-hero-media-action-size)",
     "profile-private-hero-avatar-placeholder-icon-opacity": "var(--state-opacity-muted)",
     "profile-private-hero-control-bg": "var(--control-surface)",
     "profile-private-hero-control-bg-hover": "var(--panel-surface-solid-unified)",
     "profile-private-hero-control-border": "var(--control-border-unified)",
     "profile-private-hero-control-border-hover": "var(--control-border-hover-unified)",
-    "profile-private-hero-motion-fast": "var(--interaction-motion-medium)",
+    "profile-private-hero-motion-fast": "var(--interaction-motion-fast)",
     "profile-private-hero-motion-ease": "var(--interaction-ease-standard)",
     "profile-private-hero-avatar-initials-size": "var(--data-value-lg-size)",
     "profile-private-hero-avatar-initials-weight": "var(--data-value-lg-weight)",
@@ -8654,13 +8650,15 @@ enum DSCTokens {
     "profile-private-hero-media-action-hover-opacity": "1",
     "profile-private-hero-tab-indicator-opacity": "0",
     "profile-private-hero-tab-indicator-opacity-active": "var(--selected-indicator-opacity)",
-    "profile-private-hero-tab-indicator-bottom": "calc((var(--products-local-nav-height, 3.55rem) - 100%) / -2)",
-    "profile-private-hero-tab-indicator-bottom-mobile": "calc(var(--spacing-md) * -1)",
+    "profile-private-hero-tab-indicator-bottom": "var(--spacing-none)",
+    "profile-private-hero-tab-band-height": "var(--products-local-nav-height, 3.55rem)",
     "profile-private-hero-tab-indicator-height": "var(--border-width-hairline)",
     "profile-private-hero-tab-color": "var(--nav-local-color)",
     "profile-private-hero-tab-hover-color": "var(--local-nav-hover-text-color)",
     "profile-private-hero-tab-active-underline-bg": "var(--local-nav-active-indicator-color)",
     "profile-private-hero-tab-active-opacity": "var(--local-nav-hover-opacity)",
+    "profile-private-hero-tab-icon-size": "var(--home-platform-shell-nav-icon-size)",
+    "profile-private-hero-tab-content-offset-y": "calc(var(--spacing-2xs) * -1)",
     "profile-media-editor-z-index": "var(--z-overlay-control)",
     "profile-media-editor-dialog-width": "min(34rem, calc(100vw - (var(--site-gutter) * 2)))",
     "profile-media-editor-dialog-radius": "var(--dialog-overlay-radius)",
@@ -8674,6 +8672,7 @@ enum DSCTokens {
     "profile-media-editor-avatar-radius": "var(--control-radius-pill)",
     "profile-media-editor-cover-radius": "var(--shape-card-radius)",
     "profile-media-editor-status-min-height": "var(--body-3-line-height)",
+    "profile-topbar-surface-bg": "var(--bg-color)",
     "profile-settings-muted-color": "var(--text-secondary-color)",
     "profile-settings-status-color": "var(--text-secondary-color)",
     "profile-settings-status-success-color": "var(--status-success-color, var(--text-color))",
@@ -8682,13 +8681,32 @@ enum DSCTokens {
     "profile-settings-control-radius": "var(--account-field-radius)",
     "profile-shell-rail-width": "var(--site-rail-width)",
     "profile-shell-group-gap": "var(--spacing-md)",
-    "profile-shell-mount-gap": "var(--spacing-lg)",
+    "profile-shell-mount-gap": "var(--spacing-none)",
     "profile-shell-disabled-opacity": "var(--disabled-opacity, 0.48)",
-    "profile-shell-top-clearance": "calc(env(safe-area-inset-top, 0px) + 3.55rem)",
+    "profile-shell-top-clearance": "calc(env(safe-area-inset-top, 0px) + 1rem)",
     "home-shell-panel-top": "var(--profile-shell-top-clearance)",
-    "profile-shell-top-clearance-mobile": "calc(env(safe-area-inset-top, 0px) + 3.3rem)",
-    "profile-shell-hero-sticky-top": "calc(env(safe-area-inset-top, 0px) + 3.55rem - 11rem)",
-    "profile-shell-hero-sticky-top-mobile": "calc(env(safe-area-inset-top, 0px) + 3.3rem - 8rem)",
+    "profile-shell-top-clearance-mobile": "calc(env(safe-area-inset-top, 0px) + 0.75rem)",
+    "profile-shell-hero-sticky-travel": "calc(
+    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
+    + var(--profile-private-hero-cover-height, 13.5rem)
+    + var(--spacing-lg)
+    + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
+    + var(--spacing-xl)
+    + 3rem
+  )",
+    "profile-shell-hero-sticky-travel-mobile": "calc(
+    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
+    + var(--profile-private-hero-cover-height-mobile, 10.5rem)
+    + var(--spacing-lg)
+    + var(--profile-private-hero-avatar-size, 6rem)
+    + var(--spacing-lg)
+    + calc(var(--body-2-size) * var(--body-2-line-height))
+    + calc(var(--body-2-size) * var(--body-2-line-height))
+    + var(--spacing-xl)
+    + 0.5rem
+  )",
+    "profile-shell-hero-sticky-top": "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))",
+    "profile-shell-hero-sticky-top-mobile": "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))",
     "profile-shell-hero-sticky-z-index": "1200",
     "profile-shell-workspace-sticky-top": "calc(var(--profile-shell-top-clearance) + var(--profile-private-hero-cover-height, 13.5rem) + var(--spacing-xl))",
     "profile-shell-workspace-sticky-top-mobile": "calc(var(--profile-shell-top-clearance-mobile) + var(--profile-private-hero-cover-height-mobile) + var(--spacing-lg))",
@@ -14933,7 +14951,7 @@ enum DSCTokens {
   static let z_overlay_control = "10020"
   static let z_menu = "100000"
   static let z_header_controls = "100001"
-  static let profile_topbar_z_index = "1501"
+  static let profile_topbar_z_index = "5000"
   static let z_country_overlay = "100100"
   static let z_language_dropdown = "200001"
   static let theme_mode = "dark"
@@ -17544,6 +17562,8 @@ enum DSCTokens {
   static let profile_header_verified_bg = "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)"
   static let profile_header_avatar_placeholder_icon_size = "var(--profile-private-hero-media-action-size)"
   static let profile_header_avatar_bg = "var(--bg-color)"
+  static let profile_header_border_color = "color-mix(in srgb, var(--text-color) 12%, transparent)"
+  static let profile_header_border = "var(--border-width-hairline) solid var(--profile-header-border-color)"
   static let profile_private_hero_cover_height = "13.5rem"
   static let profile_private_hero_cover_height_mobile = "10.5rem"
   static let profile_private_hero_cover_radius = "1.4rem"
@@ -17554,11 +17574,6 @@ enum DSCTokens {
   static let profile_private_hero_identity_layer = "var(--z-raised)"
   static let profile_private_hero_avatar_layer = "var(--z-raised)"
   static let profile_private_hero_media_action_layer = "var(--z-above)"
-  static let profile_private_hero_avatar_scale_active = "0.82"
-  static let profile_private_hero_copy_stuck_offset = "calc(var(--spacing-md) * -1)"
-  static let profile_private_hero_title_size_stuck = "var(--headline-4-size)"
-  static let profile_private_hero_title_line_height_stuck = "var(--headline-4-line-height)"
-  static let profile_private_hero_meta_size_stuck = "var(--body-3-size)"
   static let profile_private_hero_details_max_height = "calc(var(--body-2-line-height) + var(--spacing-sm))"
   static let profile_private_hero_details_max_height_hidden = "0"
   static let profile_private_hero_info_popover_width = "min(22rem, calc(100vw - (var(--site-gutter) * 2)))"
@@ -17567,23 +17582,22 @@ enum DSCTokens {
   static let profile_private_hero_media_action_opacity_hidden = "0"
   static let profile_private_hero_scroll_overlay_opacity = "0"
   static let profile_private_hero_scroll_overlay_opacity_active = "0.58"
-  static let profile_private_hero_cover_blur_active = "var(--effect-blur-md)"
   static let profile_private_hero_surface_layer_bg = "var(--bg-color)"
   static let profile_private_hero_surface_layer_opacity = "1"
   static let profile_private_hero_surface_layer_opacity_active = "1"
   static let profile_private_hero_surface_layer_border = "var(--border-width-hairline) solid var(--border-color)"
   static let profile_private_hero_cover_bg = "color-mix(in srgb, var(--text-primary-color) 5%, transparent)"
   static let profile_private_hero_cover_default_image = "url('/assets/images/layers/website/sections/home/hero/Salim%20Sky.jpg')"
-  static let profile_private_hero_cover_border = "color-mix(in srgb, var(--text-primary-color) 8%, transparent)"
+  static let profile_private_hero_cover_border = "var(--border-color)"
   static let profile_private_hero_avatar_bg = "var(--bg-color)"
-  static let profile_private_hero_avatar_border = "var(--bg-color)"
+  static let profile_private_hero_avatar_border = "var(--border-color)"
   static let profile_private_hero_avatar_placeholder_icon_size = "var(--profile-private-hero-media-action-size)"
   static let profile_private_hero_avatar_placeholder_icon_opacity = "var(--state-opacity-muted)"
   static let profile_private_hero_control_bg = "var(--control-surface)"
   static let profile_private_hero_control_bg_hover = "var(--panel-surface-solid-unified)"
   static let profile_private_hero_control_border = "var(--control-border-unified)"
   static let profile_private_hero_control_border_hover = "var(--control-border-hover-unified)"
-  static let profile_private_hero_motion_fast = "var(--interaction-motion-medium)"
+  static let profile_private_hero_motion_fast = "var(--interaction-motion-fast)"
   static let profile_private_hero_motion_ease = "var(--interaction-ease-standard)"
   static let profile_private_hero_avatar_initials_size = "var(--data-value-lg-size)"
   static let profile_private_hero_avatar_initials_weight = "var(--data-value-lg-weight)"
@@ -17594,13 +17608,15 @@ enum DSCTokens {
   static let profile_private_hero_media_action_hover_opacity = "1"
   static let profile_private_hero_tab_indicator_opacity = "0"
   static let profile_private_hero_tab_indicator_opacity_active = "var(--selected-indicator-opacity)"
-  static let profile_private_hero_tab_indicator_bottom = "calc((var(--products-local-nav-height, 3.55rem) - 100%) / -2)"
-  static let profile_private_hero_tab_indicator_bottom_mobile = "calc(var(--spacing-md) * -1)"
+  static let profile_private_hero_tab_indicator_bottom = "var(--spacing-none)"
+  static let profile_private_hero_tab_band_height = "var(--products-local-nav-height, 3.55rem)"
   static let profile_private_hero_tab_indicator_height = "var(--border-width-hairline)"
   static let profile_private_hero_tab_color = "var(--nav-local-color)"
   static let profile_private_hero_tab_hover_color = "var(--local-nav-hover-text-color)"
   static let profile_private_hero_tab_active_underline_bg = "var(--local-nav-active-indicator-color)"
   static let profile_private_hero_tab_active_opacity = "var(--local-nav-hover-opacity)"
+  static let profile_private_hero_tab_icon_size = "var(--home-platform-shell-nav-icon-size)"
+  static let profile_private_hero_tab_content_offset_y = "calc(var(--spacing-2xs) * -1)"
   static let profile_media_editor_z_index = "var(--z-overlay-control)"
   static let profile_media_editor_dialog_width = "min(34rem, calc(100vw - (var(--site-gutter) * 2)))"
   static let profile_media_editor_dialog_radius = "var(--dialog-overlay-radius)"
@@ -17614,6 +17630,7 @@ enum DSCTokens {
   static let profile_media_editor_avatar_radius = "var(--control-radius-pill)"
   static let profile_media_editor_cover_radius = "var(--shape-card-radius)"
   static let profile_media_editor_status_min_height = "var(--body-3-line-height)"
+  static let profile_topbar_surface_bg = "var(--bg-color)"
   static let profile_settings_muted_color = "var(--text-secondary-color)"
   static let profile_settings_status_color = "var(--text-secondary-color)"
   static let profile_settings_status_success_color = "var(--status-success-color, var(--text-color))"
@@ -17622,13 +17639,32 @@ enum DSCTokens {
   static let profile_settings_control_radius = "var(--account-field-radius)"
   static let profile_shell_rail_width = "var(--site-rail-width)"
   static let profile_shell_group_gap = "var(--spacing-md)"
-  static let profile_shell_mount_gap = "var(--spacing-lg)"
+  static let profile_shell_mount_gap = "var(--spacing-none)"
   static let profile_shell_disabled_opacity = "var(--disabled-opacity, 0.48)"
-  static let profile_shell_top_clearance = "calc(env(safe-area-inset-top, 0px) + 3.55rem)"
+  static let profile_shell_top_clearance = "calc(env(safe-area-inset-top, 0px) + 1rem)"
   static let home_shell_panel_top = "var(--profile-shell-top-clearance)"
-  static let profile_shell_top_clearance_mobile = "calc(env(safe-area-inset-top, 0px) + 3.3rem)"
-  static let profile_shell_hero_sticky_top = "calc(env(safe-area-inset-top, 0px) + 3.55rem - 11rem)"
-  static let profile_shell_hero_sticky_top_mobile = "calc(env(safe-area-inset-top, 0px) + 3.3rem - 8rem)"
+  static let profile_shell_top_clearance_mobile = "calc(env(safe-area-inset-top, 0px) + 0.75rem)"
+  static let profile_shell_hero_sticky_travel = "calc(
+    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
+    + var(--profile-private-hero-cover-height, 13.5rem)
+    + var(--spacing-lg)
+    + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
+    + var(--spacing-xl)
+    + 3rem
+  )"
+  static let profile_shell_hero_sticky_travel_mobile = "calc(
+    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
+    + var(--profile-private-hero-cover-height-mobile, 10.5rem)
+    + var(--spacing-lg)
+    + var(--profile-private-hero-avatar-size, 6rem)
+    + var(--spacing-lg)
+    + calc(var(--body-2-size) * var(--body-2-line-height))
+    + calc(var(--body-2-size) * var(--body-2-line-height))
+    + var(--spacing-xl)
+    + 0.5rem
+  )"
+  static let profile_shell_hero_sticky_top = "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))"
+  static let profile_shell_hero_sticky_top_mobile = "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))"
   static let profile_shell_hero_sticky_z_index = "1200"
   static let profile_shell_workspace_sticky_top = "calc(var(--profile-shell-top-clearance) + var(--profile-private-hero-cover-height, 13.5rem) + var(--spacing-xl))"
   static let profile_shell_workspace_sticky_top_mobile = "calc(var(--profile-shell-top-clearance-mobile) + var(--profile-private-hero-cover-height-mobile) + var(--spacing-lg))"
