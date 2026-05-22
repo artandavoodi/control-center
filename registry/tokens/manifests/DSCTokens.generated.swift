@@ -2660,6 +2660,16 @@ enum DSCTokens {
     "input-padding-x-sm": "var(--control-padding-x-sm)",
     "input-padding-x-md": "var(--control-padding-x-md)",
     "input-padding-x-lg": "var(--control-padding-x-lg)",
+    "input-minimal-font-size": "var(--body-2-size)",
+    "input-minimal-line-height": "var(--body-2-line-height)",
+    "input-minimal-letter-spacing": "var(--body-2-tracking)",
+    "input-minimal-border": "none",
+    "input-minimal-border-focus": "none",
+    "input-minimal-background": "transparent",
+    "input-minimal-padding": "0",
+    "input-minimal-radius": "0",
+    "input-minimal-outline": "none",
+    "input-minimal-box-shadow": "none",
     "toggle-width": "2.625rem",
     "toggle-height": "1.25rem",
     "toggle-padding": "0.125rem",
@@ -7129,7 +7139,7 @@ enum DSCTokens {
     "home-search-shell-filter-panel-max-height": "var(--layout-home-search-filter-panel-max-height)",
     "home-search-shell-filter-panel-padding": "var(--layout-home-search-filter-panel-padding)",
     "home-search-shell-filter-panel-top": "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap))",
-    "home-search-shell-dialog-surface": "color-mix(in srgb, var(--bg-color) 58%, transparent)",
+    "home-search-shell-dialog-surface": "color-mix(in srgb, var(--bg-color) 95%, transparent)",
     "home-interaction-panel-width": "var(--layout-home-interaction-panel-width)",
     "home-interaction-panel-gap": "var(--layout-home-interaction-panel-gap)",
     "home-interaction-panel-padding": "var(--layout-home-interaction-panel-padding)",
@@ -8692,7 +8702,7 @@ enum DSCTokens {
     + var(--spacing-lg)
     + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
     + var(--spacing-xl)
-    + 3rem
+    + 2rem
   )",
     "profile-shell-hero-sticky-travel-mobile": "calc(
     var(--profile-private-hero-cover-offset-top, var(--spacing-md))
@@ -8703,7 +8713,7 @@ enum DSCTokens {
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + var(--spacing-xl)
-    + 0.5rem
+    + -0.5rem
   )",
     "profile-shell-hero-sticky-top": "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))",
     "profile-shell-hero-sticky-top-mobile": "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))",
@@ -11618,6 +11628,16 @@ enum DSCTokens {
   static let input_padding_x_sm = "var(--control-padding-x-sm)"
   static let input_padding_x_md = "var(--control-padding-x-md)"
   static let input_padding_x_lg = "var(--control-padding-x-lg)"
+  static let input_minimal_font_size = "var(--body-2-size)"
+  static let input_minimal_line_height = "var(--body-2-line-height)"
+  static let input_minimal_letter_spacing = "var(--body-2-tracking)"
+  static let input_minimal_border = "none"
+  static let input_minimal_border_focus = "none"
+  static let input_minimal_background = "transparent"
+  static let input_minimal_padding = "0"
+  static let input_minimal_radius = "0"
+  static let input_minimal_outline = "none"
+  static let input_minimal_box_shadow = "none"
   static let toggle_width = "2.625rem"
   static let toggle_height = "1.25rem"
   static let toggle_padding = "0.125rem"
@@ -16087,7 +16107,7 @@ enum DSCTokens {
   static let home_search_shell_filter_panel_max_height = "var(--layout-home-search-filter-panel-max-height)"
   static let home_search_shell_filter_panel_padding = "var(--layout-home-search-filter-panel-padding)"
   static let home_search_shell_filter_panel_top = "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap))"
-  static let home_search_shell_dialog_surface = "color-mix(in srgb, var(--bg-color) 58%, transparent)"
+  static let home_search_shell_dialog_surface = "color-mix(in srgb, var(--bg-color) 95%, transparent)"
   static let home_interaction_panel_width = "var(--layout-home-interaction-panel-width)"
   static let home_interaction_panel_gap = "var(--layout-home-interaction-panel-gap)"
   static let home_interaction_panel_padding = "var(--layout-home-interaction-panel-padding)"
@@ -17650,7 +17670,7 @@ enum DSCTokens {
     + var(--spacing-lg)
     + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
     + var(--spacing-xl)
-    + 3rem
+    + 2rem
   )"
   static let profile_shell_hero_sticky_travel_mobile = "calc(
     var(--profile-private-hero-cover-offset-top, var(--spacing-md))
@@ -17661,7 +17681,7 @@ enum DSCTokens {
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + var(--spacing-xl)
-    + 0.5rem
+    + -0.5rem
   )"
   static let profile_shell_hero_sticky_top = "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))"
   static let profile_shell_hero_sticky_top_mobile = "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))"

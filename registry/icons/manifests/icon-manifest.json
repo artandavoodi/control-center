@@ -983,6 +983,24 @@
     "publicPath": "/registry/icons/public/assets/core/actions/utility/translate.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/utility/translate.svg"
   },
+  "core/actions/visibility/private-draft": {
+    "id": "core/actions/visibility/private-draft",
+    "path": "core/actions/visibility/private-draft.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/visibility/private-draft.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/visibility/private-draft.svg"
+  },
+  "core/actions/visibility/public-route": {
+    "id": "core/actions/visibility/public-route",
+    "path": "core/actions/visibility/public-route.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/visibility/public-route.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/visibility/public-route.svg"
+  },
+  "core/actions/visibility/public-unlocked": {
+    "id": "core/actions/visibility/public-unlocked",
+    "path": "core/actions/visibility/public-unlocked.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/visibility/public-unlocked.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/visibility/public-unlocked.svg"
+  },
   "core/actions/visibility/zoom-in": {
     "id": "core/actions/visibility/zoom-in",
     "path": "core/actions/visibility/zoom-in.svg",
@@ -3130,6 +3148,12 @@
     "path": "layers/website/content/articles/article.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/content/articles/article.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/content/articles/article.svg"
+  },
+  "layers/website/content/media/gif": {
+    "id": "layers/website/content/media/gif",
+    "path": "layers/website/content/media/gif.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/content/media/gif.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/content/media/gif.svg"
   },
   "layers/website/content/media/media": {
     "id": "layers/website/content/media/media",
