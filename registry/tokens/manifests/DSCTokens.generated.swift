@@ -6033,6 +6033,23 @@ enum DSCTokens {
     "theme-custom-text-color": "var(--text-color)",
     "theme-custom-surface-color": "var(--surface-primary)",
     "theme-custom-border-color": "var(--border-color)",
+    "ui-dropdown-min-height": "var(--control-height-md)",
+    "ui-dropdown-padding-x": "var(--control-padding-x-md)",
+    "ui-dropdown-padding-y": "var(--control-padding-y-sm)",
+    "ui-dropdown-radius": "var(--control-radius)",
+    "ui-dropdown-border": "transparent",
+    "ui-dropdown-border-hover": "transparent",
+    "ui-dropdown-bg": "transparent",
+    "ui-dropdown-bg-hover": "transparent",
+    "ui-dropdown-color": "var(--text-color)",
+    "ui-dropdown-color-hover": "var(--text-color)",
+    "ui-dropdown-font-size": "var(--control-font-size)",
+    "ui-dropdown-font-weight": "var(--control-font-weight)",
+    "ui-dropdown-line-height": "var(--control-line-height)",
+    "ui-dropdown-icon-size": "16px",
+    "ui-dropdown-icon-gap": "var(--spacing-sm)",
+    "ui-dropdown-transition": "var(--interaction-transition-control)",
+    "ui-dropdown-icon-filter": "var(--icon-image-filter)",
     "icon-image-filter": "brightness(0) invert(1)",
     "icon-image-filter-strong": "brightness(0) invert(1)",
     "icon-color": "var(--text-color)",
@@ -8609,6 +8626,13 @@ enum DSCTokens {
     "home-essence-mobile-layer-size": "var(--layout-home-essence-mobile-layer-size)",
     "home-essence-mobile-layer-line-height": "var(--layout-home-essence-mobile-layer-line-height)",
     "home-essence-desktop-layer-size": "var(--layout-home-essence-desktop-layer-size)",
+    "password-reset-page-min-height": "100svh",
+    "password-reset-page-padding": "var(--spacing-8)",
+    "password-reset-shell-width": "min(100%, 420px)",
+    "password-reset-shell-padding": "var(--spacing-6)",
+    "password-reset-shell-gap": "var(--spacing-5)",
+    "password-reset-field-gap": "var(--spacing-3)",
+    "password-reset-status-min-height": "1.35rem",
     "profile-header-verified-color": "var(--color-primary1)",
     "profile-header-verified-border": "color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent)",
     "profile-header-verified-bg": "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)",
@@ -8682,6 +8706,20 @@ enum DSCTokens {
     "profile-media-editor-avatar-radius": "var(--control-radius-pill)",
     "profile-media-editor-cover-radius": "var(--shape-card-radius)",
     "profile-media-editor-status-min-height": "var(--body-3-line-height)",
+    "profile-media-editor-preview-bg": "var(--control-surface)",
+    "profile-media-editor-control-bg": "var(--control-surface)",
+    "profile-media-editor-control-bg-hover": "var(--control-surface-hover)",
+    "profile-media-editor-control-border": "var(--control-border-unified)",
+    "profile-media-editor-control-border-hover": "var(--control-border-hover-unified)",
+    "profile-media-editor-control-active-bg": "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))",
+    "profile-media-editor-control-active-border": "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))",
+    "profile-media-editor-range-track-bg": "var(--control-surface)",
+    "profile-media-editor-range-fill-bg": "var(--color-primary1)",
+    "profile-media-editor-range-thumb-bg": "var(--color-primary1)",
+    "profile-media-editor-range-height": "var(--spacing-2xs)",
+    "profile-media-editor-range-thumb-size": "var(--spacing-md)",
+    "profile-media-editor-guide-color": "color-mix(in srgb, var(--text-primary-color) 42%, transparent)",
+    "profile-media-editor-guide-center-color": "color-mix(in srgb, var(--color-primary1) 54%, transparent)",
     "profile-topbar-surface-bg": "var(--bg-color)",
     "profile-settings-muted-color": "var(--text-secondary-color)",
     "profile-settings-status-color": "var(--text-secondary-color)",
@@ -15001,6 +15039,23 @@ enum DSCTokens {
   static let theme_custom_text_color = "var(--text-color)"
   static let theme_custom_surface_color = "var(--surface-primary)"
   static let theme_custom_border_color = "var(--border-color)"
+  static let ui_dropdown_min_height = "var(--control-height-md)"
+  static let ui_dropdown_padding_x = "var(--control-padding-x-md)"
+  static let ui_dropdown_padding_y = "var(--control-padding-y-sm)"
+  static let ui_dropdown_radius = "var(--control-radius)"
+  static let ui_dropdown_border = "transparent"
+  static let ui_dropdown_border_hover = "transparent"
+  static let ui_dropdown_bg = "transparent"
+  static let ui_dropdown_bg_hover = "transparent"
+  static let ui_dropdown_color = "var(--text-color)"
+  static let ui_dropdown_color_hover = "var(--text-color)"
+  static let ui_dropdown_font_size = "var(--control-font-size)"
+  static let ui_dropdown_font_weight = "var(--control-font-weight)"
+  static let ui_dropdown_line_height = "var(--control-line-height)"
+  static let ui_dropdown_icon_size = "16px"
+  static let ui_dropdown_icon_gap = "var(--spacing-sm)"
+  static let ui_dropdown_transition = "var(--interaction-transition-control)"
+  static let ui_dropdown_icon_filter = "var(--icon-image-filter)"
   static let icon_image_filter = "brightness(0) invert(1)"
   static let icon_image_filter_strong = "brightness(0) invert(1)"
   static let icon_color = "var(--text-color)"
@@ -17577,6 +17632,13 @@ enum DSCTokens {
   static let home_essence_mobile_layer_size = "var(--layout-home-essence-mobile-layer-size)"
   static let home_essence_mobile_layer_line_height = "var(--layout-home-essence-mobile-layer-line-height)"
   static let home_essence_desktop_layer_size = "var(--layout-home-essence-desktop-layer-size)"
+  static let password_reset_page_min_height = "100svh"
+  static let password_reset_page_padding = "var(--spacing-8)"
+  static let password_reset_shell_width = "min(100%, 420px)"
+  static let password_reset_shell_padding = "var(--spacing-6)"
+  static let password_reset_shell_gap = "var(--spacing-5)"
+  static let password_reset_field_gap = "var(--spacing-3)"
+  static let password_reset_status_min_height = "1.35rem"
   static let profile_header_verified_color = "var(--color-primary1)"
   static let profile_header_verified_border = "color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent)"
   static let profile_header_verified_bg = "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)"
@@ -17650,6 +17712,20 @@ enum DSCTokens {
   static let profile_media_editor_avatar_radius = "var(--control-radius-pill)"
   static let profile_media_editor_cover_radius = "var(--shape-card-radius)"
   static let profile_media_editor_status_min_height = "var(--body-3-line-height)"
+  static let profile_media_editor_preview_bg = "var(--control-surface)"
+  static let profile_media_editor_control_bg = "var(--control-surface)"
+  static let profile_media_editor_control_bg_hover = "var(--control-surface-hover)"
+  static let profile_media_editor_control_border = "var(--control-border-unified)"
+  static let profile_media_editor_control_border_hover = "var(--control-border-hover-unified)"
+  static let profile_media_editor_control_active_bg = "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))"
+  static let profile_media_editor_control_active_border = "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))"
+  static let profile_media_editor_range_track_bg = "var(--control-surface)"
+  static let profile_media_editor_range_fill_bg = "var(--color-primary1)"
+  static let profile_media_editor_range_thumb_bg = "var(--color-primary1)"
+  static let profile_media_editor_range_height = "var(--spacing-2xs)"
+  static let profile_media_editor_range_thumb_size = "var(--spacing-md)"
+  static let profile_media_editor_guide_color = "color-mix(in srgb, var(--text-primary-color) 42%, transparent)"
+  static let profile_media_editor_guide_center_color = "color-mix(in srgb, var(--color-primary1) 54%, transparent)"
   static let profile_topbar_surface_bg = "var(--bg-color)"
   static let profile_settings_muted_color = "var(--text-secondary-color)"
   static let profile_settings_status_color = "var(--text-secondary-color)"

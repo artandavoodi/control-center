@@ -448,7 +448,7 @@ body.profile-posts-overlay-open{
   gap:var(--spacing-xs);
   min-height:var(--control-height-md);
   padding:var(--spacing-none) var(--control-padding-inline);
-  border:var(--border-width-hairline) solid var(--control-border-unified);
+  border:none;
   border-radius:var(--account-field-radius);
   background:var(--control-surface);
   color:var(--text-primary-color);
@@ -461,7 +461,6 @@ body.profile-posts-overlay-open{
 .profile-posts__attachment-button:focus-visible,
 .profile-posts__attachment-remove:hover,
 .profile-posts__attachment-remove:focus-visible{
-  border-color:var(--control-border-hover-unified);
   outline:none;
 }
 
@@ -493,7 +492,7 @@ body.profile-posts-overlay-open{
   display:flex;
   align-items:center;
   flex-wrap:wrap;
-  gap:var(--spacing-xs);
+  gap:var(--nav-global-topbar-menu-gap);
   background:var(--panel-surface-solid-unified);
   opacity:1;
 }
@@ -507,6 +506,15 @@ body.profile-posts-overlay-open{
   height:var(--home-platform-shell-nav-icon-size);
   opacity:var(--nav-institutional-icon-opacity);
   filter:var(--icon-image-filter);
+}
+
+.profile-posts__attachment-button[data-profile-post-submit] img{
+  width:calc(var(--home-platform-shell-nav-icon-size) * 1.5);
+  height:calc(var(--home-platform-shell-nav-icon-size) * 1.5);
+}
+
+.profile-posts__attachment-button[data-profile-post-voice-trigger]{
+  margin-left:auto;
 }
 
 .profile-posts__attachment-preview{
