@@ -47,6 +47,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/account-forgot-password-drawer-form/account-forgot-password-drawer-form.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/account-forgot-password-drawer-form/account-forgot-password-drawer-form.svg"
   },
+  "core/actions/account-lockout/account-lockout": {
+    "id": "core/actions/account-lockout/account-lockout",
+    "path": "core/actions/account-lockout/account-lockout.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/account-lockout/account-lockout.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/account-lockout/account-lockout.svg"
+  },
   "core/actions/account-phone-auth-drawer/account-phone-auth-drawer": {
     "id": "core/actions/account-phone-auth-drawer/account-phone-auth-drawer",
     "path": "core/actions/account-phone-auth-drawer/account-phone-auth-drawer.svg",
@@ -142,6 +148,12 @@
     "path": "core/actions/and/and.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/and/and.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/and/and.svg"
+  },
+  "core/actions/anti-impersonation/anti-impersonation": {
+    "id": "core/actions/anti-impersonation/anti-impersonation",
+    "path": "core/actions/anti-impersonation/anti-impersonation.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/anti-impersonation/anti-impersonation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/anti-impersonation/anti-impersonation.svg"
   },
   "core/actions/archive/archive": {
     "id": "core/actions/archive/archive",
@@ -545,6 +557,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/interact/interact.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/interact/interact.svg"
   },
+  "core/actions/ip-restrictions/ip-restrictions": {
+    "id": "core/actions/ip-restrictions/ip-restrictions",
+    "path": "core/actions/ip-restrictions/ip-restrictions.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/ip-restrictions/ip-restrictions.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/ip-restrictions/ip-restrictions.svg"
+  },
   "core/actions/launch/launch": {
     "id": "core/actions/launch/launch",
     "path": "core/actions/launch/launch.svg",
@@ -562,6 +580,12 @@
     "path": "core/actions/link/link.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/link/link.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/link/link.svg"
+  },
+  "core/actions/linked-accounts/linked-accounts": {
+    "id": "core/actions/linked-accounts/linked-accounts",
+    "path": "core/actions/linked-accounts/linked-accounts.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/linked-accounts/linked-accounts.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/linked-accounts/linked-accounts.svg"
   },
   "core/actions/mark/mark": {
     "id": "core/actions/mark/mark",
@@ -736,6 +760,12 @@
     "path": "core/actions/organize/unpin.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/organize/unpin.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/organize/unpin.svg"
+  },
+  "core/actions/password-security/password-security": {
+    "id": "core/actions/password-security/password-security",
+    "path": "core/actions/password-security/password-security.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/password-security/password-security.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/password-security/password-security.svg"
   },
   "core/actions/paste/paste": {
     "id": "core/actions/paste/paste",
@@ -929,6 +959,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/search-clear/search-clear.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/search-clear/search-clear.svg"
   },
+  "core/actions/security-alerts/security-alerts": {
+    "id": "core/actions/security-alerts/security-alerts",
+    "path": "core/actions/security-alerts/security-alerts.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/security-alerts/security-alerts.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/security-alerts/security-alerts.svg"
+  },
   "core/actions/select-country-and-region/select-country-and-region": {
     "id": "core/actions/select-country-and-region/select-country-and-region",
     "path": "core/actions/select-country-and-region/select-country-and-region.svg",
@@ -952,6 +988,12 @@
     "path": "core/actions/send-reset-link/send-reset-link.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/send-reset-link/send-reset-link.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/send-reset-link/send-reset-link.svg"
+  },
+  "core/actions/session-management/session-management": {
+    "id": "core/actions/session-management/session-management",
+    "path": "core/actions/session-management/session-management.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/session-management/session-management.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/session-management/session-management.svg"
   },
   "core/actions/share/share": {
     "id": "core/actions/share/share",
@@ -1013,6 +1055,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/transfer/upload.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/transfer/upload.svg"
   },
+  "core/actions/two-factor-auth/two-factor-auth": {
+    "id": "core/actions/two-factor-auth/two-factor-auth",
+    "path": "core/actions/two-factor-auth/two-factor-auth.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/two-factor-auth/two-factor-auth.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/two-factor-auth/two-factor-auth.svg"
+  },
   "core/actions/unlike/unlike": {
     "id": "core/actions/unlike/unlike",
     "path": "core/actions/unlike/unlike.svg",
@@ -1054,6 +1102,12 @@
     "path": "core/actions/visibility/zoom-out.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/visibility/zoom-out.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/visibility/zoom-out.svg"
+  },
+  "core/actions/voice-authentication/voice-authentication": {
+    "id": "core/actions/voice-authentication/voice-authentication",
+    "path": "core/actions/voice-authentication/voice-authentication.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/voice-authentication/voice-authentication.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/voice-authentication/voice-authentication.svg"
   },
   "core/actions/we-may-occasionally-send-you-account-related-emails/we-may-occasionally-send-you-account-related-emails": {
     "id": "core/actions/we-may-occasionally-send-you-account-related-emails/we-may-occasionally-send-you-account-related-emails",
