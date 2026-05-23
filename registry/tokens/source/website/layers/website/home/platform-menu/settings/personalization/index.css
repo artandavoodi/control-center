@@ -20,35 +20,62 @@
 .home-platform-theme__avatar-surface {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
+  border-radius: var(--control-radius-pill);
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  border: none;
+  box-shadow: none;
+  background: var(--color-primary1);
 }
 
 .home-platform-theme__avatar-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 .home-platform-theme__avatar-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 }
 
 .home-platform-theme__avatar-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 .home-platform-theme__avatar-action {
-  flex: 0 0 auto;
+  display: none;
+}
+
+.home-platform-theme__media-action {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast) ease;
+}
+
+.home-platform-theme__media-action:hover {
+  background: white;
+}
+
+.home-platform-theme__media-action img {
+  width: 16px;
+  height: 16px;
 }
 
 .home-platform-theme__profile-fields {
@@ -73,7 +100,7 @@
 .home-platform-theme__field-textarea {
   width: var(--size-full);
   border: none;
-  background: #000;
+  background: transparent;
   padding: var(--input-minimal-padding);
   outline: none;
   box-shadow: none;
@@ -82,7 +109,7 @@
 .home-platform-theme__field-input:focus,
 .home-platform-theme__field-textarea:focus {
   border: none;
-  background: #000;
+  background: transparent;
   outline: none;
   box-shadow: none;
 }
@@ -90,7 +117,7 @@
 .home-platform-theme__field-input:hover,
 .home-platform-theme__field-textarea:hover {
   border: none;
-  background: #000;
+  background: transparent;
 }
 
 .home-platform-theme__field-textarea {
@@ -199,6 +226,7 @@
   border: var(--slider-thumb-border);
   box-shadow: none;
   transition: none;
+  margin-top: calc((var(--slider-thumb-size) - var(--slider-track-height)) / -2);
 }
 
 .home-platform-destination--settings-personalization .home-platform-theme__slider::-webkit-slider-thumb:hover {

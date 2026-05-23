@@ -332,6 +332,7 @@ body.profile-media-editor-open{
   cursor:pointer;
   box-shadow:none;
   transition:none;
+  margin-top: calc((var(--slider-thumb-size) - var(--slider-track-height)) / -2);
 }
 
 .profile-media-editor__dialog .profile-media-editor__range::-webkit-slider-thumb:hover{
