@@ -76,6 +76,22 @@ body.home-page.site-entered.home-search-shell-open .home-shell__footer-separator
   pointer-events:none !important;
 }
 
+body.home-search-shell-open .home-dashboard-topbar,
+body.home-search-shell-open .home-platform-shell,
+body.home-search-shell-open .home-dashboard-topbar *,
+body.home-search-shell-open .home-platform-shell *{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
+body.home-platform-shell-open .home-dashboard-topbar,
+body.home-platform-shell-open .home-dashboard-topbar *{
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+
 /* =============================================================================
    03) TOPBAR AND FOOTER CHROME
 ============================================================================= */
