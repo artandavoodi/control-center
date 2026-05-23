@@ -6,22 +6,11 @@
 .home-platform-destination--settings-dashboard{
   width:var(--size-full);
   max-width:var(--size-full);
-  overflow-x:hidden;
 }
 
 .home-platform-destination--settings-dashboard .home-platform-theme{
   width:var(--size-full);
   max-width:var(--size-full);
-  overflow-x:hidden;
-}
-
-/* ==========================================================================
-   Scroll Safety
-   ========================================================================== */
-
-.home-platform-destination--settings-dashboard,
-.home-platform-destination--settings-dashboard *{
-  box-sizing:border-box;
 }
 
 /* ==========================================================================
@@ -54,7 +43,6 @@
 
 .home-platform-dashboard__priority-row.dragging{
   opacity:0.5;
-  background:var(--surface-hover);
 }
 
 .home-platform-dashboard__priority-handle{
@@ -109,7 +97,7 @@
 }
 
 .home-platform-dashboard__priority-button:hover{
-  background:var(--surface-hover);
+  background:transparent;
 }
 
 .home-platform-dashboard__priority-button:disabled{

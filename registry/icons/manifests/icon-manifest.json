@@ -149,6 +149,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/archive/archive.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/archive/archive.svg"
   },
+  "core/actions/archive-clear-local/archive-clear-local": {
+    "id": "core/actions/archive-clear-local/archive-clear-local",
+    "path": "core/actions/archive-clear-local/archive-clear-local.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/archive-clear-local/archive-clear-local.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/archive-clear-local/archive-clear-local.svg"
+  },
   "core/actions/attachment/attach": {
     "id": "core/actions/attachment/attach",
     "path": "core/actions/attachment/attach.svg",
@@ -196,6 +202,24 @@
     "path": "core/actions/clear/clear.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/clear/clear.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/clear/clear.svg"
+  },
+  "core/actions/clear-chat/clear-chat": {
+    "id": "core/actions/clear-chat/clear-chat",
+    "path": "core/actions/clear-chat/clear-chat.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/clear-chat/clear-chat.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/clear-chat/clear-chat.svg"
+  },
+  "core/actions/clear-model/clear-model": {
+    "id": "core/actions/clear-model/clear-model",
+    "path": "core/actions/clear-model/clear-model.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/clear-model/clear-model.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/clear-model/clear-model.svg"
+  },
+  "core/actions/clear-preferences/clear-preferences": {
+    "id": "core/actions/clear-preferences/clear-preferences",
+    "path": "core/actions/clear-preferences/clear-preferences.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/clear-preferences/clear-preferences.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/clear-preferences/clear-preferences.svg"
   },
   "core/actions/close/close": {
     "id": "core/actions/close/close",
@@ -274,6 +298,12 @@
     "path": "core/actions/create-an-account/create-an-account.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/create-an-account/create-an-account.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/create-an-account/create-an-account.svg"
+  },
+  "core/actions/create-backup/create-backup": {
+    "id": "core/actions/create-backup/create-backup",
+    "path": "core/actions/create-backup/create-backup.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/create-backup/create-backup.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/create-backup/create-backup.svg"
   },
   "core/actions/create-model/create-model": {
     "id": "core/actions/create-model/create-model",
@@ -388,6 +418,12 @@
     "path": "core/actions/export/export.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/export/export.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/export/export.svg"
+  },
+  "core/actions/export-settings/export-settings": {
+    "id": "core/actions/export-settings/export-settings",
+    "path": "core/actions/export-settings/export-settings.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/export-settings/export-settings.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/export-settings/export-settings.svg"
   },
   "core/actions/favorite/favorite": {
     "id": "core/actions/favorite/favorite",
@@ -820,6 +856,12 @@
     "path": "core/actions/restore/restore.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/restore/restore.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/restore/restore.svg"
+  },
+  "core/actions/restore-backup/restore-backup": {
+    "id": "core/actions/restore-backup/restore-backup",
+    "path": "core/actions/restore-backup/restore-backup.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/restore-backup/restore-backup.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/restore-backup/restore-backup.svg"
   },
   "core/actions/retry/retry": {
     "id": "core/actions/retry/retry",
@@ -3946,6 +3988,48 @@
     "path": "layers/website/home/platform-menu/profile/platform-menue-profile-shortcuts.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/profile/platform-menue-profile-shortcuts.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/profile/platform-menue-profile-shortcuts.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x.svg"
   },
   "layers/website/home/platform-menu/settings/platform-menu-settings": {
     "id": "layers/website/home/platform-menu/settings/platform-menu-settings",

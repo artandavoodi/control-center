@@ -41,6 +41,9 @@ enum DSCTokens {
     "surface-inverse-4": "rgba(0,0,0,0.12)",
     "overlay-backdrop-dark": "rgba(0,0,0,0.48)",
     "overlay-backdrop-light": "rgba(255,255,255,0.28)",
+    "hover-overlay-bg": "rgba(255,255,255,0.95)",
+    "hover-overlay-text": "var(--color-black)",
+    "hover-overlay-shadow": "rgba(0,0,0,0.12)",
     "cc-blur-unified": "var(--panel-blur-unified)",
     "cc-border-unified": "var(--panel-border-unified)",
     "cc-color": "var(--text-color)",
@@ -9050,6 +9053,9 @@ enum DSCTokens {
   static let surface_inverse_4 = "rgba(0,0,0,0.12)"
   static let overlay_backdrop_dark = "rgba(0,0,0,0.48)"
   static let overlay_backdrop_light = "rgba(255,255,255,0.28)"
+  static let hover_overlay_bg = "rgba(255,255,255,0.95)"
+  static let hover_overlay_text = "var(--color-black)"
+  static let hover_overlay_shadow = "rgba(0,0,0,0.12)"
   static let cc_blur_unified = "var(--panel-blur-unified)"
   static let cc_border_unified = "var(--panel-border-unified)"
   static let cc_color = "var(--text-color)"
