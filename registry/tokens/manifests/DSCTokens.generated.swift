@@ -5432,6 +5432,14 @@ enum DSCTokens {
     "shadow-strong": "0 28px 72px rgba(0,0,0,0.28)",
     "stroke-soft": "1px",
     "stroke-strong": "1.5px",
+    "slider-track-height": "6px",
+    "slider-track-radius": "3px",
+    "slider-track-bg": "var(--border-color)",
+    "slider-fill-bg": "var(--color-primary1)",
+    "slider-thumb-size": "20px",
+    "slider-thumb-radius": "50%",
+    "slider-thumb-bg": "var(--color-primary1)",
+    "slider-thumb-border": "none",
     "spacing-xs": "0.35rem",
     "spacing-sm": "0.75rem",
     "spacing-md": "1.1rem",
@@ -8713,11 +8721,6 @@ enum DSCTokens {
     "profile-media-editor-control-border-hover": "var(--control-border-hover-unified)",
     "profile-media-editor-control-active-bg": "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))",
     "profile-media-editor-control-active-border": "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))",
-    "profile-media-editor-range-track-bg": "var(--control-surface)",
-    "profile-media-editor-range-fill-bg": "var(--color-primary1)",
-    "profile-media-editor-range-thumb-bg": "var(--color-primary1)",
-    "profile-media-editor-range-height": "var(--spacing-2xs)",
-    "profile-media-editor-range-thumb-size": "var(--spacing-md)",
     "profile-media-editor-guide-color": "color-mix(in srgb, var(--text-primary-color) 42%, transparent)",
     "profile-media-editor-guide-center-color": "color-mix(in srgb, var(--color-primary1) 54%, transparent)",
     "profile-topbar-surface-bg": "var(--bg-color)",
@@ -14438,6 +14441,14 @@ enum DSCTokens {
   static let shadow_strong = "0 28px 72px rgba(0,0,0,0.28)"
   static let stroke_soft = "1px"
   static let stroke_strong = "1.5px"
+  static let slider_track_height = "6px"
+  static let slider_track_radius = "3px"
+  static let slider_track_bg = "var(--border-color)"
+  static let slider_fill_bg = "var(--color-primary1)"
+  static let slider_thumb_size = "20px"
+  static let slider_thumb_radius = "50%"
+  static let slider_thumb_bg = "var(--color-primary1)"
+  static let slider_thumb_border = "none"
   static let spacing_xs = "0.35rem"
   static let spacing_sm = "0.75rem"
   static let spacing_md = "1.1rem"
@@ -17719,11 +17730,6 @@ enum DSCTokens {
   static let profile_media_editor_control_border_hover = "var(--control-border-hover-unified)"
   static let profile_media_editor_control_active_bg = "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))"
   static let profile_media_editor_control_active_border = "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))"
-  static let profile_media_editor_range_track_bg = "var(--control-surface)"
-  static let profile_media_editor_range_fill_bg = "var(--color-primary1)"
-  static let profile_media_editor_range_thumb_bg = "var(--color-primary1)"
-  static let profile_media_editor_range_height = "var(--spacing-2xs)"
-  static let profile_media_editor_range_thumb_size = "var(--spacing-md)"
   static let profile_media_editor_guide_color = "color-mix(in srgb, var(--text-primary-color) 42%, transparent)"
   static let profile_media_editor_guide_center_color = "color-mix(in srgb, var(--color-primary1) 54%, transparent)"
   static let profile_topbar_surface_bg = "var(--bg-color)"
