@@ -4215,10 +4215,13 @@ enum DSCTokens {
     "layout-account-drawer-panel-width-mobile": "min(100vw, calc(100vw - (1.05 * var(--site-gutter, 20px))))",
     "layout-account-drawer-shell-padding-y": "1.6rem",
     "layout-account-drawer-shell-padding-x": "2rem",
+    "layout-account-drawer-shell-padding-bottom": "calc(var(--layout-account-drawer-shell-padding-y) * 2)",
     "layout-account-drawer-shell-padding-y-tablet": "1.36rem",
     "layout-account-drawer-shell-padding-x-tablet": "1.7rem",
+    "layout-account-drawer-shell-padding-bottom-tablet": "calc(var(--layout-account-drawer-shell-padding-y-tablet) * 2)",
     "layout-account-drawer-shell-padding-y-mobile": "1.2rem",
     "layout-account-drawer-shell-padding-x-mobile": "1.28rem",
+    "layout-account-drawer-shell-padding-bottom-mobile": "calc(var(--layout-account-drawer-shell-padding-y-mobile) * 2)",
     "layout-account-drawer-close-offset": "1rem",
     "layout-account-drawer-close-offset-tablet": "0.82rem",
     "layout-account-drawer-close-offset-mobile": "0.68rem",
@@ -6096,6 +6099,22 @@ enum DSCTokens {
     "icon-color": "var(--text-color)",
     "icon-color-muted": "var(--text-secondary-color)",
     "icon-color-accent": "var(--color-primary1)",
+    "password-field-toggle-size": "calc(var(--icon-size-md) + var(--spacing-xs))",
+    "password-field-toggle-icon-size": "var(--icon-size-sm)",
+    "password-field-toggle-inset": "var(--spacing-xs)",
+    "password-field-native-reserve": "2.35rem",
+    "password-field-toggle-offset": "calc(
+    var(--account-field-padding-x) +
+    var(--password-field-toggle-size) +
+    var(--spacing-xs)
+  )",
+    "password-field-input-padding-right": "var(--account-field-padding-x)",
+    "password-field-toggle-opacity": "var(--state-opacity-high)",
+    "password-field-toggle-opacity-hover": "var(--state-opacity-strong)",
+    "password-field-toggle-surface": "transparent",
+    "password-field-toggle-surface-hover": "transparent",
+    "password-field-toggle-border": "transparent",
+    "password-field-toggle-border-hover": "transparent",
     "picker-input-size": "1.20rem",
     "picker-input-padding": "0",
     "picker-input-border-width": "1px",
@@ -7745,10 +7764,13 @@ enum DSCTokens {
     "account-drawer-panel-transform-open": "var(--overlay-transform-open)",
     "account-drawer-shell-padding-y": "var(--layout-account-drawer-shell-padding-y)",
     "account-drawer-shell-padding-x": "var(--layout-account-drawer-shell-padding-x)",
+    "account-drawer-shell-padding-bottom": "var(--layout-account-drawer-shell-padding-bottom)",
     "account-drawer-shell-padding-y-tablet": "var(--layout-account-drawer-shell-padding-y-tablet)",
     "account-drawer-shell-padding-x-tablet": "var(--layout-account-drawer-shell-padding-x-tablet)",
+    "account-drawer-shell-padding-bottom-tablet": "var(--layout-account-drawer-shell-padding-bottom-tablet)",
     "account-drawer-shell-padding-y-mobile": "var(--layout-account-drawer-shell-padding-y-mobile)",
     "account-drawer-shell-padding-x-mobile": "var(--layout-account-drawer-shell-padding-x-mobile)",
+    "account-drawer-shell-padding-bottom-mobile": "var(--layout-account-drawer-shell-padding-bottom-mobile)",
     "account-drawer-close-offset": "var(--layout-account-drawer-close-offset)",
     "account-drawer-close-offset-tablet": "var(--layout-account-drawer-close-offset-tablet)",
     "account-drawer-close-offset-mobile": "var(--layout-account-drawer-close-offset-mobile)",
@@ -8171,7 +8193,7 @@ enum DSCTokens {
     "account-sign-up-divider-line": "color-mix(in srgb, var(--text-primary-color) 16%, transparent)",
     "account-sign-up-header-brand-margin-bottom": "var(--account-sign-up-content-gap-xl)",
     "account-sign-up-header-brand-margin-bottom-mobile": "var(--account-sign-up-content-gap-lg)",
-    "announcement-overlay-panel-width": "var(--layout-dialog-panel-width)",
+    "announcement-overlay-panel-width": "var(--layout-account-drawer-panel-width)",
     "announcement-overlay-surface": "var(--glass-overlay-drawer-shell-bg)",
     "announcement-overlay-border": "var(--panel-border-unified)",
     "announcement-overlay-backdrop": "var(--overlay-backdrop)",
@@ -8185,8 +8207,12 @@ enum DSCTokens {
     "announcement-overlay-dialog-viewport-gap": "var(--dialog-overlay-viewport-gap)",
     "announcement-overlay-panel-transform-closed": "var(--overlay-transform-closed)",
     "announcement-overlay-panel-transform-open": "var(--overlay-transform-open)",
-    "announcement-overlay-content-max-width": "var(--layout-dialog-content-max-width)",
-    "announcement-overlay-content-padding": "var(--layout-dialog-content-padding)",
+    "announcement-overlay-shell-padding-y": "var(--dialog-overlay-panel-padding-y)",
+    "announcement-overlay-shell-padding-x": "var(--dialog-overlay-panel-padding-x)",
+    "announcement-overlay-shell-padding-bottom": "var(--dialog-overlay-panel-padding-y)",
+    "announcement-overlay-close-offset": "var(--layout-account-drawer-close-offset)",
+    "announcement-overlay-content-max-width": "34rem",
+    "announcement-overlay-content-padding": "var(--spacing-none)",
     "announcement-overlay-section-gap": "var(--spacing-lg)",
     "announcement-overlay-icon-size": "var(--control-height-lg)",
     "announcement-overlay-title-size": "var(--headline-4-size)",
@@ -8550,6 +8576,8 @@ enum DSCTokens {
     "error404-eyebrow-color": "color-mix(in srgb, var(--text-primary-color) 50%, transparent)",
     "error404-body-color": "color-mix(in srgb, var(--text-primary-color) 72%, transparent)",
     "error404-primary-text": "var(--text-primary-color)",
+    "error404-primary-action-content": "var(--color-white)",
+    "error404-action-icon-size": "var(--icon-size-sm)",
     "error404-secondary-border": "var(--control-border)",
     "error404-secondary-text": "var(--text-primary-color)",
     "error404-secondary-border-hover": "var(--control-border-strong)",
@@ -8695,16 +8723,23 @@ enum DSCTokens {
     "home-essence-mobile-layer-line-height": "var(--layout-home-essence-mobile-layer-line-height)",
     "home-essence-desktop-layer-size": "var(--layout-home-essence-desktop-layer-size)",
     "password-reset-page-min-height": "100svh",
-    "password-reset-page-padding": "var(--spacing-8)",
-    "password-reset-shell-width": "min(100%, 420px)",
-    "password-reset-shell-padding": "var(--spacing-6)",
-    "password-reset-shell-gap": "var(--spacing-5)",
-    "password-reset-field-gap": "var(--spacing-3)",
+    "password-reset-page-padding": "var(--account-drawer-dialog-viewport-gap)",
+    "password-reset-shell-width": "var(--account-drawer-panel-width)",
+    "password-reset-shell-max-width": "calc(100vw - (2 * var(--account-drawer-dialog-viewport-gap)))",
+    "password-reset-shell-padding-y": "var(--account-drawer-shell-padding-y)",
+    "password-reset-shell-padding-x": "var(--account-drawer-shell-padding-x)",
+    "password-reset-shell-padding-bottom": "var(--account-drawer-shell-padding-bottom)",
+    "password-reset-shell-gap": "var(--account-drawer-content-gap-md)",
+    "password-reset-content-max-width": "var(--account-control-width-max)",
+    "password-reset-form-gap": "var(--account-sign-in-form-gap)",
+    "password-reset-actions-gap": "var(--account-content-gap-md)",
     "password-reset-status-min-height": "1.35rem",
     "password-reset-background": "var(--error404-page-background, var(--bg-color))",
-    "password-reset-shell-surface": "var(--error404-shell-surface, var(--control-bg))",
-    "password-reset-shell-border": "var(--error404-shell-border, var(--control-border))",
-    "password-reset-shell-radius": "var(--error404-shell-radius, var(--shape-panel-radius))",
+    "password-reset-shell-surface": "var(--account-sign-in-surface, var(--panel-surface-unified))",
+    "password-reset-shell-highlight": "none",
+    "password-reset-shell-border": "var(--panel-border-unified)",
+    "password-reset-shell-radius": "var(--account-drawer-dialog-radius)",
+    "password-reset-shell-shadow": "var(--panel-shadow-unified)",
     "profile-header-verified-color": "var(--color-primary1)",
     "profile-header-verified-border": "color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent)",
     "profile-header-verified-bg": "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)",
@@ -8793,7 +8828,18 @@ enum DSCTokens {
     "profile-settings-status-success-color": "var(--status-success-color, var(--text-color))",
     "profile-settings-status-error-color": "var(--status-danger-color, var(--color-primary7))",
     "profile-settings-motion-fast": "var(--interaction-motion-medium)",
-    "profile-settings-control-radius": "var(--account-field-radius)",
+    "profile-settings-shell-gap": "var(--layout-home-platform-theme-shell-gap)",
+    "profile-settings-section-gap": "var(--layout-home-platform-theme-section-gap)",
+    "profile-settings-field-gap": "var(--layout-home-platform-theme-token-field-gap)",
+    "profile-settings-row-gap": "var(--layout-home-platform-theme-toggle-list-gap)",
+    "profile-settings-row-padding-y": "var(--layout-home-platform-theme-toggle-row-padding-y)",
+    "profile-settings-label-size": "var(--layout-home-platform-theme-token-label-size)",
+    "profile-settings-label-weight": "var(--layout-home-platform-theme-token-label-weight)",
+    "profile-settings-label-line-height": "var(--layout-home-platform-theme-token-label-line-height)",
+    "profile-settings-caption-size": "var(--layout-home-platform-theme-caption-size)",
+    "profile-settings-caption-line-height": "var(--layout-home-platform-theme-caption-line-height)",
+    "profile-settings-caption-opacity": "var(--layout-home-platform-theme-caption-opacity)",
+    "profile-settings-control-radius": "var(--control-radius-composer)",
     "profile-shell-rail-width": "var(--site-rail-width)",
     "profile-shell-group-gap": "var(--spacing-md)",
     "profile-shell-mount-gap": "var(--spacing-none)",
@@ -13288,10 +13334,13 @@ enum DSCTokens {
   static let layout_account_drawer_panel_width_mobile = "min(100vw, calc(100vw - (1.05 * var(--site-gutter, 20px))))"
   static let layout_account_drawer_shell_padding_y = "1.6rem"
   static let layout_account_drawer_shell_padding_x = "2rem"
+  static let layout_account_drawer_shell_padding_bottom = "calc(var(--layout-account-drawer-shell-padding-y) * 2)"
   static let layout_account_drawer_shell_padding_y_tablet = "1.36rem"
   static let layout_account_drawer_shell_padding_x_tablet = "1.7rem"
+  static let layout_account_drawer_shell_padding_bottom_tablet = "calc(var(--layout-account-drawer-shell-padding-y-tablet) * 2)"
   static let layout_account_drawer_shell_padding_y_mobile = "1.2rem"
   static let layout_account_drawer_shell_padding_x_mobile = "1.28rem"
+  static let layout_account_drawer_shell_padding_bottom_mobile = "calc(var(--layout-account-drawer-shell-padding-y-mobile) * 2)"
   static let layout_account_drawer_close_offset = "1rem"
   static let layout_account_drawer_close_offset_tablet = "0.82rem"
   static let layout_account_drawer_close_offset_mobile = "0.68rem"
@@ -15169,6 +15218,22 @@ enum DSCTokens {
   static let icon_color = "var(--text-color)"
   static let icon_color_muted = "var(--text-secondary-color)"
   static let icon_color_accent = "var(--color-primary1)"
+  static let password_field_toggle_size = "calc(var(--icon-size-md) + var(--spacing-xs))"
+  static let password_field_toggle_icon_size = "var(--icon-size-sm)"
+  static let password_field_toggle_inset = "var(--spacing-xs)"
+  static let password_field_native_reserve = "2.35rem"
+  static let password_field_toggle_offset = "calc(
+    var(--account-field-padding-x) +
+    var(--password-field-toggle-size) +
+    var(--spacing-xs)
+  )"
+  static let password_field_input_padding_right = "var(--account-field-padding-x)"
+  static let password_field_toggle_opacity = "var(--state-opacity-high)"
+  static let password_field_toggle_opacity_hover = "var(--state-opacity-strong)"
+  static let password_field_toggle_surface = "transparent"
+  static let password_field_toggle_surface_hover = "transparent"
+  static let password_field_toggle_border = "transparent"
+  static let password_field_toggle_border_hover = "transparent"
   static let picker_input_size = "1.20rem"
   static let picker_input_padding = "0"
   static let picker_input_border_width = "1px"
@@ -16818,10 +16883,13 @@ enum DSCTokens {
   static let account_drawer_panel_transform_open = "var(--overlay-transform-open)"
   static let account_drawer_shell_padding_y = "var(--layout-account-drawer-shell-padding-y)"
   static let account_drawer_shell_padding_x = "var(--layout-account-drawer-shell-padding-x)"
+  static let account_drawer_shell_padding_bottom = "var(--layout-account-drawer-shell-padding-bottom)"
   static let account_drawer_shell_padding_y_tablet = "var(--layout-account-drawer-shell-padding-y-tablet)"
   static let account_drawer_shell_padding_x_tablet = "var(--layout-account-drawer-shell-padding-x-tablet)"
+  static let account_drawer_shell_padding_bottom_tablet = "var(--layout-account-drawer-shell-padding-bottom-tablet)"
   static let account_drawer_shell_padding_y_mobile = "var(--layout-account-drawer-shell-padding-y-mobile)"
   static let account_drawer_shell_padding_x_mobile = "var(--layout-account-drawer-shell-padding-x-mobile)"
+  static let account_drawer_shell_padding_bottom_mobile = "var(--layout-account-drawer-shell-padding-bottom-mobile)"
   static let account_drawer_close_offset = "var(--layout-account-drawer-close-offset)"
   static let account_drawer_close_offset_tablet = "var(--layout-account-drawer-close-offset-tablet)"
   static let account_drawer_close_offset_mobile = "var(--layout-account-drawer-close-offset-mobile)"
@@ -17244,7 +17312,7 @@ enum DSCTokens {
   static let account_sign_up_divider_line = "color-mix(in srgb, var(--text-primary-color) 16%, transparent)"
   static let account_sign_up_header_brand_margin_bottom = "var(--account-sign-up-content-gap-xl)"
   static let account_sign_up_header_brand_margin_bottom_mobile = "var(--account-sign-up-content-gap-lg)"
-  static let announcement_overlay_panel_width = "var(--layout-dialog-panel-width)"
+  static let announcement_overlay_panel_width = "var(--layout-account-drawer-panel-width)"
   static let announcement_overlay_surface = "var(--glass-overlay-drawer-shell-bg)"
   static let announcement_overlay_border = "var(--panel-border-unified)"
   static let announcement_overlay_backdrop = "var(--overlay-backdrop)"
@@ -17258,8 +17326,12 @@ enum DSCTokens {
   static let announcement_overlay_dialog_viewport_gap = "var(--dialog-overlay-viewport-gap)"
   static let announcement_overlay_panel_transform_closed = "var(--overlay-transform-closed)"
   static let announcement_overlay_panel_transform_open = "var(--overlay-transform-open)"
-  static let announcement_overlay_content_max_width = "var(--layout-dialog-content-max-width)"
-  static let announcement_overlay_content_padding = "var(--layout-dialog-content-padding)"
+  static let announcement_overlay_shell_padding_y = "var(--dialog-overlay-panel-padding-y)"
+  static let announcement_overlay_shell_padding_x = "var(--dialog-overlay-panel-padding-x)"
+  static let announcement_overlay_shell_padding_bottom = "var(--dialog-overlay-panel-padding-y)"
+  static let announcement_overlay_close_offset = "var(--layout-account-drawer-close-offset)"
+  static let announcement_overlay_content_max_width = "34rem"
+  static let announcement_overlay_content_padding = "var(--spacing-none)"
   static let announcement_overlay_section_gap = "var(--spacing-lg)"
   static let announcement_overlay_icon_size = "var(--control-height-lg)"
   static let announcement_overlay_title_size = "var(--headline-4-size)"
@@ -17623,6 +17695,8 @@ enum DSCTokens {
   static let error404_eyebrow_color = "color-mix(in srgb, var(--text-primary-color) 50%, transparent)"
   static let error404_body_color = "color-mix(in srgb, var(--text-primary-color) 72%, transparent)"
   static let error404_primary_text = "var(--text-primary-color)"
+  static let error404_primary_action_content = "var(--color-white)"
+  static let error404_action_icon_size = "var(--icon-size-sm)"
   static let error404_secondary_border = "var(--control-border)"
   static let error404_secondary_text = "var(--text-primary-color)"
   static let error404_secondary_border_hover = "var(--control-border-strong)"
@@ -17768,16 +17842,23 @@ enum DSCTokens {
   static let home_essence_mobile_layer_line_height = "var(--layout-home-essence-mobile-layer-line-height)"
   static let home_essence_desktop_layer_size = "var(--layout-home-essence-desktop-layer-size)"
   static let password_reset_page_min_height = "100svh"
-  static let password_reset_page_padding = "var(--spacing-8)"
-  static let password_reset_shell_width = "min(100%, 420px)"
-  static let password_reset_shell_padding = "var(--spacing-6)"
-  static let password_reset_shell_gap = "var(--spacing-5)"
-  static let password_reset_field_gap = "var(--spacing-3)"
+  static let password_reset_page_padding = "var(--account-drawer-dialog-viewport-gap)"
+  static let password_reset_shell_width = "var(--account-drawer-panel-width)"
+  static let password_reset_shell_max_width = "calc(100vw - (2 * var(--account-drawer-dialog-viewport-gap)))"
+  static let password_reset_shell_padding_y = "var(--account-drawer-shell-padding-y)"
+  static let password_reset_shell_padding_x = "var(--account-drawer-shell-padding-x)"
+  static let password_reset_shell_padding_bottom = "var(--account-drawer-shell-padding-bottom)"
+  static let password_reset_shell_gap = "var(--account-drawer-content-gap-md)"
+  static let password_reset_content_max_width = "var(--account-control-width-max)"
+  static let password_reset_form_gap = "var(--account-sign-in-form-gap)"
+  static let password_reset_actions_gap = "var(--account-content-gap-md)"
   static let password_reset_status_min_height = "1.35rem"
   static let password_reset_background = "var(--error404-page-background, var(--bg-color))"
-  static let password_reset_shell_surface = "var(--error404-shell-surface, var(--control-bg))"
-  static let password_reset_shell_border = "var(--error404-shell-border, var(--control-border))"
-  static let password_reset_shell_radius = "var(--error404-shell-radius, var(--shape-panel-radius))"
+  static let password_reset_shell_surface = "var(--account-sign-in-surface, var(--panel-surface-unified))"
+  static let password_reset_shell_highlight = "none"
+  static let password_reset_shell_border = "var(--panel-border-unified)"
+  static let password_reset_shell_radius = "var(--account-drawer-dialog-radius)"
+  static let password_reset_shell_shadow = "var(--panel-shadow-unified)"
   static let profile_header_verified_color = "var(--color-primary1)"
   static let profile_header_verified_border = "color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent)"
   static let profile_header_verified_bg = "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)"
@@ -17866,7 +17947,18 @@ enum DSCTokens {
   static let profile_settings_status_success_color = "var(--status-success-color, var(--text-color))"
   static let profile_settings_status_error_color = "var(--status-danger-color, var(--color-primary7))"
   static let profile_settings_motion_fast = "var(--interaction-motion-medium)"
-  static let profile_settings_control_radius = "var(--account-field-radius)"
+  static let profile_settings_shell_gap = "var(--layout-home-platform-theme-shell-gap)"
+  static let profile_settings_section_gap = "var(--layout-home-platform-theme-section-gap)"
+  static let profile_settings_field_gap = "var(--layout-home-platform-theme-token-field-gap)"
+  static let profile_settings_row_gap = "var(--layout-home-platform-theme-toggle-list-gap)"
+  static let profile_settings_row_padding_y = "var(--layout-home-platform-theme-toggle-row-padding-y)"
+  static let profile_settings_label_size = "var(--layout-home-platform-theme-token-label-size)"
+  static let profile_settings_label_weight = "var(--layout-home-platform-theme-token-label-weight)"
+  static let profile_settings_label_line_height = "var(--layout-home-platform-theme-token-label-line-height)"
+  static let profile_settings_caption_size = "var(--layout-home-platform-theme-caption-size)"
+  static let profile_settings_caption_line_height = "var(--layout-home-platform-theme-caption-line-height)"
+  static let profile_settings_caption_opacity = "var(--layout-home-platform-theme-caption-opacity)"
+  static let profile_settings_control_radius = "var(--control-radius-composer)"
   static let profile_shell_rail_width = "var(--site-rail-width)"
   static let profile_shell_group_gap = "var(--spacing-md)"
   static let profile_shell_mount_gap = "var(--spacing-none)"
