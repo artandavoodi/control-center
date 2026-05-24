@@ -126,6 +126,21 @@ enum DSCTokens {
     "cc-home-essence-layer-tracking": "var(--layout-home-essence-layer-tracking)",
     "cc-home-essence-layer-transform-motion": "var(--layout-home-essence-layer-transform-motion)",
     "cc-home-essence-mobile-layer-line-height": "var(--layout-home-essence-mobile-layer-line-height)",
+    "cc-avatar-size": "var(--avatar-size)",
+    "cc-avatar-bg": "var(--avatar-bg)",
+    "cc-avatar-border": "var(--avatar-border)",
+    "cc-avatar-border-width": "var(--avatar-border-width)",
+    "cc-avatar-radius": "var(--avatar-radius)",
+    "cc-avatar-layer": "var(--avatar-layer)",
+    "cc-avatar-media-action-size": "var(--avatar-media-action-size)",
+    "cc-avatar-media-action-bg": "var(--avatar-media-action-bg)",
+    "cc-avatar-media-action-bg-hover": "var(--avatar-media-action-bg-hover)",
+    "cc-avatar-media-action-border": "var(--avatar-media-action-border)",
+    "cc-avatar-media-action-border-hover": "var(--avatar-media-action-border-hover)",
+    "cc-avatar-media-action-radius": "var(--avatar-media-action-radius)",
+    "cc-avatar-media-action-layer": "var(--avatar-media-action-layer)",
+    "cc-avatar-media-action-position-right": "var(--avatar-media-action-position-right)",
+    "cc-avatar-media-action-position-bottom": "var(--avatar-media-action-position-bottom)",
     "cc-home-essence-mobile-layer-size": "var(--layout-home-essence-mobile-layer-size)",
     "cc-home-essence-phase-active-blur": "var(--layout-home-essence-phase-active-blur)",
     "cc-home-essence-phase-active-opacity": "var(--layout-home-essence-phase-active-opacity)",
@@ -2730,6 +2745,21 @@ enum DSCTokens {
     "glass-blur-sm": "10px",
     "glass-blur-md": "16px",
     "glass-blur-lg": "24px",
+    "avatar-size": "var(--spacing-3xl)",
+    "avatar-bg": "var(--color-primary1)",
+    "avatar-border": "var(--border-color)",
+    "avatar-border-width": "var(--border-width-hairline)",
+    "avatar-radius": "var(--radius-pill)",
+    "avatar-layer": "var(--z-raised)",
+    "avatar-media-action-size": "var(--spacing-lg)",
+    "avatar-media-action-bg": "var(--control-surface)",
+    "avatar-media-action-bg-hover": "var(--panel-surface-solid-unified)",
+    "avatar-media-action-border": "var(--control-border-unified)",
+    "avatar-media-action-border-hover": "var(--control-border-hover-unified)",
+    "avatar-media-action-radius": "var(--radius-pill)",
+    "avatar-media-action-layer": "var(--z-above)",
+    "avatar-media-action-position-right": "0",
+    "avatar-media-action-position-bottom": "0",
     "data-surface-bg": "var(--surface-primary, var(--bg-color))",
     "data-surface-bg-muted": "color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "data-surface-bg-hover": "var(--hover-bg-subtle)",
@@ -8141,6 +8171,33 @@ enum DSCTokens {
     "account-sign-up-divider-line": "color-mix(in srgb, var(--text-primary-color) 16%, transparent)",
     "account-sign-up-header-brand-margin-bottom": "var(--account-sign-up-content-gap-xl)",
     "account-sign-up-header-brand-margin-bottom-mobile": "var(--account-sign-up-content-gap-lg)",
+    "announcement-overlay-panel-width": "var(--layout-dialog-panel-width)",
+    "announcement-overlay-surface": "var(--glass-overlay-drawer-shell-bg)",
+    "announcement-overlay-border": "var(--panel-border-unified)",
+    "announcement-overlay-backdrop": "var(--overlay-backdrop)",
+    "announcement-overlay-close-size": "var(--global-close-button-size)",
+    "announcement-overlay-close-color": "var(--global-close-button-color)",
+    "announcement-overlay-close-hover-color": "var(--global-close-button-hover-color)",
+    "announcement-overlay-close-duration": "var(--global-close-button-duration)",
+    "announcement-overlay-close-ease": "var(--global-close-button-ease)",
+    "announcement-overlay-dialog-radius": "var(--dialog-radius-unified)",
+    "announcement-overlay-dialog-max-height": "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, 4rem)) - var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)))",
+    "announcement-overlay-dialog-viewport-gap": "var(--dialog-overlay-viewport-gap)",
+    "announcement-overlay-panel-transform-closed": "var(--overlay-transform-closed)",
+    "announcement-overlay-panel-transform-open": "var(--overlay-transform-open)",
+    "announcement-overlay-content-max-width": "var(--layout-dialog-content-max-width)",
+    "announcement-overlay-content-padding": "var(--layout-dialog-content-padding)",
+    "announcement-overlay-section-gap": "var(--spacing-lg)",
+    "announcement-overlay-icon-size": "var(--control-height-lg)",
+    "announcement-overlay-title-size": "var(--headline-4-size)",
+    "announcement-overlay-title-line-height": "var(--headline-4-line-height)",
+    "announcement-overlay-title-letter-spacing": "var(--tracking-copy)",
+    "announcement-overlay-message-size": "var(--body-1-size)",
+    "announcement-overlay-message-line-height": "var(--body-1-line-height)",
+    "announcement-overlay-message-letter-spacing": "var(--body-1-tracking)",
+    "announcement-overlay-note-size": "var(--body-2-size)",
+    "announcement-overlay-note-line-height": "var(--body-2-line-height)",
+    "announcement-overlay-note-letter-spacing": "var(--body-2-tracking)",
     "cookie-consent-backdrop": "color-mix(in srgb, var(--shadow-color, #000000) 16%, transparent)",
     "cookie-consent-surface": "var(--panel-surface-unified)",
     "cookie-consent-border": "var(--panel-border-unified)",
@@ -8644,6 +8701,10 @@ enum DSCTokens {
     "password-reset-shell-gap": "var(--spacing-5)",
     "password-reset-field-gap": "var(--spacing-3)",
     "password-reset-status-min-height": "1.35rem",
+    "password-reset-background": "var(--error404-page-background, var(--bg-color))",
+    "password-reset-shell-surface": "var(--error404-shell-surface, var(--control-bg))",
+    "password-reset-shell-border": "var(--error404-shell-border, var(--control-border))",
+    "password-reset-shell-radius": "var(--error404-shell-radius, var(--shape-panel-radius))",
     "profile-header-verified-color": "var(--color-primary1)",
     "profile-header-verified-border": "color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent)",
     "profile-header-verified-bg": "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)",
@@ -9138,6 +9199,21 @@ enum DSCTokens {
   static let cc_home_essence_layer_tracking = "var(--layout-home-essence-layer-tracking)"
   static let cc_home_essence_layer_transform_motion = "var(--layout-home-essence-layer-transform-motion)"
   static let cc_home_essence_mobile_layer_line_height = "var(--layout-home-essence-mobile-layer-line-height)"
+  static let cc_avatar_size = "var(--avatar-size)"
+  static let cc_avatar_bg = "var(--avatar-bg)"
+  static let cc_avatar_border = "var(--avatar-border)"
+  static let cc_avatar_border_width = "var(--avatar-border-width)"
+  static let cc_avatar_radius = "var(--avatar-radius)"
+  static let cc_avatar_layer = "var(--avatar-layer)"
+  static let cc_avatar_media_action_size = "var(--avatar-media-action-size)"
+  static let cc_avatar_media_action_bg = "var(--avatar-media-action-bg)"
+  static let cc_avatar_media_action_bg_hover = "var(--avatar-media-action-bg-hover)"
+  static let cc_avatar_media_action_border = "var(--avatar-media-action-border)"
+  static let cc_avatar_media_action_border_hover = "var(--avatar-media-action-border-hover)"
+  static let cc_avatar_media_action_radius = "var(--avatar-media-action-radius)"
+  static let cc_avatar_media_action_layer = "var(--avatar-media-action-layer)"
+  static let cc_avatar_media_action_position_right = "var(--avatar-media-action-position-right)"
+  static let cc_avatar_media_action_position_bottom = "var(--avatar-media-action-position-bottom)"
   static let cc_home_essence_mobile_layer_size = "var(--layout-home-essence-mobile-layer-size)"
   static let cc_home_essence_phase_active_blur = "var(--layout-home-essence-phase-active-blur)"
   static let cc_home_essence_phase_active_opacity = "var(--layout-home-essence-phase-active-opacity)"
@@ -11742,6 +11818,21 @@ enum DSCTokens {
   static let glass_blur_sm = "10px"
   static let glass_blur_md = "16px"
   static let glass_blur_lg = "24px"
+  static let avatar_size = "var(--spacing-3xl)"
+  static let avatar_bg = "var(--color-primary1)"
+  static let avatar_border = "var(--border-color)"
+  static let avatar_border_width = "var(--border-width-hairline)"
+  static let avatar_radius = "var(--radius-pill)"
+  static let avatar_layer = "var(--z-raised)"
+  static let avatar_media_action_size = "var(--spacing-lg)"
+  static let avatar_media_action_bg = "var(--control-surface)"
+  static let avatar_media_action_bg_hover = "var(--panel-surface-solid-unified)"
+  static let avatar_media_action_border = "var(--control-border-unified)"
+  static let avatar_media_action_border_hover = "var(--control-border-hover-unified)"
+  static let avatar_media_action_radius = "var(--radius-pill)"
+  static let avatar_media_action_layer = "var(--z-above)"
+  static let avatar_media_action_position_right = "0"
+  static let avatar_media_action_position_bottom = "0"
   static let data_surface_bg = "var(--surface-primary, var(--bg-color))"
   static let data_surface_bg_muted = "color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let data_surface_bg_hover = "var(--hover-bg-subtle)"
@@ -17153,6 +17244,33 @@ enum DSCTokens {
   static let account_sign_up_divider_line = "color-mix(in srgb, var(--text-primary-color) 16%, transparent)"
   static let account_sign_up_header_brand_margin_bottom = "var(--account-sign-up-content-gap-xl)"
   static let account_sign_up_header_brand_margin_bottom_mobile = "var(--account-sign-up-content-gap-lg)"
+  static let announcement_overlay_panel_width = "var(--layout-dialog-panel-width)"
+  static let announcement_overlay_surface = "var(--glass-overlay-drawer-shell-bg)"
+  static let announcement_overlay_border = "var(--panel-border-unified)"
+  static let announcement_overlay_backdrop = "var(--overlay-backdrop)"
+  static let announcement_overlay_close_size = "var(--global-close-button-size)"
+  static let announcement_overlay_close_color = "var(--global-close-button-color)"
+  static let announcement_overlay_close_hover_color = "var(--global-close-button-hover-color)"
+  static let announcement_overlay_close_duration = "var(--global-close-button-duration)"
+  static let announcement_overlay_close_ease = "var(--global-close-button-ease)"
+  static let announcement_overlay_dialog_radius = "var(--dialog-radius-unified)"
+  static let announcement_overlay_dialog_max_height = "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, 4rem)) - var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)))"
+  static let announcement_overlay_dialog_viewport_gap = "var(--dialog-overlay-viewport-gap)"
+  static let announcement_overlay_panel_transform_closed = "var(--overlay-transform-closed)"
+  static let announcement_overlay_panel_transform_open = "var(--overlay-transform-open)"
+  static let announcement_overlay_content_max_width = "var(--layout-dialog-content-max-width)"
+  static let announcement_overlay_content_padding = "var(--layout-dialog-content-padding)"
+  static let announcement_overlay_section_gap = "var(--spacing-lg)"
+  static let announcement_overlay_icon_size = "var(--control-height-lg)"
+  static let announcement_overlay_title_size = "var(--headline-4-size)"
+  static let announcement_overlay_title_line_height = "var(--headline-4-line-height)"
+  static let announcement_overlay_title_letter_spacing = "var(--tracking-copy)"
+  static let announcement_overlay_message_size = "var(--body-1-size)"
+  static let announcement_overlay_message_line_height = "var(--body-1-line-height)"
+  static let announcement_overlay_message_letter_spacing = "var(--body-1-tracking)"
+  static let announcement_overlay_note_size = "var(--body-2-size)"
+  static let announcement_overlay_note_line_height = "var(--body-2-line-height)"
+  static let announcement_overlay_note_letter_spacing = "var(--body-2-tracking)"
   static let cookie_consent_backdrop = "color-mix(in srgb, var(--shadow-color, #000000) 16%, transparent)"
   static let cookie_consent_surface = "var(--panel-surface-unified)"
   static let cookie_consent_border = "var(--panel-border-unified)"
@@ -17656,6 +17774,10 @@ enum DSCTokens {
   static let password_reset_shell_gap = "var(--spacing-5)"
   static let password_reset_field_gap = "var(--spacing-3)"
   static let password_reset_status_min_height = "1.35rem"
+  static let password_reset_background = "var(--error404-page-background, var(--bg-color))"
+  static let password_reset_shell_surface = "var(--error404-shell-surface, var(--control-bg))"
+  static let password_reset_shell_border = "var(--error404-shell-border, var(--control-border))"
+  static let password_reset_shell_radius = "var(--error404-shell-radius, var(--shape-panel-radius))"
   static let profile_header_verified_color = "var(--color-primary1)"
   static let profile_header_verified_border = "color-mix(in srgb, var(--profile-header-verified-color) 30%, transparent)"
   static let profile_header_verified_bg = "color-mix(in srgb, var(--profile-header-verified-color) 10%, transparent)"

@@ -1,7 +1,9 @@
-@import "./overview-canvas.css";
-@import "./system-overview.css";
-@import "./model-readiness.css";
-@import "./continuity-memory.css";
-@import "./knowledge-graph.css";
-@import "./usage-interaction.css";
-@import "./system-guidance.css";
+@import url('../settings/general/index.css');
+
+.home-platform-destination--home-overview{
+  width:var(--size-full);
+}
+
+.home-platform-destination__surface.home-platform-theme {
+  padding: var(--spacing-2xl);
+}
