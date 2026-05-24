@@ -343,7 +343,7 @@
   --layout-home-search-input-row-gap:0.62rem;
   --layout-home-search-input-row-min-height:4rem;
   --layout-home-search-input-row-padding-y:0.82rem;
-  --layout-home-search-input-row-padding-x:1.08rem;
+  --layout-home-search-input-row-padding-x:0;
   --layout-home-search-input-row-radius:999px;
   --layout-home-search-input-row-line-height:1;
   --layout-home-search-input-row-opacity:0.9;
@@ -417,7 +417,7 @@
   --layout-home-search-mobile-title-size:1.15rem;
   --layout-home-search-mobile-input-row-min-height:3.2rem;
   --layout-home-search-mobile-input-row-padding-y:0.68rem;
-  --layout-home-search-mobile-input-row-padding-x:0.9rem;
+  --layout-home-search-mobile-input-row-padding-x:0;
   --layout-home-search-mobile-input-size:1.2rem;
 }
 
@@ -502,13 +502,13 @@
   /* Shared platform section title token.
      Consumes the semantic Section Title typography scale.
      Used for About section titles, homepage platform content titles, search shell section titles, model creation titles, and future equivalent section headers.
-     Temporarily color-marked red for visual mapping during title normalization. */
+     Resolves through the active theme text color. */
   --layout-home-platform-content-title-size:var(--section-title-size);
   --layout-home-platform-content-title-weight:var(--section-title-weight);
   --layout-home-platform-content-title-line-height:var(--section-title-line-height);
   --layout-home-platform-content-title-tracking:var(--section-title-tracking);
   --layout-home-platform-content-title-transform:var(--section-title-transform);
-  --layout-home-platform-content-title-color:red;
+  --layout-home-platform-content-title-color:var(--text-primary-color, var(--text-color, currentColor));
   --layout-home-platform-content-copy-max-width:42rem;
   --layout-home-platform-content-copy-size:0.98rem;
   --layout-home-platform-content-copy-weight:400;

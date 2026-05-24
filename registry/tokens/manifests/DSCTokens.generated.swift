@@ -3119,9 +3119,9 @@ enum DSCTokens {
     "control-border-hover-unified": "var(--hover-border-medium)",
     "overlay-popover-surface": "color-mix(in srgb, var(--surface-color, var(--bg-color)) 96%, var(--bg-color))",
     "overlay-popover-border": "var(--control-border-unified)",
-    "search-field-border-width": "var(--border-width-hairline)",
-    "search-field-border": "var(--control-border-unified)",
-    "search-field-border-focus": "var(--control-border-hover-unified)",
+    "search-field-border-width": "0",
+    "search-field-border": "transparent",
+    "search-field-border-focus": "transparent",
     "search-field-radius": "var(--control-radius-composer)",
     "search-field-surface": "var(--field-bg)",
     "search-field-surface-clear": "transparent",
@@ -3710,7 +3710,7 @@ enum DSCTokens {
     "layout-home-search-input-row-gap": "0.62rem",
     "layout-home-search-input-row-min-height": "4rem",
     "layout-home-search-input-row-padding-y": "0.82rem",
-    "layout-home-search-input-row-padding-x": "1.08rem",
+    "layout-home-search-input-row-padding-x": "0",
     "layout-home-search-input-row-radius": "999px",
     "layout-home-search-input-row-line-height": "1",
     "layout-home-search-input-row-opacity": "0.9",
@@ -3784,7 +3784,7 @@ enum DSCTokens {
     "layout-home-search-mobile-title-size": "1.15rem",
     "layout-home-search-mobile-input-row-min-height": "3.2rem",
     "layout-home-search-mobile-input-row-padding-y": "0.68rem",
-    "layout-home-search-mobile-input-row-padding-x": "0.9rem",
+    "layout-home-search-mobile-input-row-padding-x": "0",
     "layout-home-search-mobile-input-size": "1.2rem",
     "layout-home-platform-nav-opacity": "0.68",
     "layout-home-platform-nav-hover-opacity": "1",
@@ -3864,7 +3864,7 @@ enum DSCTokens {
     "layout-home-platform-content-title-line-height": "var(--section-title-line-height)",
     "layout-home-platform-content-title-tracking": "var(--section-title-tracking)",
     "layout-home-platform-content-title-transform": "var(--section-title-transform)",
-    "layout-home-platform-content-title-color": "red",
+    "layout-home-platform-content-title-color": "var(--text-primary-color, var(--text-color, currentColor))",
     "layout-home-platform-content-copy-max-width": "42rem",
     "layout-home-platform-content-copy-size": "0.98rem",
     "layout-home-platform-content-copy-weight": "400",
@@ -9011,6 +9011,19 @@ enum DSCTokens {
     "feed-post-action-min-height": "var(--layout-feed-post-action-min-height)",
     "feed-post-action-padding-x": "var(--layout-feed-post-action-padding-x)",
     "feed-post-action-size": "var(--layout-feed-post-action-size)",
+    "leadership-grid-gap": "var(--catalog-grid-gap)",
+    "leadership-card-gap": "var(--catalog-grid-compact-gap)",
+    "leadership-card-body-gap": "var(--catalog-card-body-gap)",
+    "leadership-card-radius": "var(--catalog-card-radius)",
+    "leadership-card-padding": "var(--catalog-card-body-padding)",
+    "leadership-avatar-size": "var(--layout-profile-avatar-size, 128px)",
+    "leadership-profile-hero-height": "clamp(28rem, 68vh, 44rem)",
+    "leadership-profile-hero-content-width": "min(34rem, calc(100vw - (var(--site-gutter) * 2)))",
+    "leadership-avatar-border": "var(--control-border)",
+    "leadership-avatar-bg": "var(--control-bg)",
+    "leadership-name-size": "var(--catalog-card-title-size)",
+    "leadership-role-size": "var(--catalog-chip-size)",
+    "leadership-copy-line-height": "var(--catalog-panel-copy-line-height)",
     "legal-page-max-width": "var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)))",
     "legal-page-max-width-mobile": "min(calc(100% - (var(--site-gutter, 20px) * 2)), var(--site-max-width, 1320px))",
     "legal-page-narrow-width": "var(--layout-legal-page-narrow-width)",
@@ -12238,9 +12251,9 @@ enum DSCTokens {
   static let control_border_hover_unified = "var(--hover-border-medium)"
   static let overlay_popover_surface = "color-mix(in srgb, var(--surface-color, var(--bg-color)) 96%, var(--bg-color))"
   static let overlay_popover_border = "var(--control-border-unified)"
-  static let search_field_border_width = "var(--border-width-hairline)"
-  static let search_field_border = "var(--control-border-unified)"
-  static let search_field_border_focus = "var(--control-border-hover-unified)"
+  static let search_field_border_width = "0"
+  static let search_field_border = "transparent"
+  static let search_field_border_focus = "transparent"
   static let search_field_radius = "var(--control-radius-composer)"
   static let search_field_surface = "var(--field-bg)"
   static let search_field_surface_clear = "transparent"
@@ -12829,7 +12842,7 @@ enum DSCTokens {
   static let layout_home_search_input_row_gap = "0.62rem"
   static let layout_home_search_input_row_min_height = "4rem"
   static let layout_home_search_input_row_padding_y = "0.82rem"
-  static let layout_home_search_input_row_padding_x = "1.08rem"
+  static let layout_home_search_input_row_padding_x = "0"
   static let layout_home_search_input_row_radius = "999px"
   static let layout_home_search_input_row_line_height = "1"
   static let layout_home_search_input_row_opacity = "0.9"
@@ -12903,7 +12916,7 @@ enum DSCTokens {
   static let layout_home_search_mobile_title_size = "1.15rem"
   static let layout_home_search_mobile_input_row_min_height = "3.2rem"
   static let layout_home_search_mobile_input_row_padding_y = "0.68rem"
-  static let layout_home_search_mobile_input_row_padding_x = "0.9rem"
+  static let layout_home_search_mobile_input_row_padding_x = "0"
   static let layout_home_search_mobile_input_size = "1.2rem"
   static let layout_home_platform_nav_opacity = "0.68"
   static let layout_home_platform_nav_hover_opacity = "1"
@@ -12983,7 +12996,7 @@ enum DSCTokens {
   static let layout_home_platform_content_title_line_height = "var(--section-title-line-height)"
   static let layout_home_platform_content_title_tracking = "var(--section-title-tracking)"
   static let layout_home_platform_content_title_transform = "var(--section-title-transform)"
-  static let layout_home_platform_content_title_color = "red"
+  static let layout_home_platform_content_title_color = "var(--text-primary-color, var(--text-color, currentColor))"
   static let layout_home_platform_content_copy_max_width = "42rem"
   static let layout_home_platform_content_copy_size = "0.98rem"
   static let layout_home_platform_content_copy_weight = "400"
@@ -18130,6 +18143,19 @@ enum DSCTokens {
   static let feed_post_action_min_height = "var(--layout-feed-post-action-min-height)"
   static let feed_post_action_padding_x = "var(--layout-feed-post-action-padding-x)"
   static let feed_post_action_size = "var(--layout-feed-post-action-size)"
+  static let leadership_grid_gap = "var(--catalog-grid-gap)"
+  static let leadership_card_gap = "var(--catalog-grid-compact-gap)"
+  static let leadership_card_body_gap = "var(--catalog-card-body-gap)"
+  static let leadership_card_radius = "var(--catalog-card-radius)"
+  static let leadership_card_padding = "var(--catalog-card-body-padding)"
+  static let leadership_avatar_size = "var(--layout-profile-avatar-size, 128px)"
+  static let leadership_profile_hero_height = "clamp(28rem, 68vh, 44rem)"
+  static let leadership_profile_hero_content_width = "min(34rem, calc(100vw - (var(--site-gutter) * 2)))"
+  static let leadership_avatar_border = "var(--control-border)"
+  static let leadership_avatar_bg = "var(--control-bg)"
+  static let leadership_name_size = "var(--catalog-card-title-size)"
+  static let leadership_role_size = "var(--catalog-chip-size)"
+  static let leadership_copy_line_height = "var(--catalog-panel-copy-line-height)"
   static let legal_page_max_width = "var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)))"
   static let legal_page_max_width_mobile = "min(calc(100% - (var(--site-gutter, 20px) * 2)), var(--site-max-width, 1320px))"
   static let legal_page_narrow_width = "var(--layout-legal-page-narrow-width)"
