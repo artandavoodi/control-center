@@ -368,6 +368,8 @@ enum DSCTokens {
     "cc-home-platform-mobile-content-header-padding-top": "var(--layout-home-platform-mobile-content-header-padding-top)",
     "cc-home-platform-mobile-content-inner-footer-gap": "var(--layout-home-platform-mobile-content-inner-footer-gap)",
     "cc-home-platform-mobile-content-inner-padding-top": "var(--layout-home-platform-mobile-content-inner-padding-top)",
+    "cc-home-platform-mobile-column-padding-x": "var(--layout-home-platform-mobile-column-padding-x)",
+    "cc-home-platform-mobile-column-padding-y": "var(--layout-home-platform-mobile-column-padding-y)",
     "cc-home-platform-mobile-inline-padding-fallback": "var(--layout-home-platform-mobile-inline-padding-fallback)",
     "cc-home-platform-mobile-nav-gap": "var(--layout-home-platform-mobile-nav-gap)",
     "cc-home-platform-mobile-nav-icon-size": "var(--layout-home-platform-mobile-nav-icon-size)",
@@ -3091,6 +3093,15 @@ enum DSCTokens {
     "system-message-border": "var(--feedback-neutral-border)",
     "system-message-title-color": "var(--text-primary-color)",
     "system-message-body-color": "var(--text-secondary-color)",
+    "loader-circle-size-sm": "0.86rem",
+    "loader-circle-size": "1.08rem",
+    "loader-circle-size-lg": "1.42rem",
+    "loader-circle-stroke-width": "var(--border-width-hairline)",
+    "loader-circle-color": "var(--text-secondary-color)",
+    "loader-circle-opacity": "var(--overlay-opacity-open)",
+    "loader-circle-motion-duration": "720ms",
+    "loader-circle-motion-ease": "linear",
+    "loader-circle-reduced-motion-duration": "1800ms",
     "shape-control-radius": "var(--radius-pill)",
     "shape-toggle-radius": "var(--radius-pill)",
     "shape-icon-button-radius": "var(--radius-circle)",
@@ -3473,12 +3484,12 @@ enum DSCTokens {
     "site-header-height": "72px",
     "header-height": "var(--site-header-height)",
     "footer-height": "72px",
-    "footer-gutter": "var(--site-gutter, 24px)",
+    "footer-gutter": "var(--site-gutter)",
     "surface-color": "var(--bg-color, transparent)",
     "shadow-color": "#000000",
     "panel-width": "960px",
     "content-width": "var(--site-max-width)",
-    "page-gutter": "var(--site-gutter, 24px)",
+    "page-gutter": "var(--site-gutter)",
     "z-overlay-modal": "80",
     "background-color": "var(--bg-color, transparent)",
     "bg-primary-color": "var(--bg-color, transparent)",
@@ -3509,15 +3520,24 @@ enum DSCTokens {
     "type-body-sm-line-height": "1.5",
     "type-body-sm-size": "0.875rem",
     "type-body-tracking": "0",
-    "site-gutter": "4vw",
+    "site-edge-gutter": "3.2rem",
+    "site-gutter": "var(--site-edge-gutter)",
+    "site-mobile-gutter": "1.25rem",
+    "site-shell-inline-padding": "var(--site-gutter)",
+    "site-shell-inline-padding-mobile": "var(--site-mobile-gutter)",
     "site-rail-width": "calc(100% - (var(--site-gutter) * 2))",
-    "site-gutter-min": "18px",
-    "site-gutter-max": "96px",
+    "site-rail-width-mobile": "calc(100% - (var(--site-mobile-gutter) * 2))",
+    "site-gutter-min": "var(--site-edge-gutter)",
+    "site-gutter-max": "var(--site-edge-gutter)",
     "site-inline-gutter": "clamp(var(--site-gutter-min), var(--site-gutter), var(--site-gutter-max))",
     "site-rail-measure": "min(var(--site-rail-width), calc(100% - (var(--site-inline-gutter) * 2)))",
+    "site-rail-measure-mobile": "var(--site-rail-width-mobile)",
     "chrome-rail-width": "var(--site-rail-measure)",
     "footer-rail-width": "var(--site-rail-measure)",
     "menu-rail-width": "var(--site-rail-measure)",
+    "chrome-rail-width-mobile": "var(--site-rail-measure-mobile)",
+    "footer-rail-width-mobile": "var(--site-rail-measure-mobile)",
+    "menu-rail-width-mobile": "var(--site-rail-measure-mobile)",
     "chrome-padding-y-sm": "0.8rem",
     "chrome-padding-y-md": "0.9rem",
     "chrome-gap-sm": "0.9rem",
@@ -3780,7 +3800,7 @@ enum DSCTokens {
     "layout-home-search-filter-panel-padding": "1rem",
     "layout-home-search-light-border": "rgba(0, 0, 0, 0.12)",
     "layout-home-search-dark-border": "rgba(255, 255, 255, 0.16)",
-    "layout-home-search-mobile-padding-x-fallback": "1rem",
+    "layout-home-search-mobile-padding-x-fallback": "var(--site-shell-inline-padding-mobile)",
     "layout-home-search-mobile-title-size": "1.15rem",
     "layout-home-search-mobile-input-row-min-height": "3.2rem",
     "layout-home-search-mobile-input-row-padding-y": "0.68rem",
@@ -3808,17 +3828,25 @@ enum DSCTokens {
     "layout-home-platform-tablet-rail-max": "15rem",
     "layout-home-platform-tablet-subrail-min": "11rem",
     "layout-home-platform-tablet-subrail-max": "13rem",
-    "layout-home-platform-mobile-inline-padding-fallback": "0.85rem",
-    "layout-home-platform-mobile-rail-inner-padding-y": "var(--space-3)",
+    "layout-home-platform-mobile-inline-padding-fallback": "var(--site-shell-inline-padding-mobile)",
+    "layout-home-platform-mobile-column-padding-y": "var(--site-shell-inline-padding-mobile)",
+    "layout-home-platform-mobile-column-padding-x": "var(--spacing-none)",
+    "layout-home-platform-mobile-column-padding": "var(--layout-home-platform-mobile-column-padding-y)",
+    "layout-home-platform-mobile-rail-inner-padding-y": "var(--layout-home-platform-mobile-column-padding-y)",
     "layout-home-platform-mobile-nav-gap": "var(--space-2)",
     "layout-home-platform-mobile-nav-item-min-height": "var(--layout-home-platform-nav-item-min-height)",
-    "layout-home-platform-mobile-nav-item-padding-x": "var(--layout-home-platform-nav-item-padding-x)",
+    "layout-home-platform-mobile-nav-item-padding-x": "var(--layout-home-platform-mobile-column-padding-x)",
     "layout-home-platform-mobile-nav-icon-size": "var(--layout-home-platform-nav-icon-size)",
     "layout-home-platform-rail-padding-top": "1.45rem",
     "layout-home-platform-rail-padding-right": "1.5rem",
     "layout-home-platform-rail-padding-bottom": "2.2rem",
     "layout-home-platform-rail-padding-left": "0",
-    "layout-home-platform-subrail-padding-left": "1.5rem",
+    "layout-home-platform-column-padding": "var(--layout-home-platform-rail-padding-right)",
+    "layout-home-platform-column-padding-top": "var(--layout-home-platform-column-padding)",
+    "layout-home-platform-column-padding-right": "var(--layout-home-platform-column-padding)",
+    "layout-home-platform-column-padding-bottom": "var(--layout-home-platform-column-padding)",
+    "layout-home-platform-column-padding-left": "var(--layout-home-platform-rail-padding-left)",
+    "layout-home-platform-subrail-padding-left": "var(--layout-home-platform-column-padding)",
     "layout-home-platform-tablet-rail-padding-right": "1rem",
     "layout-home-platform-group-margin-top": "2.35rem",
     "layout-home-platform-label-margin-bottom": "0.9rem",
@@ -3870,8 +3898,9 @@ enum DSCTokens {
     "layout-home-platform-content-copy-weight": "400",
     "layout-home-platform-content-copy-line-height": "1.65",
     "layout-home-platform-content-copy-tracking": "-0.01em",
-    "layout-home-platform-content-inner-padding-top": "1.45rem",
-    "layout-home-platform-content-inner-padding-left": "2rem",
+    "layout-home-platform-content-inner-padding-top": "var(--layout-home-platform-column-padding-top)",
+    "layout-home-platform-content-inner-padding-right": "var(--spacing-none)",
+    "layout-home-platform-content-inner-padding-left": "var(--layout-home-platform-column-padding)",
     "layout-home-platform-content-inner-footer-gap": "1.45rem",
     "layout-home-platform-mobile-content-inner-padding-top": "1rem",
     "layout-home-platform-mobile-content-inner-footer-gap": "1.15rem",
@@ -4093,8 +4122,15 @@ enum DSCTokens {
     "layout-home-featured-functions-track-motion": "420ms",
     "layout-home-featured-functions-ready-opacity-motion": "260ms",
     "layout-about-featured-functions-max-width": "var(--layout-home-featured-functions-max-width)",
+    "layout-about-featured-functions-shell-padding-x": "var(--site-shell-inline-padding)",
+    "layout-about-featured-functions-shell-padding-y": "var(--spacing-2xl)",
+    "layout-about-featured-functions-shell-padding-x-tablet": "var(--site-shell-inline-padding)",
+    "layout-about-featured-functions-shell-padding-y-tablet": "var(--spacing-2xl)",
+    "layout-about-featured-functions-shell-padding-x-mobile": "var(--site-shell-inline-padding-mobile)",
+    "layout-about-featured-functions-shell-padding-y-mobile": "var(--spacing-2xl)",
     "layout-about-featured-functions-viewport-max-width": "var(--layout-home-featured-functions-viewport-max-width)",
     "layout-about-featured-functions-footer-max-width": "var(--layout-home-featured-functions-footer-max-width)",
+    "layout-about-featured-functions-header-bottom-gap": "var(--spacing-3xl)",
     "layout-about-featured-functions-timeline-height": "var(--layout-home-featured-functions-timeline-height)",
     "layout-about-featured-functions-timeline-progress-scale": "var(--layout-home-featured-functions-timeline-progress-scale)",
     "layout-about-featured-functions-description-opacity": "var(--layout-home-featured-functions-description-opacity)",
@@ -4111,6 +4147,10 @@ enum DSCTokens {
     "layout-about-featured-functions-card-padding": "var(--layout-home-featured-functions-card-padding)",
     "layout-about-featured-functions-visual-aspect-ratio": "var(--layout-home-featured-functions-visual-aspect-ratio)",
     "layout-about-featured-functions-card-copy-max-width": "var(--layout-home-featured-functions-card-copy-max-width)",
+    "layout-about-featured-functions-card-copy-gap": "var(--spacing-xl)",
+    "layout-about-featured-functions-card-icon-size": "var(--site-edge-gutter)",
+    "layout-about-featured-functions-card-summary-width": "14rem",
+    "layout-about-featured-functions-card-label-size": "var(--font-size-display-2)",
     "layout-about-featured-functions-card-summary-gap": "var(--layout-home-featured-functions-card-summary-gap)",
     "layout-about-featured-functions-card-title-gap": "var(--layout-home-featured-functions-card-title-gap)",
     "layout-about-featured-functions-card-label-line-height": "var(--layout-home-featured-functions-card-label-line-height)",
@@ -4211,8 +4251,8 @@ enum DSCTokens {
     "layout-home-essence-mobile-layer-size": "1.45rem",
     "layout-home-essence-mobile-layer-line-height": "1.18",
     "layout-home-essence-desktop-layer-size": "2.2rem",
-    "layout-account-drawer-panel-width": "min(40rem, calc(100vw - (2 * var(--site-gutter, 24px))))",
-    "layout-account-drawer-panel-width-mobile": "min(100vw, calc(100vw - (1.05 * var(--site-gutter, 20px))))",
+    "layout-account-drawer-panel-width": "min(40rem, calc(100vw - (2 * var(--site-gutter))))",
+    "layout-account-drawer-panel-width-mobile": "min(100vw, calc(100vw - (2 * var(--site-shell-inline-padding-mobile))))",
     "layout-account-drawer-shell-padding-y": "1.6rem",
     "layout-account-drawer-shell-padding-x": "2rem",
     "layout-account-drawer-shell-padding-bottom": "calc(var(--layout-account-drawer-shell-padding-y) * 2)",
@@ -4224,7 +4264,7 @@ enum DSCTokens {
     "layout-account-drawer-shell-padding-bottom-mobile": "calc(var(--layout-account-drawer-shell-padding-y-mobile) * 2)",
     "layout-account-drawer-close-offset": "1rem",
     "layout-account-drawer-close-offset-tablet": "0.82rem",
-    "layout-account-drawer-close-offset-mobile": "0.68rem",
+    "layout-account-drawer-close-offset-mobile": "var(--spacing-none)",
     "layout-account-drawer-header-padding-bottom-mobile": "1.04rem",
     "layout-account-drawer-content-stage-padding-inline": "4.8rem",
     "layout-account-drawer-content-stage-padding-inline-tablet": "3.2rem",
@@ -4380,7 +4420,7 @@ enum DSCTokens {
     "layout-office-internal-correspondence-mobile-shell-padding-bottom": "48px",
     "layout-cookie-language-overlay-shadow": "0 20px 60px color-mix(in srgb, var(--shadow-color, #000000) 8%, transparent)",
     "layout-cookie-language-overlay-shadow-dark": "0 24px 70px color-mix(in srgb, var(--shadow-color, #000000) 24%, transparent)",
-    "layout-cookie-language-overlay-width": "min(36rem, calc(100vw - (2 * var(--site-gutter, 24px))))",
+    "layout-cookie-language-overlay-width": "min(36rem, calc(100vw - (2 * var(--site-gutter))))",
     "layout-cookie-language-overlay-max-height": "min(46rem, calc(100vh - 3rem))",
     "layout-cookie-language-overlay-max-height-mobile": "min(42rem, calc(100vh - 1.6rem))",
     "layout-cookie-language-overlay-min-height": "24rem",
@@ -4897,7 +4937,7 @@ enum DSCTokens {
     "layout-home-platform-theme-toggle-row-gap": "0.86rem",
     "layout-home-platform-theme-toggle-row-padding-y": "0.68rem",
     "layout-home-interaction-panel-width": "min(46rem, calc(100vw - (2 * var(--site-gutter))))",
-    "layout-home-interaction-panel-width-mobile": "min(100%, calc(100vw - (2 * var(--site-gutter))))",
+    "layout-home-interaction-panel-width-mobile": "min(100%, calc(100vw - (2 * var(--site-shell-inline-padding-mobile))))",
     "layout-home-interaction-panel-gap": "0.38rem",
     "layout-home-interaction-panel-padding": "0.54rem",
     "layout-home-interaction-panel-padding-mobile": "0.52rem",
@@ -5286,7 +5326,7 @@ enum DSCTokens {
     "nav-institutional-panel-content-delay": "70ms",
     "nav-institutional-panel-content-stagger": "34ms",
     "nav-institutional-panel-padding-y": "5.15rem",
-    "nav-institutional-panel-padding-x-fallback": "3.2rem",
+    "nav-institutional-panel-padding-x-fallback": "var(--site-gutter)",
     "nav-institutional-panel-padding-bottom": "3.9rem",
     "nav-institutional-panel-gap": "5.8rem",
     "nav-institutional-panel-col-gap": "1.9rem",
@@ -5340,7 +5380,7 @@ enum DSCTokens {
     "nav-institutional-tablet-search-shell-padding-x": "0.94rem",
     "nav-institutional-tablet-panel-gap": "3rem",
     "nav-institutional-tablet-panel-padding-y": "4.6rem",
-    "nav-institutional-tablet-panel-padding-x-fallback": "2.2rem",
+    "nav-institutional-tablet-panel-padding-x-fallback": "var(--site-shell-inline-padding-mobile)",
     "nav-institutional-tablet-panel-padding-bottom": "3.2rem",
     "nav-institutional-tablet-panel-title-size": "1.86rem",
     "nav-institutional-tablet-search-input-size": "1.62rem",
@@ -5353,7 +5393,7 @@ enum DSCTokens {
     "nav-menu-hover-pulse-duration": "760ms",
     "nav-menu-pack-toggle-nudge": "-10px",
     "nav-menu-harmonic-gap": "46px",
-    "nav-menu-gutter": "var(--footer-gutter, 56px)",
+    "nav-menu-gutter": "var(--footer-gutter)",
     "nav-menu-vpad": "90px",
     "nav-menu-rail-pad": "34px",
     "nav-menu-rail-label-pad": "34px",
@@ -5589,6 +5629,7 @@ enum DSCTokens {
     "font-size-toast-title": "0.84rem",
     "font-size-toast-body": "0.78rem",
     "font-size-profile-name": "1.32rem",
+    "font-size-profile-role": "1.42rem",
     "font-size-profile-handle": "0.86rem",
     "font-size-profile-bio": "0.92rem",
     "font-size-profile-stat-value": "1rem",
@@ -5776,6 +5817,8 @@ enum DSCTokens {
     "toast-body-line-height": "var(--line-height-body-tight)",
     "profile-name-size": "var(--font-size-profile-name)",
     "profile-name-line-height": "var(--line-height-heading-relaxed)",
+    "profile-role-size": "var(--font-size-profile-role)",
+    "profile-role-line-height": "var(--line-height-heading-relaxed)",
     "profile-handle-size": "var(--font-size-profile-handle)",
     "profile-handle-line-height": "var(--line-height-body-tight)",
     "profile-bio-size": "var(--font-size-profile-bio)",
@@ -5810,6 +5853,7 @@ enum DSCTokens {
     "marketing-proof-line-height": "var(--line-height-body-tight)",
     "marketing-cta-size": "var(--font-size-marketing-cta)",
     "marketing-cta-line-height": "var(--line-height-ui)",
+    "font-weight-extra-light": "var(--font-weight-light)",
     "font-weight-light": "300",
     "font-weight-body": "400",
     "font-weight-medium": "500",
@@ -5899,6 +5943,7 @@ enum DSCTokens {
     "toast-title-weight": "var(--font-weight-heading-soft)",
     "toast-body-weight": "var(--font-weight-body)",
     "profile-name-weight": "var(--font-weight-heading)",
+    "profile-role-weight": "var(--font-weight-extra-light)",
     "profile-handle-weight": "var(--font-weight-body)",
     "profile-bio-weight": "var(--font-weight-body)",
     "profile-stat-value-weight": "var(--font-weight-heading-soft)",
@@ -6006,6 +6051,7 @@ enum DSCTokens {
     "toast-title-tracking": "var(--tracking-heading)",
     "toast-body-tracking": "var(--tracking-copy)",
     "profile-name-tracking": "var(--tracking-heading)",
+    "profile-role-tracking": "var(--tracking-heading)",
     "profile-handle-tracking": "var(--tracking-meta)",
     "profile-bio-tracking": "var(--tracking-copy)",
     "profile-stat-value-tracking": "var(--tracking-heading)",
@@ -6094,6 +6140,10 @@ enum DSCTokens {
     "ui-dropdown-icon-gap": "var(--spacing-sm)",
     "ui-dropdown-transition": "var(--interaction-transition-control)",
     "ui-dropdown-icon-filter": "var(--icon-image-filter)",
+    "ui-inline-dropdown-gap": "var(--spacing-sm)",
+    "ui-inline-dropdown-label-size": "var(--control-font-size)",
+    "ui-inline-dropdown-label-weight": "var(--control-font-weight)",
+    "ui-inline-dropdown-label-line-height": "var(--control-line-height)",
     "icon-image-filter": "brightness(0) invert(1)",
     "icon-image-filter-strong": "brightness(0) invert(1)",
     "icon-color": "var(--text-color)",
@@ -6115,6 +6165,8 @@ enum DSCTokens {
     "password-field-toggle-surface-hover": "transparent",
     "password-field-toggle-border": "transparent",
     "password-field-toggle-border-hover": "transparent",
+    "password-field-text-letter-spacing": "var(--spacing-none)",
+    "password-field-visible-letter-spacing": "calc(var(--spacing-3xs) / 3)",
     "picker-input-size": "1.20rem",
     "picker-input-padding": "0",
     "picker-input-border-width": "1px",
@@ -6168,6 +6220,7 @@ enum DSCTokens {
     "global-close-button-hover-color": "var(--close-control-color-hover)",
     "global-close-button-duration": "var(--interaction-motion-medium)",
     "global-close-button-ease": "var(--interaction-ease-standard)",
+    "global-close-button-optical-end-offset": "calc((var(--global-close-button-line-width) - var(--global-close-button-size)) / 2)",
     "footer-copy-font-size": "0.9rem",
     "footer-locale-font-size": "0.85rem",
     "brand-shell-max-width": "1440px",
@@ -6927,10 +6980,14 @@ enum DSCTokens {
     "home-platform-shell-mobile-nav-item-min-height": "var(--layout-home-platform-mobile-nav-item-min-height)",
     "home-platform-shell-mobile-nav-item-padding-x": "var(--layout-home-platform-mobile-nav-item-padding-x)",
     "home-platform-shell-mobile-nav-icon-size": "var(--layout-home-platform-mobile-nav-icon-size)",
-    "home-platform-shell-rail-padding-top": "var(--layout-home-platform-rail-padding-top)",
-    "home-platform-shell-rail-padding-right": "var(--layout-home-platform-rail-padding-right)",
-    "home-platform-shell-rail-padding-bottom": "var(--layout-home-platform-rail-padding-bottom)",
-    "home-platform-shell-rail-padding-left": "var(--spacing-none)",
+    "home-platform-shell-column-padding-top": "var(--layout-home-platform-column-padding-top)",
+    "home-platform-shell-column-padding-right": "var(--layout-home-platform-column-padding-right)",
+    "home-platform-shell-column-padding-bottom": "var(--layout-home-platform-column-padding-bottom)",
+    "home-platform-shell-column-padding-left": "var(--layout-home-platform-column-padding-left)",
+    "home-platform-shell-rail-padding-top": "var(--home-platform-shell-column-padding-top)",
+    "home-platform-shell-rail-padding-right": "var(--home-platform-shell-column-padding-right)",
+    "home-platform-shell-rail-padding-bottom": "var(--home-platform-shell-column-padding-bottom)",
+    "home-platform-shell-rail-padding-left": "var(--home-platform-shell-column-padding-left)",
     "home-platform-shell-subrail-padding-left": "var(--layout-home-platform-subrail-padding-left)",
     "home-platform-shell-tablet-rail-padding-right": "var(--layout-home-platform-tablet-rail-padding-right)",
     "home-platform-shell-group-margin-top": "var(--layout-home-platform-group-margin-top)",
@@ -6967,7 +7024,7 @@ enum DSCTokens {
     "home-platform-shell-content-header-padding-top": "var(--layout-home-platform-content-header-padding-top)",
     "home-platform-shell-content-header-padding-right": "var(--layout-home-platform-content-header-padding-right)",
     "home-platform-shell-content-header-padding-bottom": "var(--layout-home-platform-content-header-padding-bottom)",
-    "home-platform-shell-content-header-padding-left": "var(--layout-home-platform-content-header-padding-left)",
+    "home-platform-shell-content-header-padding-left": "var(--home-platform-shell-content-inner-padding-left)",
     "home-platform-shell-tablet-content-padding-left": "var(--layout-home-platform-tablet-content-padding-left)",
     "home-platform-shell-mobile-content-header-padding-top": "var(--layout-home-platform-mobile-content-header-padding-top)",
     "home-platform-shell-mobile-content-header-padding-bottom": "var(--layout-home-platform-mobile-content-header-padding-bottom)",
@@ -6982,6 +7039,7 @@ enum DSCTokens {
     "home-platform-shell-content-copy-line-height": "var(--layout-home-platform-content-copy-line-height)",
     "home-platform-shell-content-copy-tracking": "var(--layout-home-platform-content-copy-tracking)",
     "home-platform-shell-content-inner-padding-top": "var(--layout-home-platform-content-inner-padding-top)",
+    "home-platform-shell-content-inner-padding-right": "var(--layout-home-platform-content-inner-padding-right)",
     "home-platform-shell-content-inner-padding-left": "var(--layout-home-platform-content-inner-padding-left)",
     "home-platform-shell-content-inner-footer-gap": "var(--layout-home-platform-content-inner-footer-gap)",
     "home-platform-shell-mobile-content-inner-padding-top": "var(--layout-home-platform-mobile-content-inner-padding-top)",
@@ -7584,11 +7642,11 @@ enum DSCTokens {
     "institutional-menu-panel-closing-y": "var(--nav-institutional-panel-closing-y)",
     "institutional-menu-panel-closing-scale": "var(--nav-institutional-panel-closing-scale)",
     "institutional-menu-panel-closing-opacity": "var(--nav-institutional-panel-closing-opacity)",
-    "institutional-menu-panel-content-y": "var(--nav-institutional-panel-content-y)",
+    "institutional-menu-panel-content-y": "calc(var(--nav-institutional-panel-content-y) * 0.72)",
     "institutional-menu-panel-content-motion": "var(--nav-institutional-panel-content-motion)",
     "institutional-menu-panel-content-exit-motion": "var(--nav-institutional-panel-content-exit-motion)",
-    "institutional-menu-panel-content-delay": "var(--nav-institutional-panel-content-delay)",
-    "institutional-menu-panel-content-stagger": "var(--nav-institutional-panel-content-stagger)",
+    "institutional-menu-panel-content-delay": "calc(var(--nav-institutional-panel-content-delay) * 0.45)",
+    "institutional-menu-panel-content-stagger": "calc(var(--nav-institutional-panel-content-stagger) * 0.62)",
     "institutional-menu-panel-padding-y": "var(--nav-institutional-panel-padding-y)",
     "institutional-menu-panel-padding-x-fallback": "var(--nav-institutional-panel-padding-x-fallback)",
     "institutional-menu-panel-padding-bottom": "var(--nav-institutional-panel-padding-bottom)",
@@ -8510,7 +8568,7 @@ enum DSCTokens {
     "country-accent": "var(--color-primary1)",
     "country-close-button-color": "var(--global-close-button-color)",
     "country-close-button-hover-color": "var(--global-close-button-hover-color)",
-    "country-container-max": "var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)))",
+    "country-container-max": "var(--site-rail-width)",
     "country-container-pad": "var(--layout-country-container-pad)",
     "country-motion-fast": "var(--interaction-motion-fast)",
     "country-motion-medium": "var(--interaction-motion-medium)",
@@ -8759,7 +8817,7 @@ enum DSCTokens {
     "profile-private-hero-media-action-layer": "var(--z-above)",
     "profile-private-hero-details-max-height": "calc(var(--body-2-line-height) + var(--spacing-sm))",
     "profile-private-hero-details-max-height-hidden": "0",
-    "profile-private-hero-info-popover-width": "min(22rem, calc(100vw - (var(--site-gutter) * 2)))",
+    "profile-private-hero-info-popover-width": "min(22rem, var(--site-rail-width))",
     "profile-private-hero-actions-layer": "var(--z-above)",
     "profile-private-hero-media-action-opacity": "1",
     "profile-private-hero-media-action-opacity-hidden": "0",
@@ -8801,7 +8859,7 @@ enum DSCTokens {
     "profile-private-hero-tab-icon-size": "var(--home-platform-shell-nav-icon-size)",
     "profile-private-hero-tab-content-offset-y": "calc(var(--spacing-2xs) * -1)",
     "profile-media-editor-z-index": "var(--z-overlay-control)",
-    "profile-media-editor-dialog-width": "min(34rem, calc(100vw - (var(--site-gutter) * 2)))",
+    "profile-media-editor-dialog-width": "min(34rem, var(--site-rail-width))",
     "profile-media-editor-dialog-radius": "var(--dialog-overlay-radius)",
     "profile-media-editor-dialog-padding": "var(--spacing-lg)",
     "profile-media-editor-backdrop-bg": "var(--glass-overlay-backdrop-bg)",
@@ -8839,7 +8897,7 @@ enum DSCTokens {
     "profile-settings-caption-size": "var(--layout-home-platform-theme-caption-size)",
     "profile-settings-caption-line-height": "var(--layout-home-platform-theme-caption-line-height)",
     "profile-settings-caption-opacity": "var(--layout-home-platform-theme-caption-opacity)",
-    "profile-settings-control-radius": "var(--control-radius-composer)",
+    "profile-settings-control-radius": "var(--account-field-radius)",
     "profile-shell-rail-width": "var(--site-rail-width)",
     "profile-shell-group-gap": "var(--spacing-md)",
     "profile-shell-mount-gap": "var(--spacing-none)",
@@ -9018,14 +9076,14 @@ enum DSCTokens {
     "leadership-card-padding": "var(--catalog-card-body-padding)",
     "leadership-avatar-size": "var(--layout-profile-avatar-size, 128px)",
     "leadership-profile-hero-height": "clamp(28rem, 68vh, 44rem)",
-    "leadership-profile-hero-content-width": "min(34rem, calc(100vw - (var(--site-gutter) * 2)))",
+    "leadership-profile-hero-content-width": "min(34rem, var(--site-rail-width))",
     "leadership-avatar-border": "var(--control-border)",
     "leadership-avatar-bg": "var(--control-bg)",
     "leadership-name-size": "var(--catalog-card-title-size)",
     "leadership-role-size": "var(--catalog-chip-size)",
     "leadership-copy-line-height": "var(--catalog-panel-copy-line-height)",
-    "legal-page-max-width": "var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)))",
-    "legal-page-max-width-mobile": "min(calc(100% - (var(--site-gutter, 20px) * 2)), var(--site-max-width, 1320px))",
+    "legal-page-max-width": "var(--site-rail-width)",
+    "legal-page-max-width-mobile": "var(--site-rail-width-mobile)",
     "legal-page-narrow-width": "var(--layout-legal-page-narrow-width)",
     "legal-page-border": "var(--border-color, var(--layout-legal-page-border-fallback))",
     "legal-page-surface": "var(--layout-legal-page-surface)",
@@ -9127,6 +9185,9 @@ enum DSCTokens {
     "models-action-min-height": "var(--layout-models-action-min-height)",
     "models-action-padding-x": "var(--layout-models-action-padding-x)",
     "models-action-radius": "var(--layout-models-action-radius)",
+    "model-economy-surface-opacity": "0.72",
+    "model-economy-border-opacity": "0.16",
+    "model-economy-state-opacity": "0.68",
     "glass-matte-blur": "18px",
     "glass-matte-opacity": "0.24",
     "glass-matte-surface-light": "rgba(255, 255, 255, 0.08)",
@@ -9500,6 +9561,8 @@ enum DSCTokens {
   static let cc_home_platform_mobile_content_header_padding_top = "var(--layout-home-platform-mobile-content-header-padding-top)"
   static let cc_home_platform_mobile_content_inner_footer_gap = "var(--layout-home-platform-mobile-content-inner-footer-gap)"
   static let cc_home_platform_mobile_content_inner_padding_top = "var(--layout-home-platform-mobile-content-inner-padding-top)"
+  static let cc_home_platform_mobile_column_padding_x = "var(--layout-home-platform-mobile-column-padding-x)"
+  static let cc_home_platform_mobile_column_padding_y = "var(--layout-home-platform-mobile-column-padding-y)"
   static let cc_home_platform_mobile_inline_padding_fallback = "var(--layout-home-platform-mobile-inline-padding-fallback)"
   static let cc_home_platform_mobile_nav_gap = "var(--layout-home-platform-mobile-nav-gap)"
   static let cc_home_platform_mobile_nav_icon_size = "var(--layout-home-platform-mobile-nav-icon-size)"
@@ -12223,6 +12286,15 @@ enum DSCTokens {
   static let system_message_border = "var(--feedback-neutral-border)"
   static let system_message_title_color = "var(--text-primary-color)"
   static let system_message_body_color = "var(--text-secondary-color)"
+  static let loader_circle_size_sm = "0.86rem"
+  static let loader_circle_size = "1.08rem"
+  static let loader_circle_size_lg = "1.42rem"
+  static let loader_circle_stroke_width = "var(--border-width-hairline)"
+  static let loader_circle_color = "var(--text-secondary-color)"
+  static let loader_circle_opacity = "var(--overlay-opacity-open)"
+  static let loader_circle_motion_duration = "720ms"
+  static let loader_circle_motion_ease = "linear"
+  static let loader_circle_reduced_motion_duration = "1800ms"
   static let shape_control_radius = "var(--radius-pill)"
   static let shape_toggle_radius = "var(--radius-pill)"
   static let shape_icon_button_radius = "var(--radius-circle)"
@@ -12605,12 +12677,12 @@ enum DSCTokens {
   static let site_header_height = "72px"
   static let header_height = "var(--site-header-height)"
   static let footer_height = "72px"
-  static let footer_gutter = "var(--site-gutter, 24px)"
+  static let footer_gutter = "var(--site-gutter)"
   static let surface_color = "var(--bg-color, transparent)"
   static let shadow_color = "#000000"
   static let panel_width = "960px"
   static let content_width = "var(--site-max-width)"
-  static let page_gutter = "var(--site-gutter, 24px)"
+  static let page_gutter = "var(--site-gutter)"
   static let z_overlay_modal = "80"
   static let background_color = "var(--bg-color, transparent)"
   static let bg_primary_color = "var(--bg-color, transparent)"
@@ -12641,15 +12713,24 @@ enum DSCTokens {
   static let type_body_sm_line_height = "1.5"
   static let type_body_sm_size = "0.875rem"
   static let type_body_tracking = "0"
-  static let site_gutter = "4vw"
+  static let site_edge_gutter = "3.2rem"
+  static let site_gutter = "var(--site-edge-gutter)"
+  static let site_mobile_gutter = "1.25rem"
+  static let site_shell_inline_padding = "var(--site-gutter)"
+  static let site_shell_inline_padding_mobile = "var(--site-mobile-gutter)"
   static let site_rail_width = "calc(100% - (var(--site-gutter) * 2))"
-  static let site_gutter_min = "18px"
-  static let site_gutter_max = "96px"
+  static let site_rail_width_mobile = "calc(100% - (var(--site-mobile-gutter) * 2))"
+  static let site_gutter_min = "var(--site-edge-gutter)"
+  static let site_gutter_max = "var(--site-edge-gutter)"
   static let site_inline_gutter = "clamp(var(--site-gutter-min), var(--site-gutter), var(--site-gutter-max))"
   static let site_rail_measure = "min(var(--site-rail-width), calc(100% - (var(--site-inline-gutter) * 2)))"
+  static let site_rail_measure_mobile = "var(--site-rail-width-mobile)"
   static let chrome_rail_width = "var(--site-rail-measure)"
   static let footer_rail_width = "var(--site-rail-measure)"
   static let menu_rail_width = "var(--site-rail-measure)"
+  static let chrome_rail_width_mobile = "var(--site-rail-measure-mobile)"
+  static let footer_rail_width_mobile = "var(--site-rail-measure-mobile)"
+  static let menu_rail_width_mobile = "var(--site-rail-measure-mobile)"
   static let chrome_padding_y_sm = "0.8rem"
   static let chrome_padding_y_md = "0.9rem"
   static let chrome_gap_sm = "0.9rem"
@@ -12912,7 +12993,7 @@ enum DSCTokens {
   static let layout_home_search_filter_panel_padding = "1rem"
   static let layout_home_search_light_border = "rgba(0, 0, 0, 0.12)"
   static let layout_home_search_dark_border = "rgba(255, 255, 255, 0.16)"
-  static let layout_home_search_mobile_padding_x_fallback = "1rem"
+  static let layout_home_search_mobile_padding_x_fallback = "var(--site-shell-inline-padding-mobile)"
   static let layout_home_search_mobile_title_size = "1.15rem"
   static let layout_home_search_mobile_input_row_min_height = "3.2rem"
   static let layout_home_search_mobile_input_row_padding_y = "0.68rem"
@@ -12940,17 +13021,25 @@ enum DSCTokens {
   static let layout_home_platform_tablet_rail_max = "15rem"
   static let layout_home_platform_tablet_subrail_min = "11rem"
   static let layout_home_platform_tablet_subrail_max = "13rem"
-  static let layout_home_platform_mobile_inline_padding_fallback = "0.85rem"
-  static let layout_home_platform_mobile_rail_inner_padding_y = "var(--space-3)"
+  static let layout_home_platform_mobile_inline_padding_fallback = "var(--site-shell-inline-padding-mobile)"
+  static let layout_home_platform_mobile_column_padding_y = "var(--site-shell-inline-padding-mobile)"
+  static let layout_home_platform_mobile_column_padding_x = "var(--spacing-none)"
+  static let layout_home_platform_mobile_column_padding = "var(--layout-home-platform-mobile-column-padding-y)"
+  static let layout_home_platform_mobile_rail_inner_padding_y = "var(--layout-home-platform-mobile-column-padding-y)"
   static let layout_home_platform_mobile_nav_gap = "var(--space-2)"
   static let layout_home_platform_mobile_nav_item_min_height = "var(--layout-home-platform-nav-item-min-height)"
-  static let layout_home_platform_mobile_nav_item_padding_x = "var(--layout-home-platform-nav-item-padding-x)"
+  static let layout_home_platform_mobile_nav_item_padding_x = "var(--layout-home-platform-mobile-column-padding-x)"
   static let layout_home_platform_mobile_nav_icon_size = "var(--layout-home-platform-nav-icon-size)"
   static let layout_home_platform_rail_padding_top = "1.45rem"
   static let layout_home_platform_rail_padding_right = "1.5rem"
   static let layout_home_platform_rail_padding_bottom = "2.2rem"
   static let layout_home_platform_rail_padding_left = "0"
-  static let layout_home_platform_subrail_padding_left = "1.5rem"
+  static let layout_home_platform_column_padding = "var(--layout-home-platform-rail-padding-right)"
+  static let layout_home_platform_column_padding_top = "var(--layout-home-platform-column-padding)"
+  static let layout_home_platform_column_padding_right = "var(--layout-home-platform-column-padding)"
+  static let layout_home_platform_column_padding_bottom = "var(--layout-home-platform-column-padding)"
+  static let layout_home_platform_column_padding_left = "var(--layout-home-platform-rail-padding-left)"
+  static let layout_home_platform_subrail_padding_left = "var(--layout-home-platform-column-padding)"
   static let layout_home_platform_tablet_rail_padding_right = "1rem"
   static let layout_home_platform_group_margin_top = "2.35rem"
   static let layout_home_platform_label_margin_bottom = "0.9rem"
@@ -13002,8 +13091,9 @@ enum DSCTokens {
   static let layout_home_platform_content_copy_weight = "400"
   static let layout_home_platform_content_copy_line_height = "1.65"
   static let layout_home_platform_content_copy_tracking = "-0.01em"
-  static let layout_home_platform_content_inner_padding_top = "1.45rem"
-  static let layout_home_platform_content_inner_padding_left = "2rem"
+  static let layout_home_platform_content_inner_padding_top = "var(--layout-home-platform-column-padding-top)"
+  static let layout_home_platform_content_inner_padding_right = "var(--spacing-none)"
+  static let layout_home_platform_content_inner_padding_left = "var(--layout-home-platform-column-padding)"
   static let layout_home_platform_content_inner_footer_gap = "1.45rem"
   static let layout_home_platform_mobile_content_inner_padding_top = "1rem"
   static let layout_home_platform_mobile_content_inner_footer_gap = "1.15rem"
@@ -13225,8 +13315,15 @@ enum DSCTokens {
   static let layout_home_featured_functions_track_motion = "420ms"
   static let layout_home_featured_functions_ready_opacity_motion = "260ms"
   static let layout_about_featured_functions_max_width = "var(--layout-home-featured-functions-max-width)"
+  static let layout_about_featured_functions_shell_padding_x = "var(--site-shell-inline-padding)"
+  static let layout_about_featured_functions_shell_padding_y = "var(--spacing-2xl)"
+  static let layout_about_featured_functions_shell_padding_x_tablet = "var(--site-shell-inline-padding)"
+  static let layout_about_featured_functions_shell_padding_y_tablet = "var(--spacing-2xl)"
+  static let layout_about_featured_functions_shell_padding_x_mobile = "var(--site-shell-inline-padding-mobile)"
+  static let layout_about_featured_functions_shell_padding_y_mobile = "var(--spacing-2xl)"
   static let layout_about_featured_functions_viewport_max_width = "var(--layout-home-featured-functions-viewport-max-width)"
   static let layout_about_featured_functions_footer_max_width = "var(--layout-home-featured-functions-footer-max-width)"
+  static let layout_about_featured_functions_header_bottom_gap = "var(--spacing-3xl)"
   static let layout_about_featured_functions_timeline_height = "var(--layout-home-featured-functions-timeline-height)"
   static let layout_about_featured_functions_timeline_progress_scale = "var(--layout-home-featured-functions-timeline-progress-scale)"
   static let layout_about_featured_functions_description_opacity = "var(--layout-home-featured-functions-description-opacity)"
@@ -13243,6 +13340,10 @@ enum DSCTokens {
   static let layout_about_featured_functions_card_padding = "var(--layout-home-featured-functions-card-padding)"
   static let layout_about_featured_functions_visual_aspect_ratio = "var(--layout-home-featured-functions-visual-aspect-ratio)"
   static let layout_about_featured_functions_card_copy_max_width = "var(--layout-home-featured-functions-card-copy-max-width)"
+  static let layout_about_featured_functions_card_copy_gap = "var(--spacing-xl)"
+  static let layout_about_featured_functions_card_icon_size = "var(--site-edge-gutter)"
+  static let layout_about_featured_functions_card_summary_width = "14rem"
+  static let layout_about_featured_functions_card_label_size = "var(--font-size-display-2)"
   static let layout_about_featured_functions_card_summary_gap = "var(--layout-home-featured-functions-card-summary-gap)"
   static let layout_about_featured_functions_card_title_gap = "var(--layout-home-featured-functions-card-title-gap)"
   static let layout_about_featured_functions_card_label_line_height = "var(--layout-home-featured-functions-card-label-line-height)"
@@ -13343,8 +13444,8 @@ enum DSCTokens {
   static let layout_home_essence_mobile_layer_size = "1.45rem"
   static let layout_home_essence_mobile_layer_line_height = "1.18"
   static let layout_home_essence_desktop_layer_size = "2.2rem"
-  static let layout_account_drawer_panel_width = "min(40rem, calc(100vw - (2 * var(--site-gutter, 24px))))"
-  static let layout_account_drawer_panel_width_mobile = "min(100vw, calc(100vw - (1.05 * var(--site-gutter, 20px))))"
+  static let layout_account_drawer_panel_width = "min(40rem, calc(100vw - (2 * var(--site-gutter))))"
+  static let layout_account_drawer_panel_width_mobile = "min(100vw, calc(100vw - (2 * var(--site-shell-inline-padding-mobile))))"
   static let layout_account_drawer_shell_padding_y = "1.6rem"
   static let layout_account_drawer_shell_padding_x = "2rem"
   static let layout_account_drawer_shell_padding_bottom = "calc(var(--layout-account-drawer-shell-padding-y) * 2)"
@@ -13356,7 +13457,7 @@ enum DSCTokens {
   static let layout_account_drawer_shell_padding_bottom_mobile = "calc(var(--layout-account-drawer-shell-padding-y-mobile) * 2)"
   static let layout_account_drawer_close_offset = "1rem"
   static let layout_account_drawer_close_offset_tablet = "0.82rem"
-  static let layout_account_drawer_close_offset_mobile = "0.68rem"
+  static let layout_account_drawer_close_offset_mobile = "var(--spacing-none)"
   static let layout_account_drawer_header_padding_bottom_mobile = "1.04rem"
   static let layout_account_drawer_content_stage_padding_inline = "4.8rem"
   static let layout_account_drawer_content_stage_padding_inline_tablet = "3.2rem"
@@ -13512,7 +13613,7 @@ enum DSCTokens {
   static let layout_office_internal_correspondence_mobile_shell_padding_bottom = "48px"
   static let layout_cookie_language_overlay_shadow = "0 20px 60px color-mix(in srgb, var(--shadow-color, #000000) 8%, transparent)"
   static let layout_cookie_language_overlay_shadow_dark = "0 24px 70px color-mix(in srgb, var(--shadow-color, #000000) 24%, transparent)"
-  static let layout_cookie_language_overlay_width = "min(36rem, calc(100vw - (2 * var(--site-gutter, 24px))))"
+  static let layout_cookie_language_overlay_width = "min(36rem, calc(100vw - (2 * var(--site-gutter))))"
   static let layout_cookie_language_overlay_max_height = "min(46rem, calc(100vh - 3rem))"
   static let layout_cookie_language_overlay_max_height_mobile = "min(42rem, calc(100vh - 1.6rem))"
   static let layout_cookie_language_overlay_min_height = "24rem"
@@ -14029,7 +14130,7 @@ enum DSCTokens {
   static let layout_home_platform_theme_toggle_row_gap = "0.86rem"
   static let layout_home_platform_theme_toggle_row_padding_y = "0.68rem"
   static let layout_home_interaction_panel_width = "min(46rem, calc(100vw - (2 * var(--site-gutter))))"
-  static let layout_home_interaction_panel_width_mobile = "min(100%, calc(100vw - (2 * var(--site-gutter))))"
+  static let layout_home_interaction_panel_width_mobile = "min(100%, calc(100vw - (2 * var(--site-shell-inline-padding-mobile))))"
   static let layout_home_interaction_panel_gap = "0.38rem"
   static let layout_home_interaction_panel_padding = "0.54rem"
   static let layout_home_interaction_panel_padding_mobile = "0.52rem"
@@ -14418,7 +14519,7 @@ enum DSCTokens {
   static let nav_institutional_panel_content_delay = "70ms"
   static let nav_institutional_panel_content_stagger = "34ms"
   static let nav_institutional_panel_padding_y = "5.15rem"
-  static let nav_institutional_panel_padding_x_fallback = "3.2rem"
+  static let nav_institutional_panel_padding_x_fallback = "var(--site-gutter)"
   static let nav_institutional_panel_padding_bottom = "3.9rem"
   static let nav_institutional_panel_gap = "5.8rem"
   static let nav_institutional_panel_col_gap = "1.9rem"
@@ -14472,7 +14573,7 @@ enum DSCTokens {
   static let nav_institutional_tablet_search_shell_padding_x = "0.94rem"
   static let nav_institutional_tablet_panel_gap = "3rem"
   static let nav_institutional_tablet_panel_padding_y = "4.6rem"
-  static let nav_institutional_tablet_panel_padding_x_fallback = "2.2rem"
+  static let nav_institutional_tablet_panel_padding_x_fallback = "var(--site-shell-inline-padding-mobile)"
   static let nav_institutional_tablet_panel_padding_bottom = "3.2rem"
   static let nav_institutional_tablet_panel_title_size = "1.86rem"
   static let nav_institutional_tablet_search_input_size = "1.62rem"
@@ -14485,7 +14586,7 @@ enum DSCTokens {
   static let nav_menu_hover_pulse_duration = "760ms"
   static let nav_menu_pack_toggle_nudge = "-10px"
   static let nav_menu_harmonic_gap = "46px"
-  static let nav_menu_gutter = "var(--footer-gutter, 56px)"
+  static let nav_menu_gutter = "var(--footer-gutter)"
   static let nav_menu_vpad = "90px"
   static let nav_menu_rail_pad = "34px"
   static let nav_menu_rail_label_pad = "34px"
@@ -14721,6 +14822,7 @@ enum DSCTokens {
   static let font_size_toast_title = "0.84rem"
   static let font_size_toast_body = "0.78rem"
   static let font_size_profile_name = "1.32rem"
+  static let font_size_profile_role = "1.42rem"
   static let font_size_profile_handle = "0.86rem"
   static let font_size_profile_bio = "0.92rem"
   static let font_size_profile_stat_value = "1rem"
@@ -14908,6 +15010,8 @@ enum DSCTokens {
   static let toast_body_line_height = "var(--line-height-body-tight)"
   static let profile_name_size = "var(--font-size-profile-name)"
   static let profile_name_line_height = "var(--line-height-heading-relaxed)"
+  static let profile_role_size = "var(--font-size-profile-role)"
+  static let profile_role_line_height = "var(--line-height-heading-relaxed)"
   static let profile_handle_size = "var(--font-size-profile-handle)"
   static let profile_handle_line_height = "var(--line-height-body-tight)"
   static let profile_bio_size = "var(--font-size-profile-bio)"
@@ -14942,6 +15046,7 @@ enum DSCTokens {
   static let marketing_proof_line_height = "var(--line-height-body-tight)"
   static let marketing_cta_size = "var(--font-size-marketing-cta)"
   static let marketing_cta_line_height = "var(--line-height-ui)"
+  static let font_weight_extra_light = "var(--font-weight-light)"
   static let font_weight_light = "300"
   static let font_weight_body = "400"
   static let font_weight_medium = "500"
@@ -15031,6 +15136,7 @@ enum DSCTokens {
   static let toast_title_weight = "var(--font-weight-heading-soft)"
   static let toast_body_weight = "var(--font-weight-body)"
   static let profile_name_weight = "var(--font-weight-heading)"
+  static let profile_role_weight = "var(--font-weight-extra-light)"
   static let profile_handle_weight = "var(--font-weight-body)"
   static let profile_bio_weight = "var(--font-weight-body)"
   static let profile_stat_value_weight = "var(--font-weight-heading-soft)"
@@ -15138,6 +15244,7 @@ enum DSCTokens {
   static let toast_title_tracking = "var(--tracking-heading)"
   static let toast_body_tracking = "var(--tracking-copy)"
   static let profile_name_tracking = "var(--tracking-heading)"
+  static let profile_role_tracking = "var(--tracking-heading)"
   static let profile_handle_tracking = "var(--tracking-meta)"
   static let profile_bio_tracking = "var(--tracking-copy)"
   static let profile_stat_value_tracking = "var(--tracking-heading)"
@@ -15226,6 +15333,10 @@ enum DSCTokens {
   static let ui_dropdown_icon_gap = "var(--spacing-sm)"
   static let ui_dropdown_transition = "var(--interaction-transition-control)"
   static let ui_dropdown_icon_filter = "var(--icon-image-filter)"
+  static let ui_inline_dropdown_gap = "var(--spacing-sm)"
+  static let ui_inline_dropdown_label_size = "var(--control-font-size)"
+  static let ui_inline_dropdown_label_weight = "var(--control-font-weight)"
+  static let ui_inline_dropdown_label_line_height = "var(--control-line-height)"
   static let icon_image_filter = "brightness(0) invert(1)"
   static let icon_image_filter_strong = "brightness(0) invert(1)"
   static let icon_color = "var(--text-color)"
@@ -15247,6 +15358,8 @@ enum DSCTokens {
   static let password_field_toggle_surface_hover = "transparent"
   static let password_field_toggle_border = "transparent"
   static let password_field_toggle_border_hover = "transparent"
+  static let password_field_text_letter_spacing = "var(--spacing-none)"
+  static let password_field_visible_letter_spacing = "calc(var(--spacing-3xs) / 3)"
   static let picker_input_size = "1.20rem"
   static let picker_input_padding = "0"
   static let picker_input_border_width = "1px"
@@ -15300,6 +15413,7 @@ enum DSCTokens {
   static let global_close_button_hover_color = "var(--close-control-color-hover)"
   static let global_close_button_duration = "var(--interaction-motion-medium)"
   static let global_close_button_ease = "var(--interaction-ease-standard)"
+  static let global_close_button_optical_end_offset = "calc((var(--global-close-button-line-width) - var(--global-close-button-size)) / 2)"
   static let footer_copy_font_size = "0.9rem"
   static let footer_locale_font_size = "0.85rem"
   static let brand_shell_max_width = "1440px"
@@ -16059,10 +16173,14 @@ enum DSCTokens {
   static let home_platform_shell_mobile_nav_item_min_height = "var(--layout-home-platform-mobile-nav-item-min-height)"
   static let home_platform_shell_mobile_nav_item_padding_x = "var(--layout-home-platform-mobile-nav-item-padding-x)"
   static let home_platform_shell_mobile_nav_icon_size = "var(--layout-home-platform-mobile-nav-icon-size)"
-  static let home_platform_shell_rail_padding_top = "var(--layout-home-platform-rail-padding-top)"
-  static let home_platform_shell_rail_padding_right = "var(--layout-home-platform-rail-padding-right)"
-  static let home_platform_shell_rail_padding_bottom = "var(--layout-home-platform-rail-padding-bottom)"
-  static let home_platform_shell_rail_padding_left = "var(--spacing-none)"
+  static let home_platform_shell_column_padding_top = "var(--layout-home-platform-column-padding-top)"
+  static let home_platform_shell_column_padding_right = "var(--layout-home-platform-column-padding-right)"
+  static let home_platform_shell_column_padding_bottom = "var(--layout-home-platform-column-padding-bottom)"
+  static let home_platform_shell_column_padding_left = "var(--layout-home-platform-column-padding-left)"
+  static let home_platform_shell_rail_padding_top = "var(--home-platform-shell-column-padding-top)"
+  static let home_platform_shell_rail_padding_right = "var(--home-platform-shell-column-padding-right)"
+  static let home_platform_shell_rail_padding_bottom = "var(--home-platform-shell-column-padding-bottom)"
+  static let home_platform_shell_rail_padding_left = "var(--home-platform-shell-column-padding-left)"
   static let home_platform_shell_subrail_padding_left = "var(--layout-home-platform-subrail-padding-left)"
   static let home_platform_shell_tablet_rail_padding_right = "var(--layout-home-platform-tablet-rail-padding-right)"
   static let home_platform_shell_group_margin_top = "var(--layout-home-platform-group-margin-top)"
@@ -16099,7 +16217,7 @@ enum DSCTokens {
   static let home_platform_shell_content_header_padding_top = "var(--layout-home-platform-content-header-padding-top)"
   static let home_platform_shell_content_header_padding_right = "var(--layout-home-platform-content-header-padding-right)"
   static let home_platform_shell_content_header_padding_bottom = "var(--layout-home-platform-content-header-padding-bottom)"
-  static let home_platform_shell_content_header_padding_left = "var(--layout-home-platform-content-header-padding-left)"
+  static let home_platform_shell_content_header_padding_left = "var(--home-platform-shell-content-inner-padding-left)"
   static let home_platform_shell_tablet_content_padding_left = "var(--layout-home-platform-tablet-content-padding-left)"
   static let home_platform_shell_mobile_content_header_padding_top = "var(--layout-home-platform-mobile-content-header-padding-top)"
   static let home_platform_shell_mobile_content_header_padding_bottom = "var(--layout-home-platform-mobile-content-header-padding-bottom)"
@@ -16114,6 +16232,7 @@ enum DSCTokens {
   static let home_platform_shell_content_copy_line_height = "var(--layout-home-platform-content-copy-line-height)"
   static let home_platform_shell_content_copy_tracking = "var(--layout-home-platform-content-copy-tracking)"
   static let home_platform_shell_content_inner_padding_top = "var(--layout-home-platform-content-inner-padding-top)"
+  static let home_platform_shell_content_inner_padding_right = "var(--layout-home-platform-content-inner-padding-right)"
   static let home_platform_shell_content_inner_padding_left = "var(--layout-home-platform-content-inner-padding-left)"
   static let home_platform_shell_content_inner_footer_gap = "var(--layout-home-platform-content-inner-footer-gap)"
   static let home_platform_shell_mobile_content_inner_padding_top = "var(--layout-home-platform-mobile-content-inner-padding-top)"
@@ -16716,11 +16835,11 @@ enum DSCTokens {
   static let institutional_menu_panel_closing_y = "var(--nav-institutional-panel-closing-y)"
   static let institutional_menu_panel_closing_scale = "var(--nav-institutional-panel-closing-scale)"
   static let institutional_menu_panel_closing_opacity = "var(--nav-institutional-panel-closing-opacity)"
-  static let institutional_menu_panel_content_y = "var(--nav-institutional-panel-content-y)"
+  static let institutional_menu_panel_content_y = "calc(var(--nav-institutional-panel-content-y) * 0.72)"
   static let institutional_menu_panel_content_motion = "var(--nav-institutional-panel-content-motion)"
   static let institutional_menu_panel_content_exit_motion = "var(--nav-institutional-panel-content-exit-motion)"
-  static let institutional_menu_panel_content_delay = "var(--nav-institutional-panel-content-delay)"
-  static let institutional_menu_panel_content_stagger = "var(--nav-institutional-panel-content-stagger)"
+  static let institutional_menu_panel_content_delay = "calc(var(--nav-institutional-panel-content-delay) * 0.45)"
+  static let institutional_menu_panel_content_stagger = "calc(var(--nav-institutional-panel-content-stagger) * 0.62)"
   static let institutional_menu_panel_padding_y = "var(--nav-institutional-panel-padding-y)"
   static let institutional_menu_panel_padding_x_fallback = "var(--nav-institutional-panel-padding-x-fallback)"
   static let institutional_menu_panel_padding_bottom = "var(--nav-institutional-panel-padding-bottom)"
@@ -17642,7 +17761,7 @@ enum DSCTokens {
   static let country_accent = "var(--color-primary1)"
   static let country_close_button_color = "var(--global-close-button-color)"
   static let country_close_button_hover_color = "var(--global-close-button-hover-color)"
-  static let country_container_max = "var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)))"
+  static let country_container_max = "var(--site-rail-width)"
   static let country_container_pad = "var(--layout-country-container-pad)"
   static let country_motion_fast = "var(--interaction-motion-fast)"
   static let country_motion_medium = "var(--interaction-motion-medium)"
@@ -17891,7 +18010,7 @@ enum DSCTokens {
   static let profile_private_hero_media_action_layer = "var(--z-above)"
   static let profile_private_hero_details_max_height = "calc(var(--body-2-line-height) + var(--spacing-sm))"
   static let profile_private_hero_details_max_height_hidden = "0"
-  static let profile_private_hero_info_popover_width = "min(22rem, calc(100vw - (var(--site-gutter) * 2)))"
+  static let profile_private_hero_info_popover_width = "min(22rem, var(--site-rail-width))"
   static let profile_private_hero_actions_layer = "var(--z-above)"
   static let profile_private_hero_media_action_opacity = "1"
   static let profile_private_hero_media_action_opacity_hidden = "0"
@@ -17933,7 +18052,7 @@ enum DSCTokens {
   static let profile_private_hero_tab_icon_size = "var(--home-platform-shell-nav-icon-size)"
   static let profile_private_hero_tab_content_offset_y = "calc(var(--spacing-2xs) * -1)"
   static let profile_media_editor_z_index = "var(--z-overlay-control)"
-  static let profile_media_editor_dialog_width = "min(34rem, calc(100vw - (var(--site-gutter) * 2)))"
+  static let profile_media_editor_dialog_width = "min(34rem, var(--site-rail-width))"
   static let profile_media_editor_dialog_radius = "var(--dialog-overlay-radius)"
   static let profile_media_editor_dialog_padding = "var(--spacing-lg)"
   static let profile_media_editor_backdrop_bg = "var(--glass-overlay-backdrop-bg)"
@@ -17971,7 +18090,7 @@ enum DSCTokens {
   static let profile_settings_caption_size = "var(--layout-home-platform-theme-caption-size)"
   static let profile_settings_caption_line_height = "var(--layout-home-platform-theme-caption-line-height)"
   static let profile_settings_caption_opacity = "var(--layout-home-platform-theme-caption-opacity)"
-  static let profile_settings_control_radius = "var(--control-radius-composer)"
+  static let profile_settings_control_radius = "var(--account-field-radius)"
   static let profile_shell_rail_width = "var(--site-rail-width)"
   static let profile_shell_group_gap = "var(--spacing-md)"
   static let profile_shell_mount_gap = "var(--spacing-none)"
@@ -18150,14 +18269,14 @@ enum DSCTokens {
   static let leadership_card_padding = "var(--catalog-card-body-padding)"
   static let leadership_avatar_size = "var(--layout-profile-avatar-size, 128px)"
   static let leadership_profile_hero_height = "clamp(28rem, 68vh, 44rem)"
-  static let leadership_profile_hero_content_width = "min(34rem, calc(100vw - (var(--site-gutter) * 2)))"
+  static let leadership_profile_hero_content_width = "min(34rem, var(--site-rail-width))"
   static let leadership_avatar_border = "var(--control-border)"
   static let leadership_avatar_bg = "var(--control-bg)"
   static let leadership_name_size = "var(--catalog-card-title-size)"
   static let leadership_role_size = "var(--catalog-chip-size)"
   static let leadership_copy_line_height = "var(--catalog-panel-copy-line-height)"
-  static let legal_page_max_width = "var(--site-rail-width, min(calc(100% - (var(--site-gutter, 24px) * 2)), var(--site-max-width, 1320px)))"
-  static let legal_page_max_width_mobile = "min(calc(100% - (var(--site-gutter, 20px) * 2)), var(--site-max-width, 1320px))"
+  static let legal_page_max_width = "var(--site-rail-width)"
+  static let legal_page_max_width_mobile = "var(--site-rail-width-mobile)"
   static let legal_page_narrow_width = "var(--layout-legal-page-narrow-width)"
   static let legal_page_border = "var(--border-color, var(--layout-legal-page-border-fallback))"
   static let legal_page_surface = "var(--layout-legal-page-surface)"
@@ -18259,6 +18378,9 @@ enum DSCTokens {
   static let models_action_min_height = "var(--layout-models-action-min-height)"
   static let models_action_padding_x = "var(--layout-models-action-padding-x)"
   static let models_action_radius = "var(--layout-models-action-radius)"
+  static let model_economy_surface_opacity = "0.72"
+  static let model_economy_border_opacity = "0.16"
+  static let model_economy_state_opacity = "0.68"
   static let glass_matte_blur = "18px"
   static let glass_matte_opacity = "0.24"
   static let glass_matte_surface_light = "rgba(255, 255, 255, 0.08)"
