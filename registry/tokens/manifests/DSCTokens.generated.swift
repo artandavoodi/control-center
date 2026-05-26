@@ -8857,6 +8857,11 @@ enum DSCTokens {
     "profile-private-hero-tab-active-underline-bg": "var(--local-nav-active-indicator-color)",
     "profile-private-hero-tab-active-opacity": "var(--local-nav-hover-opacity)",
     "profile-private-hero-tab-icon-size": "var(--home-platform-shell-nav-icon-size)",
+    "profile-private-hero-icon-size": "var(--home-platform-shell-nav-icon-size)",
+    "profile-private-hero-icon-opacity": "var(--nav-institutional-icon-opacity)",
+    "profile-private-hero-icon-hover-opacity": "var(--nav-institutional-icon-hover-opacity)",
+    "profile-private-hero-icon-filter": "var(--icon-image-filter)",
+    "profile-private-hero-icon-transition": "opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease)",
     "profile-private-hero-tab-content-offset-y": "calc(var(--spacing-2xs) * -1)",
     "profile-media-editor-z-index": "var(--z-overlay-control)",
     "profile-media-editor-dialog-width": "min(34rem, var(--site-rail-width))",
@@ -18050,6 +18055,11 @@ enum DSCTokens {
   static let profile_private_hero_tab_active_underline_bg = "var(--local-nav-active-indicator-color)"
   static let profile_private_hero_tab_active_opacity = "var(--local-nav-hover-opacity)"
   static let profile_private_hero_tab_icon_size = "var(--home-platform-shell-nav-icon-size)"
+  static let profile_private_hero_icon_size = "var(--home-platform-shell-nav-icon-size)"
+  static let profile_private_hero_icon_opacity = "var(--nav-institutional-icon-opacity)"
+  static let profile_private_hero_icon_hover_opacity = "var(--nav-institutional-icon-hover-opacity)"
+  static let profile_private_hero_icon_filter = "var(--icon-image-filter)"
+  static let profile_private_hero_icon_transition = "opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease)"
   static let profile_private_hero_tab_content_offset_y = "calc(var(--spacing-2xs) * -1)"
   static let profile_media_editor_z_index = "var(--z-overlay-control)"
   static let profile_media_editor_dialog_width = "min(34rem, var(--site-rail-width))"

@@ -8854,6 +8854,11 @@
   --profile-private-hero-tab-active-underline-bg: var(--local-nav-active-indicator-color);
   --profile-private-hero-tab-active-opacity: var(--local-nav-hover-opacity);
   --profile-private-hero-tab-icon-size: var(--home-platform-shell-nav-icon-size);
+  --profile-private-hero-icon-size: var(--home-platform-shell-nav-icon-size);
+  --profile-private-hero-icon-opacity: var(--nav-institutional-icon-opacity);
+  --profile-private-hero-icon-hover-opacity: var(--nav-institutional-icon-hover-opacity);
+  --profile-private-hero-icon-filter: var(--icon-image-filter);
+  --profile-private-hero-icon-transition: opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease);
   --profile-private-hero-tab-content-offset-y: calc(var(--spacing-2xs) * -1);
   --profile-media-editor-z-index: var(--z-overlay-control);
   --profile-media-editor-dialog-width: min(34rem, var(--site-rail-width));
