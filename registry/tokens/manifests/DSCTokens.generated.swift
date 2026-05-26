@@ -8272,7 +8272,7 @@ enum DSCTokens {
     "announcement-overlay-content-max-width": "34rem",
     "announcement-overlay-content-padding": "var(--spacing-none)",
     "announcement-overlay-section-gap": "var(--spacing-lg)",
-    "announcement-overlay-icon-size": "var(--control-height-lg)",
+    "announcement-overlay-icon-size": "var(--home-platform-shell-nav-icon-size)",
     "announcement-overlay-title-size": "var(--headline-4-size)",
     "announcement-overlay-title-line-height": "var(--headline-4-line-height)",
     "announcement-overlay-title-letter-spacing": "var(--tracking-copy)",
@@ -8856,12 +8856,6 @@ enum DSCTokens {
     "profile-private-hero-tab-hover-color": "var(--local-nav-hover-text-color)",
     "profile-private-hero-tab-active-underline-bg": "var(--local-nav-active-indicator-color)",
     "profile-private-hero-tab-active-opacity": "var(--local-nav-hover-opacity)",
-    "profile-private-hero-tab-icon-size": "var(--home-platform-shell-nav-icon-size)",
-    "profile-private-hero-icon-size": "var(--home-platform-shell-nav-icon-size)",
-    "profile-private-hero-icon-opacity": "var(--nav-institutional-icon-opacity)",
-    "profile-private-hero-icon-hover-opacity": "var(--nav-institutional-icon-hover-opacity)",
-    "profile-private-hero-icon-filter": "var(--icon-image-filter)",
-    "profile-private-hero-icon-transition": "opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease)",
     "profile-private-hero-tab-content-offset-y": "calc(var(--spacing-2xs) * -1)",
     "profile-media-editor-z-index": "var(--z-overlay-control)",
     "profile-media-editor-dialog-width": "min(34rem, var(--site-rail-width))",
@@ -17470,7 +17464,7 @@ enum DSCTokens {
   static let announcement_overlay_content_max_width = "34rem"
   static let announcement_overlay_content_padding = "var(--spacing-none)"
   static let announcement_overlay_section_gap = "var(--spacing-lg)"
-  static let announcement_overlay_icon_size = "var(--control-height-lg)"
+  static let announcement_overlay_icon_size = "var(--home-platform-shell-nav-icon-size)"
   static let announcement_overlay_title_size = "var(--headline-4-size)"
   static let announcement_overlay_title_line_height = "var(--headline-4-line-height)"
   static let announcement_overlay_title_letter_spacing = "var(--tracking-copy)"
@@ -18054,12 +18048,6 @@ enum DSCTokens {
   static let profile_private_hero_tab_hover_color = "var(--local-nav-hover-text-color)"
   static let profile_private_hero_tab_active_underline_bg = "var(--local-nav-active-indicator-color)"
   static let profile_private_hero_tab_active_opacity = "var(--local-nav-hover-opacity)"
-  static let profile_private_hero_tab_icon_size = "var(--home-platform-shell-nav-icon-size)"
-  static let profile_private_hero_icon_size = "var(--home-platform-shell-nav-icon-size)"
-  static let profile_private_hero_icon_opacity = "var(--nav-institutional-icon-opacity)"
-  static let profile_private_hero_icon_hover_opacity = "var(--nav-institutional-icon-hover-opacity)"
-  static let profile_private_hero_icon_filter = "var(--icon-image-filter)"
-  static let profile_private_hero_icon_transition = "opacity var(--profile-private-hero-motion-fast) var(--profile-private-hero-motion-ease)"
   static let profile_private_hero_tab_content_offset_y = "calc(var(--spacing-2xs) * -1)"
   static let profile_media_editor_z_index = "var(--z-overlay-control)"
   static let profile_media_editor_dialog_width = "min(34rem, var(--site-rail-width))"

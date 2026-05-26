@@ -173,6 +173,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/attachment/attach.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/attachment/attach.svg"
   },
+  "core/actions/backup-codes/backup-codes": {
+    "id": "core/actions/backup-codes/backup-codes",
+    "path": "core/actions/backup-codes/backup-codes.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/backup-codes/backup-codes.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/backup-codes/backup-codes.svg"
+  },
   "core/actions/bookmark/bookmark": {
     "id": "core/actions/bookmark/bookmark",
     "path": "core/actions/bookmark/bookmark.svg",
@@ -184,6 +190,12 @@
     "path": "core/actions/by-creating-an-account-you-agree-to-the/by-creating-an-account-you-agree-to-the.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/by-creating-an-account-you-agree-to-the/by-creating-an-account-you-agree-to-the.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/by-creating-an-account-you-agree-to-the/by-creating-an-account-you-agree-to-the.svg"
+  },
+  "core/actions/change-password/change-password": {
+    "id": "core/actions/change-password/change-password",
+    "path": "core/actions/change-password/change-password.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/change-password/change-password.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/change-password/change-password.svg"
   },
   "core/actions/changelog-release-ledger/changelog-release-ledger": {
     "id": "core/actions/changelog-release-ledger/changelog-release-ledger",
@@ -262,6 +274,12 @@
     "path": "core/actions/compose/compose.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/compose/compose.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/compose/compose.svg"
+  },
+  "core/actions/configure-ip/configure-ip": {
+    "id": "core/actions/configure-ip/configure-ip",
+    "path": "core/actions/configure-ip/configure-ip.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/configure-ip/configure-ip.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/configure-ip/configure-ip.svg"
   },
   "core/actions/continue/continue": {
     "id": "core/actions/continue/continue",
@@ -538,6 +556,12 @@
     "path": "core/actions/help/help.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/help/help.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/help/help.svg"
+  },
+  "core/actions/icloud-link/icloud-link": {
+    "id": "core/actions/icloud-link/icloud-link",
+    "path": "core/actions/icloud-link/icloud-link.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/icloud-link/icloud-link.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/icloud-link/icloud-link.svg"
   },
   "core/actions/import/import": {
     "id": "core/actions/import/import",
@@ -1007,6 +1031,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/sign-in/sign-in.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/sign-in/sign-in.svg"
   },
+  "core/actions/sign-out-all/sign-out-all": {
+    "id": "core/actions/sign-out-all/sign-out-all",
+    "path": "core/actions/sign-out-all/sign-out-all.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/sign-out-all/sign-out-all.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/sign-out-all/sign-out-all.svg"
+  },
   "core/actions/sign-up/sign-up": {
     "id": "core/actions/sign-up/sign-up",
     "path": "core/actions/sign-up/sign-up.svg",
@@ -1072,6 +1102,12 @@
     "path": "core/actions/utility/translate.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/utility/translate.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/utility/translate.svg"
+  },
+  "core/actions/verify-voice/verify-voice": {
+    "id": "core/actions/verify-voice/verify-voice",
+    "path": "core/actions/verify-voice/verify-voice.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/verify-voice/verify-voice.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/verify-voice/verify-voice.svg"
   },
   "core/actions/visibility/private-draft": {
     "id": "core/actions/visibility/private-draft",
