@@ -2739,11 +2739,11 @@ enum DSCTokens {
     "account-text-action-letter-spacing": "var(--body-3-tracking)",
     "account-back-control-size": "var(--icon-size-md)",
     "account-back-icon-size": "1.12rem",
-    "icon-size-xs": "0.9rem",
-    "icon-size-sm": "1rem",
-    "icon-size-md": "1.2rem",
-    "icon-size-lg": "1.4rem",
-    "icon-size-xl": "1.8rem",
+    "icon-size-xs": "calc(0.75rem * var(--accessibility-icon-scale))",
+    "icon-size-sm": "calc(1rem * var(--accessibility-icon-scale))",
+    "icon-size-md": "calc(1.25rem * var(--accessibility-icon-scale))",
+    "icon-size-lg": "calc(1.5rem * var(--accessibility-icon-scale))",
+    "icon-size-xl": "calc(2rem * var(--accessibility-icon-scale))",
     "glass-blur-sm": "10px",
     "glass-blur-md": "16px",
     "glass-blur-lg": "24px",
@@ -3113,7 +3113,7 @@ enum DSCTokens {
     "control-radius": "var(--shape-control-radius)",
     "control-radius-pill": "var(--radius-pill)",
     "control-gap": "0.42rem",
-    "control-font-size": "0.9rem",
+    "control-font-size": "calc(0.9rem * var(--accessibility-typography-scale))",
     "control-font-weight": "400",
     "control-line-height": "1.2",
     "control-tracking": "-0.01em",
@@ -3549,9 +3549,9 @@ enum DSCTokens {
     "menu-padding-bottom": "0.9rem",
     "section-min-height": "100vh",
     "section-min-height-stable": "100svh",
-    "stage-circle-desktop": "720px",
-    "stage-circle-mobile": "520px",
-    "stage-circle-max-desktop": "1200px",
+    "stage-circle-desktop": "calc(720px * var(--accessibility-density-scale))",
+    "stage-circle-mobile": "calc(520px * var(--accessibility-density-scale))",
+    "stage-circle-max-desktop": "calc(1200px * var(--accessibility-density-scale))",
     "stage-circle-max-mobile": "1200px",
     "stage-circle-vh-cap": "90vh",
     "stage-circle-vw-cap": "96vw",
@@ -3580,7 +3580,7 @@ enum DSCTokens {
     "layout-home-enter-tracking": "0.14em",
     "layout-home-enter-border-width": "1px",
     "layout-home-enter-radius": "999px",
-    "layout-home-enter-icon-size": "1.42rem",
+    "layout-home-enter-icon-size": "calc(1.42rem * var(--accessibility-icon-scale))",
     "layout-home-enter-hover-y": "-1px",
     "layout-home-enter-hover-opacity": "0.95",
     "layout-home-enter-breathe-duration": "6s",
@@ -3736,7 +3736,7 @@ enum DSCTokens {
     "layout-home-search-input-row-opacity": "0.9",
     "layout-home-search-input-row-border": "color-mix(in srgb, var(--text-primary-color) 16%, transparent)",
     "layout-home-search-input-row-border-focus": "color-mix(in srgb, var(--text-primary-color) 24%, transparent)",
-    "layout-home-search-icon-size": "1.38rem",
+    "layout-home-search-icon-size": "calc(1.38rem * var(--accessibility-icon-scale))",
     "layout-home-search-icon-opacity": "0.82",
     "layout-home-search-voice-motion": "180ms",
     "layout-home-search-input-size": "1.88rem",
@@ -3781,7 +3781,7 @@ enum DSCTokens {
     "layout-home-search-result-badge-size": "0.7rem",
     "layout-home-search-result-badge-weight": "600",
     "layout-home-search-result-badge-tracking": "0.08em",
-    "layout-home-search-result-badge-icon-size": "1.5rem",
+    "layout-home-search-result-badge-icon-size": "calc(1.5rem * var(--accessibility-icon-scale))",
     "layout-home-search-result-tags-gap": "0.45rem",
     "layout-home-search-result-tag-min-height": "1.85rem",
     "layout-home-search-result-tag-padding-x": "0.7rem",
@@ -3820,7 +3820,7 @@ enum DSCTokens {
     "layout-home-platform-chrome-saturate": "120%",
     "layout-home-platform-rail-toggle-size": "1.25rem",
     "layout-home-platform-rail-toggle-margin-left": "0.7rem",
-    "layout-home-platform-rail-toggle-icon-size": "1.05rem",
+    "layout-home-platform-rail-toggle-icon-size": "calc(1.05rem * var(--accessibility-icon-scale))",
     "layout-home-platform-rail-width": "18rem",
     "layout-home-platform-subrail-width": "15rem",
     "layout-home-platform-rail-compact-width": "3.25rem",
@@ -3864,7 +3864,7 @@ enum DSCTokens {
     "layout-home-platform-nav-item-radius": "999px",
     "layout-home-platform-nav-item-padding-y": "0.86rem",
     "layout-home-platform-nav-item-padding-x": "1rem",
-    "layout-home-platform-nav-icon-size": "1rem",
+    "layout-home-platform-nav-icon-size": "calc(1rem * var(--accessibility-icon-scale))",
     "layout-home-platform-nav-indicator-min-size": "1.15rem",
     "layout-home-platform-nav-indicator-padding-x": "0.32rem",
     "layout-home-platform-nav-indicator-size": "0.64rem",
@@ -3973,7 +3973,7 @@ enum DSCTokens {
     "layout-home-stage-motion-core-signal-blur": "16px",
     "layout-home-stage-motion-core-pulse-blur": "10px",
     "layout-home-stage-motion-mic-size": "4.8rem",
-    "layout-home-stage-motion-mic-icon-size": "2.35rem",
+    "layout-home-stage-motion-mic-icon-size": "calc(2.35rem * var(--accessibility-icon-scale))",
     "layout-home-stage-motion-mic-margin-bottom": "1.15rem",
     "layout-home-stage-motion-mic-color": "color-mix(in srgb, var(--text-primary-color) 72%, transparent)",
     "layout-home-stage-motion-mic-hover-color": "color-mix(in srgb, var(--color-primary1) 94%, var(--text-primary-color))",
@@ -4017,7 +4017,7 @@ enum DSCTokens {
     "layout-home-stage-motion-mobile-vessel-size": "min(17rem, 66vw, 31vh)",
     "layout-home-stage-motion-mobile-vessel-active-size": "min(14rem, 54vw, 24vh)",
     "layout-home-stage-motion-mobile-mic-size": "4rem",
-    "layout-home-stage-motion-mobile-mic-icon-size": "2rem",
+    "layout-home-stage-motion-mobile-mic-icon-size": "calc(2rem * var(--accessibility-icon-scale))",
     "layout-home-stage-motion-mobile-mic-margin-bottom": "0.85rem",
     "layout-home-stage-motion-key-core-listen-start-scale": "0.88",
     "layout-home-stage-motion-key-core-listen-mid-scale": "1.1",
@@ -4309,7 +4309,7 @@ enum DSCTokens {
     "layout-interaction-settings-panel-nav-width-tablet": "11rem",
     "layout-interaction-settings-panel-nav-opacity": "0.72",
     "layout-interaction-settings-panel-nav-hover-opacity": "1",
-    "layout-interaction-settings-panel-nav-font-size": "0.82rem",
+    "layout-interaction-settings-panel-nav-font-size": "calc(0.82rem * var(--accessibility-typography-scale))",
     "layout-interaction-settings-panel-nav-font-weight": "500",
     "layout-interaction-settings-panel-nav-line-height": "1.2",
     "layout-interaction-settings-panel-nav-item-radius": "0.82rem",
@@ -5139,9 +5139,9 @@ enum DSCTokens {
     "layout-awareness-progress-margin-top": "14px",
     "layout-awareness-progress-margin-bottom": "8px",
     "layout-awareness-progress-fill-width": "0%",
-    "duration-fast": "180ms",
-    "duration-base": "240ms",
-    "duration-slow": "320ms",
+    "duration-fast": "calc(180ms * (1 - var(--accessibility-motion-reduced) * 0.8))",
+    "duration-base": "calc(240ms * (1 - var(--accessibility-motion-reduced) * 0.8))",
+    "duration-slow": "calc(320ms * (1 - var(--accessibility-motion-reduced) * 0.8))",
     "ease-standard": "cubic-bezier(0.22,1,0.36,1)",
     "ease-emphasis": "cubic-bezier(0.2,0.8,0.2,1)",
     "hover-opacity-soft": "0.9",
@@ -5154,9 +5154,9 @@ enum DSCTokens {
     "intro-pop-duration": "1.6s",
     "intro-settle-duration": "1.9s",
     "intro-fade-duration": "1.5s",
-    "nav-global-gap": "1.15rem",
-    "nav-global-item-gap": "0.42rem",
-    "nav-global-topbar-menu-gap": "1.2rem",
+    "nav-global-gap": "calc(1.15rem * var(--accessibility-density-scale))",
+    "nav-global-item-gap": "calc(0.42rem * var(--accessibility-density-scale))",
+    "nav-global-topbar-menu-gap": "calc(1.2rem * var(--accessibility-density-scale))",
     "nav-global-padding-y": "0",
     "nav-global-padding-x": "0",
     "nav-global-min-height": "auto",
@@ -5164,8 +5164,8 @@ enum DSCTokens {
     "nav-global-hover-color": "var(--nav-hover-text-color)",
     "nav-global-active-color": "var(--nav-active-text-color)",
     "nav-global-hover-opacity": "var(--nav-hover-opacity)",
-    "nav-local-gap": "1.42rem",
-    "nav-local-label-gap": "0.42rem",
+    "nav-local-gap": "calc(1.42rem * var(--accessibility-density-scale))",
+    "nav-local-label-gap": "calc(0.42rem * var(--accessibility-density-scale))",
     "nav-local-padding-y": "0",
     "nav-local-padding-x": "0",
     "nav-local-min-height": "auto",
@@ -5183,21 +5183,21 @@ enum DSCTokens {
     "nav-tab-hover-color": "var(--local-nav-hover-text-color)",
     "nav-tab-active-color": "var(--local-nav-active-text-color)",
     "nav-tab-hover-opacity": "var(--local-nav-hover-opacity)",
-    "nav-breadcrumb-gap": "0.42rem",
-    "nav-breadcrumb-separator-gap": "0.34rem",
+    "nav-breadcrumb-gap": "calc(0.42rem * var(--accessibility-density-scale))",
+    "nav-breadcrumb-separator-gap": "calc(0.34rem * var(--accessibility-density-scale))",
     "nav-breadcrumb-color": "var(--text-secondary-color)",
     "nav-breadcrumb-hover-color": "var(--hover-text-color)",
     "nav-breadcrumb-current-color": "var(--text-primary-color)",
     "nav-breadcrumb-separator-color": "var(--text-muted-color, var(--text-secondary-color))",
-    "nav-footer-gap": "0.84rem",
-    "nav-footer-column-gap": "1.4rem",
-    "nav-footer-row-gap": "0.42rem",
+    "nav-footer-gap": "calc(0.84rem * var(--accessibility-density-scale))",
+    "nav-footer-column-gap": "calc(1.4rem * var(--accessibility-density-scale))",
+    "nav-footer-row-gap": "calc(0.42rem * var(--accessibility-density-scale))",
     "nav-footer-color": "var(--text-secondary-color)",
     "nav-footer-hover-color": "var(--hover-text-color)",
     "nav-footer-hover-opacity": "var(--state-opacity-hover-strong)",
-    "nav-menu-gap": "0.64rem",
-    "nav-menu-item-gap": "0.42rem",
-    "nav-menu-padding-y": "0.42rem",
+    "nav-menu-gap": "calc(0.64rem * var(--accessibility-density-scale))",
+    "nav-menu-item-gap": "calc(0.42rem * var(--accessibility-density-scale))",
+    "nav-menu-padding-y": "calc(0.42rem * var(--accessibility-density-scale))",
     "nav-menu-padding-x": "0",
     "nav-menu-color": "var(--text-secondary-color)",
     "nav-menu-hover-color": "var(--hover-text-color)",
@@ -5208,9 +5208,9 @@ enum DSCTokens {
     "nav-indicator-radius": "999px",
     "nav-indicator-color": "var(--selected-indicator-color)",
     "nav-indicator-opacity": "var(--selected-indicator-opacity)",
-    "nav-glass-surface-height": "3.55rem",
-    "nav-glass-surface-height-tablet": "3.3rem",
-    "nav-glass-surface-height-mobile": "3.18rem",
+    "nav-glass-surface-height": "calc(3.55rem * var(--accessibility-density-scale))",
+    "nav-glass-surface-height-tablet": "calc(3.3rem * var(--accessibility-density-scale))",
+    "nav-glass-surface-height-mobile": "calc(3.18rem * var(--accessibility-density-scale))",
     "nav-glass-surface-bg": "color-mix(in srgb, var(--bg-color) 32%, transparent)",
     "nav-glass-surface-bg-light": "color-mix(in srgb, var(--surface-color) 26%, transparent)",
     "nav-glass-surface-border": "var(--border-color)",
@@ -5218,29 +5218,29 @@ enum DSCTokens {
     "nav-glass-surface-shadow": "none",
     "nav-glass-surface-blur": "var(--effect-blur-sm)",
     "nav-glass-surface-saturate": "120%",
-    "nav-primitive-shell-gap": "0.5rem",
-    "nav-primitive-section-gap": "0.4rem",
-    "nav-primitive-section-padding-top": "0.6rem",
+    "nav-primitive-shell-gap": "calc(0.5rem * var(--accessibility-density-scale))",
+    "nav-primitive-section-gap": "calc(0.4rem * var(--accessibility-density-scale))",
+    "nav-primitive-section-padding-top": "calc(0.6rem * var(--accessibility-density-scale))",
     "nav-primitive-section-border": "1px solid color-mix(in srgb, var(--text-color) 8%, transparent)",
-    "nav-primitive-group-gap": "0.22rem",
-    "nav-primitive-group-header-gap": "0.75rem",
-    "nav-primitive-group-title-size": "0.72rem",
+    "nav-primitive-group-gap": "calc(0.22rem * var(--accessibility-density-scale))",
+    "nav-primitive-group-header-gap": "calc(0.75rem * var(--accessibility-density-scale))",
+    "nav-primitive-group-title-size": "calc(0.72rem * var(--accessibility-typography-scale))",
     "nav-primitive-group-title-weight": "500",
     "nav-primitive-group-title-tracking": "0.08em",
     "nav-primitive-group-title-line-height": "1.2",
-    "nav-primitive-row-gap": "0.75rem",
-    "nav-primitive-row-min-height": "2.65rem",
-    "nav-primitive-row-padding-y": "0.7rem",
-    "nav-primitive-row-padding-x": "0.85rem",
+    "nav-primitive-row-gap": "calc(0.75rem * var(--accessibility-density-scale))",
+    "nav-primitive-row-min-height": "calc(2.65rem * var(--accessibility-density-scale))",
+    "nav-primitive-row-padding-y": "calc(0.7rem * var(--accessibility-density-scale))",
+    "nav-primitive-row-padding-x": "calc(0.85rem * var(--accessibility-density-scale))",
     "nav-primitive-row-border": "1px solid transparent",
     "nav-primitive-row-radius": "1rem",
     "nav-primitive-row-transition-duration": "220ms",
-    "nav-primitive-icon-size": "1rem",
-    "nav-primitive-text-gap": "0.12rem",
-    "nav-primitive-label-size": "0.92rem",
+    "nav-primitive-icon-size": "calc(1rem * var(--accessibility-icon-scale))",
+    "nav-primitive-text-gap": "calc(0.12rem * var(--accessibility-density-scale))",
+    "nav-primitive-label-size": "calc(0.92rem * var(--accessibility-typography-scale))",
     "nav-primitive-label-weight": "500",
     "nav-primitive-label-line-height": "1.3",
-    "nav-primitive-description-size": "0.78rem",
+    "nav-primitive-description-size": "calc(0.78rem * var(--accessibility-typography-scale))",
     "nav-primitive-description-line-height": "1.35",
     "nav-primitive-hover-border": "color-mix(in srgb, var(--text-color) 12%, transparent)",
     "nav-primitive-hover-background": "color-mix(in srgb, var(--bg-color) 16%, transparent)",
@@ -5248,24 +5248,24 @@ enum DSCTokens {
     "nav-primitive-active-border": "color-mix(in srgb, var(--color-primary1) 46%, var(--text-color) 18%)",
     "nav-primitive-active-background": "color-mix(in srgb, var(--color-primary1) 10%, transparent)",
     "nav-primitive-disabled-opacity": "0.45",
-    "nav-primitive-breadcrumb-gap": "0.42rem",
-    "nav-primitive-breadcrumb-size": "0.8rem",
+    "nav-primitive-breadcrumb-gap": "calc(0.42rem * var(--accessibility-density-scale))",
+    "nav-primitive-breadcrumb-size": "calc(0.8rem * var(--accessibility-typography-scale))",
     "nav-primitive-breadcrumb-line-height": "1.35",
     "nav-primitive-breadcrumb-current-weight": "500",
     "nav-primitive-breadcrumb-separator-opacity": "0.72",
-    "nav-primitive-sidebar-gap": "0.7rem",
-    "nav-primitive-sidebar-header-gap": "0.2rem",
-    "nav-primitive-sidebar-title-size": "0.92rem",
+    "nav-primitive-sidebar-gap": "calc(0.7rem * var(--accessibility-density-scale))",
+    "nav-primitive-sidebar-header-gap": "calc(0.2rem * var(--accessibility-density-scale))",
+    "nav-primitive-sidebar-title-size": "calc(0.92rem * var(--accessibility-typography-scale))",
     "nav-primitive-sidebar-title-weight": "600",
     "nav-primitive-sidebar-title-line-height": "1.3",
-    "nav-primitive-sidebar-caption-size": "0.78rem",
+    "nav-primitive-sidebar-caption-size": "calc(0.78rem * var(--accessibility-typography-scale))",
     "nav-primitive-sidebar-caption-line-height": "1.35",
-    "nav-primitive-collapsible-gap": "0.22rem",
+    "nav-primitive-collapsible-gap": "calc(0.22rem * var(--accessibility-density-scale))",
     "nav-primitive-chevron-open-rotation": "90deg",
     "nav-primitive-chevron-transition-duration": "220ms",
-    "nav-primitive-mobile-row-min-height": "2.45rem",
-    "nav-primitive-mobile-row-padding-y": "0.64rem",
-    "nav-primitive-mobile-row-padding-x": "0.78rem",
+    "nav-primitive-mobile-row-min-height": "calc(2.45rem * var(--accessibility-density-scale))",
+    "nav-primitive-mobile-row-padding-y": "calc(0.64rem * var(--accessibility-density-scale))",
+    "nav-primitive-mobile-row-padding-x": "calc(0.78rem * var(--accessibility-density-scale))",
     "nav-institutional-surface-height": "var(--nav-glass-surface-height)",
     "nav-institutional-surface-height-tablet": "var(--nav-glass-surface-height-tablet)",
     "nav-institutional-surface-height-mobile": "var(--nav-glass-surface-height-mobile)",
@@ -5287,25 +5287,25 @@ enum DSCTokens {
     "nav-institutional-motion-panel-slow": "920ms",
     "nav-institutional-motion-ease": "cubic-bezier(0.22, 1, 0.36, 1)",
     "nav-institutional-panel-ease": "cubic-bezier(0.19, 1, 0.22, 1)",
-    "nav-institutional-inner-gap": "1.6rem",
-    "nav-institutional-inner-gap-tablet": "1.2rem",
-    "nav-institutional-inner-gap-mobile": "1rem",
-    "nav-institutional-group-gap": "1.6rem",
-    "nav-institutional-nav-gap": "1.42rem",
-    "nav-institutional-nav-gap-tablet": "1.08rem",
-    "nav-institutional-utility-gap": "1rem",
-    "nav-institutional-link-size": "0.8rem",
-    "nav-institutional-link-size-tablet": "0.74rem",
+    "nav-institutional-inner-gap": "calc(1.6rem * var(--accessibility-density-scale))",
+    "nav-institutional-inner-gap-tablet": "calc(1.2rem * var(--accessibility-density-scale))",
+    "nav-institutional-inner-gap-mobile": "calc(1rem * var(--accessibility-density-scale))",
+    "nav-institutional-group-gap": "calc(1.6rem * var(--accessibility-density-scale))",
+    "nav-institutional-nav-gap": "calc(1.42rem * var(--accessibility-density-scale))",
+    "nav-institutional-nav-gap-tablet": "calc(1.08rem * var(--accessibility-density-scale))",
+    "nav-institutional-utility-gap": "calc(1rem * var(--accessibility-density-scale))",
+    "nav-institutional-link-size": "calc(0.8rem * var(--accessibility-typography-scale))",
+    "nav-institutional-link-size-tablet": "calc(0.74rem * var(--accessibility-typography-scale))",
     "nav-institutional-link-weight": "400",
     "nav-institutional-link-tracking": "0.008em",
     "nav-institutional-link-line-height": "1",
-    "nav-institutional-brand-symbol-size": "1.72rem",
-    "nav-institutional-brand-symbol-size-tablet": "1.32rem",
-    "nav-institutional-brand-symbol-size-mobile": "1.28rem",
-    "nav-institutional-brand-wordmark-height": "0.5rem",
-    "nav-institutional-brand-wordmark-height-mobile": "0.44rem",
-    "nav-institutional-trigger-size": "1.12rem",
-    "nav-institutional-trigger-size-tablet": "1rem",
+    "nav-institutional-brand-symbol-size": "calc(1.4rem * var(--accessibility-icon-scale))",
+    "nav-institutional-brand-symbol-size-tablet": "calc(1.1rem * var(--accessibility-icon-scale))",
+    "nav-institutional-brand-symbol-size-mobile": "calc(1.05rem * var(--accessibility-icon-scale))",
+    "nav-institutional-brand-wordmark-height": "calc(0.5rem * var(--accessibility-icon-scale))",
+    "nav-institutional-brand-wordmark-height-mobile": "calc(0.44rem * var(--accessibility-icon-scale))",
+    "nav-institutional-trigger-size": "calc(0.9rem * var(--accessibility-icon-scale))",
+    "nav-institutional-trigger-size-tablet": "calc(0.8rem * var(--accessibility-icon-scale))",
     "nav-institutional-panel-backdrop-blur": "var(--effect-blur-lg)",
     "nav-institutional-panel-backdrop-saturate": "115%",
     "nav-institutional-panel-shell-blur": "var(--effect-blur-xl)",
@@ -5325,66 +5325,66 @@ enum DSCTokens {
     "nav-institutional-panel-content-exit-motion": "180ms",
     "nav-institutional-panel-content-delay": "70ms",
     "nav-institutional-panel-content-stagger": "34ms",
-    "nav-institutional-panel-padding-y": "5.15rem",
+    "nav-institutional-panel-padding-y": "calc(5.15rem * var(--accessibility-density-scale))",
     "nav-institutional-panel-padding-x-fallback": "var(--site-gutter)",
-    "nav-institutional-panel-padding-bottom": "3.9rem",
-    "nav-institutional-panel-gap": "5.8rem",
-    "nav-institutional-panel-col-gap": "1.9rem",
-    "nav-institutional-panel-col-padding-top": "5.15rem",
-    "nav-institutional-panel-eyebrow-margin-bottom": "1.35rem",
-    "nav-institutional-panel-eyebrow-size": "0.72rem",
+    "nav-institutional-panel-padding-bottom": "calc(3.9rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-gap": "calc(5.8rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-col-gap": "calc(1.9rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-col-padding-top": "calc(5.15rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-eyebrow-margin-bottom": "calc(1.35rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-eyebrow-size": "calc(0.72rem * var(--accessibility-typography-scale))",
     "nav-institutional-panel-eyebrow-weight": "500",
     "nav-institutional-panel-eyebrow-tracking": "0.08em",
     "nav-institutional-panel-eyebrow-line-height": "1.2",
-    "nav-institutional-panel-title-margin-bottom": "1.08rem",
-    "nav-institutional-panel-title-size": "2.18rem",
+    "nav-institutional-panel-title-margin-bottom": "calc(1.08rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-title-size": "calc(2.18rem * var(--accessibility-typography-scale))",
     "nav-institutional-panel-title-weight": "400",
     "nav-institutional-panel-title-line-height": "1.08",
     "nav-institutional-panel-title-strong-weight": "300",
-    "nav-institutional-panel-copy-margin-bottom": "1rem",
-    "nav-institutional-panel-copy-size": "0.98rem",
+    "nav-institutional-panel-copy-margin-bottom": "calc(1rem * var(--accessibility-density-scale))",
+    "nav-institutional-panel-copy-size": "calc(0.98rem * var(--accessibility-typography-scale))",
     "nav-institutional-panel-copy-weight": "400",
     "nav-institutional-panel-copy-line-height": "1.35",
     "nav-institutional-panel-copy-strong-weight": "300",
-    "nav-institutional-search-shell-gap": "0.62rem",
-    "nav-institutional-search-shell-min-height": "4rem",
-    "nav-institutional-search-shell-padding-y": "0.82rem",
-    "nav-institutional-search-shell-padding-x": "1.08rem",
+    "nav-institutional-search-shell-gap": "calc(0.62rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-shell-min-height": "calc(4rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-shell-padding-y": "calc(0.82rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-shell-padding-x": "calc(1.08rem * var(--accessibility-density-scale))",
     "nav-institutional-search-shell-line-height": "1",
     "nav-institutional-search-shell-opacity": "0.9",
-    "nav-institutional-search-icon-size": "1.38rem",
+    "nav-institutional-search-icon-size": "calc(1.38rem * var(--accessibility-icon-scale))",
     "nav-institutional-search-icon-line-height": "0",
     "nav-institutional-search-button-hover-scale": "1.08",
     "nav-institutional-search-input-width": "18ch",
-    "nav-institutional-search-input-size": "1.88rem",
+    "nav-institutional-search-input-size": "calc(1.88rem * var(--accessibility-typography-scale))",
     "nav-institutional-search-input-weight": "300",
     "nav-institutional-search-input-line-height": "1",
-    "nav-institutional-search-result-margin-top": "0.9rem",
-    "nav-institutional-search-empty-margin-bottom": "0.9rem",
-    "nav-institutional-search-panel-padding-top": "0.95rem",
-    "nav-institutional-search-panel-size": "0.94rem",
+    "nav-institutional-search-result-margin-top": "calc(0.9rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-empty-margin-bottom": "calc(0.9rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-panel-padding-top": "calc(0.95rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-panel-size": "calc(0.94rem * var(--accessibility-typography-scale))",
     "nav-institutional-search-panel-weight": "300",
     "nav-institutional-search-panel-line-height": "1.45",
-    "nav-institutional-search-list-gap": "0.26rem",
-    "nav-institutional-search-list-padding-y": "0.95rem",
-    "nav-institutional-search-result-title-size": "1.02rem",
+    "nav-institutional-search-list-gap": "calc(0.26rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-list-padding-y": "calc(0.95rem * var(--accessibility-density-scale))",
+    "nav-institutional-search-result-title-size": "calc(1.02rem * var(--accessibility-typography-scale))",
     "nav-institutional-search-result-title-weight": "300",
     "nav-institutional-search-result-title-line-height": "1.28",
-    "nav-institutional-search-result-meta-size": "0.82rem",
+    "nav-institutional-search-result-meta-size": "calc(0.82rem * var(--accessibility-typography-scale))",
     "nav-institutional-search-result-meta-weight": "400",
     "nav-institutional-search-result-meta-line-height": "1.35",
     "nav-institutional-caret-opacity": "0.9",
-    "nav-institutional-tablet-account-avatar-size": "1.18rem",
-    "nav-institutional-tablet-search-shell-gap": "0.54rem",
-    "nav-institutional-tablet-search-shell-padding-y": "0.72rem",
-    "nav-institutional-tablet-search-shell-padding-x": "0.94rem",
-    "nav-institutional-tablet-panel-gap": "3rem",
-    "nav-institutional-tablet-panel-padding-y": "4.6rem",
+    "nav-institutional-tablet-account-avatar-size": "calc(1.18rem * var(--accessibility-icon-scale))",
+    "nav-institutional-tablet-search-shell-gap": "calc(0.54rem * var(--accessibility-density-scale))",
+    "nav-institutional-tablet-search-shell-padding-y": "calc(0.72rem * var(--accessibility-density-scale))",
+    "nav-institutional-tablet-search-shell-padding-x": "calc(0.94rem * var(--accessibility-density-scale))",
+    "nav-institutional-tablet-panel-gap": "calc(3rem * var(--accessibility-density-scale))",
+    "nav-institutional-tablet-panel-padding-y": "calc(4.6rem * var(--accessibility-density-scale))",
     "nav-institutional-tablet-panel-padding-x-fallback": "var(--site-shell-inline-padding-mobile)",
-    "nav-institutional-tablet-panel-padding-bottom": "3.2rem",
-    "nav-institutional-tablet-panel-title-size": "1.86rem",
-    "nav-institutional-tablet-search-input-size": "1.62rem",
-    "nav-institutional-tablet-search-panel-size": "0.96rem",
+    "nav-institutional-tablet-panel-padding-bottom": "calc(3.2rem * var(--accessibility-density-scale))",
+    "nav-institutional-tablet-panel-title-size": "calc(1.86rem * var(--accessibility-typography-scale))",
+    "nav-institutional-tablet-search-input-size": "calc(1.62rem * var(--accessibility-typography-scale))",
+    "nav-institutional-tablet-search-panel-size": "calc(0.96rem * var(--accessibility-typography-scale))",
     "nav-institutional-mobile-edge-padding": "0",
     "nav-menu-hover-ease": "cubic-bezier(0.22,1,0.36,1)",
     "nav-menu-hover-scale": "1.08",
@@ -5392,79 +5392,79 @@ enum DSCTokens {
     "nav-menu-hover-opacity-duration": "240ms",
     "nav-menu-hover-pulse-duration": "760ms",
     "nav-menu-pack-toggle-nudge": "-10px",
-    "nav-menu-harmonic-gap": "46px",
+    "nav-menu-harmonic-gap": "calc(46px * var(--accessibility-density-scale))",
     "nav-menu-gutter": "var(--footer-gutter)",
-    "nav-menu-vpad": "90px",
-    "nav-menu-rail-pad": "34px",
-    "nav-menu-rail-label-pad": "34px",
-    "nav-menu-rail-font-size": "1.08rem",
+    "nav-menu-vpad": "calc(90px * var(--accessibility-density-scale))",
+    "nav-menu-rail-pad": "calc(34px * var(--accessibility-density-scale))",
+    "nav-menu-rail-label-pad": "calc(34px * var(--accessibility-density-scale))",
+    "nav-menu-rail-font-size": "calc(1.08rem * var(--accessibility-typography-scale))",
     "nav-menu-motion-line-fast": "300ms",
     "nav-menu-motion-overlay": "260ms",
     "nav-menu-motion-filter": "260ms",
     "nav-menu-motion-color": "260ms",
     "nav-menu-motion-background": "260ms",
     "nav-menu-motion-opacity": "260ms",
-    "nav-menu-overlay-enter-y": "24px",
-    "nav-menu-overlay-exit-y": "32px",
+    "nav-menu-overlay-enter-y": "calc(24px * var(--accessibility-density-scale))",
+    "nav-menu-overlay-exit-y": "calc(32px * var(--accessibility-density-scale))",
     "nav-menu-overlay-enter-duration": "0.8s",
     "nav-menu-overlay-enter-opacity-duration": "0.6s",
     "nav-menu-overlay-exit-duration": "1.1s",
     "nav-menu-overlay-exit-opacity-duration": "0.8s",
     "nav-menu-rail-reveal-duration": "0.55s",
     "nav-menu-rail-reveal-opacity": "0.9",
-    "nav-menu-button-container-size": "60px",
-    "nav-menu-button-size": "35px",
+    "nav-menu-button-container-size": "calc(60px * var(--accessibility-density-scale))",
+    "nav-menu-button-size": "calc(35px * var(--accessibility-density-scale))",
     "nav-menu-button-line-height": "1.2px",
     "nav-menu-button-line-width": "55%",
-    "nav-menu-button-line-offset": "4px",
+    "nav-menu-button-line-offset": "calc(4px * var(--accessibility-density-scale))",
     "nav-menu-button-hover-duration": "0.35s",
-    "nav-menu-pack-toggle-size": "72px",
-    "nav-menu-pack-toggle-icon-size": "40px",
-    "nav-menu-icon-control-size": "44px",
-    "nav-menu-icon-glyph-size": "22px",
-    "nav-menu-theme-toggle-size": "30px",
-    "nav-menu-theme-toggle-dot-size": "14px",
-    "nav-menu-pack-split-padding-top": "28px",
-    "nav-menu-pack-split-min-height": "160px",
+    "nav-menu-pack-toggle-size": "calc(72px * var(--accessibility-density-scale))",
+    "nav-menu-pack-toggle-icon-size": "calc(40px * var(--accessibility-icon-scale))",
+    "nav-menu-icon-control-size": "calc(44px * var(--accessibility-density-scale))",
+    "nav-menu-icon-glyph-size": "calc(22px * var(--accessibility-icon-scale))",
+    "nav-menu-theme-toggle-size": "calc(30px * var(--accessibility-density-scale))",
+    "nav-menu-theme-toggle-dot-size": "calc(14px * var(--accessibility-density-scale))",
+    "nav-menu-pack-split-padding-top": "calc(28px * var(--accessibility-density-scale))",
+    "nav-menu-pack-split-min-height": "calc(160px * var(--accessibility-density-scale))",
     "nav-menu-pack-out-duration": "360ms",
     "nav-menu-pack-in-duration": "420ms",
     "nav-menu-pack-gap-duration": "220ms",
-    "nav-menu-pack-shift-y": "-10px",
+    "nav-menu-pack-shift-y": "calc(-10px * var(--accessibility-density-scale))",
     "nav-menu-pack-transform-duration": "720ms",
-    "nav-menu-plain-logo-padding-top": "22px",
-    "nav-menu-typo-logo-width": "140px",
-    "nav-menu-site-essence-margin-top": "18px",
-    "nav-menu-site-essence-size": "0.95rem",
+    "nav-menu-plain-logo-padding-top": "calc(22px * var(--accessibility-density-scale))",
+    "nav-menu-typo-logo-width": "calc(140px * var(--accessibility-density-scale))",
+    "nav-menu-site-essence-margin-top": "calc(18px * var(--accessibility-density-scale))",
+    "nav-menu-site-essence-size": "calc(0.95rem * var(--accessibility-typography-scale))",
     "nav-menu-site-essence-line-height": "1.6",
-    "nav-menu-site-essence-shadow": "0 0 22px color-mix(in srgb, var(--menu-fg) 10%, transparent)",
+    "nav-menu-site-essence-shadow": "0 0 calc(22px * var(--accessibility-density-scale)) color-mix(in srgb, var(--menu-fg) 10%, transparent)",
     "nav-menu-site-essence-breathe-duration": "5.8s",
     "nav-menu-site-essence-sheen-duration": "3.9s",
-    "nav-menu-site-essence-shift-y": "-1.6px",
+    "nav-menu-site-essence-shift-y": "calc(-1.6px * var(--accessibility-density-scale))",
     "nav-menu-site-essence-brightness": "1.06",
-    "nav-menu-unified-pack-gap": "14px",
-    "nav-menu-preview-padding-right": "46px",
-    "nav-menu-preview-shift-x": "-18px",
+    "nav-menu-unified-pack-gap": "calc(14px * var(--accessibility-density-scale))",
+    "nav-menu-preview-padding-right": "calc(46px * var(--accessibility-density-scale))",
+    "nav-menu-preview-shift-x": "calc(-18px * var(--accessibility-density-scale))",
     "nav-menu-preview-shift-duration": "650ms",
-    "nav-menu-preview-title-gap": "14px",
-    "nav-menu-preview-icon-margin-bottom": "18px",
+    "nav-menu-preview-title-gap": "calc(14px * var(--accessibility-density-scale))",
+    "nav-menu-preview-icon-margin-bottom": "calc(18px * var(--accessibility-density-scale))",
     "nav-menu-rail-flex-base": "0.7 1 0",
     "nav-menu-rail-flex-hover": "1.6 1 0",
     "nav-menu-rail-flex-list-hover": "0.55 1 0",
     "nav-menu-rail-flex-list-item-hover": "1.85 1 0",
     "nav-menu-rail-flex-duration": "420ms",
-    "nav-menu-rail-link-padding-block": "18px",
+    "nav-menu-rail-link-padding-block": "calc(18px * var(--accessibility-density-scale))",
     "nav-menu-rail-link-tracking": "0.14em",
     "nav-menu-rail-link-line-height": "1",
     "nav-menu-rail-link-opacity": "0.86",
     "nav-menu-rail-link-hover-scale": "1.12",
     "nav-menu-rail-link-transform-duration": "820ms",
-    "nav-menu-packs-left": "22px",
-    "nav-menu-packs-bottom": "90px",
-    "nav-menu-packs-width": "96px",
-    "nav-menu-packs-gap": "22px",
-    "nav-menu-plain-logo-width": "72px",
-    "nav-menu-close-top": "18px",
-    "nav-menu-close-size": "44px",
+    "nav-menu-packs-left": "calc(22px * var(--accessibility-density-scale))",
+    "nav-menu-packs-bottom": "calc(90px * var(--accessibility-density-scale))",
+    "nav-menu-packs-width": "calc(96px * var(--accessibility-density-scale))",
+    "nav-menu-packs-gap": "calc(22px * var(--accessibility-density-scale))",
+    "nav-menu-plain-logo-width": "calc(72px * var(--accessibility-density-scale))",
+    "nav-menu-close-top": "calc(18px * var(--accessibility-density-scale))",
+    "nav-menu-close-size": "calc(44px * var(--accessibility-density-scale))",
     "nav-menu-close-opacity": "0.85",
     "nav-menu-close-duration": "180ms",
     "nav-menu-close-hover-scale": "1.06",
@@ -5476,12 +5476,12 @@ enum DSCTokens {
     "nav-menu-active-scale": "0.98",
     "nav-menu-hover-pulse-scale-down": "0.88",
     "nav-menu-hover-pulse-scale-up": "1.06",
-    "nav-menu-mobile-columns-gap": "22px",
-    "nav-menu-mobile-columns-padding": "84px 18px 28px",
-    "nav-menu-mobile-col-gap": "18px",
-    "nav-menu-mobile-pack-padding-top": "18px",
-    "nav-menu-mobile-pack-min-height": "150px",
-    "nav-menu-mobile-rail-item-padding": "14px 0",
+    "nav-menu-mobile-columns-gap": "calc(22px * var(--accessibility-density-scale))",
+    "nav-menu-mobile-columns-padding": "calc(84px * var(--accessibility-density-scale)) calc(18px * var(--accessibility-density-scale)) calc(28px * var(--accessibility-density-scale))",
+    "nav-menu-mobile-col-gap": "calc(18px * var(--accessibility-density-scale))",
+    "nav-menu-mobile-pack-padding-top": "calc(18px * var(--accessibility-density-scale))",
+    "nav-menu-mobile-pack-min-height": "calc(150px * var(--accessibility-density-scale))",
+    "nav-menu-mobile-rail-item-padding": "calc(14px * var(--accessibility-density-scale)) 0",
     "nav-menu-mobile-rail-link-tracking": "0.10em",
     "glass-surface-height": "3.55rem",
     "glass-surface-height-tablet": "3.3rem",
@@ -5516,14 +5516,14 @@ enum DSCTokens {
     "slider-thumb-radius": "50%",
     "slider-thumb-bg": "var(--color-primary1)",
     "slider-thumb-border": "none",
-    "spacing-xs": "0.35rem",
-    "spacing-sm": "0.75rem",
-    "spacing-md": "1.1rem",
-    "spacing-lg": "1.6rem",
-    "spacing-xl": "2.4rem",
-    "spacing-2xl": "3.6rem",
-    "spacing-3xl": "4.5rem",
-    "spacing-4xl": "6rem",
+    "spacing-xs": "calc(0.35rem * var(--accessibility-density-scale))",
+    "spacing-sm": "calc(0.75rem * var(--accessibility-density-scale))",
+    "spacing-md": "calc(1.1rem * var(--accessibility-density-scale))",
+    "spacing-lg": "calc(1.6rem * var(--accessibility-density-scale))",
+    "spacing-xl": "calc(2.4rem * var(--accessibility-density-scale))",
+    "spacing-2xl": "calc(3.6rem * var(--accessibility-density-scale))",
+    "spacing-3xl": "calc(4.5rem * var(--accessibility-density-scale))",
+    "spacing-4xl": "calc(6rem * var(--accessibility-density-scale))",
     "reading-width-sm": "64ch",
     "reading-width-md": "74ch",
     "reading-width-lg": "78ch",
@@ -5532,6 +5532,11 @@ enum DSCTokens {
     "content-max-width-lg": "var(--reading-width-lg)",
     "section-padding-y": "10vh",
     "section-padding-y-mobile": "12vh",
+    "accessibility-typography-scale": "1",
+    "accessibility-density-scale": "1",
+    "accessibility-motion-reduced": "0",
+    "accessibility-icon-scale": "1.25",
+    "accessibility-aria-announcements": "0",
     "font-base": "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif",
     "font-ui": "var(--font-base)",
     "font-heading": "var(--font-base)",
@@ -5547,106 +5552,106 @@ enum DSCTokens {
     "line-height-ui": "1",
     "line-height-ui-relaxed": "1.24",
     "line-height-code": "1.55",
-    "font-size-display-1": "4.2rem",
-    "font-size-display-2": "3.4rem",
-    "font-size-display-3": "2.9rem",
-    "font-size-h1": "2.6rem",
-    "font-size-h2": "1.9rem",
-    "font-size-h3": "1.4rem",
-    "font-size-h4": "1.15rem",
-    "font-size-h5": "1rem",
-    "font-size-h6": "0.9rem",
-    "font-size-title-1": "1.25rem",
-    "font-size-title-2": "1.08rem",
-    "font-size-title-3": "0.98rem",
-    "font-size-section-title": "2.08rem",
-    "font-size-section-title-wide": "2.3rem",
-    "font-size-section-title-tablet": "1.82rem",
-    "font-size-section-title-mobile": "1.56rem",
-    "font-size-subtitle-1": "1rem",
-    "font-size-subtitle-2": "0.92rem",
-    "font-size-body-1": "1rem",
-    "font-size-body-2": "0.95rem",
-    "font-size-body-3": "0.9rem",
-    "font-size-body-4": "0.84rem",
-    "font-size-editorial-title": "2.8rem",
-    "font-size-editorial-heading": "1.55rem",
-    "font-size-editorial-subheading": "1.12rem",
-    "font-size-editorial-body": "1.02rem",
-    "font-size-editorial-lede": "1.12rem",
-    "font-size-editorial-note": "0.9rem",
-    "font-size-caption-1": "0.78rem",
-    "font-size-caption-2": "0.72rem",
-    "font-size-label-1": "0.82rem",
-    "font-size-label-2": "0.76rem",
-    "font-size-meta-1": "0.8rem",
-    "font-size-meta-2": "0.74rem",
-    "font-size-eyebrow": "0.72rem",
-    "font-size-overline": "0.7rem",
-    "font-size-nav-primary": "0.82rem",
-    "font-size-nav-secondary": "0.78rem",
-    "font-size-nav-local-label": "1rem",
-    "font-size-nav-local-link": "0.8rem",
+    "font-size-display-1": "calc(4.2rem * var(--accessibility-typography-scale))",
+    "font-size-display-2": "calc(3.4rem * var(--accessibility-typography-scale))",
+    "font-size-display-3": "calc(2.9rem * var(--accessibility-typography-scale))",
+    "font-size-h1": "calc(2.6rem * var(--accessibility-typography-scale))",
+    "font-size-h2": "calc(1.9rem * var(--accessibility-typography-scale))",
+    "font-size-h3": "calc(1.4rem * var(--accessibility-typography-scale))",
+    "font-size-h4": "calc(1.15rem * var(--accessibility-typography-scale))",
+    "font-size-h5": "calc(1rem * var(--accessibility-typography-scale))",
+    "font-size-h6": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-title-1": "calc(1.25rem * var(--accessibility-typography-scale))",
+    "font-size-title-2": "calc(1.08rem * var(--accessibility-typography-scale))",
+    "font-size-title-3": "calc(0.98rem * var(--accessibility-typography-scale))",
+    "font-size-section-title": "calc(2.08rem * var(--accessibility-typography-scale))",
+    "font-size-section-title-wide": "calc(2.3rem * var(--accessibility-typography-scale))",
+    "font-size-section-title-tablet": "calc(1.82rem * var(--accessibility-typography-scale))",
+    "font-size-section-title-mobile": "calc(1.56rem * var(--accessibility-typography-scale))",
+    "font-size-subtitle-1": "calc(1rem * var(--accessibility-typography-scale))",
+    "font-size-subtitle-2": "calc(0.92rem * var(--accessibility-typography-scale))",
+    "font-size-body-1": "calc(1rem * var(--accessibility-typography-scale))",
+    "font-size-body-2": "calc(0.95rem * var(--accessibility-typography-scale))",
+    "font-size-body-3": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-body-4": "calc(0.84rem * var(--accessibility-typography-scale))",
+    "font-size-editorial-title": "calc(2.8rem * var(--accessibility-typography-scale))",
+    "font-size-editorial-heading": "calc(1.55rem * var(--accessibility-typography-scale))",
+    "font-size-editorial-subheading": "calc(1.12rem * var(--accessibility-typography-scale))",
+    "font-size-editorial-body": "calc(1.02rem * var(--accessibility-typography-scale))",
+    "font-size-editorial-lede": "calc(1.12rem * var(--accessibility-typography-scale))",
+    "font-size-editorial-note": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-caption-1": "calc(0.78rem * var(--accessibility-typography-scale))",
+    "font-size-caption-2": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-label-1": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "font-size-label-2": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-meta-1": "calc(0.8rem * var(--accessibility-typography-scale))",
+    "font-size-meta-2": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-eyebrow": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-overline": "calc(0.7rem * var(--accessibility-typography-scale))",
+    "font-size-nav-primary": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "font-size-nav-secondary": "calc(0.78rem * var(--accessibility-typography-scale))",
+    "font-size-nav-local-label": "calc(1rem * var(--accessibility-typography-scale))",
+    "font-size-nav-local-link": "calc(0.8rem * var(--accessibility-typography-scale))",
     "font-size-nav-tab": "var(--font-size-nav-local-link)",
-    "font-size-breadcrumb": "0.76rem",
-    "font-size-utility-nav": "0.74rem",
-    "font-size-button-sm": "0.76rem",
-    "font-size-button-md": "0.82rem",
-    "font-size-button-lg": "0.9rem",
-    "font-size-control-xs": "0.7rem",
-    "font-size-control-sm": "0.76rem",
-    "font-size-control-md": "0.82rem",
-    "font-size-control-lg": "0.9rem",
-    "font-size-chip": "0.74rem",
-    "font-size-pill": "0.74rem",
-    "font-size-menu-item": "0.82rem",
-    "font-size-tooltip": "0.74rem",
-    "font-size-field-label": "0.76rem",
-    "font-size-field-input": "0.9rem",
-    "font-size-field-placeholder": "0.9rem",
-    "font-size-field-helper": "0.76rem",
-    "font-size-field-error": "0.76rem",
-    "font-size-field-counter": "0.72rem",
-    "font-size-data-value-xl": "2.2rem",
-    "font-size-data-value-lg": "1.55rem",
-    "font-size-data-value-md": "1.05rem",
-    "font-size-data-label": "0.76rem",
-    "font-size-data-caption": "0.72rem",
-    "font-size-chart-axis": "0.7rem",
-    "font-size-chart-legend": "0.72rem",
-    "font-size-table-heading": "0.76rem",
-    "font-size-table-cell": "0.82rem",
-    "font-size-table-cell-dense": "0.76rem",
-    "font-size-table-caption": "0.72rem",
+    "font-size-breadcrumb": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-utility-nav": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-button-sm": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-button-md": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "font-size-button-lg": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-control-xs": "calc(0.7rem * var(--accessibility-typography-scale))",
+    "font-size-control-sm": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-control-md": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "font-size-control-lg": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-chip": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-pill": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-menu-item": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "font-size-tooltip": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-field-label": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-field-input": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-field-placeholder": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "font-size-field-helper": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-field-error": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-field-counter": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-data-value-xl": "calc(2.2rem * var(--accessibility-typography-scale))",
+    "font-size-data-value-lg": "calc(1.55rem * var(--accessibility-typography-scale))",
+    "font-size-data-value-md": "calc(1.05rem * var(--accessibility-typography-scale))",
+    "font-size-data-label": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-data-caption": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-chart-axis": "calc(0.7rem * var(--accessibility-typography-scale))",
+    "font-size-chart-legend": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-table-heading": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-table-cell": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "font-size-table-cell-dense": "calc(0.76rem * var(--accessibility-typography-scale))",
+    "font-size-table-caption": "calc(0.72rem * var(--accessibility-typography-scale))",
     "font-size-code-inline": "0.86em",
-    "font-size-code-block": "0.86rem",
-    "font-size-kbd": "0.72rem",
-    "font-size-path": "0.78rem",
-    "font-size-status-sm": "0.74rem",
-    "font-size-status-md": "0.8rem",
-    "font-size-alert-title": "0.92rem",
-    "font-size-alert-body": "0.84rem",
-    "font-size-toast-title": "0.84rem",
-    "font-size-toast-body": "0.78rem",
-    "font-size-profile-name": "1.32rem",
-    "font-size-profile-role": "1.42rem",
-    "font-size-profile-handle": "0.86rem",
-    "font-size-profile-bio": "0.92rem",
-    "font-size-profile-stat-value": "1rem",
-    "font-size-profile-stat-label": "0.72rem",
-    "font-size-profile-meta": "0.78rem",
-    "font-size-product-title": "1.28rem",
-    "font-size-product-kicker": "0.72rem",
-    "font-size-product-summary": "0.94rem",
-    "font-size-product-feature-title": "0.92rem",
-    "font-size-product-feature-body": "0.84rem",
-    "font-size-product-spec-label": "0.74rem",
-    "font-size-product-spec-value": "0.84rem",
-    "font-size-marketing-hero": "3.2rem",
-    "font-size-marketing-section-title": "1.72rem",
-    "font-size-marketing-card-title": "1.05rem",
-    "font-size-marketing-proof": "0.84rem",
-    "font-size-marketing-cta": "0.84rem",
+    "font-size-code-block": "calc(0.86rem * var(--accessibility-typography-scale))",
+    "font-size-kbd": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-path": "calc(0.78rem * var(--accessibility-typography-scale))",
+    "font-size-status-sm": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-status-md": "calc(0.8rem * var(--accessibility-typography-scale))",
+    "font-size-alert-title": "calc(0.92rem * var(--accessibility-typography-scale))",
+    "font-size-alert-body": "calc(0.84rem * var(--accessibility-typography-scale))",
+    "font-size-toast-title": "calc(0.84rem * var(--accessibility-typography-scale))",
+    "font-size-toast-body": "calc(0.78rem * var(--accessibility-typography-scale))",
+    "font-size-profile-name": "calc(1.32rem * var(--accessibility-typography-scale))",
+    "font-size-profile-role": "calc(1.42rem * var(--accessibility-typography-scale))",
+    "font-size-profile-handle": "calc(0.86rem * var(--accessibility-typography-scale))",
+    "font-size-profile-bio": "calc(0.92rem * var(--accessibility-typography-scale))",
+    "font-size-profile-stat-value": "calc(1rem * var(--accessibility-typography-scale))",
+    "font-size-profile-stat-label": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-profile-meta": "calc(0.78rem * var(--accessibility-typography-scale))",
+    "font-size-product-title": "calc(1.28rem * var(--accessibility-typography-scale))",
+    "font-size-product-kicker": "calc(0.72rem * var(--accessibility-typography-scale))",
+    "font-size-product-summary": "calc(0.94rem * var(--accessibility-typography-scale))",
+    "font-size-product-feature-title": "calc(0.92rem * var(--accessibility-typography-scale))",
+    "font-size-product-feature-body": "calc(0.84rem * var(--accessibility-typography-scale))",
+    "font-size-product-spec-label": "calc(0.74rem * var(--accessibility-typography-scale))",
+    "font-size-product-spec-value": "calc(0.84rem * var(--accessibility-typography-scale))",
+    "font-size-marketing-hero": "calc(3.2rem * var(--accessibility-typography-scale))",
+    "font-size-marketing-section-title": "calc(1.72rem * var(--accessibility-typography-scale))",
+    "font-size-marketing-card-title": "calc(1.05rem * var(--accessibility-typography-scale))",
+    "font-size-marketing-proof": "calc(0.84rem * var(--accessibility-typography-scale))",
+    "font-size-marketing-cta": "calc(0.84rem * var(--accessibility-typography-scale))",
     "display-1-size": "var(--font-size-display-1)",
     "display-1-line-height": "var(--line-height-heading-tight)",
     "display-2-size": "var(--font-size-display-2)",
@@ -6221,15 +6226,15 @@ enum DSCTokens {
     "global-close-button-duration": "var(--interaction-motion-medium)",
     "global-close-button-ease": "var(--interaction-ease-standard)",
     "global-close-button-optical-end-offset": "calc((var(--global-close-button-line-width) - var(--global-close-button-size)) / 2)",
-    "footer-copy-font-size": "0.9rem",
-    "footer-locale-font-size": "0.85rem",
-    "brand-shell-max-width": "1440px",
+    "footer-copy-font-size": "calc(0.9rem * var(--accessibility-typography-scale))",
+    "footer-locale-font-size": "calc(0.85rem * var(--accessibility-typography-scale))",
+    "brand-shell-max-width": "calc(1440px * var(--accessibility-density-scale))",
     "brand-shell-page-gutter": "4vw",
-    "brand-shell-page-gutter-min": "18px",
-    "brand-shell-page-gutter-max": "96px",
+    "brand-shell-page-gutter-min": "calc(18px * var(--accessibility-density-scale))",
+    "brand-shell-page-gutter-max": "calc(96px * var(--accessibility-density-scale))",
     "brand-shell-rail-width": "calc(100% - (var(--brand-shell-page-gutter) * 2))",
-    "brand-shell-section-gap": "2.4rem",
-    "brand-shell-block-gap": "1.4rem",
+    "brand-shell-section-gap": "calc(2.4rem * var(--accessibility-density-scale))",
+    "brand-shell-block-gap": "calc(1.4rem * var(--accessibility-density-scale))",
     "brand-shell-card-radius": "var(--control-radius)",
     "brand-shell-card-border": "var(--border-color)",
     "brand-shell-card-bg": "transparent",
@@ -6455,7 +6460,7 @@ enum DSCTokens {
     "office-sidebar-mobile-padding-y": "var(--layout-office-sidebar-mobile-padding-y)",
     "office-sidebar-mobile-padding-x": "var(--layout-office-sidebar-mobile-padding-x)",
     "collections-card-surface": "var(--surface-color)",
-    "collections-card-hover-shadow": "0 28px 60px color-mix(in srgb, var(--shadow-color, #000000) 8%, transparent)",
+    "collections-card-hover-shadow": "0 calc(28px * var(--accessibility-density-scale)) calc(60px * var(--accessibility-density-scale)) color-mix(in srgb, var(--shadow-color, #000000) 8%, transparent)",
     "collections-card-inner-highlight": "radial-gradient(circle at center, color-mix(in srgb, var(--text-primary-color) 6%, transparent) 0%, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 40%, color-mix(in srgb, var(--text-primary-color) 1.5%, transparent) 65%, transparent 85%)",
     "collections-card-copy-opacity": "0.9",
     "awareness-wrap-min-height": "var(--layout-awareness-wrap-min-height)",
@@ -6546,8 +6551,8 @@ enum DSCTokens {
     "awareness-progress-margin-top": "var(--layout-awareness-progress-margin-top)",
     "awareness-progress-margin-bottom": "var(--layout-awareness-progress-margin-bottom)",
     "awareness-progress-fill-width": "var(--layout-awareness-progress-fill-width)",
-    "stage-circle-tablet": "600px",
-    "stage-circle-wide": "840px",
+    "stage-circle-tablet": "calc(600px * var(--accessibility-density-scale))",
+    "stage-circle-wide": "calc(840px * var(--accessibility-density-scale))",
     "home-stage-circle-motion": "620ms",
     "home-stage-circle-blur": "var(--layout-home-circle-blur)",
     "home-stage-circle-halo-scale": "var(--layout-home-circle-halo-scale)",
@@ -6560,12 +6565,12 @@ enum DSCTokens {
     "home-hero-shader-z-index": "0",
     "home-hero-shader-opacity": "0",
     "home-hero-shader-matte-opacity": "0.42",
-    "home-hero-shader-matte-blur": "28px",
+    "home-hero-shader-matte-blur": "calc(28px * var(--accessibility-density-scale))",
     "home-hero-shader-matte-surface-light": "rgba(255, 255, 255, 0.08)",
     "home-hero-shader-matte-surface-dark": "rgba(0, 0, 0, 0.14)",
     "home-hero-shader-veil-opacity": "0.22",
-    "home-hero-shader-veil-blur": "56px",
-    "home-hero-shader-canvas-softness": "14px",
+    "home-hero-shader-veil-blur": "calc(56px * var(--accessibility-density-scale))",
+    "home-hero-shader-canvas-softness": "calc(14px * var(--accessibility-density-scale))",
     "home-hero-shader-transition": "700ms var(--interaction-ease-standard)",
     "home-matte-rgb-dark": "12, 10, 8",
     "home-matte-rgb-light": "18, 14, 10",
@@ -6573,7 +6578,7 @@ enum DSCTokens {
     "home-matte-opacity-mid": "0.60",
     "home-matte-opacity-low": "0.76",
     "home-matte-opacity-bottom": "1",
-    "home-matte-blur": "20px",
+    "home-matte-blur": "calc(20px * var(--accessibility-density-scale))",
     "home-matte-saturate": "1.1",
     "home-matte-transition-duration": "0.95s",
     "home-matte-transition-ease": "var(--interaction-ease-standard)",
@@ -6735,21 +6740,21 @@ enum DSCTokens {
     "developer-mode-settings-shell-state-action-tracking": "var(--layout-home-platform-state-action-tracking)",
     "developer-mode-settings-shell-embedded-section-gap": "var(--layout-home-platform-embedded-section-gap)",
     "developer-mode-settings-shell-embedded-stack-gap": "var(--layout-home-platform-embedded-stack-gap)",
-    "home-composition-topbar-clearance": "3.55rem",
-    "home-composition-footer-clearance": "3.25rem",
+    "home-composition-topbar-clearance": "calc(3.55rem * var(--accessibility-density-scale))",
+    "home-composition-footer-clearance": "calc(3.25rem * var(--accessibility-density-scale))",
     "home-composition-shell-block-padding": "calc(var(--home-composition-stage-component-gap) * 2)",
     "home-composition-circle-to-text-gap": "var(--home-composition-stage-component-gap)",
     "home-composition-text-to-panel-gap": "var(--home-composition-stage-component-gap)",
-    "home-composition-panel-to-response-gap": "1rem",
+    "home-composition-panel-to-response-gap": "calc(1rem * var(--accessibility-density-scale))",
     "home-composition-stage-component-gap": "var(--home-composition-panel-to-response-gap)",
     "home-composition-panel-stack-gap": "var(--home-composition-stage-component-gap)",
     "home-composition-stage-width": "var(--layout-home-interaction-panel-width)",
     "home-composition-stage-width-mobile": "var(--layout-home-interaction-panel-width-mobile)",
     "home-interaction-settings-panel-z-index": "var(--z-overlay-modal)",
     "home-interaction-settings-panel-width": "var(--layout-interaction-settings-panel-width)",
-    "home-interaction-settings-panel-top": "calc(var(--home-shell-topbar-height, var(--site-header-height, 4rem)) + var(--site-gutter))",
+    "home-interaction-settings-panel-top": "calc(var(--home-shell-topbar-height, var(--site-header-height, calc(4rem * var(--accessibility-density-scale)))) + var(--site-gutter))",
     "home-interaction-settings-panel-inline": "var(--site-gutter)",
-    "home-interaction-settings-panel-bottom": "calc(var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)) + var(--site-gutter))",
+    "home-interaction-settings-panel-bottom": "calc(var(--home-shell-footer-separator-offset, var(--footer-height, calc(5rem * var(--accessibility-density-scale)))) + var(--site-gutter))",
     "home-interaction-settings-panel-height": "var(--layout-interaction-settings-panel-height)",
     "home-interaction-settings-panel-radius": "var(--home-platform-shell-radius, var(--control-radius-composer))",
     "home-interaction-settings-panel-padding": "var(--home-platform-shell-padding, var(--layout-interaction-settings-panel-padding))",
@@ -7243,7 +7248,7 @@ enum DSCTokens {
     "home-search-shell-result-tag-padding-x": "var(--layout-home-search-result-tag-padding-x)",
     "home-search-shell-result-tag-size": "var(--layout-home-search-result-tag-size)",
     "home-search-shell-result-tag-tracking": "var(--layout-home-search-result-tag-tracking)",
-    "home-search-shell-result-actions-gap": "1.1rem",
+    "home-search-shell-result-actions-gap": "calc(1.1rem * var(--accessibility-density-scale))",
     "home-search-shell-result-action-min-height": "var(--layout-home-search-result-action-min-height)",
     "home-search-shell-result-action-min-width": "var(--layout-home-search-result-action-min-width)",
     "home-search-shell-result-action-padding-x": "var(--layout-home-search-result-action-padding-x)",
@@ -7273,7 +7278,7 @@ enum DSCTokens {
     "home-search-shell-filter-panel-width": "var(--layout-home-search-filter-panel-width)",
     "home-search-shell-filter-panel-max-height": "var(--layout-home-search-filter-panel-max-height)",
     "home-search-shell-filter-panel-padding": "var(--layout-home-search-filter-panel-padding)",
-    "home-search-shell-filter-panel-top": "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap))",
+    "home-search-shell-filter-panel-top": "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, calc(3.55rem * var(--accessibility-density-scale))) + var(--home-search-shell-form-gap))",
     "home-search-shell-dialog-surface": "color-mix(in srgb, var(--bg-color) 95%, transparent)",
     "home-interaction-panel-width": "var(--layout-home-interaction-panel-width)",
     "home-interaction-panel-gap": "var(--layout-home-interaction-panel-gap)",
@@ -7388,17 +7393,17 @@ enum DSCTokens {
     "home-interaction-panel-dot-width": "var(--layout-home-interaction-panel-dot-width)",
     "home-interaction-panel-motion-fast": "var(--interaction-motion-medium)",
     "home-interaction-response-panel-width": "min(42rem, calc(100vw - (2 * var(--site-gutter))))",
-    "home-interaction-response-panel-max-height": "18rem",
-    "home-interaction-response-panel-padding": "0.18rem 0.18rem 0.18rem",
+    "home-interaction-response-panel-max-height": "calc(18rem * var(--accessibility-density-scale))",
+    "home-interaction-response-panel-padding": "calc(0.18rem * var(--accessibility-density-scale)) calc(0.18rem * var(--accessibility-density-scale)) calc(0.18rem * var(--accessibility-density-scale))",
     "home-interaction-response-panel-content-max-width": "52rem",
     "home-interaction-response-panel-content-align": "left",
     "home-interaction-response-panel-radius": "var(--control-radius-composer)",
     "home-interaction-response-panel-surface": "transparent",
     "home-interaction-response-panel-text": "var(--text-primary-color)",
     "home-interaction-response-panel-muted": "var(--text-secondary-color)",
-    "home-interaction-response-panel-font-size": "1.06rem",
+    "home-interaction-response-panel-font-size": "calc(1.06rem * var(--accessibility-typography-scale))",
     "home-interaction-response-panel-font-weight": "300",
-    "home-interaction-response-panel-line-height": "1.92",
+    "home-interaction-response-panel-line-height": "calc(1.92 * var(--accessibility-typography-scale))",
     "home-interaction-response-panel-letter-spacing": "-0.012em",
     "home-interaction-response-panel-scrollbar": "color-mix(in srgb, var(--text-secondary-color) 22%, transparent)",
     "home-interaction-response-panel-scrollbar-hover": "color-mix(in srgb, var(--text-secondary-color) 38%, transparent)",
@@ -7473,8 +7478,8 @@ enum DSCTokens {
     "home-stage-motion-accent-violet": "rgba(168, 118, 255, 0.74)",
     "home-stage-motion-accent-pink": "rgba(255, 108, 196, 0.66)",
     "home-stage-motion-accent-blue": "rgba(96, 190, 255, 0.72)",
-    "home-stage-motion-orb-blur": "30px",
-    "home-stage-motion-orb-active-blur": "38px",
+    "home-stage-motion-orb-blur": "calc(30px * var(--accessibility-density-scale))",
+    "home-stage-motion-orb-active-blur": "calc(38px * var(--accessibility-density-scale))",
     "home-stage-motion-reset-transition": "980ms",
     "home-stage-motion-mode-core-opacity": "var(--layout-home-stage-motion-mode-core-opacity)",
     "home-stage-motion-mode-ring-opacity": "var(--layout-home-stage-motion-mode-ring-opacity)",
@@ -7606,7 +7611,7 @@ enum DSCTokens {
     "institutional-links-title-opacity": "0.42",
     "institutional-links-text-color": "var(--text-secondary-color)",
     "institutional-links-hover-color": "var(--color-primary1)",
-    "institutional-links-reveal-y": "22px",
+    "institutional-links-reveal-y": "calc(22px * var(--accessibility-density-scale))",
     "institutional-links-reveal-transform-duration": "1.05s",
     "institutional-links-reveal-opacity-duration": "0.95s",
     "institutional-links-motion-fast": "var(--interaction-motion-medium)",
@@ -7816,7 +7821,7 @@ enum DSCTokens {
     "account-drawer-close-duration": "var(--global-close-button-duration)",
     "account-drawer-close-ease": "var(--global-close-button-ease)",
     "account-drawer-dialog-radius": "var(--dialog-radius-unified)",
-    "account-drawer-dialog-max-height": "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, 4rem)) - var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)))",
+    "account-drawer-dialog-max-height": "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, calc(4rem * var(--accessibility-density-scale)))) - var(--home-shell-footer-separator-offset, var(--footer-height, calc(5rem * var(--accessibility-density-scale)))))",
     "account-drawer-dialog-viewport-gap": "var(--dialog-overlay-viewport-gap)",
     "account-drawer-panel-transform-closed": "var(--overlay-transform-closed)",
     "account-drawer-panel-transform-open": "var(--overlay-transform-open)",
@@ -7931,7 +7936,7 @@ enum DSCTokens {
     "account-phone-auth-surface": "var(--panel-surface-unified)",
     "account-phone-auth-border": "var(--panel-border-unified)",
     "account-phone-auth-muted": "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)",
-    "account-phone-auth-shell-inner-shadow": "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
+    "account-phone-auth-shell-inner-shadow": "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "account-phone-auth-shell-highlight": "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)",
     "account-phone-auth-header-divider": "color-mix(in srgb, var(--text-primary-color) 6%, transparent)",
     "account-phone-auth-primary-shadow": "var(--panel-shadow-unified)",
@@ -8049,7 +8054,7 @@ enum DSCTokens {
     "account-provider-apple-surface": "var(--panel-surface-unified)",
     "account-provider-apple-border": "var(--panel-border-unified)",
     "account-provider-apple-muted": "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)",
-    "account-provider-apple-shell-inner-shadow": "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
+    "account-provider-apple-shell-inner-shadow": "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "account-provider-apple-shell-highlight": "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)",
     "account-provider-apple-header-divider": "color-mix(in srgb, var(--text-primary-color) 6%, transparent)",
     "account-provider-apple-primary-shadow": "var(--panel-shadow-unified)",
@@ -8089,7 +8094,7 @@ enum DSCTokens {
     "account-provider-google-surface": "var(--panel-surface-unified)",
     "account-provider-google-border": "var(--panel-border-unified)",
     "account-provider-google-muted": "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)",
-    "account-provider-google-shell-inner-shadow": "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
+    "account-provider-google-shell-inner-shadow": "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "account-provider-google-shell-highlight": "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)",
     "account-provider-google-header-divider": "color-mix(in srgb, var(--text-primary-color) 6%, transparent)",
     "account-provider-google-primary-shadow": "var(--panel-shadow-unified)",
@@ -8128,7 +8133,7 @@ enum DSCTokens {
     "account-sign-in-surface": "var(--panel-surface-unified)",
     "account-sign-in-border": "var(--panel-border-unified)",
     "account-sign-in-muted": "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)",
-    "account-sign-in-shell-inner-shadow": "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
+    "account-sign-in-shell-inner-shadow": "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "account-sign-in-shell-highlight": "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)",
     "account-sign-in-header-divider": "color-mix(in srgb, var(--text-primary-color) 6%, transparent)",
     "account-sign-in-primary-shadow": "var(--panel-shadow-unified)",
@@ -8186,7 +8191,7 @@ enum DSCTokens {
     "account-sign-up-surface": "var(--panel-surface-unified)",
     "account-sign-up-border": "var(--panel-border-unified)",
     "account-sign-up-muted": "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)",
-    "account-sign-up-shell-inner-shadow": "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
+    "account-sign-up-shell-inner-shadow": "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "account-sign-up-shell-highlight": "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)",
     "account-sign-up-header-divider": "color-mix(in srgb, var(--text-primary-color) 6%, transparent)",
     "account-sign-up-primary-shadow": "var(--panel-shadow-unified)",
@@ -8208,10 +8213,10 @@ enum DSCTokens {
     "account-sign-up-secondary-actions-gap": "var(--account-sign-up-content-gap-sm)",
     "account-sign-up-note-size": "var(--control-font-size)",
     "account-sign-up-note-size-mobile": "var(--type-body-sm-size)",
-    "account-sign-up-label-size": "0.88rem",
-    "account-sign-up-action-label-size": "0.94rem",
-    "account-sign-up-divider-label-size": "0.82rem",
-    "account-sign-up-text-action-size": "0.82rem",
+    "account-sign-up-label-size": "calc(0.88rem * var(--accessibility-typography-scale))",
+    "account-sign-up-action-label-size": "calc(0.94rem * var(--accessibility-typography-scale))",
+    "account-sign-up-divider-label-size": "calc(0.82rem * var(--accessibility-typography-scale))",
+    "account-sign-up-text-action-size": "calc(0.82rem * var(--accessibility-typography-scale))",
     "account-sign-up-motion-fast": "var(--interaction-motion-fast)",
     "account-sign-up-motion-medium": "var(--interaction-motion-medium)",
     "account-sign-up-action-text": "var(--text-primary-color)",
@@ -8286,10 +8291,10 @@ enum DSCTokens {
     "cookie-consent-surface": "var(--panel-surface-unified)",
     "cookie-consent-border": "var(--panel-border-unified)",
     "cookie-consent-shadow": "var(--panel-shadow-unified)",
-    "cookie-consent-width": "min(36rem, calc(100vw - (2 * var(--cookie-consent-min-viewport-gap))))",
+    "cookie-consent-width": "min(calc(36rem * var(--accessibility-density-scale)), calc(100vw - (2 * var(--cookie-consent-min-viewport-gap))))",
     "cookie-consent-min-viewport-gap": "var(--dialog-overlay-viewport-gap)",
-    "cookie-consent-viewport-gap-top": "var(--home-shell-topbar-height, var(--site-header-height, 4rem))",
-    "cookie-consent-viewport-gap-bottom": "var(--home-shell-footer-separator-offset, var(--footer-height, 5rem))",
+    "cookie-consent-viewport-gap-top": "var(--home-shell-topbar-height, calc(4rem * var(--accessibility-density-scale)))",
+    "cookie-consent-viewport-gap-bottom": "var(--home-shell-footer-separator-offset, calc(5rem * var(--accessibility-density-scale)))",
     "cookie-consent-footer-links-max-width": "100%",
     "cookie-consent-max-height": "calc(100dvh - var(--cookie-consent-viewport-gap-top) - var(--cookie-consent-viewport-gap-bottom))",
     "cookie-consent-radius": "var(--dialog-radius-unified)",
@@ -8355,12 +8360,12 @@ enum DSCTokens {
     "cookie-consent-footer-language-border": "color-mix(in srgb, var(--text-primary-color) 8%, transparent)",
     "cookie-consent-footer-language-label": "color-mix(in srgb, var(--text-primary-color) 58%, transparent)",
     "cookie-consent-footer-language-value": "var(--text-primary-color)",
-    "cookie-consent-learning-shell-min-height": "10.5rem",
+    "cookie-consent-learning-shell-min-height": "calc(10.5rem * var(--accessibility-density-scale))",
     "cookie-consent-learning-shell-radius": "var(--shape-card-radius)",
     "cookie-consent-learning-shell-padding": "var(--space-4)",
     "cookie-consent-learning-section-spacing": "var(--spacing-none)",
     "cookie-consent-learning-panel-inset": "var(--spacing-none)",
-    "cookie-consent-learning-icon-size": "1.68rem",
+    "cookie-consent-learning-icon-size": "calc(1.68rem * var(--accessibility-icon-scale))",
     "cookie-consent-learning-card-gap": "var(--space-3)",
     "cookie-consent-learning-copy-gap": "var(--spacing-3xs)",
     "cookie-consent-copy-stack-gap": "var(--dialog-consent-copy-stack-gap)",
@@ -8554,17 +8559,17 @@ enum DSCTokens {
     "cookie-learning-overlay-back-icon-filter": "var(--icon-image-filter, none)",
     "cookie-learning-overlay-divider": "var(--cookie-language-overlay-divider, var(--panel-border-unified))",
     "cookie-learning-overlay-surface": "var(--cookie-language-overlay-surface, var(--panel-surface-unified))",
-    "cookie-learning-overlay-body-padding-top": "1.02rem",
+    "cookie-learning-overlay-body-padding-top": "calc(1.02rem * var(--accessibility-density-scale))",
     "cookie-learning-overlay-point-gap": "var(--spacing-2xs)",
     "cookie-learning-overlay-title-size": "var(--type-body-sm-size)",
     "cookie-learning-overlay-title-weight": "var(--type-body-regular-weight)",
     "cookie-learning-overlay-title-tracking": "var(--type-body-tracking)",
     "cookie-learning-overlay-title-line-height": "var(--type-body-sm-line-height)",
-    "cookie-learning-overlay-copy-size": "0.86rem",
+    "cookie-learning-overlay-copy-size": "calc(0.86rem * var(--accessibility-typography-scale))",
     "cookie-learning-overlay-copy-weight": "300",
     "cookie-learning-overlay-copy-tracking": "-0.012em",
     "cookie-learning-overlay-copy-line-height": "1.65",
-    "cookie-learning-overlay-body-padding-top-mobile": "0.82rem",
+    "cookie-learning-overlay-body-padding-top-mobile": "calc(0.82rem * var(--accessibility-density-scale))",
     "country-accent": "var(--color-primary1)",
     "country-close-button-color": "var(--global-close-button-color)",
     "country-close-button-hover-color": "var(--global-close-button-hover-color)",
@@ -8624,10 +8629,10 @@ enum DSCTokens {
     "country-option-weight": "var(--layout-country-option-weight)",
     "error404-page-background": "var(--bg-color)",
     "error404-page-text": "var(--text-primary-color)",
-    "error404-shell-max-width": "760px",
-    "error404-shell-padding-y": "56px",
-    "error404-shell-padding-x": "40px",
-    "error404-shell-radius": "28px",
+    "error404-shell-max-width": "calc(760px * var(--accessibility-density-scale))",
+    "error404-shell-padding-y": "calc(56px * var(--accessibility-density-scale))",
+    "error404-shell-padding-x": "calc(40px * var(--accessibility-density-scale))",
+    "error404-shell-radius": "calc(28px * var(--accessibility-density-scale))",
     "error404-shell-border": "var(--control-border)",
     "error404-shell-surface": "var(--control-bg)",
     "error404-mark-color": "color-mix(in srgb, var(--text-primary-color) 60%, transparent)",
@@ -8645,9 +8650,16 @@ enum DSCTokens {
     "error404-shader-canvas-opacity": "0.96",
     "error404-shader-canvas-duration": "720ms",
     "error404-shader-veil-surface": "color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
-    "error404-shader-veil-blur": "18px",
-    "error404-page-padding-y": "48px",
-    "error404-page-padding-x": "24px",
+    "error404-shader-veil-blur": "calc(18px * var(--accessibility-density-scale))",
+    "error404-page-padding-y": "calc(48px * var(--accessibility-density-scale))",
+    "error404-page-padding-x": "calc(24px * var(--accessibility-density-scale))",
+    "error404-mark-size": "calc(0.8125rem * var(--accessibility-typography-scale))",
+    "error404-eyebrow-size": "calc(0.75rem * var(--accessibility-typography-scale))",
+    "error404-title-size": "calc(3.375rem * var(--accessibility-typography-scale))",
+    "error404-description-size": "calc(1.125rem * var(--accessibility-typography-scale))",
+    "error404-title-size-tablet": "calc(2.75rem * var(--accessibility-typography-scale))",
+    "error404-title-size-mobile": "calc(2.125rem * var(--accessibility-typography-scale))",
+    "error404-description-size-mobile": "calc(1rem * var(--accessibility-typography-scale))",
     "home-rail-width": "var(--site-rail-width)",
     "home-reading-width": "var(--reading-width-sm)",
     "home-reading-width-wide": "var(--reading-width-md)",
@@ -8722,7 +8734,7 @@ enum DSCTokens {
     "about-hero-matte-opacity-mid": "var(--about-hero-matte-custom-opacity-mid)",
     "about-hero-matte-opacity-low": "var(--about-hero-matte-custom-opacity-low)",
     "about-hero-matte-opacity-bottom": "var(--about-hero-matte-custom-opacity-bottom)",
-    "about-hero-matte-blur": "var(--home-matte-blur, 20px)",
+    "about-hero-matte-blur": "var(--home-matte-blur, calc(20px * var(--accessibility-density-scale)))",
     "about-hero-matte-saturate": "var(--home-matte-saturate, 1.1)",
     "about-hero-matte-transition-duration": "var(--home-matte-transition-duration, 0.95s)",
     "about-hero-matte-transition-ease": "var(--home-matte-transition-ease, var(--interaction-ease-standard))",
@@ -8791,7 +8803,7 @@ enum DSCTokens {
     "password-reset-content-max-width": "var(--account-control-width-max)",
     "password-reset-form-gap": "var(--account-sign-in-form-gap)",
     "password-reset-actions-gap": "var(--account-content-gap-md)",
-    "password-reset-status-min-height": "1.35rem",
+    "password-reset-status-min-height": "calc(1.35rem * var(--accessibility-typography-scale))",
     "password-reset-background": "var(--error404-page-background, var(--bg-color))",
     "password-reset-shell-surface": "var(--account-sign-in-surface, var(--panel-surface-unified))",
     "password-reset-shell-highlight": "none",
@@ -8805,19 +8817,19 @@ enum DSCTokens {
     "profile-header-avatar-bg": "var(--bg-color)",
     "profile-header-border-color": "color-mix(in srgb, var(--text-color) 12%, transparent)",
     "profile-header-border": "var(--border-width-hairline) solid var(--profile-header-border-color)",
-    "profile-private-hero-cover-height": "13.5rem",
-    "profile-private-hero-cover-height-mobile": "10.5rem",
-    "profile-private-hero-cover-radius": "1.4rem",
+    "profile-private-hero-cover-height": "calc(13.5rem * var(--accessibility-density-scale))",
+    "profile-private-hero-cover-height-mobile": "calc(10.5rem * var(--accessibility-density-scale))",
+    "profile-private-hero-cover-radius": "calc(1.4rem * var(--accessibility-density-scale))",
     "profile-private-hero-cover-offset-top": "var(--spacing-md)",
-    "profile-private-hero-avatar-size": "7.25rem",
-    "profile-private-hero-avatar-border-width": "4px",
-    "profile-private-hero-media-action-size": "2.15rem",
+    "profile-private-hero-avatar-size": "calc(7.25rem * var(--accessibility-icon-scale))",
+    "profile-private-hero-avatar-border-width": "calc(0.25rem * var(--accessibility-density-scale))",
+    "profile-private-hero-media-action-size": "calc(2.15rem * var(--accessibility-icon-scale))",
     "profile-private-hero-identity-layer": "var(--z-raised)",
     "profile-private-hero-avatar-layer": "var(--z-raised)",
     "profile-private-hero-media-action-layer": "var(--z-above)",
     "profile-private-hero-details-max-height": "calc(var(--body-2-line-height) + var(--spacing-sm))",
     "profile-private-hero-details-max-height-hidden": "0",
-    "profile-private-hero-info-popover-width": "min(22rem, var(--site-rail-width))",
+    "profile-private-hero-info-popover-width": "min(calc(22rem * var(--accessibility-density-scale)), var(--site-rail-width))",
     "profile-private-hero-actions-layer": "var(--z-above)",
     "profile-private-hero-media-action-opacity": "1",
     "profile-private-hero-media-action-opacity-hidden": "0",
@@ -8850,7 +8862,7 @@ enum DSCTokens {
     "profile-private-hero-tab-indicator-opacity": "0",
     "profile-private-hero-tab-indicator-opacity-active": "var(--selected-indicator-opacity)",
     "profile-private-hero-tab-indicator-bottom": "var(--spacing-none)",
-    "profile-private-hero-tab-band-height": "var(--products-local-nav-height, 3.55rem)",
+    "profile-private-hero-tab-band-height": "var(--products-local-nav-height, calc(3.55rem * var(--accessibility-density-scale)))",
     "profile-private-hero-tab-indicator-height": "var(--border-width-hairline)",
     "profile-private-hero-tab-color": "var(--nav-local-color)",
     "profile-private-hero-tab-hover-color": "var(--local-nav-hover-text-color)",
@@ -8865,7 +8877,7 @@ enum DSCTokens {
     "profile-media-editor-backdrop-blur": "var(--glass-overlay-backdrop-blur)",
     "profile-media-editor-shell-bg": "var(--glass-overlay-shell-bg)",
     "profile-media-editor-shell-blur": "var(--glass-overlay-shell-blur)",
-    "profile-media-editor-preview-size": "13rem",
+    "profile-media-editor-preview-size": "calc(13rem * var(--accessibility-density-scale))",
     "profile-media-editor-cover-preview-ratio": "16 / 9",
     "profile-media-editor-avatar-radius": "var(--control-radius-pill)",
     "profile-media-editor-cover-radius": "var(--shape-card-radius)",
@@ -8901,27 +8913,27 @@ enum DSCTokens {
     "profile-shell-group-gap": "var(--spacing-md)",
     "profile-shell-mount-gap": "var(--spacing-none)",
     "profile-shell-disabled-opacity": "var(--disabled-opacity, 0.48)",
-    "profile-shell-top-clearance": "calc(env(safe-area-inset-top, 0px) + 1rem)",
+    "profile-shell-top-clearance": "calc(env(safe-area-inset-top, 0px) + calc(1rem * var(--accessibility-density-scale)))",
     "home-shell-panel-top": "var(--profile-shell-top-clearance)",
-    "profile-shell-top-clearance-mobile": "calc(env(safe-area-inset-top, 0px) + 0.75rem)",
+    "profile-shell-top-clearance-mobile": "calc(env(safe-area-inset-top, 0px) + calc(0.75rem * var(--accessibility-density-scale)))",
     "profile-shell-hero-sticky-travel": "calc(
     var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height, 13.5rem)
+    + var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))
     + var(--spacing-lg)
     + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
     + var(--spacing-xl)
-    + 2rem
+    + calc(2rem * var(--accessibility-density-scale))
   )",
     "profile-shell-hero-sticky-travel-mobile": "calc(
     var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height-mobile, 10.5rem)
+    + var(--profile-private-hero-cover-height-mobile, calc(10.5rem * var(--accessibility-density-scale)))
     + var(--spacing-lg)
-    + var(--profile-private-hero-avatar-size, 6rem)
+    + var(--profile-private-hero-avatar-size, calc(6rem * var(--accessibility-icon-scale)))
     + var(--spacing-lg)
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + var(--spacing-xl)
-    + -0.5rem
+    + calc(-0.5rem * var(--accessibility-density-scale))
   )",
     "profile-shell-hero-sticky-top": "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))",
     "profile-shell-hero-sticky-top-mobile": "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))",
@@ -9073,9 +9085,9 @@ enum DSCTokens {
     "leadership-card-body-gap": "var(--catalog-card-body-gap)",
     "leadership-card-radius": "var(--catalog-card-radius)",
     "leadership-card-padding": "var(--catalog-card-body-padding)",
-    "leadership-avatar-size": "var(--layout-profile-avatar-size, 128px)",
-    "leadership-profile-hero-height": "clamp(28rem, 68vh, 44rem)",
-    "leadership-profile-hero-content-width": "min(34rem, var(--site-rail-width))",
+    "leadership-avatar-size": "var(--layout-profile-avatar-size, calc(128px * var(--accessibility-icon-scale)))",
+    "leadership-profile-hero-height": "clamp(calc(28rem * var(--accessibility-density-scale)), 68vh, calc(44rem * var(--accessibility-density-scale)))",
+    "leadership-profile-hero-content-width": "min(calc(34rem * var(--accessibility-density-scale)), var(--site-rail-width))",
     "leadership-avatar-border": "var(--control-border)",
     "leadership-avatar-bg": "var(--control-bg)",
     "leadership-name-size": "var(--catalog-card-title-size)",
@@ -9187,7 +9199,7 @@ enum DSCTokens {
     "model-economy-surface-opacity": "0.72",
     "model-economy-border-opacity": "0.16",
     "model-economy-state-opacity": "0.68",
-    "glass-matte-blur": "18px",
+    "glass-matte-blur": "calc(18px * var(--accessibility-density-scale))",
     "glass-matte-opacity": "0.24",
     "glass-matte-surface-light": "rgba(255, 255, 255, 0.08)",
     "glass-matte-surface-dark": "rgba(0, 0, 0, 0.14)",
@@ -11931,11 +11943,11 @@ enum DSCTokens {
   static let account_text_action_letter_spacing = "var(--body-3-tracking)"
   static let account_back_control_size = "var(--icon-size-md)"
   static let account_back_icon_size = "1.12rem"
-  static let icon_size_xs = "0.9rem"
-  static let icon_size_sm = "1rem"
-  static let icon_size_md = "1.2rem"
-  static let icon_size_lg = "1.4rem"
-  static let icon_size_xl = "1.8rem"
+  static let icon_size_xs = "calc(0.75rem * var(--accessibility-icon-scale))"
+  static let icon_size_sm = "calc(1rem * var(--accessibility-icon-scale))"
+  static let icon_size_md = "calc(1.25rem * var(--accessibility-icon-scale))"
+  static let icon_size_lg = "calc(1.5rem * var(--accessibility-icon-scale))"
+  static let icon_size_xl = "calc(2rem * var(--accessibility-icon-scale))"
   static let glass_blur_sm = "10px"
   static let glass_blur_md = "16px"
   static let glass_blur_lg = "24px"
@@ -12305,7 +12317,7 @@ enum DSCTokens {
   static let control_radius = "var(--shape-control-radius)"
   static let control_radius_pill = "var(--radius-pill)"
   static let control_gap = "0.42rem"
-  static let control_font_size = "0.9rem"
+  static let control_font_size = "calc(0.9rem * var(--accessibility-typography-scale))"
   static let control_font_weight = "400"
   static let control_line_height = "1.2"
   static let control_tracking = "-0.01em"
@@ -12741,9 +12753,9 @@ enum DSCTokens {
   static let menu_padding_bottom = "0.9rem"
   static let section_min_height = "100vh"
   static let section_min_height_stable = "100svh"
-  static let stage_circle_desktop = "720px"
-  static let stage_circle_mobile = "520px"
-  static let stage_circle_max_desktop = "1200px"
+  static let stage_circle_desktop = "calc(720px * var(--accessibility-density-scale))"
+  static let stage_circle_mobile = "calc(520px * var(--accessibility-density-scale))"
+  static let stage_circle_max_desktop = "calc(1200px * var(--accessibility-density-scale))"
   static let stage_circle_max_mobile = "1200px"
   static let stage_circle_vh_cap = "90vh"
   static let stage_circle_vw_cap = "96vw"
@@ -12772,7 +12784,7 @@ enum DSCTokens {
   static let layout_home_enter_tracking = "0.14em"
   static let layout_home_enter_border_width = "1px"
   static let layout_home_enter_radius = "999px"
-  static let layout_home_enter_icon_size = "1.42rem"
+  static let layout_home_enter_icon_size = "calc(1.42rem * var(--accessibility-icon-scale))"
   static let layout_home_enter_hover_y = "-1px"
   static let layout_home_enter_hover_opacity = "0.95"
   static let layout_home_enter_breathe_duration = "6s"
@@ -12928,7 +12940,7 @@ enum DSCTokens {
   static let layout_home_search_input_row_opacity = "0.9"
   static let layout_home_search_input_row_border = "color-mix(in srgb, var(--text-primary-color) 16%, transparent)"
   static let layout_home_search_input_row_border_focus = "color-mix(in srgb, var(--text-primary-color) 24%, transparent)"
-  static let layout_home_search_icon_size = "1.38rem"
+  static let layout_home_search_icon_size = "calc(1.38rem * var(--accessibility-icon-scale))"
   static let layout_home_search_icon_opacity = "0.82"
   static let layout_home_search_voice_motion = "180ms"
   static let layout_home_search_input_size = "1.88rem"
@@ -12973,7 +12985,7 @@ enum DSCTokens {
   static let layout_home_search_result_badge_size = "0.7rem"
   static let layout_home_search_result_badge_weight = "600"
   static let layout_home_search_result_badge_tracking = "0.08em"
-  static let layout_home_search_result_badge_icon_size = "1.5rem"
+  static let layout_home_search_result_badge_icon_size = "calc(1.5rem * var(--accessibility-icon-scale))"
   static let layout_home_search_result_tags_gap = "0.45rem"
   static let layout_home_search_result_tag_min_height = "1.85rem"
   static let layout_home_search_result_tag_padding_x = "0.7rem"
@@ -13012,7 +13024,7 @@ enum DSCTokens {
   static let layout_home_platform_chrome_saturate = "120%"
   static let layout_home_platform_rail_toggle_size = "1.25rem"
   static let layout_home_platform_rail_toggle_margin_left = "0.7rem"
-  static let layout_home_platform_rail_toggle_icon_size = "1.05rem"
+  static let layout_home_platform_rail_toggle_icon_size = "calc(1.05rem * var(--accessibility-icon-scale))"
   static let layout_home_platform_rail_width = "18rem"
   static let layout_home_platform_subrail_width = "15rem"
   static let layout_home_platform_rail_compact_width = "3.25rem"
@@ -13056,7 +13068,7 @@ enum DSCTokens {
   static let layout_home_platform_nav_item_radius = "999px"
   static let layout_home_platform_nav_item_padding_y = "0.86rem"
   static let layout_home_platform_nav_item_padding_x = "1rem"
-  static let layout_home_platform_nav_icon_size = "1rem"
+  static let layout_home_platform_nav_icon_size = "calc(1rem * var(--accessibility-icon-scale))"
   static let layout_home_platform_nav_indicator_min_size = "1.15rem"
   static let layout_home_platform_nav_indicator_padding_x = "0.32rem"
   static let layout_home_platform_nav_indicator_size = "0.64rem"
@@ -13165,7 +13177,7 @@ enum DSCTokens {
   static let layout_home_stage_motion_core_signal_blur = "16px"
   static let layout_home_stage_motion_core_pulse_blur = "10px"
   static let layout_home_stage_motion_mic_size = "4.8rem"
-  static let layout_home_stage_motion_mic_icon_size = "2.35rem"
+  static let layout_home_stage_motion_mic_icon_size = "calc(2.35rem * var(--accessibility-icon-scale))"
   static let layout_home_stage_motion_mic_margin_bottom = "1.15rem"
   static let layout_home_stage_motion_mic_color = "color-mix(in srgb, var(--text-primary-color) 72%, transparent)"
   static let layout_home_stage_motion_mic_hover_color = "color-mix(in srgb, var(--color-primary1) 94%, var(--text-primary-color))"
@@ -13209,7 +13221,7 @@ enum DSCTokens {
   static let layout_home_stage_motion_mobile_vessel_size = "min(17rem, 66vw, 31vh)"
   static let layout_home_stage_motion_mobile_vessel_active_size = "min(14rem, 54vw, 24vh)"
   static let layout_home_stage_motion_mobile_mic_size = "4rem"
-  static let layout_home_stage_motion_mobile_mic_icon_size = "2rem"
+  static let layout_home_stage_motion_mobile_mic_icon_size = "calc(2rem * var(--accessibility-icon-scale))"
   static let layout_home_stage_motion_mobile_mic_margin_bottom = "0.85rem"
   static let layout_home_stage_motion_key_core_listen_start_scale = "0.88"
   static let layout_home_stage_motion_key_core_listen_mid_scale = "1.1"
@@ -13501,7 +13513,7 @@ enum DSCTokens {
   static let layout_interaction_settings_panel_nav_width_tablet = "11rem"
   static let layout_interaction_settings_panel_nav_opacity = "0.72"
   static let layout_interaction_settings_panel_nav_hover_opacity = "1"
-  static let layout_interaction_settings_panel_nav_font_size = "0.82rem"
+  static let layout_interaction_settings_panel_nav_font_size = "calc(0.82rem * var(--accessibility-typography-scale))"
   static let layout_interaction_settings_panel_nav_font_weight = "500"
   static let layout_interaction_settings_panel_nav_line_height = "1.2"
   static let layout_interaction_settings_panel_nav_item_radius = "0.82rem"
@@ -14331,9 +14343,9 @@ enum DSCTokens {
   static let layout_awareness_progress_margin_top = "14px"
   static let layout_awareness_progress_margin_bottom = "8px"
   static let layout_awareness_progress_fill_width = "0%"
-  static let duration_fast = "180ms"
-  static let duration_base = "240ms"
-  static let duration_slow = "320ms"
+  static let duration_fast = "calc(180ms * (1 - var(--accessibility-motion-reduced) * 0.8))"
+  static let duration_base = "calc(240ms * (1 - var(--accessibility-motion-reduced) * 0.8))"
+  static let duration_slow = "calc(320ms * (1 - var(--accessibility-motion-reduced) * 0.8))"
   static let ease_standard = "cubic-bezier(0.22,1,0.36,1)"
   static let ease_emphasis = "cubic-bezier(0.2,0.8,0.2,1)"
   static let hover_opacity_soft = "0.9"
@@ -14346,9 +14358,9 @@ enum DSCTokens {
   static let intro_pop_duration = "1.6s"
   static let intro_settle_duration = "1.9s"
   static let intro_fade_duration = "1.5s"
-  static let nav_global_gap = "1.15rem"
-  static let nav_global_item_gap = "0.42rem"
-  static let nav_global_topbar_menu_gap = "1.2rem"
+  static let nav_global_gap = "calc(1.15rem * var(--accessibility-density-scale))"
+  static let nav_global_item_gap = "calc(0.42rem * var(--accessibility-density-scale))"
+  static let nav_global_topbar_menu_gap = "calc(1.2rem * var(--accessibility-density-scale))"
   static let nav_global_padding_y = "0"
   static let nav_global_padding_x = "0"
   static let nav_global_min_height = "auto"
@@ -14356,8 +14368,8 @@ enum DSCTokens {
   static let nav_global_hover_color = "var(--nav-hover-text-color)"
   static let nav_global_active_color = "var(--nav-active-text-color)"
   static let nav_global_hover_opacity = "var(--nav-hover-opacity)"
-  static let nav_local_gap = "1.42rem"
-  static let nav_local_label_gap = "0.42rem"
+  static let nav_local_gap = "calc(1.42rem * var(--accessibility-density-scale))"
+  static let nav_local_label_gap = "calc(0.42rem * var(--accessibility-density-scale))"
   static let nav_local_padding_y = "0"
   static let nav_local_padding_x = "0"
   static let nav_local_min_height = "auto"
@@ -14375,21 +14387,21 @@ enum DSCTokens {
   static let nav_tab_hover_color = "var(--local-nav-hover-text-color)"
   static let nav_tab_active_color = "var(--local-nav-active-text-color)"
   static let nav_tab_hover_opacity = "var(--local-nav-hover-opacity)"
-  static let nav_breadcrumb_gap = "0.42rem"
-  static let nav_breadcrumb_separator_gap = "0.34rem"
+  static let nav_breadcrumb_gap = "calc(0.42rem * var(--accessibility-density-scale))"
+  static let nav_breadcrumb_separator_gap = "calc(0.34rem * var(--accessibility-density-scale))"
   static let nav_breadcrumb_color = "var(--text-secondary-color)"
   static let nav_breadcrumb_hover_color = "var(--hover-text-color)"
   static let nav_breadcrumb_current_color = "var(--text-primary-color)"
   static let nav_breadcrumb_separator_color = "var(--text-muted-color, var(--text-secondary-color))"
-  static let nav_footer_gap = "0.84rem"
-  static let nav_footer_column_gap = "1.4rem"
-  static let nav_footer_row_gap = "0.42rem"
+  static let nav_footer_gap = "calc(0.84rem * var(--accessibility-density-scale))"
+  static let nav_footer_column_gap = "calc(1.4rem * var(--accessibility-density-scale))"
+  static let nav_footer_row_gap = "calc(0.42rem * var(--accessibility-density-scale))"
   static let nav_footer_color = "var(--text-secondary-color)"
   static let nav_footer_hover_color = "var(--hover-text-color)"
   static let nav_footer_hover_opacity = "var(--state-opacity-hover-strong)"
-  static let nav_menu_gap = "0.64rem"
-  static let nav_menu_item_gap = "0.42rem"
-  static let nav_menu_padding_y = "0.42rem"
+  static let nav_menu_gap = "calc(0.64rem * var(--accessibility-density-scale))"
+  static let nav_menu_item_gap = "calc(0.42rem * var(--accessibility-density-scale))"
+  static let nav_menu_padding_y = "calc(0.42rem * var(--accessibility-density-scale))"
   static let nav_menu_padding_x = "0"
   static let nav_menu_color = "var(--text-secondary-color)"
   static let nav_menu_hover_color = "var(--hover-text-color)"
@@ -14400,9 +14412,9 @@ enum DSCTokens {
   static let nav_indicator_radius = "999px"
   static let nav_indicator_color = "var(--selected-indicator-color)"
   static let nav_indicator_opacity = "var(--selected-indicator-opacity)"
-  static let nav_glass_surface_height = "3.55rem"
-  static let nav_glass_surface_height_tablet = "3.3rem"
-  static let nav_glass_surface_height_mobile = "3.18rem"
+  static let nav_glass_surface_height = "calc(3.55rem * var(--accessibility-density-scale))"
+  static let nav_glass_surface_height_tablet = "calc(3.3rem * var(--accessibility-density-scale))"
+  static let nav_glass_surface_height_mobile = "calc(3.18rem * var(--accessibility-density-scale))"
   static let nav_glass_surface_bg = "color-mix(in srgb, var(--bg-color) 32%, transparent)"
   static let nav_glass_surface_bg_light = "color-mix(in srgb, var(--surface-color) 26%, transparent)"
   static let nav_glass_surface_border = "var(--border-color)"
@@ -14410,29 +14422,29 @@ enum DSCTokens {
   static let nav_glass_surface_shadow = "none"
   static let nav_glass_surface_blur = "var(--effect-blur-sm)"
   static let nav_glass_surface_saturate = "120%"
-  static let nav_primitive_shell_gap = "0.5rem"
-  static let nav_primitive_section_gap = "0.4rem"
-  static let nav_primitive_section_padding_top = "0.6rem"
+  static let nav_primitive_shell_gap = "calc(0.5rem * var(--accessibility-density-scale))"
+  static let nav_primitive_section_gap = "calc(0.4rem * var(--accessibility-density-scale))"
+  static let nav_primitive_section_padding_top = "calc(0.6rem * var(--accessibility-density-scale))"
   static let nav_primitive_section_border = "1px solid color-mix(in srgb, var(--text-color) 8%, transparent)"
-  static let nav_primitive_group_gap = "0.22rem"
-  static let nav_primitive_group_header_gap = "0.75rem"
-  static let nav_primitive_group_title_size = "0.72rem"
+  static let nav_primitive_group_gap = "calc(0.22rem * var(--accessibility-density-scale))"
+  static let nav_primitive_group_header_gap = "calc(0.75rem * var(--accessibility-density-scale))"
+  static let nav_primitive_group_title_size = "calc(0.72rem * var(--accessibility-typography-scale))"
   static let nav_primitive_group_title_weight = "500"
   static let nav_primitive_group_title_tracking = "0.08em"
   static let nav_primitive_group_title_line_height = "1.2"
-  static let nav_primitive_row_gap = "0.75rem"
-  static let nav_primitive_row_min_height = "2.65rem"
-  static let nav_primitive_row_padding_y = "0.7rem"
-  static let nav_primitive_row_padding_x = "0.85rem"
+  static let nav_primitive_row_gap = "calc(0.75rem * var(--accessibility-density-scale))"
+  static let nav_primitive_row_min_height = "calc(2.65rem * var(--accessibility-density-scale))"
+  static let nav_primitive_row_padding_y = "calc(0.7rem * var(--accessibility-density-scale))"
+  static let nav_primitive_row_padding_x = "calc(0.85rem * var(--accessibility-density-scale))"
   static let nav_primitive_row_border = "1px solid transparent"
   static let nav_primitive_row_radius = "1rem"
   static let nav_primitive_row_transition_duration = "220ms"
-  static let nav_primitive_icon_size = "1rem"
-  static let nav_primitive_text_gap = "0.12rem"
-  static let nav_primitive_label_size = "0.92rem"
+  static let nav_primitive_icon_size = "calc(1rem * var(--accessibility-icon-scale))"
+  static let nav_primitive_text_gap = "calc(0.12rem * var(--accessibility-density-scale))"
+  static let nav_primitive_label_size = "calc(0.92rem * var(--accessibility-typography-scale))"
   static let nav_primitive_label_weight = "500"
   static let nav_primitive_label_line_height = "1.3"
-  static let nav_primitive_description_size = "0.78rem"
+  static let nav_primitive_description_size = "calc(0.78rem * var(--accessibility-typography-scale))"
   static let nav_primitive_description_line_height = "1.35"
   static let nav_primitive_hover_border = "color-mix(in srgb, var(--text-color) 12%, transparent)"
   static let nav_primitive_hover_background = "color-mix(in srgb, var(--bg-color) 16%, transparent)"
@@ -14440,24 +14452,24 @@ enum DSCTokens {
   static let nav_primitive_active_border = "color-mix(in srgb, var(--color-primary1) 46%, var(--text-color) 18%)"
   static let nav_primitive_active_background = "color-mix(in srgb, var(--color-primary1) 10%, transparent)"
   static let nav_primitive_disabled_opacity = "0.45"
-  static let nav_primitive_breadcrumb_gap = "0.42rem"
-  static let nav_primitive_breadcrumb_size = "0.8rem"
+  static let nav_primitive_breadcrumb_gap = "calc(0.42rem * var(--accessibility-density-scale))"
+  static let nav_primitive_breadcrumb_size = "calc(0.8rem * var(--accessibility-typography-scale))"
   static let nav_primitive_breadcrumb_line_height = "1.35"
   static let nav_primitive_breadcrumb_current_weight = "500"
   static let nav_primitive_breadcrumb_separator_opacity = "0.72"
-  static let nav_primitive_sidebar_gap = "0.7rem"
-  static let nav_primitive_sidebar_header_gap = "0.2rem"
-  static let nav_primitive_sidebar_title_size = "0.92rem"
+  static let nav_primitive_sidebar_gap = "calc(0.7rem * var(--accessibility-density-scale))"
+  static let nav_primitive_sidebar_header_gap = "calc(0.2rem * var(--accessibility-density-scale))"
+  static let nav_primitive_sidebar_title_size = "calc(0.92rem * var(--accessibility-typography-scale))"
   static let nav_primitive_sidebar_title_weight = "600"
   static let nav_primitive_sidebar_title_line_height = "1.3"
-  static let nav_primitive_sidebar_caption_size = "0.78rem"
+  static let nav_primitive_sidebar_caption_size = "calc(0.78rem * var(--accessibility-typography-scale))"
   static let nav_primitive_sidebar_caption_line_height = "1.35"
-  static let nav_primitive_collapsible_gap = "0.22rem"
+  static let nav_primitive_collapsible_gap = "calc(0.22rem * var(--accessibility-density-scale))"
   static let nav_primitive_chevron_open_rotation = "90deg"
   static let nav_primitive_chevron_transition_duration = "220ms"
-  static let nav_primitive_mobile_row_min_height = "2.45rem"
-  static let nav_primitive_mobile_row_padding_y = "0.64rem"
-  static let nav_primitive_mobile_row_padding_x = "0.78rem"
+  static let nav_primitive_mobile_row_min_height = "calc(2.45rem * var(--accessibility-density-scale))"
+  static let nav_primitive_mobile_row_padding_y = "calc(0.64rem * var(--accessibility-density-scale))"
+  static let nav_primitive_mobile_row_padding_x = "calc(0.78rem * var(--accessibility-density-scale))"
   static let nav_institutional_surface_height = "var(--nav-glass-surface-height)"
   static let nav_institutional_surface_height_tablet = "var(--nav-glass-surface-height-tablet)"
   static let nav_institutional_surface_height_mobile = "var(--nav-glass-surface-height-mobile)"
@@ -14479,25 +14491,25 @@ enum DSCTokens {
   static let nav_institutional_motion_panel_slow = "920ms"
   static let nav_institutional_motion_ease = "cubic-bezier(0.22, 1, 0.36, 1)"
   static let nav_institutional_panel_ease = "cubic-bezier(0.19, 1, 0.22, 1)"
-  static let nav_institutional_inner_gap = "1.6rem"
-  static let nav_institutional_inner_gap_tablet = "1.2rem"
-  static let nav_institutional_inner_gap_mobile = "1rem"
-  static let nav_institutional_group_gap = "1.6rem"
-  static let nav_institutional_nav_gap = "1.42rem"
-  static let nav_institutional_nav_gap_tablet = "1.08rem"
-  static let nav_institutional_utility_gap = "1rem"
-  static let nav_institutional_link_size = "0.8rem"
-  static let nav_institutional_link_size_tablet = "0.74rem"
+  static let nav_institutional_inner_gap = "calc(1.6rem * var(--accessibility-density-scale))"
+  static let nav_institutional_inner_gap_tablet = "calc(1.2rem * var(--accessibility-density-scale))"
+  static let nav_institutional_inner_gap_mobile = "calc(1rem * var(--accessibility-density-scale))"
+  static let nav_institutional_group_gap = "calc(1.6rem * var(--accessibility-density-scale))"
+  static let nav_institutional_nav_gap = "calc(1.42rem * var(--accessibility-density-scale))"
+  static let nav_institutional_nav_gap_tablet = "calc(1.08rem * var(--accessibility-density-scale))"
+  static let nav_institutional_utility_gap = "calc(1rem * var(--accessibility-density-scale))"
+  static let nav_institutional_link_size = "calc(0.8rem * var(--accessibility-typography-scale))"
+  static let nav_institutional_link_size_tablet = "calc(0.74rem * var(--accessibility-typography-scale))"
   static let nav_institutional_link_weight = "400"
   static let nav_institutional_link_tracking = "0.008em"
   static let nav_institutional_link_line_height = "1"
-  static let nav_institutional_brand_symbol_size = "1.72rem"
-  static let nav_institutional_brand_symbol_size_tablet = "1.32rem"
-  static let nav_institutional_brand_symbol_size_mobile = "1.28rem"
-  static let nav_institutional_brand_wordmark_height = "0.5rem"
-  static let nav_institutional_brand_wordmark_height_mobile = "0.44rem"
-  static let nav_institutional_trigger_size = "1.12rem"
-  static let nav_institutional_trigger_size_tablet = "1rem"
+  static let nav_institutional_brand_symbol_size = "calc(1.4rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_brand_symbol_size_tablet = "calc(1.1rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_brand_symbol_size_mobile = "calc(1.05rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_brand_wordmark_height = "calc(0.5rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_brand_wordmark_height_mobile = "calc(0.44rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_trigger_size = "calc(0.9rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_trigger_size_tablet = "calc(0.8rem * var(--accessibility-icon-scale))"
   static let nav_institutional_panel_backdrop_blur = "var(--effect-blur-lg)"
   static let nav_institutional_panel_backdrop_saturate = "115%"
   static let nav_institutional_panel_shell_blur = "var(--effect-blur-xl)"
@@ -14517,66 +14529,66 @@ enum DSCTokens {
   static let nav_institutional_panel_content_exit_motion = "180ms"
   static let nav_institutional_panel_content_delay = "70ms"
   static let nav_institutional_panel_content_stagger = "34ms"
-  static let nav_institutional_panel_padding_y = "5.15rem"
+  static let nav_institutional_panel_padding_y = "calc(5.15rem * var(--accessibility-density-scale))"
   static let nav_institutional_panel_padding_x_fallback = "var(--site-gutter)"
-  static let nav_institutional_panel_padding_bottom = "3.9rem"
-  static let nav_institutional_panel_gap = "5.8rem"
-  static let nav_institutional_panel_col_gap = "1.9rem"
-  static let nav_institutional_panel_col_padding_top = "5.15rem"
-  static let nav_institutional_panel_eyebrow_margin_bottom = "1.35rem"
-  static let nav_institutional_panel_eyebrow_size = "0.72rem"
+  static let nav_institutional_panel_padding_bottom = "calc(3.9rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_gap = "calc(5.8rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_col_gap = "calc(1.9rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_col_padding_top = "calc(5.15rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_eyebrow_margin_bottom = "calc(1.35rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_eyebrow_size = "calc(0.72rem * var(--accessibility-typography-scale))"
   static let nav_institutional_panel_eyebrow_weight = "500"
   static let nav_institutional_panel_eyebrow_tracking = "0.08em"
   static let nav_institutional_panel_eyebrow_line_height = "1.2"
-  static let nav_institutional_panel_title_margin_bottom = "1.08rem"
-  static let nav_institutional_panel_title_size = "2.18rem"
+  static let nav_institutional_panel_title_margin_bottom = "calc(1.08rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_title_size = "calc(2.18rem * var(--accessibility-typography-scale))"
   static let nav_institutional_panel_title_weight = "400"
   static let nav_institutional_panel_title_line_height = "1.08"
   static let nav_institutional_panel_title_strong_weight = "300"
-  static let nav_institutional_panel_copy_margin_bottom = "1rem"
-  static let nav_institutional_panel_copy_size = "0.98rem"
+  static let nav_institutional_panel_copy_margin_bottom = "calc(1rem * var(--accessibility-density-scale))"
+  static let nav_institutional_panel_copy_size = "calc(0.98rem * var(--accessibility-typography-scale))"
   static let nav_institutional_panel_copy_weight = "400"
   static let nav_institutional_panel_copy_line_height = "1.35"
   static let nav_institutional_panel_copy_strong_weight = "300"
-  static let nav_institutional_search_shell_gap = "0.62rem"
-  static let nav_institutional_search_shell_min_height = "4rem"
-  static let nav_institutional_search_shell_padding_y = "0.82rem"
-  static let nav_institutional_search_shell_padding_x = "1.08rem"
+  static let nav_institutional_search_shell_gap = "calc(0.62rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_shell_min_height = "calc(4rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_shell_padding_y = "calc(0.82rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_shell_padding_x = "calc(1.08rem * var(--accessibility-density-scale))"
   static let nav_institutional_search_shell_line_height = "1"
   static let nav_institutional_search_shell_opacity = "0.9"
-  static let nav_institutional_search_icon_size = "1.38rem"
+  static let nav_institutional_search_icon_size = "calc(1.38rem * var(--accessibility-icon-scale))"
   static let nav_institutional_search_icon_line_height = "0"
   static let nav_institutional_search_button_hover_scale = "1.08"
   static let nav_institutional_search_input_width = "18ch"
-  static let nav_institutional_search_input_size = "1.88rem"
+  static let nav_institutional_search_input_size = "calc(1.88rem * var(--accessibility-typography-scale))"
   static let nav_institutional_search_input_weight = "300"
   static let nav_institutional_search_input_line_height = "1"
-  static let nav_institutional_search_result_margin_top = "0.9rem"
-  static let nav_institutional_search_empty_margin_bottom = "0.9rem"
-  static let nav_institutional_search_panel_padding_top = "0.95rem"
-  static let nav_institutional_search_panel_size = "0.94rem"
+  static let nav_institutional_search_result_margin_top = "calc(0.9rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_empty_margin_bottom = "calc(0.9rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_panel_padding_top = "calc(0.95rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_panel_size = "calc(0.94rem * var(--accessibility-typography-scale))"
   static let nav_institutional_search_panel_weight = "300"
   static let nav_institutional_search_panel_line_height = "1.45"
-  static let nav_institutional_search_list_gap = "0.26rem"
-  static let nav_institutional_search_list_padding_y = "0.95rem"
-  static let nav_institutional_search_result_title_size = "1.02rem"
+  static let nav_institutional_search_list_gap = "calc(0.26rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_list_padding_y = "calc(0.95rem * var(--accessibility-density-scale))"
+  static let nav_institutional_search_result_title_size = "calc(1.02rem * var(--accessibility-typography-scale))"
   static let nav_institutional_search_result_title_weight = "300"
   static let nav_institutional_search_result_title_line_height = "1.28"
-  static let nav_institutional_search_result_meta_size = "0.82rem"
+  static let nav_institutional_search_result_meta_size = "calc(0.82rem * var(--accessibility-typography-scale))"
   static let nav_institutional_search_result_meta_weight = "400"
   static let nav_institutional_search_result_meta_line_height = "1.35"
   static let nav_institutional_caret_opacity = "0.9"
-  static let nav_institutional_tablet_account_avatar_size = "1.18rem"
-  static let nav_institutional_tablet_search_shell_gap = "0.54rem"
-  static let nav_institutional_tablet_search_shell_padding_y = "0.72rem"
-  static let nav_institutional_tablet_search_shell_padding_x = "0.94rem"
-  static let nav_institutional_tablet_panel_gap = "3rem"
-  static let nav_institutional_tablet_panel_padding_y = "4.6rem"
+  static let nav_institutional_tablet_account_avatar_size = "calc(1.18rem * var(--accessibility-icon-scale))"
+  static let nav_institutional_tablet_search_shell_gap = "calc(0.54rem * var(--accessibility-density-scale))"
+  static let nav_institutional_tablet_search_shell_padding_y = "calc(0.72rem * var(--accessibility-density-scale))"
+  static let nav_institutional_tablet_search_shell_padding_x = "calc(0.94rem * var(--accessibility-density-scale))"
+  static let nav_institutional_tablet_panel_gap = "calc(3rem * var(--accessibility-density-scale))"
+  static let nav_institutional_tablet_panel_padding_y = "calc(4.6rem * var(--accessibility-density-scale))"
   static let nav_institutional_tablet_panel_padding_x_fallback = "var(--site-shell-inline-padding-mobile)"
-  static let nav_institutional_tablet_panel_padding_bottom = "3.2rem"
-  static let nav_institutional_tablet_panel_title_size = "1.86rem"
-  static let nav_institutional_tablet_search_input_size = "1.62rem"
-  static let nav_institutional_tablet_search_panel_size = "0.96rem"
+  static let nav_institutional_tablet_panel_padding_bottom = "calc(3.2rem * var(--accessibility-density-scale))"
+  static let nav_institutional_tablet_panel_title_size = "calc(1.86rem * var(--accessibility-typography-scale))"
+  static let nav_institutional_tablet_search_input_size = "calc(1.62rem * var(--accessibility-typography-scale))"
+  static let nav_institutional_tablet_search_panel_size = "calc(0.96rem * var(--accessibility-typography-scale))"
   static let nav_institutional_mobile_edge_padding = "0"
   static let nav_menu_hover_ease = "cubic-bezier(0.22,1,0.36,1)"
   static let nav_menu_hover_scale = "1.08"
@@ -14584,79 +14596,79 @@ enum DSCTokens {
   static let nav_menu_hover_opacity_duration = "240ms"
   static let nav_menu_hover_pulse_duration = "760ms"
   static let nav_menu_pack_toggle_nudge = "-10px"
-  static let nav_menu_harmonic_gap = "46px"
+  static let nav_menu_harmonic_gap = "calc(46px * var(--accessibility-density-scale))"
   static let nav_menu_gutter = "var(--footer-gutter)"
-  static let nav_menu_vpad = "90px"
-  static let nav_menu_rail_pad = "34px"
-  static let nav_menu_rail_label_pad = "34px"
-  static let nav_menu_rail_font_size = "1.08rem"
+  static let nav_menu_vpad = "calc(90px * var(--accessibility-density-scale))"
+  static let nav_menu_rail_pad = "calc(34px * var(--accessibility-density-scale))"
+  static let nav_menu_rail_label_pad = "calc(34px * var(--accessibility-density-scale))"
+  static let nav_menu_rail_font_size = "calc(1.08rem * var(--accessibility-typography-scale))"
   static let nav_menu_motion_line_fast = "300ms"
   static let nav_menu_motion_overlay = "260ms"
   static let nav_menu_motion_filter = "260ms"
   static let nav_menu_motion_color = "260ms"
   static let nav_menu_motion_background = "260ms"
   static let nav_menu_motion_opacity = "260ms"
-  static let nav_menu_overlay_enter_y = "24px"
-  static let nav_menu_overlay_exit_y = "32px"
+  static let nav_menu_overlay_enter_y = "calc(24px * var(--accessibility-density-scale))"
+  static let nav_menu_overlay_exit_y = "calc(32px * var(--accessibility-density-scale))"
   static let nav_menu_overlay_enter_duration = "0.8s"
   static let nav_menu_overlay_enter_opacity_duration = "0.6s"
   static let nav_menu_overlay_exit_duration = "1.1s"
   static let nav_menu_overlay_exit_opacity_duration = "0.8s"
   static let nav_menu_rail_reveal_duration = "0.55s"
   static let nav_menu_rail_reveal_opacity = "0.9"
-  static let nav_menu_button_container_size = "60px"
-  static let nav_menu_button_size = "35px"
+  static let nav_menu_button_container_size = "calc(60px * var(--accessibility-density-scale))"
+  static let nav_menu_button_size = "calc(35px * var(--accessibility-density-scale))"
   static let nav_menu_button_line_height = "1.2px"
   static let nav_menu_button_line_width = "55%"
-  static let nav_menu_button_line_offset = "4px"
+  static let nav_menu_button_line_offset = "calc(4px * var(--accessibility-density-scale))"
   static let nav_menu_button_hover_duration = "0.35s"
-  static let nav_menu_pack_toggle_size = "72px"
-  static let nav_menu_pack_toggle_icon_size = "40px"
-  static let nav_menu_icon_control_size = "44px"
-  static let nav_menu_icon_glyph_size = "22px"
-  static let nav_menu_theme_toggle_size = "30px"
-  static let nav_menu_theme_toggle_dot_size = "14px"
-  static let nav_menu_pack_split_padding_top = "28px"
-  static let nav_menu_pack_split_min_height = "160px"
+  static let nav_menu_pack_toggle_size = "calc(72px * var(--accessibility-density-scale))"
+  static let nav_menu_pack_toggle_icon_size = "calc(40px * var(--accessibility-icon-scale))"
+  static let nav_menu_icon_control_size = "calc(44px * var(--accessibility-density-scale))"
+  static let nav_menu_icon_glyph_size = "calc(22px * var(--accessibility-icon-scale))"
+  static let nav_menu_theme_toggle_size = "calc(30px * var(--accessibility-density-scale))"
+  static let nav_menu_theme_toggle_dot_size = "calc(14px * var(--accessibility-density-scale))"
+  static let nav_menu_pack_split_padding_top = "calc(28px * var(--accessibility-density-scale))"
+  static let nav_menu_pack_split_min_height = "calc(160px * var(--accessibility-density-scale))"
   static let nav_menu_pack_out_duration = "360ms"
   static let nav_menu_pack_in_duration = "420ms"
   static let nav_menu_pack_gap_duration = "220ms"
-  static let nav_menu_pack_shift_y = "-10px"
+  static let nav_menu_pack_shift_y = "calc(-10px * var(--accessibility-density-scale))"
   static let nav_menu_pack_transform_duration = "720ms"
-  static let nav_menu_plain_logo_padding_top = "22px"
-  static let nav_menu_typo_logo_width = "140px"
-  static let nav_menu_site_essence_margin_top = "18px"
-  static let nav_menu_site_essence_size = "0.95rem"
+  static let nav_menu_plain_logo_padding_top = "calc(22px * var(--accessibility-density-scale))"
+  static let nav_menu_typo_logo_width = "calc(140px * var(--accessibility-density-scale))"
+  static let nav_menu_site_essence_margin_top = "calc(18px * var(--accessibility-density-scale))"
+  static let nav_menu_site_essence_size = "calc(0.95rem * var(--accessibility-typography-scale))"
   static let nav_menu_site_essence_line_height = "1.6"
-  static let nav_menu_site_essence_shadow = "0 0 22px color-mix(in srgb, var(--menu-fg) 10%, transparent)"
+  static let nav_menu_site_essence_shadow = "0 0 calc(22px * var(--accessibility-density-scale)) color-mix(in srgb, var(--menu-fg) 10%, transparent)"
   static let nav_menu_site_essence_breathe_duration = "5.8s"
   static let nav_menu_site_essence_sheen_duration = "3.9s"
-  static let nav_menu_site_essence_shift_y = "-1.6px"
+  static let nav_menu_site_essence_shift_y = "calc(-1.6px * var(--accessibility-density-scale))"
   static let nav_menu_site_essence_brightness = "1.06"
-  static let nav_menu_unified_pack_gap = "14px"
-  static let nav_menu_preview_padding_right = "46px"
-  static let nav_menu_preview_shift_x = "-18px"
+  static let nav_menu_unified_pack_gap = "calc(14px * var(--accessibility-density-scale))"
+  static let nav_menu_preview_padding_right = "calc(46px * var(--accessibility-density-scale))"
+  static let nav_menu_preview_shift_x = "calc(-18px * var(--accessibility-density-scale))"
   static let nav_menu_preview_shift_duration = "650ms"
-  static let nav_menu_preview_title_gap = "14px"
-  static let nav_menu_preview_icon_margin_bottom = "18px"
+  static let nav_menu_preview_title_gap = "calc(14px * var(--accessibility-density-scale))"
+  static let nav_menu_preview_icon_margin_bottom = "calc(18px * var(--accessibility-density-scale))"
   static let nav_menu_rail_flex_base = "0.7 1 0"
   static let nav_menu_rail_flex_hover = "1.6 1 0"
   static let nav_menu_rail_flex_list_hover = "0.55 1 0"
   static let nav_menu_rail_flex_list_item_hover = "1.85 1 0"
   static let nav_menu_rail_flex_duration = "420ms"
-  static let nav_menu_rail_link_padding_block = "18px"
+  static let nav_menu_rail_link_padding_block = "calc(18px * var(--accessibility-density-scale))"
   static let nav_menu_rail_link_tracking = "0.14em"
   static let nav_menu_rail_link_line_height = "1"
   static let nav_menu_rail_link_opacity = "0.86"
   static let nav_menu_rail_link_hover_scale = "1.12"
   static let nav_menu_rail_link_transform_duration = "820ms"
-  static let nav_menu_packs_left = "22px"
-  static let nav_menu_packs_bottom = "90px"
-  static let nav_menu_packs_width = "96px"
-  static let nav_menu_packs_gap = "22px"
-  static let nav_menu_plain_logo_width = "72px"
-  static let nav_menu_close_top = "18px"
-  static let nav_menu_close_size = "44px"
+  static let nav_menu_packs_left = "calc(22px * var(--accessibility-density-scale))"
+  static let nav_menu_packs_bottom = "calc(90px * var(--accessibility-density-scale))"
+  static let nav_menu_packs_width = "calc(96px * var(--accessibility-density-scale))"
+  static let nav_menu_packs_gap = "calc(22px * var(--accessibility-density-scale))"
+  static let nav_menu_plain_logo_width = "calc(72px * var(--accessibility-density-scale))"
+  static let nav_menu_close_top = "calc(18px * var(--accessibility-density-scale))"
+  static let nav_menu_close_size = "calc(44px * var(--accessibility-density-scale))"
   static let nav_menu_close_opacity = "0.85"
   static let nav_menu_close_duration = "180ms"
   static let nav_menu_close_hover_scale = "1.06"
@@ -14668,12 +14680,12 @@ enum DSCTokens {
   static let nav_menu_active_scale = "0.98"
   static let nav_menu_hover_pulse_scale_down = "0.88"
   static let nav_menu_hover_pulse_scale_up = "1.06"
-  static let nav_menu_mobile_columns_gap = "22px"
-  static let nav_menu_mobile_columns_padding = "84px 18px 28px"
-  static let nav_menu_mobile_col_gap = "18px"
-  static let nav_menu_mobile_pack_padding_top = "18px"
-  static let nav_menu_mobile_pack_min_height = "150px"
-  static let nav_menu_mobile_rail_item_padding = "14px 0"
+  static let nav_menu_mobile_columns_gap = "calc(22px * var(--accessibility-density-scale))"
+  static let nav_menu_mobile_columns_padding = "calc(84px * var(--accessibility-density-scale)) calc(18px * var(--accessibility-density-scale)) calc(28px * var(--accessibility-density-scale))"
+  static let nav_menu_mobile_col_gap = "calc(18px * var(--accessibility-density-scale))"
+  static let nav_menu_mobile_pack_padding_top = "calc(18px * var(--accessibility-density-scale))"
+  static let nav_menu_mobile_pack_min_height = "calc(150px * var(--accessibility-density-scale))"
+  static let nav_menu_mobile_rail_item_padding = "calc(14px * var(--accessibility-density-scale)) 0"
   static let nav_menu_mobile_rail_link_tracking = "0.10em"
   static let glass_surface_height = "3.55rem"
   static let glass_surface_height_tablet = "3.3rem"
@@ -14708,14 +14720,14 @@ enum DSCTokens {
   static let slider_thumb_radius = "50%"
   static let slider_thumb_bg = "var(--color-primary1)"
   static let slider_thumb_border = "none"
-  static let spacing_xs = "0.35rem"
-  static let spacing_sm = "0.75rem"
-  static let spacing_md = "1.1rem"
-  static let spacing_lg = "1.6rem"
-  static let spacing_xl = "2.4rem"
-  static let spacing_2xl = "3.6rem"
-  static let spacing_3xl = "4.5rem"
-  static let spacing_4xl = "6rem"
+  static let spacing_xs = "calc(0.35rem * var(--accessibility-density-scale))"
+  static let spacing_sm = "calc(0.75rem * var(--accessibility-density-scale))"
+  static let spacing_md = "calc(1.1rem * var(--accessibility-density-scale))"
+  static let spacing_lg = "calc(1.6rem * var(--accessibility-density-scale))"
+  static let spacing_xl = "calc(2.4rem * var(--accessibility-density-scale))"
+  static let spacing_2xl = "calc(3.6rem * var(--accessibility-density-scale))"
+  static let spacing_3xl = "calc(4.5rem * var(--accessibility-density-scale))"
+  static let spacing_4xl = "calc(6rem * var(--accessibility-density-scale))"
   static let reading_width_sm = "64ch"
   static let reading_width_md = "74ch"
   static let reading_width_lg = "78ch"
@@ -14724,6 +14736,11 @@ enum DSCTokens {
   static let content_max_width_lg = "var(--reading-width-lg)"
   static let section_padding_y = "10vh"
   static let section_padding_y_mobile = "12vh"
+  static let accessibility_typography_scale = "1"
+  static let accessibility_density_scale = "1"
+  static let accessibility_motion_reduced = "0"
+  static let accessibility_icon_scale = "1.25"
+  static let accessibility_aria_announcements = "0"
   static let font_base = "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
   static let font_ui = "var(--font-base)"
   static let font_heading = "var(--font-base)"
@@ -14739,106 +14756,106 @@ enum DSCTokens {
   static let line_height_ui = "1"
   static let line_height_ui_relaxed = "1.24"
   static let line_height_code = "1.55"
-  static let font_size_display_1 = "4.2rem"
-  static let font_size_display_2 = "3.4rem"
-  static let font_size_display_3 = "2.9rem"
-  static let font_size_h1 = "2.6rem"
-  static let font_size_h2 = "1.9rem"
-  static let font_size_h3 = "1.4rem"
-  static let font_size_h4 = "1.15rem"
-  static let font_size_h5 = "1rem"
-  static let font_size_h6 = "0.9rem"
-  static let font_size_title_1 = "1.25rem"
-  static let font_size_title_2 = "1.08rem"
-  static let font_size_title_3 = "0.98rem"
-  static let font_size_section_title = "2.08rem"
-  static let font_size_section_title_wide = "2.3rem"
-  static let font_size_section_title_tablet = "1.82rem"
-  static let font_size_section_title_mobile = "1.56rem"
-  static let font_size_subtitle_1 = "1rem"
-  static let font_size_subtitle_2 = "0.92rem"
-  static let font_size_body_1 = "1rem"
-  static let font_size_body_2 = "0.95rem"
-  static let font_size_body_3 = "0.9rem"
-  static let font_size_body_4 = "0.84rem"
-  static let font_size_editorial_title = "2.8rem"
-  static let font_size_editorial_heading = "1.55rem"
-  static let font_size_editorial_subheading = "1.12rem"
-  static let font_size_editorial_body = "1.02rem"
-  static let font_size_editorial_lede = "1.12rem"
-  static let font_size_editorial_note = "0.9rem"
-  static let font_size_caption_1 = "0.78rem"
-  static let font_size_caption_2 = "0.72rem"
-  static let font_size_label_1 = "0.82rem"
-  static let font_size_label_2 = "0.76rem"
-  static let font_size_meta_1 = "0.8rem"
-  static let font_size_meta_2 = "0.74rem"
-  static let font_size_eyebrow = "0.72rem"
-  static let font_size_overline = "0.7rem"
-  static let font_size_nav_primary = "0.82rem"
-  static let font_size_nav_secondary = "0.78rem"
-  static let font_size_nav_local_label = "1rem"
-  static let font_size_nav_local_link = "0.8rem"
+  static let font_size_display_1 = "calc(4.2rem * var(--accessibility-typography-scale))"
+  static let font_size_display_2 = "calc(3.4rem * var(--accessibility-typography-scale))"
+  static let font_size_display_3 = "calc(2.9rem * var(--accessibility-typography-scale))"
+  static let font_size_h1 = "calc(2.6rem * var(--accessibility-typography-scale))"
+  static let font_size_h2 = "calc(1.9rem * var(--accessibility-typography-scale))"
+  static let font_size_h3 = "calc(1.4rem * var(--accessibility-typography-scale))"
+  static let font_size_h4 = "calc(1.15rem * var(--accessibility-typography-scale))"
+  static let font_size_h5 = "calc(1rem * var(--accessibility-typography-scale))"
+  static let font_size_h6 = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_title_1 = "calc(1.25rem * var(--accessibility-typography-scale))"
+  static let font_size_title_2 = "calc(1.08rem * var(--accessibility-typography-scale))"
+  static let font_size_title_3 = "calc(0.98rem * var(--accessibility-typography-scale))"
+  static let font_size_section_title = "calc(2.08rem * var(--accessibility-typography-scale))"
+  static let font_size_section_title_wide = "calc(2.3rem * var(--accessibility-typography-scale))"
+  static let font_size_section_title_tablet = "calc(1.82rem * var(--accessibility-typography-scale))"
+  static let font_size_section_title_mobile = "calc(1.56rem * var(--accessibility-typography-scale))"
+  static let font_size_subtitle_1 = "calc(1rem * var(--accessibility-typography-scale))"
+  static let font_size_subtitle_2 = "calc(0.92rem * var(--accessibility-typography-scale))"
+  static let font_size_body_1 = "calc(1rem * var(--accessibility-typography-scale))"
+  static let font_size_body_2 = "calc(0.95rem * var(--accessibility-typography-scale))"
+  static let font_size_body_3 = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_body_4 = "calc(0.84rem * var(--accessibility-typography-scale))"
+  static let font_size_editorial_title = "calc(2.8rem * var(--accessibility-typography-scale))"
+  static let font_size_editorial_heading = "calc(1.55rem * var(--accessibility-typography-scale))"
+  static let font_size_editorial_subheading = "calc(1.12rem * var(--accessibility-typography-scale))"
+  static let font_size_editorial_body = "calc(1.02rem * var(--accessibility-typography-scale))"
+  static let font_size_editorial_lede = "calc(1.12rem * var(--accessibility-typography-scale))"
+  static let font_size_editorial_note = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_caption_1 = "calc(0.78rem * var(--accessibility-typography-scale))"
+  static let font_size_caption_2 = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_label_1 = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let font_size_label_2 = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_meta_1 = "calc(0.8rem * var(--accessibility-typography-scale))"
+  static let font_size_meta_2 = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_eyebrow = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_overline = "calc(0.7rem * var(--accessibility-typography-scale))"
+  static let font_size_nav_primary = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let font_size_nav_secondary = "calc(0.78rem * var(--accessibility-typography-scale))"
+  static let font_size_nav_local_label = "calc(1rem * var(--accessibility-typography-scale))"
+  static let font_size_nav_local_link = "calc(0.8rem * var(--accessibility-typography-scale))"
   static let font_size_nav_tab = "var(--font-size-nav-local-link)"
-  static let font_size_breadcrumb = "0.76rem"
-  static let font_size_utility_nav = "0.74rem"
-  static let font_size_button_sm = "0.76rem"
-  static let font_size_button_md = "0.82rem"
-  static let font_size_button_lg = "0.9rem"
-  static let font_size_control_xs = "0.7rem"
-  static let font_size_control_sm = "0.76rem"
-  static let font_size_control_md = "0.82rem"
-  static let font_size_control_lg = "0.9rem"
-  static let font_size_chip = "0.74rem"
-  static let font_size_pill = "0.74rem"
-  static let font_size_menu_item = "0.82rem"
-  static let font_size_tooltip = "0.74rem"
-  static let font_size_field_label = "0.76rem"
-  static let font_size_field_input = "0.9rem"
-  static let font_size_field_placeholder = "0.9rem"
-  static let font_size_field_helper = "0.76rem"
-  static let font_size_field_error = "0.76rem"
-  static let font_size_field_counter = "0.72rem"
-  static let font_size_data_value_xl = "2.2rem"
-  static let font_size_data_value_lg = "1.55rem"
-  static let font_size_data_value_md = "1.05rem"
-  static let font_size_data_label = "0.76rem"
-  static let font_size_data_caption = "0.72rem"
-  static let font_size_chart_axis = "0.7rem"
-  static let font_size_chart_legend = "0.72rem"
-  static let font_size_table_heading = "0.76rem"
-  static let font_size_table_cell = "0.82rem"
-  static let font_size_table_cell_dense = "0.76rem"
-  static let font_size_table_caption = "0.72rem"
+  static let font_size_breadcrumb = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_utility_nav = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_button_sm = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_button_md = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let font_size_button_lg = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_control_xs = "calc(0.7rem * var(--accessibility-typography-scale))"
+  static let font_size_control_sm = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_control_md = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let font_size_control_lg = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_chip = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_pill = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_menu_item = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let font_size_tooltip = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_field_label = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_field_input = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_field_placeholder = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let font_size_field_helper = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_field_error = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_field_counter = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_data_value_xl = "calc(2.2rem * var(--accessibility-typography-scale))"
+  static let font_size_data_value_lg = "calc(1.55rem * var(--accessibility-typography-scale))"
+  static let font_size_data_value_md = "calc(1.05rem * var(--accessibility-typography-scale))"
+  static let font_size_data_label = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_data_caption = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_chart_axis = "calc(0.7rem * var(--accessibility-typography-scale))"
+  static let font_size_chart_legend = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_table_heading = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_table_cell = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let font_size_table_cell_dense = "calc(0.76rem * var(--accessibility-typography-scale))"
+  static let font_size_table_caption = "calc(0.72rem * var(--accessibility-typography-scale))"
   static let font_size_code_inline = "0.86em"
-  static let font_size_code_block = "0.86rem"
-  static let font_size_kbd = "0.72rem"
-  static let font_size_path = "0.78rem"
-  static let font_size_status_sm = "0.74rem"
-  static let font_size_status_md = "0.8rem"
-  static let font_size_alert_title = "0.92rem"
-  static let font_size_alert_body = "0.84rem"
-  static let font_size_toast_title = "0.84rem"
-  static let font_size_toast_body = "0.78rem"
-  static let font_size_profile_name = "1.32rem"
-  static let font_size_profile_role = "1.42rem"
-  static let font_size_profile_handle = "0.86rem"
-  static let font_size_profile_bio = "0.92rem"
-  static let font_size_profile_stat_value = "1rem"
-  static let font_size_profile_stat_label = "0.72rem"
-  static let font_size_profile_meta = "0.78rem"
-  static let font_size_product_title = "1.28rem"
-  static let font_size_product_kicker = "0.72rem"
-  static let font_size_product_summary = "0.94rem"
-  static let font_size_product_feature_title = "0.92rem"
-  static let font_size_product_feature_body = "0.84rem"
-  static let font_size_product_spec_label = "0.74rem"
-  static let font_size_product_spec_value = "0.84rem"
-  static let font_size_marketing_hero = "3.2rem"
-  static let font_size_marketing_section_title = "1.72rem"
-  static let font_size_marketing_card_title = "1.05rem"
-  static let font_size_marketing_proof = "0.84rem"
-  static let font_size_marketing_cta = "0.84rem"
+  static let font_size_code_block = "calc(0.86rem * var(--accessibility-typography-scale))"
+  static let font_size_kbd = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_path = "calc(0.78rem * var(--accessibility-typography-scale))"
+  static let font_size_status_sm = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_status_md = "calc(0.8rem * var(--accessibility-typography-scale))"
+  static let font_size_alert_title = "calc(0.92rem * var(--accessibility-typography-scale))"
+  static let font_size_alert_body = "calc(0.84rem * var(--accessibility-typography-scale))"
+  static let font_size_toast_title = "calc(0.84rem * var(--accessibility-typography-scale))"
+  static let font_size_toast_body = "calc(0.78rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_name = "calc(1.32rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_role = "calc(1.42rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_handle = "calc(0.86rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_bio = "calc(0.92rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_stat_value = "calc(1rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_stat_label = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_profile_meta = "calc(0.78rem * var(--accessibility-typography-scale))"
+  static let font_size_product_title = "calc(1.28rem * var(--accessibility-typography-scale))"
+  static let font_size_product_kicker = "calc(0.72rem * var(--accessibility-typography-scale))"
+  static let font_size_product_summary = "calc(0.94rem * var(--accessibility-typography-scale))"
+  static let font_size_product_feature_title = "calc(0.92rem * var(--accessibility-typography-scale))"
+  static let font_size_product_feature_body = "calc(0.84rem * var(--accessibility-typography-scale))"
+  static let font_size_product_spec_label = "calc(0.74rem * var(--accessibility-typography-scale))"
+  static let font_size_product_spec_value = "calc(0.84rem * var(--accessibility-typography-scale))"
+  static let font_size_marketing_hero = "calc(3.2rem * var(--accessibility-typography-scale))"
+  static let font_size_marketing_section_title = "calc(1.72rem * var(--accessibility-typography-scale))"
+  static let font_size_marketing_card_title = "calc(1.05rem * var(--accessibility-typography-scale))"
+  static let font_size_marketing_proof = "calc(0.84rem * var(--accessibility-typography-scale))"
+  static let font_size_marketing_cta = "calc(0.84rem * var(--accessibility-typography-scale))"
   static let display_1_size = "var(--font-size-display-1)"
   static let display_1_line_height = "var(--line-height-heading-tight)"
   static let display_2_size = "var(--font-size-display-2)"
@@ -15413,15 +15430,15 @@ enum DSCTokens {
   static let global_close_button_duration = "var(--interaction-motion-medium)"
   static let global_close_button_ease = "var(--interaction-ease-standard)"
   static let global_close_button_optical_end_offset = "calc((var(--global-close-button-line-width) - var(--global-close-button-size)) / 2)"
-  static let footer_copy_font_size = "0.9rem"
-  static let footer_locale_font_size = "0.85rem"
-  static let brand_shell_max_width = "1440px"
+  static let footer_copy_font_size = "calc(0.9rem * var(--accessibility-typography-scale))"
+  static let footer_locale_font_size = "calc(0.85rem * var(--accessibility-typography-scale))"
+  static let brand_shell_max_width = "calc(1440px * var(--accessibility-density-scale))"
   static let brand_shell_page_gutter = "4vw"
-  static let brand_shell_page_gutter_min = "18px"
-  static let brand_shell_page_gutter_max = "96px"
+  static let brand_shell_page_gutter_min = "calc(18px * var(--accessibility-density-scale))"
+  static let brand_shell_page_gutter_max = "calc(96px * var(--accessibility-density-scale))"
   static let brand_shell_rail_width = "calc(100% - (var(--brand-shell-page-gutter) * 2))"
-  static let brand_shell_section_gap = "2.4rem"
-  static let brand_shell_block_gap = "1.4rem"
+  static let brand_shell_section_gap = "calc(2.4rem * var(--accessibility-density-scale))"
+  static let brand_shell_block_gap = "calc(1.4rem * var(--accessibility-density-scale))"
   static let brand_shell_card_radius = "var(--control-radius)"
   static let brand_shell_card_border = "var(--border-color)"
   static let brand_shell_card_bg = "transparent"
@@ -15647,7 +15664,7 @@ enum DSCTokens {
   static let office_sidebar_mobile_padding_y = "var(--layout-office-sidebar-mobile-padding-y)"
   static let office_sidebar_mobile_padding_x = "var(--layout-office-sidebar-mobile-padding-x)"
   static let collections_card_surface = "var(--surface-color)"
-  static let collections_card_hover_shadow = "0 28px 60px color-mix(in srgb, var(--shadow-color, #000000) 8%, transparent)"
+  static let collections_card_hover_shadow = "0 calc(28px * var(--accessibility-density-scale)) calc(60px * var(--accessibility-density-scale)) color-mix(in srgb, var(--shadow-color, #000000) 8%, transparent)"
   static let collections_card_inner_highlight = "radial-gradient(circle at center, color-mix(in srgb, var(--text-primary-color) 6%, transparent) 0%, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 40%, color-mix(in srgb, var(--text-primary-color) 1.5%, transparent) 65%, transparent 85%)"
   static let collections_card_copy_opacity = "0.9"
   static let awareness_wrap_min_height = "var(--layout-awareness-wrap-min-height)"
@@ -15738,8 +15755,8 @@ enum DSCTokens {
   static let awareness_progress_margin_top = "var(--layout-awareness-progress-margin-top)"
   static let awareness_progress_margin_bottom = "var(--layout-awareness-progress-margin-bottom)"
   static let awareness_progress_fill_width = "var(--layout-awareness-progress-fill-width)"
-  static let stage_circle_tablet = "600px"
-  static let stage_circle_wide = "840px"
+  static let stage_circle_tablet = "calc(600px * var(--accessibility-density-scale))"
+  static let stage_circle_wide = "calc(840px * var(--accessibility-density-scale))"
   static let home_stage_circle_motion = "620ms"
   static let home_stage_circle_blur = "var(--layout-home-circle-blur)"
   static let home_stage_circle_halo_scale = "var(--layout-home-circle-halo-scale)"
@@ -15752,12 +15769,12 @@ enum DSCTokens {
   static let home_hero_shader_z_index = "0"
   static let home_hero_shader_opacity = "0"
   static let home_hero_shader_matte_opacity = "0.42"
-  static let home_hero_shader_matte_blur = "28px"
+  static let home_hero_shader_matte_blur = "calc(28px * var(--accessibility-density-scale))"
   static let home_hero_shader_matte_surface_light = "rgba(255, 255, 255, 0.08)"
   static let home_hero_shader_matte_surface_dark = "rgba(0, 0, 0, 0.14)"
   static let home_hero_shader_veil_opacity = "0.22"
-  static let home_hero_shader_veil_blur = "56px"
-  static let home_hero_shader_canvas_softness = "14px"
+  static let home_hero_shader_veil_blur = "calc(56px * var(--accessibility-density-scale))"
+  static let home_hero_shader_canvas_softness = "calc(14px * var(--accessibility-density-scale))"
   static let home_hero_shader_transition = "700ms var(--interaction-ease-standard)"
   static let home_matte_rgb_dark = "12, 10, 8"
   static let home_matte_rgb_light = "18, 14, 10"
@@ -15765,7 +15782,7 @@ enum DSCTokens {
   static let home_matte_opacity_mid = "0.60"
   static let home_matte_opacity_low = "0.76"
   static let home_matte_opacity_bottom = "1"
-  static let home_matte_blur = "20px"
+  static let home_matte_blur = "calc(20px * var(--accessibility-density-scale))"
   static let home_matte_saturate = "1.1"
   static let home_matte_transition_duration = "0.95s"
   static let home_matte_transition_ease = "var(--interaction-ease-standard)"
@@ -15927,21 +15944,21 @@ enum DSCTokens {
   static let developer_mode_settings_shell_state_action_tracking = "var(--layout-home-platform-state-action-tracking)"
   static let developer_mode_settings_shell_embedded_section_gap = "var(--layout-home-platform-embedded-section-gap)"
   static let developer_mode_settings_shell_embedded_stack_gap = "var(--layout-home-platform-embedded-stack-gap)"
-  static let home_composition_topbar_clearance = "3.55rem"
-  static let home_composition_footer_clearance = "3.25rem"
+  static let home_composition_topbar_clearance = "calc(3.55rem * var(--accessibility-density-scale))"
+  static let home_composition_footer_clearance = "calc(3.25rem * var(--accessibility-density-scale))"
   static let home_composition_shell_block_padding = "calc(var(--home-composition-stage-component-gap) * 2)"
   static let home_composition_circle_to_text_gap = "var(--home-composition-stage-component-gap)"
   static let home_composition_text_to_panel_gap = "var(--home-composition-stage-component-gap)"
-  static let home_composition_panel_to_response_gap = "1rem"
+  static let home_composition_panel_to_response_gap = "calc(1rem * var(--accessibility-density-scale))"
   static let home_composition_stage_component_gap = "var(--home-composition-panel-to-response-gap)"
   static let home_composition_panel_stack_gap = "var(--home-composition-stage-component-gap)"
   static let home_composition_stage_width = "var(--layout-home-interaction-panel-width)"
   static let home_composition_stage_width_mobile = "var(--layout-home-interaction-panel-width-mobile)"
   static let home_interaction_settings_panel_z_index = "var(--z-overlay-modal)"
   static let home_interaction_settings_panel_width = "var(--layout-interaction-settings-panel-width)"
-  static let home_interaction_settings_panel_top = "calc(var(--home-shell-topbar-height, var(--site-header-height, 4rem)) + var(--site-gutter))"
+  static let home_interaction_settings_panel_top = "calc(var(--home-shell-topbar-height, var(--site-header-height, calc(4rem * var(--accessibility-density-scale)))) + var(--site-gutter))"
   static let home_interaction_settings_panel_inline = "var(--site-gutter)"
-  static let home_interaction_settings_panel_bottom = "calc(var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)) + var(--site-gutter))"
+  static let home_interaction_settings_panel_bottom = "calc(var(--home-shell-footer-separator-offset, var(--footer-height, calc(5rem * var(--accessibility-density-scale)))) + var(--site-gutter))"
   static let home_interaction_settings_panel_height = "var(--layout-interaction-settings-panel-height)"
   static let home_interaction_settings_panel_radius = "var(--home-platform-shell-radius, var(--control-radius-composer))"
   static let home_interaction_settings_panel_padding = "var(--home-platform-shell-padding, var(--layout-interaction-settings-panel-padding))"
@@ -16435,7 +16452,7 @@ enum DSCTokens {
   static let home_search_shell_result_tag_padding_x = "var(--layout-home-search-result-tag-padding-x)"
   static let home_search_shell_result_tag_size = "var(--layout-home-search-result-tag-size)"
   static let home_search_shell_result_tag_tracking = "var(--layout-home-search-result-tag-tracking)"
-  static let home_search_shell_result_actions_gap = "1.1rem"
+  static let home_search_shell_result_actions_gap = "calc(1.1rem * var(--accessibility-density-scale))"
   static let home_search_shell_result_action_min_height = "var(--layout-home-search-result-action-min-height)"
   static let home_search_shell_result_action_min_width = "var(--layout-home-search-result-action-min-width)"
   static let home_search_shell_result_action_padding_x = "var(--layout-home-search-result-action-padding-x)"
@@ -16465,7 +16482,7 @@ enum DSCTokens {
   static let home_search_shell_filter_panel_width = "var(--layout-home-search-filter-panel-width)"
   static let home_search_shell_filter_panel_max_height = "var(--layout-home-search-filter-panel-max-height)"
   static let home_search_shell_filter_panel_padding = "var(--layout-home-search-filter-panel-padding)"
-  static let home_search_shell_filter_panel_top = "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, 3.55rem) + var(--home-search-shell-form-gap))"
+  static let home_search_shell_filter_panel_top = "calc(var(--home-search-shell-body-padding-y) + var(--home-search-shell-input-row-min-height) + var(--products-local-nav-height, calc(3.55rem * var(--accessibility-density-scale))) + var(--home-search-shell-form-gap))"
   static let home_search_shell_dialog_surface = "color-mix(in srgb, var(--bg-color) 95%, transparent)"
   static let home_interaction_panel_width = "var(--layout-home-interaction-panel-width)"
   static let home_interaction_panel_gap = "var(--layout-home-interaction-panel-gap)"
@@ -16580,17 +16597,17 @@ enum DSCTokens {
   static let home_interaction_panel_dot_width = "var(--layout-home-interaction-panel-dot-width)"
   static let home_interaction_panel_motion_fast = "var(--interaction-motion-medium)"
   static let home_interaction_response_panel_width = "min(42rem, calc(100vw - (2 * var(--site-gutter))))"
-  static let home_interaction_response_panel_max_height = "18rem"
-  static let home_interaction_response_panel_padding = "0.18rem 0.18rem 0.18rem"
+  static let home_interaction_response_panel_max_height = "calc(18rem * var(--accessibility-density-scale))"
+  static let home_interaction_response_panel_padding = "calc(0.18rem * var(--accessibility-density-scale)) calc(0.18rem * var(--accessibility-density-scale)) calc(0.18rem * var(--accessibility-density-scale))"
   static let home_interaction_response_panel_content_max_width = "52rem"
   static let home_interaction_response_panel_content_align = "left"
   static let home_interaction_response_panel_radius = "var(--control-radius-composer)"
   static let home_interaction_response_panel_surface = "transparent"
   static let home_interaction_response_panel_text = "var(--text-primary-color)"
   static let home_interaction_response_panel_muted = "var(--text-secondary-color)"
-  static let home_interaction_response_panel_font_size = "1.06rem"
+  static let home_interaction_response_panel_font_size = "calc(1.06rem * var(--accessibility-typography-scale))"
   static let home_interaction_response_panel_font_weight = "300"
-  static let home_interaction_response_panel_line_height = "1.92"
+  static let home_interaction_response_panel_line_height = "calc(1.92 * var(--accessibility-typography-scale))"
   static let home_interaction_response_panel_letter_spacing = "-0.012em"
   static let home_interaction_response_panel_scrollbar = "color-mix(in srgb, var(--text-secondary-color) 22%, transparent)"
   static let home_interaction_response_panel_scrollbar_hover = "color-mix(in srgb, var(--text-secondary-color) 38%, transparent)"
@@ -16665,8 +16682,8 @@ enum DSCTokens {
   static let home_stage_motion_accent_violet = "rgba(168, 118, 255, 0.74)"
   static let home_stage_motion_accent_pink = "rgba(255, 108, 196, 0.66)"
   static let home_stage_motion_accent_blue = "rgba(96, 190, 255, 0.72)"
-  static let home_stage_motion_orb_blur = "30px"
-  static let home_stage_motion_orb_active_blur = "38px"
+  static let home_stage_motion_orb_blur = "calc(30px * var(--accessibility-density-scale))"
+  static let home_stage_motion_orb_active_blur = "calc(38px * var(--accessibility-density-scale))"
   static let home_stage_motion_reset_transition = "980ms"
   static let home_stage_motion_mode_core_opacity = "var(--layout-home-stage-motion-mode-core-opacity)"
   static let home_stage_motion_mode_ring_opacity = "var(--layout-home-stage-motion-mode-ring-opacity)"
@@ -16798,7 +16815,7 @@ enum DSCTokens {
   static let institutional_links_title_opacity = "0.42"
   static let institutional_links_text_color = "var(--text-secondary-color)"
   static let institutional_links_hover_color = "var(--color-primary1)"
-  static let institutional_links_reveal_y = "22px"
+  static let institutional_links_reveal_y = "calc(22px * var(--accessibility-density-scale))"
   static let institutional_links_reveal_transform_duration = "1.05s"
   static let institutional_links_reveal_opacity_duration = "0.95s"
   static let institutional_links_motion_fast = "var(--interaction-motion-medium)"
@@ -17008,7 +17025,7 @@ enum DSCTokens {
   static let account_drawer_close_duration = "var(--global-close-button-duration)"
   static let account_drawer_close_ease = "var(--global-close-button-ease)"
   static let account_drawer_dialog_radius = "var(--dialog-radius-unified)"
-  static let account_drawer_dialog_max_height = "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, 4rem)) - var(--home-shell-footer-separator-offset, var(--footer-height, 5rem)))"
+  static let account_drawer_dialog_max_height = "calc(100dvh - var(--home-shell-topbar-height, var(--site-header-height, calc(4rem * var(--accessibility-density-scale)))) - var(--home-shell-footer-separator-offset, var(--footer-height, calc(5rem * var(--accessibility-density-scale)))))"
   static let account_drawer_dialog_viewport_gap = "var(--dialog-overlay-viewport-gap)"
   static let account_drawer_panel_transform_closed = "var(--overlay-transform-closed)"
   static let account_drawer_panel_transform_open = "var(--overlay-transform-open)"
@@ -17123,7 +17140,7 @@ enum DSCTokens {
   static let account_phone_auth_surface = "var(--panel-surface-unified)"
   static let account_phone_auth_border = "var(--panel-border-unified)"
   static let account_phone_auth_muted = "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)"
-  static let account_phone_auth_shell_inner_shadow = "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
+  static let account_phone_auth_shell_inner_shadow = "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let account_phone_auth_shell_highlight = "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)"
   static let account_phone_auth_header_divider = "color-mix(in srgb, var(--text-primary-color) 6%, transparent)"
   static let account_phone_auth_primary_shadow = "var(--panel-shadow-unified)"
@@ -17241,7 +17258,7 @@ enum DSCTokens {
   static let account_provider_apple_surface = "var(--panel-surface-unified)"
   static let account_provider_apple_border = "var(--panel-border-unified)"
   static let account_provider_apple_muted = "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)"
-  static let account_provider_apple_shell_inner_shadow = "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
+  static let account_provider_apple_shell_inner_shadow = "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let account_provider_apple_shell_highlight = "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)"
   static let account_provider_apple_header_divider = "color-mix(in srgb, var(--text-primary-color) 6%, transparent)"
   static let account_provider_apple_primary_shadow = "var(--panel-shadow-unified)"
@@ -17281,7 +17298,7 @@ enum DSCTokens {
   static let account_provider_google_surface = "var(--panel-surface-unified)"
   static let account_provider_google_border = "var(--panel-border-unified)"
   static let account_provider_google_muted = "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)"
-  static let account_provider_google_shell_inner_shadow = "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
+  static let account_provider_google_shell_inner_shadow = "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let account_provider_google_shell_highlight = "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)"
   static let account_provider_google_header_divider = "color-mix(in srgb, var(--text-primary-color) 6%, transparent)"
   static let account_provider_google_primary_shadow = "var(--panel-shadow-unified)"
@@ -17320,7 +17337,7 @@ enum DSCTokens {
   static let account_sign_in_surface = "var(--panel-surface-unified)"
   static let account_sign_in_border = "var(--panel-border-unified)"
   static let account_sign_in_muted = "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)"
-  static let account_sign_in_shell_inner_shadow = "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
+  static let account_sign_in_shell_inner_shadow = "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let account_sign_in_shell_highlight = "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)"
   static let account_sign_in_header_divider = "color-mix(in srgb, var(--text-primary-color) 6%, transparent)"
   static let account_sign_in_primary_shadow = "var(--panel-shadow-unified)"
@@ -17378,7 +17395,7 @@ enum DSCTokens {
   static let account_sign_up_surface = "var(--panel-surface-unified)"
   static let account_sign_up_border = "var(--panel-border-unified)"
   static let account_sign_up_muted = "color-mix(in srgb, var(--text-secondary-color) 86%, transparent)"
-  static let account_sign_up_shell_inner_shadow = "inset -1px 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
+  static let account_sign_up_shell_inner_shadow = "inset calc(-1px * var(--accessibility-density-scale)) 0 0 color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let account_sign_up_shell_highlight = "linear-gradient(180deg, color-mix(in srgb, var(--text-primary-color) 3%, transparent) 0%, transparent 22%)"
   static let account_sign_up_header_divider = "color-mix(in srgb, var(--text-primary-color) 6%, transparent)"
   static let account_sign_up_primary_shadow = "var(--panel-shadow-unified)"
@@ -17400,10 +17417,10 @@ enum DSCTokens {
   static let account_sign_up_secondary_actions_gap = "var(--account-sign-up-content-gap-sm)"
   static let account_sign_up_note_size = "var(--control-font-size)"
   static let account_sign_up_note_size_mobile = "var(--type-body-sm-size)"
-  static let account_sign_up_label_size = "0.88rem"
-  static let account_sign_up_action_label_size = "0.94rem"
-  static let account_sign_up_divider_label_size = "0.82rem"
-  static let account_sign_up_text_action_size = "0.82rem"
+  static let account_sign_up_label_size = "calc(0.88rem * var(--accessibility-typography-scale))"
+  static let account_sign_up_action_label_size = "calc(0.94rem * var(--accessibility-typography-scale))"
+  static let account_sign_up_divider_label_size = "calc(0.82rem * var(--accessibility-typography-scale))"
+  static let account_sign_up_text_action_size = "calc(0.82rem * var(--accessibility-typography-scale))"
   static let account_sign_up_motion_fast = "var(--interaction-motion-fast)"
   static let account_sign_up_motion_medium = "var(--interaction-motion-medium)"
   static let account_sign_up_action_text = "var(--text-primary-color)"
@@ -17478,10 +17495,10 @@ enum DSCTokens {
   static let cookie_consent_surface = "var(--panel-surface-unified)"
   static let cookie_consent_border = "var(--panel-border-unified)"
   static let cookie_consent_shadow = "var(--panel-shadow-unified)"
-  static let cookie_consent_width = "min(36rem, calc(100vw - (2 * var(--cookie-consent-min-viewport-gap))))"
+  static let cookie_consent_width = "min(calc(36rem * var(--accessibility-density-scale)), calc(100vw - (2 * var(--cookie-consent-min-viewport-gap))))"
   static let cookie_consent_min_viewport_gap = "var(--dialog-overlay-viewport-gap)"
-  static let cookie_consent_viewport_gap_top = "var(--home-shell-topbar-height, var(--site-header-height, 4rem))"
-  static let cookie_consent_viewport_gap_bottom = "var(--home-shell-footer-separator-offset, var(--footer-height, 5rem))"
+  static let cookie_consent_viewport_gap_top = "var(--home-shell-topbar-height, calc(4rem * var(--accessibility-density-scale)))"
+  static let cookie_consent_viewport_gap_bottom = "var(--home-shell-footer-separator-offset, calc(5rem * var(--accessibility-density-scale)))"
   static let cookie_consent_footer_links_max_width = "100%"
   static let cookie_consent_max_height = "calc(100dvh - var(--cookie-consent-viewport-gap-top) - var(--cookie-consent-viewport-gap-bottom))"
   static let cookie_consent_radius = "var(--dialog-radius-unified)"
@@ -17547,12 +17564,12 @@ enum DSCTokens {
   static let cookie_consent_footer_language_border = "color-mix(in srgb, var(--text-primary-color) 8%, transparent)"
   static let cookie_consent_footer_language_label = "color-mix(in srgb, var(--text-primary-color) 58%, transparent)"
   static let cookie_consent_footer_language_value = "var(--text-primary-color)"
-  static let cookie_consent_learning_shell_min_height = "10.5rem"
+  static let cookie_consent_learning_shell_min_height = "calc(10.5rem * var(--accessibility-density-scale))"
   static let cookie_consent_learning_shell_radius = "var(--shape-card-radius)"
   static let cookie_consent_learning_shell_padding = "var(--space-4)"
   static let cookie_consent_learning_section_spacing = "var(--spacing-none)"
   static let cookie_consent_learning_panel_inset = "var(--spacing-none)"
-  static let cookie_consent_learning_icon_size = "1.68rem"
+  static let cookie_consent_learning_icon_size = "calc(1.68rem * var(--accessibility-icon-scale))"
   static let cookie_consent_learning_card_gap = "var(--space-3)"
   static let cookie_consent_learning_copy_gap = "var(--spacing-3xs)"
   static let cookie_consent_copy_stack_gap = "var(--dialog-consent-copy-stack-gap)"
@@ -17746,17 +17763,17 @@ enum DSCTokens {
   static let cookie_learning_overlay_back_icon_filter = "var(--icon-image-filter, none)"
   static let cookie_learning_overlay_divider = "var(--cookie-language-overlay-divider, var(--panel-border-unified))"
   static let cookie_learning_overlay_surface = "var(--cookie-language-overlay-surface, var(--panel-surface-unified))"
-  static let cookie_learning_overlay_body_padding_top = "1.02rem"
+  static let cookie_learning_overlay_body_padding_top = "calc(1.02rem * var(--accessibility-density-scale))"
   static let cookie_learning_overlay_point_gap = "var(--spacing-2xs)"
   static let cookie_learning_overlay_title_size = "var(--type-body-sm-size)"
   static let cookie_learning_overlay_title_weight = "var(--type-body-regular-weight)"
   static let cookie_learning_overlay_title_tracking = "var(--type-body-tracking)"
   static let cookie_learning_overlay_title_line_height = "var(--type-body-sm-line-height)"
-  static let cookie_learning_overlay_copy_size = "0.86rem"
+  static let cookie_learning_overlay_copy_size = "calc(0.86rem * var(--accessibility-typography-scale))"
   static let cookie_learning_overlay_copy_weight = "300"
   static let cookie_learning_overlay_copy_tracking = "-0.012em"
   static let cookie_learning_overlay_copy_line_height = "1.65"
-  static let cookie_learning_overlay_body_padding_top_mobile = "0.82rem"
+  static let cookie_learning_overlay_body_padding_top_mobile = "calc(0.82rem * var(--accessibility-density-scale))"
   static let country_accent = "var(--color-primary1)"
   static let country_close_button_color = "var(--global-close-button-color)"
   static let country_close_button_hover_color = "var(--global-close-button-hover-color)"
@@ -17816,10 +17833,10 @@ enum DSCTokens {
   static let country_option_weight = "var(--layout-country-option-weight)"
   static let error404_page_background = "var(--bg-color)"
   static let error404_page_text = "var(--text-primary-color)"
-  static let error404_shell_max_width = "760px"
-  static let error404_shell_padding_y = "56px"
-  static let error404_shell_padding_x = "40px"
-  static let error404_shell_radius = "28px"
+  static let error404_shell_max_width = "calc(760px * var(--accessibility-density-scale))"
+  static let error404_shell_padding_y = "calc(56px * var(--accessibility-density-scale))"
+  static let error404_shell_padding_x = "calc(40px * var(--accessibility-density-scale))"
+  static let error404_shell_radius = "calc(28px * var(--accessibility-density-scale))"
   static let error404_shell_border = "var(--control-border)"
   static let error404_shell_surface = "var(--control-bg)"
   static let error404_mark_color = "color-mix(in srgb, var(--text-primary-color) 60%, transparent)"
@@ -17837,9 +17854,16 @@ enum DSCTokens {
   static let error404_shader_canvas_opacity = "0.96"
   static let error404_shader_canvas_duration = "720ms"
   static let error404_shader_veil_surface = "color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
-  static let error404_shader_veil_blur = "18px"
-  static let error404_page_padding_y = "48px"
-  static let error404_page_padding_x = "24px"
+  static let error404_shader_veil_blur = "calc(18px * var(--accessibility-density-scale))"
+  static let error404_page_padding_y = "calc(48px * var(--accessibility-density-scale))"
+  static let error404_page_padding_x = "calc(24px * var(--accessibility-density-scale))"
+  static let error404_mark_size = "calc(0.8125rem * var(--accessibility-typography-scale))"
+  static let error404_eyebrow_size = "calc(0.75rem * var(--accessibility-typography-scale))"
+  static let error404_title_size = "calc(3.375rem * var(--accessibility-typography-scale))"
+  static let error404_description_size = "calc(1.125rem * var(--accessibility-typography-scale))"
+  static let error404_title_size_tablet = "calc(2.75rem * var(--accessibility-typography-scale))"
+  static let error404_title_size_mobile = "calc(2.125rem * var(--accessibility-typography-scale))"
+  static let error404_description_size_mobile = "calc(1rem * var(--accessibility-typography-scale))"
   static let home_rail_width = "var(--site-rail-width)"
   static let home_reading_width = "var(--reading-width-sm)"
   static let home_reading_width_wide = "var(--reading-width-md)"
@@ -17914,7 +17938,7 @@ enum DSCTokens {
   static let about_hero_matte_opacity_mid = "var(--about-hero-matte-custom-opacity-mid)"
   static let about_hero_matte_opacity_low = "var(--about-hero-matte-custom-opacity-low)"
   static let about_hero_matte_opacity_bottom = "var(--about-hero-matte-custom-opacity-bottom)"
-  static let about_hero_matte_blur = "var(--home-matte-blur, 20px)"
+  static let about_hero_matte_blur = "var(--home-matte-blur, calc(20px * var(--accessibility-density-scale)))"
   static let about_hero_matte_saturate = "var(--home-matte-saturate, 1.1)"
   static let about_hero_matte_transition_duration = "var(--home-matte-transition-duration, 0.95s)"
   static let about_hero_matte_transition_ease = "var(--home-matte-transition-ease, var(--interaction-ease-standard))"
@@ -17983,7 +18007,7 @@ enum DSCTokens {
   static let password_reset_content_max_width = "var(--account-control-width-max)"
   static let password_reset_form_gap = "var(--account-sign-in-form-gap)"
   static let password_reset_actions_gap = "var(--account-content-gap-md)"
-  static let password_reset_status_min_height = "1.35rem"
+  static let password_reset_status_min_height = "calc(1.35rem * var(--accessibility-typography-scale))"
   static let password_reset_background = "var(--error404-page-background, var(--bg-color))"
   static let password_reset_shell_surface = "var(--account-sign-in-surface, var(--panel-surface-unified))"
   static let password_reset_shell_highlight = "none"
@@ -17997,19 +18021,19 @@ enum DSCTokens {
   static let profile_header_avatar_bg = "var(--bg-color)"
   static let profile_header_border_color = "color-mix(in srgb, var(--text-color) 12%, transparent)"
   static let profile_header_border = "var(--border-width-hairline) solid var(--profile-header-border-color)"
-  static let profile_private_hero_cover_height = "13.5rem"
-  static let profile_private_hero_cover_height_mobile = "10.5rem"
-  static let profile_private_hero_cover_radius = "1.4rem"
+  static let profile_private_hero_cover_height = "calc(13.5rem * var(--accessibility-density-scale))"
+  static let profile_private_hero_cover_height_mobile = "calc(10.5rem * var(--accessibility-density-scale))"
+  static let profile_private_hero_cover_radius = "calc(1.4rem * var(--accessibility-density-scale))"
   static let profile_private_hero_cover_offset_top = "var(--spacing-md)"
-  static let profile_private_hero_avatar_size = "7.25rem"
-  static let profile_private_hero_avatar_border_width = "4px"
-  static let profile_private_hero_media_action_size = "2.15rem"
+  static let profile_private_hero_avatar_size = "calc(7.25rem * var(--accessibility-icon-scale))"
+  static let profile_private_hero_avatar_border_width = "calc(0.25rem * var(--accessibility-density-scale))"
+  static let profile_private_hero_media_action_size = "calc(2.15rem * var(--accessibility-icon-scale))"
   static let profile_private_hero_identity_layer = "var(--z-raised)"
   static let profile_private_hero_avatar_layer = "var(--z-raised)"
   static let profile_private_hero_media_action_layer = "var(--z-above)"
   static let profile_private_hero_details_max_height = "calc(var(--body-2-line-height) + var(--spacing-sm))"
   static let profile_private_hero_details_max_height_hidden = "0"
-  static let profile_private_hero_info_popover_width = "min(22rem, var(--site-rail-width))"
+  static let profile_private_hero_info_popover_width = "min(calc(22rem * var(--accessibility-density-scale)), var(--site-rail-width))"
   static let profile_private_hero_actions_layer = "var(--z-above)"
   static let profile_private_hero_media_action_opacity = "1"
   static let profile_private_hero_media_action_opacity_hidden = "0"
@@ -18042,7 +18066,7 @@ enum DSCTokens {
   static let profile_private_hero_tab_indicator_opacity = "0"
   static let profile_private_hero_tab_indicator_opacity_active = "var(--selected-indicator-opacity)"
   static let profile_private_hero_tab_indicator_bottom = "var(--spacing-none)"
-  static let profile_private_hero_tab_band_height = "var(--products-local-nav-height, 3.55rem)"
+  static let profile_private_hero_tab_band_height = "var(--products-local-nav-height, calc(3.55rem * var(--accessibility-density-scale)))"
   static let profile_private_hero_tab_indicator_height = "var(--border-width-hairline)"
   static let profile_private_hero_tab_color = "var(--nav-local-color)"
   static let profile_private_hero_tab_hover_color = "var(--local-nav-hover-text-color)"
@@ -18057,7 +18081,7 @@ enum DSCTokens {
   static let profile_media_editor_backdrop_blur = "var(--glass-overlay-backdrop-blur)"
   static let profile_media_editor_shell_bg = "var(--glass-overlay-shell-bg)"
   static let profile_media_editor_shell_blur = "var(--glass-overlay-shell-blur)"
-  static let profile_media_editor_preview_size = "13rem"
+  static let profile_media_editor_preview_size = "calc(13rem * var(--accessibility-density-scale))"
   static let profile_media_editor_cover_preview_ratio = "16 / 9"
   static let profile_media_editor_avatar_radius = "var(--control-radius-pill)"
   static let profile_media_editor_cover_radius = "var(--shape-card-radius)"
@@ -18093,27 +18117,27 @@ enum DSCTokens {
   static let profile_shell_group_gap = "var(--spacing-md)"
   static let profile_shell_mount_gap = "var(--spacing-none)"
   static let profile_shell_disabled_opacity = "var(--disabled-opacity, 0.48)"
-  static let profile_shell_top_clearance = "calc(env(safe-area-inset-top, 0px) + 1rem)"
+  static let profile_shell_top_clearance = "calc(env(safe-area-inset-top, 0px) + calc(1rem * var(--accessibility-density-scale)))"
   static let home_shell_panel_top = "var(--profile-shell-top-clearance)"
-  static let profile_shell_top_clearance_mobile = "calc(env(safe-area-inset-top, 0px) + 0.75rem)"
+  static let profile_shell_top_clearance_mobile = "calc(env(safe-area-inset-top, 0px) + calc(0.75rem * var(--accessibility-density-scale)))"
   static let profile_shell_hero_sticky_travel = "calc(
     var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height, 13.5rem)
+    + var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))
     + var(--spacing-lg)
     + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
     + var(--spacing-xl)
-    + 2rem
+    + calc(2rem * var(--accessibility-density-scale))
   )"
   static let profile_shell_hero_sticky_travel_mobile = "calc(
     var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height-mobile, 10.5rem)
+    + var(--profile-private-hero-cover-height-mobile, calc(10.5rem * var(--accessibility-density-scale)))
     + var(--spacing-lg)
-    + var(--profile-private-hero-avatar-size, 6rem)
+    + var(--profile-private-hero-avatar-size, calc(6rem * var(--accessibility-icon-scale)))
     + var(--spacing-lg)
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + calc(var(--body-2-size) * var(--body-2-line-height))
     + var(--spacing-xl)
-    + -0.5rem
+    + calc(-0.5rem * var(--accessibility-density-scale))
   )"
   static let profile_shell_hero_sticky_top = "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))"
   static let profile_shell_hero_sticky_top_mobile = "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))"
@@ -18265,9 +18289,9 @@ enum DSCTokens {
   static let leadership_card_body_gap = "var(--catalog-card-body-gap)"
   static let leadership_card_radius = "var(--catalog-card-radius)"
   static let leadership_card_padding = "var(--catalog-card-body-padding)"
-  static let leadership_avatar_size = "var(--layout-profile-avatar-size, 128px)"
-  static let leadership_profile_hero_height = "clamp(28rem, 68vh, 44rem)"
-  static let leadership_profile_hero_content_width = "min(34rem, var(--site-rail-width))"
+  static let leadership_avatar_size = "var(--layout-profile-avatar-size, calc(128px * var(--accessibility-icon-scale)))"
+  static let leadership_profile_hero_height = "clamp(calc(28rem * var(--accessibility-density-scale)), 68vh, calc(44rem * var(--accessibility-density-scale)))"
+  static let leadership_profile_hero_content_width = "min(calc(34rem * var(--accessibility-density-scale)), var(--site-rail-width))"
   static let leadership_avatar_border = "var(--control-border)"
   static let leadership_avatar_bg = "var(--control-bg)"
   static let leadership_name_size = "var(--catalog-card-title-size)"
@@ -18379,7 +18403,7 @@ enum DSCTokens {
   static let model_economy_surface_opacity = "0.72"
   static let model_economy_border_opacity = "0.16"
   static let model_economy_state_opacity = "0.68"
-  static let glass_matte_blur = "18px"
+  static let glass_matte_blur = "calc(18px * var(--accessibility-density-scale))"
   static let glass_matte_opacity = "0.24"
   static let glass_matte_surface_light = "rgba(255, 255, 255, 0.08)"
   static let glass_matte_surface_dark = "rgba(0, 0, 0, 0.14)"

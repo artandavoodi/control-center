@@ -18,10 +18,10 @@
 :root{
   --error404-page-background:var(--bg-color);
   --error404-page-text:var(--text-primary-color);
-  --error404-shell-max-width:760px;
-  --error404-shell-padding-y:56px;
-  --error404-shell-padding-x:40px;
-  --error404-shell-radius:28px;
+  --error404-shell-max-width:calc(760px * var(--accessibility-density-scale));
+  --error404-shell-padding-y:calc(56px * var(--accessibility-density-scale));
+  --error404-shell-padding-x:calc(40px * var(--accessibility-density-scale));
+  --error404-shell-radius:calc(28px * var(--accessibility-density-scale));
   --error404-shell-border:var(--control-border);
   --error404-shell-surface:var(--control-bg);
   --error404-mark-color:color-mix(in srgb, var(--text-primary-color) 60%, transparent);
@@ -39,9 +39,18 @@
   --error404-shader-canvas-opacity:0.96;
   --error404-shader-canvas-duration:720ms;
   --error404-shader-veil-surface:color-mix(in srgb, var(--text-primary-color) 3%, transparent);
-  --error404-shader-veil-blur:18px;
-  --error404-page-padding-y:48px;
-  --error404-page-padding-x:24px;
+  --error404-shader-veil-blur:calc(18px * var(--accessibility-density-scale));
+  --error404-page-padding-y:calc(48px * var(--accessibility-density-scale));
+  --error404-page-padding-x:calc(24px * var(--accessibility-density-scale));
+  
+  /* Typography using accessibility scale */
+  --error404-mark-size:calc(0.8125rem * var(--accessibility-typography-scale));
+  --error404-eyebrow-size:calc(0.75rem * var(--accessibility-typography-scale));
+  --error404-title-size:calc(3.375rem * var(--accessibility-typography-scale));
+  --error404-description-size:calc(1.125rem * var(--accessibility-typography-scale));
+  --error404-title-size-tablet:calc(2.75rem * var(--accessibility-typography-scale));
+  --error404-title-size-mobile:calc(2.125rem * var(--accessibility-typography-scale));
+  --error404-description-size-mobile:calc(1rem * var(--accessibility-typography-scale));
 }
 
 /* =========================================================
@@ -79,7 +88,7 @@
   position: relative;
   z-index: 2;
   padding: var(--error404-shell-padding-y) var(--error404-shell-padding-x);
-  border: 1px solid var(--error404-shell-border);
+  border: calc(1px * var(--accessibility-density-scale)) solid var(--error404-shell-border);
   border-radius: var(--error404-shell-radius);
   background: var(--error404-shell-surface);
   box-sizing: border-box;
@@ -154,8 +163,8 @@
    04. TYPOGRAPHY
    ========================================================= */
 .error404-mark {
-  margin-bottom: 24px;
-  font-size: 13px;
+  margin-bottom:calc(24px * var(--accessibility-density-scale));
+  font-size: var(--error404-mark-size);
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -163,12 +172,12 @@
 }
 
 .error404-copy {
-  max-width: 560px;
+  max-width:calc(560px * var(--accessibility-density-scale));
 }
 
 .error404-eyebrow {
-  margin: 0 0 14px;
-  font-size: 12px;
+  margin: 0 0 calc(14px * var(--accessibility-density-scale));
+  font-size: var(--error404-eyebrow-size);
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -176,17 +185,17 @@
 }
 
 .error404-title {
-  margin: 0 0 18px;
-  font-size: 54px;
+  margin: 0 0 calc(18px * var(--accessibility-density-scale));
+  font-size: var(--error404-title-size);
   font-weight: 500;
-  line-height: 1.04;
+  line-height:calc(1.04 * var(--accessibility-typography-scale));
   letter-spacing: -0.04em;
 }
 
 .error404-description {
-  margin: 0 0 14px;
-  font-size: 18px;
-  line-height: 1.65;
+  margin: 0 0 calc(14px * var(--accessibility-density-scale));
+  font-size: var(--error404-description-size);
+  line-height:calc(1.65 * var(--accessibility-typography-scale));
   color: var(--error404-body-color);
 }
 
@@ -194,10 +203,10 @@
    05. ACTIONS LAYOUT
    ========================================================= */
 .error404-actions {
-  margin-top: 34px;
+  margin-top:calc(34px * var(--accessibility-density-scale));
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap:calc(12px * var(--accessibility-density-scale));
   flex-wrap: wrap;
 }
 
@@ -244,12 +253,12 @@
    ========================================================= */
 @media (max-width: 900px) {
   :root{
-    --error404-shell-padding-y: 48px;
-    --error404-shell-padding-x: 32px;
+    --error404-shell-padding-y: calc(48px * var(--accessibility-density-scale));
+    --error404-shell-padding-x: calc(32px * var(--accessibility-density-scale));
   }
 
   .error404-title {
-    font-size: 44px;
+    font-size: var(--error404-title-size-tablet);
   }
 }
 
@@ -272,25 +281,25 @@ body.page-404 .error404-shell {
    ========================================================= */
 @media (max-width: 640px) {
   :root{
-    --error404-page-padding-y: 24px;
-    --error404-page-padding-x: 16px;
-    --error404-shell-padding-y: 36px;
-    --error404-shell-padding-x: 24px;
-    --error404-shell-radius: 22px;
+    --error404-page-padding-y: calc(24px * var(--accessibility-density-scale));
+    --error404-page-padding-x: calc(16px * var(--accessibility-density-scale));
+    --error404-shell-padding-y: calc(36px * var(--accessibility-density-scale));
+    --error404-shell-padding-x: calc(24px * var(--accessibility-density-scale));
+    --error404-shell-radius: calc(22px * var(--accessibility-density-scale));
   }
 
   .error404-title {
-    font-size: 34px;
+    font-size: var(--error404-title-size-mobile);
   }
 
   .error404-description {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: var(--error404-description-size-mobile);
+    line-height:calc(1.55 * var(--accessibility-typography-scale));
   }
 
   .error404,
   .page-404-content {
-    padding: 24px 16px;
+    padding:calc(24px * var(--accessibility-density-scale)) calc(16px * var(--accessibility-density-scale));
   }
 
   .error404-actions .ui-button {

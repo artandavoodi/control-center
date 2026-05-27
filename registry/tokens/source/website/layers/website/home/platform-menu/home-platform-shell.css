@@ -579,6 +579,19 @@ body.home-platform-shell-open .home-platform-shell{
   transition:none;
 }
 
+/* =============================================================================
+   AUTH VISIBILITY SYSTEM
+   Elements with data-profile-auth-visible are hidden by default and shown
+   based on the body's auth state attribute (global system)
+============================================================================= */
+body[data-auth-state="signed-out"] [data-profile-auth-visible="signed-in"]{
+  display:none !important;
+}
+
+body[data-auth-state="signed-in"] [data-profile-auth-visible="signed-out"]{
+  display:none !important;
+}
+
 
 .home-platform-shell__nav-icon{
   display:inline-flex;
@@ -799,7 +812,7 @@ body.home-platform-shell-open .home-platform-shell{
   gap:var(--home-platform-shell-destination-gap);
   min-width:var(--spacing-none);
   max-width:var(--size-full);
-  overflow-x:hidden;
+  overflow:visible;
 }
 
 .home-platform-shell__content-stack,
@@ -936,6 +949,12 @@ body.home-platform-shell-open .home-platform-shell{
   letter-spacing:var(--home-platform-shell-label-tracking);
   line-height:var(--control-line-height);
   text-transform:uppercase;
+}
+
+.home-platform-shell .home-platform-theme__section-header{
+  display:flex;
+  flex-direction:column;
+  gap:var(--spacing-lg);
 }
 
 /* =============================================================================
