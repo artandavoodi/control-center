@@ -8818,12 +8818,13 @@ enum DSCTokens {
     "profile-header-border-color": "color-mix(in srgb, var(--text-color) 12%, transparent)",
     "profile-header-border": "var(--border-width-hairline) solid var(--profile-header-border-color)",
     "profile-private-hero-cover-height": "calc(13.5rem * var(--accessibility-density-scale))",
-    "profile-private-hero-cover-height-mobile": "calc(10.5rem * var(--accessibility-density-scale))",
+    "profile-private-hero-cover-height-mobile": "calc(6rem * var(--accessibility-density-scale))",
     "profile-private-hero-cover-radius": "calc(1.4rem * var(--accessibility-density-scale))",
     "profile-private-hero-cover-offset-top": "var(--spacing-md)",
-    "profile-private-hero-avatar-size": "calc(7.25rem * var(--accessibility-icon-scale))",
+    "profile-private-hero-avatar-size": "calc(6rem * var(--accessibility-icon-scale))",
     "profile-private-hero-avatar-border-width": "calc(0.25rem * var(--accessibility-density-scale))",
     "profile-private-hero-media-action-size": "calc(2.15rem * var(--accessibility-icon-scale))",
+    "profile-private-hero-identity-padding-block": "var(--spacing-none)",
     "profile-private-hero-identity-layer": "var(--z-raised)",
     "profile-private-hero-avatar-layer": "var(--z-raised)",
     "profile-private-hero-media-action-layer": "var(--z-above)",
@@ -8916,27 +8917,8 @@ enum DSCTokens {
     "profile-shell-top-clearance": "calc(env(safe-area-inset-top, 0px) + calc(1rem * var(--accessibility-density-scale)))",
     "home-shell-panel-top": "var(--profile-shell-top-clearance)",
     "profile-shell-top-clearance-mobile": "calc(env(safe-area-inset-top, 0px) + calc(0.75rem * var(--accessibility-density-scale)))",
-    "profile-shell-hero-sticky-travel": "calc(
-    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))
-    + var(--spacing-lg)
-    + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
-    + var(--spacing-xl)
-    + calc(2rem * var(--accessibility-density-scale))
-  )",
-    "profile-shell-hero-sticky-travel-mobile": "calc(
-    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height-mobile, calc(10.5rem * var(--accessibility-density-scale)))
-    + var(--spacing-lg)
-    + var(--profile-private-hero-avatar-size, calc(6rem * var(--accessibility-icon-scale)))
-    + var(--spacing-lg)
-    + calc(var(--body-2-size) * var(--body-2-line-height))
-    + calc(var(--body-2-size) * var(--body-2-line-height))
-    + var(--spacing-xl)
-    + calc(-0.5rem * var(--accessibility-density-scale))
-  )",
-    "profile-shell-hero-sticky-top": "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))",
-    "profile-shell-hero-sticky-top-mobile": "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))",
+    "profile-shell-home-tab-sticky-target-top": "0px",
+    "profile-shell-home-tab-sticky-travel": "0px",
     "profile-shell-hero-sticky-z-index": "1200",
     "profile-shell-workspace-sticky-top": "calc(var(--profile-shell-top-clearance) + var(--profile-private-hero-cover-height, 13.5rem) + var(--spacing-xl))",
     "profile-shell-workspace-sticky-top-mobile": "calc(var(--profile-shell-top-clearance-mobile) + var(--profile-private-hero-cover-height-mobile) + var(--spacing-lg))",
@@ -18022,12 +18004,13 @@ enum DSCTokens {
   static let profile_header_border_color = "color-mix(in srgb, var(--text-color) 12%, transparent)"
   static let profile_header_border = "var(--border-width-hairline) solid var(--profile-header-border-color)"
   static let profile_private_hero_cover_height = "calc(13.5rem * var(--accessibility-density-scale))"
-  static let profile_private_hero_cover_height_mobile = "calc(10.5rem * var(--accessibility-density-scale))"
+  static let profile_private_hero_cover_height_mobile = "calc(6rem * var(--accessibility-density-scale))"
   static let profile_private_hero_cover_radius = "calc(1.4rem * var(--accessibility-density-scale))"
   static let profile_private_hero_cover_offset_top = "var(--spacing-md)"
-  static let profile_private_hero_avatar_size = "calc(7.25rem * var(--accessibility-icon-scale))"
+  static let profile_private_hero_avatar_size = "calc(6rem * var(--accessibility-icon-scale))"
   static let profile_private_hero_avatar_border_width = "calc(0.25rem * var(--accessibility-density-scale))"
   static let profile_private_hero_media_action_size = "calc(2.15rem * var(--accessibility-icon-scale))"
+  static let profile_private_hero_identity_padding_block = "var(--spacing-none)"
   static let profile_private_hero_identity_layer = "var(--z-raised)"
   static let profile_private_hero_avatar_layer = "var(--z-raised)"
   static let profile_private_hero_media_action_layer = "var(--z-above)"
@@ -18120,27 +18103,8 @@ enum DSCTokens {
   static let profile_shell_top_clearance = "calc(env(safe-area-inset-top, 0px) + calc(1rem * var(--accessibility-density-scale)))"
   static let home_shell_panel_top = "var(--profile-shell-top-clearance)"
   static let profile_shell_top_clearance_mobile = "calc(env(safe-area-inset-top, 0px) + calc(0.75rem * var(--accessibility-density-scale)))"
-  static let profile_shell_hero_sticky_travel = "calc(
-    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))
-    + var(--spacing-lg)
-    + (var(--profile-private-hero-avatar-size, 7.25rem) / 2)
-    + var(--spacing-xl)
-    + calc(2rem * var(--accessibility-density-scale))
-  )"
-  static let profile_shell_hero_sticky_travel_mobile = "calc(
-    var(--profile-private-hero-cover-offset-top, var(--spacing-md))
-    + var(--profile-private-hero-cover-height-mobile, calc(10.5rem * var(--accessibility-density-scale)))
-    + var(--spacing-lg)
-    + var(--profile-private-hero-avatar-size, calc(6rem * var(--accessibility-icon-scale)))
-    + var(--spacing-lg)
-    + calc(var(--body-2-size) * var(--body-2-line-height))
-    + calc(var(--body-2-size) * var(--body-2-line-height))
-    + var(--spacing-xl)
-    + calc(-0.5rem * var(--accessibility-density-scale))
-  )"
-  static let profile_shell_hero_sticky_top = "calc(var(--profile-shell-top-clearance) - var(--profile-shell-hero-sticky-travel))"
-  static let profile_shell_hero_sticky_top_mobile = "calc(var(--profile-shell-top-clearance-mobile) - var(--profile-shell-hero-sticky-travel-mobile))"
+  static let profile_shell_home_tab_sticky_target_top = "0px"
+  static let profile_shell_home_tab_sticky_travel = "0px"
   static let profile_shell_hero_sticky_z_index = "1200"
   static let profile_shell_workspace_sticky_top = "calc(var(--profile-shell-top-clearance) + var(--profile-private-hero-cover-height, 13.5rem) + var(--spacing-xl))"
   static let profile_shell_workspace_sticky_top_mobile = "calc(var(--profile-shell-top-clearance-mobile) + var(--profile-private-hero-cover-height-mobile) + var(--spacing-lg))"

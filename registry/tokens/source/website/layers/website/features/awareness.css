@@ -1,0 +1,445 @@
+/* =============================================================================
+   00) FILE INDEX
+   01) AWARENESS FEATURE TOKENS
+   02) LAYOUT & PANEL
+   03) TYPOGRAPHY
+   04) FORM CONTROLS
+   05) SLIDERS
+   06) BUTTONS
+   07) RESULT STAGE
+   08) STAGE DESCRIPTION
+   09) DOMINANT MESSAGE
+   10) RTL SUPPORT
+   11) RESPONSIVE
+   12) LINEAR QUESTION INDICATOR
+============================================================================= */
+
+/* =============================================================================
+   01) AWARENESS FEATURE TOKENS
+============================================================================= */
+:root{
+  --awareness-wrap-min-height:var(--layout-awareness-wrap-min-height);
+  --awareness-wrap-padding:var(--layout-awareness-wrap-padding);
+  --awareness-panel-width:var(--layout-awareness-panel-width);
+  --awareness-panel-radius:var(--layout-awareness-panel-radius);
+  --awareness-panel-padding:var(--layout-awareness-panel-padding);
+  --awareness-title-margin-bottom:var(--layout-awareness-title-margin-bottom);
+  --awareness-title-size:var(--layout-awareness-title-size);
+  --awareness-title-weight:var(--layout-awareness-title-weight);
+  --awareness-lead-margin-bottom:var(--layout-awareness-lead-margin-bottom);
+  --awareness-lead-size:var(--layout-awareness-lead-size);
+  --awareness-lead-line-height:var(--layout-awareness-lead-line-height);
+  --awareness-question-size:var(--layout-awareness-question-size);
+  --awareness-question-line-height:var(--layout-awareness-question-line-height);
+  --awareness-question-margin-top:var(--layout-awareness-question-margin-top);
+  --awareness-question-margin-bottom:var(--layout-awareness-question-margin-bottom);
+  --awareness-note-margin-top:var(--layout-awareness-note-margin-top);
+  --awareness-note-size:var(--layout-awareness-note-size);
+  --awareness-row-gap:var(--layout-awareness-row-gap);
+  --awareness-row-margin-bottom:var(--layout-awareness-row-margin-bottom);
+  --awareness-select-padding-y:var(--layout-awareness-select-padding-y);
+  --awareness-select-padding-x:var(--layout-awareness-select-padding-x);
+  --awareness-select-size:var(--layout-awareness-select-size);
+  --awareness-select-radius:var(--layout-awareness-select-radius);
+  --awareness-slider-width:var(--layout-awareness-slider-width);
+  --awareness-slider-margin-top:var(--layout-awareness-slider-margin-top);
+  --awareness-slider-margin-bottom:var(--layout-awareness-slider-margin-bottom);
+  --awareness-slider-gap:var(--layout-awareness-slider-gap);
+  --awareness-track-height:var(--layout-awareness-track-height);
+  --awareness-track-radius:var(--layout-awareness-track-radius);
+  --awareness-thumb-width:var(--layout-awareness-thumb-width);
+  --awareness-thumb-height:var(--layout-awareness-thumb-height);
+  --awareness-thumb-radius:var(--layout-awareness-thumb-radius);
+  --awareness-thumb-shadow:var(--layout-awareness-thumb-shadow);
+  --awareness-thumb-margin-top:var(--layout-awareness-thumb-margin-top);
+  --awareness-thumb-margin-top-moz:var(--layout-awareness-thumb-margin-top-moz);
+  --awareness-thumb-motion:var(--layout-awareness-thumb-motion);
+  --awareness-label-size:var(--layout-awareness-label-size);
+  --awareness-label-margin-top:var(--layout-awareness-label-margin-top);
+  --awareness-label-margin-bottom:var(--layout-awareness-label-margin-bottom);
+  --awareness-button-padding-y:var(--layout-awareness-button-padding-y);
+  --awareness-button-padding-x:var(--layout-awareness-button-padding-x);
+  --awareness-button-radius:var(--layout-awareness-button-radius);
+  --awareness-button-size:var(--layout-awareness-button-size);
+  --awareness-button-margin-top:var(--layout-awareness-button-margin-top);
+  --awareness-result-margin-top:var(--layout-awareness-result-margin-top);
+  --awareness-result-size:var(--layout-awareness-result-size);
+  --awareness-result-gap:var(--layout-awareness-result-gap);
+  --awareness-stage-weight:var(--layout-awareness-stage-weight);
+  --awareness-stage-padding:var(--layout-awareness-stage-padding);
+  --awareness-stage-radius:var(--layout-awareness-stage-radius);
+  --awareness-stage-motion:var(--layout-awareness-stage-motion);
+  --awareness-stage-hover-shadow:var(--layout-awareness-stage-hover-shadow);
+  --awareness-score-size:var(--layout-awareness-score-size);
+  --awareness-score-margin-top:var(--layout-awareness-score-margin-top);
+  --awareness-score-weight:var(--layout-awareness-score-weight);
+  --awareness-desc-padding-y:var(--layout-awareness-desc-padding-y);
+  --awareness-desc-padding-x:var(--layout-awareness-desc-padding-x);
+  --awareness-desc-margin-top:var(--layout-awareness-desc-margin-top);
+  --awareness-desc-radius:var(--layout-awareness-desc-radius);
+  --awareness-desc-size:var(--layout-awareness-desc-size);
+  --awareness-desc-line-height:var(--layout-awareness-desc-line-height);
+  --awareness-dominant-margin-top:var(--layout-awareness-dominant-margin-top);
+  --awareness-dominant-radius:var(--layout-awareness-dominant-radius);
+  --awareness-dominant-padding:var(--layout-awareness-dominant-padding);
+  --awareness-dominant-size:var(--layout-awareness-dominant-size);
+  --awareness-dominant-line-height:var(--layout-awareness-dominant-line-height);
+  --awareness-mobile-panel-padding:var(--layout-awareness-mobile-panel-padding);
+  --awareness-mobile-question-size:var(--layout-awareness-mobile-question-size);
+  --awareness-mobile-button-padding-y:var(--layout-awareness-mobile-button-padding-y);
+  --awareness-mobile-button-padding-x:var(--layout-awareness-mobile-button-padding-x);
+  --awareness-mobile-button-margin-top:var(--layout-awareness-mobile-button-margin-top);
+  --awareness-mobile-button-size:var(--layout-awareness-mobile-button-size);
+  --awareness-mobile-slider-width:var(--layout-awareness-mobile-slider-width);
+  --awareness-mobile-slider-max-width:var(--layout-awareness-mobile-slider-max-width);
+  --awareness-mobile-slider-margin-top:var(--layout-awareness-mobile-slider-margin-top);
+  --awareness-mobile-slider-margin-bottom:var(--layout-awareness-mobile-slider-margin-bottom);
+  --awareness-mobile-slider-gap:var(--layout-awareness-mobile-slider-gap);
+  --awareness-mobile-label-size:var(--layout-awareness-mobile-label-size);
+  --awareness-mobile-label-margin-bottom:var(--layout-awareness-mobile-label-margin-bottom);
+  --awareness-mobile-thumb-width:var(--layout-awareness-mobile-thumb-width);
+  --awareness-mobile-thumb-height:var(--layout-awareness-mobile-thumb-height);
+  --awareness-progress-width:var(--layout-awareness-progress-width);
+  --awareness-progress-max-width:var(--layout-awareness-progress-max-width);
+  --awareness-progress-height:var(--layout-awareness-progress-height);
+  --awareness-progress-radius:var(--layout-awareness-progress-radius);
+  --awareness-progress-margin-top:var(--layout-awareness-progress-margin-top);
+  --awareness-progress-margin-bottom:var(--layout-awareness-progress-margin-bottom);
+  --awareness-progress-fill-width:var(--layout-awareness-progress-fill-width);
+}
+
+/* =============================================================================
+   02) LAYOUT & PANEL
+============================================================================= */
+.wrap{
+  min-height:var(--awareness-wrap-min-height);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:var(--awareness-wrap-padding);
+  background-color:var(--bg-color);
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+.panel{
+  width:min(var(--awareness-panel-width), var(--panel-width));
+  max-width:var(--panel-width);
+  background:transparent !important;
+  border-radius:var(--awareness-panel-radius);
+  box-shadow:none !important;
+  padding:var(--awareness-panel-padding);
+  box-sizing:border-box;
+  text-align:center;
+  color:var(--text-color);
+}
+
+/* =============================================================================
+   03) TYPOGRAPHY
+============================================================================= */
+h1{
+  margin:var(--spacing-none) var(--spacing-none) var(--awareness-title-margin-bottom) var(--spacing-none);
+  font-weight:var(--awareness-title-weight);
+  color:var(--text-color);
+  font-size:var(--awareness-title-size);
+}
+
+p.lead{
+  margin:var(--spacing-none) var(--spacing-none) var(--awareness-lead-margin-bottom) var(--spacing-none);
+  color:var(--text-secondary-color);
+  font-size:var(--awareness-lead-size);
+  line-height:var(--awareness-lead-line-height);
+}
+
+#questionText{
+  font-size:var(--awareness-question-size);
+  line-height:var(--awareness-question-line-height);
+  margin:var(--awareness-question-margin-top) var(--spacing-none) var(--awareness-question-margin-bottom) var(--spacing-none);
+  text-align:center;
+  word-break:break-word;
+  color:var(--text-secondary-color);
+}
+
+footer.note{
+  margin-top:var(--awareness-note-margin-top);
+  color:var(--text-secondary-color);
+  font-size:var(--awareness-note-size);
+}
+
+/* =============================================================================
+   04) FORM CONTROLS
+============================================================================= */
+.row{
+  display:flex;
+  justify-content:center;
+  gap:var(--awareness-row-gap);
+  align-items:center;
+  margin-bottom:var(--awareness-row-margin-bottom);
+}
+
+select{
+  padding:var(--awareness-select-padding-y) var(--awareness-select-padding-x);
+  font-size:var(--awareness-select-size);
+  border-radius:var(--awareness-select-radius);
+  border:var(--border-width-hairline) solid var(--border-color, #e6e6e6);
+  background:var(--bg-color);
+  color:var(--text-color);
+}
+
+/* =============================================================================
+   05) SLIDERS
+============================================================================= */
+.fixed-slider-wrap{
+  width:var(--awareness-slider-width);
+  max-width:var(--awareness-slider-width);
+  margin:var(--awareness-slider-margin-top) auto var(--awareness-slider-margin-bottom) auto;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  gap:var(--awareness-slider-gap);
+}
+
+.fixed-track{
+  width:var(--awareness-slider-width);
+}
+
+.awareness-slider input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:var(--slider-thumb-size);
+  height:var(--slider-thumb-size);
+  border-radius:var(--slider-thumb-radius);
+  background:var(--slider-thumb-bg);
+  box-shadow:none;
+  border:none;
+  transition:background-color var(--awareness-thumb-motion) ease, box-shadow var(--awareness-thumb-motion) ease;
+}
+
+.awareness-slider input[type="range"]::-webkit-slider-thumb:hover {
+  background-color:var(--slider-thumb-bg);
+}
+
+.awareness-slider input[type="range"]::-moz-range-thumb{
+  width:var(--slider-thumb-size);
+  height:var(--slider-thumb-size);
+  border-radius:var(--slider-thumb-radius);
+  background:var(--slider-thumb-bg);
+  box-shadow:none;
+  border:none;
+  transition:background-color var(--awareness-thumb-motion) ease, box-shadow var(--awareness-thumb-motion) ease;
+}
+
+.awareness-slider input[type="range"]::-moz-range-thumb:hover {
+  background-color:var(--slider-thumb-bg);
+}
+
+.awareness-slider input[type="range"]::-webkit-slider-runnable-track {
+  height: var(--slider-track-height);
+  background: var(--slider-track-bg);
+  border-radius: var(--slider-track-radius);
+}
+
+.awareness-slider input[type="range"]::-moz-range-track {
+  height: var(--slider-track-height);
+  background: var(--slider-track-bg);
+  border-radius: var(--slider-track-radius);
+}
+
+.slider-labels{
+  width:var(--size-full);
+  display:flex;
+  justify-content:space-between;
+  font-size:var(--awareness-label-size);
+  margin-top:var(--awareness-label-margin-top);
+  margin-bottom:var(--awareness-label-margin-bottom);
+  color:var(--text-secondary-color);
+  user-select:none;
+  box-sizing:border-box;
+}
+
+/* =============================================================================
+   06) BUTTONS
+============================================================================= */
+.btn,
+.enter-button,
+#restartBtn,
+#startBtn{
+  display:inline-block;
+  padding:var(--awareness-button-padding-y) var(--awareness-button-padding-x);
+  border-radius:var(--awareness-button-radius);
+  background:transparent !important;
+  color:var(--text-color) !important;
+  border:var(--border-width-hairline) solid var(--text-secondary-color);
+  box-shadow:none !important;
+  font-size:var(--awareness-button-size);
+  margin-top:var(--awareness-button-margin-top);
+  transition:none;
+}
+
+.btn:hover,
+.enter-button:hover,
+#restartBtn:hover,
+#startBtn:hover,
+.btn:active,
+.enter-button:active,
+#restartBtn:active,
+#startBtn:active{
+  background:transparent !important;
+  color:var(--text-color) !important;
+  box-shadow:none !important;
+  border:var(--border-width-hairline) solid var(--text-secondary-color);
+}
+
+.hidden{
+  display:none;
+}
+
+/* =============================================================================
+   07) RESULT STAGE
+============================================================================= */
+.result-grid{
+  margin-top:var(--awareness-result-margin-top);
+  color:var(--text-color);
+  font-size:var(--awareness-result-size);
+  display:flex;
+  gap:var(--awareness-result-gap);
+  justify-content:space-between;
+  align-items:center;
+}
+
+.result-stage{
+  font-weight:var(--awareness-stage-weight);
+  flex:1;
+  padding:var(--awareness-stage-padding);
+  background:transparent !important;
+  border-radius:var(--awareness-stage-radius);
+  position:relative;
+  transition:background var(--awareness-stage-motion) ease;
+  box-shadow:none !important;
+  color:var(--text-color);
+}
+
+.result-stage:hover{
+  background:var(--link-hover-color);
+  color:var(--bg-color);
+  box-shadow:var(--awareness-stage-hover-shadow);
+}
+
+.result-score{
+  font-size:var(--awareness-score-size);
+  color:var(--text-color);
+  margin-top:var(--awareness-score-margin-top);
+  font-weight:var(--awareness-score-weight);
+}
+
+/* =============================================================================
+   08) STAGE DESCRIPTION
+============================================================================= */
+.stage-desc{
+  padding:var(--awareness-desc-padding-y) var(--awareness-desc-padding-x);
+  margin-top:var(--awareness-desc-margin-top);
+  background:transparent !important;
+  border-radius:var(--awareness-desc-radius);
+  text-align:left;
+  font-size:var(--awareness-desc-size);
+  line-height:var(--awareness-desc-line-height);
+  display:none;
+  white-space:pre-wrap;
+  color:var(--text-secondary-color);
+  box-shadow:none !important;
+}
+
+/* =============================================================================
+   09) DOMINANT MESSAGE
+============================================================================= */
+#dominantMessage{
+  margin-top:var(--awareness-dominant-margin-top);
+  background:transparent !important;
+  border-radius:var(--awareness-dominant-radius);
+  padding:var(--awareness-dominant-padding);
+  color:var(--text-color);
+  font-size:var(--awareness-dominant-size);
+  line-height:var(--awareness-dominant-line-height);
+  box-shadow:none !important;
+}
+
+#dominantMessage strong{
+  color:var(--link-color);
+}
+
+/* =============================================================================
+   10) RTL SUPPORT
+============================================================================= */
+:root[dir="rtl"] .panel,
+:root[dir="rtl"] .slider-labels{
+  direction:rtl;
+}
+
+:root[dir="rtl"] .stage-desc{
+  direction:rtl;
+  text-align:right;
+}
+
+/* =============================================================================
+   11) RESPONSIVE
+============================================================================= */
+@media (max-width:520px){
+  .panel{
+    padding:var(--awareness-mobile-panel-padding);
+  }
+
+  #questionText{
+    font-size:var(--awareness-mobile-question-size);
+  }
+
+  .btn,
+  .enter-button{
+    padding:var(--awareness-mobile-button-padding-y) var(--awareness-mobile-button-padding-x);
+    margin-top:var(--awareness-mobile-button-margin-top);
+    font-size:var(--awareness-mobile-button-size);
+  }
+
+  .fixed-slider-wrap{
+    width:var(--awareness-mobile-slider-width);
+    max-width:var(--awareness-mobile-slider-max-width);
+    margin:var(--awareness-mobile-slider-margin-top) auto var(--awareness-mobile-slider-margin-bottom) auto;
+    gap:var(--awareness-mobile-slider-gap);
+  }
+
+  .slider-labels{
+    font-size:var(--awareness-mobile-label-size);
+    margin-top:var(--awareness-label-margin-top);
+    margin-bottom:var(--awareness-mobile-label-margin-bottom);
+  }
+
+  input[type="range"]::-webkit-slider-thumb,
+  input[type="range"]::-moz-range-thumb{
+    width:var(--awareness-mobile-thumb-width);
+    height:var(--awareness-mobile-thumb-height);
+  }
+
+  input[type="range"]{
+    margin-bottom:var(--awareness-mobile-slider-margin-bottom);
+  }
+}
+
+/* =============================================================================
+   12) LINEAR QUESTION INDICATOR
+============================================================================= */
+#questionProgressBar{
+  width:var(--awareness-progress-width);
+  max-width:var(--awareness-progress-max-width);
+  height:var(--awareness-progress-height);
+  background:var(--awareness-progress-bg);
+  border-radius:var(--awareness-progress-radius);
+  margin:var(--awareness-progress-margin-top) auto var(--awareness-progress-margin-bottom) auto;
+  overflow:hidden;
+}
+
+#questionProgressFill{
+  width:var(--awareness-progress-fill-width);
+  height:var(--size-full);
+  background:var(--link-color);
+  transition:width var(--awareness-thumb-motion) ease;
+  border-radius:var(--awareness-progress-radius);
+}
