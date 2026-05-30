@@ -1,0 +1,2800 @@
+{
+  "meta": {
+    "product": "Neuroartan Control Center",
+    "version": "0.3.0",
+    "status": "institutional control foundation"
+  },
+  "shell": {
+    "title": "Control Center",
+    "intro": "Operate Neuroartan documents, offices, roles, verification, credentials, tokens, and publishing from one governed console."
+  },
+  "navigation": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "/registry/icons/public/assets/core/navigation/dashboard/dashboard.svg"
+    },
+    {
+      "id": "documents",
+      "label": "Documents",
+      "icon": "/registry/icons/public/assets/core/files/document-text/document-text.svg"
+    },
+    {
+      "id": "verification",
+      "label": "Verification",
+      "icon": "/registry/icons/public/assets/layers/website/profile/actions/verification.svg"
+    },
+    {
+      "id": "tokens",
+      "label": "Tokens",
+      "icon": "/registry/icons/public/assets/core/actions/developer-dashboard/developer-dashboard.svg"
+    },
+    {
+      "id": "icons",
+      "label": "Icons",
+      "icon": "/registry/icons/public/assets/core/actions/add-style-sample/add-style-sample.svg"
+    },
+    {
+      "id": "staff",
+      "label": "Staff",
+      "icon": "/registry/icons/public/assets/core/identity/profile/users.svg"
+    },
+    {
+      "id": "office",
+      "label": "Office",
+      "icon": "/registry/icons/public/assets/layers/website/navigation/actions/neuroartan-office-dashboard.svg"
+    }
+  ],
+  "overview": {
+    "metrics": [
+      {
+        "label": "Departments",
+        "value": "6",
+        "detail": "Registered from institutional architecture."
+      },
+      {
+        "label": "Offices",
+        "value": "47",
+        "detail": "Canonical office definitions indexed."
+      },
+      {
+        "label": "Executive roles",
+        "value": "15",
+        "detail": "Dossiers and public postings mapped."
+      },
+      {
+        "label": "Public legal documents",
+        "value": "6",
+        "detail": "Publication candidates linked to source files."
+      }
+    ],
+    "systems": [
+      {
+        "name": "Document workspace",
+        "state": "browser-ready",
+        "detail": "Create, edit, move, delete, submit, and publish drafts through the Control Center store."
+      },
+      {
+        "name": "Local folder writer",
+        "state": "permission-gated",
+        "detail": "Uses the browser directory picker when supported; a local backend is required for Safari-grade filesystem automation."
+      },
+      {
+        "name": "Institution registry",
+        "state": "connected",
+        "detail": "Departments, offices, and executive roles are data-driven from the institutional vault."
+      },
+      {
+        "name": "Verification queue",
+        "state": "supabase-ready",
+        "detail": "Approval and decline actions are wired for the verification request table."
+      }
+    ]
+  },
+  "documents": {
+    "storageKey": "neuroartan.controlCenter.documents",
+    "workspace": {
+      "label": "Institutional vault",
+      "root": "/Users/artan/Documents/Neuroartan/I",
+      "modes": [
+        "browser-store",
+        "directory-picker",
+        "local-backend-required"
+      ],
+      "publishTargets": [
+        {
+          "id": "public-legal",
+          "label": "Public legal pages",
+          "source": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages",
+          "target": "website/public/legal"
+        },
+        {
+          "id": "documentation",
+          "label": "Documentation site",
+          "source": "documentation",
+          "target": "website/docs"
+        },
+        {
+          "id": "office",
+          "label": "Office layer",
+          "source": "I",
+          "target": "office.neuroartan.com"
+        }
+      ]
+    },
+    "formats": [
+      {
+        "id": "md",
+        "label": "Markdown",
+        "extension": "md"
+      },
+      {
+        "id": "txt",
+        "label": "Plain text",
+        "extension": "txt"
+      },
+      {
+        "id": "json",
+        "label": "JSON",
+        "extension": "json"
+      },
+      {
+        "id": "csv",
+        "label": "CSV",
+        "extension": "csv"
+      }
+    ],
+    "metadataTemplate": {
+      "template_lock": "Global-Metadata-Standard-v1.9",
+      "fields": [
+        {
+          "id": "document_id",
+          "label": "Document ID",
+          "placeholder": "NA-AREA-TYPE-YEAR-0001"
+        },
+        {
+          "id": "classification",
+          "label": "Classification",
+          "placeholder": "Internal"
+        },
+        {
+          "id": "department",
+          "label": "Department",
+          "placeholder": "01 - Governance"
+        },
+        {
+          "id": "office",
+          "label": "Office",
+          "placeholder": "Governance Core"
+        },
+        {
+          "id": "owner",
+          "label": "Owner",
+          "placeholder": "Founder / CEO (Public: ARTAN)"
+        },
+        {
+          "id": "status",
+          "label": "Status",
+          "placeholder": "Draft"
+        },
+        {
+          "id": "template_lock",
+          "label": "Template lock",
+          "placeholder": "Global-Metadata-Standard-v1.9"
+        },
+        {
+          "id": "publication_target",
+          "label": "Publication target",
+          "placeholder": "website/docs/..."
+        }
+      ]
+    },
+    "standards": [
+      {
+        "label": "Document Register",
+        "path": "I/01 - Governance/01 - Core/02 - Policies/04 - Registers/01 - Document Register.md"
+      },
+      {
+        "label": "Folder Naming Standard",
+        "path": "I/01 - Governance/01 - Core/00 - Master Control/02 - Folder Naming Standard.md"
+      },
+      {
+        "label": "Documentation Architecture Index",
+        "path": "documentation/00 - Control/00 - Documentation Architecture Index.md"
+      },
+      {
+        "label": "Publishing Pipeline",
+        "path": "documentation/03 - Publishing Pipeline/01 - Documentation Publishing Pipeline.md"
+      },
+      {
+        "label": "Publication Traceability Standard",
+        "path": "I/04 - Infrastructure/01 - Website Infrastructure/01 - Standards & Governance/02 - Publication Traceability & Document ID Preservation Standard.md"
+      }
+    ],
+    "tree": [
+      {
+        "id": "vault-institution",
+        "label": "Institutional Vault",
+        "type": "folder",
+        "children": [
+          {
+            "id": "folder-departments",
+            "label": "Department Definitions",
+            "type": "folder",
+            "children": [
+              {
+                "id": "department-01",
+                "label": "Governance Department",
+                "type": "document"
+              },
+              {
+                "id": "department-02",
+                "label": "Operations Department",
+                "type": "document"
+              },
+              {
+                "id": "department-03",
+                "label": "Knowledge & Research Department",
+                "type": "document"
+              },
+              {
+                "id": "department-04",
+                "label": "Infrastructure Department",
+                "type": "document"
+              },
+              {
+                "id": "department-05",
+                "label": "Brand Department",
+                "type": "document"
+              },
+              {
+                "id": "department-06",
+                "label": "Communication Department",
+                "type": "document"
+              }
+            ]
+          },
+          {
+            "id": "folder-offices",
+            "label": "Office Definitions",
+            "type": "folder",
+            "children": [
+              {
+                "id": "office-01.01",
+                "label": "Governance Core Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.02",
+                "label": "Governance Legal Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.03",
+                "label": "Governance Corporate Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.04",
+                "label": "Corporate Secretary Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.05",
+                "label": "Chief of Staff Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.06",
+                "label": "Governance Finance Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.07",
+                "label": "Governance Revenue Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.08",
+                "label": "Governance IPO Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.09",
+                "label": "Governance Roadmap Office",
+                "type": "document"
+              },
+              {
+                "id": "office-01.10",
+                "label": "Governance Task System Office",
+                "type": "document"
+              },
+              {
+                "id": "office-02.01",
+                "label": "Executive Command Office",
+                "type": "document"
+              },
+              {
+                "id": "office-02.02",
+                "label": "Human Resources Office",
+                "type": "document"
+              }
+            ]
+          },
+          {
+            "id": "folder-roles",
+            "label": "Executive Roles",
+            "type": "folder",
+            "children": [
+              {
+                "id": "role-CEO",
+                "label": "CEO",
+                "type": "document"
+              },
+              {
+                "id": "role-COO",
+                "label": "COO",
+                "type": "document"
+              },
+              {
+                "id": "role-CFO",
+                "label": "CFO",
+                "type": "document"
+              },
+              {
+                "id": "role-CSO",
+                "label": "CSO",
+                "type": "document"
+              },
+              {
+                "id": "role-CSRO",
+                "label": "CSRO",
+                "type": "document"
+              },
+              {
+                "id": "role-CCSO",
+                "label": "CCSO",
+                "type": "document"
+              },
+              {
+                "id": "role-CTO",
+                "label": "CTO",
+                "type": "document"
+              },
+              {
+                "id": "role-CBAO",
+                "label": "CBAO",
+                "type": "document"
+              },
+              {
+                "id": "role-CPO",
+                "label": "CPO",
+                "type": "document"
+              },
+              {
+                "id": "role-CRSO",
+                "label": "CRSO",
+                "type": "document"
+              },
+              {
+                "id": "role-CREO",
+                "label": "CREO",
+                "type": "document"
+              },
+              {
+                "id": "role-GC",
+                "label": "GC",
+                "type": "document"
+              },
+              {
+                "id": "role-CCO",
+                "label": "CCO",
+                "type": "document"
+              },
+              {
+                "id": "role-CoS",
+                "label": "CoS",
+                "type": "document"
+              },
+              {
+                "id": "role-CSec",
+                "label": "CSec",
+                "type": "document"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vault-public",
+        "label": "Public Documents",
+        "type": "folder",
+        "children": [
+          {
+            "id": "public-cookie-policy",
+            "label": "Cookie Policy",
+            "type": "document"
+          },
+          {
+            "id": "public-privacy-policy",
+            "label": "Privacy Policy",
+            "type": "document"
+          },
+          {
+            "id": "public-terms-of-use",
+            "label": "Terms of Use",
+            "type": "document"
+          },
+          {
+            "id": "public-imprint",
+            "label": "Imprint",
+            "type": "document"
+          },
+          {
+            "id": "public-disclaimer",
+            "label": "Disclaimer",
+            "type": "document"
+          },
+          {
+            "id": "public-voice-profile-consent-notice",
+            "label": "Voice & Profile Consent Notice",
+            "type": "document"
+          }
+        ]
+      }
+    ],
+    "documents": [
+      {
+        "id": "department-01",
+        "title": "Governance Department",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/01 - Governance Department/01 - Governance Department.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance Department",
+          "status": "Active",
+          "owner": "Founder / CEO",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Department source: I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/01 - Governance Department/01 - Governance Department.md"
+      },
+      {
+        "id": "department-02",
+        "title": "Operations Department",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/02 - Operations Department/01 - Operations Department.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations Department",
+          "status": "Active",
+          "owner": "Founder / CEO",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Department source: I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/02 - Operations Department/01 - Operations Department.md"
+      },
+      {
+        "id": "department-03",
+        "title": "Knowledge & Research Department",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/03 - Knowledge & Research Department/01 - Knowledge & Research Department.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research Department",
+          "status": "Active",
+          "owner": "Founder / CEO",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Department source: I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/03 - Knowledge & Research Department/01 - Knowledge & Research Department.md"
+      },
+      {
+        "id": "department-04",
+        "title": "Infrastructure Department",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/04 - Infrastructure Department/01 - Infrastructure Department.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Infrastructure Department",
+          "status": "Active",
+          "owner": "Founder / CEO",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Department source: I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/04 - Infrastructure Department/01 - Infrastructure Department.md"
+      },
+      {
+        "id": "department-05",
+        "title": "Brand Department",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/05 - Brand Department/01 - Brand Department.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand Department",
+          "status": "Active",
+          "owner": "Founder / CEO",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Department source: I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/05 - Brand Department/01 - Brand Department.md"
+      },
+      {
+        "id": "department-06",
+        "title": "Communication Department",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/06 - Communication Department/01 - Communication Department.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication Department",
+          "status": "Active",
+          "owner": "Founder / CEO",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Department source: I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/06 - Communication Department/01 - Communication Department.md"
+      },
+      {
+        "id": "office-01.01",
+        "title": "Governance Core Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.01 – Governance Core Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Core Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.01 – Governance Core Office.md"
+      },
+      {
+        "id": "office-01.02",
+        "title": "Governance Legal Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.02 - Governance Legal Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Legal Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.02 - Governance Legal Office.md"
+      },
+      {
+        "id": "office-01.03",
+        "title": "Governance Corporate Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.03 - Governance Corporate Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Corporate Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.03 - Governance Corporate Office.md"
+      },
+      {
+        "id": "office-01.04",
+        "title": "Corporate Secretary Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.04 - Corporate Secretary Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Corporate Secretary Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.04 - Corporate Secretary Office.md"
+      },
+      {
+        "id": "office-01.05",
+        "title": "Chief of Staff Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.05 - Chief of Staff Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Chief of Staff Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.05 - Chief of Staff Office.md"
+      },
+      {
+        "id": "office-01.06",
+        "title": "Governance Finance Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.06 - Governance Finance Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Finance Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.06 - Governance Finance Office.md"
+      },
+      {
+        "id": "office-01.07",
+        "title": "Governance Revenue Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.07 - Governance Revenue Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Revenue Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.07 - Governance Revenue Office.md"
+      },
+      {
+        "id": "office-01.08",
+        "title": "Governance IPO Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.08 - Governance IPO Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance IPO Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.08 - Governance IPO Office.md"
+      },
+      {
+        "id": "office-01.09",
+        "title": "Governance Roadmap Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.09 - Governance Roadmap Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Roadmap Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.09 - Governance Roadmap Office.md"
+      },
+      {
+        "id": "office-01.10",
+        "title": "Governance Task System Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.10 - Governance Task System Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Governance",
+          "office": "Governance Task System Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.10 - Governance Task System Office.md"
+      },
+      {
+        "id": "office-02.01",
+        "title": "Executive Command Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.01 - Executive Command Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Executive Command Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.01 - Executive Command Office.md"
+      },
+      {
+        "id": "office-02.02",
+        "title": "Human Resources Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.02 - Human Resources Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Human Resources Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.02 - Human Resources Office.md"
+      },
+      {
+        "id": "office-02.03",
+        "title": "AI Agents Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.03 - AI Agents Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "AI Agents Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.03 - AI Agents Office.md"
+      },
+      {
+        "id": "office-02.04",
+        "title": "Engineering Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.04 - Engineering Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Engineering Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.04 - Engineering Office.md"
+      },
+      {
+        "id": "office-02.05",
+        "title": "Products Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.05 - Products Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Products Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.05 - Products Office.md"
+      },
+      {
+        "id": "office-02.06",
+        "title": "Implementation Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.06 - Implementation Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Implementation Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.06 - Implementation Office.md"
+      },
+      {
+        "id": "office-02.07",
+        "title": "Performance Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.07 - Performance Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Performance Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.07 - Performance Office.md"
+      },
+      {
+        "id": "office-02.08",
+        "title": "Documentation Standards Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.08 - Documentation Standards Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Documentation Standards Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.08 - Documentation Standards Office.md"
+      },
+      {
+        "id": "office-02.09",
+        "title": "Talent Pipeline Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.09 - Talent Pipeline Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Operations",
+          "office": "Talent Pipeline Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.09 - Talent Pipeline Office.md"
+      },
+      {
+        "id": "office-03.01",
+        "title": "Research Programs Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.01 - Research Programs Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Research Programs Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.01 - Research Programs Office.md"
+      },
+      {
+        "id": "office-03.02",
+        "title": "Scientific Foundations Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.02 - Scientific Foundations Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Scientific Foundations Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.02 - Scientific Foundations Office.md"
+      },
+      {
+        "id": "office-03.03",
+        "title": "Knowledge Systems Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.03 - Knowledge Systems Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Knowledge Systems Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.03 - Knowledge Systems Office.md"
+      },
+      {
+        "id": "office-03.04",
+        "title": "Cognitive Science Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.04 - Cognitive Science Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Cognitive Science Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.04 - Cognitive Science Office.md"
+      },
+      {
+        "id": "office-03.05",
+        "title": "Neuroscience Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.05 - Neuroscience Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Neuroscience Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.05 - Neuroscience Office.md"
+      },
+      {
+        "id": "office-03.06",
+        "title": "Psychology Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.06 - Psychology Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Psychology Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.06 - Psychology Office.md"
+      },
+      {
+        "id": "office-03.07",
+        "title": "Data & Experimental Research Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.07 - Data & Experimental Research Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Data & Experimental Research Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.07 - Data & Experimental Research Office.md"
+      },
+      {
+        "id": "office-03.08",
+        "title": "AI & Cognitive Systems Research Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.08 - AI & Cognitive Systems Research Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "AI & Cognitive Systems Research Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.08 - AI & Cognitive Systems Research Office.md"
+      },
+      {
+        "id": "office-03.09",
+        "title": "Research Integrity & Ethics (IRB) Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.09 - Research Integrity & Ethics (IRB) Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Knowledge & Research",
+          "office": "Research Integrity & Ethics (IRB) Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.09 - Research Integrity & Ethics (IRB) Office.md"
+      },
+      {
+        "id": "office-04.01",
+        "title": "Platform Infrastructure Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.01 - Platform Infrastructure Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Infrastructure",
+          "office": "Platform Infrastructure Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.01 - Platform Infrastructure Office.md"
+      },
+      {
+        "id": "office-04.02",
+        "title": "Data Infrastructure Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.02 - Data Infrastructure Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Infrastructure",
+          "office": "Data Infrastructure Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.02 - Data Infrastructure Office.md"
+      },
+      {
+        "id": "office-04.03",
+        "title": "Security & Compliance Infrastructure Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.03 - Security & Compliance Infrastructure Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Infrastructure",
+          "office": "Security & Compliance Infrastructure Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.03 - Security & Compliance Infrastructure Office.md"
+      },
+      {
+        "id": "office-04.04",
+        "title": "AI Runtime Infrastructure Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.04 - AI Runtime Infrastructure Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Infrastructure",
+          "office": "AI Runtime Infrastructure Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.04 - AI Runtime Infrastructure Office.md"
+      },
+      {
+        "id": "office-05.01",
+        "title": "Approvals Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.01 - Approvals Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Approvals Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.01 - Approvals Office.md"
+      },
+      {
+        "id": "office-05.02",
+        "title": "Assets Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.02 - Assets Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Assets Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.02 - Assets Office.md"
+      },
+      {
+        "id": "office-05.03",
+        "title": "Design System Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.03 - Design System Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Design System Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.03 - Design System Office.md"
+      },
+      {
+        "id": "office-05.04",
+        "title": "Documentation Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.04 - Documentation Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Documentation Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.04 - Documentation Office.md"
+      },
+      {
+        "id": "office-05.05",
+        "title": "Guidelines Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.05 - Guidelines Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Guidelines Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.05 - Guidelines Office.md"
+      },
+      {
+        "id": "office-05.06",
+        "title": "Legal Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.06 - Legal Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Legal Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.06 - Legal Office.md"
+      },
+      {
+        "id": "office-05.07",
+        "title": "Requests Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.07 - Requests Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Requests Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.07 - Requests Office.md"
+      },
+      {
+        "id": "office-05.08",
+        "title": "Strategy Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.08 - Strategy Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Brand",
+          "office": "Strategy Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.08 - Strategy Office.md"
+      },
+      {
+        "id": "office-06.01",
+        "title": "Communication Governance Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.01 - Communication Governance Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Communication Governance Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.01 - Communication Governance Office.md"
+      },
+      {
+        "id": "office-06.02",
+        "title": "Corporate Communications Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.02 - Corporate Communications Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Corporate Communications Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.02 - Corporate Communications Office.md"
+      },
+      {
+        "id": "office-06.03",
+        "title": "Public Relations Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.03 - Public Relations Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Public Relations Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.03 - Public Relations Office.md"
+      },
+      {
+        "id": "office-06.04",
+        "title": "Publications Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.04 - Publications Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Publications Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.04 - Publications Office.md"
+      },
+      {
+        "id": "office-06.05",
+        "title": "Founder Communications Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.05 - Founder Communications Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Founder Communications Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.05 - Founder Communications Office.md"
+      },
+      {
+        "id": "office-06.06",
+        "title": "Careers Communications Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.06 - Careers Communications Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Careers Communications Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.06 - Careers Communications Office.md"
+      },
+      {
+        "id": "office-06.07",
+        "title": "Announcements Office",
+        "path": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.07 - Announcements Office.md",
+        "status": "Active",
+        "format": "md",
+        "metadata": {
+          "department": "Communication",
+          "office": "Announcements Office",
+          "status": "Active",
+          "owner": "Founder / CEO (Public: ARTAN)",
+          "classification": "Internal",
+          "template_lock": "Global-Metadata-Standard-v1.4"
+        },
+        "body": "Office source: I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.07 - Announcements Office.md"
+      },
+      {
+        "id": "role-CEO",
+        "title": "Chief Executive Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/01 - Chief Executive Officer (CEO)/01 - Executive Role Dossier — Chief Executive Officer.md",
+        "status": "active",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "active",
+          "owner": "Artan Davoodi",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/01 - Chief Executive Officer (CEO)/02 - Executive Role Posting — Chief Executive Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/01 - Chief Executive Officer (CEO)/01 - Executive Role Dossier — Chief Executive Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/01 - Chief Executive Officer (CEO)/02 - Executive Role Posting — Chief Executive Officer.md"
+      },
+      {
+        "id": "role-COO",
+        "title": "Chief Operating Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/02 - Chief Operating Officer (COO)/01 - Executive Role Dossier — Chief Operating Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/02 - Chief Operating Officer (COO)/02 - Executive Role Posting — Chief Operating Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/02 - Chief Operating Officer (COO)/01 - Executive Role Dossier — Chief Operating Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/02 - Chief Operating Officer (COO)/02 - Executive Role Posting — Chief Operating Officer.md"
+      },
+      {
+        "id": "role-CFO",
+        "title": "Chief Financial Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/03 - Chief Financial Officer (CFO)/01 - Executive Role Dossier — Chief Financial Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/03 - Chief Financial Officer (CFO)/02 - Executive Role Posting — Chief Financial Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/03 - Chief Financial Officer (CFO)/01 - Executive Role Dossier — Chief Financial Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/03 - Chief Financial Officer (CFO)/02 - Executive Role Posting — Chief Financial Officer.md"
+      },
+      {
+        "id": "role-CSO",
+        "title": "Chief Strategy Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/04 - Chief Strategy Officer (CSO)/01 - Executive Role Dossier — Chief Strategy Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/04 - Chief Strategy Officer (CSO)/02 - Executive Role Posting — Chief Strategy Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/04 - Chief Strategy Officer (CSO)/01 - Executive Role Dossier — Chief Strategy Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/04 - Chief Strategy Officer (CSO)/02 - Executive Role Posting — Chief Strategy Officer.md"
+      },
+      {
+        "id": "role-CSRO",
+        "title": "Chief Science & Research Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/05 - Chief Science & Research Officer (CSRO)/01 - Executive Role Dossier — Chief Science & Research Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/05 - Chief Science & Research Officer (CSRO)/02 - Executive Role Posting — Chief Science & Research Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/05 - Chief Science & Research Officer (CSRO)/01 - Executive Role Dossier — Chief Science & Research Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/05 - Chief Science & Research Officer (CSRO)/02 - Executive Role Posting — Chief Science & Research Officer.md"
+      },
+      {
+        "id": "role-CCSO",
+        "title": "Chief Cognitive Systems Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/06 - Chief Cognitive Systems Officer (CCSO)/01 - Executive Role Dossier — Chief Cognitive Systems Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/06 - Chief Cognitive Systems Officer (CCSO)/02 - Executive Role Posting — Chief Cognitive Systems Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/06 - Chief Cognitive Systems Officer (CCSO)/01 - Executive Role Dossier — Chief Cognitive Systems Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/06 - Chief Cognitive Systems Officer (CCSO)/02 - Executive Role Posting — Chief Cognitive Systems Officer.md"
+      },
+      {
+        "id": "role-CTO",
+        "title": "Chief Technology Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/07 - Chief Technology Officer (CTO)/01 - Executive Role Dossier — Chief Technology Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/07 - Chief Technology Officer (CTO)/02 - Executive Role Posting — Chief Technology Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/07 - Chief Technology Officer (CTO)/01 - Executive Role Dossier — Chief Technology Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/07 - Chief Technology Officer (CTO)/02 - Executive Role Posting — Chief Technology Officer.md"
+      },
+      {
+        "id": "role-CBAO",
+        "title": "Chief Brand & Aesthetic Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/08 - Chief Brand & Aesthetic Officer (CBAO)/01 - Executive Role Dossier — Chief Brand & Aesthetic Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/08 - Chief Brand & Aesthetic Officer (CBAO)/02 - Executive Role Posting — Chief Brand & Aesthetic Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/08 - Chief Brand & Aesthetic Officer (CBAO)/01 - Executive Role Dossier — Chief Brand & Aesthetic Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/08 - Chief Brand & Aesthetic Officer (CBAO)/02 - Executive Role Posting — Chief Brand & Aesthetic Officer.md"
+      },
+      {
+        "id": "role-CPO",
+        "title": "Chief Publishing Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/09 - Chief Publishing Officer (CPO)/01 - Executive Role Dossier — Chief Publishing Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/09 - Chief Publishing Officer (CPO)/02 - Executive Role Posting — Chief Publishing Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/09 - Chief Publishing Officer (CPO)/01 - Executive Role Dossier — Chief Publishing Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/09 - Chief Publishing Officer (CPO)/02 - Executive Role Posting — Chief Publishing Officer.md"
+      },
+      {
+        "id": "role-CRSO",
+        "title": "Chief Records & Sonic Architecture Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/10 - Chief Records & Sonic Architecture Officer (CRSO)/01 - Executive Role Dossier — Chief Records & Sonic Architecture Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/10 - Chief Records & Sonic Architecture Officer (CRSO)/02 - Executive Role Posting — Chief Records & Sonic Architecture Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/10 - Chief Records & Sonic Architecture Officer (CRSO)/01 - Executive Role Dossier — Chief Records & Sonic Architecture Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/10 - Chief Records & Sonic Architecture Officer (CRSO)/02 - Executive Role Posting — Chief Records & Sonic Architecture Officer.md"
+      },
+      {
+        "id": "role-CREO",
+        "title": "Chief Risk & Ethics Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/11 - Chief Risk & Ethics Officer (CREO)/01 - Executive Role Dossier — Chief Risk & Ethics Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/11 - Chief Risk & Ethics Officer (CREO)/02 - Executive Role Posting — Chief Risk & Ethics Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/11 - Chief Risk & Ethics Officer (CREO)/01 - Executive Role Dossier — Chief Risk & Ethics Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/11 - Chief Risk & Ethics Officer (CREO)/02 - Executive Role Posting — Chief Risk & Ethics Officer.md"
+      },
+      {
+        "id": "role-GC",
+        "title": "General Counsel",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/12 - General Counsel (GC)/01 - Executive Role Dossier — General Counsel.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/12 - General Counsel (GC)/02 - Executive Role Posting — General Counsel.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/12 - General Counsel (GC)/01 - Executive Role Dossier — General Counsel.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/12 - General Counsel (GC)/02 - Executive Role Posting — General Counsel.md"
+      },
+      {
+        "id": "role-CCO",
+        "title": "Chief Communications Officer",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/13 - Chief Communications Officer (CCO)/01 - Executive Role Dossier — Chief Communications Officer.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/13 - Chief Communications Officer (CCO)/02 - Executive Role Posting — Chief Communications Officer.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/13 - Chief Communications Officer (CCO)/01 - Executive Role Dossier — Chief Communications Officer.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/13 - Chief Communications Officer (CCO)/02 - Executive Role Posting — Chief Communications Officer.md"
+      },
+      {
+        "id": "role-CoS",
+        "title": "Chief of Staff",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/14 - Chief of Staff (CoS)/01 - Executive Role Dossier — Chief of Staff.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/14 - Chief of Staff (CoS)/02 - Executive Role Posting — Chief of Staff.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/14 - Chief of Staff (CoS)/01 - Executive Role Dossier — Chief of Staff.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/14 - Chief of Staff (CoS)/02 - Executive Role Posting — Chief of Staff.md"
+      },
+      {
+        "id": "role-CSec",
+        "title": "Corporate Secretary",
+        "path": "I/01 - Governance/01 - Core/04 - Roles/15 - Corporate Secretary (CSec)/01 - Executive Role Dossier — Corporate Secretary.md",
+        "status": "available",
+        "format": "md",
+        "metadata": {
+          "department": "01 - Governance",
+          "office": "Governance Core",
+          "status": "available",
+          "owner": "Available position",
+          "classification": "Internal",
+          "publication_target": "I/01 - Governance/01 - Core/04 - Roles/15 - Corporate Secretary (CSec)/02 - Executive Role Posting — Corporate Secretary.md",
+          "template_lock": "Global-Metadata-Standard-v1.7"
+        },
+        "body": "Executive role dossier: I/01 - Governance/01 - Core/04 - Roles/15 - Corporate Secretary (CSec)/01 - Executive Role Dossier — Corporate Secretary.md\nPublic posting: I/01 - Governance/01 - Core/04 - Roles/15 - Corporate Secretary (CSec)/02 - Executive Role Posting — Corporate Secretary.md"
+      },
+      {
+        "id": "public-cookie-policy",
+        "title": "Cookie Policy",
+        "path": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/01 - Cookie Policy.md",
+        "status": "Active",
+        "format": "md",
+        "classification": "Public",
+        "publicationTarget": "website/public/cookie-policy.html",
+        "body": "Source document: I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/01 - Cookie Policy.md"
+      },
+      {
+        "id": "public-privacy-policy",
+        "title": "Privacy Policy",
+        "path": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/02 - Privacy Policy.md",
+        "status": "Active",
+        "format": "md",
+        "classification": "Public",
+        "publicationTarget": "website/public/privacy-policy.html",
+        "body": "Source document: I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/02 - Privacy Policy.md"
+      },
+      {
+        "id": "public-terms-of-use",
+        "title": "Terms of Use",
+        "path": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/03 - Terms of Use.md",
+        "status": "Active",
+        "format": "md",
+        "classification": "Public",
+        "publicationTarget": "website/public/terms-of-use.html",
+        "body": "Source document: I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/03 - Terms of Use.md"
+      },
+      {
+        "id": "public-imprint",
+        "title": "Imprint",
+        "path": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/04 - Imprint.md",
+        "status": "Active",
+        "format": "md",
+        "classification": "Public",
+        "publicationTarget": "website/public/imprint.html",
+        "body": "Source document: I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/04 - Imprint.md"
+      },
+      {
+        "id": "public-disclaimer",
+        "title": "Disclaimer",
+        "path": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/05 - Disclaimer.md",
+        "status": "Active",
+        "format": "md",
+        "classification": "Public",
+        "publicationTarget": "website/public/disclaimer.html",
+        "body": "Source document: I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/05 - Disclaimer.md"
+      },
+      {
+        "id": "public-voice-profile-consent-notice",
+        "title": "Voice & Profile Consent Notice",
+        "path": "I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/06 - Voice & Profile Consent Notice.md",
+        "status": "Active",
+        "format": "md",
+        "classification": "Public",
+        "publicationTarget": "website/public/voice-profile-consent-notice.html",
+        "body": "Source document: I/01 - Governance/02 - Legal/03 - Public Legal Pages/01 - Public Legal Pages/06 - Voice & Profile Consent Notice.md"
+      }
+    ]
+  },
+  "verification": {
+    "table": "profile_verification_requests",
+    "profileTable": "profiles",
+    "statusField": "request_status",
+    "approvedStatus": "approved",
+    "declinedStatus": "declined",
+    "fallbackRequests": [
+      {
+        "id": "sample-verification-request",
+        "display_name": "Pending profile",
+        "username": "pending.user",
+        "request_status": "submitted",
+        "verification_type": "profile",
+        "request_note": "Connect Supabase credentials to load live verification requests.",
+        "created_at": "2026-05-30T00:00:00.000Z"
+      }
+    ]
+  },
+  "tokens": {
+    "source": "registry/tokens/source",
+    "manifest": "registry/tokens/manifests/control-center.tokens.css",
+    "actions": [
+      "Review token names",
+      "Audit hardcoded drift",
+      "Run sync:tokens",
+      "Publish runtime manifest"
+    ]
+  },
+  "icons": {
+    "source": "registry/icons/source",
+    "manifest": "registry/icons/manifests/icon-manifest.json",
+    "actions": [
+      "Review icon name",
+      "Audit semantic placement",
+      "Run sync:icons",
+      "Publish public assets"
+    ]
+  },
+  "staff": {
+    "credentialPattern": "NA-{department}-{role}-{sequence}",
+    "records": [
+      {
+        "id": "CEO-001-01-01",
+        "name": "Artan Davoodi",
+        "role": "Founder and CEO",
+        "scope": "Global control center authority",
+        "state": "active"
+      },
+      {
+        "id": "NA-EXEC-001",
+        "name": "Available position",
+        "role": "Chief Operating Officer",
+        "scope": "COO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-002",
+        "name": "Available position",
+        "role": "Chief Financial Officer",
+        "scope": "CFO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-003",
+        "name": "Available position",
+        "role": "Chief Strategy Officer",
+        "scope": "CSO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-004",
+        "name": "Available position",
+        "role": "Chief Science & Research Officer",
+        "scope": "CSRO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-005",
+        "name": "Available position",
+        "role": "Chief Cognitive Systems Officer",
+        "scope": "CCSO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-006",
+        "name": "Available position",
+        "role": "Chief Technology Officer",
+        "scope": "CTO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-007",
+        "name": "Available position",
+        "role": "Chief Brand & Aesthetic Officer",
+        "scope": "CBAO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-008",
+        "name": "Available position",
+        "role": "Chief Publishing Officer",
+        "scope": "CPO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-009",
+        "name": "Available position",
+        "role": "Chief Records & Sonic Architecture Officer",
+        "scope": "CRSO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-010",
+        "name": "Available position",
+        "role": "Chief Risk & Ethics Officer",
+        "scope": "CREO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-011",
+        "name": "Available position",
+        "role": "General Counsel",
+        "scope": "GC",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-012",
+        "name": "Available position",
+        "role": "Chief Communications Officer",
+        "scope": "CCO",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-013",
+        "name": "Available position",
+        "role": "Chief of Staff",
+        "scope": "CoS",
+        "state": "available"
+      },
+      {
+        "id": "NA-EXEC-014",
+        "name": "Available position",
+        "role": "Corporate Secretary",
+        "scope": "CSec",
+        "state": "available"
+      }
+    ],
+    "permissions": [
+      "document.read",
+      "document.write",
+      "verification.review",
+      "token.review",
+      "icon.review",
+      "office.route"
+    ]
+  },
+  "office": {
+    "domain": "office.neuroartan.com",
+    "routes": [
+      {
+        "label": "Office dashboard",
+        "route": "/office/",
+        "state": "domain-ready route"
+      },
+      {
+        "label": "Staff credentials",
+        "route": "/office/credentials/",
+        "state": "requires backend authorization"
+      },
+      {
+        "label": "Verification review",
+        "route": "/office/verification/",
+        "state": "connected to Control Center queue"
+      },
+      {
+        "label": "Department registry",
+        "route": "/office/departments/",
+        "state": "6 departments indexed"
+      },
+      {
+        "label": "Office registry",
+        "route": "/office/offices/",
+        "state": "47 offices indexed"
+      },
+      {
+        "label": "Hiring registry",
+        "route": "/office/hiring/",
+        "state": "14 executive positions available"
+      }
+    ],
+    "departments": [
+      {
+        "id": "department-01",
+        "code": "01",
+        "name": "Governance Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/01 - Governance Department/01 - Governance Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-02",
+        "code": "02",
+        "name": "Operations Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/02 - Operations Department/01 - Operations Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-03",
+        "code": "03",
+        "name": "Knowledge & Research Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/03 - Knowledge & Research Department/01 - Knowledge & Research Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-04",
+        "code": "04",
+        "name": "Infrastructure Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/04 - Infrastructure Department/01 - Infrastructure Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-05",
+        "code": "05",
+        "name": "Brand Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/05 - Brand Department/01 - Brand Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-06",
+        "code": "06",
+        "name": "Communication Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/06 - Communication Department/01 - Communication Department.md",
+        "status": "Active"
+      }
+    ],
+    "offices": [
+      {
+        "id": "office-01.01",
+        "code": "01.01",
+        "name": "Governance Core Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.01 – Governance Core Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.02",
+        "code": "01.02",
+        "name": "Governance Legal Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.02 - Governance Legal Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.03",
+        "code": "01.03",
+        "name": "Governance Corporate Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.03 - Governance Corporate Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.04",
+        "code": "01.04",
+        "name": "Corporate Secretary Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.04 - Corporate Secretary Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.05",
+        "code": "01.05",
+        "name": "Chief of Staff Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.05 - Chief of Staff Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.06",
+        "code": "01.06",
+        "name": "Governance Finance Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.06 - Governance Finance Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.07",
+        "code": "01.07",
+        "name": "Governance Revenue Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.07 - Governance Revenue Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.08",
+        "code": "01.08",
+        "name": "Governance IPO Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.08 - Governance IPO Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.09",
+        "code": "01.09",
+        "name": "Governance Roadmap Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.09 - Governance Roadmap Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.10",
+        "code": "01.10",
+        "name": "Governance Task System Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.10 - Governance Task System Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.01",
+        "code": "02.01",
+        "name": "Executive Command Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.01 - Executive Command Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.02",
+        "code": "02.02",
+        "name": "Human Resources Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.02 - Human Resources Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.03",
+        "code": "02.03",
+        "name": "AI Agents Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.03 - AI Agents Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.04",
+        "code": "02.04",
+        "name": "Engineering Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.04 - Engineering Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.05",
+        "code": "02.05",
+        "name": "Products Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.05 - Products Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.06",
+        "code": "02.06",
+        "name": "Implementation Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.06 - Implementation Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.07",
+        "code": "02.07",
+        "name": "Performance Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.07 - Performance Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.08",
+        "code": "02.08",
+        "name": "Documentation Standards Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.08 - Documentation Standards Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.09",
+        "code": "02.09",
+        "name": "Talent Pipeline Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.09 - Talent Pipeline Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.01",
+        "code": "03.01",
+        "name": "Research Programs Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.01 - Research Programs Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.02",
+        "code": "03.02",
+        "name": "Scientific Foundations Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.02 - Scientific Foundations Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.03",
+        "code": "03.03",
+        "name": "Knowledge Systems Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.03 - Knowledge Systems Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.04",
+        "code": "03.04",
+        "name": "Cognitive Science Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.04 - Cognitive Science Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.05",
+        "code": "03.05",
+        "name": "Neuroscience Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.05 - Neuroscience Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.06",
+        "code": "03.06",
+        "name": "Psychology Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.06 - Psychology Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.07",
+        "code": "03.07",
+        "name": "Data & Experimental Research Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.07 - Data & Experimental Research Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.08",
+        "code": "03.08",
+        "name": "AI & Cognitive Systems Research Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.08 - AI & Cognitive Systems Research Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.09",
+        "code": "03.09",
+        "name": "Research Integrity & Ethics (IRB) Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.09 - Research Integrity & Ethics (IRB) Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.01",
+        "code": "04.01",
+        "name": "Platform Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.01 - Platform Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.02",
+        "code": "04.02",
+        "name": "Data Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.02 - Data Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.03",
+        "code": "04.03",
+        "name": "Security & Compliance Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.03 - Security & Compliance Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.04",
+        "code": "04.04",
+        "name": "AI Runtime Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.04 - AI Runtime Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.01",
+        "code": "05.01",
+        "name": "Approvals Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.01 - Approvals Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.02",
+        "code": "05.02",
+        "name": "Assets Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.02 - Assets Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.03",
+        "code": "05.03",
+        "name": "Design System Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.03 - Design System Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.04",
+        "code": "05.04",
+        "name": "Documentation Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.04 - Documentation Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.05",
+        "code": "05.05",
+        "name": "Guidelines Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.05 - Guidelines Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.06",
+        "code": "05.06",
+        "name": "Legal Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.06 - Legal Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.07",
+        "code": "05.07",
+        "name": "Requests Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.07 - Requests Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.08",
+        "code": "05.08",
+        "name": "Strategy Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.08 - Strategy Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.01",
+        "code": "06.01",
+        "name": "Communication Governance Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.01 - Communication Governance Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.02",
+        "code": "06.02",
+        "name": "Corporate Communications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.02 - Corporate Communications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.03",
+        "code": "06.03",
+        "name": "Public Relations Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.03 - Public Relations Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.04",
+        "code": "06.04",
+        "name": "Publications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.04 - Publications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.05",
+        "code": "06.05",
+        "name": "Founder Communications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.05 - Founder Communications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.06",
+        "code": "06.06",
+        "name": "Careers Communications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.06 - Careers Communications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.07",
+        "code": "06.07",
+        "name": "Announcements Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.07 - Announcements Office.md",
+        "status": "Active"
+      }
+    ]
+  },
+  "institution": {
+    "roots": {
+      "vault": "/Users/artan/Documents/Neuroartan/I",
+      "documentation": "/Users/artan/Documents/Neuroartan/documentation",
+      "website": "/Users/artan/Documents/Neuroartan/website"
+    },
+    "departments": [
+      {
+        "id": "department-01",
+        "code": "01",
+        "name": "Governance Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/01 - Governance Department/01 - Governance Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-02",
+        "code": "02",
+        "name": "Operations Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/02 - Operations Department/01 - Operations Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-03",
+        "code": "03",
+        "name": "Knowledge & Research Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/03 - Knowledge & Research Department/01 - Knowledge & Research Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-04",
+        "code": "04",
+        "name": "Infrastructure Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/04 - Infrastructure Department/01 - Infrastructure Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-05",
+        "code": "05",
+        "name": "Brand Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/05 - Brand Department/01 - Brand Department.md",
+        "status": "Active"
+      },
+      {
+        "id": "department-06",
+        "code": "06",
+        "name": "Communication Department",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/02 - Department Definitions/06 - Communication Department/01 - Communication Department.md",
+        "status": "Active"
+      }
+    ],
+    "offices": [
+      {
+        "id": "office-01.01",
+        "code": "01.01",
+        "name": "Governance Core Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.01 – Governance Core Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.02",
+        "code": "01.02",
+        "name": "Governance Legal Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.02 - Governance Legal Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.03",
+        "code": "01.03",
+        "name": "Governance Corporate Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.03 - Governance Corporate Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.04",
+        "code": "01.04",
+        "name": "Corporate Secretary Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.04 - Corporate Secretary Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.05",
+        "code": "01.05",
+        "name": "Chief of Staff Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.05 - Chief of Staff Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.06",
+        "code": "01.06",
+        "name": "Governance Finance Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.06 - Governance Finance Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.07",
+        "code": "01.07",
+        "name": "Governance Revenue Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.07 - Governance Revenue Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.08",
+        "code": "01.08",
+        "name": "Governance IPO Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.08 - Governance IPO Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.09",
+        "code": "01.09",
+        "name": "Governance Roadmap Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.09 - Governance Roadmap Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-01.10",
+        "code": "01.10",
+        "name": "Governance Task System Office",
+        "department": "Governance",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/01 - Governance Offices/01.10 - Governance Task System Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.01",
+        "code": "02.01",
+        "name": "Executive Command Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.01 - Executive Command Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.02",
+        "code": "02.02",
+        "name": "Human Resources Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.02 - Human Resources Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.03",
+        "code": "02.03",
+        "name": "AI Agents Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.03 - AI Agents Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.04",
+        "code": "02.04",
+        "name": "Engineering Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.04 - Engineering Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.05",
+        "code": "02.05",
+        "name": "Products Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.05 - Products Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.06",
+        "code": "02.06",
+        "name": "Implementation Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.06 - Implementation Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.07",
+        "code": "02.07",
+        "name": "Performance Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.07 - Performance Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.08",
+        "code": "02.08",
+        "name": "Documentation Standards Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.08 - Documentation Standards Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-02.09",
+        "code": "02.09",
+        "name": "Talent Pipeline Office",
+        "department": "Operations",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/02 - Operations Offices/02.09 - Talent Pipeline Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.01",
+        "code": "03.01",
+        "name": "Research Programs Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.01 - Research Programs Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.02",
+        "code": "03.02",
+        "name": "Scientific Foundations Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.02 - Scientific Foundations Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.03",
+        "code": "03.03",
+        "name": "Knowledge Systems Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.03 - Knowledge Systems Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.04",
+        "code": "03.04",
+        "name": "Cognitive Science Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.04 - Cognitive Science Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.05",
+        "code": "03.05",
+        "name": "Neuroscience Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.05 - Neuroscience Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.06",
+        "code": "03.06",
+        "name": "Psychology Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.06 - Psychology Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.07",
+        "code": "03.07",
+        "name": "Data & Experimental Research Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.07 - Data & Experimental Research Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.08",
+        "code": "03.08",
+        "name": "AI & Cognitive Systems Research Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.08 - AI & Cognitive Systems Research Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-03.09",
+        "code": "03.09",
+        "name": "Research Integrity & Ethics (IRB) Office",
+        "department": "Knowledge & Research",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/03 - Knowledge & Research Offices/03.09 - Research Integrity & Ethics (IRB) Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.01",
+        "code": "04.01",
+        "name": "Platform Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.01 - Platform Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.02",
+        "code": "04.02",
+        "name": "Data Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.02 - Data Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.03",
+        "code": "04.03",
+        "name": "Security & Compliance Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.03 - Security & Compliance Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-04.04",
+        "code": "04.04",
+        "name": "AI Runtime Infrastructure Office",
+        "department": "Infrastructure",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/04 - Infrastructure Offices/04.04 - AI Runtime Infrastructure Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.01",
+        "code": "05.01",
+        "name": "Approvals Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.01 - Approvals Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.02",
+        "code": "05.02",
+        "name": "Assets Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.02 - Assets Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.03",
+        "code": "05.03",
+        "name": "Design System Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.03 - Design System Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.04",
+        "code": "05.04",
+        "name": "Documentation Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.04 - Documentation Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.05",
+        "code": "05.05",
+        "name": "Guidelines Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.05 - Guidelines Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.06",
+        "code": "05.06",
+        "name": "Legal Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.06 - Legal Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.07",
+        "code": "05.07",
+        "name": "Requests Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.07 - Requests Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-05.08",
+        "code": "05.08",
+        "name": "Strategy Office",
+        "department": "Brand",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/05 - Brand Offices/05.08 - Strategy Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.01",
+        "code": "06.01",
+        "name": "Communication Governance Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.01 - Communication Governance Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.02",
+        "code": "06.02",
+        "name": "Corporate Communications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.02 - Corporate Communications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.03",
+        "code": "06.03",
+        "name": "Public Relations Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.03 - Public Relations Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.04",
+        "code": "06.04",
+        "name": "Publications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.04 - Publications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.05",
+        "code": "06.05",
+        "name": "Founder Communications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.05 - Founder Communications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.06",
+        "code": "06.06",
+        "name": "Careers Communications Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.06 - Careers Communications Office.md",
+        "status": "Active"
+      },
+      {
+        "id": "office-06.07",
+        "code": "06.07",
+        "name": "Announcements Office",
+        "department": "Communication",
+        "source": "I/01 - Governance/01 - Core/01 - System Architecture/03 - Office Definitions/06 - Communication Offices/06.07 - Announcements Office.md",
+        "status": "Active"
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-CEO",
+        "order": "01",
+        "abbreviation": "CEO",
+        "title": "Chief Executive Officer",
+        "status": "active",
+        "holder": "Artan Davoodi",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/01 - Chief Executive Officer (CEO)/01 - Executive Role Dossier — Chief Executive Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/01 - Chief Executive Officer (CEO)/02 - Executive Role Posting — Chief Executive Officer.md"
+      },
+      {
+        "id": "role-COO",
+        "order": "02",
+        "abbreviation": "COO",
+        "title": "Chief Operating Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/02 - Chief Operating Officer (COO)/01 - Executive Role Dossier — Chief Operating Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/02 - Chief Operating Officer (COO)/02 - Executive Role Posting — Chief Operating Officer.md"
+      },
+      {
+        "id": "role-CFO",
+        "order": "03",
+        "abbreviation": "CFO",
+        "title": "Chief Financial Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/03 - Chief Financial Officer (CFO)/01 - Executive Role Dossier — Chief Financial Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/03 - Chief Financial Officer (CFO)/02 - Executive Role Posting — Chief Financial Officer.md"
+      },
+      {
+        "id": "role-CSO",
+        "order": "04",
+        "abbreviation": "CSO",
+        "title": "Chief Strategy Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/04 - Chief Strategy Officer (CSO)/01 - Executive Role Dossier — Chief Strategy Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/04 - Chief Strategy Officer (CSO)/02 - Executive Role Posting — Chief Strategy Officer.md"
+      },
+      {
+        "id": "role-CSRO",
+        "order": "05",
+        "abbreviation": "CSRO",
+        "title": "Chief Science & Research Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/05 - Chief Science & Research Officer (CSRO)/01 - Executive Role Dossier — Chief Science & Research Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/05 - Chief Science & Research Officer (CSRO)/02 - Executive Role Posting — Chief Science & Research Officer.md"
+      },
+      {
+        "id": "role-CCSO",
+        "order": "06",
+        "abbreviation": "CCSO",
+        "title": "Chief Cognitive Systems Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/06 - Chief Cognitive Systems Officer (CCSO)/01 - Executive Role Dossier — Chief Cognitive Systems Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/06 - Chief Cognitive Systems Officer (CCSO)/02 - Executive Role Posting — Chief Cognitive Systems Officer.md"
+      },
+      {
+        "id": "role-CTO",
+        "order": "07",
+        "abbreviation": "CTO",
+        "title": "Chief Technology Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/07 - Chief Technology Officer (CTO)/01 - Executive Role Dossier — Chief Technology Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/07 - Chief Technology Officer (CTO)/02 - Executive Role Posting — Chief Technology Officer.md"
+      },
+      {
+        "id": "role-CBAO",
+        "order": "08",
+        "abbreviation": "CBAO",
+        "title": "Chief Brand & Aesthetic Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/08 - Chief Brand & Aesthetic Officer (CBAO)/01 - Executive Role Dossier — Chief Brand & Aesthetic Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/08 - Chief Brand & Aesthetic Officer (CBAO)/02 - Executive Role Posting — Chief Brand & Aesthetic Officer.md"
+      },
+      {
+        "id": "role-CPO",
+        "order": "09",
+        "abbreviation": "CPO",
+        "title": "Chief Publishing Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/09 - Chief Publishing Officer (CPO)/01 - Executive Role Dossier — Chief Publishing Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/09 - Chief Publishing Officer (CPO)/02 - Executive Role Posting — Chief Publishing Officer.md"
+      },
+      {
+        "id": "role-CRSO",
+        "order": "10",
+        "abbreviation": "CRSO",
+        "title": "Chief Records & Sonic Architecture Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/10 - Chief Records & Sonic Architecture Officer (CRSO)/01 - Executive Role Dossier — Chief Records & Sonic Architecture Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/10 - Chief Records & Sonic Architecture Officer (CRSO)/02 - Executive Role Posting — Chief Records & Sonic Architecture Officer.md"
+      },
+      {
+        "id": "role-CREO",
+        "order": "11",
+        "abbreviation": "CREO",
+        "title": "Chief Risk & Ethics Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/11 - Chief Risk & Ethics Officer (CREO)/01 - Executive Role Dossier — Chief Risk & Ethics Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/11 - Chief Risk & Ethics Officer (CREO)/02 - Executive Role Posting — Chief Risk & Ethics Officer.md"
+      },
+      {
+        "id": "role-GC",
+        "order": "12",
+        "abbreviation": "GC",
+        "title": "General Counsel",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/12 - General Counsel (GC)/01 - Executive Role Dossier — General Counsel.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/12 - General Counsel (GC)/02 - Executive Role Posting — General Counsel.md"
+      },
+      {
+        "id": "role-CCO",
+        "order": "13",
+        "abbreviation": "CCO",
+        "title": "Chief Communications Officer",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/13 - Chief Communications Officer (CCO)/01 - Executive Role Dossier — Chief Communications Officer.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/13 - Chief Communications Officer (CCO)/02 - Executive Role Posting — Chief Communications Officer.md"
+      },
+      {
+        "id": "role-CoS",
+        "order": "14",
+        "abbreviation": "CoS",
+        "title": "Chief of Staff",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/14 - Chief of Staff (CoS)/01 - Executive Role Dossier — Chief of Staff.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/14 - Chief of Staff (CoS)/02 - Executive Role Posting — Chief of Staff.md"
+      },
+      {
+        "id": "role-CSec",
+        "order": "15",
+        "abbreviation": "CSec",
+        "title": "Corporate Secretary",
+        "status": "available",
+        "holder": "Available position",
+        "dossier": "I/01 - Governance/01 - Core/04 - Roles/15 - Corporate Secretary (CSec)/01 - Executive Role Dossier — Corporate Secretary.md",
+        "posting": "I/01 - Governance/01 - Core/04 - Roles/15 - Corporate Secretary (CSec)/02 - Executive Role Posting — Corporate Secretary.md"
+      }
+    ]
+  }
+}

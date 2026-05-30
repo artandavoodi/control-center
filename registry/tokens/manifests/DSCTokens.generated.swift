@@ -8627,6 +8627,10 @@ enum DSCTokens {
     "country-option-size-mobile": "var(--layout-country-option-size-mobile)",
     "country-option-size-small": "var(--layout-country-option-size-small)",
     "country-option-weight": "var(--layout-country-option-weight)",
+    "sidebar-icon-overlay-z-index": "var(--z-overlay-modal)",
+    "sidebar-icon-overlay-icon-size": "var(--control-center-icon-size)",
+    "sidebar-icon-overlay-inactive-opacity": "var(--disabled-opacity)",
+    "sidebar-icon-overlay-active-opacity": "var(--opacity-full)",
     "error404-page-background": "var(--bg-color)",
     "error404-page-text": "var(--text-primary-color)",
     "error404-shell-max-width": "calc(760px * var(--accessibility-density-scale))",
@@ -17813,6 +17817,10 @@ enum DSCTokens {
   static let country_option_size_mobile = "var(--layout-country-option-size-mobile)"
   static let country_option_size_small = "var(--layout-country-option-size-small)"
   static let country_option_weight = "var(--layout-country-option-weight)"
+  static let sidebar_icon_overlay_z_index = "var(--z-overlay-modal)"
+  static let sidebar_icon_overlay_icon_size = "var(--control-center-icon-size)"
+  static let sidebar_icon_overlay_inactive_opacity = "var(--disabled-opacity)"
+  static let sidebar_icon_overlay_active_opacity = "var(--opacity-full)"
   static let error404_page_background = "var(--bg-color)"
   static let error404_page_text = "var(--text-primary-color)"
   static let error404_shell_max_width = "calc(760px * var(--accessibility-density-scale))"

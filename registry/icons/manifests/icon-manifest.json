@@ -5627,6 +5627,78 @@
     "publicPath": "/registry/icons/public/assets/system/states/online.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/online.svg"
   },
+  "system/states/sidebar-active": {
+    "id": "system/states/sidebar-active",
+    "path": "system/states/sidebar-active.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-active.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-active.svg"
+  },
+  "system/states/sidebar-closed": {
+    "id": "system/states/sidebar-closed",
+    "path": "system/states/sidebar-closed.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-closed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-closed.svg"
+  },
+  "system/states/sidebar-inactive": {
+    "id": "system/states/sidebar-inactive",
+    "path": "system/states/sidebar-inactive.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-inactive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-inactive.svg"
+  },
+  "system/states/sidebar-left-active": {
+    "id": "system/states/sidebar-left-active",
+    "path": "system/states/sidebar-left-active.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-left-active.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-left-active.svg"
+  },
+  "system/states/sidebar-left-closed": {
+    "id": "system/states/sidebar-left-closed",
+    "path": "system/states/sidebar-left-closed.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-left-closed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-left-closed.svg"
+  },
+  "system/states/sidebar-left-inactive": {
+    "id": "system/states/sidebar-left-inactive",
+    "path": "system/states/sidebar-left-inactive.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-left-inactive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-left-inactive.svg"
+  },
+  "system/states/sidebar-left-open": {
+    "id": "system/states/sidebar-left-open",
+    "path": "system/states/sidebar-left-open.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-left-open.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-left-open.svg"
+  },
+  "system/states/sidebar-open": {
+    "id": "system/states/sidebar-open",
+    "path": "system/states/sidebar-open.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-open.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-open.svg"
+  },
+  "system/states/sidebar-right-active": {
+    "id": "system/states/sidebar-right-active",
+    "path": "system/states/sidebar-right-active.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-right-active.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-right-active.svg"
+  },
+  "system/states/sidebar-right-closed": {
+    "id": "system/states/sidebar-right-closed",
+    "path": "system/states/sidebar-right-closed.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-right-closed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-right-closed.svg"
+  },
+  "system/states/sidebar-right-inactive": {
+    "id": "system/states/sidebar-right-inactive",
+    "path": "system/states/sidebar-right-inactive.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-right-inactive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-right-inactive.svg"
+  },
+  "system/states/sidebar-right-open": {
+    "id": "system/states/sidebar-right-open",
+    "path": "system/states/sidebar-right-open.svg",
+    "publicPath": "/registry/icons/public/assets/system/states/sidebar-right-open.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/states/sidebar-right-open.svg"
+  },
   "system/states/success": {
     "id": "system/states/success",
     "path": "system/states/success.svg",
