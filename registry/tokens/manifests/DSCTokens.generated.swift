@@ -8533,7 +8533,7 @@ enum DSCTokens {
     "cookie-language-overlay-sticky-toolbar-surface": "transparent",
     "cookie-language-overlay-sticky-toolbar-divider": "var(--panel-border-unified)",
     "cookie-language-overlay-toolbar-padding-top": "var(--layout-cookie-language-overlay-toolbar-padding-top)",
-    "cookie-language-overlay-toolbar-padding-bottom": "var(--cookie-language-overlay-search-to-list-gap)",
+    "cookie-language-overlay-toolbar-padding-bottom": "var(--spacing-none)",
     "cookie-language-overlay-toolbar-gap": "var(--layout-cookie-language-overlay-toolbar-gap)",
     "cookie-language-overlay-search-to-list-gap": "var(--layout-cookie-language-overlay-search-to-list-gap)",
     "cookie-language-overlay-list-padding-top": "var(--layout-cookie-language-overlay-list-padding-top)",
@@ -17723,7 +17723,7 @@ enum DSCTokens {
   static let cookie_language_overlay_sticky_toolbar_surface = "transparent"
   static let cookie_language_overlay_sticky_toolbar_divider = "var(--panel-border-unified)"
   static let cookie_language_overlay_toolbar_padding_top = "var(--layout-cookie-language-overlay-toolbar-padding-top)"
-  static let cookie_language_overlay_toolbar_padding_bottom = "var(--cookie-language-overlay-search-to-list-gap)"
+  static let cookie_language_overlay_toolbar_padding_bottom = "var(--spacing-none)"
   static let cookie_language_overlay_toolbar_gap = "var(--layout-cookie-language-overlay-toolbar-gap)"
   static let cookie_language_overlay_search_to_list_gap = "var(--layout-cookie-language-overlay-search-to-list-gap)"
   static let cookie_language_overlay_list_padding_top = "var(--layout-cookie-language-overlay-list-padding-top)"

@@ -8530,7 +8530,7 @@
   --cookie-language-overlay-sticky-toolbar-surface: transparent;
   --cookie-language-overlay-sticky-toolbar-divider: var(--panel-border-unified);
   --cookie-language-overlay-toolbar-padding-top: var(--layout-cookie-language-overlay-toolbar-padding-top);
-  --cookie-language-overlay-toolbar-padding-bottom: var(--cookie-language-overlay-search-to-list-gap);
+  --cookie-language-overlay-toolbar-padding-bottom: var(--spacing-none);
   --cookie-language-overlay-toolbar-gap: var(--layout-cookie-language-overlay-toolbar-gap);
   --cookie-language-overlay-search-to-list-gap: var(--layout-cookie-language-overlay-search-to-list-gap);
   --cookie-language-overlay-list-padding-top: var(--layout-cookie-language-overlay-list-padding-top);
