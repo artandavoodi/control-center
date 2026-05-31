@@ -3527,6 +3527,7 @@ enum DSCTokens {
     "site-shell-inline-padding-mobile": "var(--site-mobile-gutter)",
     "site-rail-width": "calc(100% - (var(--site-gutter) * 2))",
     "site-rail-width-mobile": "calc(100% - (var(--site-mobile-gutter) * 2))",
+    "layout-profile-workspace-content-padding-block": "var(--spacing-xl)",
     "site-gutter-min": "var(--site-edge-gutter)",
     "site-gutter-max": "var(--site-edge-gutter)",
     "site-inline-gutter": "clamp(var(--site-gutter-min), var(--site-gutter), var(--site-gutter-max))",
@@ -7598,6 +7599,10 @@ enum DSCTokens {
     "home-layout-intro-logo-scale-start": "var(--layout-home-intro-logo-scale-start)",
     "home-layout-intro-logo-scale-settle": "var(--layout-home-intro-logo-scale-settle)",
     "home-layout-intro-logo-scale-fade": "var(--layout-home-intro-logo-scale-fade)",
+    "model-training-workspace-z-index": "var(--z-overlay-control)",
+    "model-training-workspace-backdrop": "var(--glass-overlay-backdrop-bg)",
+    "model-training-workspace-surface": "var(--panel-surface-dropdown-unified)",
+    "model-training-workspace-rail-width": "var(--layout-home-platform-subrail-width)",
     "footer-text-color": "var(--text-secondary-color)",
     "footer-text-hover-color": "var(--text-primary-color)",
     "footer-reveal-duration": "var(--interaction-motion-slow)",
@@ -8874,7 +8879,7 @@ enum DSCTokens {
     "profile-private-hero-tab-active-underline-bg": "var(--local-nav-active-indicator-color)",
     "profile-private-hero-tab-active-opacity": "var(--local-nav-hover-opacity)",
     "profile-private-hero-tab-content-offset-y": "calc(var(--spacing-2xs) * -1)",
-    "profile-media-editor-z-index": "var(--z-overlay-control)",
+    "profile-media-editor-z-index": "var(--z-language-dropdown)",
     "profile-media-editor-dialog-width": "min(34rem, var(--site-rail-width))",
     "profile-media-editor-dialog-radius": "var(--dialog-overlay-radius)",
     "profile-media-editor-dialog-padding": "var(--spacing-lg)",
@@ -8887,7 +8892,7 @@ enum DSCTokens {
     "profile-media-editor-avatar-radius": "var(--control-radius-pill)",
     "profile-media-editor-cover-radius": "var(--shape-card-radius)",
     "profile-media-editor-status-min-height": "var(--body-3-line-height)",
-    "profile-media-editor-preview-bg": "var(--control-surface)",
+    "profile-media-editor-preview-bg": "var(--color-primary1)",
     "profile-media-editor-control-bg": "var(--control-surface)",
     "profile-media-editor-control-bg-hover": "var(--control-surface-hover)",
     "profile-media-editor-control-border": "var(--control-border-unified)",
@@ -12717,6 +12722,7 @@ enum DSCTokens {
   static let site_shell_inline_padding_mobile = "var(--site-mobile-gutter)"
   static let site_rail_width = "calc(100% - (var(--site-gutter) * 2))"
   static let site_rail_width_mobile = "calc(100% - (var(--site-mobile-gutter) * 2))"
+  static let layout_profile_workspace_content_padding_block = "var(--spacing-xl)"
   static let site_gutter_min = "var(--site-edge-gutter)"
   static let site_gutter_max = "var(--site-edge-gutter)"
   static let site_inline_gutter = "clamp(var(--site-gutter-min), var(--site-gutter), var(--site-gutter-max))"
@@ -16788,6 +16794,10 @@ enum DSCTokens {
   static let home_layout_intro_logo_scale_start = "var(--layout-home-intro-logo-scale-start)"
   static let home_layout_intro_logo_scale_settle = "var(--layout-home-intro-logo-scale-settle)"
   static let home_layout_intro_logo_scale_fade = "var(--layout-home-intro-logo-scale-fade)"
+  static let model_training_workspace_z_index = "var(--z-overlay-control)"
+  static let model_training_workspace_backdrop = "var(--glass-overlay-backdrop-bg)"
+  static let model_training_workspace_surface = "var(--panel-surface-dropdown-unified)"
+  static let model_training_workspace_rail_width = "var(--layout-home-platform-subrail-width)"
   static let footer_text_color = "var(--text-secondary-color)"
   static let footer_text_hover_color = "var(--text-primary-color)"
   static let footer_reveal_duration = "var(--interaction-motion-slow)"
@@ -18064,7 +18074,7 @@ enum DSCTokens {
   static let profile_private_hero_tab_active_underline_bg = "var(--local-nav-active-indicator-color)"
   static let profile_private_hero_tab_active_opacity = "var(--local-nav-hover-opacity)"
   static let profile_private_hero_tab_content_offset_y = "calc(var(--spacing-2xs) * -1)"
-  static let profile_media_editor_z_index = "var(--z-overlay-control)"
+  static let profile_media_editor_z_index = "var(--z-language-dropdown)"
   static let profile_media_editor_dialog_width = "min(34rem, var(--site-rail-width))"
   static let profile_media_editor_dialog_radius = "var(--dialog-overlay-radius)"
   static let profile_media_editor_dialog_padding = "var(--spacing-lg)"
@@ -18077,7 +18087,7 @@ enum DSCTokens {
   static let profile_media_editor_avatar_radius = "var(--control-radius-pill)"
   static let profile_media_editor_cover_radius = "var(--shape-card-radius)"
   static let profile_media_editor_status_min_height = "var(--body-3-line-height)"
-  static let profile_media_editor_preview_bg = "var(--control-surface)"
+  static let profile_media_editor_preview_bg = "var(--color-primary1)"
   static let profile_media_editor_control_bg = "var(--control-surface)"
   static let profile_media_editor_control_bg_hover = "var(--control-surface-hover)"
   static let profile_media_editor_control_border = "var(--control-border-unified)"

@@ -3524,6 +3524,7 @@
   --site-shell-inline-padding-mobile: var(--site-mobile-gutter);
   --site-rail-width: calc(100% - (var(--site-gutter) * 2));
   --site-rail-width-mobile: calc(100% - (var(--site-mobile-gutter) * 2));
+  --layout-profile-workspace-content-padding-block: var(--spacing-xl);
   --site-gutter-min: var(--site-edge-gutter);
   --site-gutter-max: var(--site-edge-gutter);
   --site-inline-gutter: clamp(var(--site-gutter-min), var(--site-gutter), var(--site-gutter-max));
@@ -7595,6 +7596,10 @@
   --home-layout-intro-logo-scale-start: var(--layout-home-intro-logo-scale-start);
   --home-layout-intro-logo-scale-settle: var(--layout-home-intro-logo-scale-settle);
   --home-layout-intro-logo-scale-fade: var(--layout-home-intro-logo-scale-fade);
+  --model-training-workspace-z-index: var(--z-overlay-control);
+  --model-training-workspace-backdrop: var(--glass-overlay-backdrop-bg);
+  --model-training-workspace-surface: var(--panel-surface-dropdown-unified);
+  --model-training-workspace-rail-width: var(--layout-home-platform-subrail-width);
   --footer-text-color: var(--text-secondary-color);
   --footer-text-hover-color: var(--text-primary-color);
   --footer-reveal-duration: var(--interaction-motion-slow);
@@ -8871,7 +8876,7 @@
   --profile-private-hero-tab-active-underline-bg: var(--local-nav-active-indicator-color);
   --profile-private-hero-tab-active-opacity: var(--local-nav-hover-opacity);
   --profile-private-hero-tab-content-offset-y: calc(var(--spacing-2xs) * -1);
-  --profile-media-editor-z-index: var(--z-overlay-control);
+  --profile-media-editor-z-index: var(--z-language-dropdown);
   --profile-media-editor-dialog-width: min(34rem, var(--site-rail-width));
   --profile-media-editor-dialog-radius: var(--dialog-overlay-radius);
   --profile-media-editor-dialog-padding: var(--spacing-lg);
@@ -8884,7 +8889,7 @@
   --profile-media-editor-avatar-radius: var(--control-radius-pill);
   --profile-media-editor-cover-radius: var(--shape-card-radius);
   --profile-media-editor-status-min-height: var(--body-3-line-height);
-  --profile-media-editor-preview-bg: var(--control-surface);
+  --profile-media-editor-preview-bg: var(--color-primary1);
   --profile-media-editor-control-bg: var(--control-surface);
   --profile-media-editor-control-bg-hover: var(--control-surface-hover);
   --profile-media-editor-control-border: var(--control-border-unified);
