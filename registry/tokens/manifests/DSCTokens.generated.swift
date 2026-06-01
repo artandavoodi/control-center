@@ -41,7 +41,7 @@ enum DSCTokens {
     "surface-inverse-4": "rgba(0,0,0,0.12)",
     "overlay-backdrop-dark": "rgba(0,0,0,0.48)",
     "overlay-backdrop-light": "rgba(255,255,255,0.28)",
-    "hover-overlay-bg": "rgba(255,255,255,0.95)",
+    "hover-overlay-bg": "var(--color-white)",
     "hover-overlay-text": "var(--color-black)",
     "hover-overlay-shadow": "rgba(0,0,0,0.12)",
     "cc-blur-unified": "var(--panel-blur-unified)",
@@ -3737,7 +3737,7 @@ enum DSCTokens {
     "layout-home-search-input-row-opacity": "0.9",
     "layout-home-search-input-row-border": "color-mix(in srgb, var(--text-primary-color) 16%, transparent)",
     "layout-home-search-input-row-border-focus": "color-mix(in srgb, var(--text-primary-color) 24%, transparent)",
-    "layout-home-search-icon-size": "calc(1.38rem * var(--accessibility-icon-scale))",
+    "layout-home-search-icon-size": "var(--layout-home-platform-nav-icon-size)",
     "layout-home-search-icon-opacity": "0.82",
     "layout-home-search-voice-motion": "180ms",
     "layout-home-search-input-size": "1.88rem",
@@ -7257,6 +7257,10 @@ enum DSCTokens {
     "home-search-shell-result-action-weight": "var(--layout-home-search-result-action-weight)",
     "home-search-shell-result-action-tracking": "var(--layout-home-search-result-action-tracking)",
     "home-search-shell-result-action-line-height": "var(--layout-home-search-result-action-line-height)",
+    "home-search-shell-result-tooltip-size": "var(--home-platform-shell-nav-text-size)",
+    "home-search-shell-result-tooltip-weight": "var(--home-platform-shell-nav-text-weight)",
+    "home-search-shell-result-tooltip-line-height": "var(--home-platform-shell-nav-text-line-height)",
+    "home-search-shell-result-tooltip-tracking": "var(--home-platform-shell-nav-text-tracking)",
     "home-search-shell-light-border": "var(--layout-home-search-light-border)",
     "home-search-shell-dark-border": "var(--layout-home-search-dark-border)",
     "home-search-shell-mobile-padding-x-fallback": "var(--layout-home-search-mobile-padding-x-fallback)",
@@ -9236,7 +9240,7 @@ enum DSCTokens {
   static let surface_inverse_4 = "rgba(0,0,0,0.12)"
   static let overlay_backdrop_dark = "rgba(0,0,0,0.48)"
   static let overlay_backdrop_light = "rgba(255,255,255,0.28)"
-  static let hover_overlay_bg = "rgba(255,255,255,0.95)"
+  static let hover_overlay_bg = "var(--color-white)"
   static let hover_overlay_text = "var(--color-black)"
   static let hover_overlay_shadow = "rgba(0,0,0,0.12)"
   static let cc_blur_unified = "var(--panel-blur-unified)"
@@ -12932,7 +12936,7 @@ enum DSCTokens {
   static let layout_home_search_input_row_opacity = "0.9"
   static let layout_home_search_input_row_border = "color-mix(in srgb, var(--text-primary-color) 16%, transparent)"
   static let layout_home_search_input_row_border_focus = "color-mix(in srgb, var(--text-primary-color) 24%, transparent)"
-  static let layout_home_search_icon_size = "calc(1.38rem * var(--accessibility-icon-scale))"
+  static let layout_home_search_icon_size = "var(--layout-home-platform-nav-icon-size)"
   static let layout_home_search_icon_opacity = "0.82"
   static let layout_home_search_voice_motion = "180ms"
   static let layout_home_search_input_size = "1.88rem"
@@ -16452,6 +16456,10 @@ enum DSCTokens {
   static let home_search_shell_result_action_weight = "var(--layout-home-search-result-action-weight)"
   static let home_search_shell_result_action_tracking = "var(--layout-home-search-result-action-tracking)"
   static let home_search_shell_result_action_line_height = "var(--layout-home-search-result-action-line-height)"
+  static let home_search_shell_result_tooltip_size = "var(--home-platform-shell-nav-text-size)"
+  static let home_search_shell_result_tooltip_weight = "var(--home-platform-shell-nav-text-weight)"
+  static let home_search_shell_result_tooltip_line_height = "var(--home-platform-shell-nav-text-line-height)"
+  static let home_search_shell_result_tooltip_tracking = "var(--home-platform-shell-nav-text-tracking)"
   static let home_search_shell_light_border = "var(--layout-home-search-light-border)"
   static let home_search_shell_dark_border = "var(--layout-home-search-dark-border)"
   static let home_search_shell_mobile_padding_x_fallback = "var(--layout-home-search-mobile-padding-x-fallback)"
