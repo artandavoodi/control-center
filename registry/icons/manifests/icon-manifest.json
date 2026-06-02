@@ -743,6 +743,66 @@
     "publicPath": "/registry/icons/public/assets/core/actions/next-featured-function/next-featured-function.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/next-featured-function/next-featured-function.svg"
   },
+  "core/actions/notification-account/notification-account": {
+    "id": "core/actions/notification-account/notification-account",
+    "path": "core/actions/notification-account/notification-account.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-account/notification-account.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-account/notification-account.svg"
+  },
+  "core/actions/notification-all/notification-all": {
+    "id": "core/actions/notification-all/notification-all",
+    "path": "core/actions/notification-all/notification-all.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-all/notification-all.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-all/notification-all.svg"
+  },
+  "core/actions/notification-browser-permission/notification-browser-permission": {
+    "id": "core/actions/notification-browser-permission/notification-browser-permission",
+    "path": "core/actions/notification-browser-permission/notification-browser-permission.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-browser-permission/notification-browser-permission.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-browser-permission/notification-browser-permission.svg"
+  },
+  "core/actions/notification-cognitive/notification-cognitive": {
+    "id": "core/actions/notification-cognitive/notification-cognitive",
+    "path": "core/actions/notification-cognitive/notification-cognitive.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-cognitive/notification-cognitive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-cognitive/notification-cognitive.svg"
+  },
+  "core/actions/notification-mark-read/notification-mark-read": {
+    "id": "core/actions/notification-mark-read/notification-mark-read",
+    "path": "core/actions/notification-mark-read/notification-mark-read.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-mark-read/notification-mark-read.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-mark-read/notification-mark-read.svg"
+  },
+  "core/actions/notification-preferences/notification-preferences": {
+    "id": "core/actions/notification-preferences/notification-preferences",
+    "path": "core/actions/notification-preferences/notification-preferences.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-preferences/notification-preferences.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-preferences/notification-preferences.svg"
+  },
+  "core/actions/notification-read/notification-read": {
+    "id": "core/actions/notification-read/notification-read",
+    "path": "core/actions/notification-read/notification-read.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-read/notification-read.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-read/notification-read.svg"
+  },
+  "core/actions/notification-social/notification-social": {
+    "id": "core/actions/notification-social/notification-social",
+    "path": "core/actions/notification-social/notification-social.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-social/notification-social.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-social/notification-social.svg"
+  },
+  "core/actions/notification-system/notification-system": {
+    "id": "core/actions/notification-system/notification-system",
+    "path": "core/actions/notification-system/notification-system.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-system/notification-system.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-system/notification-system.svg"
+  },
+  "core/actions/notification-unread/notification-unread": {
+    "id": "core/actions/notification-unread/notification-unread",
+    "path": "core/actions/notification-unread/notification-unread.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/notification-unread/notification-unread.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/notification-unread/notification-unread.svg"
+  },
   "core/actions/office-department-sidebar/office-department-sidebar": {
     "id": "core/actions/office-department-sidebar/office-department-sidebar",
     "path": "core/actions/office-department-sidebar/office-department-sidebar.svg",
@@ -4252,6 +4312,12 @@
     "path": "layers/website/home/platform-menu/settings/platform-menue-settings-general.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/platform-menue-settings-general.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/platform-menue-settings-general.svg"
+  },
+  "layers/website/home/platform-menu/settings/platform-menue-settings-notifications": {
+    "id": "layers/website/home/platform-menu/settings/platform-menue-settings-notifications",
+    "path": "layers/website/home/platform-menu/settings/platform-menue-settings-notifications.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/platform-menue-settings-notifications.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/platform-menue-settings-notifications.svg"
   },
   "layers/website/home/platform-menu/settings/platform-menue-settings-permissions": {
     "id": "layers/website/home/platform-menu/settings/platform-menue-settings-permissions",

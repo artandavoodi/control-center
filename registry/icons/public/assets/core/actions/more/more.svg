@@ -21,35 +21,31 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
-     inkscape:zoom="7.8600737"
-     inkscape:cx="20.737719"
-     inkscape:cy="5.0253982"
+     inkscape:zoom="12.044937"
+     inkscape:cx="12.536388"
+     inkscape:cy="9.8796699"
      inkscape:window-width="1472"
-     inkscape:window-height="868"
+     inkscape:window-height="895"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="61"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg1" />
-  <g
-     id="g1"
-     transform="translate(-1.5466099,1.9177399)">
-    <circle
-       style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
-       id="path1"
-       cx="5.609602"
-       cy="10.08226"
-       r="1.511811" />
-    <circle
-       style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
-       id="path1-4"
-       cx="13.54661"
-       cy="10.08226"
-       r="1.511811" />
-    <circle
-       style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
-       id="path1-3"
-       cx="21.483618"
-       cy="10.08226"
-       r="1.511811" />
-  </g>
+  <circle
+     style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+     id="path1"
+     cx="4.0629921"
+     cy="12"
+     r="1.511811" />
+  <circle
+     style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+     id="path1-4"
+     cx="12"
+     cy="12"
+     r="1.511811" />
+  <circle
+     style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round"
+     id="path1-3"
+     cx="19.937008"
+     cy="12"
+     r="1.511811" />
 </svg>

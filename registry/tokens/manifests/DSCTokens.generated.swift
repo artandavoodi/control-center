@@ -6142,10 +6142,15 @@ enum DSCTokens {
     "ui-dropdown-font-size": "var(--control-font-size)",
     "ui-dropdown-font-weight": "var(--control-font-weight)",
     "ui-dropdown-line-height": "var(--control-line-height)",
-    "ui-dropdown-icon-size": "16px",
+    "ui-dropdown-icon-size": "var(--icon-size-sm)",
     "ui-dropdown-icon-gap": "var(--spacing-sm)",
     "ui-dropdown-transition": "var(--interaction-transition-control)",
     "ui-dropdown-icon-filter": "var(--icon-image-filter)",
+    "ui-dropdown-option-bg": "var(--bg-color)",
+    "ui-dropdown-option-color": "var(--text-color)",
+    "ui-dropdown-icon-only-color": "transparent",
+    "ui-dropdown-icon-only-opacity": "var(--state-opacity-idle)",
+    "ui-dropdown-icon-only-z-index": "var(--z-base)",
     "ui-inline-dropdown-gap": "var(--spacing-sm)",
     "ui-inline-dropdown-label-size": "var(--control-font-size)",
     "ui-inline-dropdown-label-weight": "var(--control-font-weight)",
@@ -15341,10 +15346,15 @@ enum DSCTokens {
   static let ui_dropdown_font_size = "var(--control-font-size)"
   static let ui_dropdown_font_weight = "var(--control-font-weight)"
   static let ui_dropdown_line_height = "var(--control-line-height)"
-  static let ui_dropdown_icon_size = "16px"
+  static let ui_dropdown_icon_size = "var(--icon-size-sm)"
   static let ui_dropdown_icon_gap = "var(--spacing-sm)"
   static let ui_dropdown_transition = "var(--interaction-transition-control)"
   static let ui_dropdown_icon_filter = "var(--icon-image-filter)"
+  static let ui_dropdown_option_bg = "var(--bg-color)"
+  static let ui_dropdown_option_color = "var(--text-color)"
+  static let ui_dropdown_icon_only_color = "transparent"
+  static let ui_dropdown_icon_only_opacity = "var(--state-opacity-idle)"
+  static let ui_dropdown_icon_only_z_index = "var(--z-base)"
   static let ui_inline_dropdown_gap = "var(--spacing-sm)"
   static let ui_inline_dropdown_label_size = "var(--control-font-size)"
   static let ui_inline_dropdown_label_weight = "var(--control-font-weight)"

@@ -444,6 +444,19 @@ body.model-management-identity-editor-open{
   height:var(--icon-size-sm);
 }
 
+.model-management__identity-status{
+  text-align:start;
+}
+
+.model-management__identity-status[data-model-identity-editor-state="success"]{
+  color:var(--profile-settings-status-success-color);
+}
+
+.model-management__identity-status[data-model-identity-editor-state="error"]{
+  color:var(--profile-settings-status-error-color);
+  opacity:var(--state-opacity-high);
+}
+
 @media (max-width:760px){
   .model-management{
     gap:var(--spacing-lg);
