@@ -69,6 +69,14 @@ const WEBSITE_ICON_MIRROR =
     "assets"
   );
 
+const LEGACY_WEBSITE_ICON_MIRROR =
+  path.join(
+    WEBSITE_ROOT,
+    "docs",
+    "assets",
+    "icons"
+  );
+
 const REQUIRED_MANIFESTS = [
   "registry/icons/manifests/IconRegistry.generated.swift",
   "registry/icons/manifests/icon-manifest.json",
@@ -238,28 +246,34 @@ function assertNoFinderDuplicates(root, label) {
   }
 }
 
-function assertNoDuplicateIconExportDirectories() {
-  const websiteIconExportRoot =
-    path.dirname(
-      WEBSITE_ICON_MIRROR
-    );
+function assertNoFinderDuplicateDirectories(root, label) {
+  const duplicates = [];
 
-  const duplicates =
-    fs
-      .readdirSync(
-        websiteIconExportRoot,
-        { withFileTypes: true }
-      )
-      .filter(
-        (entry) =>
-          entry.isDirectory() &&
-          /^assets \d+$/u.test(entry.name)
-      )
-      .map((entry) => entry.name);
+  function visit(directory) {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      if (!entry.isDirectory()) {
+        continue;
+      }
+
+      const resolved =
+        path.join(
+          directory,
+          entry.name
+        );
+
+      if (/ \d+$/u.test(entry.name)) {
+        duplicates.push(resolved);
+      }
+
+      visit(resolved);
+    }
+  }
+
+  visit(root);
 
   if (duplicates.length) {
     throw new Error(
-      `Website icon export contains duplicate directories: ${duplicates.join(", ")}`
+      `${label} contains Finder-style duplicate directories:\n${duplicates.join("\n")}`
     );
   }
 }
@@ -291,20 +305,37 @@ assertPathRemoved(
   "Legacy Control Center token mirror"
 );
 
+assertPathRemoved(
+  LEGACY_WEBSITE_ICON_MIRROR,
+  "Legacy website icon mirror"
+);
+
 assertNoFinderDuplicates(
   ICON_SOURCE_ROOT,
   "Control Center icon source"
 );
 
-assertNoDuplicateIconExportDirectories();
+assertNoFinderDuplicateDirectories(
+  ICON_SOURCE_ROOT,
+  "Control Center icon source"
+);
+
+assertNoFinderDuplicateDirectories(
+  CONTROL_CENTER_ICON_MIRROR,
+  "Control Center icon mirror"
+);
+
+assertNoFinderDuplicateDirectories(
+  WEBSITE_ICON_MIRROR,
+  "Website icon mirror"
+);
 
 const controlCenterIconFiles =
   compare(
     "Control Center icon",
     ICON_SOURCE_ROOT,
     CONTROL_CENTER_ICON_MIRROR,
-    () => true,
-    true
+    () => true
   );
 
 const websiteIconFiles =
@@ -312,8 +343,7 @@ const websiteIconFiles =
     "Website icon",
     ICON_SOURCE_ROOT,
     WEBSITE_ICON_MIRROR,
-    () => true,
-    true
+    () => true
   );
 
 assertRequiredManifests();

@@ -24,6 +24,10 @@ const ICON_ROOT =
 
 export class IconCompiler {
   load() {
+    this.removeIdenticalFinderDuplicates(
+      ICON_ROOT
+    );
+
     const files =
       this.walk(ICON_ROOT);
 
@@ -68,6 +72,10 @@ export class IconCompiler {
 
     return entries.flatMap(
       (entry) => {
+        if (entry.name === ".DS_Store") {
+          return [];
+        }
+
         const resolved =
           path.join(
             dir,
@@ -83,6 +91,62 @@ export class IconCompiler {
         return resolved;
       }
     );
+  }
+
+  removeIdenticalFinderDuplicates(dir) {
+    const entries =
+      fs.readdirSync(
+        dir,
+        {
+          withFileTypes: true
+        }
+      );
+
+    for (const entry of entries) {
+      const resolved =
+        path.join(
+          dir,
+          entry.name
+        );
+
+      if (entry.isDirectory()) {
+        this.removeIdenticalFinderDuplicates(
+          resolved
+        );
+        continue;
+      }
+
+      if (!entry.isFile()) {
+        continue;
+      }
+
+      const duplicateMatch =
+        entry.name.match(
+          /^(.*) \d+(\.[^./]+)$/u
+        );
+
+      if (!duplicateMatch) {
+        continue;
+      }
+
+      const canonical =
+        path.join(
+          dir,
+          `${duplicateMatch[1]}${duplicateMatch[2]}`
+        );
+
+      if (
+        fs.existsSync(canonical) &&
+        fs.readFileSync(canonical).equals(
+          fs.readFileSync(resolved)
+        )
+      ) {
+        fs.rmSync(
+          resolved,
+          { force: true }
+        );
+      }
+    }
   }
 }
 

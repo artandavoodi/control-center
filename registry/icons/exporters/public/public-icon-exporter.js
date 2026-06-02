@@ -60,7 +60,11 @@ function removeStaleExportSiblings(destination) {
   }
 }
 
-function propagateDirectory(source, destination) {
+function propagateDirectory(
+  source,
+  destination,
+  propagateFile
+) {
   fs.mkdirSync(destination, { recursive: true });
 
   for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
@@ -75,14 +79,89 @@ function propagateDirectory(source, destination) {
       path.join(destination, entry.name);
 
     if (entry.isDirectory()) {
-      propagateDirectory(sourcePath, destinationPath);
+      propagateDirectory(
+        sourcePath,
+        destinationPath,
+        propagateFile
+      );
       continue;
     }
 
     if (entry.isFile()) {
-      fs.linkSync(sourcePath, destinationPath);
+      propagateFile(
+        sourcePath,
+        destinationPath
+      );
     }
   }
+}
+
+function pruneGeneratedMirror(
+  source,
+  destination
+) {
+  if (!fs.existsSync(destination)) {
+    return;
+  }
+
+  for (const entry of fs.readdirSync(destination, { withFileTypes: true })) {
+    const destinationPath =
+      path.join(destination, entry.name);
+
+    if (entry.name === ".DS_Store") {
+      fs.rmSync(
+        destinationPath,
+        { force: true }
+      );
+      continue;
+    }
+
+    const sourcePath =
+      path.join(source, entry.name);
+
+    if (!fs.existsSync(sourcePath)) {
+      fs.rmSync(
+        destinationPath,
+        {
+          recursive: true,
+          force: true
+        }
+      );
+      continue;
+    }
+
+    const sourceStat =
+      fs.statSync(sourcePath);
+
+    if (entry.isDirectory() && sourceStat.isDirectory()) {
+      pruneGeneratedMirror(
+        sourcePath,
+        destinationPath
+      );
+      continue;
+    }
+
+    if (entry.isFile() && sourceStat.isFile()) {
+      continue;
+    }
+
+    fs.rmSync(
+      destinationPath,
+      {
+        recursive: true,
+        force: true
+      }
+    );
+  }
+}
+
+// Hard links are not stable inside iCloud-backed folders. Generated mirrors
+// remain deployment-only outputs and are verified against source by hash.
+function copyDeploymentFile(source, destination) {
+  fs.copyFileSync(
+    source,
+    destination
+  );
 }
 
 class PublicIconExporter {
@@ -95,22 +174,34 @@ class PublicIconExporter {
       WEBSITE_PUBLIC_ROOT
     );
 
-    fs.rmSync(PUBLIC_ROOT, {
-      recursive: true,
-      force: true
-    });
-
-    fs.rmSync(WEBSITE_PUBLIC_ROOT, {
-      recursive: true,
-      force: true
-    });
-
-    propagateDirectory(
+    pruneGeneratedMirror(
       SOURCE_ROOT,
       PUBLIC_ROOT
     );
 
+    pruneGeneratedMirror(
+      SOURCE_ROOT,
+      WEBSITE_PUBLIC_ROOT
+    );
+
     propagateDirectory(
+      SOURCE_ROOT,
+      PUBLIC_ROOT,
+      copyDeploymentFile
+    );
+
+    propagateDirectory(
+      SOURCE_ROOT,
+      WEBSITE_PUBLIC_ROOT,
+      copyDeploymentFile
+    );
+
+    pruneGeneratedMirror(
+      SOURCE_ROOT,
+      PUBLIC_ROOT
+    );
+
+    pruneGeneratedMirror(
       SOURCE_ROOT,
       WEBSITE_PUBLIC_ROOT
     );
