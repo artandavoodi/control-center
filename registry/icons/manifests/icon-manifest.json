@@ -2111,12 +2111,6 @@
     "publicPath": "/registry/icons/public/assets/core/media/audio/audio.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/audio.svg"
   },
-  "core/media/audio/mic 2": {
-    "id": "core/media/audio/mic 2",
-    "path": "core/media/audio/mic 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/audio/mic 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/mic 2.svg"
-  },
   "core/media/audio/mic": {
     "id": "core/media/audio/mic",
     "path": "core/media/audio/mic.svg",
@@ -2135,23 +2129,11 @@
     "publicPath": "/registry/icons/public/assets/core/media/audio/voice.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/voice.svg"
   },
-  "core/media/audio/volume-high 2": {
-    "id": "core/media/audio/volume-high 2",
-    "path": "core/media/audio/volume-high 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/audio/volume-high 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/volume-high 2.svg"
-  },
   "core/media/audio/volume-high": {
     "id": "core/media/audio/volume-high",
     "path": "core/media/audio/volume-high.svg",
     "publicPath": "/registry/icons/public/assets/core/media/audio/volume-high.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/volume-high.svg"
-  },
-  "core/media/audio/volume-low 2": {
-    "id": "core/media/audio/volume-low 2",
-    "path": "core/media/audio/volume-low 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/audio/volume-low 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/volume-low 2.svg"
   },
   "core/media/audio/volume-low": {
     "id": "core/media/audio/volume-low",
@@ -2164,12 +2146,6 @@
     "path": "core/media/audio/volume-off.svg",
     "publicPath": "/registry/icons/public/assets/core/media/audio/volume-off.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/volume-off.svg"
-  },
-  "core/media/audio/volume-on 2": {
-    "id": "core/media/audio/volume-on 2",
-    "path": "core/media/audio/volume-on 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/audio/volume-on 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/audio/volume-on 2.svg"
   },
   "core/media/audio/volume-on": {
     "id": "core/media/audio/volume-on",
@@ -2189,12 +2165,6 @@
     "publicPath": "/registry/icons/public/assets/core/media/camera/camera.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/camera/camera.svg"
   },
-  "core/media/camera-off/camera-off 2": {
-    "id": "core/media/camera-off/camera-off 2",
-    "path": "core/media/camera-off/camera-off 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/camera-off/camera-off 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/camera-off/camera-off 2.svg"
-  },
   "core/media/camera-off/camera-off": {
     "id": "core/media/camera-off/camera-off",
     "path": "core/media/camera-off/camera-off.svg",
@@ -2212,12 +2182,6 @@
     "path": "core/media/capture/video.svg",
     "publicPath": "/registry/icons/public/assets/core/media/capture/video.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/capture/video.svg"
-  },
-  "core/media/gallery/gallery 2": {
-    "id": "core/media/gallery/gallery 2",
-    "path": "core/media/gallery/gallery 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/gallery/gallery 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/gallery/gallery 2.svg"
   },
   "core/media/gallery/gallery": {
     "id": "core/media/gallery/gallery",
@@ -2249,12 +2213,6 @@
     "publicPath": "/registry/icons/public/assets/core/media/live/live.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/live/live.svg"
   },
-  "core/media/mic-off/mic-off 2": {
-    "id": "core/media/mic-off/mic-off 2",
-    "path": "core/media/mic-off/mic-off 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/mic-off/mic-off 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/mic-off/mic-off 2.svg"
-  },
   "core/media/mic-off/mic-off": {
     "id": "core/media/mic-off/mic-off",
     "path": "core/media/mic-off/mic-off.svg",
@@ -2267,23 +2225,11 @@
     "publicPath": "/registry/icons/public/assets/core/media/next/next.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/next/next.svg"
   },
-  "core/media/pause/pause 2": {
-    "id": "core/media/pause/pause 2",
-    "path": "core/media/pause/pause 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/pause/pause 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/pause/pause 2.svg"
-  },
   "core/media/pause/pause": {
     "id": "core/media/pause/pause",
     "path": "core/media/pause/pause.svg",
     "publicPath": "/registry/icons/public/assets/core/media/pause/pause.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/pause/pause.svg"
-  },
-  "core/media/play/play 2": {
-    "id": "core/media/play/play 2",
-    "path": "core/media/play/play 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/play/play 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/play/play 2.svg"
   },
   "core/media/play/play": {
     "id": "core/media/play/play",
@@ -2291,35 +2237,17 @@
     "publicPath": "/registry/icons/public/assets/core/media/play/play.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/play/play.svg"
   },
-  "core/media/previous/previous 2": {
-    "id": "core/media/previous/previous 2",
-    "path": "core/media/previous/previous 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/previous/previous 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/previous/previous 2.svg"
-  },
   "core/media/previous/previous": {
     "id": "core/media/previous/previous",
     "path": "core/media/previous/previous.svg",
     "publicPath": "/registry/icons/public/assets/core/media/previous/previous.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/previous/previous.svg"
   },
-  "core/media/recording/record 2": {
-    "id": "core/media/recording/record 2",
-    "path": "core/media/recording/record 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/recording/record 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/recording/record 2.svg"
-  },
   "core/media/recording/record": {
     "id": "core/media/recording/record",
     "path": "core/media/recording/record.svg",
     "publicPath": "/registry/icons/public/assets/core/media/recording/record.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/recording/record.svg"
-  },
-  "core/media/transport/repeat 2": {
-    "id": "core/media/transport/repeat 2",
-    "path": "core/media/transport/repeat 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/transport/repeat 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/repeat 2.svg"
   },
   "core/media/transport/repeat": {
     "id": "core/media/transport/repeat",
@@ -2333,12 +2261,6 @@
     "publicPath": "/registry/icons/public/assets/core/media/transport/replay.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/replay.svg"
   },
-  "core/media/transport/shuffle 2": {
-    "id": "core/media/transport/shuffle 2",
-    "path": "core/media/transport/shuffle 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/transport/shuffle 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/shuffle 2.svg"
-  },
   "core/media/transport/shuffle": {
     "id": "core/media/transport/shuffle",
     "path": "core/media/transport/shuffle.svg",
@@ -2350,12 +2272,6 @@
     "path": "core/media/transport/skip-back.svg",
     "publicPath": "/registry/icons/public/assets/core/media/transport/skip-back.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/skip-back.svg"
-  },
-  "core/media/transport/skip-forward 2": {
-    "id": "core/media/transport/skip-forward 2",
-    "path": "core/media/transport/skip-forward 2.svg",
-    "publicPath": "/registry/icons/public/assets/core/media/transport/skip-forward 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/skip-forward 2.svg"
   },
   "core/media/transport/skip-forward": {
     "id": "core/media/transport/skip-forward",
@@ -4613,6 +4529,540 @@
     "publicPath": "/registry/icons/public/assets/layers/website/legacy/hover-to-social-media-and-music.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/legacy/hover-to-social-media-and-music.svg"
   },
+  "layers/website/model/overview/birth-certificate-id": {
+    "id": "layers/website/model/overview/birth-certificate-id",
+    "path": "layers/website/model/overview/birth-certificate-id.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/birth-certificate-id.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/birth-certificate-id.svg"
+  },
+  "layers/website/model/overview/birth-date": {
+    "id": "layers/website/model/overview/birth-date",
+    "path": "layers/website/model/overview/birth-date.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/birth-date.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/birth-date.svg"
+  },
+  "layers/website/model/overview/created": {
+    "id": "layers/website/model/overview/created",
+    "path": "layers/website/model/overview/created.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/created.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/created.svg"
+  },
+  "layers/website/model/overview/discoverability": {
+    "id": "layers/website/model/overview/discoverability",
+    "path": "layers/website/model/overview/discoverability.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/discoverability.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/discoverability.svg"
+  },
+  "layers/website/model/overview/documents": {
+    "id": "layers/website/model/overview/documents",
+    "path": "layers/website/model/overview/documents.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/documents.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/documents.svg"
+  },
+  "layers/website/model/overview/external-datasets": {
+    "id": "layers/website/model/overview/external-datasets",
+    "path": "layers/website/model/overview/external-datasets.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/external-datasets.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/external-datasets.svg"
+  },
+  "layers/website/model/overview/lifecycle": {
+    "id": "layers/website/model/overview/lifecycle",
+    "path": "layers/website/model/overview/lifecycle.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/lifecycle.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/lifecycle.svg"
+  },
+  "layers/website/model/overview/logic-registry": {
+    "id": "layers/website/model/overview/logic-registry",
+    "path": "layers/website/model/overview/logic-registry.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/logic-registry.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/logic-registry.svg"
+  },
+  "layers/website/model/overview/model-id": {
+    "id": "layers/website/model/overview/model-id",
+    "path": "layers/website/model/overview/model-id.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/model-id.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/model-id.svg"
+  },
+  "layers/website/model/overview/model-nickname": {
+    "id": "layers/website/model/overview/model-nickname",
+    "path": "layers/website/model/overview/model-nickname.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/model-nickname.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/model-nickname.svg"
+  },
+  "layers/website/model/overview/model-status": {
+    "id": "layers/website/model/overview/model-status",
+    "path": "layers/website/model/overview/model-status.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/model-status.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/model-status.svg"
+  },
+  "layers/website/model/overview/model-type": {
+    "id": "layers/website/model/overview/model-type",
+    "path": "layers/website/model/overview/model-type.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/model-type.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/model-type.svg"
+  },
+  "layers/website/model/overview/owner-consent": {
+    "id": "layers/website/model/overview/owner-consent",
+    "path": "layers/website/model/overview/owner-consent.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/owner-consent.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/owner-consent.svg"
+  },
+  "layers/website/model/overview/owner-id": {
+    "id": "layers/website/model/overview/owner-id",
+    "path": "layers/website/model/overview/owner-id.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/owner-id.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/owner-id.svg"
+  },
+  "layers/website/model/overview/owner": {
+    "id": "layers/website/model/overview/owner",
+    "path": "layers/website/model/overview/owner.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/owner.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/owner.svg"
+  },
+  "layers/website/model/overview/privacy-lock": {
+    "id": "layers/website/model/overview/privacy-lock",
+    "path": "layers/website/model/overview/privacy-lock.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/privacy-lock.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/privacy-lock.svg"
+  },
+  "layers/website/model/overview/private-memory": {
+    "id": "layers/website/model/overview/private-memory",
+    "path": "layers/website/model/overview/private-memory.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/private-memory.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/private-memory.svg"
+  },
+  "layers/website/model/overview/private-serial-identity": {
+    "id": "layers/website/model/overview/private-serial-identity",
+    "path": "layers/website/model/overview/private-serial-identity.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/private-serial-identity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/private-serial-identity.svg"
+  },
+  "layers/website/model/overview/profile-link": {
+    "id": "layers/website/model/overview/profile-link",
+    "path": "layers/website/model/overview/profile-link.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/profile-link.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/profile-link.svg"
+  },
+  "layers/website/model/overview/public-serial-identity": {
+    "id": "layers/website/model/overview/public-serial-identity",
+    "path": "layers/website/model/overview/public-serial-identity.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/public-serial-identity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/public-serial-identity.svg"
+  },
+  "layers/website/model/overview/readiness": {
+    "id": "layers/website/model/overview/readiness",
+    "path": "layers/website/model/overview/readiness.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/readiness.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/readiness.svg"
+  },
+  "layers/website/model/overview/registry-id": {
+    "id": "layers/website/model/overview/registry-id",
+    "path": "layers/website/model/overview/registry-id.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/registry-id.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/registry-id.svg"
+  },
+  "layers/website/model/overview/retrieval-readiness": {
+    "id": "layers/website/model/overview/retrieval-readiness",
+    "path": "layers/website/model/overview/retrieval-readiness.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/retrieval-readiness.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/retrieval-readiness.svg"
+  },
+  "layers/website/model/overview/source-authorization": {
+    "id": "layers/website/model/overview/source-authorization",
+    "path": "layers/website/model/overview/source-authorization.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/source-authorization.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/source-authorization.svg"
+  },
+  "layers/website/model/overview/thought-bank": {
+    "id": "layers/website/model/overview/thought-bank",
+    "path": "layers/website/model/overview/thought-bank.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/thought-bank.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/thought-bank.svg"
+  },
+  "layers/website/model/overview/updated": {
+    "id": "layers/website/model/overview/updated",
+    "path": "layers/website/model/overview/updated.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/updated.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/updated.svg"
+  },
+  "layers/website/model/overview/verification": {
+    "id": "layers/website/model/overview/verification",
+    "path": "layers/website/model/overview/verification.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/verification.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/verification.svg"
+  },
+  "layers/website/model/overview/voice-activation": {
+    "id": "layers/website/model/overview/voice-activation",
+    "path": "layers/website/model/overview/voice-activation.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/voice-activation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/voice-activation.svg"
+  },
+  "layers/website/model/overview/voice-consent": {
+    "id": "layers/website/model/overview/voice-consent",
+    "path": "layers/website/model/overview/voice-consent.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/voice-consent.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/voice-consent.svg"
+  },
+  "layers/website/model/overview/voice-samples": {
+    "id": "layers/website/model/overview/voice-samples",
+    "path": "layers/website/model/overview/voice-samples.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/voice-samples.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/voice-samples.svg"
+  },
+  "layers/website/model/overview/voice-verification": {
+    "id": "layers/website/model/overview/voice-verification",
+    "path": "layers/website/model/overview/voice-verification.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/overview/voice-verification.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/overview/voice-verification.svg"
+  },
+  "layers/website/model/sidebar/dashboard": {
+    "id": "layers/website/model/sidebar/dashboard",
+    "path": "layers/website/model/sidebar/dashboard.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/dashboard.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/dashboard.svg"
+  },
+  "layers/website/model/sidebar/discovery": {
+    "id": "layers/website/model/sidebar/discovery",
+    "path": "layers/website/model/sidebar/discovery.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/discovery.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/discovery.svg"
+  },
+  "layers/website/model/sidebar/explore": {
+    "id": "layers/website/model/sidebar/explore",
+    "path": "layers/website/model/sidebar/explore.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/explore.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/explore.svg"
+  },
+  "layers/website/model/sidebar/foundation": {
+    "id": "layers/website/model/sidebar/foundation",
+    "path": "layers/website/model/sidebar/foundation.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/foundation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/foundation.svg"
+  },
+  "layers/website/model/sidebar/personalization": {
+    "id": "layers/website/model/sidebar/personalization",
+    "path": "layers/website/model/sidebar/personalization.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/personalization.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/personalization.svg"
+  },
+  "layers/website/model/sidebar/settings": {
+    "id": "layers/website/model/sidebar/settings",
+    "path": "layers/website/model/sidebar/settings.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/settings.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/settings.svg"
+  },
+  "layers/website/model/sidebar/stage": {
+    "id": "layers/website/model/sidebar/stage",
+    "path": "layers/website/model/sidebar/stage.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/stage.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/stage.svg"
+  },
+  "layers/website/model/sidebar/training": {
+    "id": "layers/website/model/sidebar/training",
+    "path": "layers/website/model/sidebar/training.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/sidebar/training.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/sidebar/training.svg"
+  },
+  "layers/website/model/tabs/behavior": {
+    "id": "layers/website/model/tabs/behavior",
+    "path": "layers/website/model/tabs/behavior.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/behavior.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/behavior.svg"
+  },
+  "layers/website/model/tabs/blockers": {
+    "id": "layers/website/model/tabs/blockers",
+    "path": "layers/website/model/tabs/blockers.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/blockers.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/blockers.svg"
+  },
+  "layers/website/model/tabs/changelog": {
+    "id": "layers/website/model/tabs/changelog",
+    "path": "layers/website/model/tabs/changelog.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/changelog.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/changelog.svg"
+  },
+  "layers/website/model/tabs/checks": {
+    "id": "layers/website/model/tabs/checks",
+    "path": "layers/website/model/tabs/checks.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/checks.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/checks.svg"
+  },
+  "layers/website/model/tabs/consent": {
+    "id": "layers/website/model/tabs/consent",
+    "path": "layers/website/model/tabs/consent.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/consent.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/consent.svg"
+  },
+  "layers/website/model/tabs/creativity": {
+    "id": "layers/website/model/tabs/creativity",
+    "path": "layers/website/model/tabs/creativity.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/creativity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/creativity.svg"
+  },
+  "layers/website/model/tabs/datasets": {
+    "id": "layers/website/model/tabs/datasets",
+    "path": "layers/website/model/tabs/datasets.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/datasets.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/datasets.svg"
+  },
+  "layers/website/model/tabs/directory": {
+    "id": "layers/website/model/tabs/directory",
+    "path": "layers/website/model/tabs/directory.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/directory.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/directory.svg"
+  },
+  "layers/website/model/tabs/emotion": {
+    "id": "layers/website/model/tabs/emotion",
+    "path": "layers/website/model/tabs/emotion.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/emotion.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/emotion.svg"
+  },
+  "layers/website/model/tabs/evaluation": {
+    "id": "layers/website/model/tabs/evaluation",
+    "path": "layers/website/model/tabs/evaluation.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/evaluation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/evaluation.svg"
+  },
+  "layers/website/model/tabs/expertise": {
+    "id": "layers/website/model/tabs/expertise",
+    "path": "layers/website/model/tabs/expertise.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/expertise.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/expertise.svg"
+  },
+  "layers/website/model/tabs/history": {
+    "id": "layers/website/model/tabs/history",
+    "path": "layers/website/model/tabs/history.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/history.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/history.svg"
+  },
+  "layers/website/model/tabs/identity": {
+    "id": "layers/website/model/tabs/identity",
+    "path": "layers/website/model/tabs/identity.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/identity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/identity.svg"
+  },
+  "layers/website/model/tabs/knowledge-base": {
+    "id": "layers/website/model/tabs/knowledge-base",
+    "path": "layers/website/model/tabs/knowledge-base.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/knowledge-base.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/knowledge-base.svg"
+  },
+  "layers/website/model/tabs/language": {
+    "id": "layers/website/model/tabs/language",
+    "path": "layers/website/model/tabs/language.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/language.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/language.svg"
+  },
+  "layers/website/model/tabs/logics": {
+    "id": "layers/website/model/tabs/logics",
+    "path": "layers/website/model/tabs/logics.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/logics.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/logics.svg"
+  },
+  "layers/website/model/tabs/memory": {
+    "id": "layers/website/model/tabs/memory",
+    "path": "layers/website/model/tabs/memory.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/memory.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/memory.svg"
+  },
+  "layers/website/model/tabs/monetization": {
+    "id": "layers/website/model/tabs/monetization",
+    "path": "layers/website/model/tabs/monetization.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/monetization.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/monetization.svg"
+  },
+  "layers/website/model/tabs/overview": {
+    "id": "layers/website/model/tabs/overview",
+    "path": "layers/website/model/tabs/overview.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/overview.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/overview.svg"
+  },
+  "layers/website/model/tabs/preferences": {
+    "id": "layers/website/model/tabs/preferences",
+    "path": "layers/website/model/tabs/preferences.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/preferences.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/preferences.svg"
+  },
+  "layers/website/model/tabs/protocol": {
+    "id": "layers/website/model/tabs/protocol",
+    "path": "layers/website/model/tabs/protocol.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/protocol.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/protocol.svg"
+  },
+  "layers/website/model/tabs/provenance": {
+    "id": "layers/website/model/tabs/provenance",
+    "path": "layers/website/model/tabs/provenance.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/provenance.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/provenance.svg"
+  },
+  "layers/website/model/tabs/provider": {
+    "id": "layers/website/model/tabs/provider",
+    "path": "layers/website/model/tabs/provider.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/provider.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/provider.svg"
+  },
+  "layers/website/model/tabs/reflection": {
+    "id": "layers/website/model/tabs/reflection",
+    "path": "layers/website/model/tabs/reflection.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/reflection.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/reflection.svg"
+  },
+  "layers/website/model/tabs/reputation": {
+    "id": "layers/website/model/tabs/reputation",
+    "path": "layers/website/model/tabs/reputation.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/reputation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/reputation.svg"
+  },
+  "layers/website/model/tabs/response": {
+    "id": "layers/website/model/tabs/response",
+    "path": "layers/website/model/tabs/response.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/response.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/response.svg"
+  },
+  "layers/website/model/tabs/routing": {
+    "id": "layers/website/model/tabs/routing",
+    "path": "layers/website/model/tabs/routing.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/routing.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/routing.svg"
+  },
+  "layers/website/model/tabs/source": {
+    "id": "layers/website/model/tabs/source",
+    "path": "layers/website/model/tabs/source.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/source.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/source.svg"
+  },
+  "layers/website/model/tabs/state": {
+    "id": "layers/website/model/tabs/state",
+    "path": "layers/website/model/tabs/state.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/state.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/state.svg"
+  },
+  "layers/website/model/tabs/trending": {
+    "id": "layers/website/model/tabs/trending",
+    "path": "layers/website/model/tabs/trending.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/trending.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/trending.svg"
+  },
+  "layers/website/model/tabs/visibility": {
+    "id": "layers/website/model/tabs/visibility",
+    "path": "layers/website/model/tabs/visibility.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/visibility.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/visibility.svg"
+  },
+  "layers/website/model/tabs/voice": {
+    "id": "layers/website/model/tabs/voice",
+    "path": "layers/website/model/tabs/voice.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/voice.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/voice.svg"
+  },
+  "layers/website/model/training/add-external-source": {
+    "id": "layers/website/model/training/add-external-source",
+    "path": "layers/website/model/training/add-external-source.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/add-external-source.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/add-external-source.svg"
+  },
+  "layers/website/model/training/add-logic": {
+    "id": "layers/website/model/training/add-logic",
+    "path": "layers/website/model/training/add-logic.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/add-logic.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/add-logic.svg"
+  },
+  "layers/website/model/training/add-note": {
+    "id": "layers/website/model/training/add-note",
+    "path": "layers/website/model/training/add-note.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/add-note.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/add-note.svg"
+  },
+  "layers/website/model/training/cancel": {
+    "id": "layers/website/model/training/cancel",
+    "path": "layers/website/model/training/cancel.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/cancel.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/cancel.svg"
+  },
+  "layers/website/model/training/connected-sources": {
+    "id": "layers/website/model/training/connected-sources",
+    "path": "layers/website/model/training/connected-sources.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/connected-sources.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/connected-sources.svg"
+  },
+  "layers/website/model/training/execution": {
+    "id": "layers/website/model/training/execution",
+    "path": "layers/website/model/training/execution.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/execution.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/execution.svg"
+  },
+  "layers/website/model/training/external-datasets": {
+    "id": "layers/website/model/training/external-datasets",
+    "path": "layers/website/model/training/external-datasets.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/external-datasets.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/external-datasets.svg"
+  },
+  "layers/website/model/training/knowledge-note": {
+    "id": "layers/website/model/training/knowledge-note",
+    "path": "layers/website/model/training/knowledge-note.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/knowledge-note.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/knowledge-note.svg"
+  },
+  "layers/website/model/training/origin": {
+    "id": "layers/website/model/training/origin",
+    "path": "layers/website/model/training/origin.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/origin.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/origin.svg"
+  },
+  "layers/website/model/training/permission": {
+    "id": "layers/website/model/training/permission",
+    "path": "layers/website/model/training/permission.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/permission.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/permission.svg"
+  },
+  "layers/website/model/training/readiness": {
+    "id": "layers/website/model/training/readiness",
+    "path": "layers/website/model/training/readiness.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/readiness.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/readiness.svg"
+  },
+  "layers/website/model/training/recipe-workspace": {
+    "id": "layers/website/model/training/recipe-workspace",
+    "path": "layers/website/model/training/recipe-workspace.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/recipe-workspace.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/recipe-workspace.svg"
+  },
+  "layers/website/model/training/recipe": {
+    "id": "layers/website/model/training/recipe",
+    "path": "layers/website/model/training/recipe.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/recipe.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/recipe.svg"
+  },
+  "layers/website/model/training/run": {
+    "id": "layers/website/model/training/run",
+    "path": "layers/website/model/training/run.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/run.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/run.svg"
+  },
+  "layers/website/model/training/save-recipe-draft": {
+    "id": "layers/website/model/training/save-recipe-draft",
+    "path": "layers/website/model/training/save-recipe-draft.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/save-recipe-draft.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/save-recipe-draft.svg"
+  },
+  "layers/website/model/training/sources": {
+    "id": "layers/website/model/training/sources",
+    "path": "layers/website/model/training/sources.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/sources.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/sources.svg"
+  },
+  "layers/website/model/training/training-protocol": {
+    "id": "layers/website/model/training/training-protocol",
+    "path": "layers/website/model/training/training-protocol.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/training-protocol.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/training-protocol.svg"
+  },
+  "layers/website/model/training/transformation": {
+    "id": "layers/website/model/training/transformation",
+    "path": "layers/website/model/training/transformation.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/training/transformation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/training/transformation.svg"
+  },
   "layers/website/navigation/actions/account-menu-panel": {
     "id": "layers/website/navigation/actions/account-menu-panel",
     "path": "layers/website/navigation/actions/account-menu-panel.svg",
@@ -5285,12 +5735,6 @@
     "publicPath": "/registry/icons/public/assets/layers/website/profile/private/overview/manage-visibility.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/private/overview/manage-visibility.svg"
   },
-  "layers/website/settings/accessibility/accessibility 2": {
-    "id": "layers/website/settings/accessibility/accessibility 2",
-    "path": "layers/website/settings/accessibility/accessibility 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/accessibility/accessibility 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/accessibility/accessibility 2.svg"
-  },
   "layers/website/settings/accessibility/accessibility": {
     "id": "layers/website/settings/accessibility/accessibility",
     "path": "layers/website/settings/accessibility/accessibility.svg",
@@ -5309,23 +5753,11 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/authorization-status-pending.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/authorization-status-pending.svg"
   },
-  "layers/website/settings/actions/changelog-modes 2": {
-    "id": "layers/website/settings/actions/changelog-modes 2",
-    "path": "layers/website/settings/actions/changelog-modes 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/changelog-modes 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/changelog-modes 2.svg"
-  },
   "layers/website/settings/actions/changelog-modes": {
     "id": "layers/website/settings/actions/changelog-modes",
     "path": "layers/website/settings/actions/changelog-modes.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/changelog-modes.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/changelog-modes.svg"
-  },
-  "layers/website/settings/actions/checking-local-runtime-boundary 2": {
-    "id": "layers/website/settings/actions/checking-local-runtime-boundary 2",
-    "path": "layers/website/settings/actions/checking-local-runtime-boundary 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/checking-local-runtime-boundary 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/checking-local-runtime-boundary 2.svg"
   },
   "layers/website/settings/actions/checking-local-runtime-boundary": {
     "id": "layers/website/settings/actions/checking-local-runtime-boundary",
@@ -5369,12 +5801,6 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-developer-mount.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-developer-mount.svg"
   },
-  "layers/website/settings/actions/home-interaction-settings-memory-mount 2": {
-    "id": "layers/website/settings/actions/home-interaction-settings-memory-mount 2",
-    "path": "layers/website/settings/actions/home-interaction-settings-memory-mount 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-memory-mount 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-memory-mount 2.svg"
-  },
   "layers/website/settings/actions/home-interaction-settings-memory-mount": {
     "id": "layers/website/settings/actions/home-interaction-settings-memory-mount",
     "path": "layers/website/settings/actions/home-interaction-settings-memory-mount.svg",
@@ -5392,12 +5818,6 @@
     "path": "layers/website/settings/actions/home-interaction-settings-overview-mount.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-overview-mount.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-overview-mount.svg"
-  },
-  "layers/website/settings/actions/home-interaction-settings-panel-active-description 2": {
-    "id": "layers/website/settings/actions/home-interaction-settings-panel-active-description 2",
-    "path": "layers/website/settings/actions/home-interaction-settings-panel-active-description 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-panel-active-description 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-panel-active-description 2.svg"
   },
   "layers/website/settings/actions/home-interaction-settings-panel-active-description": {
     "id": "layers/website/settings/actions/home-interaction-settings-panel-active-description",
@@ -5435,23 +5855,11 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-voice-mount.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-voice-mount.svg"
   },
-  "layers/website/settings/actions/home-interaction-settings-workspace-mount 2": {
-    "id": "layers/website/settings/actions/home-interaction-settings-workspace-mount 2",
-    "path": "layers/website/settings/actions/home-interaction-settings-workspace-mount 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-workspace-mount 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-workspace-mount 2.svg"
-  },
   "layers/website/settings/actions/home-interaction-settings-workspace-mount": {
     "id": "layers/website/settings/actions/home-interaction-settings-workspace-mount",
     "path": "layers/website/settings/actions/home-interaction-settings-workspace-mount.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/home-interaction-settings-workspace-mount.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/home-interaction-settings-workspace-mount.svg"
-  },
-  "layers/website/settings/actions/homepage-interaction-settings 2": {
-    "id": "layers/website/settings/actions/homepage-interaction-settings 2",
-    "path": "layers/website/settings/actions/homepage-interaction-settings 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/homepage-interaction-settings 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/homepage-interaction-settings 2.svg"
   },
   "layers/website/settings/actions/homepage-interaction-settings": {
     "id": "layers/website/settings/actions/homepage-interaction-settings",
@@ -5477,23 +5885,11 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/model-source-preference.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/model-source-preference.svg"
   },
-  "layers/website/settings/actions/persistence 2": {
-    "id": "layers/website/settings/actions/persistence 2",
-    "path": "layers/website/settings/actions/persistence 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/persistence 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/persistence 2.svg"
-  },
   "layers/website/settings/actions/persistence": {
     "id": "layers/website/settings/actions/persistence",
     "path": "layers/website/settings/actions/persistence.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/persistence.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/persistence.svg"
-  },
-  "layers/website/settings/actions/reading-comfort 2": {
-    "id": "layers/website/settings/actions/reading-comfort 2",
-    "path": "layers/website/settings/actions/reading-comfort 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/reading-comfort 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/reading-comfort 2.svg"
   },
   "layers/website/settings/actions/reading-comfort": {
     "id": "layers/website/settings/actions/reading-comfort",
@@ -5507,23 +5903,11 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/registry-status-pending.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/registry-status-pending.svg"
   },
-  "layers/website/settings/actions/repository-mutation-requires-approval 2": {
-    "id": "layers/website/settings/actions/repository-mutation-requires-approval 2",
-    "path": "layers/website/settings/actions/repository-mutation-requires-approval 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/repository-mutation-requires-approval 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/repository-mutation-requires-approval 2.svg"
-  },
   "layers/website/settings/actions/repository-mutation-requires-approval": {
     "id": "layers/website/settings/actions/repository-mutation-requires-approval",
     "path": "layers/website/settings/actions/repository-mutation-requires-approval.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/repository-mutation-requires-approval.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/repository-mutation-requires-approval.svg"
-  },
-  "layers/website/settings/actions/reset-behavior 2": {
-    "id": "layers/website/settings/actions/reset-behavior 2",
-    "path": "layers/website/settings/actions/reset-behavior 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/reset-behavior 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/reset-behavior 2.svg"
   },
   "layers/website/settings/actions/reset-behavior": {
     "id": "layers/website/settings/actions/reset-behavior",
@@ -5536,12 +5920,6 @@
     "path": "layers/website/settings/actions/response-behavior.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/response-behavior.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/response-behavior.svg"
-  },
-  "layers/website/settings/actions/response-output-mode 2": {
-    "id": "layers/website/settings/actions/response-output-mode 2",
-    "path": "layers/website/settings/actions/response-output-mode 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/response-output-mode 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/response-output-mode 2.svg"
   },
   "layers/website/settings/actions/response-output-mode": {
     "id": "layers/website/settings/actions/response-output-mode",
@@ -5561,23 +5939,11 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/stage-background-depth.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/stage-background-depth.svg"
   },
-  "layers/website/settings/actions/stage-contrast 2": {
-    "id": "layers/website/settings/actions/stage-contrast 2",
-    "path": "layers/website/settings/actions/stage-contrast 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/stage-contrast 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/stage-contrast 2.svg"
-  },
   "layers/website/settings/actions/stage-contrast": {
     "id": "layers/website/settings/actions/stage-contrast",
     "path": "layers/website/settings/actions/stage-contrast.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/stage-contrast.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/stage-contrast.svg"
-  },
-  "layers/website/settings/actions/stage-interface-density 2": {
-    "id": "layers/website/settings/actions/stage-interface-density 2",
-    "path": "layers/website/settings/actions/stage-interface-density 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/actions/stage-interface-density 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/actions/stage-interface-density 2.svg"
   },
   "layers/website/settings/actions/stage-interface-density": {
     "id": "layers/website/settings/actions/stage-interface-density",
@@ -5621,23 +5987,11 @@
     "publicPath": "/registry/icons/public/assets/layers/website/settings/chat-history/chat-history.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/chat-history/chat-history.svg"
   },
-  "layers/website/settings/developer/developer 2": {
-    "id": "layers/website/settings/developer/developer 2",
-    "path": "layers/website/settings/developer/developer 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/developer/developer 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/developer/developer 2.svg"
-  },
   "layers/website/settings/developer/developer": {
     "id": "layers/website/settings/developer/developer",
     "path": "layers/website/settings/developer/developer.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/settings/developer/developer.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/developer/developer.svg"
-  },
-  "layers/website/settings/overview/overview 2": {
-    "id": "layers/website/settings/overview/overview 2",
-    "path": "layers/website/settings/overview/overview 2.svg",
-    "publicPath": "/registry/icons/public/assets/layers/website/settings/overview/overview 2.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/settings/overview/overview 2.svg"
   },
   "layers/website/settings/overview/overview": {
     "id": "layers/website/settings/overview/overview",

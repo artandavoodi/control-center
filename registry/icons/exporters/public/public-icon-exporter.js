@@ -27,7 +27,40 @@ const WEBSITE_PUBLIC_ROOT =
     "registry/icons/public/assets"
   );
 
-function copyDirectory(source, destination) {
+function removeStaleExportSiblings(destination) {
+  const parent =
+    path.dirname(destination);
+
+  const basename =
+    path.basename(destination);
+
+  const duplicatePattern =
+    new RegExp(
+      `^${basename.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")} \\d+$`,
+      "u"
+    );
+
+  if (!fs.existsSync(parent)) {
+    return;
+  }
+
+  for (const entry of fs.readdirSync(parent, { withFileTypes: true })) {
+    if (
+      entry.isDirectory() &&
+      duplicatePattern.test(entry.name)
+    ) {
+      fs.rmSync(
+        path.join(parent, entry.name),
+        {
+          recursive: true,
+          force: true
+        }
+      );
+    }
+  }
+}
+
+function propagateDirectory(source, destination) {
   fs.mkdirSync(destination, { recursive: true });
 
   for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
@@ -42,22 +75,26 @@ function copyDirectory(source, destination) {
       path.join(destination, entry.name);
 
     if (entry.isDirectory()) {
-      copyDirectory(sourcePath, destinationPath);
+      propagateDirectory(sourcePath, destinationPath);
       continue;
     }
 
     if (entry.isFile()) {
-      try {
-        fs.linkSync(sourcePath, destinationPath);
-      } catch {
-        fs.copyFileSync(sourcePath, destinationPath);
-      }
+      fs.linkSync(sourcePath, destinationPath);
     }
   }
 }
 
 class PublicIconExporter {
   export() {
+    removeStaleExportSiblings(
+      PUBLIC_ROOT
+    );
+
+    removeStaleExportSiblings(
+      WEBSITE_PUBLIC_ROOT
+    );
+
     fs.rmSync(PUBLIC_ROOT, {
       recursive: true,
       force: true
@@ -68,12 +105,12 @@ class PublicIconExporter {
       force: true
     });
 
-    copyDirectory(
+    propagateDirectory(
       SOURCE_ROOT,
       PUBLIC_ROOT
     );
 
-    copyDirectory(
+    propagateDirectory(
       SOURCE_ROOT,
       WEBSITE_PUBLIC_ROOT
     );

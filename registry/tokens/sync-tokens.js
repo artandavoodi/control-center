@@ -1,6 +1,6 @@
 /**
  * Control Center Token Synchronization Pipeline
- * Mirrors website token sources and exports runtime adapters.
+ * Compiles canonical website token sources and exports runtime adapters.
  */
 
 import fs from "fs";
@@ -48,16 +48,7 @@ const WEBSITE_TOKEN_ROOT =
     "01-tokens"
   );
 
-const WEBSITE_CSS_ROOT =
-  path.join(
-    NEUROARTAN_ROOT,
-    "website",
-    "docs",
-    "assets",
-    "css"
-  );
-
-const CONTROL_CENTER_TOKEN_SOURCE =
+const LEGACY_CONTROL_CENTER_TOKEN_MIRROR =
   path.join(
     MODULE_DIR,
     "source",
@@ -85,6 +76,10 @@ function walk(dir) {
 
   return entries.flatMap(
     (entry) => {
+      if (entry.name === ".DS_Store") {
+        return [];
+      }
+
       const resolved =
         path.join(dir, entry.name);
 
@@ -95,39 +90,6 @@ function walk(dir) {
       return resolved;
     }
   );
-}
-
-function copyDirectory(source, target) {
-  fs.rmSync(
-    target,
-    {
-      recursive: true,
-      force: true
-    }
-  );
-
-  fs.mkdirSync(
-    target,
-    { recursive: true }
-  );
-
-  for (const file of walk(source)) {
-    const relative =
-      path.relative(source, file);
-
-    const destination =
-      path.join(target, relative);
-
-    fs.mkdirSync(
-      path.dirname(destination),
-      { recursive: true }
-    );
-
-    fs.copyFileSync(
-      file,
-      destination
-    );
-  }
 }
 
 function baseTokenSource(css) {
@@ -311,23 +273,19 @@ function registerTokenFile(file, state) {
 }
 
 export function syncTokens() {
-  if (!fs.existsSync(WEBSITE_CSS_ROOT)) {
-    throw new Error(
-      `Website CSS root not found: ${WEBSITE_CSS_ROOT}`
-    );
-  }
-
   if (!fs.existsSync(WEBSITE_TOKEN_ROOT)) {
     throw new Error(
       `Website token root not found: ${WEBSITE_TOKEN_ROOT}`
     );
   }
 
-  copyDirectory(
-    WEBSITE_CSS_ROOT,
-    CONTROL_CENTER_TOKEN_SOURCE
+  fs.rmSync(
+    LEGACY_CONTROL_CENTER_TOKEN_MIRROR,
+    {
+      recursive: true,
+      force: true
+    }
   );
-
 
   fs.mkdirSync(
     MANIFEST_ROOT,
@@ -340,7 +298,7 @@ export function syncTokens() {
   };
 
   const files =
-    orderedTokenFiles(CONTROL_CENTER_TOKEN_SOURCE);
+    orderedTokenFiles(WEBSITE_TOKEN_ROOT);
 
   for (const file of files) {
     registerTokenFile(
@@ -397,7 +355,7 @@ export function syncTokens() {
     );
 
   return {
-    source: CONTROL_CENTER_TOKEN_SOURCE,
+    source: WEBSITE_TOKEN_ROOT,
     files: files.length,
     tokens: state.values.size,
     overrides: state.overrides,
