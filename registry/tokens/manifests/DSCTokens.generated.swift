@@ -1385,7 +1385,7 @@ enum DSCTokens {
     "layout-home-platform-chrome-blur": "8px",
     "layout-home-platform-chrome-saturate": "120%",
     "layout-home-platform-rail-toggle-size": "1.25rem",
-    "layout-home-platform-rail-toggle-margin-left": "0.7rem",
+    "layout-home-platform-rail-toggle-margin-left": "var(--spacing-lg)",
     "layout-home-platform-rail-toggle-icon-size": "calc(1.05rem * var(--accessibility-icon-scale))",
     "layout-home-platform-rail-width": "18rem",
     "layout-home-platform-subrail-width": "15rem",
@@ -7491,7 +7491,7 @@ enum DSCTokens {
   static let layout_home_platform_chrome_blur = "8px"
   static let layout_home_platform_chrome_saturate = "120%"
   static let layout_home_platform_rail_toggle_size = "1.25rem"
-  static let layout_home_platform_rail_toggle_margin_left = "0.7rem"
+  static let layout_home_platform_rail_toggle_margin_left = "var(--spacing-lg)"
   static let layout_home_platform_rail_toggle_icon_size = "calc(1.05rem * var(--accessibility-icon-scale))"
   static let layout_home_platform_rail_width = "18rem"
   static let layout_home_platform_subrail_width = "15rem"
