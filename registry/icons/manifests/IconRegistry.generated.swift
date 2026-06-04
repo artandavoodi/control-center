@@ -756,6 +756,8 @@ enum DSCIconRegistry {
   static let layers_website_home_stage_developer_operations_panel_tabs_workspaces = "layers/website/home/stage/developer-operations-panel/tabs/workspaces"
   static let layers_website_home_stage_interaction_panel_interaction_settings = "layers/website/home/stage/interaction-panel/interaction-settings"
   static let layers_website_legacy_hover_to_social_media_and_music = "layers/website/legacy/hover-to-social-media-and-music"
+  static let layers_website_model_actions_feedback = "layers/website/model/actions/feedback"
+  static let layers_website_model_actions_learn = "layers/website/model/actions/learn"
   static let layers_website_model_overview_birth_certificate_id = "layers/website/model/overview/birth-certificate-id"
   static let layers_website_model_overview_birth_date = "layers/website/model/overview/birth-date"
   static let layers_website_model_overview_created = "layers/website/model/overview/created"

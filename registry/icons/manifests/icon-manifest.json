@@ -4529,6 +4529,18 @@
     "publicPath": "/registry/icons/public/assets/layers/website/legacy/hover-to-social-media-and-music.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/legacy/hover-to-social-media-and-music.svg"
   },
+  "layers/website/model/actions/feedback": {
+    "id": "layers/website/model/actions/feedback",
+    "path": "layers/website/model/actions/feedback.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/actions/feedback.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/actions/feedback.svg"
+  },
+  "layers/website/model/actions/learn": {
+    "id": "layers/website/model/actions/learn",
+    "path": "layers/website/model/actions/learn.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/actions/learn.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/actions/learn.svg"
+  },
   "layers/website/model/overview/birth-certificate-id": {
     "id": "layers/website/model/overview/birth-certificate-id",
     "path": "layers/website/model/overview/birth-certificate-id.svg",
