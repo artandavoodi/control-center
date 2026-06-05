@@ -3528,11 +3528,11 @@ enum DSCTokens {
     "slider-value-centered-shadow": "var(--shadow-lg)",
     "slider-value-centered-color": "var(--text-color)",
     "slider-value-centered-halo-size": "clamp(5rem, 12vw, 7rem)",
-    "slider-value-centered-halo-bg": "color-mix(in srgb, var(--bg-color) 86%, var(--text-color) 14%)",
+    "slider-value-centered-halo-bg": "color-mix(in srgb, var(--panel-surface-solid-unified) 98%, transparent)",
     "slider-value-centered-halo-filter": "none",
     "slider-value-centered-font-size": "var(--headline-1-size)",
     "slider-value-centered-line-height": "var(--headline-1-line-height)",
-    "slider-value-centered-font-weight": "var(--font-weight-body)",
+    "slider-value-centered-font-weight": "var(--font-weight-light)",
     "viewport-dim-opacity": "1",
     "viewport-dim-filter": "none",
     "viewport-dimmed-opacity": "0.3",
@@ -9684,11 +9684,11 @@ enum DSCTokens {
   static let slider_value_centered_shadow = "var(--shadow-lg)"
   static let slider_value_centered_color = "var(--text-color)"
   static let slider_value_centered_halo_size = "clamp(5rem, 12vw, 7rem)"
-  static let slider_value_centered_halo_bg = "color-mix(in srgb, var(--bg-color) 86%, var(--text-color) 14%)"
+  static let slider_value_centered_halo_bg = "color-mix(in srgb, var(--panel-surface-solid-unified) 98%, transparent)"
   static let slider_value_centered_halo_filter = "none"
   static let slider_value_centered_font_size = "var(--headline-1-size)"
   static let slider_value_centered_line_height = "var(--headline-1-line-height)"
-  static let slider_value_centered_font_weight = "var(--font-weight-body)"
+  static let slider_value_centered_font_weight = "var(--font-weight-light)"
   static let viewport_dim_opacity = "1"
   static let viewport_dim_filter = "none"
   static let viewport_dimmed_opacity = "0.3"
