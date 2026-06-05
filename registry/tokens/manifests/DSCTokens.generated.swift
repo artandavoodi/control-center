@@ -3506,6 +3506,52 @@ enum DSCTokens {
     "slider-thumb-radius": "50%",
     "slider-thumb-bg": "var(--color-primary1)",
     "slider-thumb-border": "none",
+    "slider-value-visibility": "hidden",
+    "slider-value-position": "inline",
+    "slider-value-opacity": "1",
+    "slider-value-transform": "none",
+    "slider-value-z-index": "auto",
+    "slider-value-bg": "transparent",
+    "slider-value-padding": "0",
+    "slider-value-radius": "0",
+    "slider-value-shadow": "none",
+    "slider-value-centered-visibility": "hidden",
+    "slider-value-centered-position": "fixed",
+    "slider-value-centered-inset": "0",
+    "slider-value-centered-opacity": "0",
+    "slider-value-centered-transform": "scale(0.9)",
+    "slider-value-centered-z-index": "var(--z-raised)",
+    "slider-value-centered-bg": "var(--panel-surface-solid-unified)",
+    "slider-value-centered-bg-opacity": "0",
+    "slider-value-centered-padding": "var(--spacing-xl)",
+    "slider-value-centered-radius": "var(--shape-card-radius)",
+    "slider-value-centered-shadow": "var(--shadow-lg)",
+    "slider-value-centered-font-size": "var(--headline-1-size)",
+    "slider-value-centered-line-height": "var(--headline-1-line-height)",
+    "slider-value-centered-font-weight": "var(--font-weight-body)",
+    "viewport-dim-opacity": "1",
+    "viewport-dim-filter": "none",
+    "viewport-dimmed-opacity": "0.3",
+    "viewport-dimmed-filter": "blur(2px)",
+    "status-message-visibility": "hidden",
+    "status-message-position": "fixed",
+    "status-message-inset": "auto auto var(--spacing-xl) 0",
+    "status-message-left": "0",
+    "status-message-right": "0",
+    "status-message-margin": "0 auto",
+    "status-message-max-width": "fit-content",
+    "status-message-opacity": "0",
+    "status-message-transform": "translateY(1rem)",
+    "status-message-z-index": "var(--z-raised)",
+    "status-message-bg": "var(--panel-surface-solid-unified)",
+    "status-message-bg-opacity": "0.95",
+    "status-message-padding": "var(--spacing-md) var(--spacing-lg)",
+    "status-message-radius": "var(--shape-card-radius)",
+    "status-message-shadow": "var(--shadow-lg)",
+    "status-message-font-size": "var(--body-2-size)",
+    "status-message-line-height": "var(--body-2-line-height)",
+    "status-message-font-weight": "var(--font-weight-body)",
+    "status-message-auto-dismiss-duration": "3000",
     "cc-blur-unified": "var(--panel-blur-unified)",
     "cc-border-unified": "var(--panel-border-unified)",
     "cc-color": "var(--text-color)",
@@ -9612,6 +9658,52 @@ enum DSCTokens {
   static let slider_thumb_radius = "50%"
   static let slider_thumb_bg = "var(--color-primary1)"
   static let slider_thumb_border = "none"
+  static let slider_value_visibility = "hidden"
+  static let slider_value_position = "inline"
+  static let slider_value_opacity = "1"
+  static let slider_value_transform = "none"
+  static let slider_value_z_index = "auto"
+  static let slider_value_bg = "transparent"
+  static let slider_value_padding = "0"
+  static let slider_value_radius = "0"
+  static let slider_value_shadow = "none"
+  static let slider_value_centered_visibility = "hidden"
+  static let slider_value_centered_position = "fixed"
+  static let slider_value_centered_inset = "0"
+  static let slider_value_centered_opacity = "0"
+  static let slider_value_centered_transform = "scale(0.9)"
+  static let slider_value_centered_z_index = "var(--z-raised)"
+  static let slider_value_centered_bg = "var(--panel-surface-solid-unified)"
+  static let slider_value_centered_bg_opacity = "0"
+  static let slider_value_centered_padding = "var(--spacing-xl)"
+  static let slider_value_centered_radius = "var(--shape-card-radius)"
+  static let slider_value_centered_shadow = "var(--shadow-lg)"
+  static let slider_value_centered_font_size = "var(--headline-1-size)"
+  static let slider_value_centered_line_height = "var(--headline-1-line-height)"
+  static let slider_value_centered_font_weight = "var(--font-weight-body)"
+  static let viewport_dim_opacity = "1"
+  static let viewport_dim_filter = "none"
+  static let viewport_dimmed_opacity = "0.3"
+  static let viewport_dimmed_filter = "blur(2px)"
+  static let status_message_visibility = "hidden"
+  static let status_message_position = "fixed"
+  static let status_message_inset = "auto auto var(--spacing-xl) 0"
+  static let status_message_left = "0"
+  static let status_message_right = "0"
+  static let status_message_margin = "0 auto"
+  static let status_message_max_width = "fit-content"
+  static let status_message_opacity = "0"
+  static let status_message_transform = "translateY(1rem)"
+  static let status_message_z_index = "var(--z-raised)"
+  static let status_message_bg = "var(--panel-surface-solid-unified)"
+  static let status_message_bg_opacity = "0.95"
+  static let status_message_padding = "var(--spacing-md) var(--spacing-lg)"
+  static let status_message_radius = "var(--shape-card-radius)"
+  static let status_message_shadow = "var(--shadow-lg)"
+  static let status_message_font_size = "var(--body-2-size)"
+  static let status_message_line_height = "var(--body-2-line-height)"
+  static let status_message_font_weight = "var(--font-weight-body)"
+  static let status_message_auto_dismiss_duration = "3000"
   static let cc_blur_unified = "var(--panel-blur-unified)"
   static let cc_border_unified = "var(--panel-border-unified)"
   static let cc_color = "var(--text-color)"
