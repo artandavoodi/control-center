@@ -1241,6 +1241,12 @@
     "publicPath": "/registry/icons/public/assets/core/cognition/cognition/cognition.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/cognition/cognition/cognition.svg"
   },
+  "core/cognition/cognitive/cognitive": {
+    "id": "core/cognition/cognitive/cognitive",
+    "path": "core/cognition/cognitive/cognitive.svg",
+    "publicPath": "/registry/icons/public/assets/core/cognition/cognitive/cognitive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/cognition/cognitive/cognitive.svg"
+  },
   "core/cognition/continuity/continuity": {
     "id": "core/cognition/continuity/continuity",
     "path": "core/cognition/continuity/continuity.svg",

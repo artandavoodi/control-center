@@ -208,6 +208,7 @@ enum DSCIconRegistry {
   static let core_cognition_awareness_awareness = "core/cognition/awareness/awareness"
   static let core_cognition_capture_capture = "core/cognition/capture/capture"
   static let core_cognition_cognition_cognition = "core/cognition/cognition/cognition"
+  static let core_cognition_cognitive_cognitive = "core/cognition/cognitive/cognitive"
   static let core_cognition_continuity_continuity = "core/cognition/continuity/continuity"
   static let core_cognition_continuity_timeline = "core/cognition/continuity/timeline"
   static let core_cognition_dialogue_dialogue = "core/cognition/dialogue/dialogue"
