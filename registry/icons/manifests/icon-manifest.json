@@ -1565,6 +1565,12 @@
     "publicPath": "/registry/icons/public/assets/core/communication/calls/video-call.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/communication/calls/video-call.svg"
   },
+  "core/communication/communication/communication": {
+    "id": "core/communication/communication/communication",
+    "path": "core/communication/communication/communication.svg",
+    "publicPath": "/registry/icons/public/assets/core/communication/communication/communication.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/communication/communication/communication.svg"
+  },
   "core/communication/messaging/inbox": {
     "id": "core/communication/messaging/inbox",
     "path": "core/communication/messaging/inbox.svg",

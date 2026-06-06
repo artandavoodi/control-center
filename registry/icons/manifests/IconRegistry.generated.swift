@@ -262,6 +262,7 @@ enum DSCIconRegistry {
   static let core_communication_calls_call = "core/communication/calls/call"
   static let core_communication_calls_phone = "core/communication/calls/phone"
   static let core_communication_calls_video_call = "core/communication/calls/video-call"
+  static let core_communication_communication_communication = "core/communication/communication/communication"
   static let core_communication_messaging_inbox = "core/communication/messaging/inbox"
   static let core_communication_messaging_message = "core/communication/messaging/message"
   static let core_communication_messaging_messages = "core/communication/messaging/messages"
