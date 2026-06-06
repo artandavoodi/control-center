@@ -2297,6 +2297,30 @@
     "publicPath": "/registry/icons/public/assets/core/media/transport/stop.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/stop.svg"
   },
+  "core/model/cognitive-orientation-index/cognitive-orientation-index": {
+    "id": "core/model/cognitive-orientation-index/cognitive-orientation-index",
+    "path": "core/model/cognitive-orientation-index/cognitive-orientation-index.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/cognitive-orientation-index/cognitive-orientation-index.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/cognitive-orientation-index/cognitive-orientation-index.svg"
+  },
+  "core/model/source-profile/source-profile": {
+    "id": "core/model/source-profile/source-profile",
+    "path": "core/model/source-profile/source-profile.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/source-profile/source-profile.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/source-profile/source-profile.svg"
+  },
+  "core/model/source-readiness/source-readiness": {
+    "id": "core/model/source-readiness/source-readiness",
+    "path": "core/model/source-readiness/source-readiness.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/source-readiness/source-readiness.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/source-readiness/source-readiness.svg"
+  },
+  "core/model/source-summary/source-summary": {
+    "id": "core/model/source-summary/source-summary",
+    "path": "core/model/source-summary/source-summary.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/source-summary/source-summary.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/source-summary/source-summary.svg"
+  },
   "core/navigation/apps/apps": {
     "id": "core/navigation/apps/apps",
     "path": "core/navigation/apps/apps.svg",
