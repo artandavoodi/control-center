@@ -2303,6 +2303,42 @@
     "publicPath": "/registry/icons/public/assets/core/model/cognitive-orientation-index/cognitive-orientation-index.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/cognitive-orientation-index/cognitive-orientation-index.svg"
   },
+  "core/model/digital-brain-maturity/digital-brain-maturity": {
+    "id": "core/model/digital-brain-maturity/digital-brain-maturity",
+    "path": "core/model/digital-brain-maturity/digital-brain-maturity.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/digital-brain-maturity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/digital-brain-maturity.svg"
+  },
+  "core/model/expression-pattern/expression-pattern": {
+    "id": "core/model/expression-pattern/expression-pattern",
+    "path": "core/model/expression-pattern/expression-pattern.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/expression-pattern/expression-pattern.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/expression-pattern/expression-pattern.svg"
+  },
+  "core/model/model-reflection-style/model-reflection-style": {
+    "id": "core/model/model-reflection-style/model-reflection-style",
+    "path": "core/model/model-reflection-style/model-reflection-style.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/model-reflection-style/model-reflection-style.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/model-reflection-style/model-reflection-style.svg"
+  },
+  "core/model/motivational-pattern/motivational-pattern": {
+    "id": "core/model/motivational-pattern/motivational-pattern",
+    "path": "core/model/motivational-pattern/motivational-pattern.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/motivational-pattern/motivational-pattern.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/motivational-pattern/motivational-pattern.svg"
+  },
+  "core/model/personality-profile/personality-profile": {
+    "id": "core/model/personality-profile/personality-profile",
+    "path": "core/model/personality-profile/personality-profile.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/personality-profile/personality-profile.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/personality-profile/personality-profile.svg"
+  },
+  "core/model/personality-readiness/personality-readiness": {
+    "id": "core/model/personality-readiness/personality-readiness",
+    "path": "core/model/personality-readiness/personality-readiness.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/personality-readiness/personality-readiness.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/personality-readiness/personality-readiness.svg"
+  },
   "core/model/source-profile/source-profile": {
     "id": "core/model/source-profile/source-profile",
     "path": "core/model/source-profile/source-profile.svg",
@@ -4930,6 +4966,12 @@
     "path": "layers/website/model/tabs/overview.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/overview.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/overview.svg"
+  },
+  "layers/website/model/tabs/personality": {
+    "id": "layers/website/model/tabs/personality",
+    "path": "layers/website/model/tabs/personality.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/tabs/personality.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/tabs/personality.svg"
   },
   "layers/website/model/tabs/preferences": {
     "id": "layers/website/model/tabs/preferences",
