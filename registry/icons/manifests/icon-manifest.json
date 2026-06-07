@@ -2297,6 +2297,12 @@
     "publicPath": "/registry/icons/public/assets/core/media/transport/stop.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/transport/stop.svg"
   },
+  "core/model/adaptation-style/adaptation-style": {
+    "id": "core/model/adaptation-style/adaptation-style",
+    "path": "core/model/adaptation-style/adaptation-style.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/adaptation-style/adaptation-style.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/adaptation-style/adaptation-style.svg"
+  },
   "core/model/agency-level/agency-level": {
     "id": "core/model/agency-level/agency-level",
     "path": "core/model/agency-level/agency-level.svg",
@@ -2315,6 +2321,12 @@
     "publicPath": "/registry/icons/public/assets/core/model/cognitive-orientation-index/cognitive-orientation-index.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/cognitive-orientation-index/cognitive-orientation-index.svg"
   },
+  "core/model/cognitive-style/cognitive-style": {
+    "id": "core/model/cognitive-style/cognitive-style",
+    "path": "core/model/cognitive-style/cognitive-style.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/cognitive-style/cognitive-style.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/cognitive-style/cognitive-style.svg"
+  },
   "core/model/control-orientation/control-orientation": {
     "id": "core/model/control-orientation/control-orientation",
     "path": "core/model/control-orientation/control-orientation.svg",
@@ -2326,6 +2338,12 @@
     "path": "core/model/digital-brain-maturity/digital-brain-maturity.svg",
     "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/digital-brain-maturity.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/digital-brain-maturity.svg"
+  },
+  "core/model/dominant-personality-pattern/dominant-personality-pattern": {
+    "id": "core/model/dominant-personality-pattern/dominant-personality-pattern",
+    "path": "core/model/dominant-personality-pattern/dominant-personality-pattern.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/dominant-personality-pattern/dominant-personality-pattern.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/dominant-personality-pattern/dominant-personality-pattern.svg"
   },
   "core/model/expression-pattern/expression-pattern": {
     "id": "core/model/expression-pattern/expression-pattern",
@@ -2351,6 +2369,12 @@
     "publicPath": "/registry/icons/public/assets/core/model/narrative-coherence/narrative-coherence.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/narrative-coherence/narrative-coherence.svg"
   },
+  "core/model/personality-coherence-index/personality-coherence-index": {
+    "id": "core/model/personality-coherence-index/personality-coherence-index",
+    "path": "core/model/personality-coherence-index/personality-coherence-index.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/personality-coherence-index/personality-coherence-index.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/personality-coherence-index/personality-coherence-index.svg"
+  },
   "core/model/personality-profile/personality-profile": {
     "id": "core/model/personality-profile/personality-profile",
     "path": "core/model/personality-profile/personality-profile.svg",
@@ -2363,11 +2387,35 @@
     "publicPath": "/registry/icons/public/assets/core/model/personality-readiness/personality-readiness.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/personality-readiness/personality-readiness.svg"
   },
+  "core/model/reflection-tolerance/reflection-tolerance": {
+    "id": "core/model/reflection-tolerance/reflection-tolerance",
+    "path": "core/model/reflection-tolerance/reflection-tolerance.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/reflection-tolerance/reflection-tolerance.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/reflection-tolerance/reflection-tolerance.svg"
+  },
+  "core/model/regulation-pattern/regulation-pattern": {
+    "id": "core/model/regulation-pattern/regulation-pattern",
+    "path": "core/model/regulation-pattern/regulation-pattern.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/regulation-pattern/regulation-pattern.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/regulation-pattern/regulation-pattern.svg"
+  },
   "core/model/regulation-style/regulation-style": {
     "id": "core/model/regulation-style/regulation-style",
     "path": "core/model/regulation-style/regulation-style.svg",
     "publicPath": "/registry/icons/public/assets/core/model/regulation-style/regulation-style.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/regulation-style/regulation-style.svg"
+  },
+  "core/model/self-model-function/self-model-function": {
+    "id": "core/model/self-model-function/self-model-function",
+    "path": "core/model/self-model-function/self-model-function.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/self-model-function/self-model-function.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/self-model-function/self-model-function.svg"
+  },
+  "core/model/social-expression/social-expression": {
+    "id": "core/model/social-expression/social-expression",
+    "path": "core/model/social-expression/social-expression.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/social-expression/social-expression.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/social-expression/social-expression.svg"
   },
   "core/model/source-profile/source-profile": {
     "id": "core/model/source-profile/source-profile",
