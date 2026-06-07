@@ -30,6 +30,27 @@ enum DSCTokens {
     "link-color": "var(--color-primary5)",
     "link-hover-color": "var(--color-primary6)",
     "border-color": "rgba(255,255,255,0.14)",
+    "digital-brain-stage-bg": "var(--bg-color)",
+    "digital-brain-cortex-base": "color-mix(in srgb, var(--color-primary1) 42%, var(--bg-color) 58%)",
+    "digital-brain-cortex-border": "color-mix(in srgb, var(--text-primary-color) 32%, transparent)",
+    "digital-brain-cortex-fold": "color-mix(in srgb, var(--text-primary-color) 28%, transparent)",
+    "digital-brain-cortex-midline": "color-mix(in srgb, var(--color-primary5) 34%, var(--text-primary-color) 18%)",
+    "digital-brain-brainstem": "color-mix(in srgb, var(--text-secondary-color) 42%, var(--bg-color) 58%)",
+    "digital-brain-region-frontal": "color-mix(in srgb, var(--status-success-color) 34%, var(--digital-brain-cortex-base) 66%)",
+    "digital-brain-region-parietal": "color-mix(in srgb, var(--color-primary5) 24%, var(--digital-brain-cortex-base) 76%)",
+    "digital-brain-region-temporal": "color-mix(in srgb, var(--status-warning-color) 34%, var(--digital-brain-cortex-base) 66%)",
+    "digital-brain-region-occipital": "color-mix(in srgb, var(--text-secondary-color) 24%, var(--digital-brain-cortex-base) 76%)",
+    "digital-brain-region-limbic": "color-mix(in srgb, var(--status-danger-color) 28%, var(--digital-brain-cortex-base) 72%)",
+    "digital-brain-layer-identity": "color-mix(in srgb, var(--color-primary9) 44%, var(--digital-brain-cortex-base) 56%)",
+    "digital-brain-layer-source": "color-mix(in srgb, var(--status-success-color) 50%, var(--digital-brain-cortex-base) 50%)",
+    "digital-brain-layer-personality": "color-mix(in srgb, var(--color-primary10) 52%, var(--digital-brain-cortex-base) 48%)",
+    "digital-brain-layer-memory": "color-mix(in srgb, var(--color-primary5) 50%, var(--digital-brain-cortex-base) 50%)",
+    "digital-brain-layer-voice": "color-mix(in srgb, var(--status-danger-color) 42%, var(--digital-brain-cortex-base) 58%)",
+    "digital-brain-node-pending": "var(--digital-brain-cortex-border)",
+    "digital-brain-node-stable": "var(--status-success-color)",
+    "digital-brain-node-forming": "var(--status-warning-color)",
+    "digital-brain-node-blocked": "var(--status-danger-color)",
+    "digital-brain-node-focus": "var(--field-border-focus)",
     "surface-0": "transparent",
     "surface-1": "rgba(255,255,255,0.04)",
     "surface-2": "rgba(255,255,255,0.06)",
@@ -6186,6 +6207,27 @@ enum DSCTokens {
   static let link_color = "var(--color-primary5)"
   static let link_hover_color = "var(--color-primary6)"
   static let border_color = "rgba(255,255,255,0.14)"
+  static let digital_brain_stage_bg = "var(--bg-color)"
+  static let digital_brain_cortex_base = "color-mix(in srgb, var(--color-primary1) 42%, var(--bg-color) 58%)"
+  static let digital_brain_cortex_border = "color-mix(in srgb, var(--text-primary-color) 32%, transparent)"
+  static let digital_brain_cortex_fold = "color-mix(in srgb, var(--text-primary-color) 28%, transparent)"
+  static let digital_brain_cortex_midline = "color-mix(in srgb, var(--color-primary5) 34%, var(--text-primary-color) 18%)"
+  static let digital_brain_brainstem = "color-mix(in srgb, var(--text-secondary-color) 42%, var(--bg-color) 58%)"
+  static let digital_brain_region_frontal = "color-mix(in srgb, var(--status-success-color) 34%, var(--digital-brain-cortex-base) 66%)"
+  static let digital_brain_region_parietal = "color-mix(in srgb, var(--color-primary5) 24%, var(--digital-brain-cortex-base) 76%)"
+  static let digital_brain_region_temporal = "color-mix(in srgb, var(--status-warning-color) 34%, var(--digital-brain-cortex-base) 66%)"
+  static let digital_brain_region_occipital = "color-mix(in srgb, var(--text-secondary-color) 24%, var(--digital-brain-cortex-base) 76%)"
+  static let digital_brain_region_limbic = "color-mix(in srgb, var(--status-danger-color) 28%, var(--digital-brain-cortex-base) 72%)"
+  static let digital_brain_layer_identity = "color-mix(in srgb, var(--color-primary9) 44%, var(--digital-brain-cortex-base) 56%)"
+  static let digital_brain_layer_source = "color-mix(in srgb, var(--status-success-color) 50%, var(--digital-brain-cortex-base) 50%)"
+  static let digital_brain_layer_personality = "color-mix(in srgb, var(--color-primary10) 52%, var(--digital-brain-cortex-base) 48%)"
+  static let digital_brain_layer_memory = "color-mix(in srgb, var(--color-primary5) 50%, var(--digital-brain-cortex-base) 50%)"
+  static let digital_brain_layer_voice = "color-mix(in srgb, var(--status-danger-color) 42%, var(--digital-brain-cortex-base) 58%)"
+  static let digital_brain_node_pending = "var(--digital-brain-cortex-border)"
+  static let digital_brain_node_stable = "var(--status-success-color)"
+  static let digital_brain_node_forming = "var(--status-warning-color)"
+  static let digital_brain_node_blocked = "var(--status-danger-color)"
+  static let digital_brain_node_focus = "var(--field-border-focus)"
   static let surface_0 = "transparent"
   static let surface_1 = "rgba(255,255,255,0.04)"
   static let surface_2 = "rgba(255,255,255,0.06)"

@@ -2333,6 +2333,78 @@
     "publicPath": "/registry/icons/public/assets/core/model/control-orientation/control-orientation.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/control-orientation/control-orientation.svg"
   },
+  "core/model/digital-brain-maturity/brain-connections": {
+    "id": "core/model/digital-brain-maturity/brain-connections",
+    "path": "core/model/digital-brain-maturity/brain-connections.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-connections.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-connections.svg"
+  },
+  "core/model/digital-brain-maturity/brain-construct-labels-off": {
+    "id": "core/model/digital-brain-maturity/brain-construct-labels-off",
+    "path": "core/model/digital-brain-maturity/brain-construct-labels-off.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-labels-off.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-labels-off.svg"
+  },
+  "core/model/digital-brain-maturity/brain-construct-labels-on": {
+    "id": "core/model/digital-brain-maturity/brain-construct-labels-on",
+    "path": "core/model/digital-brain-maturity/brain-construct-labels-on.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-labels-on.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-labels-on.svg"
+  },
+  "core/model/digital-brain-maturity/brain-construct-labels": {
+    "id": "core/model/digital-brain-maturity/brain-construct-labels",
+    "path": "core/model/digital-brain-maturity/brain-construct-labels.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-labels.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-labels.svg"
+  },
+  "core/model/digital-brain-maturity/brain-construct-nodes-off": {
+    "id": "core/model/digital-brain-maturity/brain-construct-nodes-off",
+    "path": "core/model/digital-brain-maturity/brain-construct-nodes-off.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-nodes-off.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-nodes-off.svg"
+  },
+  "core/model/digital-brain-maturity/brain-construct-nodes-on": {
+    "id": "core/model/digital-brain-maturity/brain-construct-nodes-on",
+    "path": "core/model/digital-brain-maturity/brain-construct-nodes-on.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-nodes-on.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-nodes-on.svg"
+  },
+  "core/model/digital-brain-maturity/brain-construct-nodes": {
+    "id": "core/model/digital-brain-maturity/brain-construct-nodes",
+    "path": "core/model/digital-brain-maturity/brain-construct-nodes.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-nodes.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-nodes.svg"
+  },
+  "core/model/digital-brain-maturity/brain-motion-pause": {
+    "id": "core/model/digital-brain-maturity/brain-motion-pause",
+    "path": "core/model/digital-brain-maturity/brain-motion-pause.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-pause.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-pause.svg"
+  },
+  "core/model/digital-brain-maturity/brain-motion-resume": {
+    "id": "core/model/digital-brain-maturity/brain-motion-resume",
+    "path": "core/model/digital-brain-maturity/brain-motion-resume.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-resume.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-resume.svg"
+  },
+  "core/model/digital-brain-maturity/brain-nodes": {
+    "id": "core/model/digital-brain-maturity/brain-nodes",
+    "path": "core/model/digital-brain-maturity/brain-nodes.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-nodes.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-nodes.svg"
+  },
+  "core/model/digital-brain-maturity/brain-overview": {
+    "id": "core/model/digital-brain-maturity/brain-overview",
+    "path": "core/model/digital-brain-maturity/brain-overview.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-overview.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-overview.svg"
+  },
+  "core/model/digital-brain-maturity/brain-regions": {
+    "id": "core/model/digital-brain-maturity/brain-regions",
+    "path": "core/model/digital-brain-maturity/brain-regions.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-regions.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-regions.svg"
+  },
   "core/model/digital-brain-maturity/digital-brain-maturity": {
     "id": "core/model/digital-brain-maturity/digital-brain-maturity",
     "path": "core/model/digital-brain-maturity/digital-brain-maturity.svg",
