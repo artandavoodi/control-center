@@ -1108,6 +1108,11 @@ enum DSCTokens {
     "type-body-sm-line-height": "1.5",
     "type-body-sm-size": "0.875rem",
     "type-body-tracking": "0",
+    "type-label-size": "0.84rem",
+    "type-label-weight": "400",
+    "type-label-line-height": "1.38",
+    "type-label-tracking": "0",
+    "type-label": "var(--type-label-weight) calc(var(--type-label-size) * var(--accessibility-typography-scale, 1)) / var(--type-label-line-height) var(--font-family-sans)",
     "site-edge-gutter": "3.2rem",
     "site-gutter": "var(--site-edge-gutter)",
     "site-mobile-gutter": "1.25rem",
@@ -7285,6 +7290,11 @@ enum DSCTokens {
   static let type_body_sm_line_height = "1.5"
   static let type_body_sm_size = "0.875rem"
   static let type_body_tracking = "0"
+  static let type_label_size = "0.84rem"
+  static let type_label_weight = "400"
+  static let type_label_line_height = "1.38"
+  static let type_label_tracking = "0"
+  static let type_label = "var(--type-label-weight) calc(var(--type-label-size) * var(--accessibility-typography-scale, 1)) / var(--type-label-line-height) var(--font-family-sans)"
   static let site_edge_gutter = "3.2rem"
   static let site_gutter = "var(--site-edge-gutter)"
   static let site_mobile_gutter = "1.25rem"
