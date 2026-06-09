@@ -2375,6 +2375,24 @@
     "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-construct-nodes.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-construct-nodes.svg"
   },
+  "core/model/digital-brain-maturity/brain-display-connectome": {
+    "id": "core/model/digital-brain-maturity/brain-display-connectome",
+    "path": "core/model/digital-brain-maturity/brain-display-connectome.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-display-connectome.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-display-connectome.svg"
+  },
+  "core/model/digital-brain-maturity/brain-display-nodes": {
+    "id": "core/model/digital-brain-maturity/brain-display-nodes",
+    "path": "core/model/digital-brain-maturity/brain-display-nodes.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-display-nodes.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-display-nodes.svg"
+  },
+  "core/model/digital-brain-maturity/brain-display-scan": {
+    "id": "core/model/digital-brain-maturity/brain-display-scan",
+    "path": "core/model/digital-brain-maturity/brain-display-scan.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-display-scan.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-display-scan.svg"
+  },
   "core/model/digital-brain-maturity/brain-motion-pause": {
     "id": "core/model/digital-brain-maturity/brain-motion-pause",
     "path": "core/model/digital-brain-maturity/brain-motion-pause.svg",
@@ -2386,6 +2404,12 @@
     "path": "core/model/digital-brain-maturity/brain-motion-resume.svg",
     "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-resume.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-resume.svg"
+  },
+  "core/model/digital-brain-maturity/brain-motion-speed": {
+    "id": "core/model/digital-brain-maturity/brain-motion-speed",
+    "path": "core/model/digital-brain-maturity/brain-motion-speed.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-speed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-speed.svg"
   },
   "core/model/digital-brain-maturity/brain-nodes": {
     "id": "core/model/digital-brain-maturity/brain-nodes",
@@ -4768,6 +4792,66 @@
     "path": "layers/website/model/actions/learn.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/model/actions/learn.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/actions/learn.svg"
+  },
+  "layers/website/model/foundation/source-vault/accepted-files": {
+    "id": "layers/website/model/foundation/source-vault/accepted-files",
+    "path": "layers/website/model/foundation/source-vault/accepted-files.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/accepted-files.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/accepted-files.svg"
+  },
+  "layers/website/model/foundation/source-vault/analyze-source-vault": {
+    "id": "layers/website/model/foundation/source-vault/analyze-source-vault",
+    "path": "layers/website/model/foundation/source-vault/analyze-source-vault.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/analyze-source-vault.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/analyze-source-vault.svg"
+  },
+  "layers/website/model/foundation/source-vault/choose-files": {
+    "id": "layers/website/model/foundation/source-vault/choose-files",
+    "path": "layers/website/model/foundation/source-vault/choose-files.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/choose-files.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/choose-files.svg"
+  },
+  "layers/website/model/foundation/source-vault/choose-folder": {
+    "id": "layers/website/model/foundation/source-vault/choose-folder",
+    "path": "layers/website/model/foundation/source-vault/choose-folder.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/choose-folder.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/choose-folder.svg"
+  },
+  "layers/website/model/foundation/source-vault/clear-all-files": {
+    "id": "layers/website/model/foundation/source-vault/clear-all-files",
+    "path": "layers/website/model/foundation/source-vault/clear-all-files.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/clear-all-files.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/clear-all-files.svg"
+  },
+  "layers/website/model/foundation/source-vault/confirm-intake": {
+    "id": "layers/website/model/foundation/source-vault/confirm-intake",
+    "path": "layers/website/model/foundation/source-vault/confirm-intake.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/confirm-intake.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/confirm-intake.svg"
+  },
+  "layers/website/model/foundation/source-vault/estimated-size": {
+    "id": "layers/website/model/foundation/source-vault/estimated-size",
+    "path": "layers/website/model/foundation/source-vault/estimated-size.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/estimated-size.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/estimated-size.svg"
+  },
+  "layers/website/model/foundation/source-vault/excluded-files": {
+    "id": "layers/website/model/foundation/source-vault/excluded-files",
+    "path": "layers/website/model/foundation/source-vault/excluded-files.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/excluded-files.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/excluded-files.svg"
+  },
+  "layers/website/model/foundation/source-vault/file-manager": {
+    "id": "layers/website/model/foundation/source-vault/file-manager",
+    "path": "layers/website/model/foundation/source-vault/file-manager.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/file-manager.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/file-manager.svg"
+  },
+  "layers/website/model/foundation/source-vault/select-all-files": {
+    "id": "layers/website/model/foundation/source-vault/select-all-files",
+    "path": "layers/website/model/foundation/source-vault/select-all-files.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/select-all-files.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/select-all-files.svg"
   },
   "layers/website/model/overview/birth-certificate-id": {
     "id": "layers/website/model/overview/birth-certificate-id",
