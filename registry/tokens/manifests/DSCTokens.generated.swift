@@ -3309,15 +3309,15 @@ enum DSCTokens {
     "system-message-border": "var(--feedback-neutral-border)",
     "system-message-title-color": "var(--text-primary-color)",
     "system-message-body-color": "var(--text-secondary-color)",
-    "loader-circle-size-sm": "0.86rem",
-    "loader-circle-size": "1.08rem",
-    "loader-circle-size-lg": "1.42rem",
+    "loader-circle-size-sm": "0.54rem",
+    "loader-circle-size": "0.68rem",
+    "loader-circle-size-lg": "0.84rem",
     "loader-circle-stroke-width": "var(--border-width-hairline)",
-    "loader-circle-color": "var(--text-secondary-color)",
+    "loader-circle-color": "var(--text-primary-color)",
     "loader-circle-opacity": "var(--overlay-opacity-open)",
-    "loader-circle-motion-duration": "720ms",
-    "loader-circle-motion-ease": "linear",
-    "loader-circle-reduced-motion-duration": "1800ms",
+    "loader-circle-motion-duration": "2400ms",
+    "loader-circle-motion-ease": "var(--ease-standard, ease-in-out)",
+    "loader-circle-reduced-motion-duration": "2400ms",
     "data-surface-bg": "var(--surface-primary, var(--bg-color))",
     "data-surface-bg-muted": "color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "data-surface-bg-hover": "var(--hover-bg-subtle)",
@@ -9491,15 +9491,15 @@ enum DSCTokens {
   static let system_message_border = "var(--feedback-neutral-border)"
   static let system_message_title_color = "var(--text-primary-color)"
   static let system_message_body_color = "var(--text-secondary-color)"
-  static let loader_circle_size_sm = "0.86rem"
-  static let loader_circle_size = "1.08rem"
-  static let loader_circle_size_lg = "1.42rem"
+  static let loader_circle_size_sm = "0.54rem"
+  static let loader_circle_size = "0.68rem"
+  static let loader_circle_size_lg = "0.84rem"
   static let loader_circle_stroke_width = "var(--border-width-hairline)"
-  static let loader_circle_color = "var(--text-secondary-color)"
+  static let loader_circle_color = "var(--text-primary-color)"
   static let loader_circle_opacity = "var(--overlay-opacity-open)"
-  static let loader_circle_motion_duration = "720ms"
-  static let loader_circle_motion_ease = "linear"
-  static let loader_circle_reduced_motion_duration = "1800ms"
+  static let loader_circle_motion_duration = "2400ms"
+  static let loader_circle_motion_ease = "var(--ease-standard, ease-in-out)"
+  static let loader_circle_reduced_motion_duration = "2400ms"
   static let data_surface_bg = "var(--surface-primary, var(--bg-color))"
   static let data_surface_bg_muted = "color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let data_surface_bg_hover = "var(--hover-bg-subtle)"
