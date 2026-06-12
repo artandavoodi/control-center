@@ -2849,6 +2849,12 @@
     "publicPath": "/registry/icons/public/assets/core/navigation/sidebar/sidebar-right.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/navigation/sidebar/sidebar-right.svg"
   },
+  "core/navigation/site-map/site-map": {
+    "id": "core/navigation/site-map/site-map",
+    "path": "core/navigation/site-map/site-map.svg",
+    "publicPath": "/registry/icons/public/assets/core/navigation/site-map/site-map.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/navigation/site-map/site-map.svg"
+  },
   "core/productivity/calendar/calendar": {
     "id": "core/productivity/calendar/calendar",
     "path": "core/productivity/calendar/calendar.svg",

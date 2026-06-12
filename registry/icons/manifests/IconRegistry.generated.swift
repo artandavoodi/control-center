@@ -476,6 +476,7 @@ enum DSCIconRegistry {
   static let core_navigation_sidebar_sidebar_active = "core/navigation/sidebar/sidebar-active"
   static let core_navigation_sidebar_sidebar_left = "core/navigation/sidebar/sidebar-left"
   static let core_navigation_sidebar_sidebar_right = "core/navigation/sidebar/sidebar-right"
+  static let core_navigation_site_map_site_map = "core/navigation/site-map/site-map"
   static let core_productivity_calendar_calendar = "core/productivity/calendar/calendar"
   static let core_productivity_calendar_reminder = "core/productivity/calendar/reminder"
   static let core_productivity_calendar_schedule = "core/productivity/calendar/schedule"
