@@ -3582,6 +3582,22 @@ enum DSCTokens {
     "status-message-line-height": "var(--body-2-line-height)",
     "status-message-font-weight": "var(--font-weight-body)",
     "status-message-auto-dismiss-duration": "3000",
+    "scroll-strip-size": "0.1875rem",
+    "scroll-strip-hit-size": "0.5rem",
+    "scroll-strip-inset-block": "10%",
+    "scroll-strip-inset-inline": "0",
+    "scroll-strip-thumb-min": "1.75rem",
+    "scroll-strip-thumb-max": "8.75rem",
+    "scroll-strip-radius": "var(--radius-pill)",
+    "scroll-strip-track-color": "transparent",
+    "scroll-strip-thumb-color": "color-mix(in srgb, var(--text-primary-color) 30%, transparent)",
+    "scroll-strip-thumb-hover-color": "color-mix(in srgb, var(--text-primary-color) 48%, transparent)",
+    "scroll-strip-native-thumb-color": "color-mix(in srgb, var(--text-primary-color) 22%, transparent)",
+    "scroll-strip-native-thumb-hover-color": "color-mix(in srgb, var(--text-primary-color) 42%, transparent)",
+    "scroll-strip-opacity-idle": "0",
+    "scroll-strip-opacity-active": "0.62",
+    "scroll-strip-transition": "opacity 280ms var(--ease-standard), background-color var(--duration-base) var(--ease-standard)",
+    "scroll-strip-z-index": "var(--z-above)",
     "cc-blur-unified": "var(--panel-blur-unified)",
     "cc-border-unified": "var(--panel-border-unified)",
     "cc-color": "var(--text-color)",
@@ -9764,6 +9780,22 @@ enum DSCTokens {
   static let status_message_line_height = "var(--body-2-line-height)"
   static let status_message_font_weight = "var(--font-weight-body)"
   static let status_message_auto_dismiss_duration = "3000"
+  static let scroll_strip_size = "0.1875rem"
+  static let scroll_strip_hit_size = "0.5rem"
+  static let scroll_strip_inset_block = "10%"
+  static let scroll_strip_inset_inline = "0"
+  static let scroll_strip_thumb_min = "1.75rem"
+  static let scroll_strip_thumb_max = "8.75rem"
+  static let scroll_strip_radius = "var(--radius-pill)"
+  static let scroll_strip_track_color = "transparent"
+  static let scroll_strip_thumb_color = "color-mix(in srgb, var(--text-primary-color) 30%, transparent)"
+  static let scroll_strip_thumb_hover_color = "color-mix(in srgb, var(--text-primary-color) 48%, transparent)"
+  static let scroll_strip_native_thumb_color = "color-mix(in srgb, var(--text-primary-color) 22%, transparent)"
+  static let scroll_strip_native_thumb_hover_color = "color-mix(in srgb, var(--text-primary-color) 42%, transparent)"
+  static let scroll_strip_opacity_idle = "0"
+  static let scroll_strip_opacity_active = "0.62"
+  static let scroll_strip_transition = "opacity 280ms var(--ease-standard), background-color var(--duration-base) var(--ease-standard)"
+  static let scroll_strip_z_index = "var(--z-above)"
   static let cc_blur_unified = "var(--panel-blur-unified)"
   static let cc_border_unified = "var(--panel-border-unified)"
   static let cc_color = "var(--text-color)"
