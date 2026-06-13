@@ -1068,6 +1068,7 @@ enum DSCIconRegistry {
   static let layers_website_social_platforms_tiktok = "layers/website/social/platforms/tiktok"
   static let layers_website_social_platforms_whatsapp = "layers/website/social/platforms/whatsapp"
   static let layers_website_social_platforms_youtube_music = "layers/website/social/platforms/youtube-music"
+  static let layers_website_social_platforms_youtube = "layers/website/social/platforms/youtube"
   static let layers_website_support_contact_contact = "layers/website/support/contact/contact"
   static let layers_website_support_service_service = "layers/website/support/service/service"
   static let layers_website_system_navigation_project = "layers/website/system/navigation/project"

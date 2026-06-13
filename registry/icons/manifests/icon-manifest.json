@@ -6401,6 +6401,12 @@
     "publicPath": "/registry/icons/public/assets/layers/website/social/platforms/youtube-music.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/social/platforms/youtube-music.svg"
   },
+  "layers/website/social/platforms/youtube": {
+    "id": "layers/website/social/platforms/youtube",
+    "path": "layers/website/social/platforms/youtube.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/social/platforms/youtube.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/social/platforms/youtube.svg"
+  },
   "layers/website/support/contact/contact": {
     "id": "layers/website/support/contact/contact",
     "path": "layers/website/support/contact/contact.svg",
