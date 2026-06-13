@@ -191,6 +191,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/by-creating-an-account-you-agree-to-the/by-creating-an-account-you-agree-to-the.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/by-creating-an-account-you-agree-to-the/by-creating-an-account-you-agree-to-the.svg"
   },
+  "core/actions/casual-voice-capture/casual-voice-capture": {
+    "id": "core/actions/casual-voice-capture/casual-voice-capture",
+    "path": "core/actions/casual-voice-capture/casual-voice-capture.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/casual-voice-capture/casual-voice-capture.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/casual-voice-capture/casual-voice-capture.svg"
+  },
   "core/actions/change-password/change-password": {
     "id": "core/actions/change-password/change-password",
     "path": "core/actions/change-password/change-password.svg",
@@ -550,6 +556,12 @@
     "path": "core/actions/github-commit-message-generator/github-commit-message-generator.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/github-commit-message-generator/github-commit-message-generator.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/github-commit-message-generator/github-commit-message-generator.svg"
+  },
+  "core/actions/guided-voice-capture/guided-voice-capture": {
+    "id": "core/actions/guided-voice-capture/guided-voice-capture",
+    "path": "core/actions/guided-voice-capture/guided-voice-capture.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/guided-voice-capture/guided-voice-capture.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/guided-voice-capture/guided-voice-capture.svg"
   },
   "core/actions/help/help": {
     "id": "core/actions/help/help",
