@@ -4403,6 +4403,12 @@
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/profile/platform-menue-profile-shortcuts.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/profile/platform-menue-profile-shortcuts.svg"
   },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-android-device": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-android-device",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-android-device.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-android-device.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-android-device.svg"
+  },
   "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar": {
     "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar",
     "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-calendar.svg",
@@ -4415,11 +4421,23 @@
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-contacts.svg"
   },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-dropbox": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-dropbox",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-dropbox.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-dropbox.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-dropbox.svg"
+  },
   "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github": {
     "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github",
     "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-github.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gitlab": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gitlab",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gitlab.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gitlab.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gitlab.svg"
   },
   "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail": {
     "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail",
@@ -4427,17 +4445,47 @@
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-gmail.svg"
   },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-google-drive": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-google-drive",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-google-drive.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-google-drive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-google-drive.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-icloud-drive": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-icloud-drive",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-icloud-drive.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-icloud-drive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-icloud-drive.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-local-device": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-local-device",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-local-device.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-local-device.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-local-device.svg"
+  },
   "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion": {
     "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion",
     "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-notion.svg"
   },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-onedrive": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-onedrive",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-onedrive.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-onedrive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-onedrive.svg"
+  },
   "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack": {
     "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack",
     "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-slack.svg"
+  },
+  "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-windows-device": {
+    "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-windows-device",
+    "path": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-windows-device.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-windows-device.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-windows-device.svg"
   },
   "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x": {
     "id": "layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-x",
