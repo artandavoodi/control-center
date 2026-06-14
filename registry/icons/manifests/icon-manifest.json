@@ -4859,6 +4859,90 @@
     "publicPath": "/registry/icons/public/assets/layers/website/model/actions/learn.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/actions/learn.svg"
   },
+  "layers/website/model/foundation/memory/memory-compression": {
+    "id": "layers/website/model/foundation/memory/memory-compression",
+    "path": "layers/website/model/foundation/memory/memory-compression.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-compression.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-compression.svg"
+  },
+  "layers/website/model/foundation/memory/memory-consolidation-queue": {
+    "id": "layers/website/model/foundation/memory/memory-consolidation-queue",
+    "path": "layers/website/model/foundation/memory/memory-consolidation-queue.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-consolidation-queue.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-consolidation-queue.svg"
+  },
+  "layers/website/model/foundation/memory/memory-context-window": {
+    "id": "layers/website/model/foundation/memory/memory-context-window",
+    "path": "layers/website/model/foundation/memory/memory-context-window.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-context-window.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-context-window.svg"
+  },
+  "layers/website/model/foundation/memory/memory-controls": {
+    "id": "layers/website/model/foundation/memory/memory-controls",
+    "path": "layers/website/model/foundation/memory/memory-controls.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-controls.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-controls.svg"
+  },
+  "layers/website/model/foundation/memory/memory-decay": {
+    "id": "layers/website/model/foundation/memory/memory-decay",
+    "path": "layers/website/model/foundation/memory/memory-decay.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-decay.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-decay.svg"
+  },
+  "layers/website/model/foundation/memory/memory-external-connector": {
+    "id": "layers/website/model/foundation/memory/memory-external-connector",
+    "path": "layers/website/model/foundation/memory/memory-external-connector.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-external-connector.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-external-connector.svg"
+  },
+  "layers/website/model/foundation/memory/memory-indefinite-continuity": {
+    "id": "layers/website/model/foundation/memory/memory-indefinite-continuity",
+    "path": "layers/website/model/foundation/memory/memory-indefinite-continuity.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-indefinite-continuity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-indefinite-continuity.svg"
+  },
+  "layers/website/model/foundation/memory/memory-longevity": {
+    "id": "layers/website/model/foundation/memory/memory-longevity",
+    "path": "layers/website/model/foundation/memory/memory-longevity.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-longevity.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-longevity.svg"
+  },
+  "layers/website/model/foundation/memory/memory-lookback": {
+    "id": "layers/website/model/foundation/memory/memory-lookback",
+    "path": "layers/website/model/foundation/memory/memory-lookback.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-lookback.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-lookback.svg"
+  },
+  "layers/website/model/foundation/memory/memory-procedural-pattern": {
+    "id": "layers/website/model/foundation/memory/memory-procedural-pattern",
+    "path": "layers/website/model/foundation/memory/memory-procedural-pattern.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-procedural-pattern.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-procedural-pattern.svg"
+  },
+  "layers/website/model/foundation/memory/memory-salience": {
+    "id": "layers/website/model/foundation/memory/memory-salience",
+    "path": "layers/website/model/foundation/memory/memory-salience.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-salience.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-salience.svg"
+  },
+  "layers/website/model/foundation/memory/memory-sensitive": {
+    "id": "layers/website/model/foundation/memory/memory-sensitive",
+    "path": "layers/website/model/foundation/memory/memory-sensitive.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-sensitive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-sensitive.svg"
+  },
+  "layers/website/model/foundation/memory/memory-social-intake": {
+    "id": "layers/website/model/foundation/memory/memory-social-intake",
+    "path": "layers/website/model/foundation/memory/memory-social-intake.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-social-intake.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-social-intake.svg"
+  },
+  "layers/website/model/foundation/memory/memory-training-link": {
+    "id": "layers/website/model/foundation/memory/memory-training-link",
+    "path": "layers/website/model/foundation/memory/memory-training-link.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/memory/memory-training-link.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/memory/memory-training-link.svg"
+  },
   "layers/website/model/foundation/source-vault/accepted-files": {
     "id": "layers/website/model/foundation/source-vault/accepted-files",
     "path": "layers/website/model/foundation/source-vault/accepted-files.svg",
