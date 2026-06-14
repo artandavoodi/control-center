@@ -275,6 +275,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/close-country-selector/close-country-selector.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/close-country-selector/close-country-selector.svg"
   },
+  "core/actions/comment/reply": {
+    "id": "core/actions/comment/reply",
+    "path": "core/actions/comment/reply.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/comment/reply.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/comment/reply.svg"
+  },
   "core/actions/compose/compose": {
     "id": "core/actions/compose/compose",
     "path": "core/actions/compose/compose.svg",

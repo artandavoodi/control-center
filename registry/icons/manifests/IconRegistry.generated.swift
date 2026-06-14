@@ -47,6 +47,7 @@ enum DSCIconRegistry {
   static let core_actions_close_drawer_close = "core/actions/close/drawer-close"
   static let core_actions_close_account_drawer_close_account_drawer = "core/actions/close-account-drawer/close-account-drawer"
   static let core_actions_close_country_selector_close_country_selector = "core/actions/close-country-selector/close-country-selector"
+  static let core_actions_comment_reply = "core/actions/comment/reply"
   static let core_actions_compose_compose = "core/actions/compose/compose"
   static let core_actions_configure_ip_configure_ip = "core/actions/configure-ip/configure-ip"
   static let core_actions_continue_continue = "core/actions/continue/continue"
