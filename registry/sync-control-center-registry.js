@@ -58,6 +58,17 @@ const ARTAN_LIVE_PUBLIC_ICON_ASSETS =
     "assets"
   );
 
+const DOCS_PUBLIC_PUBLIC_ICON_ASSETS =
+  path.resolve(
+    CONTROL_CENTER_ROOT,
+    "..",
+    "docs-public",
+    "registry",
+    "icons",
+    "public",
+    "assets"
+  );
+
 function countFiles(root) {
   if (!fs.existsSync(root)) {
     return 0;
@@ -83,7 +94,7 @@ function countFiles(root) {
   return total;
 }
 
-function syncArtanLivePublicIconMirror() {
+function syncPublicIconMirror(targetRoot) {
   if (!fs.existsSync(CONTROL_CENTER_PUBLIC_ICON_ASSETS)) {
     throw new Error(
       `Missing Control Center public icon assets: ${CONTROL_CENTER_PUBLIC_ICON_ASSETS}`
@@ -91,7 +102,7 @@ function syncArtanLivePublicIconMirror() {
   }
 
   fs.rmSync(
-    ARTAN_LIVE_PUBLIC_ICON_ASSETS,
+    targetRoot,
     {
       recursive: true,
       force: true
@@ -99,7 +110,7 @@ function syncArtanLivePublicIconMirror() {
   );
 
   fs.mkdirSync(
-    ARTAN_LIVE_PUBLIC_ICON_ASSETS,
+    targetRoot,
     {
       recursive: true
     }
@@ -107,13 +118,13 @@ function syncArtanLivePublicIconMirror() {
 
   fs.cpSync(
     CONTROL_CENTER_PUBLIC_ICON_ASSETS,
-    ARTAN_LIVE_PUBLIC_ICON_ASSETS,
+    targetRoot,
     {
       recursive: true
     }
   );
 
-  return countFiles(ARTAN_LIVE_PUBLIC_ICON_ASSETS);
+  return countFiles(targetRoot);
 }
 
 function syncIcons() {
@@ -124,13 +135,17 @@ function syncIcons() {
     publicIconExporter.export();
 
   const artanLivePublicAssets =
-    syncArtanLivePublicIconMirror();
+    syncPublicIconMirror(ARTAN_LIVE_PUBLIC_ICON_ASSETS);
+
+  const docsPublicPublicAssets =
+    syncPublicIconMirror(DOCS_PUBLIC_PUBLIC_ICON_ASSETS);
 
   return {
     icons: registryState.totalIcons,
     manifests: {
       publicAssets,
       artanLivePublicAssets,
+      docsPublicPublicAssets,
       runtimeManifest: runtimeIconExporter.export(),
       swiftManifest: swiftIconExporter.export()
     }
