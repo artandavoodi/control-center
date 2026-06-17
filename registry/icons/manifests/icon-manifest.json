@@ -899,6 +899,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/prepare-target/prepare-target.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/prepare-target/prepare-target.svg"
   },
+  "core/actions/preview/preview": {
+    "id": "core/actions/preview/preview",
+    "path": "core/actions/preview/preview.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/preview/preview.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/preview/preview.svg"
+  },
   "core/actions/previous-featured-function/previous-featured-function": {
     "id": "core/actions/previous-featured-function/previous-featured-function",
     "path": "core/actions/previous-featured-function/previous-featured-function.svg",
@@ -1421,6 +1427,12 @@
     "publicPath": "/registry/icons/public/assets/core/commerce/billing/tax.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/billing/tax.svg"
   },
+  "core/commerce/books/apple-books/apple-books": {
+    "id": "core/commerce/books/apple-books/apple-books",
+    "path": "core/commerce/books/apple-books/apple-books.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/books/apple-books/apple-books.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/books/apple-books/apple-books.svg"
+  },
   "core/commerce/finance/finance": {
     "id": "core/commerce/finance/finance",
     "path": "core/commerce/finance/finance.svg",
@@ -1444,6 +1456,12 @@
     "path": "core/commerce/finance/valuation.svg",
     "publicPath": "/registry/icons/public/assets/core/commerce/finance/valuation.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/finance/valuation.svg"
+  },
+  "core/commerce/marketplaces/amazon/amazon": {
+    "id": "core/commerce/marketplaces/amazon/amazon",
+    "path": "core/commerce/marketplaces/amazon/amazon.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/marketplaces/amazon/amazon.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/marketplaces/amazon/amazon.svg"
   },
   "core/commerce/orders/delivery": {
     "id": "core/commerce/orders/delivery",
@@ -2872,6 +2890,18 @@
     "path": "core/navigation/site-map/site-map.svg",
     "publicPath": "/registry/icons/public/assets/core/navigation/site-map/site-map.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/navigation/site-map/site-map.svg"
+  },
+  "core/platform/platform/platform": {
+    "id": "core/platform/platform/platform",
+    "path": "core/platform/platform/platform.svg",
+    "publicPath": "/registry/icons/public/assets/core/platform/platform/platform.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/platform/platform/platform.svg"
+  },
+  "core/platform/website/website": {
+    "id": "core/platform/website/website",
+    "path": "core/platform/website/website.svg",
+    "publicPath": "/registry/icons/public/assets/core/platform/website/website.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/platform/website/website.svg"
   },
   "core/productivity/calendar/calendar": {
     "id": "core/productivity/calendar/calendar",
@@ -6635,6 +6665,48 @@
     "publicPath": "/registry/icons/public/assets/system/brand/wordmark.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/brand/wordmark.svg"
   },
+  "system/cv/certifications": {
+    "id": "system/cv/certifications",
+    "path": "system/cv/certifications.svg",
+    "publicPath": "/registry/icons/public/assets/system/cv/certifications.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/cv/certifications.svg"
+  },
+  "system/cv/experience": {
+    "id": "system/cv/experience",
+    "path": "system/cv/experience.svg",
+    "publicPath": "/registry/icons/public/assets/system/cv/experience.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/cv/experience.svg"
+  },
+  "system/cv/focus": {
+    "id": "system/cv/focus",
+    "path": "system/cv/focus.svg",
+    "publicPath": "/registry/icons/public/assets/system/cv/focus.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/cv/focus.svg"
+  },
+  "system/cv/languages": {
+    "id": "system/cv/languages",
+    "path": "system/cv/languages.svg",
+    "publicPath": "/registry/icons/public/assets/system/cv/languages.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/cv/languages.svg"
+  },
+  "system/cv/links": {
+    "id": "system/cv/links",
+    "path": "system/cv/links.svg",
+    "publicPath": "/registry/icons/public/assets/system/cv/links.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/cv/links.svg"
+  },
+  "system/cv/projects": {
+    "id": "system/cv/projects",
+    "path": "system/cv/projects.svg",
+    "publicPath": "/registry/icons/public/assets/system/cv/projects.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/cv/projects.svg"
+  },
+  "system/social/behance": {
+    "id": "system/social/behance",
+    "path": "system/social/behance.svg",
+    "publicPath": "/registry/icons/public/assets/system/social/behance.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/social/behance.svg"
+  },
   "system/social/discord": {
     "id": "system/social/discord",
     "path": "system/social/discord.svg",
@@ -6664,6 +6736,12 @@
     "path": "system/social/linkedin.svg",
     "publicPath": "/registry/icons/public/assets/system/social/linkedin.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/social/linkedin.svg"
+  },
+  "system/social/orcid": {
+    "id": "system/social/orcid",
+    "path": "system/social/orcid.svg",
+    "publicPath": "/registry/icons/public/assets/system/social/orcid.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/system/social/orcid.svg"
   },
   "system/social/x": {
     "id": "system/social/x",

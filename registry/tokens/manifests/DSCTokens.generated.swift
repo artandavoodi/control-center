@@ -2753,6 +2753,10 @@ enum DSCTokens {
     "button-padding-x-lg": "var(--control-padding-x-lg)",
     "button-hover-lift-y-subtle": "0",
     "button-hover-scale-subtle": "1",
+    "button-bg": "transparent",
+    "button-bg-hover": "transparent",
+    "button-bg-active": "color-mix(in srgb, var(--text-primary-color) 8%, transparent)",
+    "button-bg-active-full": "color-mix(in srgb, var(--text-primary-color) 12%, transparent)",
     "input-font-size": "var(--body-2-size)",
     "input-line-height": "var(--body-2-line-height)",
     "input-letter-spacing": "var(--body-2-tracking)",
@@ -8951,6 +8955,10 @@ enum DSCTokens {
   static let button_padding_x_lg = "var(--control-padding-x-lg)"
   static let button_hover_lift_y_subtle = "0"
   static let button_hover_scale_subtle = "1"
+  static let button_bg = "transparent"
+  static let button_bg_hover = "transparent"
+  static let button_bg_active = "color-mix(in srgb, var(--text-primary-color) 8%, transparent)"
+  static let button_bg_active_full = "color-mix(in srgb, var(--text-primary-color) 12%, transparent)"
   static let input_font_size = "var(--body-2-size)"
   static let input_line_height = "var(--body-2-line-height)"
   static let input_letter_spacing = "var(--body-2-tracking)"
