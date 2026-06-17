@@ -33,6 +33,13 @@ const ARTAN_LIVE_ROOT =
     "artan-live"
   );
 
+const BRAND_ROOT =
+  path.resolve(
+    CONTROL_CENTER_ROOT,
+    "..",
+    "brand"
+  );
+
 const DOCS_PUBLIC_ROOT =
   path.resolve(
     CONTROL_CENTER_ROOT,
@@ -86,6 +93,16 @@ const WEBSITE_ICON_MIRROR =
 const ARTAN_LIVE_ICON_MIRROR =
   path.join(
     ARTAN_LIVE_ROOT,
+    "docs",
+    "registry",
+    "icons",
+    "public",
+    "assets"
+  );
+
+const BRAND_ICON_MIRROR =
+  path.join(
+    BRAND_ROOT,
     "docs",
     "registry",
     "icons",
@@ -369,6 +386,11 @@ assertNoFinderDuplicateDirectories(
 );
 
 assertNoFinderDuplicateDirectories(
+  BRAND_ICON_MIRROR,
+  "Brand icon mirror"
+);
+
+assertNoFinderDuplicateDirectories(
   DOCS_PUBLIC_ICON_MIRROR,
   "Docs Public icon mirror"
 );
@@ -397,6 +419,14 @@ const artanLiveIconFiles =
     () => true
   );
 
+const brandIconFiles =
+  compare(
+    "Brand icon",
+    ICON_SOURCE_ROOT,
+    BRAND_ICON_MIRROR,
+    () => true
+  );
+
 const docsPublicIconFiles =
   compare(
     "Docs Public icon",
@@ -419,6 +449,7 @@ console.log({
     sourceFiles: controlCenterIconFiles,
     websiteMirrorFiles: websiteIconFiles,
     artanLiveMirrorFiles: artanLiveIconFiles,
+    brandMirrorFiles: brandIconFiles,
     docsPublicMirrorFiles: docsPublicIconFiles
   },
   manifests: REQUIRED_MANIFESTS.length

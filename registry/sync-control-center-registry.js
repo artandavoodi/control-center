@@ -58,6 +58,18 @@ const ARTAN_LIVE_PUBLIC_ICON_ASSETS =
     "assets"
   );
 
+const BRAND_PUBLIC_ICON_ASSETS =
+  path.resolve(
+    CONTROL_CENTER_ROOT,
+    "..",
+    "brand",
+    "docs",
+    "registry",
+    "icons",
+    "public",
+    "assets"
+  );
+
 const WEBSITE_PUBLIC_ICON_ASSETS =
   path.resolve(
     CONTROL_CENTER_ROOT,
@@ -243,6 +255,12 @@ function syncIcons() {
       "Artan.live public icon mirror"
     );
 
+  const brandPublicAssets =
+    syncPublicIconMirror(
+      BRAND_PUBLIC_ICON_ASSETS,
+      "Brand public icon mirror"
+    );
+
   const docsPublicPublicAssets =
     syncPublicIconMirror(
       DOCS_PUBLIC_PUBLIC_ICON_ASSETS,
@@ -255,6 +273,7 @@ function syncIcons() {
       publicAssets,
       websitePublicAssets,
       artanLivePublicAssets,
+      brandPublicAssets,
       docsPublicPublicAssets,
       runtimeManifest: runtimeIconExporter.export(),
       swiftManifest: swiftIconExporter.export()
