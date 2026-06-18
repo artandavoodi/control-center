@@ -1414,7 +1414,9 @@ enum DSCTokens {
     "layout-home-platform-rail-toggle-margin-left": "var(--spacing-lg)",
     "layout-home-platform-rail-toggle-icon-size": "calc(1.05rem * var(--accessibility-icon-scale))",
     "layout-home-platform-rail-width": "18rem",
+    "layout-home-platform-primary-rail-width": "13rem",
     "layout-home-platform-subrail-width": "15rem",
+    "layout-platform-expanded-rail-end-rhythm": "3rem",
     "layout-home-platform-rail-compact-width": "3.25rem",
     "layout-home-platform-tablet-rail-min": "12rem",
     "layout-home-platform-tablet-rail-max": "15rem",
@@ -2218,9 +2220,9 @@ enum DSCTokens {
     "layout-feed-badge-weight": "600",
     "layout-feed-badge-icon-size": "0.82rem",
     "layout-feed-copy-line-height": "1.72",
-    "layout-feed-post-action-min-height": "2.35rem",
-    "layout-feed-post-action-padding-x": "0.92rem",
-    "layout-feed-post-action-size": "0.76rem",
+    "layout-feed-post-action-min-height": "1.75rem",
+    "layout-feed-post-action-padding-x": "0.48rem",
+    "layout-feed-post-action-size": "0.68rem",
     "layout-home-profile-control-panel-width": "min(24rem, calc(100vw - (var(--home-shell-panel-inline-padding) * 2)))",
     "layout-home-profile-control-panel-inner-gap": "1.25rem",
     "layout-home-profile-control-panel-inner-padding-top": "1.25rem",
@@ -7624,7 +7626,9 @@ enum DSCTokens {
   static let layout_home_platform_rail_toggle_margin_left = "var(--spacing-lg)"
   static let layout_home_platform_rail_toggle_icon_size = "calc(1.05rem * var(--accessibility-icon-scale))"
   static let layout_home_platform_rail_width = "18rem"
+  static let layout_home_platform_primary_rail_width = "13rem"
   static let layout_home_platform_subrail_width = "15rem"
+  static let layout_platform_expanded_rail_end_rhythm = "3rem"
   static let layout_home_platform_rail_compact_width = "3.25rem"
   static let layout_home_platform_tablet_rail_min = "12rem"
   static let layout_home_platform_tablet_rail_max = "15rem"
@@ -8428,9 +8432,9 @@ enum DSCTokens {
   static let layout_feed_badge_weight = "600"
   static let layout_feed_badge_icon_size = "0.82rem"
   static let layout_feed_copy_line_height = "1.72"
-  static let layout_feed_post_action_min_height = "2.35rem"
-  static let layout_feed_post_action_padding_x = "0.92rem"
-  static let layout_feed_post_action_size = "0.76rem"
+  static let layout_feed_post_action_min_height = "1.75rem"
+  static let layout_feed_post_action_padding_x = "0.48rem"
+  static let layout_feed_post_action_size = "0.68rem"
   static let layout_home_profile_control_panel_width = "min(24rem, calc(100vw - (var(--home-shell-panel-inline-padding) * 2)))"
   static let layout_home_profile_control_panel_inner_gap = "1.25rem"
   static let layout_home_profile_control_panel_inner_padding_top = "1.25rem"
