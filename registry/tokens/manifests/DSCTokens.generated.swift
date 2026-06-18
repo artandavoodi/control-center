@@ -3231,6 +3231,14 @@ enum DSCTokens {
     "feedback-icon-size-lg": "1.12rem",
     "feedback-icon-opacity": "0.82",
     "feedback-icon-opacity-strong": "1",
+    "feedback-static-error-action-color": "var(--feedback-error-text)",
+    "feedback-static-error-action-icon-color": "var(--feedback-error-text)",
+    "feedback-static-error-action-opacity": "1",
+    "feedback-static-error-action-icon-opacity": "1",
+    "feedback-static-error-action-bg": "transparent",
+    "feedback-static-error-action-border-color": "transparent",
+    "feedback-static-error-action-shadow": "none",
+    "feedback-static-error-action-transform": "none",
     "status-badge-gap": "0.34rem",
     "status-badge-padding-y": "0.22rem",
     "status-badge-padding-x": "0.48rem",
@@ -9433,6 +9441,14 @@ enum DSCTokens {
   static let feedback_icon_size_lg = "1.12rem"
   static let feedback_icon_opacity = "0.82"
   static let feedback_icon_opacity_strong = "1"
+  static let feedback_static_error_action_color = "var(--feedback-error-text)"
+  static let feedback_static_error_action_icon_color = "var(--feedback-error-text)"
+  static let feedback_static_error_action_opacity = "1"
+  static let feedback_static_error_action_icon_opacity = "1"
+  static let feedback_static_error_action_bg = "transparent"
+  static let feedback_static_error_action_border_color = "transparent"
+  static let feedback_static_error_action_shadow = "none"
+  static let feedback_static_error_action_transform = "none"
   static let status_badge_gap = "0.34rem"
   static let status_badge_padding_y = "0.22rem"
   static let status_badge_padding_x = "0.48rem"

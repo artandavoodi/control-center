@@ -72,7 +72,10 @@ export class IconCompiler {
 
     return entries.flatMap(
       (entry) => {
-        if (entry.name === ".DS_Store") {
+        if (
+          entry.name === ".DS_Store" ||
+          this.isFinderDuplicateName(entry.name)
+        ) {
           return [];
         }
 
@@ -121,8 +124,8 @@ export class IconCompiler {
       }
 
       const duplicateMatch =
-        entry.name.match(
-          /^(.*) \d+(\.[^./]+)$/u
+        this.getFinderDuplicateMatch(
+          entry.name
         );
 
       if (!duplicateMatch) {
@@ -148,6 +151,19 @@ export class IconCompiler {
       }
     }
   }
+
+  isFinderDuplicateName(name) {
+    return Boolean(
+      this.getFinderDuplicateMatch(name)
+    );
+  }
+
+  getFinderDuplicateMatch(name) {
+    return name.match(
+      /^(.*) \d+(\.[^./]+)$/u
+    );
+  }
+
 }
 
 export const iconCompiler =

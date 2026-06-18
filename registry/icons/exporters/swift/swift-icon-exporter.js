@@ -5,12 +5,24 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { iconRegistry }
 from "../../core/icon-registry.js";
 
+const MODULE_DIR =
+  path.dirname(
+    fileURLToPath(import.meta.url)
+  );
+
 const OUTPUT =
-"./registry/icons/manifests/IconRegistry.generated.swift";
+  path.resolve(
+    MODULE_DIR,
+    "..",
+    "..",
+    "manifests",
+    "IconRegistry.generated.swift"
+  );
 
 export class SwiftIconExporter {
   swiftIdentifier(name) {
@@ -50,7 +62,12 @@ export class SwiftIconExporter {
     ].join("\n");
 
     const resolved =
-      path.resolve(OUTPUT);
+      OUTPUT;
+
+    fs.mkdirSync(
+      path.dirname(resolved),
+      { recursive: true }
+    );
 
     fs.writeFileSync(
       resolved,

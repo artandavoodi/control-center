@@ -5,17 +5,34 @@
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { iconRegistry }
 from "../../core/icon-registry.js";
 
+const MODULE_DIR =
+  path.dirname(
+    fileURLToPath(import.meta.url)
+  );
+
 const OUTPUT =
-"./registry/icons/manifests/icon-manifest.json";
+  path.resolve(
+    MODULE_DIR,
+    "..",
+    "..",
+    "manifests",
+    "icon-manifest.json"
+  );
 
 export class RuntimeIconExporter {
   export() {
     const resolved =
-      path.resolve(OUTPUT);
+      OUTPUT;
+
+    fs.mkdirSync(
+      path.dirname(resolved),
+      { recursive: true }
+    );
 
     fs.writeFileSync(
       resolved,
