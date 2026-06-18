@@ -2441,6 +2441,18 @@
     "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-resume.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-resume.svg"
   },
+  "core/model/digital-brain-maturity/brain-motion-rotate-left": {
+    "id": "core/model/digital-brain-maturity/brain-motion-rotate-left",
+    "path": "core/model/digital-brain-maturity/brain-motion-rotate-left.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-rotate-left.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-rotate-left.svg"
+  },
+  "core/model/digital-brain-maturity/brain-motion-rotate-right": {
+    "id": "core/model/digital-brain-maturity/brain-motion-rotate-right",
+    "path": "core/model/digital-brain-maturity/brain-motion-rotate-right.svg",
+    "publicPath": "/registry/icons/public/assets/core/model/digital-brain-maturity/brain-motion-rotate-right.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/model/digital-brain-maturity/brain-motion-rotate-right.svg"
+  },
   "core/model/digital-brain-maturity/brain-motion-speed": {
     "id": "core/model/digital-brain-maturity/brain-motion-speed",
     "path": "core/model/digital-brain-maturity/brain-motion-speed.svg",

@@ -408,6 +408,8 @@ enum DSCIconRegistry {
   static let core_model_digital_brain_maturity_brain_display_scan = "core/model/digital-brain-maturity/brain-display-scan"
   static let core_model_digital_brain_maturity_brain_motion_pause = "core/model/digital-brain-maturity/brain-motion-pause"
   static let core_model_digital_brain_maturity_brain_motion_resume = "core/model/digital-brain-maturity/brain-motion-resume"
+  static let core_model_digital_brain_maturity_brain_motion_rotate_left = "core/model/digital-brain-maturity/brain-motion-rotate-left"
+  static let core_model_digital_brain_maturity_brain_motion_rotate_right = "core/model/digital-brain-maturity/brain-motion-rotate-right"
   static let core_model_digital_brain_maturity_brain_motion_speed = "core/model/digital-brain-maturity/brain-motion-speed"
   static let core_model_digital_brain_maturity_brain_nodes = "core/model/digital-brain-maturity/brain-nodes"
   static let core_model_digital_brain_maturity_brain_overview = "core/model/digital-brain-maturity/brain-overview"
