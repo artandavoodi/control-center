@@ -5045,6 +5045,12 @@
     "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/file-manager.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/file-manager.svg"
   },
+  "layers/website/model/foundation/source-vault/post-manager/post-manager": {
+    "id": "layers/website/model/foundation/source-vault/post-manager/post-manager",
+    "path": "layers/website/model/foundation/source-vault/post-manager/post-manager.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/model/foundation/source-vault/post-manager/post-manager.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/model/foundation/source-vault/post-manager/post-manager.svg"
+  },
   "layers/website/model/foundation/source-vault/select-all-files": {
     "id": "layers/website/model/foundation/source-vault/select-all-files",
     "path": "layers/website/model/foundation/source-vault/select-all-files.svg",

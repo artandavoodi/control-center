@@ -842,6 +842,7 @@ enum DSCIconRegistry {
   static let layers_website_model_foundation_source_vault_estimated_size = "layers/website/model/foundation/source-vault/estimated-size"
   static let layers_website_model_foundation_source_vault_excluded_files = "layers/website/model/foundation/source-vault/excluded-files"
   static let layers_website_model_foundation_source_vault_file_manager = "layers/website/model/foundation/source-vault/file-manager"
+  static let layers_website_model_foundation_source_vault_post_manager_post_manager = "layers/website/model/foundation/source-vault/post-manager/post-manager"
   static let layers_website_model_foundation_source_vault_select_all_files = "layers/website/model/foundation/source-vault/select-all-files"
   static let layers_website_model_overview_birth_certificate_id = "layers/website/model/overview/birth-certificate-id"
   static let layers_website_model_overview_birth_date = "layers/website/model/overview/birth-date"
