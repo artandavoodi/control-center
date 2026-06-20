@@ -6269,6 +6269,306 @@
     "publicPath": "/registry/icons/public/assets/layers/website/profile/private/overview/manage-visibility.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/private/overview/manage-visibility.svg"
   },
+  "layers/website/profile/social/Award": {
+    "id": "layers/website/profile/social/Award",
+    "path": "layers/website/profile/social/Award.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Award.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Award.svg"
+  },
+  "layers/website/profile/social/Badge": {
+    "id": "layers/website/profile/social/Badge",
+    "path": "layers/website/profile/social/Badge.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Badge.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Badge.svg"
+  },
+  "layers/website/profile/social/Block": {
+    "id": "layers/website/profile/social/Block",
+    "path": "layers/website/profile/social/Block.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Block.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Block.svg"
+  },
+  "layers/website/profile/social/Boost": {
+    "id": "layers/website/profile/social/Boost",
+    "path": "layers/website/profile/social/Boost.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Boost.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Boost.svg"
+  },
+  "layers/website/profile/social/CopyLink": {
+    "id": "layers/website/profile/social/CopyLink",
+    "path": "layers/website/profile/social/CopyLink.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/CopyLink.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/CopyLink.svg"
+  },
+  "layers/website/profile/social/Creator": {
+    "id": "layers/website/profile/social/Creator",
+    "path": "layers/website/profile/social/Creator.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Creator.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Creator.svg"
+  },
+  "layers/website/profile/social/DirectMessage": {
+    "id": "layers/website/profile/social/DirectMessage",
+    "path": "layers/website/profile/social/DirectMessage.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/DirectMessage.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/DirectMessage.svg"
+  },
+  "layers/website/profile/social/Donate": {
+    "id": "layers/website/profile/social/Donate",
+    "path": "layers/website/profile/social/Donate.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Donate.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Donate.svg"
+  },
+  "layers/website/profile/social/Downvote": {
+    "id": "layers/website/profile/social/Downvote",
+    "path": "layers/website/profile/social/Downvote.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Downvote.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Downvote.svg"
+  },
+  "layers/website/profile/social/Engagement": {
+    "id": "layers/website/profile/social/Engagement",
+    "path": "layers/website/profile/social/Engagement.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Engagement.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Engagement.svg"
+  },
+  "layers/website/profile/social/ExternalLink": {
+    "id": "layers/website/profile/social/ExternalLink",
+    "path": "layers/website/profile/social/ExternalLink.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/ExternalLink.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/ExternalLink.svg"
+  },
+  "layers/website/profile/social/Follow": {
+    "id": "layers/website/profile/social/Follow",
+    "path": "layers/website/profile/social/Follow.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Follow.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Follow.svg"
+  },
+  "layers/website/profile/social/Followed": {
+    "id": "layers/website/profile/social/Followed",
+    "path": "layers/website/profile/social/Followed.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Followed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Followed.svg"
+  },
+  "layers/website/profile/social/Follower": {
+    "id": "layers/website/profile/social/Follower",
+    "path": "layers/website/profile/social/Follower.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Follower.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Follower.svg"
+  },
+  "layers/website/profile/social/Followers": {
+    "id": "layers/website/profile/social/Followers",
+    "path": "layers/website/profile/social/Followers.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Followers.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Followers.svg"
+  },
+  "layers/website/profile/social/Following": {
+    "id": "layers/website/profile/social/Following",
+    "path": "layers/website/profile/social/Following.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Following.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Following.svg"
+  },
+  "layers/website/profile/social/Hide": {
+    "id": "layers/website/profile/social/Hide",
+    "path": "layers/website/profile/social/Hide.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Hide.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Hide.svg"
+  },
+  "layers/website/profile/social/Impression": {
+    "id": "layers/website/profile/social/Impression",
+    "path": "layers/website/profile/social/Impression.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Impression.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Impression.svg"
+  },
+  "layers/website/profile/social/Liked": {
+    "id": "layers/website/profile/social/Liked",
+    "path": "layers/website/profile/social/Liked.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Liked.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Liked.svg"
+  },
+  "layers/website/profile/social/Membership": {
+    "id": "layers/website/profile/social/Membership",
+    "path": "layers/website/profile/social/Membership.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Membership.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Membership.svg"
+  },
+  "layers/website/profile/social/Mention": {
+    "id": "layers/website/profile/social/Mention",
+    "path": "layers/website/profile/social/Mention.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Mention.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Mention.svg"
+  },
+  "layers/website/profile/social/Moderate": {
+    "id": "layers/website/profile/social/Moderate",
+    "path": "layers/website/profile/social/Moderate.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Moderate.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Moderate.svg"
+  },
+  "layers/website/profile/social/Moderator": {
+    "id": "layers/website/profile/social/Moderator",
+    "path": "layers/website/profile/social/Moderator.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Moderator.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Moderator.svg"
+  },
+  "layers/website/profile/social/Mute": {
+    "id": "layers/website/profile/social/Mute",
+    "path": "layers/website/profile/social/Mute.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Mute.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Mute.svg"
+  },
+  "layers/website/profile/social/NotificationsOff": {
+    "id": "layers/website/profile/social/NotificationsOff",
+    "path": "layers/website/profile/social/NotificationsOff.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/NotificationsOff.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/NotificationsOff.svg"
+  },
+  "layers/website/profile/social/OpenProfile": {
+    "id": "layers/website/profile/social/OpenProfile",
+    "path": "layers/website/profile/social/OpenProfile.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/OpenProfile.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/OpenProfile.svg"
+  },
+  "layers/website/profile/social/PrivateAccount": {
+    "id": "layers/website/profile/social/PrivateAccount",
+    "path": "layers/website/profile/social/PrivateAccount.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/PrivateAccount.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/PrivateAccount.svg"
+  },
+  "layers/website/profile/social/Promote": {
+    "id": "layers/website/profile/social/Promote",
+    "path": "layers/website/profile/social/Promote.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Promote.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Promote.svg"
+  },
+  "layers/website/profile/social/ProtectedAccount": {
+    "id": "layers/website/profile/social/ProtectedAccount",
+    "path": "layers/website/profile/social/ProtectedAccount.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/ProtectedAccount.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/ProtectedAccount.svg"
+  },
+  "layers/website/profile/social/PublicAccount": {
+    "id": "layers/website/profile/social/PublicAccount",
+    "path": "layers/website/profile/social/PublicAccount.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/PublicAccount.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/PublicAccount.svg"
+  },
+  "layers/website/profile/social/Restrict": {
+    "id": "layers/website/profile/social/Restrict",
+    "path": "layers/website/profile/social/Restrict.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Restrict.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Restrict.svg"
+  },
+  "layers/website/profile/social/Rules": {
+    "id": "layers/website/profile/social/Rules",
+    "path": "layers/website/profile/social/Rules.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Rules.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Rules.svg"
+  },
+  "layers/website/profile/social/Saved": {
+    "id": "layers/website/profile/social/Saved",
+    "path": "layers/website/profile/social/Saved.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Saved.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Saved.svg"
+  },
+  "layers/website/profile/social/Subscribe": {
+    "id": "layers/website/profile/social/Subscribe",
+    "path": "layers/website/profile/social/Subscribe.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Subscribe.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Subscribe.svg"
+  },
+  "layers/website/profile/social/Subscribed": {
+    "id": "layers/website/profile/social/Subscribed",
+    "path": "layers/website/profile/social/Subscribed.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Subscribed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Subscribed.svg"
+  },
+  "layers/website/profile/social/Subscriber": {
+    "id": "layers/website/profile/social/Subscriber",
+    "path": "layers/website/profile/social/Subscriber.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Subscriber.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Subscriber.svg"
+  },
+  "layers/website/profile/social/Subscribers": {
+    "id": "layers/website/profile/social/Subscribers",
+    "path": "layers/website/profile/social/Subscribers.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Subscribers.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Subscribers.svg"
+  },
+  "layers/website/profile/social/Tip": {
+    "id": "layers/website/profile/social/Tip",
+    "path": "layers/website/profile/social/Tip.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Tip.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Tip.svg"
+  },
+  "layers/website/profile/social/Trend": {
+    "id": "layers/website/profile/social/Trend",
+    "path": "layers/website/profile/social/Trend.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Trend.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Trend.svg"
+  },
+  "layers/website/profile/social/Unblock": {
+    "id": "layers/website/profile/social/Unblock",
+    "path": "layers/website/profile/social/Unblock.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unblock.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unblock.svg"
+  },
+  "layers/website/profile/social/Unbookmark": {
+    "id": "layers/website/profile/social/Unbookmark",
+    "path": "layers/website/profile/social/Unbookmark.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unbookmark.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unbookmark.svg"
+  },
+  "layers/website/profile/social/Unfollow": {
+    "id": "layers/website/profile/social/Unfollow",
+    "path": "layers/website/profile/social/Unfollow.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unfollow.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unfollow.svg"
+  },
+  "layers/website/profile/social/Unhide": {
+    "id": "layers/website/profile/social/Unhide",
+    "path": "layers/website/profile/social/Unhide.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unhide.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unhide.svg"
+  },
+  "layers/website/profile/social/Unmute": {
+    "id": "layers/website/profile/social/Unmute",
+    "path": "layers/website/profile/social/Unmute.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unmute.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unmute.svg"
+  },
+  "layers/website/profile/social/Unrepost": {
+    "id": "layers/website/profile/social/Unrepost",
+    "path": "layers/website/profile/social/Unrepost.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unrepost.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unrepost.svg"
+  },
+  "layers/website/profile/social/Unrestrict": {
+    "id": "layers/website/profile/social/Unrestrict",
+    "path": "layers/website/profile/social/Unrestrict.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unrestrict.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unrestrict.svg"
+  },
+  "layers/website/profile/social/Unsubscribe": {
+    "id": "layers/website/profile/social/Unsubscribe",
+    "path": "layers/website/profile/social/Unsubscribe.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Unsubscribe.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Unsubscribe.svg"
+  },
+  "layers/website/profile/social/Upvote": {
+    "id": "layers/website/profile/social/Upvote",
+    "path": "layers/website/profile/social/Upvote.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Upvote.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Upvote.svg"
+  },
+  "layers/website/profile/social/View": {
+    "id": "layers/website/profile/social/View",
+    "path": "layers/website/profile/social/View.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/View.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/View.svg"
+  },
+  "layers/website/profile/social/Views": {
+    "id": "layers/website/profile/social/Views",
+    "path": "layers/website/profile/social/Views.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/social/Views.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/social/Views.svg"
+  },
   "layers/website/settings/accessibility/accessibility": {
     "id": "layers/website/settings/accessibility/accessibility",
     "path": "layers/website/settings/accessibility/accessibility.svg",
