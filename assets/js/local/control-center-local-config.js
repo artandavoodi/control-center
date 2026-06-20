@@ -1,0 +1,2 @@
+window.__NEUROARTAN_SUPABASE_URL__ = "https://dwlgvujubkpycrvhngku.supabase.co";
+window.__NEUROARTAN_SUPABASE_ANON_KEY__ = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3bGd2dWp1YmtweWNydmhuZ2t1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5NzEyMTksImV4cCI6MjA5MjU0NzIxOX0.qiii04RHo2ZHYNIYBt7vgSzfv3PYKJvT-LvxxU_wkaA";

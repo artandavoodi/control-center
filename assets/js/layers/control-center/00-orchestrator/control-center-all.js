@@ -10,6 +10,10 @@ const state = {
   documents:[],
   activeDocumentId:"",
   verificationRequests:[],
+  verificationStatusFilter:"submitted",
+  verificationSearchQuery:"",
+  verificationLoadState:"loading",
+  verificationRefreshTimer:null,
   memoryStore:new Map(),
   workspaceHandle:null,
   workspaceLabel:"Browser store"
@@ -129,6 +133,7 @@ async function loadJson(url) {
   return response.json();
 }
 
+
 function getSupabaseConfig() {
   let storedUrl = "";
   let storedKey = "";
@@ -145,9 +150,21 @@ function getSupabaseConfig() {
   };
 }
 
+function hasUsableSupabaseConfig(config = getSupabaseConfig()) {
+  const url = normalizeString(config.url);
+  const key = normalizeString(config.key);
+
+  if (!url || !key) return false;
+  if (url.includes("YOUR_SUPABASE_PROJECT_URL")) return false;
+  if (key.includes("YOUR_SUPABASE_ANON_KEY")) return false;
+  if (!/^https:\/\/[^/]+\.supabase\.co$/i.test(url)) return false;
+
+  return true;
+}
+
 async function supabaseRest(path, options = {}) {
   const config = getSupabaseConfig();
-  if (!config.url || !config.key) throw new Error("Supabase credentials missing");
+  if (!hasUsableSupabaseConfig(config)) throw new Error("Supabase credentials missing or invalid");
   const response = await fetch(config.url.replace(/\/$/, "") + "/rest/v1/" + path, {
     ...options,
     headers:{
@@ -177,6 +194,84 @@ function actionMarkup(label, options = {}) {
 
 function chipMarkup(label, stateName = "") {
   return `<span class="control-center-chip" data-state="${escapeHtml(stateName)}">${escapeHtml(label)}</span>`;
+}
+
+function formatTimestamp(value = "") {
+  if (!value) return "Unknown";
+  try {
+    return new Intl.DateTimeFormat("en-US", { dateStyle:"medium", timeStyle:"short" }).format(new Date(value));
+  } catch {
+    return normalizeString(value) || "Unknown";
+  }
+}
+
+function formatVerificationType(value = "") {
+  return normalizeString(value || "profile_identity")
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+function normalizeVerificationStatus(value = "") {
+  const status = normalizeString(value || "submitted").toLowerCase();
+  if (status === "declined") return "rejected";
+  if (status === "verified") return "approved";
+  return status || "submitted";
+}
+
+function getVerificationAvatar(request = {}) {
+  return normalizeString(
+    request.public_avatar_url ||
+    request.avatar_url ||
+    request.photo_url ||
+    request.profiles?.public_avatar_url ||
+    request.profiles?.avatar_url ||
+    request.profiles?.photo_url ||
+    ""
+  );
+}
+
+function getVerificationInitials(request = {}) {
+  const source = normalizeString(request.display_name || request.username || "User");
+  return source
+    .split(/\s+/)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function getVerificationStatusCount(status = "") {
+  if (status === "all") return state.verificationRequests.length;
+  return state.verificationRequests.filter((request) => normalizeVerificationStatus(request.request_status) === status).length;
+}
+
+function getVisibleVerificationRequests() {
+  const query = normalizeString(state.verificationSearchQuery).toLowerCase();
+  return state.verificationRequests.filter((request) => {
+    const status = normalizeVerificationStatus(request.request_status);
+    const statusMatches = state.verificationStatusFilter === "all" || status === state.verificationStatusFilter;
+    if (!statusMatches) return false;
+    if (!query) return true;
+    return [
+      request.id,
+      request.profile_id,
+      request.auth_user_id,
+      request.username,
+      request.display_name,
+      request.email,
+      request.request_note,
+      request.verification_type,
+      request.request_status
+    ].map(normalizeString).join(" ").toLowerCase().includes(query);
+  });
+}
+
+function verificationAvatarMarkup(request = {}) {
+  const avatar = getVerificationAvatar(request);
+  if (avatar) {
+    return `<figure class="control-center-request__avatar"><img src="${escapeHtml(avatar)}" alt="" loading="lazy"></figure>`;
+  }
+  return `<figure class="control-center-request__avatar" data-empty="true"><span>${escapeHtml(getVerificationInitials(request))}</span></figure>`;
 }
 
 function renderShell() {
@@ -309,13 +404,74 @@ function renderDocuments() {
 }
 
 function renderVerification() {
-  const requests = state.verificationRequests;
-  return `<section class="control-center-panel"><h2 class="control-center-panel__title">Verification review</h2><p class="control-center-panel__copy">Review profile verification requests and publish approved verification state to profile records.</p><div class="control-center-verification" data-verification-list>${requests.length ? requests.map(renderVerificationRequest).join("") : `<div class="control-center-notice">No verification requests found.</div>`}</div></section>`;
+  const requests = getVisibleVerificationRequests();
+  const filters = [
+    { id:"submitted", label:"Requested" },
+    { id:"approved", label:"Approved" },
+    { id:"rejected", label:"Declined" },
+    { id:"all", label:"All" }
+  ];
+  const notice = state.verificationLoadState === "error"
+    ? "Verification data could not be loaded from Supabase. Check table access or request policy."
+    : "No verification requests found in this view.";
+
+  return `
+    <section class="control-center-panel control-center-verification-console">
+      <header class="control-center-verification-console__header">
+        <div>
+          <p class="control-center-panel__eyebrow">Identity governance</p>
+          <h2 class="control-center-panel__title">Verification requests</h2>
+          <p class="control-center-panel__copy">Review identity requests, approve public verification state, and preserve an auditable review queue.</p>
+        </div>
+        ${chipMarkup(state.verificationLoadState === "live" ? "Live Supabase" : "Supabase unavailable", state.verificationLoadState === "live" ? "connected" : "rejected")}
+      </header>
+
+      <section class="control-center-verification-console__tools" aria-label="Verification review tools">
+        <label class="control-center-field control-center-verification-search">
+          <span>Search</span>
+          <input class="control-center-editor__field" value="${escapeHtml(state.verificationSearchQuery)}" placeholder="Search name, handle, profile ID, auth ID, note" data-verification-search>
+        </label>
+        <nav class="control-center-actions control-center-verification-filters" aria-label="Verification status filters">
+          ${filters.map((filter) => `<button class="control-center-action" type="button" data-verification-filter="${escapeHtml(filter.id)}" aria-pressed="${filter.id === state.verificationStatusFilter ? "true" : "false"}"><span>${escapeHtml(filter.label)}</span><strong>${getVerificationStatusCount(filter.id)}</strong></button>`).join("")}
+        </nav>
+      </section>
+
+      <div class="control-center-verification" data-verification-list>
+        ${requests.length ? requests.map(renderVerificationRequest).join("") : `<div class="control-center-notice">${escapeHtml(notice)}</div>`}
+      </div>
+    </section>`;
 }
 
 function renderVerificationRequest(request) {
-  const status = normalizeString(request.request_status || "submitted");
-  return `<article class="control-center-request" data-request-id="${escapeHtml(request.id)}"><div class="control-center-request__header"><div><h3 class="control-center-card__title">${escapeHtml(request.display_name || "Unknown user")}</h3><p class="control-center-meta">@${escapeHtml(request.username || "unknown")}</p></div>${chipMarkup(status, status)}</div><p class="control-center-card__copy">${escapeHtml(request.request_note || "No note provided.")}</p><div class="control-center-actions">${actionMarkup("Approve", { action:"approve-verification", id:request.id, primary:true })}${actionMarkup("Decline", { action:"decline-verification", id:request.id })}</div></article>`;
+  const status = normalizeVerificationStatus(request.request_status || "submitted");
+  const canReview = status === "submitted" || status === "under_review";
+  return `
+    <article class="control-center-request" data-request-id="${escapeHtml(request.id)}" data-status="${escapeHtml(status)}">
+      ${verificationAvatarMarkup(request)}
+      <div class="control-center-request__body">
+        <header class="control-center-request__header">
+          <div>
+            <h3 class="control-center-card__title">${escapeHtml(request.display_name || "Unknown user")}</h3>
+            <p class="control-center-meta">@${escapeHtml(request.username || "unknown")}</p>
+          </div>
+          ${chipMarkup(status, status)}
+        </header>
+        <dl class="control-center-request__meta">
+          <div><dt>Type</dt><dd>${escapeHtml(formatVerificationType(request.verification_type))}</dd></div>
+          <div><dt>Requested</dt><dd>${escapeHtml(formatTimestamp(request.created_at))}</dd></div>
+          <div><dt>Reviewed</dt><dd>${escapeHtml(formatTimestamp(request.reviewed_at))}</dd></div>
+        </dl>
+        <p class="control-center-card__copy">${escapeHtml(request.request_note || "No note provided.")}</p>
+        <div class="control-center-request__ids">
+          <span>Profile ${escapeHtml(request.profile_id || "missing")}</span>
+          <span>Auth ${escapeHtml(request.auth_user_id || "missing")}</span>
+        </div>
+      </div>
+      <div class="control-center-actions" ${canReview ? "" : "hidden"}>
+        ${actionMarkup("Approve", { action:"approve-verification", id:request.id, primary:true })}
+        ${actionMarkup("Decline", { action:"decline-verification", id:request.id })}
+      </div>
+    </article>`;
 }
 
 function renderTokens() {
@@ -466,39 +622,46 @@ async function chooseWorkspace() {
   renderActivePanel();
 }
 
-async function loadVerificationRequests() {
-  const config = getSupabaseConfig();
-  const fallback = await readJsonStoreAsync(VERIFICATION_STORE_KEY, state.registry.verification.fallbackRequests);
-  if (!config.url || !config.key) {
-    state.verificationRequests = fallback;
-    return;
-  }
+async function loadVerificationRequests({ render = false } = {}) {
+  state.verificationLoadState = "loading";
+
   try {
-    const rows = await supabaseRest("profile_verification_requests?select=id,profile_id,user_id,request_status,verification_type,request_note,created_at,profiles(username,display_name)&order=created_at.desc");
-    state.verificationRequests = Array.isArray(rows) ? rows.map((row) => ({ ...row, username:row.profiles?.username || row.username || "", display_name:row.profiles?.display_name || row.display_name || "" })) : [];
+    const result = await controlCenterApi("verification/queue");
+    state.verificationRequests = Array.isArray(result.requests) ? result.requests : [];
+    state.verificationLoadState = "live";
   } catch (error) {
-    console.warn("[control-center] Verification queue fallback active.", error);
-    state.verificationRequests = fallback;
+    console.warn("[control-center] Verification queue backend load failed.", error);
+    state.verificationRequests = [];
+    state.verificationLoadState = "error";
   }
+
+  if (render && state.activePanel === "verification") renderActivePanel();
 }
 
 async function updateVerification(id, status) {
   const request = state.verificationRequests.find((item) => String(item.id) === String(id));
   if (!request) return;
-  const approved = status === "approved";
-  const now = new Date().toISOString();
-  request.request_status = status;
+  const normalizedStatus = status === "approved" ? "approved" : "rejected";
+
   try {
-    await supabaseRest(`profile_verification_requests?id=eq.${encodeURIComponent(id)}`, { method:"PATCH", body:JSON.stringify({ request_status:status, reviewed_at:now }) });
-    if (approved && (request.profile_id || request.user_id)) {
-      const filter = request.profile_id ? `id=eq.${encodeURIComponent(request.profile_id)}` : `user_id=eq.${encodeURIComponent(request.user_id)}`;
-      await supabaseRest(`profiles?${filter}`, { method:"PATCH", body:JSON.stringify({ profile_verified:true, verification_status:"approved", public_verification_status:"approved", verified_at:now, profile_verified_at:now }) });
-    }
+    await controlCenterApi("verification/review", {
+      method:"POST",
+      body:JSON.stringify({ id, status:normalizedStatus })
+    });
+    await loadVerificationRequests();
   } catch (error) {
-    console.warn("[control-center] Verification update stored locally.", error);
-    await writeJsonStoreAsync(VERIFICATION_STORE_KEY, state.verificationRequests);
+    console.warn("[control-center] Verification backend update failed.", error);
+    state.verificationLoadState = "error";
   }
+
   renderActivePanel();
+}
+
+function startVerificationRefresh() {
+  if (state.verificationRefreshTimer) window.clearInterval(state.verificationRefreshTimer);
+  state.verificationRefreshTimer = window.setInterval(() => {
+    if (state.activePanel === "verification") loadVerificationRequests({ render:true });
+  }, 4000);
 }
 
 function bindEvents() {
@@ -507,7 +670,14 @@ function bindEvents() {
     if (panelButton) {
       state.activePanel = panelButton.dataset.panel;
       history.replaceState(null, "", `#${state.activePanel}`);
+      if (state.activePanel === "verification") await loadVerificationRequests();
       renderShell();
+      return;
+    }
+    const verificationFilter = event.target.closest("[data-verification-filter]");
+    if (verificationFilter) {
+      state.verificationStatusFilter = normalizeVerificationStatus(verificationFilter.dataset.verificationFilter || "submitted");
+      renderActivePanel();
       return;
     }
     const documentButton = event.target.closest("[data-document-id]");
@@ -527,7 +697,18 @@ function bindEvents() {
     if (actionName === "delete-document") await deleteActiveDocument();
     if (actionName === "move-document") await moveActiveDocument();
     if (actionName === "approve-verification") await updateVerification(action.dataset.id, "approved");
-    if (actionName === "decline-verification") await updateVerification(action.dataset.id, "declined");
+    if (actionName === "decline-verification") await updateVerification(action.dataset.id, "rejected");
+  });
+  document.addEventListener("input", (event) => {
+    const search = event.target.closest("[data-verification-search]");
+    if (!search) return;
+    state.verificationSearchQuery = normalizeString(search.value);
+    renderActivePanel();
+    const nextSearch = document.querySelector("[data-verification-search]");
+    if (nextSearch) {
+      nextSearch.focus();
+      nextSearch.setSelectionRange(nextSearch.value.length, nextSearch.value.length);
+    }
   });
 }
 
@@ -538,6 +719,7 @@ async function init() {
   state.documents = await readJsonStoreAsync(DOCUMENT_STORE_KEY, state.registry.documents.documents);
   state.activeDocumentId = state.documents[0]?.id || "";
   await loadVerificationRequests();
+  startVerificationRefresh();
   renderShell();
   bindEvents();
 }

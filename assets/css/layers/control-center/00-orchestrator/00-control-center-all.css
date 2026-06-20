@@ -124,12 +124,19 @@ textarea {
 .control-center-nav__button[aria-selected="true"],
 .control-center-action--primary,
 .control-center-chip[data-state="approved"],
+.control-center-chip[data-state="verified"],
 .control-center-chip[data-state="active"],
 .control-center-chip[data-state="connected"],
 .control-center-chip[data-state="ready"] {
   background: var(--control-surface-active);
   border-color: var(--control-border-unified);
   color: var(--control-center-text);
+}
+
+.control-center-chip[data-state="rejected"] {
+  background: var(--surface-1);
+  border-color: var(--control-center-border);
+  color: var(--control-center-text-muted);
 }
 
 .control-center-nav__icon,
@@ -319,6 +326,45 @@ textarea {
   gap: var(--control-gap-md);
 }
 
+.control-center-verification-console {
+  gap: var(--space-6);
+}
+
+.control-center-verification-console__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.control-center-verification-console__tools {
+  display: grid;
+  gap: var(--control-gap-md);
+}
+
+.control-center-verification-search {
+  width: 100%;
+}
+
+.control-center-verification-search .control-center-editor__field {
+  border-radius: var(--control-center-control-radius);
+}
+
+.control-center-verification-filters .control-center-action {
+  gap: var(--control-gap-sm);
+}
+
+.control-center-verification-filters .control-center-action[aria-pressed="true"] {
+  background: var(--control-surface-active);
+  border-color: var(--control-center-border);
+  color: var(--control-center-text);
+}
+
+.control-center-verification-filters .control-center-action strong {
+  color: inherit;
+  font-weight: var(--font-weight-600);
+}
+
 .control-center-verification {
   display: grid;
   gap: var(--control-center-panel-gap);
@@ -326,20 +372,91 @@ textarea {
 
 .control-center-request {
   display: grid;
-  gap: var(--control-gap-md);
-  padding: var(--control-center-panel-padding);
+  grid-template-columns: auto minmax(var(--spacing-none), 1fr) auto;
+  align-items: start;
+  gap: var(--control-center-panel-gap);
+  padding-block: var(--control-center-panel-padding);
   border-block-end: var(--border-width-hairline) solid var(--control-center-border);
+}
+
+.control-center-request:first-child {
+  padding-block-start: var(--spacing-none);
 }
 
 .control-center-request:last-child {
   border-block-end: none;
 }
 
-.control-center-request__header {
+.control-center-request__avatar {
+  width: var(--size-14, 56px);
+  height: var(--size-14, 56px);
+  margin: var(--spacing-none);
+  border-radius: var(--control-center-control-radius);
+  overflow: hidden;
+  background: var(--surface-1);
+}
+
+.control-center-request__avatar img,
+.control-center-request__avatar span {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.control-center-request__avatar img {
+  object-fit: cover;
+}
+
+.control-center-request__avatar span {
+  color: var(--control-center-text-muted);
+  font-size: var(--text-caption-size);
+  letter-spacing: var(--letter-spacing-wide, 0.08em);
+}
+
+.control-center-request__body {
+  min-width: var(--spacing-none);
+  display: grid;
+  gap: var(--control-gap-md);
+}
+
+.control-center-request__header {
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--control-center-panel-gap);
+}
+
+.control-center-request__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--control-gap-md) var(--space-6);
+  margin: var(--spacing-none);
+}
+
+.control-center-request__meta div {
+  display: grid;
+  gap: var(--control-gap-xs);
+}
+
+.control-center-request__meta dt {
+  color: var(--control-center-text-muted);
+  font-size: var(--text-caption-size);
+}
+
+.control-center-request__meta dd {
+  margin: var(--spacing-none);
+  color: var(--control-center-text);
+  font-size: var(--text-caption-size);
+}
+
+.control-center-request__ids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--control-gap-sm);
+  color: var(--control-center-text-muted);
+  font-size: var(--text-caption-size);
 }
 
 .control-center-notice {
@@ -417,7 +534,8 @@ textarea {
   .control-center-workspace,
   .control-center-editor__toolbar,
   .control-center-metadata,
-  .control-center-list__item {
+  .control-center-list__item,
+  .control-center-request {
     grid-template-columns: 1fr;
   }
 }
