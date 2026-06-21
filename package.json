@@ -7,6 +7,8 @@
     "sync:icons": "node registry/icons/sync-icons.js",
     "sync:tokens": "node registry/tokens/sync-tokens.js",
     "sync:registry": "node registry/sync-control-center-registry.js",
-    "check": "node --check registry/icons/compiler/icon-compiler.js && node --check registry/icons/sync-icons.js && node --check registry/icons/exporters/public/public-icon-exporter.js && node --check registry/icons/exporters/swift/swift-icon-exporter.js && node --check registry/tokens/sync-tokens.js && node --check registry/sync-control-center-registry.js && node --check registry/check-registry-integrity.js && node registry/check-registry-integrity.js"
+    "check": "node --check registry/icons/compiler/icon-compiler.js && node --check registry/icons/sync-icons.js && node --check registry/icons/exporters/public/public-icon-exporter.js && node --check registry/icons/exporters/swift/swift-icon-exporter.js && node --check registry/tokens/sync-tokens.js && node --check registry/sync-control-center-registry.js && node --check registry/check-registry-integrity.js && node registry/check-registry-integrity.js",
+    "icons:repair": "node /Users/artan/Documents/Neuroartan/tools/icon-governance/repair-icon-duplicates.mjs",
+    "icons:guard": "node /Users/artan/Documents/Neuroartan/tools/icon-governance/guard-icons.mjs"
   }
 }
