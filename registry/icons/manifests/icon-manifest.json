@@ -6851,6 +6851,12 @@
     "publicPath": "/registry/icons/public/assets/layers/website/social/platforms/appletv.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/social/platforms/appletv.svg"
   },
+  "layers/website/social/platforms/deezer": {
+    "id": "layers/website/social/platforms/deezer",
+    "path": "layers/website/social/platforms/deezer.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/social/platforms/deezer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/social/platforms/deezer.svg"
+  },
   "layers/website/social/platforms/facebook": {
     "id": "layers/website/social/platforms/facebook",
     "path": "layers/website/social/platforms/facebook.svg",
@@ -6868,6 +6874,12 @@
     "path": "layers/website/social/platforms/spotify.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/social/platforms/spotify.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/social/platforms/spotify.svg"
+  },
+  "layers/website/social/platforms/tidal": {
+    "id": "layers/website/social/platforms/tidal",
+    "path": "layers/website/social/platforms/tidal.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/social/platforms/tidal.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/social/platforms/tidal.svg"
   },
   "layers/website/social/platforms/tiktok": {
     "id": "layers/website/social/platforms/tiktok",
