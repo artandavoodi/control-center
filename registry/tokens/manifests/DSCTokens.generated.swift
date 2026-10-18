@@ -1141,6 +1141,10 @@ enum DSCTokens {
     "footer-padding-bottom": "0.9rem",
     "menu-padding-top": "0.9rem",
     "menu-padding-bottom": "0.9rem",
+    "reader-sidebar-min": "11rem",
+    "reader-sidebar-max": "15rem",
+    "reader-outline-min": "12rem",
+    "reader-outline-max": "16rem",
     "stage-circle-desktop": "1200px",
     "stage-circle-mobile": "600px",
     "stage-circle-max-desktop": "1800px",
@@ -1856,9 +1860,9 @@ enum DSCTokens {
     "layout-account-drawer-shell-padding-y-mobile": "1.2rem",
     "layout-account-drawer-shell-padding-x-mobile": "1.28rem",
     "layout-account-drawer-shell-padding-bottom-mobile": "calc(var(--layout-account-drawer-shell-padding-y-mobile) * 2)",
-    "layout-account-drawer-close-offset": "1rem",
-    "layout-account-drawer-close-offset-tablet": "0.82rem",
-    "layout-account-drawer-close-offset-mobile": "var(--spacing-none)",
+    "layout-account-drawer-close-offset": "var(--space-6)",
+    "layout-account-drawer-close-offset-tablet": "var(--space-5)",
+    "layout-account-drawer-close-offset-mobile": "var(--layout-account-drawer-close-offset-tablet)",
     "layout-account-drawer-header-padding-bottom-mobile": "1.04rem",
     "layout-account-drawer-content-stage-padding-inline": "4.8rem",
     "layout-account-drawer-content-stage-padding-inline-tablet": "3.2rem",
@@ -1872,7 +1876,7 @@ enum DSCTokens {
     "layout-account-drawer-meta-link-size-mobile": "0.78rem",
     "layout-account-drawer-segment-title-weight": "400",
     "layout-account-drawer-segment-title-max-width": "18ch",
-    "layout-account-drawer-text-link-weight": "400",
+    "layout-account-drawer-text-link-weight": "var(--font-weight-semibold)",
     "layout-account-drawer-text-link-opacity": "1",
     "layout-account-drawer-text-link-opacity-hover": "1",
     "layout-account-drawer-copy-weight": "300",
@@ -7353,6 +7357,10 @@ enum DSCTokens {
   static let footer_padding_bottom = "0.9rem"
   static let menu_padding_top = "0.9rem"
   static let menu_padding_bottom = "0.9rem"
+  static let reader_sidebar_min = "11rem"
+  static let reader_sidebar_max = "15rem"
+  static let reader_outline_min = "12rem"
+  static let reader_outline_max = "16rem"
   static let stage_circle_desktop = "1200px"
   static let stage_circle_mobile = "600px"
   static let stage_circle_max_desktop = "1800px"
@@ -8068,9 +8076,9 @@ enum DSCTokens {
   static let layout_account_drawer_shell_padding_y_mobile = "1.2rem"
   static let layout_account_drawer_shell_padding_x_mobile = "1.28rem"
   static let layout_account_drawer_shell_padding_bottom_mobile = "calc(var(--layout-account-drawer-shell-padding-y-mobile) * 2)"
-  static let layout_account_drawer_close_offset = "1rem"
-  static let layout_account_drawer_close_offset_tablet = "0.82rem"
-  static let layout_account_drawer_close_offset_mobile = "var(--spacing-none)"
+  static let layout_account_drawer_close_offset = "var(--space-6)"
+  static let layout_account_drawer_close_offset_tablet = "var(--space-5)"
+  static let layout_account_drawer_close_offset_mobile = "var(--layout-account-drawer-close-offset-tablet)"
   static let layout_account_drawer_header_padding_bottom_mobile = "1.04rem"
   static let layout_account_drawer_content_stage_padding_inline = "4.8rem"
   static let layout_account_drawer_content_stage_padding_inline_tablet = "3.2rem"
@@ -8084,7 +8092,7 @@ enum DSCTokens {
   static let layout_account_drawer_meta_link_size_mobile = "0.78rem"
   static let layout_account_drawer_segment_title_weight = "400"
   static let layout_account_drawer_segment_title_max_width = "18ch"
-  static let layout_account_drawer_text_link_weight = "400"
+  static let layout_account_drawer_text_link_weight = "var(--font-weight-semibold)"
   static let layout_account_drawer_text_link_opacity = "1"
   static let layout_account_drawer_text_link_opacity_hover = "1"
   static let layout_account_drawer_copy_weight = "300"

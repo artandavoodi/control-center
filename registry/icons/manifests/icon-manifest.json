@@ -467,6 +467,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/export-settings/export-settings.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/export-settings/export-settings.svg"
   },
+  "core/actions/favorite/favorite-outline": {
+    "id": "core/actions/favorite/favorite-outline",
+    "path": "core/actions/favorite/favorite-outline.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/favorite/favorite-outline.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/favorite/favorite-outline.svg"
+  },
   "core/actions/favorite/favorite": {
     "id": "core/actions/favorite/favorite",
     "path": "core/actions/favorite/favorite.svg",
@@ -1433,6 +1439,30 @@
     "publicPath": "/registry/icons/public/assets/core/commerce/books/apple-books/apple-books.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/books/apple-books/apple-books.svg"
   },
+  "core/commerce/collections/accessories": {
+    "id": "core/commerce/collections/accessories",
+    "path": "core/commerce/collections/accessories.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/collections/accessories.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/collections/accessories.svg"
+  },
+  "core/commerce/collections/clothing": {
+    "id": "core/commerce/collections/clothing",
+    "path": "core/commerce/collections/clothing.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/collections/clothing.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/collections/clothing.svg"
+  },
+  "core/commerce/collections/fragrances": {
+    "id": "core/commerce/collections/fragrances",
+    "path": "core/commerce/collections/fragrances.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/collections/fragrances.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/collections/fragrances.svg"
+  },
+  "core/commerce/collections/music": {
+    "id": "core/commerce/collections/music",
+    "path": "core/commerce/collections/music.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/collections/music.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/collections/music.svg"
+  },
   "core/commerce/finance/finance": {
     "id": "core/commerce/finance/finance",
     "path": "core/commerce/finance/finance.svg",
@@ -1462,6 +1492,30 @@
     "path": "core/commerce/marketplaces/amazon/amazon.svg",
     "publicPath": "/registry/icons/public/assets/core/commerce/marketplaces/amazon/amazon.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/marketplaces/amazon/amazon.svg"
+  },
+  "core/commerce/music/cassette": {
+    "id": "core/commerce/music/cassette",
+    "path": "core/commerce/music/cassette.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/music/cassette.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/music/cassette.svg"
+  },
+  "core/commerce/music/cd": {
+    "id": "core/commerce/music/cd",
+    "path": "core/commerce/music/cd.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/music/cd.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/music/cd.svg"
+  },
+  "core/commerce/music/digital": {
+    "id": "core/commerce/music/digital",
+    "path": "core/commerce/music/digital.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/music/digital.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/music/digital.svg"
+  },
+  "core/commerce/music/vinyl": {
+    "id": "core/commerce/music/vinyl",
+    "path": "core/commerce/music/vinyl.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/music/vinyl.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/music/vinyl.svg"
   },
   "core/commerce/orders/delivery": {
     "id": "core/commerce/orders/delivery",
@@ -1546,6 +1600,12 @@
     "path": "core/commerce/shopping/checkout.svg",
     "publicPath": "/registry/icons/public/assets/core/commerce/shopping/checkout.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/shopping/checkout.svg"
+  },
+  "core/commerce/shopping/collection-placeholder": {
+    "id": "core/commerce/shopping/collection-placeholder",
+    "path": "core/commerce/shopping/collection-placeholder.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/shopping/collection-placeholder.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/shopping/collection-placeholder.svg"
   },
   "core/commerce/shopping/product": {
     "id": "core/commerce/shopping/product",
