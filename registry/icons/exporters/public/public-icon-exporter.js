@@ -158,6 +158,14 @@ function pruneGeneratedMirror(
 // Hard links are not stable inside iCloud-backed folders. Generated mirrors
 // remain deployment-only outputs and are verified against source by hash.
 function copyDeploymentFile(source, destination) {
+  if (source.endsWith('.svg') && fs.existsSync(destination)) {
+    const incoming=fs.readFileSync(source,'utf8');
+    const existing=fs.readFileSync(destination,'utf8');
+    const placeholder=svg=>/<circle\b[^>]*\br="2"/.test(svg)&&!/<(?:path|rect|polygon|polyline|ellipse|use|image|text)\b/.test(svg);
+    if (placeholder(incoming) && !placeholder(existing) && /<(?:path|rect|polygon|polyline|ellipse|use|image|text)\b/.test(existing)) {
+      throw new Error(`Icon artwork would be replaced by a placeholder: ${destination}. Promote the artwork to its canonical source before synchronizing.`);
+    }
+  }
   fs.copyFileSync(
     source,
     destination
