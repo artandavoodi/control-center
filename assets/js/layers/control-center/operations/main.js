@@ -2,6 +2,10 @@ import {createClient} from '@supabase/supabase-js';
 import config from '../../../../data/control-center/operations.json';
 import {hasPermission,permittedNavigation,validateStaffAssignment} from './access.js';
 const root=document.querySelector('[data-control-center-root]');
+if(location.protocol!=='https:'&&!['127.0.0.1','localhost'].includes(location.hostname)){
+ root.textContent='Secure HTTPS access is required. Please return when the domain certificate is ready.';
+ throw Error('Staff access requires HTTPS');
+}
 const client=createClient(config.supabase.url,config.supabase.key,{auth:{storage:sessionStorage,storageKey:'control-center-staff',flowType:'pkce',detectSessionInUrl:false}});
 const e=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const icon=path=>`<img class="control-center-operation-icon" src="/registry/icons/public/assets/${e(path)}" alt="">`;
