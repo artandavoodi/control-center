@@ -31,3 +31,8 @@ test('verified recovery link is scrubbed and opens only the password form',async
  await backend(page,null);await page.goto('/?token_hash=test-only-recovery&type=recovery');await expect(page.getByRole('heading',{name:'Choose your password'})).toBeVisible();await expect(page).toHaveURL('http://127.0.0.1:8894/');await expect(page.getByRole('navigation',{name:'Operations'})).toHaveCount(0);
  await page.getByLabel('New password',{exact:true}).fill('Test-only-password-123');await page.getByLabel('Confirm password',{exact:true}).fill('Test-only-password-123');await page.getByRole('button',{name:'Save password'}).click();await expect(page.getByRole('status')).toContainText('Password updated');
 });
+test('email delivery failures do not claim that a reset was sent',async({page})=>{
+ await backend(page,null);
+ await page.route('**/auth/v1/recover*',route=>route.fulfill({status:429,contentType:'application/json',body:JSON.stringify({msg:'Rate limit',code:'over_email_send_rate_limit'})}));
+ await page.goto('/');await page.getByRole('button',{name:'Forgot password?'}).click();await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Send reset link',exact:true}).click();await expect(page.getByRole('status')).toContainText('could not be sent');await expect(page.getByRole('button',{name:'Send reset link',exact:true})).toBeEnabled();
+});
