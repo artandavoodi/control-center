@@ -1,5 +1,29 @@
 # Neuroartan Control Center
 
+## Staff console
+
+Permanent address: `https://control.artan.live/`. The public client is built with
+`npm run build`; only the `_site` allowlist is deployed. Repository contents,
+private configuration, legacy document controls and governance registries are
+not deployment inputs. Run `npm run dev:preview` for the local staff client.
+
+Identity is verified against the existing shared Store/Studio account project.
+An ordinary account grants no staff access. Server-enforced scopes separately
+control artist queue visibility, username review, tier review, audit visibility
+and staff management. Department and office labels are not access grants.
+The initial owner must be verified and provisioned by an explicitly authorized
+database operation; the client cannot create an owner or promote itself.
+
+The Store repository owns the backend migrations and isolation tests. Username
+and tier decisions are recorded atomically with their audit entry. Operational
+tier approval is not contract acceptance, artist financial entitlement or payout
+permission. The Neuroartan verification connector, Store order/support controls,
+staff invitations and cross-project federation are not activated by this console.
+
+Do not use the former service-role local API. It has been removed from the preview
+server. A previously committed legacy credential must be revoked in Supabase;
+removing its file from current Git tracking does not remove the historical exposure.
+
 Sovereign orchestration, registry, runtime, propagation, and ecosystem authority for the Neuroartan platform.
 
 ## Core Responsibilities
@@ -37,4 +61,3 @@ registry/propagation
 - Website → visual/runtime source layer
 - Control Center → orchestration/registry authority
 - ICOS Runtime → native execution/runtime layer
-

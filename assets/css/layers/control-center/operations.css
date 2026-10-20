@@ -1,0 +1,18 @@
+.control-center-access { max-inline-size:var(--control-width-auth-max-wide); margin:var(--spacing-3xl) auto; padding:var(--spacing-lg); }
+.control-center-access form,.control-center-operations form { display:grid; gap:var(--spacing-md); max-inline-size:var(--reading-width-md); }
+.control-center-access label,.control-center-operations label { display:grid; gap:var(--spacing-sm); }
+.control-center-access :is(input,button),.control-center-operations :is(input,textarea,select,button) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
+.control-center-operations { display:grid; grid-template-columns:var(--control-width-auth-max) minmax(0,1fr); min-block-size:100svh; }
+.control-center-operations aside { padding:var(--spacing-lg); border-inline-end:var(--border-width-hairline) solid var(--control-center-border); }
+.control-center-operations aside nav { display:grid; gap:var(--spacing-sm); margin-block:var(--spacing-xl); }
+.control-center-operations aside button { display:flex; align-items:center; gap:var(--spacing-sm); border:0; text-align:start; cursor:pointer; }
+.control-center-operations aside [aria-current=false] { opacity:var(--opacity-muted); }
+.control-center-operations main { min-inline-size:0; padding:var(--spacing-xl); }
+.control-center-operations h1 { font-size:var(--font-size-lg); }
+.control-center-operation-icon { inline-size:var(--icon-size-sm); block-size:var(--icon-size-sm); object-fit:contain; }
+.control-center-operation-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:var(--spacing-lg); }
+.control-center-operation-grid section,.control-center-review { padding-block:var(--spacing-lg); border-block-end:var(--border-width-hairline) solid var(--control-center-border); overflow-wrap:anywhere; }
+.control-center-review pre { white-space:pre-wrap; }
+.control-center-operations .control-center-operation-check { display:flex; align-items:center; gap:var(--spacing-sm); }
+.control-center-operation-check input { flex:none; min-block-size:auto; }
+@media(max-width:860px){.control-center-operations { grid-template-columns:1fr; }.control-center-operations aside { border-inline-end:0; border-block-end:var(--border-width-hairline) solid var(--control-center-border); }.control-center-operations aside nav { display:flex; flex-wrap:wrap; }.control-center-operations main { padding:var(--spacing-lg); }}

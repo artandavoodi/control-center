@@ -1,0 +1,9 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {hasPermission,permittedNavigation,validateStaffAssignment} from '../assets/js/layers/control-center/operations/access.js';
+const config=JSON.parse(await readFile(new URL('../assets/data/control-center/operations.json',import.meta.url),'utf8'));
+test('staff navigation denies absent or disabled grants',()=>{assert.equal(hasPermission(null,'artists.read'),false);assert.equal(hasPermission({enabled:false,permissions:['artists.read']},'artists.read'),false);assert.deepEqual(permittedNavigation(config,{enabled:true,permissions:['audit.read']}).map(item=>item.id),['overview','audit']);});
+test('staff assignments accept only registered permissions and account IDs',()=>{assert.throws(()=>validateStaffAssignment({target:'email@example.test',scopes:[]},config));assert.throws(()=>validateStaffAssignment({target:'97000000-0000-0000-0000-000000000001',scopes:['billing.all']},config));});
+test('public console contains no service key or legacy privileged API binding',async()=>{const source=await readFile(new URL('../assets/js/layers/control-center/operations/main.js',import.meta.url),'utf8');assert.doesNotMatch(source,/SERVICE_ROLE|verification\/review|\/api\/control-center/);assert.match(source,/auth\.getUser/);assert.match(source,/control_center_staff/);});
+test('deployment uses an allowlisted artifact instead of publishing the repository',async()=>{const source=await readFile(new URL('./build-operations.mjs',import.meta.url),'utf8');assert.match(source,/Publish only the staff client/);assert.doesNotMatch(source,/\.env|copyFile\(.*index\.json/);const server=await readFile(new URL('../server.mjs',import.meta.url),'utf8');assert.doesNotMatch(server,/SERVICE_ROLE|readBody|writeFile/);assert.match(server,/410/);});
