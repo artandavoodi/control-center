@@ -1,4 +1,11 @@
 import {readdir,readFile,writeFile} from 'node:fs/promises';
+if(!process.argv.includes('--sync')){
+ const snapshot=JSON.parse(await readFile('assets/data/control-center/roles.json','utf8'));
+ if(snapshot.roles.length!==15||new Set(snapshot.roles.map(role=>role.id)).size!==15)throw Error('Leadership snapshot is incomplete or duplicated.');
+ if(snapshot.roles.some(role=>!role.source.startsWith('website/docs/assets/data/company/leadership-members/')||!role.publicUrl.startsWith('https://neuroartan.com/')))throw Error('Leadership snapshot contains an unregistered public source.');
+ console.log('Verified committed public leadership snapshot. Use --sync to refresh from the local website owner.');
+ process.exit(0);
+}
 const source='../website/docs/assets/data/company/leadership-members/';
 const roles=[];
 // Import only the existing public role descriptions, never private personnel records.
