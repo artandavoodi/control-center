@@ -74,7 +74,7 @@ Component references use `component:field/password`, `component:button/close` an
 
 Organization charts use native nested lists with connected top-down branches. Position templates remain separate from actual staff reporting assignments. Private photos are requested only for the current user; other staff photographs are not exposed by the directory. Branch controls support keyboard activation, and each chart supports horizontal keyboard/touch scrolling.
 
-Each reporting chart has bounded layout zoom, a 100% reset and a compact semantic view at 70% and below. Names, assigned roles, direct-report controls and the current-account marker remain visible. Find me opens collapsed ancestors before centering the verified staff node; it never infers an appointment from a matching role title or proposed template.
+Each reporting chart has bounded layout zoom, a 100% reset and a compact semantic view at 70% and below. Names, assigned roles, direct-report controls and the current-account marker remain visible. Every card has a portrait or registered profile-icon placeholder at 85% and above, including unfilled positions. There is no Find me control, and visual identity never implies an appointment or expands photo-access permissions.
 
 Charts with more than six nodes default to compact layout: sibling branches stack vertically with shorter continuous connectors. The Compact layout control switches back to the wider diagram and resets zoom to 100% so text stays readable; no staff or reporting data is changed by layout selection.
 

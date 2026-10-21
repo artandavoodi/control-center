@@ -131,6 +131,7 @@ test('brand selection restores its wordmark and positions prepare unsaved vacanc
  await page.getByRole('button',{name:'Organization',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Positions & reporting plan',exact:true})).toBeVisible();
  const chart=page.getByRole('region',{name:'Position reporting chart',exact:true});
+ await expect(chart.locator('.control-center-tree-avatar')).toHaveCount(await chart.locator('.control-center-person').count());
  const compactWidth=await chart.evaluate(el=>el.scrollWidth);
  const layout=page.getByRole('button',{name:'Compact layout Position reporting chart',exact:true});
  await expect(layout).toHaveAttribute('aria-pressed','true');
@@ -170,9 +171,10 @@ test('chart zoom simplifies details and keeps the signed-in staff assignment ide
  await expect(tools.locator('output')).toHaveText('70%');
  await expect(chart.locator('.control-center-org-tree')).toHaveAttribute('data-density','compact');
  await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toBeVisible();
- await tools.getByRole('button',{name:'Find me',exact:true}).click();
+ await expect(tools.getByRole('button',{name:'Find me',exact:true})).toHaveCount(0);
  await tools.getByRole('button',{name:'Reset view',exact:true}).click();
  await expect(tools.locator('output')).toHaveText('100%');
+ await expect(chart.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();
 });
 test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
  await enter(page,['artists.read']);
