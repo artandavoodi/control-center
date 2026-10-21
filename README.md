@@ -68,6 +68,14 @@ registry/propagation
 
 ## Platform Structure
 
+## Global Design References
+
+Design systems are shared across all brands; a brand workspace never owns a separate copy of the registry. Colors, Typography and Motion & interaction are filtered views of the same canonical tokens. Permissions for private brand records do not change when viewing global design sources.
+
+Copy references from the registry: `icon:core/actions/create/plus` resolves through `registry/icons/manifests/icon-manifest.json` to its `registry/icons/source/` SVG; `token:--color-primary1` resolves through `registry/tokens/manifests/runtime-tokens.json`. `motion:close-control` resolves to the shared Neuroartan close primitive listed in the generated index. Agents must resolve these IDs before editing and never edit generated mirrors. IDs are path/name-based and must not be renamed without an explicit migration. Search tags are derived from canonical names; they do not grant access or represent approval. A vector-available status means artwork exists, not that it has undergone design approval.
+
+Token previews use the current theme and canonical CSS variables. Reduced motion is respected. Clipboard failures show a selectable reference instead of claiming a successful copy.
+
 - Website → visual/runtime source layer
 - Control Center → orchestration/registry authority
 - ICOS Runtime → native execution/runtime layer

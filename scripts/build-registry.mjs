@@ -10,8 +10,11 @@ for(const item of Object.values(manifest)){
  assertPreservesSvgArtwork(svg,existing,mirror);
  if(svg!==existing)throw Error('Canonical icon and deployment mirror differ: '+item.id+'. Review the source before building.');
  const nonCircle=/<(?:path|rect|line|polygon|polyline|ellipse|use|image|text)\b/.test(svg),circles=svg.match(/<circle\b/g)||[],dot=circles.length===1&&/<circle\b[^>]*\br="2"/.test(svg);
- icons.push({id:item.id,path:item.path,publicPath:'/registry/icons/public/assets/'+item.path,source,hasArtwork:nonCircle||(circles.length>0&&!dot),sha256:createHash('sha256').update(svg).digest('hex')});
+ const tags=[...new Set(item.id.split(/[\/-]/).concat(/plus|add|create/.test(item.id)?['add','plus','create']:[]))];
+ icons.push({id:item.id,path:item.path,publicPath:'/registry/icons/public/assets/'+item.path,source,tags,category:item.id.split('/').slice(0,2).join('/'),hasArtwork:nonCircle||(circles.length>0&&!dot),sha256:createHash('sha256').update(svg).digest('hex')});
 }
 // Public registry metadata only; never expose compiler-local absolute source paths.
-await writeFile('assets/data/control-center/registry-index.json',JSON.stringify({tokens:Object.entries(tokens).map(([id,value])=>({id,value,source:'registry/tokens/manifests/runtime-tokens.json'})),icons},null,2)+'\n');
+const category=id=>/color|surface|background/.test(id)?'color':/font|type-|typography|line-height|letter-spacing/.test(id)?'typography':/motion|duration|ease|hover|transition|animation/.test(id)?'motion':/spacing|size|width|height|radius/.test(id)?'dimensions':'other';
+const motions=[{id:'close-control',description:'Close control: X at rest, minus on fine-pointer hover. Uses the canonical shared primitive and reduced-motion rules.',source:'../website/docs/assets/css/core/04-systems/close-button.css',category:'interaction',tags:['close','hover','X','minus','interaction']}];
+await writeFile('assets/data/control-center/registry-index.json',JSON.stringify({tokens:Object.entries(tokens).map(([id,value])=>({id,value,category:category(id),tags:id.split('-'),source:'registry/tokens/manifests/runtime-tokens.json'})),icons,motions},null,2)+'\n');
 console.log('Built sanitized token and icon registry index. No source artwork was modified.');

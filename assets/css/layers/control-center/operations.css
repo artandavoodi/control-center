@@ -112,7 +112,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-context-form header { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-context-form h2 { margin:0; font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
 .control-center-context-form label { display:grid; gap:var(--spacing-sm); }
-.control-center-context-form :is(select,button) { font:inherit; min-block-size:var(--control-height-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background-color:var(--control-center-surface); color:inherit; padding:var(--spacing-sm) var(--spacing-md); }
+.control-center-context-form :is(select,button:not(.global-close-button)) { font:inherit; min-block-size:var(--control-height-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background-color:var(--control-center-surface); color:inherit; padding:var(--spacing-sm) var(--spacing-md); }
 .control-center-organization-actions,.control-center-review-tabs { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block-end:var(--spacing-xl); }
 .control-center-organization-actions button,.control-center-review-tabs button { display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); cursor:pointer; }
 .control-center-review-tabs [aria-current=false] { opacity:var(--opacity-muted); }
@@ -121,6 +121,21 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-context-form > button[type=submit],.control-center-operations form > button,[data-create-document],[data-create-vacancy] { display:inline-flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
 .control-center-document-body { white-space:pre-wrap; overflow-wrap:anywhere; }
 [data-document-filter],[data-registry-search] { margin-block:var(--spacing-lg); }
+.control-center-registry-item { min-inline-size:0; overflow-wrap:anywhere; }
+.control-center-registry-item [data-token-preview] { max-inline-size:100%; max-block-size:calc(var(--control-height-lg) * 2); overflow:auto; }
+.control-center-registry-prefix { font-size:var(--font-size-sm); font-weight:var(--type-body-regular-weight); opacity:var(--opacity-muted); }
+.control-center-registry-copy { display:flex; align-items:center; gap:var(--spacing-sm); padding:var(--spacing-sm); margin-block:var(--spacing-sm); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); }
+.control-center-registry-copy code { flex:1; min-inline-size:0; user-select:text; }
+.control-center-registry-copy button { flex:none; display:grid; place-items:center; border:0; background:transparent; color:inherit; min-inline-size:var(--control-height-md); min-block-size:var(--control-height-md); cursor:pointer; }
+.control-center-artwork-status { display:flex; align-items:center; gap:var(--spacing-sm); font-size:var(--font-size-sm); }
+.control-center-artwork-status[data-artwork=needed] { color:var(--status-danger-color); }
+.control-center-artwork-status[data-artwork=available] { color:var(--status-success-color); }
+.control-center-artwork-status > span { inline-size:var(--spacing-sm); block-size:var(--spacing-sm); border-radius:var(--radius-circle); background:currentColor; }
+.control-center-color-preview { inline-size:var(--control-height-lg); block-size:var(--control-height-lg); border-radius:var(--radius-circle); }
+.control-center-size-preview { max-inline-size:100%; block-size:var(--spacing-md); background:var(--text-color); }
+.control-center-motion-preview { display:inline-block; transition-property:opacity; transition-timing-function:var(--interaction-ease-standard); }
+.control-center-motion-preview:is(:hover,:focus-visible) { opacity:var(--opacity-muted); }
+@media(prefers-reduced-motion:reduce){.control-center-motion-preview { transition:none; }}
 [data-document-editor],[data-vacancy-editor] { margin-block-start:var(--spacing-xl); padding-block-start:var(--spacing-xl); }
 .control-center-search > header { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-search h2 { font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
