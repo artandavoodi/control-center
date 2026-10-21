@@ -1,0 +1,24 @@
+{
+ "title":"Development history",
+ "description":"Committed improvements across the ecosystem. GitHub remains the canonical commit record; operational approvals remain in Decision history.",
+ "owner":"artandavoodi",
+ "refreshSeconds":300,
+ "repositories":[
+  {"name":"control-center","workspace":"all"},
+  {"name":"neuroartan-website","workspace":"neuroartan"},
+  {"name":"neuroartan-brand","workspace":"neuroartan"},
+  {"name":"neuroartan-developer","workspace":"neuroartan"},
+  {"name":"neuroartan-docs-public","workspace":"neuroartan"},
+  {"name":"neuroartan-documentation","workspace":"neuroartan"},
+  {"name":"neuroartan-icos","workspace":"neuroartan"},
+  {"name":"neuroartan-investor","workspace":"neuroartan"},
+  {"name":"neuroartan-jobs","workspace":"neuroartan"},
+  {"name":"neuroartan-office","workspace":"neuroartan"},
+  {"name":"artanrecords","workspace":"artanrecords"},
+  {"name":"artanrecords-studio","workspace":"artanrecords"},
+  {"name":"artanrecords-docs","workspace":"artanrecords"},
+  {"name":"artan-store","workspace":"store"},
+  {"name":"artandavoodi","workspace":"all"},
+  {"name":"artan-live","workspace":"all"}
+ ]
+}

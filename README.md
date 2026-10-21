@@ -1,5 +1,9 @@
 # Neuroartan Control Center
 
+## Development Registration
+
+Every major or minor development change must be committed in its owning repository and registered through the central [development-history policy](docs/development-registration.md). The central repository registry owns discovery; commit SHA owns deduplication. Private repository ingestion is not yet connected; do not expose private data or copy source assets to register changes.
+
 ## Staff console
 
 Permanent address: `https://control.artan.live/`. The public client is built with
