@@ -131,6 +131,12 @@ test('brand selection restores its wordmark and positions prepare unsaved vacanc
  await page.getByRole('button',{name:'Organization',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Positions & reporting plan',exact:true})).toBeVisible();
  const chart=page.getByRole('region',{name:'Position reporting chart',exact:true});
+ const compactWidth=await chart.evaluate(el=>el.scrollWidth);
+ const layout=page.getByRole('button',{name:'Compact layout Position reporting chart',exact:true});
+ await expect(layout).toHaveAttribute('aria-pressed','true');
+ await layout.click();await expect(layout).toHaveAttribute('aria-pressed','false');
+ expect(await chart.evaluate(el=>el.scrollWidth)).toBeGreaterThan(compactWidth);
+ await layout.click();await expect(layout).toHaveAttribute('aria-pressed','true');
  const branch=chart.locator('[data-tree-branch]').first();
  await branch.click();await expect(branch).toHaveAttribute('aria-expanded','false');
  await expect(chart.locator('.control-center-org-tree > li > ol')).toBeHidden();

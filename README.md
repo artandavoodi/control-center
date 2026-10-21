@@ -76,6 +76,8 @@ Organization charts use native nested lists with connected top-down branches. Po
 
 Each reporting chart has bounded layout zoom, a 100% reset and a compact semantic view at 70% and below. Names, assigned roles, direct-report controls and the current-account marker remain visible. Find me opens collapsed ancestors before centering the verified staff node; it never infers an appointment from a matching role title or proposed template.
 
+Charts with more than six nodes default to compact layout: sibling branches stack vertically with shorter continuous connectors. The Compact layout control switches back to the wider diagram and resets zoom to 100% so text stays readable; no staff or reporting data is changed by layout selection.
+
 The shared workspace renderer shows the assigned directory name above the position, with only a green dot before the current person's position. Role-plan identity can bind only to verified CEO ownership or a unique department/office manager assignment on that exact unit. Executive titles without a durable assignment remain unassigned; names are never used to infer appointments. Other staff use a profile silhouette until a separately authorized directory-photo access policy exists; private profile uploads are not exposed through this display rule.
 
 ### Position Planning
