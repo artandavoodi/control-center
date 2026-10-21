@@ -102158,6 +102158,30 @@
         "minus",
         "interaction"
       ]
+    },
+    {
+      "id": "ui-loader-circle-breathe",
+      "description": "Theme-aware breathing loader. Uses the shared loader keyframes, duration and easing.",
+      "source": "../website/docs/assets/css/core/03-primitives/loaders.css",
+      "category": "loading",
+      "tags": [
+        "loading",
+        "breathing",
+        "dot",
+        "animation"
+      ]
+    },
+    {
+      "id": "control-center-account-enter",
+      "description": "Account-menu entrance. Uses the existing platform keyframes and fast duration; disabled with reduced motion.",
+      "source": "assets/css/layers/control-center/operations.css",
+      "category": "entrance",
+      "tags": [
+        "account",
+        "popover",
+        "entrance",
+        "animation"
+      ]
     }
   ]
 }

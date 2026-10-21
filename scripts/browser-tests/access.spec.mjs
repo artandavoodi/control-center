@@ -105,10 +105,14 @@ test('search functions open staff creation and tokens resolve to their canonical
  await enter(page,['staff.manage']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Search your workspace',exact:true});await dialog.getByRole('searchbox').fill('Add staff');await dialog.getByRole('button',{name:'Functions',exact:true}).click();await dialog.locator('[data-search-results]').getByRole('button',{name:'Add staff member Open function',exact:true}).click();await expect(page.locator('[data-staff-editor]')).toBeVisible();await expect(page.getByRole('textbox',{name:'Account email',exact:true})).toBeFocused();await page.getByRole('button',{name:'Search workspace',exact:true}).click();await page.getByRole('dialog').getByRole('searchbox').fill('token');await page.getByRole('dialog').getByRole('button',{name:'Design tokens Open function',exact:true}).click();await expect(page.getByRole('heading',{name:'Tokens & icons',exact:true})).toBeVisible();await expect(page.getByText('token:--spacing-md',{exact:true})).toBeVisible();
 });
 test('global design categories preserve IDs and copy through the registered action',async({page})=>{
- await enter(page,['artists.read']);await chooseContext(page,{function:'design'});
+ await enter(page,['artists.read']);await chooseContext(page,{function:'design',brand:'all'});
  await expect(page.locator('.control-center-header-brand')).toHaveText('All brands');
  await expect(page.getByRole('button',{name:'Colors',exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Icons',exact:true}).click();
+ await expect(page.getByText('Vector available',{exact:true})).toBeVisible();
+ await page.getByRole('combobox',{name:'Artwork status',exact:true}).selectOption('needed');
+ await expect(page.locator('.control-center-registry-item')).toHaveCount(0);
+ await page.getByRole('combobox',{name:'Artwork status',exact:true}).selectOption('available');
  await expect(page.getByText('Vector available',{exact:true})).toBeVisible();
  await expect(page.getByText('icon:core/actions/create/plus',{exact:true})).toBeVisible();
  await page.evaluate(()=>{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>{window.copiedReference=value;}}});});
@@ -117,6 +121,32 @@ test('global design categories preserve IDs and copy through the registered acti
  await page.getByRole('button',{name:'Choose workspace',exact:true}).click();
  const close=page.getByRole('button',{name:'Close workspace picker',exact:true});
  expect(await close.evaluate(el=>getComputedStyle(el).borderTopWidth)).toBe('0px');
+});
+test('brand selection restores its wordmark and positions prepare unsaved vacancy forms',async({page})=>{
+ await enter(page,['artists.read','jobs.read','jobs.write'],{owner:true});
+ await chooseContext(page,{function:'design',brand:'all'});
+ await expect(page.locator('.control-center-header-brand')).toHaveText('All brands');
+ await chooseContext(page,{function:'operations',brand:neuro});
+ await expect(page.locator('.control-center-header-wordmark')).toHaveAttribute('alt','Neuroartan');
+ await page.getByRole('button',{name:'Organization',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Positions & reporting plan',exact:true})).toBeVisible();
+ const plan=page.locator('section').filter({has:page.getByRole('heading',{name:'Positions & reporting plan',exact:true})}).last();
+ await plan.getByRole('button',{name:'Prepare vacancy draft',exact:true}).first().click();
+ await expect(page.locator('[data-vacancy-editor]')).toBeVisible();
+ await expect(page.getByRole('textbox',{name:'Job title',exact:true})).not.toHaveValue('');
+ await expect(page.getByText(/Nothing has been saved or published/)).toBeVisible();
+});
+test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
+ await enter(page,['artists.read']);
+ await page.route('**/assets/data/control-center/registry-index.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({tokens:[{id:'color-primary1',value:'#917c6f',category:'color',source:'registry/tokens/manifests/runtime-tokens.json'}],icons:[],motions:[{id:'close-control',description:'Close',source:'shared/close-button.css',category:'interaction'}]})}));
+ await chooseContext(page,{function:'design',brand:'all'});
+ await page.getByRole('button',{name:'Colors',exact:true}).click();
+ const swatch=page.locator('.control-center-color-preview');
+ expect(await swatch.evaluate(el=>parseFloat(getComputedStyle(el).borderTopWidth))).toBeGreaterThan(0);
+ await page.getByRole('button',{name:'Motion & interaction',exact:true}).click();
+ const close=page.getByRole('button',{name:'Preview close interaction',exact:true});
+ expect(await close.evaluate(el=>getComputedStyle(el).borderTopWidth)).toBe('0px');
+ await expect(close.locator('.global-close-button__line')).toHaveCount(2);
 });
 test('private documents save classifications and tags and are found by tag search',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Documents & tags',exact:true}).click();await page.getByRole('button',{name:'Register document',exact:true}).click();const form=page.locator('[data-document-editor] form');await form.getByRole('textbox',{name:'Title',exact:true}).fill('Test legal record');await form.getByRole('combobox',{name:'Classification',exact:true}).selectOption('confidential');await form.getByRole('textbox',{name:'Tags, separated by commas',exact:true}).fill('legal, review, legal');await form.getByRole('textbox',{name:'Document text',exact:true}).fill('Private test text <script>not executed</script>');await form.getByRole('button',{name:'Save document',exact:true}).click();await expect(page.getByRole('heading',{name:'Test legal record',exact:true})).toBeVisible();await page.getByRole('button',{name:'Search workspace',exact:true}).click();await page.getByRole('dialog').getByRole('searchbox').fill('#legal');await expect(page.getByRole('dialog').getByRole('button',{name:'Test legal record confidential · legal · review',exact:true})).toBeVisible();expect(await page.locator('body').evaluate(el=>el.querySelectorAll('script:not([src])').length)).toBe(0);

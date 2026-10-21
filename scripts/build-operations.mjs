@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 execFileSync(process.execPath,['scripts/sync-account.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/sync-design.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/build-registry.mjs'],{stdio:'inherit'});
+execFileSync(process.execPath,['scripts/build-roles.mjs'],{stdio:'inherit'});
 await build({entryPoints:['assets/js/layers/control-center/operations/main.js'],bundle:true,format:'esm',target:['safari16','chrome110'],outfile:'assets/js/layers/control-center/operations/dist.js',minify:true,define:{__CONTROL_ASSET_REVISION__:JSON.stringify(createHash('sha256').update(await readFile('assets/data/control-center/registry-index.json')).digest('hex').slice(0,16))}});
 await build({entryPoints:['assets/js/layers/control-center/operations/theme.js'],bundle:true,format:'iife',target:['safari16','chrome110'],outfile:'assets/js/layers/control-center/operations/theme-init.js',minify:true});
 const config=JSON.parse(await readFile('assets/data/control-center/operations.json','utf8'));

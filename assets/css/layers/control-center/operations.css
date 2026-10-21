@@ -15,7 +15,7 @@
 .control-center-access > p { line-height:var(--line-height-body); }
 .control-center-access > button { align-self:flex-start; }
 .control-center-access label,.control-center-operations label { display:grid; gap:var(--spacing-sm); }
-.control-center-access input,.control-center-operations :is(input,textarea,select,button) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
+.control-center-access input,.control-center-operations :is(input,textarea,select,button:not(.global-close-button)) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
 .control-center-app { block-size:100svh; display:flex; flex-direction:column; }
 .control-center-app-header { display:flex; flex:none; align-items:center; gap:var(--spacing-md); min-block-size:var(--control-height-lg); padding:var(--spacing-md) var(--spacing-lg); border-block-end:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-app-header button { display:grid; place-items:center; min-inline-size:var(--control-height-md); min-block-size:var(--control-height-md); border:0; background:transparent; cursor:pointer; }
@@ -131,7 +131,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-artwork-status[data-artwork=needed] { color:var(--status-danger-color); }
 .control-center-artwork-status[data-artwork=available] { color:var(--status-success-color); }
 .control-center-artwork-status > span { inline-size:var(--spacing-sm); block-size:var(--spacing-sm); border-radius:var(--radius-circle); background:currentColor; }
-.control-center-color-preview { inline-size:var(--control-height-lg); block-size:var(--control-height-lg); border-radius:var(--radius-circle); }
+.control-center-color-preview { inline-size:var(--control-height-lg); block-size:var(--control-height-lg); border-radius:var(--radius-circle); border:var(--border-width-hairline) solid var(--text-color); box-sizing:border-box; }
 .control-center-size-preview { max-inline-size:100%; block-size:var(--spacing-md); background:var(--text-color); }
 .control-center-motion-preview { display:inline-block; transition-property:opacity; transition-timing-function:var(--interaction-ease-standard); }
 .control-center-motion-preview:is(:hover,:focus-visible) { opacity:var(--opacity-muted); }

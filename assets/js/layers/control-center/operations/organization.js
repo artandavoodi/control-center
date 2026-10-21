@@ -1,4 +1,5 @@
 import {descendants} from './context.js';
+import {roleBlueprint,renderRoleBlueprint} from './roles.js';
 export function renderReportingTree(rows,e,currentId){
  const byId=new Map(rows.map(row=>[row.account_id,row]));
  function branch(row,visited){
@@ -9,7 +10,7 @@ export function renderReportingTree(rows,e,currentId){
  const roots=rows.filter(row=>!row.manager_id||!byId.has(row.manager_id));
  return roots.length?`<ol class="control-center-org-tree">${roots.map(row=>branch(row,new Set())).join('')}</ol>`:'<p>No reporting assignments are available.</p>';
 }
-export async function mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units:registry,isCurrent,onSaved,action}){
+export async function mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units:registry,isCurrent,onSaved,onNavigate,action}){
  const directory=await client.rpc('control_center_workspace_directory',{workspace:workspace.id});
  if(directory.error)throw Error('The organization directory could not be loaded. Please try again.');
  if(!isCurrent())return;
@@ -22,6 +23,10 @@ export async function mountOrganization({content,client,staff,user,config,e,icon
  const unitKinds=[...(staff.is_owner?[{id:'pillar',label:'Brand pillar'}]:[]),...(staff.permissions.includes('departments.manage')?[{id:'department',label:'Department'}]:[]),...(staff.permissions.includes('offices.manage')?[{id:'office',label:'Office'}]:[])];
  if(unitKinds.length)content.insertAdjacentHTML('beforeend',`<section class="control-center-review" data-unit-editor hidden><h3>Create an organizational unit</h3><form data-unit-create><label>Unit type<select name="kind">${unitKinds.map(kind=>`<option value="${kind.id}">${kind.label}</option>`).join('')}</select></label><label>Parent unit<select name="parent"></select></label><label>Name<input name="name" required maxlength="200"></label><button type="submit">Create unit</button><p role="status"></p></form></section><section class="control-center-review" data-rename-editor hidden><h3>Rename a department or office</h3><form data-unit-rename><label>Unit<select name="unit" required>${units.filter(unit=>unit.kind!=='pillar'&&scope.has(unit.id)).map(unit=>`<option value="${e(unit.id)}">${e(unitLabel(unit))}</option>`).join('')}</select></label><label>New name<input name="name" required maxlength="200"></label><button type="submit">Save name</button><p role="status"></p></form></section>`);
  const toolbar=document.createElement('nav');toolbar.className='control-center-organization-actions';toolbar.setAttribute('aria-label','Organization management');
+ const positions=roleBlueprint(workspace,allUnits).filter(role=>!context.department||role.level==='executive'||scope.has(role.unit));
+ const positionSection=document.createElement('section');positionSection.className='control-center-review';positionSection.innerHTML='<h3>Positions & reporting plan</h3>'+renderRoleBlueprint(positions,e,staff.permissions.includes('jobs.write'));
+ positionSection.querySelectorAll('[data-role-draft]').forEach(button=>button.addEventListener('click',()=>onNavigate?.('vacancies','role:'+button.dataset.roleDraft)));
+ content.append(positionSection);
  toolbar.innerHTML=unitKinds.map(kind=>`<button type="button" data-add-unit="${kind.id}">${icon(config.chrome[kind.id==='pillar'?'organization':kind.id==='department'?'addDepartment':kind.id])}${e(kind.id==='pillar'?'Add organization':'Add '+kind.label.toLowerCase())}</button>`).join('')+(staff.permissions.includes('staff.manage')?`<button type="button" data-add-staff>${icon(config.chrome.create)}Add staff member</button>`:'')+(unitKinds.length?`<button type="button" data-rename-unit>${icon(config.chrome.editUnit)}Edit organizational unit</button>`:'');
  if(toolbar.children.length)content.prepend(toolbar);
  // Context narrows the view; server-side branch checks still authorize every write.

@@ -1,0 +1,244 @@
+{
+  "roles": [
+    {
+      "id": "chief-executive-officer",
+      "title": "Chief Executive Officer",
+      "order": 1,
+      "summary": "Artan Davoodi founded Neuroartan to build ICOS, a cognitive operating system where software adapts to human thought, memory, voice, and continuity.",
+      "responsibilities": [
+        "Institutional direction",
+        "Final executive approval",
+        "Founder governance",
+        "Strategic communications",
+        "Executive system oversight"
+      ],
+      "availability": "defined-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-executive-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-executive-officer/index.html"
+    },
+    {
+      "id": "chief-operating-officer",
+      "title": "Chief Operating Officer",
+      "order": 2,
+      "summary": "The Chief Operating Officer turns Neuroartan’s direction into clear priorities, steady execution, and accountable delivery.",
+      "responsibilities": [
+        "Strategy-to-execution translation",
+        "Delivery governance",
+        "Cross-department alignment",
+        "Readiness and constraint review",
+        "Operational risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-operating-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-operating-officer/index.html"
+    },
+    {
+      "id": "chief-financial-officer",
+      "title": "Chief Financial Officer",
+      "order": 3,
+      "summary": "The Chief Financial Officer keeps Neuroartan financially clear, disciplined, and ready to grow without losing control of its resources.",
+      "responsibilities": [
+        "Capital structure",
+        "Liquidity governance",
+        "Resource discipline",
+        "Financial visibility",
+        "Strategic-financial readiness"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-financial-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-financial-officer/index.html"
+    },
+    {
+      "id": "chief-strategy-officer",
+      "title": "Chief Strategy Officer",
+      "order": 4,
+      "summary": "The Chief Strategy Officer helps Neuroartan choose the right markets, the right timing, and the right path for long-term growth.",
+      "responsibilities": [
+        "Long-range direction",
+        "Positioning and expansion",
+        "Strategic alignment",
+        "Timing review",
+        "Strategic risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-strategy-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-strategy-officer/index.html"
+    },
+    {
+      "id": "chief-science-research-officer",
+      "title": "Chief Science & Research Officer",
+      "order": 5,
+      "summary": "The Chief Science & Research Officer keeps Neuroartan’s research clear, responsible, and grounded as ICOS develops.",
+      "responsibilities": [
+        "Research standards",
+        "Scientific defensibility",
+        "Translational boundary governance",
+        "Research continuity",
+        "Scientific risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-science-research-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-science-research-officer/index.html"
+    },
+    {
+      "id": "chief-cognitive-systems-officer",
+      "title": "Chief Cognitive Systems Officer",
+      "order": 6,
+      "summary": "The Chief Cognitive Systems Officer keeps the thinking behind ICOS clear, usable, and grounded as the product grows.",
+      "responsibilities": [
+        "Conceptual architecture",
+        "Terminology control",
+        "Metaphor boundaries",
+        "Cross-division cognitive alignment",
+        "Framework stability"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-cognitive-systems-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-cognitive-systems-officer/index.html"
+    },
+    {
+      "id": "chief-technology-officer",
+      "title": "Chief Technology Officer",
+      "order": 7,
+      "summary": "The Chief Technology Officer builds the technical foundation that keeps Neuroartan secure, stable, scalable, and ready for real use.",
+      "responsibilities": [
+        "Technical standards",
+        "Security and resilience",
+        "Scalability",
+        "Deployment discipline",
+        "Technical risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-technology-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-technology-officer/index.html"
+    },
+    {
+      "id": "chief-brand-aesthetic-officer",
+      "title": "Chief Brand & Aesthetic Officer",
+      "order": 8,
+      "summary": "The Chief Brand & Aesthetic Officer shapes how Neuroartan looks, sounds, feels, and is recognized across every public surface.",
+      "responsibilities": [
+        "Brand identity",
+        "Aesthetic systems",
+        "Naming and narrative",
+        "Cross-division brand alignment",
+        "Perception risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-brand-aesthetic-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-brand-aesthetic-officer/index.html"
+    },
+    {
+      "id": "chief-publishing-officer",
+      "title": "Chief Publishing Officer",
+      "order": 9,
+      "summary": "The Chief Publishing Officer turns Neuroartan’s writing, research, and institutional knowledge into clear, controlled public releases.",
+      "responsibilities": [
+        "Publishing doctrine",
+        "Editorial standards",
+        "Catalog coherence",
+        "Rights and licensing",
+        "Publishing risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-publishing-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-publishing-officer/index.html"
+    },
+    {
+      "id": "chief-records-sonic-architecture-officer",
+      "title": "Chief Records & Sonic Architecture Officer",
+      "order": 10,
+      "summary": "The Chief Records & Sonic Architecture Officer protects Neuroartan’s sound, releases, metadata, and long-term catalog memory.",
+      "responsibilities": [
+        "Sonic doctrine",
+        "Catalog architecture",
+        "Master and metadata discipline",
+        "Distribution alignment",
+        "Sonic risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-records-sonic-architecture-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-records-sonic-architecture-officer/index.html"
+    },
+    {
+      "id": "chief-risk-ethics-officer",
+      "title": "Chief Risk & Ethics Officer",
+      "order": 11,
+      "summary": "The Chief Risk & Ethics Officer helps Neuroartan grow with clear judgment, ethical discipline, and controlled risk.",
+      "responsibilities": [
+        "Risk architecture",
+        "Ethics governance",
+        "Compliance alignment",
+        "Cross-division risk review",
+        "Institutional stability"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-risk-ethics-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-risk-ethics-officer/index.html"
+    },
+    {
+      "id": "general-counsel",
+      "title": "General Counsel",
+      "order": 12,
+      "summary": "The General Counsel protects Neuroartan’s legal foundation, public claims, contracts, rights, and governance movement.",
+      "responsibilities": [
+        "Legal governance",
+        "Contract standards",
+        "Rights and ownership",
+        "Jurisdiction and compliance",
+        "Legal risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/general-counsel.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/general-counsel/index.html"
+    },
+    {
+      "id": "chief-communications-officer",
+      "title": "Chief Communications Officer",
+      "order": 13,
+      "summary": "The Chief Communications Officer keeps Neuroartan’s public voice clear, calm, and consistent across every channel.",
+      "responsibilities": [
+        "Communications doctrine",
+        "Approval pathways",
+        "Crisis communications",
+        "Channel alignment",
+        "Communications risk detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-communications-officer.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-communications-officer/index.html"
+    },
+    {
+      "id": "chief-of-staff",
+      "title": "Chief of Staff",
+      "order": 14,
+      "summary": "The Chief of Staff helps turn founder direction into clear priorities, prepared decisions, and focused execution.",
+      "responsibilities": [
+        "Founder counsel",
+        "Decision packet formation",
+        "Executive coordination",
+        "Appearance guardrails",
+        "Priority drift detection"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/chief-of-staff.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/chief-of-staff/index.html"
+    },
+    {
+      "id": "corporate-secretary",
+      "title": "Corporate Secretary",
+      "order": 15,
+      "summary": "The Corporate Secretary keeps Neuroartan’s governance records clear, complete, and ready for formal review.",
+      "responsibilities": [
+        "Board operations",
+        "Decision traceability",
+        "Corporate records",
+        "Change control",
+        "Governance readiness"
+      ],
+      "availability": "available-position",
+      "source": "website/docs/assets/data/company/leadership-members/corporate-secretary.json",
+      "publicUrl": "https://neuroartan.com/pages/company/leadership/corporate-secretary/index.html"
+    }
+  ]
+}

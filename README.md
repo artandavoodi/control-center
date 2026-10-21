@@ -70,6 +70,10 @@ registry/propagation
 
 ## Global Design References
 
+### Position Planning
+
+`scripts/build-roles.mjs` imports only public leadership role descriptions from the Neuroartan website into a sanitized snapshot; private personnel files are never deployed. Organization distinguishes position templates from actual staff appointments. Cross-brand adaptations, department/office heads and reporting links are proposed plans, not approved appointments or permissions. Authorized users may prepare a vacancy form from a template, but must review and save it explicitly; publication remains a separate audited action.
+
 Design systems are shared across all brands; a brand workspace never owns a separate copy of the registry. Colors, Typography and Motion & interaction are filtered views of the same canonical tokens. Permissions for private brand records do not change when viewing global design sources.
 
 Copy references from the registry: `icon:core/actions/create/plus` resolves through `registry/icons/manifests/icon-manifest.json` to its `registry/icons/source/` SVG; `token:--color-primary1` resolves through `registry/tokens/manifests/runtime-tokens.json`. `motion:close-control` resolves to the shared Neuroartan close primitive listed in the generated index. Agents must resolve these IDs before editing and never edit generated mirrors. IDs are path/name-based and must not be renamed without an explicit migration. Search tags are derived from canonical names; they do not grant access or represent approval. A vector-available status means artwork exists, not that it has undergone design approval.
