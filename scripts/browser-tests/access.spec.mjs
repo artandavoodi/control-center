@@ -130,11 +130,30 @@ test('brand selection restores its wordmark and positions prepare unsaved vacanc
  await expect(page.locator('.control-center-header-wordmark')).toHaveAttribute('alt','Neuroartan');
  await page.getByRole('button',{name:'Organization',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Positions & reporting plan',exact:true})).toBeVisible();
+ const chart=page.getByRole('region',{name:'Position reporting chart',exact:true});
+ const branch=chart.locator('[data-tree-branch]').first();
+ await branch.click();await expect(branch).toHaveAttribute('aria-expanded','false');
+ await expect(chart.locator('.control-center-org-tree > li > ol')).toBeHidden();
+ await branch.click();await expect(branch).toHaveAttribute('aria-expanded','true');
  const plan=page.locator('section').filter({has:page.getByRole('heading',{name:'Positions & reporting plan',exact:true})}).last();
+ await plan.getByText('Role details',{exact:true}).first().click();
  await plan.getByRole('button',{name:'Prepare vacancy draft',exact:true}).first().click();
  await expect(page.locator('[data-vacancy-editor]')).toBeVisible();
  await expect(page.getByRole('textbox',{name:'Job title',exact:true})).not.toHaveValue('');
  await expect(page.getByText(/Nothing has been saved or published/)).toBeVisible();
+});
+test('registered component previews expose stable IDs and functional selection controls',async({page})=>{
+ await enter(page,['artists.read']);
+ await page.route('**/assets/data/control-center/registry-index.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({tokens:[],icons:[],components:[{id:'field/password',title:'Password field',preview:'password',category:'fields',source:'auth.js',tags:['password'],tokens:['field-border']},{id:'selection/toggle',title:'Toggle switch',preview:'toggle',category:'selection',source:'toggle.css',tags:['switch'],tokens:[]}]})}));
+ await chooseContext(page,{function:'design',brand:'all'});
+ await page.getByRole('button',{name:'Fields',exact:true}).click();
+ await expect(page.getByLabel('Password field preview',{exact:true})).toHaveAttribute('type','password');
+ await expect(page.getByText('component:field/password',{exact:true})).toBeVisible();
+ await page.getByText('Related tokens',{exact:true}).click();
+ await expect(page.getByText('token:--field-border',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Selection controls',exact:true}).click();
+ const toggle=page.getByRole('switch',{name:'Preview toggle switch',exact:true});
+ await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.click();await expect(toggle).toHaveAttribute('aria-checked','true');
 });
 test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
  await enter(page,['artists.read']);

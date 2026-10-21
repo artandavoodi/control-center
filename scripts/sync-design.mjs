@@ -3,6 +3,7 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 const target='assets/css/layers/control-center/shared',sources={'themes.css':'docs/assets/css/core/02-foundation/themes.css','loaders.css':'docs/assets/css/core/03-primitives/loaders.css','close-button.css':'docs/assets/css/core/04-systems/close-button.css','close-button.js':'docs/assets/js/core/01-foundation/close-button.js'};
 const destination=name=>name.endsWith('.js')?'assets/js/layers/control-center/operations/shared/'+name:target+'/'+name;
+sources['toggle.css']='docs/assets/css/core/03-primitives/toggle.css';
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 if(process.argv.includes('--sync')){
  const source='../website',revision=execFileSync('git',['-C',source,'rev-parse','HEAD'],{encoding:'utf8'}).trim();

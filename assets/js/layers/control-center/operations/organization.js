@@ -1,5 +1,5 @@
 import {descendants} from './context.js';
-import {roleBlueprint,renderRoleBlueprint} from './roles.js';
+import {roleBlueprint,renderRoleBlueprint,mountTreeBranches} from './roles.js';
 export function renderReportingTree(rows,e,currentId){
  const byId=new Map(rows.map(row=>[row.account_id,row]));
  function branch(row,visited){
@@ -8,7 +8,7 @@ export function renderReportingTree(rows,e,currentId){
   return `<li><article class="control-center-person"${row.account_id===currentId?' aria-current="true"':''}><strong>${e(row.display_name||'Unnamed staff member')}</strong><span>${e(row.is_owner?'CEO / Owner':row.authority_level.replaceAll('_',' '))}${row.account_id===currentId?' · You':''}</span><span>${e([row.department,row.office].filter(Boolean).join(' · '))}</span>${row.enabled?'':'<span>Access disabled</span>'}</article>${children.length?`<ol>${children.map(item=>branch(item,next)).join('')}</ol>`:''}</li>`;
  }
  const roots=rows.filter(row=>!row.manager_id||!byId.has(row.manager_id));
- return roots.length?`<ol class="control-center-org-tree">${roots.map(row=>branch(row,new Set())).join('')}</ol>`:'<p>No reporting assignments are available.</p>';
+ return roots.length?`<div class="control-center-tree-viewport" tabindex="0" role="region" aria-label="Staff reporting chart"><ol class="control-center-org-tree">${roots.map(row=>branch(row,new Set())).join('')}</ol></div>`:'<p>No reporting assignments are available.</p>';
 }
 export async function mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units:registry,isCurrent,onSaved,onNavigate,action}){
  const directory=await client.rpc('control_center_workspace_directory',{workspace:workspace.id});
@@ -27,6 +27,10 @@ export async function mountOrganization({content,client,staff,user,config,e,icon
  const positionSection=document.createElement('section');positionSection.className='control-center-review';positionSection.innerHTML='<h3>Positions & reporting plan</h3>'+renderRoleBlueprint(positions,e,staff.permissions.includes('jobs.write'));
  positionSection.querySelectorAll('[data-role-draft]').forEach(button=>button.addEventListener('click',()=>onNavigate?.('vacancies','role:'+button.dataset.roleDraft)));
  content.append(positionSection);
+ mountTreeBranches(positionSection);
+ // Only the current user's private photo is requested; staff photos are not made public.
+ const currentPhoto=content.querySelector('.control-center-person[aria-current=true]');
+ if(currentPhoto){const fallback=document.createElement('span');fallback.className='control-center-tree-avatar';fallback.innerHTML=icon('core/identity/profile/profile.svg');currentPhoto.prepend(fallback);client.storage.from('control-center-photos').createSignedUrl(user.id+'/photo',300).then(result=>{if(!isCurrent())return;const url=result.data?.signedUrl||user.user_metadata?.avatar_url;if(typeof url!=='string'||!/^https:\/\//.test(url))return;const image=document.createElement('img');image.alt='Your profile photo';image.className='control-center-tree-avatar';image.onload=()=>{if(isCurrent())fallback.replaceWith(image);};image.src=url;});}
  toolbar.innerHTML=unitKinds.map(kind=>`<button type="button" data-add-unit="${kind.id}">${icon(config.chrome[kind.id==='pillar'?'organization':kind.id==='department'?'addDepartment':kind.id])}${e(kind.id==='pillar'?'Add organization':'Add '+kind.label.toLowerCase())}</button>`).join('')+(staff.permissions.includes('staff.manage')?`<button type="button" data-add-staff>${icon(config.chrome.create)}Add staff member</button>`:'')+(unitKinds.length?`<button type="button" data-rename-unit>${icon(config.chrome.editUnit)}Edit organizational unit</button>`:'');
  if(toolbar.children.length)content.prepend(toolbar);
  // Context narrows the view; server-side branch checks still authorize every write.

@@ -70,6 +70,10 @@ registry/propagation
 
 ## Global Design References
 
+Component references use `component:field/password`, `component:button/close` and the other IDs in `assets/data/control-center/components.json`. Each definition names the existing implementation owner and binds related canonical token IDs; previews never save credentials, preferences or staff records. The toggle stylesheet is an exact, checksummed snapshot of the Neuroartan primitive, not a local reinterpretation. Refresh shared snapshots with `node scripts/sync-design.mjs --sync` after an intentional upstream change.
+
+Organization charts use native nested lists with connected top-down branches. Position templates remain separate from actual staff reporting assignments. Private photos are requested only for the current user; other staff photographs are not exposed by the directory. Branch controls support keyboard activation, and each chart supports horizontal keyboard/touch scrolling.
+
 ### Position Planning
 
 `scripts/build-roles.mjs` imports only public leadership role descriptions from the Neuroartan website into a sanitized snapshot; private personnel files are never deployed. Organization distinguishes position templates from actual staff appointments. Cross-brand adaptations, department/office heads and reporting links are proposed plans, not approved appointments or permissions. Authorized users may prepare a vacancy form from a template, but must review and save it explicitly; publication remains a separate audited action.

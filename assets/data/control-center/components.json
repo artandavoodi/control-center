@@ -1,0 +1,10 @@
+[
+ {"id":"field/text","title":"Text field","category":"fields","preview":"text","source":"assets/js/layers/control-center/operations/profile.js","tags":["input","name","text","field"],"tokenPattern":"field|control-height|control-radius"},
+ {"id":"field/password","title":"Password field","category":"fields","preview":"password","source":"assets/js/layers/control-center/operations/auth.js","tags":["password","security","input"],"tokenPattern":"field|control-height|control-radius"},
+ {"id":"field/select","title":"Dropdown field","category":"fields","preview":"select","source":"assets/js/layers/control-center/operations/context.js","tags":["dropdown","select","region","choice"],"tokenPattern":"field|control-height|control-radius"},
+ {"id":"button/default","title":"Default action button","category":"buttons","preview":"button","source":"assets/css/layers/control-center/operations.css","tags":["button","action","color","background"],"tokenPattern":"control-bg|control-height|panel-radius|text-color"},
+ {"id":"button/close","title":"Global close button","category":"buttons","preview":"close","source":"website/docs/assets/css/core/04-systems/close-button.css","tags":["close","X","hover","minus"],"tokenPattern":"close-control|interaction-motion-medium"},
+ {"id":"selection/radio","title":"Radio choice","category":"selection","preview":"radio","source":"assets/js/layers/control-center/operations/settings.js","tags":["radio","single","choice","appearance"],"tokenPattern":"control|radio"},
+ {"id":"selection/checkbox","title":"Checkbox choice","category":"selection","preview":"checkbox","source":"assets/js/layers/control-center/operations/organization.js","tags":["checkbox","permission","multiple","choice"],"tokenPattern":"control|checkbox"},
+ {"id":"selection/toggle","title":"Toggle switch","category":"selection","preview":"toggle","source":"website/docs/assets/css/core/03-primitives/toggle.css","tags":["toggle","switch","on","off"],"tokenPattern":"^toggle-|interaction-transition-control"}
+]
