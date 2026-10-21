@@ -95,6 +95,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/add-attachment/add-attachment.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/add-attachment/add-attachment.svg"
   },
+  "core/actions/add-department/add-department": {
+    "id": "core/actions/add-department/add-department",
+    "path": "core/actions/add-department/add-department.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/add-department/add-department.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/add-department/add-department.svg"
+  },
   "core/actions/add-evaluation/add-evaluation": {
     "id": "core/actions/add-evaluation/add-evaluation",
     "path": "core/actions/add-evaluation/add-evaluation.svg",
@@ -418,6 +424,18 @@
     "path": "core/actions/duplicate/duplicate.svg",
     "publicPath": "/registry/icons/public/assets/core/actions/duplicate/duplicate.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/duplicate/duplicate.svg"
+  },
+  "core/actions/edit/edit": {
+    "id": "core/actions/edit/edit",
+    "path": "core/actions/edit/edit.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/edit/edit.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/edit/edit.svg"
+  },
+  "core/actions/edit-organizational-unit/edit-organizational-unit": {
+    "id": "core/actions/edit-organizational-unit/edit-organizational-unit",
+    "path": "core/actions/edit-organizational-unit/edit-organizational-unit.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/edit-organizational-unit/edit-organizational-unit.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/edit-organizational-unit/edit-organizational-unit.svg"
   },
   "core/actions/editing/edit": {
     "id": "core/actions/editing/edit",

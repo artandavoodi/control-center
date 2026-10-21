@@ -1,6 +1,6 @@
 {
   "source": "artandavoodi/website",
-  "revision": "2d4023933a86110fdf6dd686bd16ee21f3676fa2",
+  "revision": "57a440bdcb354b7f6f027d705eff8a420c8079cc",
   "files": {
     "themes.css": {
       "file": "docs/assets/css/core/02-foundation/themes.css",
@@ -9,6 +9,14 @@
     "loaders.css": {
       "file": "docs/assets/css/core/03-primitives/loaders.css",
       "sha256": "fee381014480ba1d6ab37dda0c36b1acd7f2e1f3683b4807c5a62c3f063ed102"
+    },
+    "close-button.css": {
+      "file": "docs/assets/css/core/04-systems/close-button.css",
+      "sha256": "b5ad572ef1c8bad5d0c36107b80d6293bc08c511f68838ec981b9dd1ec38d60e"
+    },
+    "close-button.js": {
+      "file": "docs/assets/js/core/01-foundation/close-button.js",
+      "sha256": "3f5bde8e08d4f1e18cad86394b6d16ac083faa66edb00e0a63e0a8d86f074e01"
     }
   }
 }

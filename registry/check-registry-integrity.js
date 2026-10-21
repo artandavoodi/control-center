@@ -6,6 +6,8 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import {iconTargets} from "./propagation/icon-targets.js";
+
 import { fileURLToPath } from "node:url";
 
 const MODULE_DIR =
@@ -72,52 +74,15 @@ const ICON_SOURCE_ROOT =
     "source"
   );
 
-const CONTROL_CENTER_ICON_MIRROR =
-  path.join(
-    MODULE_DIR,
-    "icons",
-    "public",
-    "assets"
-  );
+const CONTROL_CENTER_ICON_MIRROR = iconTargets.control;
 
-const WEBSITE_ICON_MIRROR =
-  path.join(
-    WEBSITE_ROOT,
-    "docs",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const WEBSITE_ICON_MIRROR = iconTargets.website;
 
-const ARTAN_LIVE_ICON_MIRROR =
-  path.join(
-    ARTAN_LIVE_ROOT,
-    "docs",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const ARTAN_LIVE_ICON_MIRROR = iconTargets.artanLive;
 
-const BRAND_ICON_MIRROR =
-  path.join(
-    BRAND_ROOT,
-    "docs",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const BRAND_ICON_MIRROR = iconTargets.brand;
 
-const DOCS_PUBLIC_ICON_MIRROR =
-  path.join(
-    DOCS_PUBLIC_ROOT,
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const DOCS_PUBLIC_ICON_MIRROR = iconTargets.docsPublic;
 
 const LEGACY_WEBSITE_ICON_MIRROR =
   path.join(

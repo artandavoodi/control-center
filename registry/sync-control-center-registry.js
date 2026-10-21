@@ -9,6 +9,8 @@ from "node:fs";
 import path
 from "node:path";
 
+import {iconTargets} from "./propagation/icon-targets.js";
+
 import { fileURLToPath }
 from "node:url";
 
@@ -38,60 +40,15 @@ const CONTROL_CENTER_ROOT =
     ".."
   );
 
-const CONTROL_CENTER_PUBLIC_ICON_ASSETS =
-  path.join(
-    REGISTRY_ROOT,
-    "icons",
-    "public",
-    "assets"
-  );
+const CONTROL_CENTER_PUBLIC_ICON_ASSETS = iconTargets.control;
 
-const ARTAN_LIVE_PUBLIC_ICON_ASSETS =
-  path.resolve(
-    CONTROL_CENTER_ROOT,
-    "..",
-    "artan-live",
-    "docs",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const ARTAN_LIVE_PUBLIC_ICON_ASSETS = iconTargets.artanLive;
 
-const BRAND_PUBLIC_ICON_ASSETS =
-  path.resolve(
-    CONTROL_CENTER_ROOT,
-    "..",
-    "brand",
-    "docs",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const BRAND_PUBLIC_ICON_ASSETS = iconTargets.brand;
 
-const WEBSITE_PUBLIC_ICON_ASSETS =
-  path.resolve(
-    CONTROL_CENTER_ROOT,
-    "..",
-    "website",
-    "docs",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const WEBSITE_PUBLIC_ICON_ASSETS = iconTargets.website;
 
-const DOCS_PUBLIC_PUBLIC_ICON_ASSETS =
-  path.resolve(
-    CONTROL_CENTER_ROOT,
-    "..",
-    "docs-public",
-    "registry",
-    "icons",
-    "public",
-    "assets"
-  );
+const DOCS_PUBLIC_PUBLIC_ICON_ASSETS = iconTargets.docsPublic;
 
 function countFiles(root) {
   if (!fs.existsSync(root)) {

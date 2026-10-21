@@ -1,0 +1,11 @@
+import {iconCompiler} from '../registry/icons/compiler/icon-compiler.js';
+import {publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
+import {runtimeIconExporter} from '../registry/icons/exporters/runtime/runtime-icon-exporter.js';
+import {swiftIconExporter} from '../registry/icons/exporters/swift/swift-icon-exporter.js';
+const paths=process.argv.slice(2);
+if(!paths.length)throw Error('Provide the canonical registry-relative SVG paths to register.');
+iconCompiler.load({cleanDuplicates:false});
+publicIconExporter.exportPaths(paths);
+runtimeIconExporter.export();
+swiftIconExporter.export();
+console.log('Registered and mirrored only the requested source icons. Existing vectors were not replaced.');

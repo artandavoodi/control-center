@@ -4,6 +4,12 @@
 
 Every major or minor development change must be committed in its owning repository and registered through the central [development-history policy](docs/development-registration.md). The central repository registry owns discovery; commit SHA owns deduplication. Private repository ingestion is not yet connected; do not expose private data or copy source assets to register changes.
 
+## Management and Design Sources
+
+Documents have explicit internal/confidential/sensitive classifications and searchable tags. Brand and reporting-branch checks are enforced in the database; confidentiality is a separate permission, not a cosmetic label. Vacancy drafts never publish automatically. Public careers hosting, applicant intake and browser-based GitHub source publishing are not active; see [the publication boundary](docs/deployment/careers.md).
+
+The shared close control is a checksum-verified snapshot of the website owner files, not a local imitation. Tokens and icons are indexed from their canonical registries. To register a new authored SVG, edit its source and run `node scripts/register-icons.mjs <registry-relative-path.svg>`; this targeted path does not prune unrelated assets. The build rejects mismatched source/mirror artwork and versions design assets to prevent stale placeholders. The registry UI is read-only and does not claim to write to GitHub.
+
 ## Staff console
 
 Permanent address: `https://control.artan.live/`. The public client is built with

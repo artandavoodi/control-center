@@ -5,6 +5,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import {iconTargets,iconRepositories} from "../../../propagation/icon-targets.js";
 
 const ROOT =
   path.resolve(
@@ -15,17 +16,9 @@ const ROOT =
 const SOURCE_ROOT =
   path.join(ROOT, "registry/icons/source");
 
-const PUBLIC_ROOT =
-  path.join(ROOT, "registry/icons/public/assets");
+const PUBLIC_ROOT = iconTargets.control;
 
-const WEBSITE_PUBLIC_ROOT =
-  path.resolve(
-    ROOT,
-    "..",
-    "website",
-    "docs",
-    "registry/icons/public/assets"
-  );
+const WEBSITE_PUBLIC_ROOT = iconTargets.website;
 
 function removeStaleExportSiblings(destination) {
   const parent =
@@ -158,8 +151,8 @@ function pruneGeneratedMirror(
 // Hard links are not stable inside iCloud-backed folders. Generated mirrors
 // remain deployment-only outputs and are verified against source by hash.
 export function assertPreservesSvgArtwork(incoming, existing, destination) {
-  const placeholder=svg=>/<circle\b[^>]*\br="2"/.test(svg)&&!/<(?:path|rect|polygon|polyline|ellipse|use|image|text)\b/.test(svg);
-  if (placeholder(incoming) && !placeholder(existing) && /<(?:path|rect|polygon|polyline|ellipse|use|image|text)\b/.test(existing)) {
+  const placeholder=svg=>!/<(?:path|rect|line|polygon|polyline|ellipse|use|image|text)\b/.test(svg)&&(!/<circle\b/.test(svg)||((svg.match(/<circle\b/g)||[]).length===1&&/<circle\b[^>]*\br="2"/.test(svg)));
+  if (placeholder(incoming) && !placeholder(existing) && /<(?:path|rect|line|circle|polygon|polyline|ellipse|use|image|text)\b/.test(existing)) {
     throw new Error(`Icon artwork would be replaced by a placeholder: ${destination}. Promote the artwork to its canonical source before synchronizing.`);
   }
 }
@@ -177,6 +170,23 @@ function copyDeploymentFile(source, destination) {
 }
 
 class PublicIconExporter {
+  exportPaths(paths) {
+    const transfers=[];
+    for (const relative of paths) {
+      if (!/^[a-z0-9/_-]+\.svg$/i.test(relative) || relative.includes('..')) throw new Error('Invalid registered SVG path');
+      const source = path.join(SOURCE_ROOT, relative);
+      for (const [name,root] of Object.entries(iconTargets)) {
+        if (!fs.existsSync(path.join(iconRepositories[name], '.git'))) throw new Error('Registered target repository is unavailable: '+name);
+        const destination = path.join(root, relative);
+        const incoming=fs.readFileSync(source,'utf8');
+        if(fs.existsSync(destination))assertPreservesSvgArtwork(incoming,fs.readFileSync(destination,'utf8'),destination);
+        transfers.push({source,destination});
+      }
+    }
+    for(const {source,destination} of transfers){fs.mkdirSync(path.dirname(destination),{recursive:true});copyDeploymentFile(source,destination);}
+    return { registered: paths.length };
+  }
+
   export() {
     removeStaleExportSiblings(
       PUBLIC_ROOT

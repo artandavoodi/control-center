@@ -7,6 +7,10 @@ import {mountOrganization} from './organization.js';
 import {mountWorkspace,readWorkspacePreference,rememberWorkspace} from './workspace.js';
 import {normalizeContext} from './context.js';
 import {mountDevelopment} from './development.js';
+import {mountRegistry} from './registry.js';
+import {mountDocuments} from './documents.js';
+import {mountVacancies} from './vacancies.js';
+import {assetUrl} from './assets.js';
 import {setTheme} from './theme.js';
 import {mountSettings} from './settings.js';
 import {mountHelp} from './help.js';
@@ -19,8 +23,8 @@ if(location.protocol!=='https:'&&!['127.0.0.1','localhost'].includes(location.ho
 }
 const client=createClient(config.supabase.url,config.supabase.key,{auth:{storage:sessionStorage,storageKey:'control-center-staff',flowType:'pkce',detectSessionInUrl:false}});
 const e=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const icon=path=>`<img class="control-center-operation-icon" src="/registry/icons/public/assets/${e(path)}" alt="">`;
-let staff=null,user=null,panel='overview',revision=0,recovering=false,workspaces=[],workspace=null,units=[],context={function:'operations',department:'',office:''};
+const icon=path=>`<img class="control-center-operation-icon" src="${e(assetUrl('/registry/icons/public/assets/'+path))}" alt="">`;
+let staff=null,user=null,panel='overview',revision=0,recovering=false,workspaces=[],workspace=null,units=[],context={function:'operations',department:'',office:''},pendingAction='';
 async function refreshRegistry(){
  const [brands,registry]=await Promise.all([client.rpc('control_center_workspaces'),client.from('control_center_units').select('id,parent_id,kind,name,active,workspace_key').order('name')]);
  if(brands.error||registry.error)throw Error('Your workspace directory could not be loaded.');
@@ -46,9 +50,9 @@ async function loadAccess(){
 }
 async function render(){
  finishLoading();
- const turn=++revision;const nav=permittedNavigation(config,staff).filter(item=>item.workspace!=='reviews'||workspace.workspace_key==='artanrecords');if(!nav.some(item=>item.id===panel))panel='overview';
+ const turn=++revision,requestedAction=pendingAction;pendingAction='';const nav=permittedNavigation(config,staff).filter(item=>item.workspace!=='reviews'||workspace.workspace_key==='artanrecords');if(!nav.some(item=>item.id===panel))panel='overview';
  if(!nav.some(item=>item.workspace===context.function)){context.function='operations';}
- const navigate=id=>{const item=nav.find(item=>item.id===id);if(!item)return;if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;render().catch(showError);};
+ const navigate=(id,action='')=>{const item=nav.find(item=>item.id===id);if(!item)return;if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;pendingAction=action;render().catch(showError);};
  mountWorkspace({root,config,staff,user,client,nav,pickerNav:permittedNavigation(config,staff),panel,e,icon,workspaces,workspace,context,units,onContext:value=>{const selected=workspaces.find(item=>item.id===value.workspace);if(!selected)return;workspace=selected;context=normalizeContext(value,units,workspace);rememberWorkspace('workspace',workspace.id);rememberWorkspace('context',JSON.stringify(context));panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';render().catch(showError);},onNavigate:navigate,onSignout:async()=>{stopUsage();++revision;root.replaceChildren();await client.auth.signOut({scope:'local'});signin();}});
  const content=root.querySelector('[data-operation-content]');
  try{
@@ -62,8 +66,12 @@ async function render(){
    mountHelp({content,user,config,e});
   }else if(panel==='development'){
    await mountDevelopment({content,workspace,e,isCurrent:()=>turn===revision});
+  }else if(panel==='registry'){
+   await mountRegistry({content,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
+  }else if(panel==='documents'||panel==='vacancies'){
+   await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){
-   await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
+   await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
   }else if(panel==='usernames'||panel==='applications'){
    const handles=panel==='usernames';const response=await client.from(handles?'studio_artist_handles':'studio_artist_applications').select(handles?'account_id,requested_username,approved_username,status,notice,updated_at':'account_id,requested_tier,approved_tier,status,artist_note,decision_note,updated_at').order('updated_at',{ascending:true}).limit(100);if(response.error)throw Error('The review queue could not be loaded.');if(turn!==revision)return;
    content.innerHTML=response.data.length?response.data.map(row=>`<article class="control-center-review"><h3>${e(handles?row.requested_username:row.requested_tier+' requested')}</h3><p>${e(row.account_id)}</p><p>Status: ${e(row.status)}${row.approved_tier?' · Approved tier: '+e(row.approved_tier):''}</p><p>${e(handles?row.notice:row.artist_note)}</p>${row.status==='pending'&&hasPermission(staff,handles?'usernames.review':'tiers.review')?`<form data-review="${e(row.account_id)}">${!handles?`<label>Approved tier<select name="tier">${config.tiers.map(tier=>`<option>${e(tier)}</option>`).join('')}</select></label>`:''}<label>Decision note<textarea name="note" maxlength="${handles?500:2000}" required></textarea></label><button type="submit" name="decision" value="approve">Approve</button><button type="submit" name="decision" value="reject">Decline</button></form>`:''}</article>`).join(''):'<p>No requests in this queue.</p>';

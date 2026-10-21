@@ -23,8 +23,8 @@ const ICON_ROOT =
   );
 
 export class IconCompiler {
-  load() {
-    this.removeIdenticalFinderDuplicates(
+  load({ cleanDuplicates = true } = {}) {
+    if (cleanDuplicates) this.removeIdenticalFinderDuplicates(
       ICON_ROOT
     );
 
