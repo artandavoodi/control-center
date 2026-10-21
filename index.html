@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Control Center</title>
+  <script src="./assets/js/layers/control-center/operations/theme-init.js"></script>
   <link rel="stylesheet" href="./assets/css/layers/control-center/00-orchestrator/00-control-center-all.css">
+  <link rel="stylesheet" href="./assets/css/layers/control-center/shared/themes.css">
+  <link rel="stylesheet" href="./assets/css/layers/control-center/shared/loaders.css">
   <link rel="stylesheet" href="./assets/css/layers/control-center/operations.css">
 </head>
 <body>
-  <main id="control-center-root" data-control-center-root></main>
+  <div id="control-center-root" data-control-center-root><section class="control-center-boot" role="status" aria-label="Loading Control Center"><span class="ui-loader-circle" aria-hidden="true"></span></section></div>
+  <noscript>Enable JavaScript to sign in to Control Center.</noscript>
   <meta name="robots" content="noindex,nofollow">
   <script type="module" src="./assets/js/layers/control-center/operations/dist.js"></script>
 </body>
