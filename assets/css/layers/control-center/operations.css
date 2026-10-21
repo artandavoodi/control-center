@@ -113,7 +113,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-org-tree[data-density=compact] .control-center-person > :is(details,span:not(.control-center-tree-you,[data-tree-role]),img,.control-center-tree-avatar) { display:none; }
 .control-center-person .control-center-tree-you { color:var(--status-success-color); display:inline-flex; justify-self:center; align-items:center; gap:var(--spacing-xs); font-size:var(--font-size-sm); }
 .control-center-tree-you::before { content:''; inline-size:var(--spacing-sm); block-size:var(--spacing-sm); border-radius:var(--radius-circle); background:currentColor; }
-[data-tree-role] > .control-center-tree-you { margin-inline-start:var(--spacing-sm); }
+[data-tree-role] > .control-center-tree-you { margin-inline-end:var(--spacing-sm); }
 .control-center-unit-directory { display:grid; gap:var(--spacing-xl); grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr)); }
 .control-center-unit-directory details { padding-block:var(--spacing-md); }
 .control-center-unit-directory details + details { border-block-start:var(--border-width-hairline) solid var(--control-center-border); }

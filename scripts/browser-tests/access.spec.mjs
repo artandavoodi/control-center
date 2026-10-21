@@ -158,7 +158,7 @@ test('registered component previews expose stable IDs and functional selection c
 test('chart zoom simplifies details and keeps the signed-in staff assignment identifiable',async({page})=>{
  await enter(page,['artists.read'],{owner:true});await page.getByRole('button',{name:'Organization',exact:true}).click();
  const chart=page.getByRole('region',{name:'Staff reporting chart',exact:true}),tools=page.getByRole('group',{name:'Staff reporting chart controls',exact:true});
- await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toHaveText('You');
+ await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toHaveAttribute('aria-label','Your position');
  await tools.getByRole('button',{name:'Zoom out Staff reporting chart',exact:true}).click();
  await tools.getByRole('button',{name:'Zoom out Staff reporting chart',exact:true}).click();
  await expect(tools.locator('output')).toHaveText('70%');

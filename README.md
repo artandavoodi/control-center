@@ -76,6 +76,8 @@ Organization charts use native nested lists with connected top-down branches. Po
 
 Each reporting chart has bounded layout zoom, a 100% reset and a compact semantic view at 70% and below. Names, assigned roles, direct-report controls and the current-account marker remain visible. Find me opens collapsed ancestors before centering the verified staff node; it never infers an appointment from a matching role title or proposed template.
 
+The shared workspace renderer shows the assigned directory name above the position, with only a green dot before the current person's position. Role-plan identity can bind only to verified CEO ownership or a unique department/office manager assignment on that exact unit. Executive titles without a durable assignment remain unassigned; names are never used to infer appointments. Other staff use a profile silhouette until a separately authorized directory-photo access policy exists; private profile uploads are not exposed through this display rule.
+
 ### Position Planning
 
 `scripts/build-roles.mjs` imports only public leadership role descriptions from the Neuroartan website into a sanitized snapshot; private personnel files are never deployed. Organization distinguishes position templates from actual staff appointments. Cross-brand adaptations, department/office heads and reporting links are proposed plans, not approved appointments or permissions. Authorized users may prepare a vacancy form from a template, but must review and save it explicitly; publication remains a separate audited action.
