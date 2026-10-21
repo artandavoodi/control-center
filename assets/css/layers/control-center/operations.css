@@ -59,7 +59,7 @@ html[data-theme-effective=light] .control-center-header-wordmark { filter:var(--
 .control-center-operations aside nav { display:grid; gap:var(--spacing-sm); margin-block:var(--spacing-xl); }
 .control-center-operations aside nav section { display:grid; gap:var(--spacing-sm); margin-block-end:var(--spacing-md); }
 .control-center-operations aside nav h2 { font-size:var(--text-caption-size); color:var(--text-secondary-color); font-weight:var(--font-weight-medium); }
-.control-center-operations aside button { display:flex; align-items:center; gap:var(--spacing-sm); border:0; text-align:start; cursor:pointer; }
+.control-center-app .control-center-operations aside button { display:flex; align-items:center; gap:var(--spacing-sm); border:0; background:transparent; text-align:start; cursor:pointer; }
 .control-center-operations aside [aria-current=false] { opacity:var(--opacity-muted); }
 .control-center-operations main { min-inline-size:0; overflow:auto; padding:var(--spacing-xl); }
 .control-center-operations h1 { font-size:var(--font-size-lg); }
@@ -107,18 +107,18 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-person > [data-tree-branch] { border:0; background:transparent; font-size:var(--font-size-sm); }
 .control-center-tree-avatar { display:grid; place-items:center; inline-size:var(--control-height-lg); block-size:var(--control-height-lg); object-fit:cover; border-radius:var(--radius-circle); justify-self:center; background:var(--control-center-surface); }
 .control-center-person span { color:var(--text-secondary-color); }
-/* Large organizations use a readable outline instead of an ever-wider sibling row. */
-.control-center-org-tree[data-layout=compact],.control-center-org-tree[data-layout=compact] ol { flex-direction:column; align-items:flex-start; min-inline-size:0; }
-.control-center-org-tree[data-layout=compact] li { align-items:flex-start; padding:var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-lg); }
-.control-center-org-tree[data-layout=compact] > li { padding-inline-start:0; }
-.control-center-org-tree[data-layout=compact] li > ol { padding:0; margin-inline-start:var(--spacing-lg); }
-.control-center-org-tree[data-layout=compact] li > ol::before { display:none; }
-.control-center-org-tree[data-layout=compact] li::before { display:block; inset-inline:0 auto; inset-block-start:0; inline-size:0; block-size:100%; border-block-start:0; border-inline-start:var(--border-width-hairline) solid var(--control-center-border); }
-.control-center-org-tree[data-layout=compact] li::after { display:block; inset-inline:0 auto; inset-block-start:calc(var(--spacing-sm) + var(--control-height-md) / 2); inline-size:var(--spacing-lg); block-size:0; border-inline-start:0; border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
-.control-center-org-tree[data-layout=compact] li:last-child::before { block-size:calc(var(--spacing-sm) + var(--control-height-md) / 2); }
-.control-center-org-tree[data-layout=compact] > li::before,.control-center-org-tree[data-layout=compact] > li::after { display:none; }
+/* Center the root and group direct-report branches at readable card sizes. */
+.control-center-org-tree[data-layout=compact] { inline-size:100%; min-inline-size:0; }
+.control-center-org-tree[data-layout=compact] > li { inline-size:100%; padding:0; align-items:center; }
+.control-center-org-tree[data-layout=compact] > li > ol { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--layout-home-platform-rail-width)),1fr)); align-items:start; gap:var(--spacing-xl); inline-size:100%; min-inline-size:0; padding-block-start:var(--spacing-xl); }
+.control-center-org-tree[data-layout=compact] ol ol { display:flex; flex-direction:column; align-items:stretch; inline-size:100%; min-inline-size:0; padding:var(--spacing-md) 0 0 var(--spacing-md); box-sizing:border-box; }
+.control-center-org-tree[data-layout=compact] ol li { align-items:stretch; min-inline-size:0; padding:0 0 var(--spacing-md); }
+.control-center-org-tree[data-layout=compact] ol .control-center-person { inline-size:100%; }
+.control-center-org-tree[data-layout=compact] li::before,.control-center-org-tree[data-layout=compact] li::after,.control-center-org-tree[data-layout=compact] li > ol::before { display:none; }
+.control-center-org-tree[data-layout=compact] ol ol { border-inline-start:var(--border-width-hairline) solid var(--control-center-border); }
+.control-center-tree-parent { font-size:var(--font-size-sm); }
 .control-center-chart-tools { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-sm); margin-block:var(--spacing-md); }
-.control-center-chart-tools button { display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+.control-center-operations .control-center-chart-tools button { display:inline-flex; align-items:center; justify-content:center; inline-size:var(--control-height-md); min-inline-size:var(--control-height-md); padding:var(--spacing-sm); border:0; background:transparent; cursor:pointer; }
 .control-center-chart-tools output { min-inline-size:var(--control-height-lg); text-align:center; font-variant-numeric:tabular-nums; }
 .control-center-org-tree[data-density=compact] .control-center-person > :is(details,span:not(.control-center-tree-you,[data-tree-role]),img,.control-center-tree-avatar) { display:none; }
 .control-center-person .control-center-tree-you { color:var(--status-success-color); display:inline-flex; justify-self:center; align-items:center; gap:var(--spacing-xs); font-size:var(--font-size-sm); }

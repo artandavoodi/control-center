@@ -133,9 +133,14 @@ test('brand selection restores its wordmark and positions prepare unsaved vacanc
  const chart=page.getByRole('region',{name:'Position reporting chart',exact:true});
  await expect(chart.locator('.control-center-tree-avatar')).toHaveCount(await chart.locator('.control-center-person').count());
  const compactWidth=await chart.evaluate(el=>el.scrollWidth);
+ const centered=await chart.evaluate(el=>{const box=el.querySelector('.control-center-org-tree > li > article').getBoundingClientRect(),frame=el.getBoundingClientRect();return Math.abs((box.left+box.right)/2-(frame.left+frame.right)/2);});
+ expect(centered).toBeLessThan(3);
  const layout=page.getByRole('button',{name:'Compact layout Position reporting chart',exact:true});
  await expect(layout).toHaveAttribute('aria-pressed','true');
+ await expect(layout.locator('img')).toHaveAttribute('src',/layout\/grid\.svg/);
+ expect(await layout.evaluate(el=>getComputedStyle(el).borderTopWidth)).toBe('0px');
  await layout.click();await expect(layout).toHaveAttribute('aria-pressed','false');
+ await expect(layout.locator('img')).toHaveAttribute('src',/layout\/columns\.svg/);
  expect(await chart.evaluate(el=>el.scrollWidth)).toBeGreaterThan(compactWidth);
  await layout.click();await expect(layout).toHaveAttribute('aria-pressed','true');
  const branch=chart.locator('[data-tree-branch]').first();
@@ -171,7 +176,8 @@ test('chart zoom simplifies details and keeps the signed-in staff assignment ide
  await expect(tools.locator('output')).toHaveText('70%');
  await expect(chart.locator('.control-center-org-tree')).toHaveAttribute('data-density','compact');
  await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toBeVisible();
- await expect(tools.getByRole('button',{name:'Find me',exact:true})).toHaveCount(0);
+ await expect(tools.getByRole('button',{name:'Find me',exact:true}).locator('img')).toHaveCount(1);
+ await tools.getByRole('button',{name:'Find me',exact:true}).click();
  await tools.getByRole('button',{name:'Reset view',exact:true}).click();
  await expect(tools.locator('output')).toHaveText('100%');
  await expect(chart.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();

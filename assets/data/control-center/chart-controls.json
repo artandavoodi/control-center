@@ -1,0 +1,8 @@
+{
+ "zoomOut":"core/actions/visibility/zoom-out.svg",
+ "zoomIn":"core/actions/visibility/zoom-in.svg",
+ "reset":"core/actions/reset/reset.svg",
+ "findMe":"core/navigation/location/location.svg",
+ "compact":"core/navigation/layout/grid.svg",
+ "diagram":"core/navigation/layout/columns.svg"
+}
