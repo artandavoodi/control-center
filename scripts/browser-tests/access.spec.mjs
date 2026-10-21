@@ -155,6 +155,19 @@ test('registered component previews expose stable IDs and functional selection c
  const toggle=page.getByRole('switch',{name:'Preview toggle switch',exact:true});
  await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.click();await expect(toggle).toHaveAttribute('aria-checked','true');
 });
+test('chart zoom simplifies details and keeps the signed-in staff assignment identifiable',async({page})=>{
+ await enter(page,['artists.read'],{owner:true});await page.getByRole('button',{name:'Organization',exact:true}).click();
+ const chart=page.getByRole('region',{name:'Staff reporting chart',exact:true}),tools=page.getByRole('group',{name:'Staff reporting chart controls',exact:true});
+ await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toHaveText('You');
+ await tools.getByRole('button',{name:'Zoom out Staff reporting chart',exact:true}).click();
+ await tools.getByRole('button',{name:'Zoom out Staff reporting chart',exact:true}).click();
+ await expect(tools.locator('output')).toHaveText('70%');
+ await expect(chart.locator('.control-center-org-tree')).toHaveAttribute('data-density','compact');
+ await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toBeVisible();
+ await tools.getByRole('button',{name:'Find me',exact:true}).click();
+ await tools.getByRole('button',{name:'Reset view',exact:true}).click();
+ await expect(tools.locator('output')).toHaveText('100%');
+});
 test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
  await enter(page,['artists.read']);
  await page.route('**/assets/data/control-center/registry-index.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({tokens:[{id:'color-primary1',value:'#917c6f',category:'color',source:'registry/tokens/manifests/runtime-tokens.json'}],icons:[],motions:[{id:'close-control',description:'Close',source:'shared/close-button.css',category:'interaction'}]})}));

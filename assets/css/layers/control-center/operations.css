@@ -107,6 +107,13 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-person > [data-tree-branch] { border:0; background:transparent; font-size:var(--font-size-sm); }
 .control-center-tree-avatar { display:grid; place-items:center; inline-size:var(--control-height-lg); block-size:var(--control-height-lg); object-fit:cover; border-radius:var(--radius-circle); justify-self:center; background:var(--control-center-surface); }
 .control-center-person span { color:var(--text-secondary-color); }
+.control-center-chart-tools { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-sm); margin-block:var(--spacing-md); }
+.control-center-chart-tools button { display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+.control-center-chart-tools output { min-inline-size:var(--control-height-lg); text-align:center; font-variant-numeric:tabular-nums; }
+.control-center-org-tree[data-density=compact] .control-center-person > :is(details,span:not(.control-center-tree-you,[data-tree-role]),img,.control-center-tree-avatar) { display:none; }
+.control-center-org-tree .control-center-person[aria-current=true] { border-color:var(--status-success-color); }
+.control-center-person .control-center-tree-you { color:var(--status-success-color); display:inline-flex; justify-self:center; align-items:center; gap:var(--spacing-xs); font-size:var(--font-size-sm); }
+.control-center-tree-you::before { content:''; inline-size:var(--spacing-sm); block-size:var(--spacing-sm); border-radius:var(--radius-circle); background:currentColor; }
 .control-center-unit-directory { display:grid; gap:var(--spacing-xl); grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr)); }
 .control-center-unit-directory details { padding-block:var(--spacing-md); }
 .control-center-unit-directory details + details { border-block-start:var(--border-width-hairline) solid var(--control-center-border); }

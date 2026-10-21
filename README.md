@@ -74,6 +74,8 @@ Component references use `component:field/password`, `component:button/close` an
 
 Organization charts use native nested lists with connected top-down branches. Position templates remain separate from actual staff reporting assignments. Private photos are requested only for the current user; other staff photographs are not exposed by the directory. Branch controls support keyboard activation, and each chart supports horizontal keyboard/touch scrolling.
 
+Each reporting chart has bounded layout zoom, a 100% reset and a compact semantic view at 70% and below. Names, assigned roles, direct-report controls and the current-account marker remain visible. Find me opens collapsed ancestors before centering the verified staff node; it never infers an appointment from a matching role title or proposed template.
+
 ### Position Planning
 
 `scripts/build-roles.mjs` imports only public leadership role descriptions from the Neuroartan website into a sanitized snapshot; private personnel files are never deployed. Organization distinguishes position templates from actual staff appointments. Cross-brand adaptations, department/office heads and reporting links are proposed plans, not approved appointments or permissions. Authorized users may prepare a vacancy form from a template, but must review and save it explicitly; publication remains a separate audited action.
