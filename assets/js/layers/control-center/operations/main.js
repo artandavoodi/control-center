@@ -1,5 +1,8 @@
 import {createClient} from '@supabase/supabase-js';
 import config from '../../../../data/control-center/operations.json';
+import updateConfig from '../../../../data/control-center/update-actions.json';
+import {mountUpdates} from './updates.js';
+config.navigation=[...config.navigation,updateConfig.navigation];
 import {hasPermission,permittedNavigation} from './access.js';
 import {createAccess} from './auth.js';
 import {mountProfile} from './profile.js';
@@ -16,6 +19,7 @@ import {mountSettings} from './settings.js';
 import {mountHelp} from './help.js';
 import {startUsage,stopUsage} from './usage.js';
 import {showLoading,finishLoading} from './loading.js';
+import {setViewAccount,readView,writeView} from './view-state.js';
 const root=document.querySelector('[data-control-center-root]');
 if(location.protocol!=='https:'&&!['127.0.0.1','localhost'].includes(location.hostname)){
  root.textContent='Secure HTTPS access is required. Please return when the domain certificate is ready.';
@@ -38,6 +42,7 @@ async function loadAccess(){
  user=identity.data.user;const response=await client.from('control_center_staff').select('account_id,permissions,enabled,is_owner,display_name,department,office,manager_id,authority_level,unit_id').eq('account_id',user.id).maybeSingle();
  if(response.error)throw Error('Staff access could not be verified. Please try again.');
  staff=response.data;if(!staff?.enabled){await client.auth.signOut({scope:'local'});signin('This account has no active staff access. Ask the owner to assign permissions.');return;}
+ setViewAccount(user.id);
  const effective=await client.rpc('control_center_effective_permissions');if(effective.error)throw Error('Staff permissions could not be verified.');staff.permissions=effective.data||[];
  startUsage(user.id);
  await refreshRegistry();
@@ -46,13 +51,15 @@ async function loadAccess(){
  try{context=normalizeContext(JSON.parse(readWorkspacePreference('context','{}')),units,workspace);}catch{context=normalizeContext({},units,workspace);}
  if(!config.workspaces.some(group=>group.id===context.function))context.function='operations';
  panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';
+ const remembered=readView('navigation',null);if(remembered){const savedWorkspace=workspaces.find(item=>item.id===remembered.workspace),savedPanel=permittedNavigation(config,staff).find(item=>item.id===remembered.panel);if(savedWorkspace&&savedPanel&&(savedPanel.workspace!=='reviews'||savedWorkspace.workspace_key==='artanrecords')){workspace=savedWorkspace;context=normalizeContext(remembered.context||{},units,workspace);panel=savedPanel.id;}}
  const appearance=await client.from('control_center_profiles').select('appearance').eq('account_id',user.id).maybeSingle();if(appearance.data?.appearance)setTheme(appearance.data.appearance);await render();
 }
 async function render(){
  finishLoading();
  const turn=++revision,requestedAction=pendingAction;pendingAction='';const nav=permittedNavigation(config,staff).filter(item=>item.workspace!=='reviews'||workspace.workspace_key==='artanrecords');if(!nav.some(item=>item.id===panel))panel='overview';
  if(!nav.some(item=>item.workspace===context.function)){context.function='operations';}
- const navigate=(id,action='')=>{const item=nav.find(item=>item.id===id);if(!item)return;if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;pendingAction=action;render().catch(showError);};
+ writeView('navigation',{workspace:workspace.id,context,panel});
+ const navigate=(id,action='')=>{const item=permittedNavigation(config,staff).find(item=>item.id===id);if(!item)return;if(item.workspace==='reviews'){const records=workspaces.find(item=>item.workspace_key==='artanrecords');if(!records)return;workspace=records;context=normalizeContext({function:'reviews'},units,workspace);rememberWorkspace('workspace',workspace.id);}if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;pendingAction=action;render().catch(showError);};
  mountWorkspace({root,config,staff,user,client,nav,pickerNav:permittedNavigation(config,staff),panel,e,icon,workspaces,workspace,context,units,onContext:value=>{const selected=workspaces.find(item=>item.id===value.workspace);if(!selected)return;workspace=selected;context=normalizeContext(value,units,workspace);rememberWorkspace('workspace',workspace.id);rememberWorkspace('context',JSON.stringify(context));panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';render().catch(showError);},onNavigate:navigate,onSignout:async()=>{stopUsage();++revision;root.replaceChildren();await client.auth.signOut({scope:'local'});signin();}});
  const content=root.querySelector('[data-operation-content]');
  try{
@@ -68,6 +75,8 @@ async function render(){
    await mountDevelopment({content,workspace,e,isCurrent:()=>turn===revision});
   }else if(panel==='registry'){
    await mountRegistry({content,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
+  }else if(panel==='updates'){
+   await mountUpdates({content,client,staff,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
   }else if(panel==='documents'||panel==='vacancies'){
    await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){
@@ -78,6 +87,10 @@ async function render(){
    content.querySelectorAll('[data-review]').forEach(form=>form.addEventListener('submit',async event=>{event.preventDefault();const approve=event.submitter?.value==='approve';if(!window.confirm(approve?'Confirm this approval? The decision will be recorded.':'Confirm this decline? The decision will be recorded.'))return;form.inert=true;const args=handles?{artist:form.dataset.review,approve,message:form.elements.note.value}:{artist:form.dataset.review,tier:form.elements.tier.value,approve,note:form.elements.note.value};const result=await client.rpc(handles?'studio_review_username':'control_center_review_tier',args);if(result.error){form.inert=false;showError(Error('The decision was not saved. Your permissions or the request may have changed.'));return;}await render();}));
   }else if(panel==='audit'){
    const response=await client.from('control_center_artist_audit').select('id,actor_id,artist_id,action,details,created_at').eq('workspace_id',workspace.id).order('created_at',{ascending:false}).limit(100);if(response.error)throw Error('Decision history could not be loaded.');if(turn!==revision)return;content.innerHTML=response.data.length?response.data.map(row=>`<article class="control-center-review"><h3>${e(row.action.replaceAll('.',' / ').replaceAll('-',' '))}</h3><p>${e(new Date(row.created_at).toLocaleString())} · ${e(row.actor_id)}</p><details><summary>Decision details</summary><dl>${Object.entries(row.details).map(([key,value])=>`<dt>${e(key.replaceAll('_',' '))}</dt><dd>${e(typeof value==='object'?JSON.stringify(value):value)}</dd>`).join('')}</dl></details></article>`).join(''):'<p>No decisions recorded in this brand workspace yet.</p>';
+  }
+  if(turn===revision&&staff.is_owner&&['overview','registry'].includes(panel)){
+   const actions=document.createElement('div');actions.className='control-center-update-primary';
+   for(const [action,label] of Object.entries(updateConfig.primary).filter(([key])=>key!=='overview')){const button=document.createElement('button');button.type='button';button.innerHTML=icon(updateConfig.navigation.icon)+e(label);button.addEventListener('click',()=>navigate('updates',action));actions.append(button);}content.prepend(actions);
   }
   if(turn===revision&&['overview','usernames','applications'].includes(panel)&&workspace.workspace_key==='artanrecords'&&hasPermission(staff,'artists.read')){
    const queues=await Promise.all(config.reviewQueues.map(async queue=>{if(!queue.table)return queue;const result=await client.from(queue.table).select('account_id',{count:'exact',head:true}).eq('status','pending');if(result.error)throw Error('Review totals could not be loaded.');return {...queue,count:result.count||0};}));

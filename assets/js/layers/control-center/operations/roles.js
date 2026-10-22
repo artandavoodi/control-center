@@ -1,5 +1,6 @@
 import source from '../../../../data/control-center/roles.json' with {type:'json'};
 import controls from '../../../../data/control-center/chart-controls.json' with {type:'json'};
+import {mountChartConnectors} from './chart-connectors.js';
 const departments={
  'chief-brand-aesthetic-officer':'Brand','chief-communications-officer':'Communication',
  'chief-risk-ethics-officer':'Governance','general-counsel':'Governance','corporate-secretary':'Governance',
@@ -22,6 +23,12 @@ export function roleBlueprint(workspace,units){
 export function positionAssignments(roles,rows){
  const assigned=new Map();for(const role of roles){const matches=rows.filter(row=>row.enabled&&(role.id.endsWith(':chief-executive-officer')?row.is_owner:role.unit&&row.unit_id===role.unit&&row.authority_level===(role.level==='department'?'department_manager':'office_manager')));if(matches.length===1)assigned.set(role.id,matches[0]);}return assigned;
 }
+export function mergeStaffPositions(roles,rows){
+ const result=roles.map(role=>({...role})),assignments=positionAssignments(result,rows),byAccount=new Map([...assignments].map(([id,person])=>[person.account_id,id]));
+ for(const person of rows.filter(person=>person.enabled&&!byAccount.has(person.account_id))){const id='staff:'+person.account_id;byAccount.set(person.account_id,id);assignments.set(id,person);result.push({id,title:person.authority_level.replaceAll('_',' '),parent:null,level:'staff',unit:person.unit_id,summary:'Assigned staff position. Permissions remain managed separately.',proposed:false});}
+ for(const [id,person] of assignments){const role=result.find(role=>role.id===id);if(person.manager_id&&byAccount.has(person.manager_id)&&byAccount.get(person.manager_id)!==id)role.parent=byAccount.get(person.manager_id);}
+ return {roles:result,assignments};
+}
 export function renderRoleBlueprint(roles,e,canDraft,assignments=new Map(),currentId=''){
  function branch(role,seen=new Set()){
   if(seen.has(role.id))return '';const next=new Set([...seen,role.id]),children=roles.filter(item=>item.parent===role.id);
@@ -34,6 +41,7 @@ export function mountTreeBranches(root,{icon=()=>''}={}){
  root.querySelectorAll('[data-tree-branch]').forEach(button=>button.addEventListener('click',()=>{const children=button.closest('li').querySelector(':scope > ol');if(!children)return;children.hidden=!children.hidden;button.setAttribute('aria-expanded',String(!children.hidden));}));
  root.querySelectorAll('.control-center-tree-viewport').forEach(view=>{
   const chart=view.querySelector('.control-center-org-tree'),name=view.getAttribute('aria-label');let level=4;
+  const updateEdges=mountChartConnectors(view);
   chart.querySelectorAll('li > ol > li').forEach(item=>{const manager=item.parentElement.closest('li')?.querySelector(':scope > article'),card=item.querySelector(':scope > article');if(!manager||!card)return;const label=document.createElement('span');label.className='control-center-tree-parent';label.textContent='Reports to '+(manager.querySelector('[data-tree-role]')||manager.querySelector('strong')).textContent;card.append(label);});
   const steps=[.4,.55,.7,.85,1,1.15,1.3];
   const toolbar=document.createElement('div');toolbar.className='control-center-chart-tools';toolbar.setAttribute('role','group');toolbar.setAttribute('aria-label',name+' controls');
@@ -44,6 +52,6 @@ export function mountTreeBranches(root,{icon=()=>''}={}){
   toolbar.querySelector('[data-zoom-out]').addEventListener('click',()=>update(level-1));toolbar.querySelector('[data-zoom-in]').addEventListener('click',()=>update(level+1));toolbar.querySelector('[data-zoom-reset]').addEventListener('click',()=>{update(4);locate();});
   toolbar.querySelector('[data-find-me]')?.addEventListener('click',()=>{const current=chart.querySelector('[aria-current=true]');for(let parent=current?.closest('li')?.parentElement;parent&&parent!==chart;parent=parent.parentElement){if(parent.tagName==='OL'){parent.hidden=false;parent.parentElement.querySelector(':scope > article [data-tree-branch]')?.setAttribute('aria-expanded','true');}}locate();});
   const current=chart.querySelector('[aria-current=true]');if(current){const badge=document.createElement('span');badge.className='control-center-tree-you';badge.setAttribute('role','img');badge.setAttribute('aria-label','Your position');badge.title='Your position';(current.querySelector('[data-tree-role]')||current).prepend(badge);}
-  requestAnimationFrame(()=>{if(view.isConnected)locate();});
+  view.addEventListener('click',updateEdges);view.addEventListener('toggle',updateEdges,true);requestAnimationFrame(()=>{if(view.isConnected){locate();updateEdges();}});
  });
 }

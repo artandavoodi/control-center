@@ -1,5 +1,6 @@
 import {assetUrl} from './assets.js';
 import {mountComponentPreview} from './component-previews.js';
+import {readView,writeView} from './view-state.js';
 export function registryReference(kind,row){return row.preview?'component:'+row.id:kind==='icons'?'icon:'+row.id:kind==='motions'&&!Object.hasOwn(row,'value')?'motion:'+row.id:'token:--'+row.id;}
 export function registryMatches(row,query){return (row.id+' '+(row.value||'')+' '+(row.tags||[]).join(' ')).toLowerCase().includes(query.toLowerCase());}
 export const registryKinds={tokens:'Tokens',icons:'Icons',colors:'Colors',typography:'Typography',fields:'Fields',buttons:'Buttons',selection:'Selection controls',dimensions:'Size & shape',motions:'Motion & interaction'};
@@ -7,13 +8,14 @@ export async function loadRegistry(){const response=await fetch(assetUrl('/asset
 export async function mountRegistry({content,e,icon,isCurrent,action}){
  const registry=await loadRegistry();if(!isCurrent())return;
  content.innerHTML='<p>All brands share these canonical sources. Copy an ID to identify the exact source across the ecosystem.</p><div class="control-center-settings-tabs" role="group" aria-label="Registry categories">'+Object.entries(registryKinds).map(([kind,label])=>`<button type="button" data-registry-kind="${kind}" aria-pressed="false">${label}</button>`).join('')+'</div><label>Find a registered source<input type="search" data-registry-search autocomplete="off" placeholder="Name, ID, tag or value"></label><label>Filter category<select data-registry-category><option value="">All categories</option></select></label><p role="status" aria-live="polite"></p><div data-registry-results></div><button type="button" data-registry-more>Show more sources</button>';
- let kind=Object.hasOwn(registryKinds,action)?action:'tokens',limit=50;
+ const saved=readView('registry',{});let kind=Object.hasOwn(registryKinds,action)?action:Object.hasOwn(registryKinds,saved.kind)?saved.kind:'tokens',limit=50;
  const artworkLabel=document.createElement('label');artworkLabel.textContent='Artwork status';artworkLabel.innerHTML+='<select data-artwork-filter><option value="">All icons</option><option value="available">Available vectors only</option><option value="needed">Registered slots awaiting artwork</option></select>';content.querySelector('[role=status]').before(artworkLabel);const artworkFilter=artworkLabel.querySelector('select');
  const output=content.querySelector('[data-registry-results]'),field=content.querySelector('input'),more=content.querySelector('[data-registry-more]'),category=content.querySelector('select'),status=content.querySelector('[role=status]');
  const copy=(value,label)=>`<div class="control-center-registry-copy"><code>${e(value)}</code><button type="button" data-copy="${e(value)}" aria-label="Copy ${e(label)}">${icon('core/actions/copy/copy.svg')}</button></div>`;
  function sourceRows(){return ['fields','buttons','selection'].includes(kind)?(registry.components||[]).filter(row=>row.category===kind):kind==='dimensions'?registry.tokens.filter(row=>row.category==='dimensions'):kind==='motions'?[...(registry.motions||[]),...registry.tokens.filter(row=>row.category==='motion')]:kind==='colors'?registry.tokens.filter(row=>row.category==='color'):kind==='typography'?registry.tokens.filter(row=>row.category==='typography'):registry[kind];}
  function categories(){const values=[...new Set(sourceRows().map(row=>row.category||row.id.split('/')[0]))].sort();category.innerHTML='<option value="">All categories</option>'+values.map(value=>`<option>${e(value)}</option>`).join('');}
  function draw(){
+  writeView('registry',{kind,query:field.value,category:category.value,artwork:artworkFilter.value});
   artworkLabel.hidden=kind!=='icons';
   const query=field.value.trim().toLowerCase(),rows=sourceRows().filter(row=>(registryMatches(row,query)||registryReference(kind,row).toLowerCase().includes(query))&&(!category.value||(row.category||row.id.split('/')[0])===category.value)&&(kind!=='icons'||!artworkFilter.value||row.hasArtwork===(artworkFilter.value==='available')));
   status.textContent=rows.length+' registered '+kind;
@@ -32,5 +34,5 @@ export async function mountRegistry({content,e,icon,isCurrent,action}){
   });more.hidden=limit>=rows.length;
  }
  output.addEventListener('click',async event=>{const button=event.target.closest('[data-copy]');if(!button)return;try{await navigator.clipboard.writeText(button.dataset.copy);if(isCurrent())status.textContent='Copied '+button.dataset.copy;}catch{if(isCurrent())status.textContent='Copy unavailable. Select the ID or source path to copy manually.';}});
- artworkFilter.addEventListener('change',()=>{limit=50;draw();});field.addEventListener('input',()=>{limit=50;draw();});category.addEventListener('change',()=>{limit=50;draw();});more.addEventListener('click',()=>{limit+=50;draw();});content.querySelectorAll('[data-registry-kind]').forEach(button=>button.addEventListener('click',()=>{kind=button.dataset.registryKind;limit=50;categories();draw();}));categories();draw();
+ artworkFilter.addEventListener('change',()=>{limit=50;draw();});field.addEventListener('input',()=>{limit=50;draw();});category.addEventListener('change',()=>{limit=50;draw();});more.addEventListener('click',()=>{limit+=50;draw();});content.querySelectorAll('[data-registry-kind]').forEach(button=>button.addEventListener('click',()=>{kind=button.dataset.registryKind;limit=50;categories();draw();}));categories();if(!action){field.value=typeof saved.query==='string'?saved.query:'';category.value=saved.category||'';artworkFilter.value=saved.artwork||'';}draw();
 }

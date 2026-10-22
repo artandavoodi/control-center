@@ -1,10 +1,12 @@
 import {mountThemeControls} from './theme.js';
 import {mountProfile} from './profile.js';
+import {readView,writeView} from './view-state.js';
 export function mountSettings(context){
  const {content,onTheme,onReset,user,e}=context;
  content.innerHTML='<section class="control-center-profile"><nav class="control-center-settings-tabs" aria-label="Personal settings"><button type="button" data-setting="appearance" aria-pressed="true">Appearance</button><button type="button" data-setting="details" aria-pressed="false">Personal details</button><button type="button" data-setting="security" aria-pressed="false">Security</button></nav><div data-setting-content></div></section>';
  const pane=content.querySelector('[data-setting-content]');let revision=0;
  function show(category){
+  writeView('settings',category);
   const turn=++revision;
   content.querySelectorAll('[data-setting]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.setting===category)));
   if(category==='appearance'){
@@ -18,5 +20,5 @@ export function mountSettings(context){
    mountProfile({...context,content:pane,isCurrent:()=>context.isCurrent()&&turn===revision}).catch(()=>{if(turn===revision)pane.textContent='Your personal details could not be loaded. Please try again.';});
   }
  }
- content.querySelectorAll('[data-setting]').forEach(button=>button.addEventListener('click',()=>show(button.dataset.setting)));show('appearance');
+ content.querySelectorAll('[data-setting]').forEach(button=>button.addEventListener('click',()=>show(button.dataset.setting)));const saved=readView('settings','appearance');show(['appearance','details','security'].includes(saved)?saved:'appearance');
 }

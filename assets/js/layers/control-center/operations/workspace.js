@@ -1,6 +1,7 @@
 import {mountAccountMenu} from './account-menu.js';
 import {mountContextPicker} from './context.js';
 import {mountSearch} from './search.js';
+import {mountNotifications} from './notifications.js';
 import './shared/close-button.js';
 import {assetUrl} from './assets.js';
 export function readWorkspacePreference(key,fallback){try{return localStorage.getItem('control-center.'+key)||fallback;}catch{return fallback;}}
@@ -16,6 +17,7 @@ export function mountWorkspace({root,config,staff,user,client,nav,pickerNav=nav,
  root.querySelector('[data-rail-toggle]').setAttribute('aria-controls','workspace-navigation');
  mountContextPicker({root,config,nav:pickerNav,workspaces,workspace,context,units,e,icon,onApply:onContext});
  mountSearch({root,config,client,staff,nav,workspace,context,units,e,icon,onNavigate});
+ mountNotifications({root,client,config,nav:pickerNav,workspaces,e,icon,onNavigate});
  mountAccountMenu({root,client,user,staff,config,e,icon,onNavigate,onSignout});
  window.NeuroartanCloseButtons.initCloseButtonPrimitive(root);
  root.querySelector('[data-rail-toggle]').addEventListener('click',event=>{const shell=root.querySelector('[data-rail]'),closed=shell.dataset.rail==='open';shell.dataset.rail=closed?'closed':'open';event.currentTarget.setAttribute('aria-expanded',String(!closed));rememberWorkspace('rail',closed?'closed':'open');});

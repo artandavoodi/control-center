@@ -41,6 +41,30 @@ async function chooseContext(page,{function:mode,brand,department,office}={}){
  if(office)await dialog.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
 }
+test('owner update shortcuts show full scope and avatar stays square',async({page})=>{
+ await backend(page,['artists.read'],{owner:true});
+ await page.route('**/api/updates/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({layers:[{id:'control-center',domains:[]},{id:'store',domains:['store.artandavoodi.com']}],unconfiguredDomains:[],documents:[{id:'00',title:'All',methods:['publish','plan','check']},{id:'11',title:'Icons',methods:['publish','registry']}],jobs:[]})}));
+ await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Update All',exact:true})).toBeVisible();
+ const avatar=page.getByRole('button',{name:'Account menu',exact:true});
+ const dimensions=await avatar.evaluate(element=>{const box=element.getBoundingClientRect(),style=getComputedStyle(element);return {width:box.width,height:box.height,padding:style.padding};});
+ expect(dimensions.width).toBe(dimensions.height);expect(dimensions.padding).toBe('0px');
+ await page.getByRole('button',{name:'Update All',exact:true}).click();
+ await expect(page.getByText('Update All covers 2 registered layers',{exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Synchronize, verify & publish',exact:true})).toHaveCount(2);
+ await expect(page.getByRole('button',{name:'Inspect scope',exact:true})).toBeVisible();
+ await page.screenshot({path:test.info().outputPath('update-actions.png')});
+});
+test('notifications route pending requests through permitted review screens',async({page})=>{
+ await backend(page,['artists.read','usernames.review'],{owner:true});
+ await page.route('https://hahtbepdrjkjluhespbs.supabase.co/rest/v1/studio_artist_handles*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([{account_id:id,requested_username:'artistrequest',status:'pending',notice:'Awaiting review',updated_at:'2026-10-22T10:00:00Z'}])}));
+ await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
+ await page.getByRole('button',{name:'Notifications, 1 pending',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(dialog).toBeVisible();
+ await dialog.getByRole('button',{name:'artistrequest Pending usernames'}).click();
+ await expect(page.getByRole('heading',{name:'Username reviews',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'artistrequest',exact:true})).toBeVisible();
+});
 test('an ordinary account does not enter the staff console',async({page})=>{
  await backend(page,null);await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page.getByRole('status')).toContainText('no active staff access');await expect(page.getByRole('navigation',{name:'Operations'})).toHaveCount(0);
 });
@@ -87,7 +111,7 @@ test('organization actions expose permissions only for authorized managers',asyn
  await enter(page,['staff.manage','departments.manage','offices.manage'],{owner:true});await page.getByRole('button',{name:'Organization',exact:true}).click();await page.getByRole('button',{name:'Add staff member',exact:true}).click();await expect(page.getByRole('group',{name:'Permissions',exact:true})).toBeVisible();await page.getByRole('button',{name:'Add office',exact:true}).click();await expect(page.locator('[data-unit-create] [name=kind]')).toHaveValue('office');await expect(page.locator('[data-unit-create] [name=parent] option')).toHaveCount(1);await expect(page.locator('[data-unit-create] [name=parent]')).toHaveValue(department);expect(await page.locator('[data-unit-create] select').first().evaluate(el=>getComputedStyle(el).appearance)).toBe('none');
 });
 test('review-only staff cannot open management actions',async({page})=>{
- await enter(page,['artists.read']);await page.getByRole('button',{name:'Organization',exact:true}).click();await expect(page.getByRole('heading',{name:'Reporting structure',exact:true})).toBeVisible();await expect(page.getByRole('navigation',{name:'Organization management',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Add staff member',exact:true})).toHaveCount(0);
+ await enter(page,['artists.read']);await page.getByRole('button',{name:'Organization',exact:true}).click();await expect(page.getByRole('heading',{name:'Positions & reporting plan',exact:true})).toBeVisible();await expect(page.getByRole('navigation',{name:'Organization management',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Add staff member',exact:true})).toHaveCount(0);
 });
 test('development feed deduplicates commit identities and reports protected sources',async({page})=>{
  await page.route('https://api.github.com/repos/**',async route=>{const url=new URL(route.request().url());if(url.pathname.includes('/artanrecords/')){await route.fulfill({status:404,body:'{}'});return;}const commit={sha:'a'.repeat(40),commit:{message:'[website/test] sample change',committer:{date:'2026-10-21T00:00:00Z'}}};await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([commit,commit])});});await enter(page,['artists.read']);await page.getByRole('button',{name:'Development history',exact:true}).click();await expect(page.getByText('artanrecords: Private or unavailable — connector required.',{exact:true})).toBeVisible();await expect(page.locator('[data-commit="control-center:'+ 'a'.repeat(40)+'"]')).toHaveCount(1);await page.getByRole('button',{name:'Load more changes'}).click();await expect(page.locator('[data-commit="control-center:'+ 'a'.repeat(40)+'"]')).toHaveCount(1);
@@ -169,10 +193,11 @@ test('registered component previews expose stable IDs and functional selection c
 });
 test('chart zoom simplifies details and keeps the signed-in staff assignment identifiable',async({page})=>{
  await enter(page,['artists.read'],{owner:true});await page.getByRole('button',{name:'Organization',exact:true}).click();
- const chart=page.getByRole('region',{name:'Staff reporting chart',exact:true}),tools=page.getByRole('group',{name:'Staff reporting chart controls',exact:true});
+ const chart=page.getByRole('region',{name:'Position reporting chart',exact:true}),tools=page.getByRole('group',{name:'Position reporting chart controls',exact:true});
+ await expect(page.getByRole('heading',{name:'Reporting structure',exact:true})).toHaveCount(0);
  await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toHaveAttribute('aria-label','Your position');
- await tools.getByRole('button',{name:'Zoom out Staff reporting chart',exact:true}).click();
- await tools.getByRole('button',{name:'Zoom out Staff reporting chart',exact:true}).click();
+ await tools.getByRole('button',{name:'Zoom out Position reporting chart',exact:true}).click();
+ await tools.getByRole('button',{name:'Zoom out Position reporting chart',exact:true}).click();
  await expect(tools.locator('output')).toHaveText('70%');
  await expect(chart.locator('.control-center-org-tree')).toHaveAttribute('data-density','compact');
  await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toBeVisible();

@@ -82493,7 +82493,7 @@
       ],
       "category": "core/actions",
       "hasArtwork": true,
-      "sha256": "ff2bec5b77707d0b231dabaaefff61f81998b988be00c14a56a32ce74d780495"
+      "sha256": "753d41bc81c41dcbe94c87edb6d9138e12895518f82b266267749f5e1e242f3e"
     },
     {
       "id": "core/actions/agent-thread-list/agent-thread-list",
@@ -82685,7 +82685,7 @@
       ],
       "category": "core/actions",
       "hasArtwork": true,
-      "sha256": "57ee1144084809537fdc8a4130eb8d6f928185d5a2732de17b38677ae6105693"
+      "sha256": "5eb410920a0ee852ac4b888035a2d68c4fc893b24be902cde419e793c6d69720"
     },
     {
       "id": "core/actions/change-password/change-password",
@@ -89333,7 +89333,7 @@
       ],
       "category": "core/navigation",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57"
+      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c"
     },
     {
       "id": "core/navigation/layout/grid",
@@ -89348,7 +89348,7 @@
       ],
       "category": "core/navigation",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57"
+      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c"
     },
     {
       "id": "core/navigation/layout/list",
@@ -89406,7 +89406,7 @@
       ],
       "category": "core/navigation",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57"
+      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c"
     },
     {
       "id": "core/navigation/location/map",

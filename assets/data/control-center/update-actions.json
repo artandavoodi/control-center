@@ -1,0 +1,6 @@
+{
+ "navigation":{"id":"updates","workspace":"administration","label":"Updates & synchronization","description":"Run registered update procedures through the trusted local service.","ownerOnly":true,"icon":"core/actions/reset/reset.svg"},
+ "primary":{"all":"Update All","registry":"Synchronize & publish icons","overview":"Updates & synchronization"},
+ "methods":{"plan":"Inspect scope","check":"Verify only","registry":"Synchronize only","publish":"Synchronize, verify & publish"},
+ "notice":"Owner-only local execution. The live website needs a separately hosted trusted runner. No browser shell commands, passwords or service-role credentials are used. Publication commits and pushes reviewed working changes in the selected repositories and registered dependencies."
+}

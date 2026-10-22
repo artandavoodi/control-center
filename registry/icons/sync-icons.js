@@ -20,7 +20,7 @@ console.log(
 );
 
 const registryState =
-  iconCompiler.load();
+  iconCompiler.load({cleanDuplicates:false});
 
 console.log(
   `Loaded ${registryState.totalIcons} icons.`
