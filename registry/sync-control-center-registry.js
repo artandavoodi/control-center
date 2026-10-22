@@ -4,8 +4,10 @@ import {iconCompiler} from './icons/compiler/icon-compiler.js';
 import {publicIconExporter} from './icons/exporters/public/public-icon-exporter.js';
 import {runtimeIconExporter} from './icons/exporters/runtime/runtime-icon-exporter.js';
 import {swiftIconExporter} from './icons/exporters/swift/swift-icon-exporter.js';
+import {execFileSync} from 'node:child_process';
 const icons=iconCompiler.load({cleanDuplicates:false});
 // Export preflights every registered mirror before the first icon is replaced.
 const mirrors=publicIconExporter.export();
 const tokens=syncTokens();
 console.log('[Control Center Registry Synchronized]',{icons:icons.totalIcons,mirrors,tokens:tokens.tokens,runtime:runtimeIconExporter.export(),swift:swiftIconExporter.export()});
+execFileSync(process.execPath,['scripts/build-registry.mjs'],{stdio:'inherit'});

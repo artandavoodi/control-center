@@ -1,10 +1,18 @@
-import {readFile} from 'node:fs/promises';
+import {readFile,access} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 const root=new URL('../',import.meta.url);
 export async function collectIconUsage(icons){
  const config=JSON.parse(await readFile(new URL('assets/data/control-center/icon-usage.json',root),'utf8'));
+ let complete=true;for(const brand of config.brands){try{await access(new URL(brand.repository+'/.git',root));}catch{complete=false;}}
+ if(!complete){
+  const snapshot=JSON.parse(await readFile(new URL('assets/data/control-center/registry-index.json',root),'utf8'));
+  const previous=new Map(snapshot.icons.map(icon=>[icon.id,icon]));
+  for(const icon of icons){const old=previous.get(icon.id);if(old?.sha256!==icon.sha256)throw Error('Usage snapshot needs a canonical local rebuild: '+icon.id);icon.brands=old.brands||[];icon.usage=old.usage||[];}
+  console.log('Verified committed icon-usage snapshot; other brand repositories are not available in this checkout.');
+  return config.brands.map(({id,label})=>({id,label}));
+ }
  const hashes=new Map();for(const icon of icons){const matches=hashes.get(icon.sha256)||[];matches.push(icon);hashes.set(icon.sha256,matches);icon.brands=[];icon.usage=[];}
  for(const brand of config.brands){
   const repository=new URL(brand.repository+'/',root),directory=decodeURIComponent(repository.pathname);

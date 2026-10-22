@@ -1,10 +1,15 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
+import {mkdtemp,writeFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
 import {createUpdateService,verifyUpdateOwner,redactUpdateOutput,updateCatalogue} from './update-service.mjs';
 
-test('manual catalogue has one full publish action per document and read-only inspection',async()=>{
- const docs=await updateCatalogue();assert.equal(docs.length,19);
+test('manual catalogue has one full publish action per document and read-only inspection',async t=>{
+ const directory=await mkdtemp(path.join(tmpdir(),'control-update-catalogue-'));t.after(()=>rm(directory,{recursive:true,force:true}));
+ for(let index=0;index<19;index++){const scope=index===11?' --only registry-consumers':'';await writeFile(path.join(directory,String(index).padStart(2,'0')+' - UPDATE.md'),'node "$HOME/runtime/update.mjs" publish'+scope+'\nnode "$HOME/runtime/update.mjs" publish'+scope);}
+ const docs=await updateCatalogue(directory);assert.equal(docs.length,19);
  for(const doc of docs){assert.equal(doc.actions.filter(a=>a.method==='publish').length,1);assert.ok(doc.actions.some(a=>a.method==='plan'));assert.ok(doc.actions.some(a=>a.method==='check'));}
  assert.deepEqual(docs.find(doc=>doc.id==='00').actions.find(a=>a.method==='publish').args,['publish']);
  assert.deepEqual(docs.find(doc=>doc.id==='11').actions.find(a=>a.method==='registry').args,['registry']);
