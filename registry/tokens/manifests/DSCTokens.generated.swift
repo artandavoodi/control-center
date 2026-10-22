@@ -3434,6 +3434,32 @@ enum DSCTokens {
     "data-state-negative-bg": "var(--feedback-error-bg)",
     "data-state-neutral-bg": "var(--feedback-neutral-bg)",
     "data-state-info-bg": "var(--feedback-info-bg)",
+    "profile-media-editor-z-index": "var(--z-language-dropdown)",
+    "profile-media-editor-dialog-width": "min(34rem, var(--site-rail-width))",
+    "profile-media-editor-cover-dialog-width": "min(var(--site-rail-width), calc(100vw - (var(--site-shell-inline-padding) * 2)))",
+    "profile-media-editor-dialog-radius": "var(--dialog-overlay-radius)",
+    "profile-media-editor-dialog-padding": "var(--spacing-lg)",
+    "profile-media-editor-backdrop-bg": "var(--glass-overlay-backdrop-bg)",
+    "profile-media-editor-backdrop-blur": "var(--glass-overlay-backdrop-blur)",
+    "profile-media-editor-shell-bg": "var(--glass-overlay-shell-bg)",
+    "profile-media-editor-shell-blur": "var(--glass-overlay-shell-blur)",
+    "profile-media-editor-preview-size": "calc(13rem * var(--accessibility-density-scale))",
+    "profile-media-editor-icon-size": "var(--layout-home-platform-nav-icon-size)",
+    "profile-media-editor-cover-preview-height": "var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))",
+    "profile-media-editor-avatar-radius": "var(--control-radius-pill)",
+    "profile-media-editor-cover-radius": "var(--shape-card-radius)",
+    "profile-media-editor-status-min-height": "var(--body-3-line-height)",
+    "profile-media-editor-preview-bg": "var(--color-primary1)",
+    "profile-media-editor-control-bg": "var(--control-surface)",
+    "profile-media-editor-control-bg-hover": "var(--control-surface-hover)",
+    "profile-media-editor-control-border": "var(--control-border-unified)",
+    "profile-media-editor-control-border-hover": "var(--control-border-hover-unified)",
+    "profile-media-editor-control-active-bg": "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))",
+    "profile-media-editor-control-active-border": "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))",
+    "profile-media-editor-guide-color": "color-mix(in srgb, var(--text-primary-color) 42%, transparent)",
+    "profile-media-editor-guide-center-color": "color-mix(in srgb, var(--color-primary1) 54%, transparent)",
+    "profile-portrait-size": "calc(var(--control-height-lg) * 2)",
+    "profile-portrait-header-overlap": "calc(var(--profile-portrait-size) / 3)",
     "editor-surface-bg": "var(--surface-primary, var(--bg-color))",
     "editor-surface-bg-muted": "color-mix(in srgb, var(--text-primary-color) 3%, transparent)",
     "editor-surface-bg-hover": "var(--hover-bg-subtle)",
@@ -9650,6 +9676,32 @@ enum DSCTokens {
   static let data_state_negative_bg = "var(--feedback-error-bg)"
   static let data_state_neutral_bg = "var(--feedback-neutral-bg)"
   static let data_state_info_bg = "var(--feedback-info-bg)"
+  static let profile_media_editor_z_index = "var(--z-language-dropdown)"
+  static let profile_media_editor_dialog_width = "min(34rem, var(--site-rail-width))"
+  static let profile_media_editor_cover_dialog_width = "min(var(--site-rail-width), calc(100vw - (var(--site-shell-inline-padding) * 2)))"
+  static let profile_media_editor_dialog_radius = "var(--dialog-overlay-radius)"
+  static let profile_media_editor_dialog_padding = "var(--spacing-lg)"
+  static let profile_media_editor_backdrop_bg = "var(--glass-overlay-backdrop-bg)"
+  static let profile_media_editor_backdrop_blur = "var(--glass-overlay-backdrop-blur)"
+  static let profile_media_editor_shell_bg = "var(--glass-overlay-shell-bg)"
+  static let profile_media_editor_shell_blur = "var(--glass-overlay-shell-blur)"
+  static let profile_media_editor_preview_size = "calc(13rem * var(--accessibility-density-scale))"
+  static let profile_media_editor_icon_size = "var(--layout-home-platform-nav-icon-size)"
+  static let profile_media_editor_cover_preview_height = "var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))"
+  static let profile_media_editor_avatar_radius = "var(--control-radius-pill)"
+  static let profile_media_editor_cover_radius = "var(--shape-card-radius)"
+  static let profile_media_editor_status_min_height = "var(--body-3-line-height)"
+  static let profile_media_editor_preview_bg = "var(--color-primary1)"
+  static let profile_media_editor_control_bg = "var(--control-surface)"
+  static let profile_media_editor_control_bg_hover = "var(--control-surface-hover)"
+  static let profile_media_editor_control_border = "var(--control-border-unified)"
+  static let profile_media_editor_control_border_hover = "var(--control-border-hover-unified)"
+  static let profile_media_editor_control_active_bg = "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))"
+  static let profile_media_editor_control_active_border = "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))"
+  static let profile_media_editor_guide_color = "color-mix(in srgb, var(--text-primary-color) 42%, transparent)"
+  static let profile_media_editor_guide_center_color = "color-mix(in srgb, var(--color-primary1) 54%, transparent)"
+  static let profile_portrait_size = "calc(var(--control-height-lg) * 2)"
+  static let profile_portrait_header_overlap = "calc(var(--profile-portrait-size) / 3)"
   static let editor_surface_bg = "var(--surface-primary, var(--bg-color))"
   static let editor_surface_bg_muted = "color-mix(in srgb, var(--text-primary-color) 3%, transparent)"
   static let editor_surface_bg_hover = "var(--hover-bg-subtle)"

@@ -44016,6 +44016,349 @@
       "source": "registry/tokens/manifests/runtime-tokens.json"
     },
     {
+      "id": "profile-media-editor-z-index",
+      "value": "var(--z-language-dropdown)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "z",
+        "index"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-dialog-width",
+      "value": "min(34rem, var(--site-rail-width))",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "dialog",
+        "width"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-cover-dialog-width",
+      "value": "min(var(--site-rail-width), calc(100vw - (var(--site-shell-inline-padding) * 2)))",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "cover",
+        "dialog",
+        "width"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-dialog-radius",
+      "value": "var(--dialog-overlay-radius)",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "dialog",
+        "radius"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-dialog-padding",
+      "value": "var(--spacing-lg)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "dialog",
+        "padding"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-backdrop-bg",
+      "value": "var(--glass-overlay-backdrop-bg)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "backdrop",
+        "bg"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-backdrop-blur",
+      "value": "var(--glass-overlay-backdrop-blur)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "backdrop",
+        "blur"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-shell-bg",
+      "value": "var(--glass-overlay-shell-bg)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "shell",
+        "bg"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-shell-blur",
+      "value": "var(--glass-overlay-shell-blur)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "shell",
+        "blur"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-preview-size",
+      "value": "calc(13rem * var(--accessibility-density-scale))",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "preview",
+        "size"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-icon-size",
+      "value": "var(--layout-home-platform-nav-icon-size)",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "icon",
+        "size"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-cover-preview-height",
+      "value": "var(--profile-private-hero-cover-height, calc(13.5rem * var(--accessibility-density-scale)))",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "cover",
+        "preview",
+        "height"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-avatar-radius",
+      "value": "var(--control-radius-pill)",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "avatar",
+        "radius"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-cover-radius",
+      "value": "var(--shape-card-radius)",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "cover",
+        "radius"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-status-min-height",
+      "value": "var(--body-3-line-height)",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "status",
+        "min",
+        "height"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-preview-bg",
+      "value": "var(--color-primary1)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "preview",
+        "bg"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-control-bg",
+      "value": "var(--control-surface)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "control",
+        "bg"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-control-bg-hover",
+      "value": "var(--control-surface-hover)",
+      "category": "motion",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "control",
+        "bg",
+        "hover"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-control-border",
+      "value": "var(--control-border-unified)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "control",
+        "border"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-control-border-hover",
+      "value": "var(--control-border-hover-unified)",
+      "category": "motion",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "control",
+        "border",
+        "hover"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-control-active-bg",
+      "value": "color-mix(in srgb, var(--color-primary1) 16%, var(--control-surface))",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "control",
+        "active",
+        "bg"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-control-active-border",
+      "value": "color-mix(in srgb, var(--color-primary1) 58%, var(--control-border-unified))",
+      "category": "other",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "control",
+        "active",
+        "border"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-guide-color",
+      "value": "color-mix(in srgb, var(--text-primary-color) 42%, transparent)",
+      "category": "color",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "guide",
+        "color"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-media-editor-guide-center-color",
+      "value": "color-mix(in srgb, var(--color-primary1) 54%, transparent)",
+      "category": "color",
+      "tags": [
+        "profile",
+        "media",
+        "editor",
+        "guide",
+        "center",
+        "color"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-portrait-size",
+      "value": "calc(var(--control-height-lg) * 2)",
+      "category": "dimensions",
+      "tags": [
+        "profile",
+        "portrait",
+        "size"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
+      "id": "profile-portrait-header-overlap",
+      "value": "calc(var(--profile-portrait-size) / 3)",
+      "category": "other",
+      "tags": [
+        "profile",
+        "portrait",
+        "header",
+        "overlap"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json"
+    },
+    {
       "id": "editor-surface-bg",
       "value": "var(--surface-primary, var(--bg-color))",
       "category": "color",
@@ -83566,13 +83909,21 @@
       "hasArtwork": true,
       "sha256": "2e05841554c718ee4101dbc461fe9ce0a74409916f13a8d68a2118b6c61005d6",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/fragments/layers/website/profile/private/media/profile-media-editor.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "app/platform-manifest.json"
           ]
         }
       ]
@@ -85099,13 +85450,21 @@
       "hasArtwork": true,
       "sha256": "e2f3e2bceb09c63d33d3ccf84139cffd177b21895d70b79d4444cd98ff705b47",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/fragments/layers/website/profile/private/media/profile-media-editor.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "app/platform-manifest.json"
           ]
         }
       ]
@@ -85954,6 +86313,8 @@
       "brands": [
         "control-center",
         "neuroartan",
+        "studio",
+        "artanrecords",
         "artist"
       ],
       "usage": [
@@ -85971,6 +86332,12 @@
             "docs/assets/fragments/layers/website/home/platform-menu/settings/general/index.html",
             "docs/assets/fragments/layers/website/home/platform-menu/workspace/continuity-actions.html",
             "docs/assets/fragments/layers/website/home/shell/home-search-shell.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "app/platform-manifest.json"
           ]
         },
         {
@@ -86124,7 +86491,9 @@
       "sha256": "a012b9e309780a987176d65c826a2985b5f4dcf9c8c8e2e09fa41f14acf97dc2",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -86140,6 +86509,12 @@
             "docs/assets/fragments/layers/website/home/platform-menu/settings/configuration/index.html",
             "docs/assets/fragments/layers/website/model/foundation/source-vault/model-source-vault.html",
             "docs/assets/fragments/layers/website/model/foundation/voice-training/model-voice-training.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "app/platform-manifest.json"
           ]
         }
       ]
@@ -90876,13 +91251,21 @@
       "hasArtwork": true,
       "sha256": "05067499207ffe613c48bd24e29c25c30cacba4ef9edb0ea47b0ee8cd415da40",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/fragments/layers/website/profile/private/media/profile-media-editor.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "app/platform-manifest.json"
           ]
         }
       ]
@@ -110282,6 +110665,8 @@
         "layout-home-interaction-panel-radius",
         "layout-awareness-panel-radius",
         "nav-institutional-text-color",
+        "profile-media-editor-control-bg",
+        "profile-media-editor-control-bg-hover",
         "editor-panel-radius",
         "editor-publishing-panel-radius",
         "cc-interaction-panel-control-bg",
@@ -110497,6 +110882,12 @@
         "nav-menu-icon-control-size",
         "nav-menu-control-opacity",
         "nav-menu-control-active-opacity",
+        "profile-media-editor-control-bg",
+        "profile-media-editor-control-bg-hover",
+        "profile-media-editor-control-border",
+        "profile-media-editor-control-border-hover",
+        "profile-media-editor-control-active-bg",
+        "profile-media-editor-control-active-border",
         "editor-toolbar-control-size",
         "editor-toolbar-control-weight",
         "editor-toolbar-control-line-height",
@@ -110863,6 +111254,12 @@
         "nav-menu-icon-control-size",
         "nav-menu-control-opacity",
         "nav-menu-control-active-opacity",
+        "profile-media-editor-control-bg",
+        "profile-media-editor-control-bg-hover",
+        "profile-media-editor-control-border",
+        "profile-media-editor-control-border-hover",
+        "profile-media-editor-control-active-bg",
+        "profile-media-editor-control-active-border",
         "editor-toolbar-control-size",
         "editor-toolbar-control-weight",
         "editor-toolbar-control-line-height",
