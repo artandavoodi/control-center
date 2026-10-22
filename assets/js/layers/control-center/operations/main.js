@@ -2,6 +2,7 @@ import {createClient} from '@supabase/supabase-js';
 import config from '../../../../data/control-center/operations.json';
 import updateConfig from '../../../../data/control-center/update-actions.json';
 import {mountUpdates} from './updates.js';
+import {createUpdateMonitor} from './update-monitor.js';
 config.navigation=[...config.navigation,updateConfig.navigation];
 import {hasPermission,permittedNavigation} from './access.js';
 import {createAccess} from './auth.js';
@@ -28,14 +29,14 @@ if(location.protocol!=='https:'&&!['127.0.0.1','localhost'].includes(location.ho
 const client=createClient(config.supabase.url,config.supabase.key,{auth:{storage:sessionStorage,storageKey:'control-center-staff',flowType:'pkce',detectSessionInUrl:false}});
 const e=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const icon=path=>`<img class="control-center-operation-icon" src="${e(assetUrl('/registry/icons/public/assets/'+path))}" alt="">`;
-let staff=null,user=null,panel='overview',revision=0,recovering=false,workspaces=[],workspace=null,units=[],context={function:'operations',department:'',office:''},pendingAction='';
+let staff=null,user=null,panel='overview',revision=0,recovering=false,workspaces=[],workspace=null,units=[],context={function:'operations',department:'',office:''},pendingAction='',updateMonitor=null;
 async function refreshRegistry(){
  const [brands,registry]=await Promise.all([client.rpc('control_center_workspaces'),client.from('control_center_units').select('id,parent_id,kind,name,active,workspace_key').order('name')]);
  if(brands.error||registry.error)throw Error('Your workspace directory could not be loaded.');
  workspaces=brands.data||[];units=registry.data||[];
 }
 const access=createAccess({client,root,config,e,onAuthenticated:loadAccess,onReset:()=>{finishLoading();recovering=true;staff=null;user=null;}});
-function signin(message=''){finishLoading();stopUsage();staff=null;user=null;recovering=false;access.signin(message);}
+function signin(message=''){updateMonitor?.stop();updateMonitor=null;finishLoading();stopUsage();staff=null;user=null;recovering=false;access.signin(message);}
 async function loadAccess(){
  if(recovering)return;
  const identity=await client.auth.getUser();if(identity.error||!identity.data.user){signin();return;}
@@ -44,6 +45,7 @@ async function loadAccess(){
  staff=response.data;if(!staff?.enabled){await client.auth.signOut({scope:'local'});signin('This account has no active staff access. Ask the owner to assign permissions.');return;}
  setViewAccount(user.id);
  const effective=await client.rpc('control_center_effective_permissions');if(effective.error)throw Error('Staff permissions could not be verified.');staff.permissions=effective.data||[];
+ updateMonitor?.stop();updateMonitor=staff.is_owner?createUpdateMonitor({client}):null;updateMonitor?.refresh();
  startUsage(user.id);
  await refreshRegistry();
  if(!workspaces.length)throw Error('No workspace is assigned to this staff account. Ask your authorized manager to assign one.');
@@ -60,7 +62,7 @@ async function render(){
  if(!nav.some(item=>item.workspace===context.function)){context.function='operations';}
  writeView('navigation',{workspace:workspace.id,context,panel});
  const navigate=(id,action='')=>{const item=permittedNavigation(config,staff).find(item=>item.id===id);if(!item)return;if(item.workspace==='reviews'){const records=workspaces.find(item=>item.workspace_key==='artanrecords');if(!records)return;workspace=records;context=normalizeContext({function:'reviews'},units,workspace);rememberWorkspace('workspace',workspace.id);}if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;pendingAction=action;render().catch(showError);};
- mountWorkspace({root,config,staff,user,client,nav,pickerNav:permittedNavigation(config,staff),panel,e,icon,workspaces,workspace,context,units,onContext:value=>{const selected=workspaces.find(item=>item.id===value.workspace);if(!selected)return;workspace=selected;context=normalizeContext(value,units,workspace);rememberWorkspace('workspace',workspace.id);rememberWorkspace('context',JSON.stringify(context));panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';render().catch(showError);},onNavigate:navigate,onSignout:async()=>{stopUsage();++revision;root.replaceChildren();await client.auth.signOut({scope:'local'});signin();}});
+ mountWorkspace({root,config,staff,user,client,updateMonitor,nav,pickerNav:permittedNavigation(config,staff),panel,e,icon,workspaces,workspace,context,units,onContext:value=>{const selected=workspaces.find(item=>item.id===value.workspace);if(!selected)return;workspace=selected;context=normalizeContext(value,units,workspace);rememberWorkspace('workspace',workspace.id);rememberWorkspace('context',JSON.stringify(context));panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';render().catch(showError);},onNavigate:navigate,onSignout:async()=>{updateMonitor?.stop();stopUsage();++revision;root.replaceChildren();await client.auth.signOut({scope:'local'});signin();}});
  const content=root.querySelector('[data-operation-content]');
  try{
   if(panel==='overview'){
@@ -76,7 +78,7 @@ async function render(){
   }else if(panel==='registry'){
    await mountRegistry({content,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
   }else if(panel==='updates'){
-   await mountUpdates({content,client,staff,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
+   await mountUpdates({content,monitor:updateMonitor,staff,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
   }else if(panel==='documents'||panel==='vacancies'){
    await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){

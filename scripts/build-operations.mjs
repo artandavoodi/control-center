@@ -14,6 +14,7 @@ const config=JSON.parse(await readFile('assets/data/control-center/operations.js
 const files=['index.html','CNAME','assets/js/layers/control-center/operations/dist.js','assets/js/layers/control-center/operations/theme-init.js','assets/css/layers/control-center/operations.css','assets/css/layers/control-center/shared/themes.css','assets/css/layers/control-center/shared/loaders.css','assets/css/layers/control-center/shared/close-button.css','assets/data/control-center/registry-index.json',...Object.values(JSON.parse(await readFile('registry/icons/manifests/icon-manifest.json','utf8'))).map(item=>'registry/icons/public/assets/'+item.path),'assets/css/layers/control-center/00-orchestrator/00-control-center-all.css','registry/tokens/manifests/control-center.tokens.css',...Object.values(config.chrome).map(path=>'registry/icons/public/assets/'+path),...config.navigation.map(item=>'registry/icons/public/assets/'+item.icon),...config.accountMenu.map(item=>'registry/icons/public/assets/'+item.icon)];
 await rm('_site',{recursive:true,force:true});
 files.push('assets/css/layers/control-center/shared/toggle.css');
+files.push(...['profile-media-editor.css','icons.css','slider.css','buttons.css','utilities.css'].map(name=>'assets/css/layers/control-center/shared/'+name));
 let shell=await readFile('index.html','utf8');
 for(const file of files){
  if(file==='index.html')continue;

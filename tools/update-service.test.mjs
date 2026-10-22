@@ -1,7 +1,9 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
-import {mkdtemp,writeFile,rm} from 'node:fs/promises';
+import {mkdtemp,writeFile,readFile,stat,rm} from 'node:fs/promises';
+import {EventEmitter} from 'node:events';
+import {captureUpdateLine,updateResult} from './update-results.mjs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {createUpdateService,verifyUpdateOwner,redactUpdateOutput,updateCatalogue} from './update-service.mjs';
@@ -34,4 +36,30 @@ test('service fails closed by default and rejects foreign origins and unknown ac
 test('output removes recognizable credentials and local home paths',()=>{
  const output=redactUpdateOutput('Bearer secret sb_secret_example sk_live_example eyJabc.def.ghi');
  assert.ok(!output.includes('Bearer secret'));assert.ok(!output.includes('sb_secret_example'));assert.ok(!output.includes('eyJabc.def.ghi'));
+});
+test('partial publication is reported honestly rather than as a successful deployment',()=>{
+ const job={title:'Update All',method:'publish',status:'failed'};
+ captureUpdateLine(job,'Validate records');captureUpdateLine(job,'Published records: '+'a'.repeat(40));captureUpdateLine(job,'FAILED: store: checks failed');captureUpdateLine(job,'Validation failed; no publication performed.');
+ const result=updateResult(job);assert.equal(result.title,'Update stopped');assert.equal(result.published[0].label,'Artanrecords website');assert.match(result.message,/Some layers/);assert.match(job.problem,/store/);
+});
+test('completion history survives service restart and stays account scoped',async t=>{
+ const directory=await mkdtemp(path.join(tmpdir(),'control-update-history-'));t.after(()=>rm(directory,{recursive:true,force:true}));
+ await writeFile(path.join(directory,'layers.json'),JSON.stringify({layers:[{id:'store',domains:[]}]}));
+ await writeFile(path.join(directory,'control-center-updates.jsonl'),JSON.stringify({id:'earlier',account:'owner',document:'00',method:'check',event:'succeeded',time:'2026-10-22T10:00:00Z'})+'\n');
+ let child,launches=0;
+ const options={enabled:true,runner:path.join(directory,'runner.mjs'),historyFile:path.join(directory,'history.jsonl'),authorize:async()=> 'owner',catalogue:async()=>[{id:'00',title:'Update All',actions:[{method:'publish',args:['publish']}]}],launch:()=>{launches++;child=new EventEmitter();child.stdout=new EventEmitter();child.stderr=new EventEmitter();return child;}};
+ async function endpoint(service){const server=createServer((req,res)=>service(req,res,new URL(req.url,'http://localhost')));await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>server.close());return 'http://127.0.0.1:'+server.address().port+'/api/updates/';}
+ const headers={'X-Control-Center-Action':'updates','Sec-Fetch-Site':'same-origin','Authorization':'Bearer test','Content-Type':'application/json','Idempotency-Key':'11111111-1111-4111-8111-111111111111'};
+ const url=await endpoint(createUpdateService(options)),body=JSON.stringify({document:'00',method:'publish',confirmation:'PUBLISH REVIEWED CHANGES'});
+ const started=await (await fetch(url+'jobs',{method:'POST',headers,body})).json();assert.equal(started.status,'running');
+ await fetch(url+'jobs',{method:'POST',headers,body});assert.equal(launches,1);
+ child.stdout.emit('data',Buffer.from('Validate store\nPublished sto'));child.stdout.emit('data',Buffer.from('re: '+'b'.repeat(40)+'\n'));child.emit('close',0);
+ let finished;for(let attempt=0;attempt<30;attempt++){finished=await (await fetch(url+'jobs/'+started.id,{headers})).json();if(finished.status==='succeeded')break;await new Promise(resolve=>setTimeout(resolve,5));}
+ assert.equal(finished.result.title,'Published to GitHub');assert.match(finished.result.message,/not been checked/);assert.equal(finished.result.published[0].id,'store');
+ for(let attempt=0;attempt<30;attempt++){const text=await readFile(options.historyFile,'utf8');if(text.includes('finishedAt'))break;await new Promise(resolve=>setTimeout(resolve,5));}
+ const restarted=await endpoint(createUpdateService(options));const restored=await (await fetch(restarted+'catalogue',{headers})).json();assert.ok(restored.jobs.some(job=>job.id===started.id&&job.status==='succeeded'));assert.ok(restored.jobs.some(job=>job.id==='earlier'));
+ const other=await endpoint(createUpdateService({...options,authorize:async()=> 'another-owner'}));assert.equal((await (await fetch(other+'catalogue',{headers})).json()).jobs.length,0);assert.equal((await fetch(other+'jobs/'+started.id,{headers})).status,404);
+ const unavailable=await endpoint(createUpdateService({...options,launch:()=>{throw Error('The process could not start');}}));
+ const failed=await (await fetch(unavailable+'jobs',{method:'POST',headers:{...headers,'Idempotency-Key':'22222222-2222-4222-8222-222222222222'},body})).json();assert.equal(failed.status,'failed');assert.equal(failed.result.title,'Update stopped');
+ assert.equal((await stat(options.historyFile)).mode&0o777,0o600);
 });

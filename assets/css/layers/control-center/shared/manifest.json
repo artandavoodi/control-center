@@ -1,6 +1,6 @@
 {
   "source": "artandavoodi/website",
-  "revision": "ab316711f312aa704b6f853510e18cb947a0f24a",
+  "revision": "4908dbe83b2b9a13033bea5694fa1a8503f3227f",
   "files": {
     "themes.css": {
       "file": "docs/assets/css/core/02-foundation/themes.css",
@@ -17,6 +17,34 @@
     "close-button.js": {
       "file": "docs/assets/js/core/01-foundation/close-button.js",
       "sha256": "3f5bde8e08d4f1e18cad86394b6d16ac083faa66edb00e0a63e0a8d86f074e01"
+    },
+    "profile-media-editor.js": {
+      "file": "docs/assets/js/layers/website/ui/profile-media-editor.js",
+      "sha256": "6fa1dbe0eaeb30a2cfa8522dc89433fd5af46c02a820be6f587d6b278b33567e"
+    },
+    "profile-media-editor.html.js": {
+      "file": "docs/assets/fragments/layers/website/profile/private/media/profile-media-editor.html",
+      "sha256": "670328e571dfa885db0ce36adf8ff3890258d98c9585816e69586ba1197f8ac3"
+    },
+    "profile-media-editor.css": {
+      "file": "docs/assets/css/layers/website/ui/profile-media-editor.css",
+      "sha256": "aa0c478e67baecf9267ce96983a86ce159d14ac00a888d99e1e46aa37124440f"
+    },
+    "icons.css": {
+      "file": "docs/assets/css/core/03-primitives/icons.css",
+      "sha256": "01ff955dfdbe0f0e9565096d2b099648b66033810c2e56685f52fca380877774"
+    },
+    "slider.css": {
+      "file": "docs/assets/css/core/03-primitives/slider.css",
+      "sha256": "666bf34ca6cfab68a5a326a2ae4c5c831e8e442725fed7eca1a369459f6f1ded"
+    },
+    "buttons.css": {
+      "file": "docs/assets/css/core/03-primitives/buttons.css",
+      "sha256": "983ee7f5b342c3b26d79da020f4696f8c3fe65c699be3cc025235b039ff65508"
+    },
+    "utilities.css": {
+      "file": "docs/assets/css/core/02-foundation/utilities.css",
+      "sha256": "26cebaa0055c901f3462d285e946145784f0d935da58f3faefdb4429aea60869"
     },
     "toggle.css": {
       "file": "docs/assets/css/core/03-primitives/toggle.css",

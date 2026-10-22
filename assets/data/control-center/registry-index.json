@@ -83909,11 +83909,18 @@
       "hasArtwork": true,
       "sha256": "2e05841554c718ee4101dbc461fe9ce0a74409916f13a8d68a2118b6c61005d6",
       "brands": [
+        "control-center",
         "neuroartan",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -85450,11 +85457,18 @@
       "hasArtwork": true,
       "sha256": "e2f3e2bceb09c63d33d3ccf84139cffd177b21895d70b79d4444cd98ff705b47",
       "brands": [
+        "control-center",
         "neuroartan",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -91088,11 +91102,19 @@
       "hasArtwork": true,
       "sha256": "ee639466052db5d263fe9893f2137d190299dea551d6ac1f0f7973956a7f14ff",
       "brands": [
+        "control-center",
         "neuroartan",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/profile.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -91251,11 +91273,18 @@
       "hasArtwork": true,
       "sha256": "05067499207ffe613c48bd24e29c25c30cacba4ef9edb0ea47b0ee8cd415da40",
       "brands": [
+        "control-center",
         "neuroartan",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
