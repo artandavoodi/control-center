@@ -53,6 +53,19 @@ test('owner update shortcuts show full scope and avatar stays square',async({pag
  await expect(page.getByText('Update All covers 2 registered layers',{exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'Synchronize, verify & publish',exact:true})).toHaveCount(2);
  await expect(page.getByRole('button',{name:'Inspect scope',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Synchronize, verify & publish',exact:true}).first().click();
+ const review=page.getByRole('dialog',{name:'Review publication',exact:true});
+ await expect(review).toBeVisible();
+ await review.getByRole('button',{name:'Confirm publication',exact:true}).click();
+ await expect(review).toBeVisible();
+ await review.getByRole('button',{name:'Cancel',exact:true}).click();
+ await expect(review).not.toBeVisible();
+ await page.route('**/api/updates/jobs',async route=>{const body=route.request().postDataJSON();expect(body.confirmation).toBe('PUBLISH REVIEWED CHANGES');await route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})});});
+ await page.route('**/api/updates/jobs/reviewed-test',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})}));
+ await page.getByRole('button',{name:'Synchronize, verify & publish',exact:true}).first().click();
+ await review.getByRole('checkbox').check();
+ await review.getByRole('button',{name:'Confirm publication',exact:true}).click();
+ await expect(page.getByText('All · publish · succeeded',{exact:true})).toBeVisible();
  await page.screenshot({path:test.info().outputPath('update-actions.png')});
 });
 test('notifications route pending requests through permitted review screens',async({page})=>{
