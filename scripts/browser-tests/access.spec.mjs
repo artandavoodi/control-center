@@ -6,7 +6,7 @@ const records='98000000-0000-0000-0001-000000000001',neuro='98000000-0000-0000-0
 const department='98000000-0000-0000-0002-000000000001',office='98000000-0000-0000-0003-000000000001';
 async function backend(page,permissions,{owner=false}={}){
  const documents=[],vacancies=[];
- await page.route('**/assets/data/control-center/registry-index.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({tokens:[{id:'spacing-md',value:'1rem',source:'registry/tokens/manifests/runtime-tokens.json'}],icons:[{id:'core/actions/create/plus',path:'core/actions/create/plus.svg',source:'registry/icons/source/core/actions/create/plus.svg',hasArtwork:true}]})}));
+ await page.route('**/assets/data/control-center/registry-index.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({brands:[{id:'store',label:'Artan Store'},{id:'studio',label:'Artanrecords Studio'}],tokens:[{id:'spacing-md',value:'1rem',source:'registry/tokens/manifests/runtime-tokens.json'}],icons:[{id:'core/actions/create/plus',path:'core/actions/create/plus.svg',source:'registry/icons/source/core/actions/create/plus.svg',hasArtwork:true,brands:['store'],usage:[{brand:'store',evidence:['web/catalog.json']}]}]})}));
  await page.route('https://hahtbepdrjkjluhespbs.supabase.co/**',async route=>{
   const path=new URL(route.request().url()).pathname;let body;
     if(path.endsWith('/token'))body={access_token:token,refresh_token:'test-only',expires_in:3600,token_type:'bearer',user};
@@ -64,6 +64,14 @@ test('notifications route pending requests through permitted review screens',asy
  await dialog.getByRole('button',{name:'artistrequest Pending usernames'}).click();
  await expect(page.getByRole('heading',{name:'Username reviews',exact:true})).toBeVisible();
  await expect(page.getByRole('heading',{name:'artistrequest',exact:true})).toBeVisible();
+});
+test('icon usage filters distinguish references from absent brand references',async({page})=>{
+ await backend(page,['artists.read'],{owner:true});await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
+ await chooseContext(page,{function:'design'});await page.getByRole('button',{name:'Tokens & icons',exact:true}).click();await page.getByRole('button',{name:'Icons',exact:true}).click();
+ await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('used:store');await expect(page.locator('[data-registry-results]')).toContainText('Registered in: Artan Store');
+ await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('missing:store');await expect(page.locator('[data-registry-results] article')).toHaveCount(0);
+ await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('missing:studio');await expect(page.locator('[data-registry-results] article')).toHaveCount(1);
+ await page.reload();await expect(page.getByRole('combobox',{name:'Brand usage',exact:true})).toHaveValue('missing:studio');
 });
 test('an ordinary account does not enter the staff console',async({page})=>{
  await backend(page,null);await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page.getByRole('status')).toContainText('no active staff access');await expect(page.getByRole('navigation',{name:'Operations'})).toHaveCount(0);
