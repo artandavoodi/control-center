@@ -7,6 +7,9 @@ import {captureUpdateLine,updateResult} from './update-results.mjs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {createUpdateService,verifyUpdateOwner,redactUpdateOutput,updateCatalogue} from './update-service.mjs';
+test('progress records completed work rather than an elapsed-time guess',()=>{
+ const job={};captureUpdateLine(job,'Progress: 7/36 · Validated records');assert.deepEqual(job.progress,{completed:7,total:36,phase:'Validated records'});
+});
 
 test('manual catalogue has one full publish action per document and read-only inspection',async t=>{
  const directory=await mkdtemp(path.join(tmpdir(),'control-update-catalogue-'));t.after(()=>rm(directory,{recursive:true,force:true}));

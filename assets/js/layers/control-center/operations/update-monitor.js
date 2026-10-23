@@ -35,6 +35,20 @@ export function updateSummary(job,e){
 export function mountUpdateProgress({root,monitor,onNavigate}){
  if(!monitor)return;
  const progress=document.createElement('button');progress.type='button';progress.className='control-center-update-progress';progress.hidden=true;progress.setAttribute('aria-label',labels.results.running);progress.setAttribute('title',labels.results.running);progress.addEventListener('click',()=>onNavigate('updates'));
- root.querySelector('[data-search-open]').after(progress);
- monitor.subscribe(state=>{if(!progress.isConnected)return false;progress.hidden=!state.jobs.some(job=>job.status==='running');progress.setAttribute('aria-label',state.error?labels.results.connection:labels.results.running);});
+ root.querySelector('[data-search-open]').before(progress);
+ let lastRunning,completionTimer;
+ monitor.subscribe(state=>{
+  if(!progress.isConnected){clearTimeout(completionTimer);return false;}
+  const running=state.jobs.find(job=>job.status==='running');
+  const finished=lastRunning&&state.jobs.find(job=>job.id===lastRunning&&job.status!=='running');
+  if(running){
+   clearTimeout(completionTimer);lastRunning=running.id;progress.hidden=false;
+   const ratio=running.progress?.total?Math.min(95,Math.floor(running.progress.completed/running.progress.total*100)):0;
+   progress.style.setProperty('--update-progress',ratio+'%');
+   const previous=state.jobs.filter(job=>job.document===running.document&&job.method===running.method&&job.status==='succeeded'&&job.finishedAt).map(job=>new Date(job.finishedAt)-new Date(job.startedAt)).filter(value=>value>0).sort((a,b)=>a-b);
+   const estimate=previous.length?' · Previous runs: about '+Math.ceil(previous[Math.floor(previous.length/2)]/60000)+' min':' · Duration not estimated yet';
+   const label=state.error?labels.results.connection:(running.progress?.phase||'Preparing update')+' · '+ratio+'%'+estimate;progress.setAttribute('aria-label',label);progress.title=label;
+  }else if(finished){lastRunning=null;progress.style.setProperty('--update-progress',finished.status==='succeeded'?'100%':progress.style.getPropertyValue('--update-progress'));progress.setAttribute('aria-label',finished.status==='succeeded'?'Update completed':'Update stopped; open notifications for details');completionTimer=setTimeout(()=>{progress.hidden=true;},4000);}
+  else if(!completionTimer)progress.hidden=true;
+ });
 }

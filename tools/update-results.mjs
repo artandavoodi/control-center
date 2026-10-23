@@ -8,10 +8,12 @@ export function updateResult(job){
  return {title,scope:job.title,message,problem,published:published.map(layer=>({...layer,label:labels.layerNames[layer.id]||layer.id})),steps};
 }
 export function captureUpdateLine(job,line){
+ const progress=line.match(/^Progress: (\d+)\/(\d+) · (.+)$/);
+ if(progress){job.progress={completed:Number(progress[1]),total:Number(progress[2]),phase:progress[3]};return;}
  let match=line.match(/^Published ([\w-]+): ([a-f0-9]{40})$/);
  if(match){job.validationFinished=true;job.publishedLayers||=[];if(!job.publishedLayers.some(layer=>layer.id===match[1]))job.publishedLayers.push({id:match[1],revision:match[2]});return;}
  match=line.match(/^Validate ([\w-]+)$/);if(match){job.steps||=[];job.steps.push({layer:match[1],action:'validation'});}
  match=line.match(/^(?:FAILED:|BLOCKED:) ([\w-]+):/);if(match){job.failedLayers||=[];if(!job.failedLayers.includes(match[1]))job.failedLayers.push(match[1]);}
  if(/^(?:All selected validations passed|Validation failed;)/.test(line))job.validationFinished=true;
- if(/^(?:FAILED:|BLOCKED:)/.test(line)||!job.problem&&/^(?:Validation failed|A previous update|Another update)/.test(line))job.problem=line.slice(0,800);
+ if(/^(?:FAILED:|BLOCKED:)/.test(line)||!job.problem&&/^(?:Validation failed|A previous update|Another update|Error:|Shared source changes)/.test(line))job.problem=line.slice(0,800);
 }

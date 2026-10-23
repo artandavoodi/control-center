@@ -82,9 +82,19 @@ test('icon usage filters distinguish references from absent brand references',as
  await backend(page,['artists.read'],{owner:true});await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
  await chooseContext(page,{function:'design'});await page.getByRole('button',{name:'Tokens & icons',exact:true}).click();await page.getByRole('button',{name:'Icons',exact:true}).click();
  await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('used:store');await expect(page.locator('[data-registry-results]')).toContainText('Registered in: Artan Store');
- await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('missing:store');await expect(page.locator('[data-registry-results] article')).toHaveCount(0);
- await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('missing:studio');await expect(page.locator('[data-registry-results] article')).toHaveCount(1);
- await page.reload();await expect(page.getByRole('combobox',{name:'Brand usage',exact:true})).toHaveValue('missing:studio');
+ await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('used:studio');await expect(page.locator('[data-registry-results] article')).toHaveCount(0);
+ await expect(page.getByRole('combobox',{name:'Brand usage',exact:true}).locator('option[value^="missing:"]')).toHaveCount(0);
+ await page.reload();await expect(page.getByRole('combobox',{name:'Brand usage',exact:true})).toHaveValue('used:studio');
+});
+test('navigation switches canonical panel icons and desktop resizing preserves its width',async({page})=>{
+ await enter(page,['artists.read'],{owner:true});const toggle=page.getByRole('button',{name:'Toggle navigation',exact:true});
+ await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-activated\.svg/);
+ const rail=page.locator('.control-center-operations aside'),separator=page.getByRole('separator',{name:'Resize navigation',exact:true});
+ if(test.info().project.name==='desktop'){
+  const initial=await rail.evaluate(el=>el.getBoundingClientRect().width);await separator.press('Home');const compact=await rail.evaluate(el=>el.getBoundingClientRect().width);expect(compact).toBeLessThan(initial);
+  await separator.press('ArrowRight');await page.reload();await expect.poll(()=>rail.evaluate(el=>el.getBoundingClientRect().width)).toBeGreaterThan(compact);
+ }else await expect(separator).toBeHidden();
+ await toggle.click();await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-deactivated\.svg/);await toggle.click();await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-activated\.svg/);
 });
 test('an ordinary account does not enter the staff console',async({page})=>{
  await backend(page,null);await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();await expect(page.getByRole('status')).toContainText('no active staff access');await expect(page.getByRole('navigation',{name:'Operations'})).toHaveCount(0);
@@ -120,11 +130,11 @@ test('update progress follows workspace changes and completion remains in histor
  const job={id:'update-flow',title:'Store regression',method:'check',status:'running',startedAt:'2026-10-22T12:00:00Z',output:'Long terminal line '+('verification-path/'.repeat(300))};
  await page.route('**/api/updates/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({layers:[{id:'store',domains:[]}],unconfiguredDomains:[],documents:[{id:'00',title:'All',methods:['publish','plan','check']}],jobs:[job]})}));
  await enter(page,['artists.read'],{owner:true});
- await expect(page.getByRole('button',{name:'Update in progress',exact:true})).toBeVisible();await page.getByRole('button',{name:'Update All',exact:true}).click();
+ await expect(page.locator('.control-center-update-progress')).toBeVisible();await page.getByRole('button',{name:'Update All',exact:true}).click();
  await expect(page.locator('[data-update-output]')).toContainText('Long terminal line');expect(await page.locator('main').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);expect(await page.locator('body').evaluate(el=>el.scrollWidth<=innerWidth)).toBe(true);
- await chooseContext(page,{brand:neuro,function:'operations'});await expect(page.getByRole('button',{name:'Update in progress',exact:true})).toBeVisible();
+ await chooseContext(page,{brand:neuro,function:'operations'});await expect(page.locator('.control-center-update-progress')).toBeVisible();
  job.status='succeeded';job.finishedAt='2026-10-22T12:01:00Z';job.result={title:'Checks passed',scope:'Store regression',message:'No repositories were published by this action.',published:[],steps:[]};
- const notices=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(notices).toBeVisible();await expect(notices).toContainText('Checks passed');await expect(notices.locator('time')).toHaveAttribute('datetime',job.finishedAt);await expect(page.getByRole('button',{name:'Update in progress',exact:true})).toHaveCount(0);
+ const notices=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(notices).toBeVisible();await expect(notices).toContainText('Checks passed');await expect(notices.locator('time')).toHaveAttribute('datetime',job.finishedAt);await expect(page.locator('.control-center-update-progress')).toBeHidden({timeout:6500});
  await notices.getByRole('button',{name:'Update history',exact:true}).click();await expect(page.locator('[data-update-history]')).toContainText('Checks passed');await page.reload();await expect(page.locator('[data-update-history]')).toContainText('Store regression');
 });
 test('personal profile uses shared save feedback and an icon-only portrait action',async({page})=>{
