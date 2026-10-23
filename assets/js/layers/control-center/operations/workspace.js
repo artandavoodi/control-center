@@ -1,4 +1,5 @@
 import {mountAccountMenu} from './account-menu.js';
+import {bindMagneticNavigation} from './shared/magnetic-navigation.js';
 import {mountContextPicker} from './context.js';
 import {mountSearch} from './search.js';
 import {mountNotifications} from './notifications.js';
@@ -19,28 +20,15 @@ export function mountWorkspace({root,config,staff,user,client,updateMonitor,nav,
  const railToggle=root.querySelector('[data-rail-toggle]');
  const syncRailIcon=()=>{railToggle.innerHTML=icon('core/navigation/panel/panel-left-'+(root.querySelector('[data-rail]').dataset.rail==='closed'?'deactivated':'activated')+'.svg');};
  syncRailIcon();
- const shell=root.querySelector('.control-center-app'),operations=root.querySelector('.control-center-operations'),rail=root.querySelector('aside');
- const tokenLength=name=>{const measure=document.createElement('span');measure.style.cssText='position:absolute;visibility:hidden;pointer-events:none;height:0;width:var('+name+')';root.append(measure);const width=measure.getBoundingClientRect().width;measure.remove();return width;};
- const widthKey='rail-width',maximum=tokenLength('--control-width-auth-max'),minimum=tokenLength('--layout-home-platform-primary-rail-width'),step=tokenLength('--spacing-md');
- const compact=tokenLength('--control-height-md')+2*tokenLength('--spacing-lg');
- const closeAt=minimum-step*2,openAt=minimum-step;
+ const shell=root.querySelector('.control-center-app'),rail=root.querySelector('aside');
  const setRail=closed=>{shell.dataset.rail=closed?'closed':'open';railToggle.setAttribute('aria-expanded',String(!closed));rememberWorkspace('rail',shell.dataset.rail);syncRailIcon();};
- const savedWidth=Number(readWorkspacePreference(widthKey,String(maximum)));
- if(Number.isFinite(savedWidth))shell.style.setProperty('--control-rail-width',Math.max(minimum,Math.min(maximum,savedWidth))+'px');
- const resize=document.createElement('div');resize.className='control-center-rail-resize';resize.tabIndex=0;resize.setAttribute('role','separator');resize.setAttribute('aria-label','Resize navigation');resize.setAttribute('aria-orientation','vertical');resize.setAttribute('aria-valuemin',String(minimum));resize.setAttribute('aria-valuemax',String(maximum));rail.after(resize);
- const setWidth=width=>{width=Math.round(Math.max(minimum,Math.min(maximum,width)));shell.style.setProperty('--control-rail-width',width+'px');shell.style.setProperty('--control-workspace-chevron-opacity',String(Math.max(0,Math.min(1,(width-minimum)/(step*4)))));resize.setAttribute('aria-valuenow',String(width));rememberWorkspace(widthKey,String(width));};
- setWidth(Number.isFinite(savedWidth)?savedWidth:maximum);
- resize.setAttribute('aria-valuenow',String(Math.max(minimum,Math.min(maximum,savedWidth))));
- const dragWidth=width=>{const closed=width<(shell.dataset.rail==='closed'?openAt:closeAt);setRail(closed);if(closed)resize.setAttribute('aria-valuenow',String(compact));else setWidth(width);};
- resize.setAttribute('aria-valuemin',String(compact));
- resize.addEventListener('pointerdown',event=>{if(!matchMedia('(min-width:1025px) and (pointer:fine)').matches)return;event.preventDefault();resize.setPointerCapture(event.pointerId);const start=event.clientX,width=rail.getBoundingClientRect().width;const move=next=>dragWidth(width+next.clientX-start);const finish=()=>{resize.removeEventListener('pointermove',move);resize.removeEventListener('pointerup',finish);resize.removeEventListener('pointercancel',finish);};resize.addEventListener('pointermove',move);resize.addEventListener('pointerup',finish);resize.addEventListener('pointercancel',finish);});
- resize.addEventListener('keydown',event=>{let width=rail.getBoundingClientRect().width;if(event.key==='ArrowLeft')width=shell.dataset.rail==='open'&&width<=minimum?compact:width-step;else if(event.key==='ArrowRight')width=shell.dataset.rail==='closed'?minimum:width+step;else if(event.key==='Home')width=compact;else if(event.key==='End')width=maximum;else return;event.preventDefault();dragWidth(width);});
+ const resize=document.createElement('div');resize.className='control-center-rail-resize';resize.tabIndex=0;resize.setAttribute('role','separator');resize.setAttribute('aria-label','Resize navigation');resize.setAttribute('aria-orientation','vertical');rail.after(resize);
+ bindMagneticNavigation({root,shell,rail,resize,toggle:railToggle,onState:setRail,readWidth:fallback=>readWorkspacePreference('rail-width',String(fallback)),saveWidth:width=>rememberWorkspace('rail-width',String(width)),maximumToken:'--control-width-auth-max',minimumToken:'--layout-home-platform-primary-rail-width',widthProperty:'--control-rail-width',chevronProperty:'--control-workspace-chevron-opacity'});
  mountContextPicker({root,config,nav:pickerNav,workspaces,workspace,context,units,e,icon,onApply:onContext});
  mountSearch({root,config,client,staff,nav,workspace,context,units,e,icon,onNavigate});
  mountUpdateProgress({root,monitor:updateMonitor,onNavigate});
  mountNotifications({root,client,config,monitor:updateMonitor,nav:pickerNav,workspaces,e,icon,onNavigate});
  mountAccountMenu({root,client,user,staff,config,e,icon,onNavigate,onSignout});
  window.NeuroartanCloseButtons.initCloseButtonPrimitive(root);
- railToggle.addEventListener('click',()=>{setRail(shell.dataset.rail==='open');resize.setAttribute('aria-valuenow',String(rail.getBoundingClientRect().width));});
  root.querySelectorAll('[data-panel]').forEach(button=>button.addEventListener('click',()=>onNavigate(button.dataset.panel)));
 }

@@ -1,6 +1,8 @@
 # Change Log
 
 ## 2026-10-23 — Notification history and magnetic navigation
+- Magnetic resizing now imports the canonical website-owned shared behaviour through the checksum-verified design distribution. Studio activation remains pending user approval.
+- The workspace chevron fades with the available rail width; workspace labels remain on one line before snapping.
 - Completed update notifications support owner-scoped read acknowledgement, including legacy history IDs, and retain read state across service restarts.
 - Notifications remain closed on completion; the running indicator is shown only during active work. User-facing results use internal publication wording.
 - Desktop navigation resolves calculated spacing tokens through the browser, snaps between readable and icon-only widths with separate thresholds, and reopens by dragging. Maximum width and authored panel icons remain unchanged.
