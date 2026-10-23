@@ -68,6 +68,10 @@ html[data-theme-effective=dark] .control-center-update-primary img { filter:none
 .control-center-app[data-rail=closed] aside :is(.control-center-rail-label,h2),.control-center-app[data-rail=closed] [data-context-open] > img:last-child { display:none; }
 .control-center-app[data-rail=closed] aside button { justify-content:flex-start; inline-size:var(--control-height-md); }
 .control-center-rail-label { display:grid; gap:var(--spacing-xs); min-inline-size:0; }
+.control-center-rail-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.control-center-operations .control-center-confirm-choice { display:flex; align-items:center; gap:var(--spacing-sm); }
+.control-center-confirm-choice input[type=checkbox] { appearance:none; flex:none; inline-size:var(--icon-size-sm); block-size:var(--icon-size-sm); min-block-size:0; padding:0; border-radius:var(--control-radius-pill); accent-color:var(--text-color); }
+.control-center-confirm-choice input:checked { background:var(--text-color); box-shadow:inset 0 0 0 var(--spacing-2xs) var(--bg-color); }
 .control-center-rail-label > span { font-size:var(--text-caption-size); color:var(--text-secondary-color); overflow-wrap:anywhere; }
 [data-context-open] { inline-size:100%; }
 [data-context-open] > img { flex:none; }

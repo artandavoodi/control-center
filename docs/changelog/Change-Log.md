@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-10-23 — Approved Studio navigation and control refinement
+- Activated the canonical magnetic rail controller in Studio following approval; desktop dragging supports collapse and reopening, while mobile/tablet navigation remains unchanged.
+- Control Center navigation labels no longer wrap. Publication confirmation uses compact theme-aware selection sizing.
+- Studio graphics uses a logo preview field, upload feedback, native colour swatches with hex editing and registered icon-only removal.
+- Artist destination tabs are borderless and all link groups use consistent icon-and-label ordering. Shared connection-heading scoping is corrected in the artist website owner and synchronized through the manifest.
+
 ## 2026-10-23 — Notification history and magnetic navigation
 - Magnetic resizing now imports the canonical website-owned shared behaviour through the checksum-verified design distribution. Studio activation remains pending user approval.
 - The workspace chevron fades with the available rail width; workspace labels remain on one line before snapping.

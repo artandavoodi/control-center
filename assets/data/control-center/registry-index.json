@@ -10258,6 +10258,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -16044,6 +16045,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist"
       ]
     },
@@ -16940,6 +16942,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "artanrecords"
       ]
@@ -23259,7 +23262,6 @@
         "neuroartan",
         "store",
         "artanrecords",
-        "studio",
         "artist",
         "artan-live"
       ]
@@ -104192,6 +104194,7 @@
         {
           "brand": "studio",
           "evidence": [
+            "app/graphics.js",
             "content/account.json"
           ]
         },

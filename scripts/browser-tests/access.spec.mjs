@@ -64,6 +64,7 @@ test('owner update shortcuts show full scope and avatar stays square',async({pag
  await page.route('**/api/updates/jobs/reviewed-test',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})}));
  await page.getByRole('button',{name:'Synchronize, verify & publish',exact:true}).first().click();
  await review.getByRole('checkbox').check();
+ expect((await review.getByRole('checkbox').boundingBox()).width).toBeLessThan(30);expect((await review.getByRole('checkbox').boundingBox()).height).toBeLessThan(30);
  await review.getByRole('button',{name:'Confirm publication',exact:true}).click();
  await expect(page.getByText('All · publish · succeeded',{exact:true})).toBeVisible();
  await page.screenshot({path:test.info().outputPath('update-actions.png')});
