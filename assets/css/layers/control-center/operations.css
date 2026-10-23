@@ -21,7 +21,7 @@
 .control-center-access > p { line-height:var(--line-height-body); }
 .control-center-access > button { align-self:flex-start; }
 .control-center-access label,.control-center-operations label { display:grid; gap:var(--spacing-sm); }
-.control-center-access input,.control-center-operations :is(input,textarea,select,button:not(.global-close-button,.ui-toggle)) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
+.control-center-access input,.control-center-operations :is(input,textarea,select,button:not(.global-close-button,.ui-toggle,.control-center-photo-action)) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
 .control-center-app { block-size:100svh; display:flex; flex-direction:column; }
 .control-center-app-header { display:flex; flex:none; align-items:center; gap:var(--spacing-md); min-block-size:var(--control-height-lg); padding:var(--spacing-md) var(--spacing-lg); border-block-end:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-app-header button { display:grid; place-items:center; min-inline-size:var(--control-height-md); min-block-size:var(--control-height-md); border:0; background:transparent; cursor:pointer; }
