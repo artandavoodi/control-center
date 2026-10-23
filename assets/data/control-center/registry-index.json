@@ -83918,7 +83918,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/shared/profile-media-editor.html.js"
           ]
         },
         {
@@ -85466,7 +85467,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/shared/profile-media-editor.html.js"
           ]
         },
         {
@@ -86514,7 +86516,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/shared/profile-media-editor.html.js"
           ]
         },
         {
@@ -90456,10 +90459,17 @@
       "hasArtwork": true,
       "sha256": "28ec599ac194532f8e50d7409aa4ae2dea29f12e4bd31a75eefcec525f7824d9",
       "brands": [
+        "control-center",
         "neuroartan",
         "store"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/css/layers/control-center/shared/icons.css"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -91282,7 +91292,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/shared/profile-media-editor.html.js"
           ]
         },
         {
@@ -108675,6 +108686,7 @@
       "sha256": "365264bcf032a1acb6f18554cf7d34b1b2a75f7e571848629173bbfd0e1cadbb",
       "brands": [
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ],
@@ -108685,6 +108697,12 @@
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -108756,6 +108774,7 @@
       "sha256": "4b8809e689e9ed3b9393b244c08ef6bb95f8cc398082a4506777a752cfca269a",
       "brands": [
         "artanrecords",
+        "studio",
         "artist"
       ],
       "usage": [
@@ -108765,6 +108784,12 @@
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -108795,6 +108820,7 @@
       "brands": [
         "neuroartan",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ],
@@ -108810,6 +108836,12 @@
           "evidence": [
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -108842,8 +108874,18 @@
       "category": "layers/website",
       "hasArtwork": true,
       "sha256": "02bac3d2cb8c1091aeae61219803dadbb4364dd636e50f60567d25dfcde7c12c",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "layers/website/social/platforms/spotify",
@@ -108862,6 +108904,7 @@
       "sha256": "bd1ca6cb3af69550651f91f674dfcfc381edf9e9f636b86378cbfe5793c33033",
       "brands": [
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ],
@@ -108872,6 +108915,12 @@
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -108907,6 +108956,7 @@
       "sha256": "e857cb228d1eaf91f6f624a25c2f12291e9af9008b60c37b2426c50ea1b57637",
       "brands": [
         "artanrecords",
+        "studio",
         "artist"
       ],
       "usage": [
@@ -108916,6 +108966,12 @@
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -108946,6 +109002,7 @@
       "brands": [
         "neuroartan",
         "artanrecords",
+        "studio",
         "artist"
       ],
       "usage": [
@@ -108960,6 +109017,12 @@
           "evidence": [
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -109007,6 +109070,7 @@
       "sha256": "f96c8a67f93717df8f9f57b0e96638b19e8fd80a165ddf83598592b5342612f5",
       "brands": [
         "artanrecords",
+        "studio",
         "artist"
       ],
       "usage": [
@@ -109016,6 +109080,12 @@
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -109591,6 +109661,7 @@
       "brands": [
         "neuroartan",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ],
@@ -109607,6 +109678,12 @@
             "docs/404.html",
             "docs/about/index.html",
             "docs/artists/artandavoodi/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -109698,6 +109775,7 @@
       "brands": [
         "neuroartan",
         "artanrecords",
+        "studio",
         "artist"
       ],
       "usage": [
@@ -109715,6 +109793,12 @@
             "docs/404.html",
             "docs/about/index.html",
             "docs/artists/artandavoodi/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
@@ -109740,7 +109824,9 @@
       "hasArtwork": true,
       "sha256": "94f7062f3106f4379a3ab1de21e71afc2900792e0f7eb68b8d877eb799c8bd3b",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -109748,6 +109834,12 @@
           "evidence": [
             "docs/assets/css/layers/website/navigation/institutional-links.css",
             "docs/assets/fragments/layers/website/navigation/menu.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]

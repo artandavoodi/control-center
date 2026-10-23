@@ -10,6 +10,8 @@ sources['icons.css']='docs/assets/css/core/03-primitives/icons.css';
 sources['slider.css']='docs/assets/css/core/03-primitives/slider.css';
 sources['buttons.css']='docs/assets/css/core/03-primitives/buttons.css';
 sources['utilities.css']='docs/assets/css/core/02-foundation/utilities.css';
+sources['toast.js']='docs/assets/js/core/02-systems/toast.js';
+sources['toast.css']='docs/assets/css/core/04-systems/toast.css';
 sources['toggle.css']='docs/assets/css/core/03-primitives/toggle.css';
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 if(process.argv.includes('--sync')){

@@ -127,6 +127,12 @@ test('update progress follows workspace changes and completion remains in histor
  const notices=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(notices).toBeVisible();await expect(notices).toContainText('Checks passed');await expect(notices.locator('time')).toHaveAttribute('datetime',job.finishedAt);await expect(page.getByRole('button',{name:'Update in progress',exact:true})).toHaveCount(0);
  await notices.getByRole('button',{name:'Update history',exact:true}).click();await expect(page.locator('[data-update-history]')).toContainText('Checks passed');await page.reload();await expect(page.locator('[data-update-history]')).toContainText('Store regression');
 });
+test('personal profile uses shared save feedback and an icon-only portrait action',async({page})=>{
+ await enter(page,['artists.read']);await page.getByRole('button',{name:'Account menu',exact:true}).click();await page.getByRole('menuitem',{name:'My account',exact:true}).click();
+ const camera=page.getByRole('button',{name:'Change photo',exact:true});await expect(camera).toHaveText('');await expect(camera).toHaveCSS('position','absolute');
+ await page.locator('[name=first_name]').fill('Test');await page.locator('[name=last_name]').fill('Reviewer');await page.locator('[data-personal-profile] [type=submit]').click();
+ await expect(page.locator('.system-save-confirmation')).toHaveText('Profile saved.');await expect(page.locator('.system-save-confirmation')).toHaveAttribute('data-visible','false',{timeout:6500});
+});
 test('Control Center photo uses the canonical editor and uploads only after Save',async({page})=>{
  await enter(page,['artists.read']);let uploads=0;
  await page.route('**/storage/v1/object/control-center-photos/**',async route=>{uploads++;await route.fulfill({status:200,contentType:'application/json',body:'{}'});});
