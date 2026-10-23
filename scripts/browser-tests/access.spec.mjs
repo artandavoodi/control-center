@@ -129,7 +129,7 @@ test('update progress follows workspace changes and completion remains in histor
 });
 test('personal profile uses shared save feedback and an icon-only portrait action',async({page})=>{
  await enter(page,['artists.read']);await page.getByRole('button',{name:'Account menu',exact:true}).click();await page.getByRole('menuitem',{name:'My account',exact:true}).click();
- const camera=page.getByRole('button',{name:'Change photo',exact:true});await expect(camera).toHaveText('');await expect(camera).toHaveCSS('position','absolute');await expect(camera).toHaveCSS('border-top-width','0px');
+ const camera=page.getByRole('button',{name:'Change photo',exact:true});await expect(camera).toHaveText('');await expect(camera).toHaveCSS('position','absolute');await expect(camera).toHaveCSS('padding','0px');await expect(camera).toHaveClass(/profile-media-action/);expect((await camera.boundingBox()).width).toBeLessThan(30);
  await page.locator('[name=first_name]').fill('Test');await page.locator('[name=last_name]').fill('Reviewer');await page.locator('[data-personal-profile] [type=submit]').click();
  await expect(page.locator('.system-save-confirmation')).toHaveText('Profile saved.');await expect(page.locator('.system-save-confirmation')).toHaveAttribute('data-visible','false',{timeout:6500});
 });

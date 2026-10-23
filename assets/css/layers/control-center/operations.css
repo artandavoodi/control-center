@@ -4,6 +4,7 @@
 @import url('./shared/buttons.css');
 @import url('./shared/utilities.css');
 @import url('./shared/toast.css');
+@import url('./shared/profile-media-action.css');
 .control-center-access { max-inline-size:var(--control-width-auth-max-wide); margin-inline:auto; min-block-size:100svh; display:flex; flex-direction:column; justify-content:center; padding:var(--spacing-xl) var(--spacing-lg); }
 .control-center-access-brand { display:grid; gap:var(--spacing-lg); margin-block-end:var(--spacing-xl); }
 .control-center-access-brand p { color:var(--text-secondary-color); margin:0; }
@@ -112,7 +113,6 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-profile-photo { position:relative; inline-size:calc(var(--control-height-lg) * 2); margin-inline:auto; margin-block-end:var(--spacing-xl); }
 .control-center-profile-photo > img,.control-center-profile-photo > span { inline-size:calc(var(--control-height-lg) * 2); block-size:calc(var(--control-height-lg) * 2); min-inline-size:calc(var(--control-height-lg) * 2); min-block-size:calc(var(--control-height-lg) * 2); aspect-ratio:1; border-radius:var(--radius-circle); object-fit:cover; overflow:hidden; background:var(--control-center-surface); }
 .control-center-profile-photo > span { display:grid; place-items:center; }
-.control-center-photo-action { position:absolute; inset-inline-end:0; inset-block-end:0; display:grid; place-items:center; inline-size:var(--control-height-md); block-size:var(--control-height-md); padding:0; border:0; border-radius:var(--radius-circle); background:var(--control-center-surface); color:inherit; cursor:pointer; }
 .control-center-photo-action input { inline-size:100%; max-inline-size:var(--control-width-auth-max); }
 .control-center-field-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--spacing-md); }
 .control-center-field-note { margin:0; color:var(--text-secondary-color); font-size:var(--text-caption-size); }

@@ -6,6 +6,7 @@ const destination=name=>name.endsWith('.js')?'assets/js/layers/control-center/op
 sources['profile-media-editor.js']='docs/assets/js/layers/website/ui/profile-media-editor.js';
 sources['profile-media-editor.html.js']='docs/assets/fragments/layers/website/profile/private/media/profile-media-editor.html';
 sources['profile-media-editor.css']='docs/assets/css/layers/website/ui/profile-media-editor.css';
+sources['profile-media-action.css']='docs/assets/css/core/03-primitives/profile-media-action.css';
 sources['icons.css']='docs/assets/css/core/03-primitives/icons.css';
 sources['slider.css']='docs/assets/css/core/03-primitives/slider.css';
 sources['buttons.css']='docs/assets/css/core/03-primitives/buttons.css';
