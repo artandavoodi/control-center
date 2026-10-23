@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-10-23 — Artist graphics
+- Studio owns the Graphics editor, native colour selection and transparent logo export.
+- The shared Store/Studio database owns private originals and explicit public-logo/palette consent; saving graphics cannot create a first artist publication.
+- Artanrecords catalogue projects only selected graphics. Dynamic monochrome icons now use the shared theme marker; connection groups stretch to their available columns.
+- Hosted rollback tests passed for account isolation, publication gates, original-source privacy, public PNG reads, colour validation, listing denial and consent withdrawal.
+
 ## Session 1
 - Created Control Center repository documentation skeleton
 - Defined Control Center as the orchestration layer above DSC
