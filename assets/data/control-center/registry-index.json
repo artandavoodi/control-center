@@ -1950,7 +1950,6 @@
         "neuroartan",
         "store",
         "artanrecords",
-        "studio",
         "artist",
         "artan-live"
       ]
@@ -85004,8 +85003,7 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "studio",
-        "artanrecords"
+        "neuroartan"
       ]
     },
     {
@@ -85069,6 +85067,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]

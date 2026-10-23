@@ -63,6 +63,11 @@ export function createUpdateService({enabled=false,config,runner=path.join(direc
    const docs=await catalogue();
    if(request.method==='GET'&&url.pathname==='/api/updates/catalogue'){const layers=JSON.parse(await readFile(path.join(path.dirname(runner),'layers.json'),'utf8'));send(200,{layers:layers.layers.map(({id,domains=[]})=>({id,domains})),unconfiguredDomains:layers.unconfiguredDomains||[],documents:docs.map(({id,title,actions})=>({id,title,methods:actions.map(action=>action.method)})),jobs:[...jobs.values()].filter(job=>job.account===account).map(({account,...job})=>job)});return true;}
    if(request.method==='GET'&&url.pathname.startsWith('/api/updates/jobs/')){const job=jobs.get(url.pathname.split('/').pop());if(!job||job.account!==account){send(404,{error:'Job not found.'});return true;}const {account:owner,...safe}=job;send(200,safe);return true;}
+   if(request.method==='POST'&&/^\/api\/updates\/jobs\/[^/]+\/read$/.test(url.pathname)){
+    const job=jobs.get(url.pathname.split('/').at(-2));if(!job||job.account!==account){send(404,{error:'Notification not found.'});return true;}
+    if(job.status==='running'){send(409,{error:'The update is still running.'});return true;}
+    job.readAt||=new Date().toISOString();await persist(job);const {account:owner,...safe}=job;send(200,safe);return true;
+   }
    if(request.method!=='POST'||url.pathname!=='/api/updates/jobs'){send(405,{error:'Method not allowed.'});return true;}
    let raw='';for await(const chunk of request){raw+=chunk;if(raw.length>2048)throw Error('Request is too large.');}const body=JSON.parse(raw),doc=docs.find(doc=>doc.id===body.document),action=doc?.actions.find(action=>action.method===body.method);
    if(!action)throw Error('Choose a registered update action.');if(body.method==='publish'&&body.confirmation!=='PUBLISH REVIEWED CHANGES')throw Error('Review the selected repositories and confirm publication first.');

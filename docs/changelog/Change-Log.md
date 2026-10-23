@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-10-23 — Notification history and magnetic navigation
+- Completed update notifications support owner-scoped read acknowledgement, including legacy history IDs, and retain read state across service restarts.
+- Notifications remain closed on completion; the running indicator is shown only during active work. User-facing results use internal publication wording.
+- Desktop navigation resolves calculated spacing tokens through the browser, snaps between readable and icon-only widths with separate thresholds, and reopens by dragging. Maximum width and authored panel icons remain unchanged.
+- Verified 105 browser cases and 19 service/source tests; registry integrity passed.
+
 ## 2026-10-23 — Artist graphics
 - Studio owns the Graphics editor, native colour selection and transparent logo export.
 - The shared Store/Studio database owns private originals and explicit public-logo/palette consent; saving graphics cannot create a first artist publication.

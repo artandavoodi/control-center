@@ -74,7 +74,7 @@ test('notifications route pending requests through permitted review screens',asy
  await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
  await page.getByRole('button',{name:'Notifications, 1 pending',exact:true}).click();
  const dialog=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(dialog).toBeVisible();
- await dialog.getByRole('button',{name:'artistrequest Pending usernames'}).click();
+ await dialog.getByRole('button',{name:'View review queue'}).click();
  await expect(page.getByRole('heading',{name:'Username reviews',exact:true})).toBeVisible();
  await expect(page.getByRole('heading',{name:'artistrequest',exact:true})).toBeVisible();
 });
@@ -87,12 +87,19 @@ test('icon usage filters distinguish references from absent brand references',as
  await page.reload();await expect(page.getByRole('combobox',{name:'Brand usage',exact:true})).toHaveValue('used:studio');
 });
 test('navigation switches canonical panel icons and desktop resizing preserves its width',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
  await enter(page,['artists.read'],{owner:true});const toggle=page.getByRole('button',{name:'Toggle navigation',exact:true});
  await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-activated\.svg/);
  const rail=page.locator('.control-center-operations aside'),separator=page.getByRole('separator',{name:'Resize navigation',exact:true});
  if(test.info().project.name==='desktop'){
   const initial=await rail.evaluate(el=>el.getBoundingClientRect().width);await separator.press('Home');const compact=await rail.evaluate(el=>el.getBoundingClientRect().width);expect(compact).toBeLessThan(initial);
   await separator.press('ArrowRight');await page.reload();await expect.poll(()=>rail.evaluate(el=>el.getBoundingClientRect().width)).toBeGreaterThan(compact);
+  await expect(page.locator('[data-context-open] > img').last()).toHaveCSS('opacity','0');await expect(page.locator('[data-context-open] .control-center-rail-label')).toHaveCSS('white-space','nowrap');
+  let handle=await separator.boundingBox();await page.mouse.move(handle.x+handle.width/2,handle.y+100);await page.mouse.down();await page.mouse.move(0,handle.y+100,{steps:12});await page.mouse.up();
+  await expect(toggle).toHaveAttribute('aria-expanded','false');await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-deactivated\.svg/);
+  handle=await separator.boundingBox();await page.mouse.move(handle.x+handle.width/2,handle.y+100);await page.mouse.down();await page.mouse.move(initial,handle.y+100,{steps:12});await page.mouse.up();await expect(toggle).toHaveAttribute('aria-expanded','true');
+  expect(await rail.evaluate(el=>el.getBoundingClientRect().width)).toBeLessThanOrEqual(initial);
+  await page.screenshot({path:'/tmp/control-magnetic-sidebar.png'});
  }else await expect(separator).toBeHidden();
  await toggle.click();await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-deactivated\.svg/);await toggle.click();await expect(toggle.locator('img')).toHaveAttribute('src',/panel-left-activated\.svg/);
 });
@@ -128,14 +135,15 @@ test('private account form saves names and does not expose editable assignments'
 });
 test('update progress follows workspace changes and completion remains in history without horizontal overflow',async({page})=>{
  const job={id:'update-flow',title:'Store regression',method:'check',status:'running',startedAt:'2026-10-22T12:00:00Z',output:'Long terminal line '+('verification-path/'.repeat(300))};
+ await page.route('**/api/updates/jobs/update-flow/read',route=>{job.readAt='2026-10-22T12:02:00Z';return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(job)});});
  await page.route('**/api/updates/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({layers:[{id:'store',domains:[]}],unconfiguredDomains:[],documents:[{id:'00',title:'All',methods:['publish','plan','check']}],jobs:[job]})}));
  await enter(page,['artists.read'],{owner:true});
  await expect(page.locator('.control-center-update-progress')).toBeVisible();await page.getByRole('button',{name:'Update All',exact:true}).click();
  await expect(page.locator('[data-update-output]')).toContainText('Long terminal line');expect(await page.locator('main').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);expect(await page.locator('body').evaluate(el=>el.scrollWidth<=innerWidth)).toBe(true);
  await chooseContext(page,{brand:neuro,function:'operations'});await expect(page.locator('.control-center-update-progress')).toBeVisible();
  job.status='succeeded';job.finishedAt='2026-10-22T12:01:00Z';job.result={title:'Checks passed',scope:'Store regression',message:'No repositories were published by this action.',published:[],steps:[]};
- const notices=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(notices).toBeVisible();await expect(notices).toContainText('Checks passed');await expect(notices.locator('time')).toHaveAttribute('datetime',job.finishedAt);await expect(page.locator('.control-center-update-progress')).toBeHidden({timeout:6500});
- await notices.getByRole('button',{name:'Update history',exact:true}).click();await expect(page.locator('[data-update-history]')).toContainText('Checks passed');await page.reload();await expect(page.locator('[data-update-history]')).toContainText('Store regression');
+ const notices=page.getByRole('dialog',{name:'Notifications',exact:true});await expect(page.locator('.control-center-update-progress')).toBeHidden({timeout:6500});await expect(notices).toBeHidden();await page.getByRole('button',{name:'Notifications, 1 pending',exact:true}).click();await expect(notices).toContainText('Checks passed');await expect(notices.locator('time')).toHaveAttribute('datetime',job.finishedAt);
+ await notices.getByRole('button',{name:'Mark as read',exact:true}).click();await expect(notices).not.toContainText('Checks passed');await notices.getByRole('button',{name:'History',exact:true}).click();await expect(notices).toContainText('Checks passed');await notices.getByRole('button',{name:'View update details',exact:true}).click();await expect(page.locator('[data-update-history]')).toContainText('Checks passed');await page.reload();await expect(page.locator('[data-update-history]')).toContainText('Store regression');
 });
 test('personal profile uses shared save feedback and an icon-only portrait action',async({page})=>{
  await enter(page,['artists.read']);await page.getByRole('button',{name:'Account menu',exact:true}).click();await page.getByRole('menuitem',{name:'My account',exact:true}).click();

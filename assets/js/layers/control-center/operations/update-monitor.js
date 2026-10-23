@@ -23,32 +23,31 @@ export function createUpdateMonitor({client}){
   get state(){return state;},refresh,
   subscribe(listener){listeners.add(listener);listener(state);return ()=>listeners.delete(listener);},
   takeNotice(){return notices.shift();},
+  async markRead(id){const job=await request('jobs/'+encodeURIComponent(id)+'/read',{method:'POST'});writeVersion++;state={...state,jobs:state.jobs.map(item=>item.id===job.id?job:item)};emit();},
   async start(document,method){const job=await request('jobs',{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':crypto.randomUUID()},body:JSON.stringify({document,method,...(method==='publish'?{confirmation:'PUBLISH REVIEWED CHANGES'}:{})})});writeVersion++;state={...state,jobs:[...state.jobs.filter(item=>item.id!==job.id),job]};if(job.status!=='running')notices.push(job);emit();await refresh();return state.jobs.find(item=>item.id===job.id)||job;},
   stop(){stopped=true;clearTimeout(timer);listeners.clear();notices.length=0;}
  };
 }
 export function updateSummary(job,e){
- const result=job.result||{},title=result.title||labels.results[job.status==='succeeded'?job.method:job.status]||labels.results.failed;
+ const result=job.result||{},title=labels.results[job.status==='succeeded'?job.method:job.status]||labels.results.failed;
+ const message=job.status==='succeeded'&&job.method==='publish'?labels.results.hosting:(result.message||'').replaceAll('GitHub publication','publication').replaceAll('GitHub','publishing service');
  const date=job.finishedAt||job.startedAt;
- return `<article class="control-center-update-summary"><strong>${e(title)}</strong><span>${e(result.scope||job.title)}</span>${date?`<time datetime="${e(date)}">${e(new Intl.DateTimeFormat(undefined,{dateStyle:'medium',timeStyle:'short'}).format(new Date(date)))}</time>`:''}${result.message?`<p>${e(result.message)}</p>`:''}${result.problem?`<p>${e(result.problem)}</p>`:''}${result.published?.length?`<ul>${result.published.map(layer=>`<li>${e(layer.label)} · Pushed to GitHub</li>`).join('')}</ul>`:''}${result.steps?.length?`<details><summary>Checks by layer</summary><ul>${result.steps.map(step=>`<li>${e(step.label)} · ${e(step.status==='passed'?'Checks passed':step.status==='failed'?'Checks failed':'Check not confirmed')}</li>`).join('')}</ul></details>`:''}${job.historyWarning?`<p>${e(job.historyWarning)}</p>`:''}</article>`;
+ return `<article class="control-center-update-summary"><strong>${e(title)}</strong><span>${e(result.scope||job.title)}</span>${date?`<time datetime="${e(date)}">${e(new Intl.DateTimeFormat(undefined,{dateStyle:'medium',timeStyle:'short'}).format(new Date(date)))}</time>`:''}${message?`<p>${e(message)}</p>`:''}${result.problem?`<p>${e(result.problem)}</p>`:''}${result.published?.length?`<ul>${result.published.map(layer=>`<li>${e(layer.label)} · Submitted for publication</li>`).join('')}</ul>`:''}${result.steps?.length?`<details><summary>Checks by layer</summary><ul>${result.steps.map(step=>`<li>${e(step.label)} · ${e(step.status==='passed'?'Checks passed':step.status==='failed'?'Checks failed':'Check not confirmed')}</li>`).join('')}</ul></details>`:''}${job.historyWarning?`<p>${e(job.historyWarning)}</p>`:''}</article>`;
 }
 export function mountUpdateProgress({root,monitor,onNavigate}){
  if(!monitor)return;
  const progress=document.createElement('button');progress.type='button';progress.className='control-center-update-progress';progress.hidden=true;progress.setAttribute('aria-label',labels.results.running);progress.setAttribute('title',labels.results.running);progress.addEventListener('click',()=>onNavigate('updates'));
  root.querySelector('[data-search-open]').before(progress);
- let lastRunning,completionTimer;
  monitor.subscribe(state=>{
-  if(!progress.isConnected){clearTimeout(completionTimer);return false;}
+  if(!progress.isConnected)return false;
   const running=state.jobs.find(job=>job.status==='running');
-  const finished=lastRunning&&state.jobs.find(job=>job.id===lastRunning&&job.status!=='running');
   if(running){
-   clearTimeout(completionTimer);lastRunning=running.id;progress.hidden=false;
+   progress.hidden=false;
    const ratio=running.progress?.total?Math.min(95,Math.floor(running.progress.completed/running.progress.total*100)):0;
    progress.style.setProperty('--update-progress',ratio+'%');
    const previous=state.jobs.filter(job=>job.document===running.document&&job.method===running.method&&job.status==='succeeded'&&job.finishedAt).map(job=>new Date(job.finishedAt)-new Date(job.startedAt)).filter(value=>value>0).sort((a,b)=>a-b);
    const estimate=previous.length?' · Previous runs: about '+Math.ceil(previous[Math.floor(previous.length/2)]/60000)+' min':' · Duration not estimated yet';
    const label=state.error?labels.results.connection:(running.progress?.phase||'Preparing update')+' · '+ratio+'%'+estimate;progress.setAttribute('aria-label',label);progress.title=label;
-  }else if(finished){lastRunning=null;progress.style.setProperty('--update-progress',finished.status==='succeeded'?'100%':progress.style.getPropertyValue('--update-progress'));progress.setAttribute('aria-label',finished.status==='succeeded'?'Update completed':'Update stopped; open notifications for details');completionTimer=setTimeout(()=>{progress.hidden=true;},4000);}
-  else if(!completionTimer)progress.hidden=true;
+  }else progress.hidden=true;
  });
 }

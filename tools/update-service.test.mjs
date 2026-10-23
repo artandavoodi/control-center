@@ -58,10 +58,15 @@ test('completion history survives service restart and stays account scoped',asyn
  await fetch(url+'jobs',{method:'POST',headers,body});assert.equal(launches,1);
  child.stdout.emit('data',Buffer.from('Validate store\nPublished sto'));child.stdout.emit('data',Buffer.from('re: '+'b'.repeat(40)+'\n'));child.emit('close',0);
  let finished;for(let attempt=0;attempt<30;attempt++){finished=await (await fetch(url+'jobs/'+started.id,{headers})).json();if(finished.status==='succeeded')break;await new Promise(resolve=>setTimeout(resolve,5));}
- assert.equal(finished.result.title,'Published to GitHub');assert.match(finished.result.message,/not been checked/);assert.equal(finished.result.published[0].id,'store');
+ assert.equal(finished.result.title,'Update completed');assert.match(finished.result.message,/not been checked/);assert.equal(finished.result.published[0].id,'store');
+ const acknowledged=await (await fetch(url+'jobs/'+started.id+'/read',{method:'POST',headers})).json();assert.ok(acknowledged.readAt);
+ assert.equal((await (await fetch(url+'jobs/'+started.id+'/read',{method:'POST',headers})).json()).readAt,acknowledged.readAt);
+ assert.equal((await fetch(url+'jobs/earlier/read',{method:'POST',headers})).status,200);
  for(let attempt=0;attempt<30;attempt++){const text=await readFile(options.historyFile,'utf8');if(text.includes('finishedAt'))break;await new Promise(resolve=>setTimeout(resolve,5));}
  const restarted=await endpoint(createUpdateService(options));const restored=await (await fetch(restarted+'catalogue',{headers})).json();assert.ok(restored.jobs.some(job=>job.id===started.id&&job.status==='succeeded'));assert.ok(restored.jobs.some(job=>job.id==='earlier'));
+ assert.equal(restored.jobs.find(job=>job.id===started.id).readAt,acknowledged.readAt);
  const other=await endpoint(createUpdateService({...options,authorize:async()=> 'another-owner'}));assert.equal((await (await fetch(other+'catalogue',{headers})).json()).jobs.length,0);assert.equal((await fetch(other+'jobs/'+started.id,{headers})).status,404);
+ assert.equal((await fetch(other+'jobs/'+started.id+'/read',{method:'POST',headers})).status,404);
  const unavailable=await endpoint(createUpdateService({...options,launch:()=>{throw Error('The process could not start');}}));
  const failed=await (await fetch(unavailable+'jobs',{method:'POST',headers:{...headers,'Idempotency-Key':'22222222-2222-4222-8222-222222222222'},body})).json();assert.equal(failed.status,'failed');assert.equal(failed.result.title,'Update stopped');
  assert.equal((await stat(options.historyFile)).mode&0o777,0o600);
