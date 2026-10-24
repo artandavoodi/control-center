@@ -1,5 +1,13 @@
 # Change Log
 
+## 2026-10-24 — Artist catalogue readiness and release editing
+- Fixed the selector conflict that disabled desktop artist snapping. Destination content is centered, header tabs remain contextual, and tablet/mobile scrolling stays natural.
+- Listen and Follow use icon-only desktop presentation with themed hover/focus labels; Explore retains its labelled presentation. Section entrances use shared motion tokens and respect reduced motion.
+- Public Artanrecords and Studio consume the same website-owned page-readiness controller, loading surface and breathing-dot primitive. Initial artist media is decoded before reveal; queued profile refreshes are not discarded.
+- Studio tracks use named sections rather than legends crossing separators. Released artwork/content spacing and release/track facts are explicit; platform icons and track-level links use the registered icon map.
+- Added optional label/copyright and cover-song/preview metadata with validation. Drafts remain private; no distribution, signing, payment or publication permission was activated.
+- Verification: 296 public browser cases passed with four device-specific skips; all 114 Studio browser cases and 35 source tests passed. Shared consumers were rebuilt and checksum-verified.
+
 ## 2026-10-24 — Studio alignment and artist catalogue refinement
 - Canonical Artanrecords wordmarks now use artwork-aligned horizontal canvases; vector paths are unchanged. Studio header insets share the sidebar icon alignment.
 - Studio custom colours use the shared modal backdrop and close primitive. Artist desktop destinations are header-only, with centered content and desktop-only section snapping.
