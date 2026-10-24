@@ -10130,7 +10130,8 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -103196,7 +103197,8 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -109041,7 +109043,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
           ]
@@ -110671,7 +110673,7 @@
           "evidence": [
             "docs/404.html",
             "docs/about/index.html",
-            "docs/artists/artandavoodi/index.html"
+            "docs/artandavoodi/index.html"
           ]
         },
         {
@@ -113672,9 +113674,9 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html",
-            "docs/releases/gone/index.html"
+            "docs/assets/css/layers/site/not-found.css",
+            "docs/assets/css/site.generated.css",
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -113957,7 +113959,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json"
           ]
         },
@@ -114538,6 +114540,8 @@
         {
           "brand": "artanrecords",
           "evidence": [
+            "docs/assets/css/layers/site/not-found.css",
+            "docs/assets/css/site.generated.css",
             "docs/assets/data/icons.json"
           ]
         },
@@ -129530,7 +129534,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
           ]
@@ -129617,7 +129621,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
           ]
@@ -129670,7 +129674,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json"
           ]
         },
@@ -129748,7 +129752,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
           ]
@@ -129799,7 +129803,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
           ]
@@ -129851,7 +129855,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json"
           ]
         },
@@ -129913,7 +129917,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
           ]
@@ -130420,7 +130424,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artists/artandavoodi/index.html",
+            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/contact/index.html"
           ]
@@ -130511,9 +130515,9 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/404.html",
             "docs/about/index.html",
-            "docs/artists/artandavoodi/index.html"
+            "docs/artandavoodi/index.html",
+            "docs/artists/index.html"
           ]
         },
         {
@@ -130626,9 +130630,9 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/404.html",
             "docs/about/index.html",
-            "docs/artists/artandavoodi/index.html"
+            "docs/artandavoodi/index.html",
+            "docs/artists/index.html"
           ]
         },
         {
