@@ -51,11 +51,11 @@ test('local development offers all brands and launches only registered previews'
  await dialog.getByRole('combobox',{name:'Workspace',exact:true}).selectOption('local-development');
  await dialog.getByRole('combobox',{name:'Brand',exact:true}).selectOption('all');
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
- await expect(page.getByText('3 repositories registered. Owner access is checked for every launch.',{exact:true})).toBeVisible();
+ await expect(page.getByText('2 custom-domain websites. Owner access is checked for every launch.',{exact:true})).toBeVisible();
  await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(2);
  await page.locator('[data-preview-brand]').selectOption('neuroartan');
  await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(1);
- await expect(page.getByText('Private vault; never served.',{exact:true})).toBeVisible();
+ await expect(page.getByText('Private vault; never served.',{exact:true})).toHaveCount(0);
  await page.getByRole('button',{name:'Start preview',exact:true}).click();
  await expect(page.getByRole('link',{name:'Open preview',exact:true})).toHaveAttribute('href','http://127.0.0.1:8927/');
  await expect(page.getByText('Preview ready.',{exact:true})).toBeVisible();

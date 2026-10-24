@@ -33,7 +33,7 @@ export function createPreviewService({enabled=false,config,registry=loadPreviewR
    const account=await authorize(request.headers.authorization?.match(/^Bearer (.+)$/)?.[1],config);
    const entries=await registry();
    if(request.method==='GET'&&url.pathname==='/api/previews/catalogue'){
-    send(200,{repositories:entries.map(publicPreviewEntry),remoteConnected:Boolean(remoteOrigin),notice:'Only registered website previews can be launched. No update, publication or database change is performed.'});return true;
+    send(200,{repositories:entries.filter(item=>item.domains?.length&&item.strategy).map(publicPreviewEntry),remoteConnected:Boolean(remoteOrigin),notice:'Only registered websites with custom domains are listed. No update, publication or database change is performed.'});return true;
    }
    const match=url.pathname.match(/^\/api\/previews\/([a-z0-9-]+)\/(start|status)$/),entry=entries.find(item=>item.id===match?.[1]);
    if(!entry){send(404,{error:'Registered preview not found.'});return true;}

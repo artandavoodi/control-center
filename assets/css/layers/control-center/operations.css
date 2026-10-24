@@ -105,7 +105,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-appearance [data-appearance-status]:empty { display:none; }
 .control-center-review pre { white-space:pre-wrap; }
 [data-operation-content] { min-inline-size:0; max-inline-size:100%; overflow-wrap:anywhere; }
-[data-update-output] { min-inline-size:0; max-inline-size:100%; white-space:pre-wrap; overflow-wrap:anywhere; font-size:var(--text-caption-size); }
+[data-update-output],[data-preview-output] { min-inline-size:0; max-inline-size:100%; white-space:pre-wrap; overflow-wrap:anywhere; font-size:var(--text-caption-size); }
 .control-center-update-progress { flex:none; display:grid; place-items:center; inline-size:var(--control-height-sm); block-size:var(--control-height-sm); color:var(--text-color); }
 .control-center-update-progress:not([hidden]) { margin-inline-start:auto; }
 .control-center-update-progress:not([hidden]) + [data-search-open] { margin-inline-start:0; }

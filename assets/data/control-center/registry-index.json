@@ -113609,7 +113609,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/previews.js"
           ]
         }
       ]
@@ -114948,8 +114949,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/registry.js"
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
