@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-10-24 — Studio alignment and artist catalogue refinement
+- Canonical Artanrecords wordmarks now use artwork-aligned horizontal canvases; vector paths are unchanged. Studio header insets share the sidebar icon alignment.
+- Studio custom colours use the shared modal backdrop and close primitive. Artist desktop destinations are header-only, with centered content and desktop-only section snapping.
+- Artist content editing and selected-field public projection are registered in Studio and Store migrations. Hosted rollback-test confirmation remains pending.
+- Control Center operation icons use the shared platform navigation size. Local registry and operation tests passed; Studio full regression verification remains in progress.
+
 ## 2026-10-23 — Approved Studio navigation and control refinement
 - Activated the canonical magnetic rail controller in Studio following approval; desktop dragging supports collapse and reopening, while mobile/tablet navigation remains unchanged.
 - Control Center navigation labels no longer wrap. Publication confirmation uses compact theme-aware selection sizing.

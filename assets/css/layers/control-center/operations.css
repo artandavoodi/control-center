@@ -93,7 +93,7 @@ html[data-theme-effective=dark] .control-center-update-primary img { filter:none
 .control-center-operations aside [aria-current=false] { opacity:var(--opacity-muted); }
 .control-center-operations main { min-inline-size:0; overflow:auto; padding:var(--spacing-xl); }
 .control-center-operations h1 { font-size:var(--font-size-lg); }
-.control-center-operation-icon { inline-size:var(--icon-size-sm); block-size:var(--icon-size-sm); object-fit:contain; filter:var(--layout-home-featured-functions-card-icon-filter-dark); }
+.control-center-operation-icon { inline-size:var(--layout-home-platform-nav-icon-size); block-size:var(--layout-home-platform-nav-icon-size); object-fit:contain; filter:var(--layout-home-featured-functions-card-icon-filter-dark); }
 html[data-theme-effective=light] :is(.control-center-operation-icon,.control-center-service-logo) { filter:var(--layout-home-featured-functions-card-icon-filter-light); }
 .control-center-operation-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:var(--spacing-lg); }
 .control-center-operation-grid section,.control-center-review { padding-block:var(--spacing-lg); overflow-wrap:anywhere; }
