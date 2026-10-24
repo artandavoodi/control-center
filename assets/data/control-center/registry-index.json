@@ -108919,8 +108919,8 @@
         "finance"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c",
+      "hasArtwork": true,
+      "sha256": "1ea3b4b63cee6e3595b34d08f1f08956d98cbaf1ffe03b9243ce36d36d9c24a2",
       "brands": [
         "control-center",
         "studio",
@@ -108954,8 +108954,8 @@
         "payment"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c",
+      "hasArtwork": true,
+      "sha256": "fddb94f7b66d3f4481e753459df9d680dcebdb27d43c3f88c7bc4e0ada6142fb",
       "brands": [
         "control-center",
         "studio",
