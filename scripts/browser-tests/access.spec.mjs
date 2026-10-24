@@ -41,6 +41,27 @@ async function chooseContext(page,{function:mode,brand,department,office}={}){
  if(office)await dialog.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
 }
+test('local development offers all brands and launches only registered previews',async({page})=>{
+ await backend(page,['artists.read'],{owner:true});
+ await page.route('**/api/previews/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({repositories:[{id:'jobs',repository:'neuroartan-jobs',brand:'neuroartan',domains:['jobs.neuroartan.com'],strategy:'static'},{id:'records',repository:'artanrecords',brand:'artanrecords',domains:['artanrecords.com'],strategy:'static'},{id:'vault',repository:'neuroartan-i',brand:'neuroartan',domains:[],reason:'Private vault; never served.'}]})}));
+ await page.route('**/api/previews/jobs/start',route=>{expect(route.request().method()).toBe('POST');expect(route.request().headers()['x-control-center-action']).toBe('previews');return route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({ready:true,url:'http://127.0.0.1:8927/',output:'Preview ready.'})});});
+ await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
+ await page.getByRole('button',{name:'Choose workspace',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'Choose workspace'});
+ await dialog.getByRole('combobox',{name:'Workspace',exact:true}).selectOption('local-development');
+ await dialog.getByRole('combobox',{name:'Brand',exact:true}).selectOption('all');
+ await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
+ await expect(page.getByText('3 repositories registered. Owner access is checked for every launch.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(2);
+ await page.locator('[data-preview-brand]').selectOption('neuroartan');
+ await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(1);
+ await expect(page.getByText('Private vault; never served.',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Start preview',exact:true}).click();
+ await expect(page.getByRole('link',{name:'Open preview',exact:true})).toHaveAttribute('href','http://127.0.0.1:8927/');
+ await expect(page.getByText('Preview ready.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('link',{name:'Open preview',exact:true})).toHaveAttribute('target','_blank');
+ await page.reload();await expect(page.getByRole('heading',{name:'Local previews',exact:true})).toBeVisible();
+});
 test('owner update shortcuts show full scope and avatar stays square',async({page})=>{
  await backend(page,['artists.read'],{owner:true});
  await page.route('**/api/updates/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({layers:[{id:'control-center',domains:[]},{id:'store',domains:['store.artandavoodi.com']}],unconfiguredDomains:[],documents:[{id:'00',title:'All',methods:['publish','plan','check']},{id:'11',title:'Icons',methods:['publish','registry']}],jobs:[]})}));

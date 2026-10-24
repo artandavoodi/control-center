@@ -2,8 +2,13 @@ import {createClient} from '@supabase/supabase-js';
 import config from '../../../../data/control-center/operations.json';
 import updateConfig from '../../../../data/control-center/update-actions.json';
 import {mountUpdates} from './updates.js';
+import previewConfig from '../../../../data/control-center/preview-actions.json';
+import {mountPreviews} from './previews.js';
 import {createUpdateMonitor} from './update-monitor.js';
 config.navigation=[...config.navigation,updateConfig.navigation];
+config.navigation.push(previewConfig.navigation);
+config.workspaces.push(previewConfig.workspace);
+config.functions.push({id:'local-previews',panel:'previews',label:'Start local preview',ownerOnly:true,icon:previewConfig.navigation.icon});
 import {hasPermission,permittedNavigation} from './access.js';
 import {createAccess} from './auth.js';
 import {mountProfile} from './profile.js';
@@ -79,6 +84,8 @@ async function render(){
    await mountRegistry({content,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
   }else if(panel==='updates'){
    await mountUpdates({content,monitor:updateMonitor,staff,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
+  }else if(panel==='previews'){
+   await mountPreviews({content,client,staff,workspace,context,e,icon,isCurrent:()=>turn===revision});
   }else if(panel==='documents'||panel==='vacancies'){
    await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){

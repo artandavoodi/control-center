@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev:preview": "node server.mjs --preview",
-    "dev:operations": "node server.mjs --updates",
+    "dev:operations": "node server.mjs --updates --previews",
     "build": "node scripts/build-operations.mjs",
-    "test:operations": "node --test scripts/operations.test.mjs tools/update-service.test.mjs",
+    "test:operations": "node --test scripts/operations.test.mjs tools/update-service.test.mjs tools/preview-service.test.mjs",
     "test:browser": "playwright test --config scripts/browser-tests/config.mjs",
     "sync:icons": "node registry/icons/sync-icons.js",
     "sync:tokens": "node registry/tokens/sync-tokens.js",

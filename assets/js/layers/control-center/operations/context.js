@@ -6,7 +6,7 @@ export function descendants(units,id){
 export function normalizeContext(value,units,workspace){
  const department=units.find(unit=>unit.id===value.department&&unit.kind==='department'&&unit.parent_id===workspace.id&&unit.active);
  const office=units.find(unit=>unit.id===value.office&&unit.kind==='office'&&unit.parent_id===department?.id&&unit.active);
- return {function:value.function||'operations',...(value.function==='design'&&value.allBrands===true?{allBrands:true}:{}),department:department?.id||'',office:office?.id||''};
+ return {function:value.function||'operations',...(['design','local-development'].includes(value.function)&&value.allBrands===true?{allBrands:true}:{}),department:department?.id||'',office:office?.id||''};
 }
 export function mountContextPicker({root,config,nav,workspaces,workspace,context,units,e,icon,onApply}){
  const dialog=root.querySelector('[data-context-dialog]');
@@ -14,7 +14,7 @@ export function mountContextPicker({root,config,nav,workspaces,workspace,context
  dialog.innerHTML=`<form method="dialog" class="control-center-context-form"><header><h2 id="context-title">Choose workspace</h2><button type="button" class="global-close-button" data-context-close aria-label="Close workspace picker"></button></header><label>Workspace<select name="function">${functions.map(group=>`<option value="${e(group.id)}">${e(group.label)}</option>`).join('')}</select></label><label>Brand<select name="brand">${workspaces.map(item=>`<option value="${e(item.id)}">${e(item.name)}</option>`).join('')}</select></label><label>Department<select name="department"></select></label><label>Office<select name="office"></select></label><p class="control-center-field-note">Leave department or office unselected to view everything available at that level. Your permissions remain unchanged.</p><button type="submit">${icon(config.chrome.open)}Open workspace</button></form>`;
  const form=dialog.querySelector('form');
  const globalOption=document.createElement('option');globalOption.value='all';globalOption.textContent='All brands';form.elements.brand.prepend(globalOption);
- function globalScope(){const design=form.elements.function.value==='design';globalOption.disabled=!design;if(!design&&form.elements.brand.value==='all')form.elements.brand.value=workspace.id;}
+ function globalScope(){const global=['design','local-development'].includes(form.elements.function.value);globalOption.disabled=!global;if(!global&&form.elements.brand.value==='all')form.elements.brand.value=workspace.id;}
  form.elements.function.addEventListener('change',()=>{globalScope();brand();});
  function options(select,rows,label,value){select.innerHTML=`<option value="">${label}</option>`+rows.map(item=>`<option value="${e(item.id)}">${e(item.name)}</option>`).join('');select.value=rows.some(item=>item.id===value)?value:'';}
  function departments(value='',office=''){options(form.elements.department,units.filter(unit=>unit.kind==='department'&&unit.parent_id===form.elements.brand.value&&unit.active),'All departments',value);offices(office);}
@@ -26,5 +26,5 @@ export function mountContextPicker({root,config,nav,workspaces,workspace,context
  form.elements.department.addEventListener('change',()=>offices());
  dialog.querySelector('[data-context-close]').addEventListener('click',()=>dialog.close());
  dialog.addEventListener('close',()=>trigger.focus());
- form.addEventListener('submit',event=>{event.preventDefault();dialog.close();const allBrands=form.elements.brand.value==='all'&&form.elements.function.value==='design';onApply({workspace:allBrands?workspace.id:form.elements.brand.value,allBrands,function:form.elements.function.value,department:allBrands?'':form.elements.department.value,office:allBrands?'':form.elements.office.value});});
+ form.addEventListener('submit',event=>{event.preventDefault();dialog.close();const allBrands=form.elements.brand.value==='all'&&['design','local-development'].includes(form.elements.function.value);onApply({workspace:allBrands?workspace.id:form.elements.brand.value,allBrands,function:form.elements.function.value,department:allBrands?'':form.elements.department.value,office:allBrands?'':form.elements.office.value});});
 }

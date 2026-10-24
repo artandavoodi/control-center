@@ -12,6 +12,12 @@ The shared close control is a checksum-verified snapshot of the website owner fi
 
 ## Staff console
 
+### Local Development
+
+Owners can choose **Local Development** alongside Design systems, then **All brands** or a specific brand. Run `npm run dev:operations` on the trusted Mac to enable registered preview launches. The private inventory is resolved from the local governance vault; it is never deployed in the public client. Archived, private-governance and non-website repositories remain visible to owners but cannot be served. Preview launches never publish changes, replace occupied ports or accept browser-supplied commands.
+
+Online access requires a private Tailscale connection, an awake Mac and an explicitly configured `CONTROL_PREVIEW_PRIVATE_ORIGIN`. The online panel accepts only a private HTTPS `.ts.net` connector. Every API action independently verifies the active owner through Supabase. Individual remote preview URLs must also be configured privately; another device must never be sent to its own localhost. Tailscale installation and device sign-in are not accomplished by deploying this client. See the private Local Website Servers guide for activation and inventory ownership. Do not expose the server through Funnel or a public tunnel.
+
 Permanent address: `https://control.artan.live/`. The public client is built with
 `npm run build`; only the `_site` allowlist is deployed. Repository contents,
 private configuration, legacy document controls and governance registries are
