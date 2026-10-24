@@ -125974,8 +125974,8 @@
         "links"
       ],
       "category": "layers/website",
-      "hasArtwork": false,
-      "sha256": "4eb410024e0a832301e6cd289c1aa5ee6e4782a73248fbd2f6f247d045efaea4",
+      "hasArtwork": true,
+      "sha256": "884aaa7e2cd797dbbb9cf7d30a4c1b471d4c6333c872d28685cb0703f0a3720c",
       "brands": [
         "studio",
         "artanrecords"
@@ -130294,7 +130294,7 @@
       ],
       "category": "system/cv",
       "hasArtwork": true,
-      "sha256": "58dda772f07ad1f17aa83e5a42d00783e852886013773b1d1952dae6897202ef",
+      "sha256": "2dc4c6bf84b23bb580502cff1cad47c57923649682eaa09a71bd0fe7ceddd5c4",
       "brands": [
         "artan-live"
       ],
