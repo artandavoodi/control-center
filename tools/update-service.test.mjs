@@ -40,6 +40,15 @@ test('output removes recognizable credentials and local home paths',()=>{
  const output=redactUpdateOutput('Bearer secret sb_secret_example sk_live_example eyJabc.def.ghi');
  assert.ok(!output.includes('Bearer secret'));assert.ok(!output.includes('sb_secret_example'));assert.ok(!output.includes('eyJabc.def.ghi'));
 });
+test('private online updates support preflight but still authorize every action',async t=>{
+ let authorized=0;
+ const service=createUpdateService({enabled:true,remoteOrigin:'https://mac.example.ts.net',historyFile:null,catalogue:async()=>[],authorize:async()=>{authorized++;return 'owner';}});
+ const server=createServer((req,res)=>service(req,res,new URL(req.url,'http://localhost')));await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>server.close());
+ const url='http://127.0.0.1:'+server.address().port+'/api/updates/jobs',headers={Origin:'https://control.artan.live','X-Control-Center-Action':'updates'};
+ const preflight=await fetch(url,{method:'OPTIONS',headers});assert.equal(preflight.status,204);assert.equal(authorized,0);assert.match(preflight.headers.get('access-control-allow-headers'),/Idempotency-Key/);
+ const result=await fetch(url,{method:'POST',headers,body:JSON.stringify({document:'unknown',method:'check'})});assert.equal(result.status,403);assert.equal(authorized,1);assert.match((await result.json()).error,/registered update/);
+ const forbidden=await fetch(url,{method:'POST',headers:{...headers,Origin:'https://evil.test'},body:'{}'});assert.equal(forbidden.status,403);assert.equal(authorized,1);
+});
 test('partial publication is reported honestly rather than as a successful deployment',()=>{
  const job={title:'Update All',method:'publish',status:'failed'};
  captureUpdateLine(job,'Validate records');captureUpdateLine(job,'Published records: '+'a'.repeat(40));captureUpdateLine(job,'FAILED: store: checks failed');captureUpdateLine(job,'Validation failed; no publication performed.');

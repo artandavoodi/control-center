@@ -1,12 +1,14 @@
 import labels from '../../../../data/control-center/update-actions.json' with {type:'json'};
+import {useMacConnection} from './mac-connection.js';
 export function createUpdateMonitor({client}){
  let state={documents:[],layers:[],jobs:[],unconfiguredDomains:[]},stopped=false,timer,loading,initialized=false,writeVersion=0;
  const listeners=new Set(),notices=[];
  const emit=()=>{for(const listener of listeners)if(listener(state)===false)listeners.delete(listener);};
  async function request(path,options={}){
   const session=await client.auth.getSession();if(!session.data.session)throw Error('Sign in again before running an update.');
-  const response=await fetch('/api/updates/'+path,{...options,headers:{Authorization:'Bearer '+session.data.session.access_token,'X-Control-Center-Action':'updates',...options.headers},credentials:'omit',cache:'no-store'});
-  let result;try{result=await response.json();}catch{throw Error('The trusted local update service is unavailable. Start the local server with --updates; live hosting cannot run local prompts.');}
+   const base=await useMacConnection(client);
+   const response=await fetch(base+'/api/updates/'+path,{...options,headers:{Authorization:'Bearer '+session.data.session.access_token,'X-Control-Center-Action':'updates',...options.headers},credentials:'omit',cache:'no-store',signal:AbortSignal.timeout(20000)});
+  let result;try{result=await response.json();}catch{throw Error('The trusted Mac update service is unavailable. Check your saved connection in Local Development and keep your Mac awake.');}
   if(!response.ok)throw Error(result.error||'The update request was rejected.');return result;
  }
  function merge(next){
@@ -21,6 +23,7 @@ export function createUpdateMonitor({client}){
  }
  return {
   get state(){return state;},refresh,
+  async connect(){await useMacConnection(client,{interactive:true});return refresh();},
   subscribe(listener){listeners.add(listener);listener(state);return ()=>listeners.delete(listener);},
   takeNotice(){return notices.shift();},
   async markRead(id){const job=await request('jobs/'+encodeURIComponent(id)+'/read',{method:'POST'});writeVersion++;state={...state,jobs:state.jobs.map(item=>item.id===job.id?job:item)};emit();},

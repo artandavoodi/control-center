@@ -4,7 +4,7 @@ const user={id,email:'staff@example.test',aud:'authenticated',role:'authenticate
 const token=[{alg:'HS256'},{sub:id,role:'authenticated',exp:Math.floor(Date.now()/1000)+3600},'test-only'].map(part=>Buffer.from(typeof part==='string'?part:JSON.stringify(part)).toString('base64url')).join('.');
 const records='98000000-0000-0000-0001-000000000001',neuro='98000000-0000-0000-0001-000000000002';
 const department='98000000-0000-0000-0002-000000000001',office='98000000-0000-0000-0003-000000000001';
-async function backend(page,permissions,{owner=false}={}){
+async function backend(page,permissions,{owner=false,macOrigin=''}={}){
  const documents=[],vacancies=[];
  await page.route('**/assets/data/control-center/registry-index.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({brands:[{id:'store',label:'Artan Store'},{id:'studio',label:'Artanrecords Studio'}],tokens:[{id:'spacing-md',value:'1rem',source:'registry/tokens/manifests/runtime-tokens.json'}],icons:[{id:'core/actions/create/plus',path:'core/actions/create/plus.svg',source:'registry/icons/source/core/actions/create/plus.svg',hasArtwork:true,brands:['store'],usage:[{brand:'store',evidence:['web/catalog.json']}]}]})}));
  await page.route('https://hahtbepdrjkjluhespbs.supabase.co/**',async route=>{
@@ -17,7 +17,7 @@ async function backend(page,permissions,{owner=false}={}){
   else if(path.endsWith('/control_center_staff'))body=permissions?[{account_id:id,enabled:true,is_owner:owner,display_name:'Test reviewer',permissions,manager_id:null,authority_level:'executive',unit_id:records}]:[];
   else if(path.endsWith('/control_center_effective_permissions'))body=permissions||[];
   else if(path.endsWith('/control_center_workspaces'))body=[{id:records,name:'Artanrecords',workspace_key:'artanrecords'},...(owner?[{id:neuro,name:'Neuroartan',workspace_key:'neuroartan'}]:[])];
-  else if(path.endsWith('/control_center_profiles'))body=route.request().method()==='GET'?[]:{};
+  else if(path.endsWith('/control_center_profiles')){if(route.request().method()==='GET')body=macOrigin?[{private_mac_origin:macOrigin}]:[];else{macOrigin=route.request().postDataJSON().private_mac_origin||macOrigin;body={};}}
   else if(path.endsWith('/control_center_set_appearance'))body=null;
   else if(path.endsWith('/control_center_workspace_directory'))body=[{account_id:id,manager_id:null,display_name:'Test reviewer',authority_level:'executive',department:'Operations',office:'',is_owner:owner,enabled:true,unit_id:records}];
   else if(path.endsWith('/control_center_units'))body=[{id:records,parent_id:null,name:'Artanrecords',kind:'pillar',active:true,workspace_key:'artanrecords'},{id:neuro,parent_id:null,name:'Neuroartan',kind:'pillar',active:true,workspace_key:'neuroartan'},{id:department,parent_id:records,name:'Communication',kind:'department',active:true},{id:office,parent_id:department,name:'Press',kind:'office',active:true}];
@@ -43,24 +43,47 @@ async function chooseContext(page,{function:mode,brand,department,office}={}){
 }
 test('local development offers all brands and launches only registered previews',async({page})=>{
  await backend(page,['artists.read'],{owner:true});
- await page.route('**/api/previews/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({repositories:[{id:'jobs',repository:'neuroartan-jobs',brand:'neuroartan',domains:['jobs.neuroartan.com'],strategy:'static'},{id:'records',repository:'artanrecords',brand:'artanrecords',domains:['artanrecords.com'],strategy:'static'},{id:'vault',repository:'neuroartan-i',brand:'neuroartan',domains:[],reason:'Private vault; never served.'}]})}));
- await page.route('**/api/previews/jobs/start',route=>{expect(route.request().method()).toBe('POST');expect(route.request().headers()['x-control-center-action']).toBe('previews');return route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({ready:true,url:'http://127.0.0.1:8927/',output:'Preview ready.'})});});
+ await page.route('**/api/previews/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({repositories:[{id:'jobs',repository:'neuroartan-jobs',brand:'neuroartan',domains:['jobs.neuroartan.com'],strategy:'static',ready:false},{id:'records',repository:'artanrecords',brand:'artanrecords',domains:['artanrecords.com'],strategy:'static',ready:true},{id:'artist',brand:'artist',domains:['artandavoodi.com'],strategy:'static',ready:false},{id:'store',brand:'store',domains:['store.artandavoodi.com'],strategy:'static',ready:false}]})}));
+ await page.route('**/api/previews/jobs/start',route=>{expect(route.request().method()).toBe('POST');expect(route.request().headers()['x-control-center-action']).toBe('previews');return route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({ready:true,url:'http://127.0.0.1:8927/',localUrl:'http://127.0.0.1:8927/',output:'Preview ready.'})});});
  await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
  await page.getByRole('button',{name:'Choose workspace',exact:true}).click();
  const dialog=page.getByRole('dialog',{name:'Choose workspace'});
  await dialog.getByRole('combobox',{name:'Workspace',exact:true}).selectOption('local-development');
  await dialog.getByRole('combobox',{name:'Brand',exact:true}).selectOption('all');
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
- await expect(page.getByText('2 custom-domain websites. Owner access is checked for every launch.',{exact:true})).toBeVisible();
- await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(2);
+ await expect(page.getByText('4 custom-domain websites. Owner access is checked for every launch.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(3);
+ await expect(page.getByRole('button',{name:'Preview options',exact:true})).toHaveCount(1);
+ await expect(page.getByRole('heading',{name:'jobs.neuroartan.com',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'neuroartan-jobs',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('img',{name:'Running',exact:true})).toHaveCount(1);
  await page.locator('[data-preview-brand]').selectOption('neuroartan');
  await expect(page.getByRole('button',{name:'Start preview',exact:true})).toHaveCount(1);
  await expect(page.getByText('Private vault; never served.',{exact:true})).toHaveCount(0);
  await page.getByRole('button',{name:'Start preview',exact:true}).click();
  await expect(page.getByRole('link',{name:'Open preview',exact:true})).toHaveAttribute('href','http://127.0.0.1:8927/');
+ await page.getByText('Terminal details',{exact:true}).click();
  await expect(page.getByText('Preview ready.',{exact:true})).toBeVisible();
+ await expect(page.getByRole('textbox',{name:'Local address',exact:true})).toHaveValue('http://127.0.0.1:8927/');
  await expect(page.getByRole('link',{name:'Open preview',exact:true})).toHaveAttribute('target','_blank');
  await page.reload();await expect(page.getByRole('heading',{name:'Local previews',exact:true})).toBeVisible();
+});
+test('saved Mac connection requires new-browser consent and is reused for online updates',async({page})=>{
+ const origin='https://test-mac.test-tailnet.ts.net';let calls=0;
+ await backend(page,['artists.read'],{owner:true,macOrigin:origin});
+ await page.route('https://control.artan.live/**',async route=>{const url=new URL(route.request().url());const response=await page.request.get('http://127.0.0.1:8894'+url.pathname+url.search);await route.fulfill({response});});
+ await page.route(origin+'/**',route=>{calls++;const path=new URL(route.request().url()).pathname;const body=path.includes('/previews/')?{repositories:[{id:'jobs',brand:'neuroartan',domains:['jobs.neuroartan.com'],strategy:'static',ready:true}]}:{documents:[],layers:[],jobs:[],unconfiguredDomains:[]};return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(body)});});
+ await page.goto('https://control.artan.live/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
+ const consent=page.getByRole('dialog',{name:'Use your private Mac connection',exact:true});await expect(consent).toBeVisible();expect(calls).toBe(0);
+ expect(await consent.evaluate(element=>Boolean(element.closest('.control-center-app')))).toBe(true);
+ expect((await consent.getByRole('checkbox').boundingBox()).width).toBeLessThan(30);
+ await consent.getByRole('checkbox',{name:'Remember this browser',exact:true}).check();await consent.getByRole('button',{name:'Continue',exact:true}).click();
+ await chooseContext(page,{function:'local-development'});
+ await page.locator('[data-preview-brand]').selectOption('all');
+ await expect(page.getByRole('heading',{name:'jobs.neuroartan.com',exact:true})).toBeVisible();expect(calls).toBeGreaterThan(0);
+ await page.reload();await expect(page.getByRole('heading',{name:'jobs.neuroartan.com',exact:true})).toBeVisible();await expect(consent).toHaveCount(0);
+ await chooseContext(page,{function:'administration'});await page.getByRole('button',{name:'Updates & synchronization',exact:true}).click();
+ await expect(page.getByText('Trusted Mac update service connected. Permissions are rechecked for every action.',{exact:true})).toBeVisible();
 });
 test('owner update shortcuts show full scope and avatar stays square',async({page})=>{
  await backend(page,['artists.read'],{owner:true});

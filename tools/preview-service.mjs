@@ -5,20 +5,14 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {loadPreviewRegistry,publicPreviewEntry} from './preview-registry.mjs';
 import {verifyUpdateOwner,redactUpdateOutput} from './update-service.mjs';
+import {validateTrustedConnection,allowTrustedCors} from './trusted-connection.mjs';
 const worker=fileURLToPath(new URL('./preview-worker.mjs',import.meta.url));
 const logRoot=path.join(homedir(),'Library/Logs/Artan/previews');
 export function validatePreviewConnection(request,remoteOrigin=''){
- const host=request.headers.host||'',origin=request.headers.origin;
- const local=/^127\.0\.0\.1:\d+$/.test(host);
- const remote=remoteOrigin&&host===new URL(remoteOrigin).host;
- if(!local&&!remote)throw Error('Unrecognized preview service address.');
- if(origin&&origin!==('http://'+host)&&!(remoteOrigin&&origin==='https://control.artan.live')&&origin!==remoteOrigin)throw Error('Unrecognized Control Center origin.');
- if(!origin&&request.headers['sec-fetch-site']!=='same-origin')throw Error('A trusted browser origin is required.');
- if(request.method!=='OPTIONS'&&request.headers['x-control-center-action']!=='previews')throw Error('Invalid preview action.');
- return origin;
+ return validateTrustedConnection(request,{remoteOrigin,action:'previews'});
 }
 export function createPreviewService({enabled=false,config,registry=loadPreviewRegistry,authorize=verifyUpdateOwner,launch=spawn,remoteOrigin=process.env.CONTROL_PREVIEW_PRIVATE_ORIGIN||'',probe=async port=>{
- try{const response=await fetch('http://127.0.0.1:'+port+'/',{signal:AbortSignal.timeout(1000)});return {occupied:true,ready:response.ok};}catch{return {occupied:false,ready:false};}
+ try{const response=await fetch('http://127.0.0.1:'+port+'/',{method:'HEAD',signal:AbortSignal.timeout(1000)});return {occupied:true,ready:response.ok};}catch{return {occupied:false,ready:false};}
 },logs=logRoot}={}){
  if(remoteOrigin){const address=new URL(remoteOrigin);if(address.protocol!=='https:'||!address.hostname.endsWith('.ts.net')||address.pathname!=='/'||address.username||address.password)throw Error('A private Tailscale HTTPS origin is required.');}
  const pending=new Set();
@@ -28,12 +22,13 @@ export function createPreviewService({enabled=false,config,registry=loadPreviewR
   if(!enabled){send(503,{error:'Local Development is disabled on this server.'});return true;}
   try{
    const origin=validatePreviewConnection(request,remoteOrigin);
-   if(origin){response.setHeader('Access-Control-Allow-Origin',origin);response.setHeader('Vary','Origin');}
-   if(request.method==='OPTIONS'){response.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');response.setHeader('Access-Control-Allow-Headers','Authorization, X-Control-Center-Action, Content-Type');response.writeHead(204).end();return true;}
+   allowTrustedCors(response,origin);
+   if(request.method==='OPTIONS'){response.writeHead(204).end();return true;}
    const account=await authorize(request.headers.authorization?.match(/^Bearer (.+)$/)?.[1],config);
    const entries=await registry();
    if(request.method==='GET'&&url.pathname==='/api/previews/catalogue'){
-    send(200,{repositories:entries.filter(item=>item.domains?.length&&item.strategy).map(publicPreviewEntry),remoteConnected:Boolean(remoteOrigin),notice:'Only registered websites with custom domains are listed. No update, publication or database change is performed.'});return true;
+    const repositories=await Promise.all(entries.filter(item=>item.domains?.length&&item.strategy).map(async item=>({...publicPreviewEntry(item),...await probe(item.port)})));
+    send(200,{repositories,privateOrigin:remoteOrigin,remoteConnected:Boolean(remoteOrigin),notice:'Only registered websites with custom domains are listed. No update, publication or database change is performed.'});return true;
    }
    const match=url.pathname.match(/^\/api\/previews\/([a-z0-9-]+)\/(start|status)$/),entry=entries.find(item=>item.id===match?.[1]);
    if(!entry){send(404,{error:'Registered preview not found.'});return true;}

@@ -104445,6 +104445,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/previews.js",
             "assets/js/layers/control-center/operations/registry.js"
           ]
         },

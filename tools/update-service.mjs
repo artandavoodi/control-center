@@ -4,6 +4,7 @@ import path from 'node:path';
 import {spawn} from 'node:child_process';
 import {randomUUID} from 'node:crypto';
 import {captureUpdateLine,updateResult} from './update-results.mjs';
+import {validateTrustedConnection,allowTrustedCors} from './trusted-connection.mjs';
 const directory=path.join(homedir(),'Documents/Neuroartan/I/04 - Infrastructure/06 - Platform Infrastructure/01 - Standards & Governance/04 - Prompts/02 - Update');
 export async function updateCatalogue(root=directory){
  const result=[];for(const file of (await readdir(root)).filter(file=>/^\d\d - .*\.md$/.test(file)).sort()){
@@ -21,7 +22,7 @@ export async function verifyUpdateOwner(token,config,fetcher=fetch){
  const response=await fetcher(config.url+'/rest/v1/control_center_staff?select=account_id,enabled,is_owner&account_id=eq.'+user.id,{headers,signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('Owner access could not be verified.');const [staff]=await response.json();
  if(staff?.account_id!==user.id||!staff.enabled||!staff.is_owner)throw Error('Only an active Control Center owner may run updates.');return user.id;
 }
-export function createUpdateService({enabled=false,config,runner=path.join(directory,'runtime/update.mjs'),catalogue=updateCatalogue,launch=spawn,authorize=verifyUpdateOwner,historyFile=path.join(homedir(),'Library/Logs/Artan/control-center-update-history.jsonl')}={}){
+export function createUpdateService({enabled=false,config,runner=path.join(directory,'runtime/update.mjs'),catalogue=updateCatalogue,launch=spawn,authorize=verifyUpdateOwner,remoteOrigin=process.env.CONTROL_PREVIEW_PRIVATE_ORIGIN||'',historyFile=path.join(homedir(),'Library/Logs/Artan/control-center-update-history.jsonl')}={}){
  const jobs=new Map();let running=null;
  const restored=(async()=>{
   if(!historyFile)return;
@@ -56,8 +57,8 @@ export function createUpdateService({enabled=false,config,runner=path.join(direc
   if(!enabled){send(503,{error:'The local update service is not enabled. Start the trusted local server with --updates. Live hosting does not execute local prompts.'});return true;}
   let reservation=null;
   try{
-   const expected='http://'+request.headers.host;
-   if(request.headers['x-control-center-action']!=='updates'||!/^127\.0\.0\.1:\d+$/.test(request.headers.host||'')||(request.headers.origin?request.headers.origin!==expected:request.headers['sec-fetch-site']!=='same-origin'))throw Error('Updates require the same-origin local Control Center.');
+   const origin=validateTrustedConnection(request,{remoteOrigin,action:'updates'});allowTrustedCors(response,origin);
+   if(request.method==='OPTIONS'){response.writeHead(204).end();return true;}
    const token=request.headers.authorization?.match(/^Bearer (.+)$/)?.[1],account=await authorize(token,config);
    await restored;
    const docs=await catalogue();

@@ -106,6 +106,16 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-review pre { white-space:pre-wrap; }
 [data-operation-content] { min-inline-size:0; max-inline-size:100%; overflow-wrap:anywhere; }
 [data-update-output],[data-preview-output] { min-inline-size:0; max-inline-size:100%; white-space:pre-wrap; overflow-wrap:anywhere; font-size:var(--text-caption-size); }
+.control-center-operations form.control-center-preview-toolbar { display:grid; grid-template-columns:minmax(0,2fr) auto minmax(0,1fr); gap:var(--spacing-md); align-items:end; max-inline-size:none; inline-size:100%; }
+.control-center-preview-toolbar > label { display:grid; gap:var(--spacing-sm); min-inline-size:0; }
+.control-center-preview-toolbar > button,.control-center-preview-row > button { display:inline-flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
+.control-center-preview-row { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
+.control-center-preview-domain { display:flex; align-items:center; gap:var(--spacing-sm); min-inline-size:0; }
+.control-center-preview-row h3 { min-inline-size:0; font-size:var(--font-size-md); }
+.control-center-preview-row > button { flex:none; }
+.control-center-preview-dot { inline-size:var(--spacing-xs); block-size:var(--spacing-xs); flex:none; border-radius:var(--radius-circle); background:var(--status-warning-color); }
+.control-center-preview-dot[data-ready=true] { background:var(--status-success-color); }
+@media(max-width:767px){ .control-center-operations form.control-center-preview-toolbar { grid-template-columns:minmax(0,1fr); } .control-center-preview-row { flex-wrap:wrap; } .control-center-preview-row > button { margin-inline-start:auto; } }
 .control-center-update-progress { flex:none; display:grid; place-items:center; inline-size:var(--control-height-sm); block-size:var(--control-height-sm); color:var(--text-color); }
 .control-center-update-progress:not([hidden]) { margin-inline-start:auto; }
 .control-center-update-progress:not([hidden]) + [data-search-open] { margin-inline-start:0; }

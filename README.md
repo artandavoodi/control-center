@@ -18,6 +18,8 @@ Owners can choose **Local Development** alongside Design systems, then **All bra
 
 Online access requires a private Tailscale connection, an awake Mac and an explicitly configured `CONTROL_PREVIEW_PRIVATE_ORIGIN`. The online panel accepts only a private HTTPS `.ts.net` connector. Every API action independently verifies the active owner through Supabase. Individual remote preview URLs must also be configured privately; another device must never be sent to its own localhost. Tailscale installation and device sign-in are not accomplished by deploying this client. See the private Local Website Servers guide for activation and inventory ownership. Do not expose the server through Funnel or a public tunnel.
 
+The Mac origin is an account-private profile preference, not JWT metadata or an access grant. New browsers must explicitly consent before credentials are sent to the saved Mac; remembering that consent is optional and account-scoped. This is a browser preference, not device attestation or a replacement for authentication. Updates use the same approved connection while retaining owner checks, fixed registered actions, idempotency and publication confirmation. Preview status is checked periodically, and the localhost address is separately available for copying on the host Mac. Artan Davoodi groups its artist website and Artan Store; Artan groups artan.live and Control Center.
+
 Permanent address: `https://control.artan.live/`. The public client is built with
 `npm run build`; only the `_site` allowlist is deployed. Repository contents,
 private configuration, legacy document controls and governance registries are

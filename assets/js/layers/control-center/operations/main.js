@@ -4,6 +4,7 @@ import updateConfig from '../../../../data/control-center/update-actions.json';
 import {mountUpdates} from './updates.js';
 import previewConfig from '../../../../data/control-center/preview-actions.json';
 import {mountPreviews} from './previews.js';
+import {isLocalMac,savedMacConnection,useMacConnection} from './mac-connection.js';
 import {createUpdateMonitor} from './update-monitor.js';
 config.navigation=[...config.navigation,updateConfig.navigation];
 config.navigation.push(previewConfig.navigation);
@@ -60,6 +61,9 @@ async function loadAccess(){
  panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';
  const remembered=readView('navigation',null);if(remembered){const savedWorkspace=workspaces.find(item=>item.id===remembered.workspace),savedPanel=permittedNavigation(config,staff).find(item=>item.id===remembered.panel);if(savedWorkspace&&savedPanel&&(savedPanel.workspace!=='reviews'||savedWorkspace.workspace_key==='artanrecords')){workspace=savedWorkspace;context=normalizeContext(remembered.context||{},units,workspace);panel=savedPanel.id;}}
  const appearance=await client.from('control_center_profiles').select('appearance').eq('account_id',user.id).maybeSingle();if(appearance.data?.appearance)setTheme(appearance.data.appearance);await render();
+ if(staff?.is_owner&&!isLocalMac()&&!['previews','updates'].includes(panel)){
+  try{if(await savedMacConnection(client)){await useMacConnection(client,{interactive:true});updateMonitor?.refresh();}}catch{/* Declining browser consent does not block the staff console. */}
+ }
 }
 async function render(){
  finishLoading();
