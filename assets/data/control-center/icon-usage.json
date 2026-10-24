@@ -4,7 +4,7 @@
   {"id":"neuroartan","label":"Neuroartan","repository":"../website","roots":["docs"]},
   {"id":"store","label":"Artan Store","repository":"../artan-store","roots":["web"]},
   {"id":"artanrecords","label":"Artanrecords","repository":"../artanrecords","roots":["docs"]},
-  {"id":"studio","parent":"artanrecords","label":"Artanrecords Studio","repository":"../artanrecords-studio","roots":["app","content"]},
+  {"id":"studio","parent":"artanrecords","label":"Artanrecords Studio","repository":"../artanrecords-studio","roots":["app","content"],"aliases":{"source":"content/account.json","key":"icons","directory":"app/icons"}},
   {"id":"artist","label":"Artan Davoodi","repository":"../artandavoodi","roots":["docs"]},
   {"id":"artan-live","label":"Artan.live","repository":"../artan-live","roots":["docs"]}
  ]

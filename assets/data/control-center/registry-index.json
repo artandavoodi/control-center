@@ -57182,7 +57182,6 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
-        "control-center",
         "neuroartan"
       ]
     },
@@ -57986,6 +57985,38 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "neuroartan"
+      ]
+    },
+    {
+      "id": "brand-wordmark-header-width",
+      "value": "15.84rem",
+      "category": "dimensions",
+      "tags": [
+        "brand",
+        "wordmark",
+        "header",
+        "width"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json",
+      "brands": [
+        "control-center",
+        "artanrecords"
+      ]
+    },
+    {
+      "id": "brand-wordmark-header-height",
+      "value": "2.5rem",
+      "category": "dimensions",
+      "tags": [
+        "brand",
+        "wordmark",
+        "header",
+        "height"
+      ],
+      "source": "registry/tokens/manifests/runtime-tokens.json",
+      "brands": [
+        "control-center",
+        "artanrecords"
       ]
     },
     {

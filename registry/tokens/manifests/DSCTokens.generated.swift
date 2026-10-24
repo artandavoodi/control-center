@@ -3194,6 +3194,8 @@ enum DSCTokens {
     "nav-menu-mobile-pack-min-height": "calc(150px * var(--accessibility-density-scale))",
     "nav-menu-mobile-rail-item-padding": "calc(14px * var(--accessibility-density-scale)) 0",
     "nav-menu-mobile-rail-link-tracking": "0.10em",
+    "brand-wordmark-header-width": "15.84rem",
+    "brand-wordmark-header-height": "2.5rem",
     "feedback-success-color": "#2f8f5b",
     "feedback-warning-color": "#b9822b",
     "feedback-error-color": "#b84a4a",
@@ -9436,6 +9438,8 @@ enum DSCTokens {
   static let nav_menu_mobile_pack_min_height = "calc(150px * var(--accessibility-density-scale))"
   static let nav_menu_mobile_rail_item_padding = "calc(14px * var(--accessibility-density-scale)) 0"
   static let nav_menu_mobile_rail_link_tracking = "0.10em"
+  static let brand_wordmark_header_width = "15.84rem"
+  static let brand_wordmark_header_height = "2.5rem"
   static let feedback_success_color = "#2f8f5b"
   static let feedback_warning_color = "#b9822b"
   static let feedback_error_color = "#b84a4a"

@@ -3191,6 +3191,8 @@
   "nav-menu-mobile-pack-min-height": "calc(150px * var(--accessibility-density-scale))",
   "nav-menu-mobile-rail-item-padding": "calc(14px * var(--accessibility-density-scale)) 0",
   "nav-menu-mobile-rail-link-tracking": "0.10em",
+  "brand-wordmark-header-width": "15.84rem",
+  "brand-wordmark-header-height": "2.5rem",
   "feedback-success-color": "#2f8f5b",
   "feedback-warning-color": "#b9822b",
   "feedback-error-color": "#b84a4a",

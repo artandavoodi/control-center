@@ -35,6 +35,14 @@ export async function collectIconUsage(icons){
   const repository=new URL(brand.repository+'/',root),directory=decodeURIComponent(repository.pathname);
   const files=execFileSync('git',['ls-files','-z'],{cwd:directory,encoding:'utf8',maxBuffer:16*1024*1024}).split('\0').filter(file=>brand.roots.some(prefix=>file.startsWith(prefix+'/'))&&!/(?:^|\/)(?:registry|node_modules|dist|neuroartan)(?:\/|$)|registry-index\.json$|icon-manifest\.json$/.test(file));
   const sources=[];const aliases=new Map();
+  if(brand.aliases){
+   const mapping=JSON.parse(await readFile(path.join(directory,brand.aliases.source),'utf8'))[brand.aliases.key];
+   if(!mapping||typeof mapping!=='object')throw Error('Missing registered icon aliases: '+brand.id);
+   for(const [name,source] of Object.entries(mapping)){
+    const icon=icons.find(icon=>icon.path===source);if(!icon)throw Error('Unregistered icon alias: '+brand.id+'/'+name);
+    aliases.set(icon.id,[brand.aliases.directory+'/'+name+'.svg']);
+   }
+  }
   for(const file of files){
    if(!/\.(?:svg|json|js|mjs|css|html)$/.test(file))continue;
    let bytes;try{bytes=await readFile(path.join(directory,file));}catch{throw Error('Registered brand source unavailable: '+brand.id+'/'+file);}

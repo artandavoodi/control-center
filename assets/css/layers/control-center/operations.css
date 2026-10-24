@@ -28,7 +28,7 @@
 .control-center-app-header { display:flex; flex:none; align-items:center; gap:var(--spacing-md); min-block-size:var(--control-height-lg); padding:var(--spacing-md) var(--spacing-lg); border-block-end:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-app-header > button { display:grid; place-items:center; min-inline-size:var(--control-height-md); min-block-size:var(--control-height-md); border:0; background:transparent; cursor:pointer; }
 .control-center-app-title { font-weight:var(--font-weight-medium); min-inline-size:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.control-center-header-wordmark { inline-size:var(--nav-menu-typo-logo-width); max-inline-size:25vw; block-size:var(--control-height-sm); object-fit:contain; filter:var(--layout-home-featured-functions-card-icon-filter-dark); }
+.control-center-header-wordmark { inline-size:var(--brand-wordmark-header-width); max-inline-size:25vw; block-size:var(--brand-wordmark-header-height); object-fit:contain; object-position:left center; filter:var(--layout-home-featured-functions-card-icon-filter-dark); }
 html[data-theme-effective=light] .control-center-header-wordmark { filter:var(--layout-home-featured-functions-card-icon-filter-light); }
 [data-search-open] { margin-inline-start:auto; }
 .control-center-app-context { color:var(--text-secondary-color); margin-inline-start:auto; }
@@ -190,7 +190,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-operation-icon { flex:none; }
 .control-center-context-form > button[type=submit],.control-center-operations form > button,[data-create-document],[data-create-vacancy] { display:inline-flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
 .control-center-document-body { white-space:pre-wrap; overflow-wrap:anywhere; }
-[data-document-filter],[data-registry-search] { margin-block:var(--spacing-lg); }
+[data-document-filter] { margin-block:var(--spacing-lg); }
 .control-center-registry-item { min-inline-size:0; overflow-wrap:anywhere; }
 .control-center-registry-filters { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap:var(--spacing-lg); margin-block:var(--spacing-lg); align-items:end; }
 .control-center-filter-label { display:flex; align-items:center; gap:var(--spacing-sm); font-size:var(--text-caption-size); }

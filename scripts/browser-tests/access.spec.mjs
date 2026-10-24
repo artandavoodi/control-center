@@ -82,8 +82,11 @@ test('notifications route pending requests through permitted review screens',asy
 test('icon usage filters distinguish references from absent brand references',async({page})=>{
  await backend(page,['artists.read'],{owner:true});await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();
  await chooseContext(page,{function:'design'});await page.getByRole('button',{name:'Tokens & icons',exact:true}).click();await page.getByRole('button',{name:'Icons',exact:true}).click();
+ const search=page.locator('[data-registry-search]'),category=page.locator('[data-registry-category]');
+ if(test.info().project.name!=='mobile')expect(Math.abs((await search.boundingBox()).y-(await category.boundingBox()).y)).toBeLessThan(2);
  await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('used:store');await expect(page.locator('[data-registry-results]')).toContainText('Registered in: Artan Store');
  await page.getByRole('combobox',{name:'Brand usage',exact:true}).selectOption('used:studio');await expect(page.locator('[data-registry-results] article')).toHaveCount(0);
+ await expect(page.locator('main [role=status][aria-live=polite]')).toContainText('1 total before filters');
  await expect(page.getByRole('combobox',{name:'Brand usage',exact:true}).locator('option[value^="missing:"]')).toHaveCount(0);
  await page.reload();await expect(page.getByRole('combobox',{name:'Brand usage',exact:true})).toHaveValue('used:studio');
 });
