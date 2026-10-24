@@ -10900,6 +10900,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -12459,6 +12460,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -16389,6 +16391,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -50762,6 +50765,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -52294,7 +52298,9 @@
       "brands": [
         "control-center",
         "neuroartan",
-        "store"
+        "store",
+        "studio",
+        "artanrecords"
       ]
     },
     {
@@ -104853,7 +104859,9 @@
       "hasArtwork": false,
       "sha256": "07d5a2a08583e9d4d7ef7adcf76d3ac4109e9b91c2e6dd44ca67b26cd63e9330",
       "brands": [
-        "control-center"
+        "control-center",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -104861,6 +104869,12 @@
           "evidence": [
             "assets/data/control-center/operations.json",
             "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -108983,6 +108997,7 @@
       "sha256": "08e5de4782296c6e724a6e8caf655a2d66998e70a8c75f548fcdc2c96ac487d9",
       "brands": [
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ],
@@ -108993,6 +109008,12 @@
             "docs/artists/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/releases/dream/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
