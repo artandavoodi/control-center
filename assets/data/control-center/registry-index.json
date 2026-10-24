@@ -110689,8 +110689,8 @@
         "username"
       ],
       "category": "core/identity",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "03d8f7d611bc66fe22f4010fc62534cc2411485c2ae731f7d803f9a631ed6fa2",
       "brands": [
         "control-center",
         "studio",
