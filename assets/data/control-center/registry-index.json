@@ -16391,7 +16391,6 @@
         "neuroartan",
         "store",
         "artanrecords",
-        "studio",
         "artist",
         "artan-live"
       ]
@@ -16867,7 +16866,8 @@
       "brands": [
         "control-center",
         "neuroartan",
-        "store"
+        "store",
+        "artanrecords"
       ]
     },
     {
@@ -59817,7 +59817,8 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -59851,7 +59852,8 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -59879,7 +59881,8 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -59894,7 +59897,8 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -59949,7 +59953,8 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -131156,8 +131161,8 @@
       "brands": [
         "control-center",
         "neuroartan",
-        "store",
         "artanrecords",
+        "store",
         "artist"
       ]
     },
