@@ -104894,8 +104894,8 @@
         "edit"
       ],
       "category": "core/actions",
-      "hasArtwork": false,
-      "sha256": "07d5a2a08583e9d4d7ef7adcf76d3ac4109e9b91c2e6dd44ca67b26cd63e9330",
+      "hasArtwork": true,
+      "sha256": "7e159858f866fb171948cffa2155e3a9cea3dc6669c3523e4c7ce4327dfd73d2",
       "brands": [
         "control-center",
         "studio",
@@ -111548,8 +111548,8 @@
         "contract"
       ],
       "category": "core/legal",
-      "hasArtwork": false,
-      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c",
+      "hasArtwork": true,
+      "sha256": "ccdf28240ac7d5b21c6127226a83d4fca91f772b05306545dbdb1ea4565ae107",
       "brands": [
         "studio",
         "artanrecords"
