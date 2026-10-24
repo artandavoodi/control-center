@@ -84,6 +84,11 @@ test('saved Mac connection requires new-browser consent and is reused for online
  await page.reload();await expect(page.getByRole('heading',{name:'jobs.neuroartan.com',exact:true})).toBeVisible();await expect(consent).toHaveCount(0);
  await chooseContext(page,{function:'administration'});await page.getByRole('button',{name:'Updates & synchronization',exact:true}).click();
  await expect(page.getByText('Trusted Mac update service connected. Permissions are rechecked for every action.',{exact:true})).toBeVisible();
+ await chooseContext(page,{function:'local-development'});
+ await page.evaluate(()=>{localStorage.setItem('control-center.mac-consent:98000000-0000-0000-0000-000000000001:https://earlier.example.ts.net','yes');});
+ await page.getByRole('button',{name:'Forget this browser',exact:true}).click();
+ expect(await page.evaluate(()=>Object.keys(localStorage).some(key=>key.startsWith('control-center.mac-consent:98000000-0000-0000-0000-000000000001:')))).toBe(false);
+ await page.reload();await expect(consent).toBeVisible();
 });
 test('owner update shortcuts show full scope and avatar stays square',async({page})=>{
  await backend(page,['artists.read'],{owner:true});

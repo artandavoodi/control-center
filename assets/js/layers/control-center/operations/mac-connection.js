@@ -43,4 +43,8 @@ export async function saveMacConnection(client,value){
  try{localStorage.removeItem(legacyKey);}catch{/* Account preference remains authoritative. */}
  return origin;
 }
-export async function forgetMacBrowser(client){const id=await identity(client),origin=await savedMacConnection(client);try{localStorage.removeItem(browserKey(id,origin));sessionStorage.removeItem(browserKey(id,origin));}catch{throw Error('This browser preference could not be removed.');}}
+export async function forgetMacBrowser(client){
+ const id=await identity(client),prefix='control-center.mac-consent:'+id+':';
+ try{for(const storage of [localStorage,sessionStorage])for(let index=storage.length-1;index>=0;index--){const key=storage.key(index);if(key?.startsWith(prefix))storage.removeItem(key);}}
+ catch{throw Error('This browser preference could not be removed.');}
+}
