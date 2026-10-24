@@ -114704,8 +114704,8 @@
         "calendar"
       ],
       "category": "core/productivity",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "c8faa597f648e8fc35359d856a7c01828ed47fc95992fd38ea7dfc09ca958c13",
       "brands": [
         "studio",
         "artanrecords"
@@ -115310,8 +115310,8 @@
         "theme"
       ],
       "category": "core/system",
-      "hasArtwork": false,
-      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c",
+      "hasArtwork": true,
+      "sha256": "27cfc3c404b443b55f762bdfc6d2ce52fb76955733332843c8e3ac265cf4956d",
       "brands": [
         "studio",
         "artanrecords"
