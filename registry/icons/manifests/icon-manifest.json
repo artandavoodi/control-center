@@ -1049,6 +1049,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/rotate/rotate.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/rotate/rotate.svg"
   },
+  "core/actions/run/run": {
+    "id": "core/actions/run/run",
+    "path": "core/actions/run/run.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/run/run.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/run/run.svg"
+  },
   "core/actions/save/save": {
     "id": "core/actions/save/save",
     "path": "core/actions/save/save.svg",
@@ -1480,6 +1486,12 @@
     "path": "core/commerce/collections/music.svg",
     "publicPath": "/registry/icons/public/assets/core/commerce/collections/music.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/collections/music.svg"
+  },
+  "core/commerce/finance/bank": {
+    "id": "core/commerce/finance/bank",
+    "path": "core/commerce/finance/bank.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/finance/bank.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/finance/bank.svg"
   },
   "core/commerce/finance/finance": {
     "id": "core/commerce/finance/finance",
@@ -5980,6 +5992,12 @@
     "path": "layers/website/profile/actions/account-profile-setup-drawer.svg",
     "publicPath": "/registry/icons/public/assets/layers/website/profile/actions/account-profile-setup-drawer.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/actions/account-profile-setup-drawer.svg"
+  },
+  "layers/website/profile/actions/artist-content": {
+    "id": "layers/website/profile/actions/artist-content",
+    "path": "layers/website/profile/actions/artist-content.svg",
+    "publicPath": "/registry/icons/public/assets/layers/website/profile/actions/artist-content.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/layers/website/profile/actions/artist-content.svg"
   },
   "layers/website/profile/actions/complete-profile": {
     "id": "layers/website/profile/actions/complete-profile",

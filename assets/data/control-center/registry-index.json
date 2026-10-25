@@ -107283,6 +107283,31 @@
       "usage": []
     },
     {
+      "id": "core/actions/run/run",
+      "path": "core/actions/run/run.svg",
+      "publicPath": "/registry/icons/public/assets/core/actions/run/run.svg",
+      "source": "registry/icons/source/core/actions/run/run.svg",
+      "tags": [
+        "core",
+        "actions",
+        "run"
+      ],
+      "category": "core/actions",
+      "hasArtwork": false,
+      "sha256": "7bed22abaf3976861f86d56b6e74ff489ba7a84b68d3cb46ac1b319e88bfa766",
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json"
+          ]
+        }
+      ]
+    },
+    {
       "id": "core/actions/save/save",
       "path": "core/actions/save/save.svg",
       "publicPath": "/registry/icons/public/assets/core/actions/save/save.svg",
@@ -108926,6 +108951,33 @@
       ]
     },
     {
+      "id": "core/commerce/finance/bank",
+      "path": "core/commerce/finance/bank.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/finance/bank.svg",
+      "source": "registry/icons/source/core/commerce/finance/bank.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "finance",
+        "bank"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": true,
+      "sha256": "763f4ce77510fe2bacbfe6b3ad0fd89e60d51f737dd9a81cdc56dbf5b73ce9fc",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
       "id": "core/commerce/finance/finance",
       "path": "core/commerce/finance/finance.svg",
       "publicPath": "/registry/icons/public/assets/core/commerce/finance/finance.svg",
@@ -109325,18 +109377,8 @@
       "category": "core/commerce",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [
-        "studio",
-        "artanrecords"
-      ],
-      "usage": [
-        {
-          "brand": "studio",
-          "evidence": [
-            "content/account.json"
-          ]
-        }
-      ]
+      "brands": [],
+      "usage": []
     },
     {
       "id": "core/commerce/shopping/bag",
@@ -112266,7 +112308,6 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/preview-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
@@ -117156,18 +117197,8 @@
       "category": "layers/website",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [
-        "studio",
-        "artanrecords"
-      ],
-      "usage": [
-        {
-          "brand": "studio",
-          "evidence": [
-            "content/account.json"
-          ]
-        }
-      ]
+      "brands": [],
+      "usage": []
     },
     {
       "id": "layers/website/content/media/gif",
@@ -126452,6 +126483,35 @@
       "sha256": "4eb410024e0a832301e6cd289c1aa5ee6e4782a73248fbd2f6f247d045efaea4",
       "brands": [],
       "usage": []
+    },
+    {
+      "id": "layers/website/profile/actions/artist-content",
+      "path": "layers/website/profile/actions/artist-content.svg",
+      "publicPath": "/registry/icons/public/assets/layers/website/profile/actions/artist-content.svg",
+      "source": "registry/icons/source/layers/website/profile/actions/artist-content.svg",
+      "tags": [
+        "layers",
+        "website",
+        "profile",
+        "actions",
+        "artist",
+        "content"
+      ],
+      "category": "layers/website",
+      "hasArtwork": true,
+      "sha256": "413c8c591ed8299fbc75b8ce74940ca1ed3cf2942b1359754727be23aafef5c1",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "layers/website/profile/actions/complete-profile",
