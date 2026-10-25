@@ -107302,7 +107302,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/preview-actions.json"
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         }
       ]
@@ -112301,16 +112302,9 @@
       "hasArtwork": true,
       "sha256": "5bcef4c280757a185f027b17610819c6f02a140fc752802b8d7eeb605a1814b3",
       "brands": [
-        "control-center",
         "artist"
       ],
       "usage": [
-        {
-          "brand": "control-center",
-          "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
-          ]
-        },
         {
           "brand": "artist",
           "evidence": [
