@@ -1,0 +1,406 @@
+[
+  {"repository":"artanrecords","file":"docs/assets/icons/social/platforms/youtube.svg","source":"layers/website/social/platforms/youtube.svg"},
+  {"repository":"artandavoodi","file":"docs/assets/icons/social/platforms/youtube.svg","source":"layers/website/social/platforms/youtube.svg"},
+  {"repository":"artandavoodi","file":"docs/assets/icons/actions/archive.svg","source":"core/actions/archive/archive.svg"},
+  {"repository":"artan-store","file":"web/shared/icons/offer.svg","source":"core/actions/organize/tag.svg"},
+  {"repository":"artan-store","file":"web/shared/icons/remove.svg","source":"core/actions/remove/remove.svg"},
+  {"repository":"artan-store","file":"web/shared/icons/vinyl.svg","source":"core/commerce/music/vinyl.svg"},
+  {"repository":"artan-store","file":"web/shared/icons/cd.svg","source":"core/commerce/music/cd.svg"},
+  {"repository":"artan-store","file":"web/shared/icons/cassette.svg","source":"core/commerce/music/cassette.svg"},
+  {"repository":"artan-store","file":"web/shared/icons/digital.svg","source":"core/commerce/music/digital.svg"},
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/actions/account.svg",
+    "source": "core/identity/account/account.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/actions/check.svg",
+    "source": "core/actions/check/check.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/actions/close.svg",
+    "source": "core/actions/close/close.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/actions/cookies.svg",
+    "source": "core/interface/cookies/cookies.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/actions/search.svg",
+    "source": "core/actions/search/search.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/commerce/platforms/amazon/amazon.svg",
+    "source": "core/commerce/marketplaces/amazon/amazon.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/navigation/back.svg",
+    "source": "core/navigation/direction/back.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/navigation/chevron-right.svg",
+    "source": "core/navigation/chevron/chevron-right.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/navigation/globe.svg",
+    "source": "core/navigation/global/globe.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/navigation/home.svg",
+    "source": "core/navigation/primary/home.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/apple-music.svg",
+    "source": "layers/website/social/platforms/apple-music.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/deezer.svg",
+    "source": "layers/website/social/platforms/deezer.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/email.svg",
+    "source": "system/social/email.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/facebook.svg",
+    "source": "layers/website/social/platforms/facebook.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/instagram.svg",
+    "source": "system/social/instagram.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/spotify.svg",
+    "source": "layers/website/social/platforms/spotify.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/tidal.svg",
+    "source": "layers/website/social/platforms/tidal.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/tiktok.svg",
+    "source": "layers/website/social/platforms/tiktok.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/x.svg",
+    "source": "system/social/x.svg"
+  },
+  {
+    "repository": "artanrecords",
+    "file": "docs/assets/icons/social/platforms/youtube-music.svg",
+    "source": "layers/website/social/platforms/youtube-music.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/account.svg",
+    "source": "core/identity/account/account.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/audio.svg",
+    "source": "core/media/audio/audio.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/bag.svg",
+    "source": "core/commerce/shopping/bag.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/check.svg",
+    "source": "core/actions/check/check.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/chevron-down.svg",
+    "source": "core/navigation/chevron/chevron-down.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/close.svg",
+    "source": "core/actions/close/close.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/cookies.svg",
+    "source": "core/interface/cookies/cookies.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/filter.svg",
+    "source": "core/actions/filter/filter.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/globe.svg",
+    "source": "core/navigation/global/globe.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/play.svg",
+    "source": "core/media/play/play.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/preview.svg",
+    "source": "core/actions/preview/preview.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/actions/reset.svg",
+    "source": "core/actions/reset/reset.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/commerce/platforms/amazon/amazon.svg",
+    "source": "core/commerce/marketplaces/amazon/amazon.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/navigation/back.svg",
+    "source": "core/navigation/direction/back.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/navigation/chevron-left.svg",
+    "source": "core/navigation/chevron/chevron-left.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/navigation/chevron-right.svg",
+    "source": "core/navigation/chevron/chevron-right.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/navigation/globe.svg",
+    "source": "core/navigation/global/globe.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/navigation/home.svg",
+    "source": "core/navigation/primary/home.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/apple-music.svg",
+    "source": "layers/website/social/platforms/apple-music.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/deezer.svg",
+    "source": "layers/website/social/platforms/deezer.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/email.svg",
+    "source": "system/social/email.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/facebook.svg",
+    "source": "layers/website/social/platforms/facebook.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/instagram.svg",
+    "source": "system/social/instagram.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/spotify.svg",
+    "source": "layers/website/social/platforms/spotify.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/tidal.svg",
+    "source": "layers/website/social/platforms/tidal.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/tiktok.svg",
+    "source": "layers/website/social/platforms/tiktok.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/x.svg",
+    "source": "system/social/x.svg"
+  },
+  {
+    "repository": "artandavoodi",
+    "file": "docs/assets/icons/social/platforms/youtube-music.svg",
+    "source": "layers/website/social/platforms/youtube-music.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/account.svg",
+    "source": "core/identity/account/account.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/apple-pay.svg",
+    "source": "core/commerce/payments/apple-pay.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/apple.svg",
+    "source": "layers/website/auth/signin/apple.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/bag.svg",
+    "source": "core/commerce/shopping/bag.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/camera.svg",
+    "source": "core/media/camera/camera.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/card.svg",
+    "source": "core/commerce/payments/card.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/check.svg",
+    "source": "core/actions/check/check.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/chevron-down.svg",
+    "source": "core/navigation/chevron/chevron-down.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/chevron-left.svg",
+    "source": "core/navigation/chevron/chevron-left.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/close.svg",
+    "source": "core/actions/close/close.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/collection-accessories.svg",
+    "source": "core/commerce/collections/accessories.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/collection-clothing.svg",
+    "source": "core/commerce/collections/clothing.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/collection-fragrances.svg",
+    "source": "core/commerce/collections/fragrances.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/collection-music.svg",
+    "source": "core/commerce/collections/music.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/collection-placeholder.svg",
+    "source": "core/commerce/shopping/collection-placeholder.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/cookies.svg",
+    "source": "core/interface/cookies/cookies.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/delete.svg",
+    "source": "core/actions/delete/delete.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/email.svg",
+    "source": "layers/website/auth/signin/signin-email.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/facebook.svg",
+    "source": "layers/website/social/platforms/facebook.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/favorite-outline.svg",
+    "source": "core/actions/favorite/favorite-outline.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/favorite.svg",
+    "source": "core/actions/favorite/favorite.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/google.svg",
+    "source": "layers/website/auth/signin/google-signin.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/mastercard.svg",
+    "source": "layers/website/brand/payment/mastercard.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/order.svg",
+    "source": "core/commerce/orders/order.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/password.svg",
+    "source": "core/identity/password/password.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/phone.svg",
+    "source": "layers/website/auth/signin/signin-phone.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/refresh.svg",
+    "source": "core/actions/refresh/refresh.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/search.svg",
+    "source": "core/actions/search/search.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/signin.svg",
+    "source": "core/identity/signin/signin.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/signout.svg",
+    "source": "core/identity/signout/signout.svg"
+  },
+  {
+    "repository": "artan-store",
+    "file": "web/shared/icons/visa.svg",
+    "source": "layers/website/brand/payment/visa.svg"
+  }
+]

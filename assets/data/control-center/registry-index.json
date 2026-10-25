@@ -104019,8 +104019,9 @@
       "sha256": "ee2070bd7306eae4e561d26c72fbd521f5e85ad92b77dabc36c9ae59b6f6a0f9",
       "brands": [
         "neuroartan",
+        "artanrecords",
         "studio",
-        "artanrecords"
+        "artist"
       ],
       "usage": [
         {
@@ -104030,9 +104031,22 @@
           ]
         },
         {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/assets/data/icons.json",
+            "docs/partnerships/index.html"
+          ]
+        },
+        {
           "brand": "studio",
           "evidence": [
             "content/account.json"
+          ]
+        },
+        {
+          "brand": "artist",
+          "evidence": [
+            "docs/assets/data/icons.json"
           ]
         }
       ]
@@ -105706,8 +105720,18 @@
       "category": "core/actions",
       "hasArtwork": true,
       "sha256": "c7a99ce917d3d8b69756244f8387944b23a60027bdb65b065f4d1ec9d4f22329",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/actions/linked-accounts/linked-accounts",
@@ -109768,8 +109792,18 @@
       "category": "core/devices",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/devices/mobile/mobile",
@@ -110100,8 +110134,18 @@
       "category": "core/files",
       "hasArtwork": true,
       "sha256": "0becf316d3b8c1e05470bb641c1daef4b956a0826658920f4ea4453de7caed67",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/files/database/database",
@@ -112192,9 +112236,17 @@
       "hasArtwork": true,
       "sha256": "5bcef4c280757a185f027b17610819c6f02a140fc752802b8d7eeb605a1814b3",
       "brands": [
+        "control-center",
         "artist"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "artist",
           "evidence": [
@@ -113596,8 +113648,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/previews.js"
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         }
       ]
@@ -114936,8 +114987,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/data/control-center/preview-actions.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/registry.js"
           ]
         },
         {

@@ -7,6 +7,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {iconTargets} from "./propagation/icon-targets.js";
+import {verifyAliasExports} from './icons/exporters/public/public-icon-exporter.js';
 
 import { fileURLToPath } from "node:url";
 
@@ -401,6 +402,10 @@ const docsPublicIconFiles =
   );
 
 assertRequiredManifests();
+// Standalone CI has no neighboring checkouts; the trusted local publisher must verify all aliases.
+if(['artanrecords','artandavoodi','artan-store','artanrecords-studio'].every(name=>fs.existsSync(path.resolve(CONTROL_CENTER_ROOT,'..',name,'.git')))){
+ console.log('Verified registered consumer aliases:',verifyAliasExports());
+}
 
 console.log(
   "\n[Control Center Registry Integrity Verified]\n"
