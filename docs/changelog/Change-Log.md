@@ -1,5 +1,14 @@
 # Change Log
 
+## 2026-10-25 — Private account settings, graphics and sandbox payout foundation
+- Studio private email and phone controls moved to Account security. Public profile saves no longer write or clear private contact numbers; verification remains provider-owned.
+- Owner-only colour assignments now select icon, header fade and header ribbon targets, preserving legacy defaults and explicit public-sharing consent. The additive hosted graphics migration is applied.
+- Bank uses registered banking artwork, shared spacing and an explicit unavailable balance until a real sandbox recipient balance is returned. Sandbox and payable earnings remain distinct.
+- The dedicated Artanrecords sandbox credential is stored server-side. Immutable recipient mappings are isolated from client access; live charges, transfers and withdrawals remain disabled. Accounts v2 onboarding is under hosted verification, not a completed financial activation.
+- Internal agreement previews require initials and an explicit non-binding acknowledgement; downloaded preview records are not executed contracts. Legal drafts record review requirements; actual contract issuance remains unavailable pending legal and evidence-system completion.
+- Registered bank and artist-content vectors, plus a dedicated Run dot slot awaiting artwork. Canonical propagation verifies mirrored bytes and consumer aliases.
+- Repaired database validation fixtures without broadening production access. Repository publication now runs every SQL suite locally and in CI, using the same disposable database runner. Verified 40 migrations, 21 isolation suites, 47 Studio source tests and 150 Studio browser cases; subsequent profile-preservation assertions passed in six browser/device combinations.
+
 ## 2026-10-24 — Artist catalogue readiness and release editing
 - Fixed the selector conflict that disabled desktop artist snapping. Destination content is centered, header tabs remain contextual, and tablet/mobile scrolling stays natural.
 - Listen and Follow use icon-only desktop presentation with themed hover/focus labels; Explore retains its labelled presentation. Section entrances use shared motion tokens and respect reduced motion.
