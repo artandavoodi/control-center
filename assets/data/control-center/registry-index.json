@@ -105729,17 +105729,8 @@
       "category": "core/actions",
       "hasArtwork": true,
       "sha256": "c7a99ce917d3d8b69756244f8387944b23a60027bdb65b065f4d1ec9d4f22329",
-      "brands": [
-        "control-center"
-      ],
-      "usage": [
-        {
-          "brand": "control-center",
-          "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
-          ]
-        }
-      ]
+      "brands": [],
+      "usage": []
     },
     {
       "id": "core/actions/linked-accounts/linked-accounts",
@@ -106844,7 +106835,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/preview-actions.json"
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
@@ -109351,9 +109343,17 @@
       "hasArtwork": true,
       "sha256": "bb431b7c0c7379cde0ba1fa7ee82a4f00aa1131f2df999570dc0f21bcec845e8",
       "brands": [
+        "studio",
+        "artanrecords",
         "artist"
       ],
       "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        },
         {
           "brand": "artist",
           "evidence": [
@@ -109807,17 +109807,8 @@
       "category": "core/devices",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [
-        "control-center"
-      ],
-      "usage": [
-        {
-          "brand": "control-center",
-          "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
-          ]
-        }
-      ]
+      "brands": [],
+      "usage": []
     },
     {
       "id": "core/devices/mobile/mobile",
@@ -110378,7 +110369,9 @@
       "hasArtwork": true,
       "sha256": "ed6b723a4421ed140e07a02a77f3c35529b7cddcc536cbc8553d0ff30f4f5ada",
       "brands": [
-        "control-center"
+        "control-center",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -110387,6 +110380,12 @@
             "assets/data/control-center/operations.json",
             "assets/data/control-center/update-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -120476,7 +120475,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/preview-actions.json"
+            "assets/data/control-center/preview-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
