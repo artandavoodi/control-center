@@ -2,6 +2,7 @@ import {readFile,access} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
+import registeredAliases from '../registry/propagation/icon-aliases.json' with {type:'json'};
 const root=new URL('../',import.meta.url);
 export async function collectTokenUsage(rows){
  const config=JSON.parse(await readFile(new URL('assets/data/control-center/icon-usage.json',root),'utf8'));
@@ -35,6 +36,10 @@ export async function collectIconUsage(icons){
   const repository=new URL(brand.repository+'/',root),directory=decodeURIComponent(repository.pathname);
   const files=execFileSync('git',['ls-files','-z'],{cwd:directory,encoding:'utf8',maxBuffer:16*1024*1024}).split('\0').filter(file=>brand.roots.some(prefix=>file.startsWith(prefix+'/'))&&!/(?:^|\/)(?:registry|node_modules|dist|neuroartan)(?:\/|$)|registry-index\.json$|icon-manifest\.json$/.test(file));
   const sources=[];const aliases=new Map();
+  for(const alias of registeredAliases.filter(alias=>path.basename(directory)===alias.repository)){
+   const icon=icons.find(icon=>icon.path===alias.source);if(!icon)throw Error('Unregistered consumer icon: '+alias.source);
+   const names=aliases.get(icon.id)||[];names.push(alias.file.replace(/^docs\//,''));aliases.set(icon.id,names);
+  }
   if(brand.aliases){
    const mapping=JSON.parse(await readFile(path.join(directory,brand.aliases.source),'utf8'))[brand.aliases.key];
    if(!mapping||typeof mapping!=='object')throw Error('Missing registered icon aliases: '+brand.id);

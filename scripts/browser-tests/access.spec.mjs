@@ -67,6 +67,7 @@ test('local development offers all brands and launches only registered previews'
  await page.getByText('Terminal details',{exact:true}).click();
  await expect(page.getByText('Preview ready.',{exact:true})).toBeVisible();
  await expect(page.getByRole('textbox',{name:'Local address',exact:true})).toHaveValue('http://127.0.0.1:8927/');
+ expect(await page.getByRole('button',{name:'Copy local address',exact:true}).evaluate(element=>getComputedStyle(element).borderTopWidth)).toBe('0px');
  await expect(page.getByRole('link',{name:'Open preview',exact:true})).toHaveAttribute('target','_blank');
  await page.reload();await expect(page.getByRole('heading',{name:'Local previews',exact:true})).toBeVisible();
 });
@@ -245,6 +246,14 @@ for(const mode of ['light','dark'])test(`refresh loader uses saved ${mode} appea
 });
 test('header search focuses immediately, filters permitted records and restores focus',async({page})=>{
  await enter(page,['artists.read']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Search your workspace',exact:true});const input=dialog.getByRole('searchbox',{name:'Search workspace',exact:true});await expect(input).toBeFocused();await input.fill('Communication');await expect(dialog.locator('[data-search-results]').getByRole('button',{name:'Communication department',exact:true})).toBeVisible();await input.fill('Staff & offices');await expect(dialog.locator('[data-search-results]').getByRole('button')).toHaveCount(0);await input.fill('My account');await dialog.locator('[data-search-results]').getByRole('button').click();await expect(page.getByRole('heading',{name:'My account',exact:true})).toBeVisible();await page.getByRole('button',{name:'Search workspace',exact:true}).click();await page.getByRole('button',{name:'Close search',exact:true}).click();await expect(page.getByRole('button',{name:'Search workspace',exact:true})).toBeFocused();expect(await page.locator('body').evaluate(el=>el.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('.control-center-header-wordmark')).toHaveAttribute('alt','Artanrecords');
+});
+test('desktop search focus leaves its separator unchanged',async({page},testInfo)=>{
+ test.skip(testInfo.project.name!=='desktop','Desktop-only focus rule');
+ await enter(page,['artists.read']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'Search your workspace',exact:true}),field=dialog.locator('.control-center-search-field');
+ const before=await field.evaluate(element=>getComputedStyle(element).borderBottomColor);
+ await dialog.getByRole('button',{name:'Close search',exact:true}).focus();
+ expect(await field.evaluate(element=>getComputedStyle(element).borderBottomColor)).toBe(before);
 });
 test('staff assignment cascades brand access and sends the selected office as its scope',async({page})=>{
  await enter(page,['staff.manage','departments.manage','offices.manage'],{owner:true});let saved;await page.route('**/rest/v1/rpc/control_center_assign_email',async route=>{saved=route.request().postDataJSON();await route.fulfill({status:200,contentType:'application/json',body:'null'});});await page.getByRole('button',{name:'Organization',exact:true}).click();await page.getByRole('button',{name:'Add staff member',exact:true}).click();const form=page.locator('[data-staff-assignment]');await expect(form.getByRole('combobox',{name:'Brand access',exact:true})).toHaveValue(records);await form.getByRole('combobox',{name:'Department',exact:true}).selectOption(department);await form.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);await form.getByRole('textbox',{name:'Account email',exact:true}).fill('lawyer@example.test');await form.getByRole('textbox',{name:'Directory name',exact:true}).fill('Test lawyer');await expect(form.getByRole('button',{name:'Save assignment',exact:true})).toBeEnabled();page.once('dialog',dialog=>dialog.accept());await form.getByRole('button',{name:'Save assignment',exact:true}).click();await expect.poll(()=>saved?.unit).toBe(office);expect(saved.scopes).toEqual([]);await page.getByRole('button',{name:'Add staff member',exact:true}).click();await form.getByRole('combobox',{name:'Brand access',exact:true}).selectOption(neuro);await expect(form.getByRole('combobox',{name:'Department',exact:true})).toHaveValue('');await expect(form.getByRole('combobox',{name:'Office',exact:true})).toBeDisabled();

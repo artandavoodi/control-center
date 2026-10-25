@@ -103809,8 +103809,17 @@
       "category": "core/actions",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "artist"
+      ],
+      "usage": [
+        {
+          "brand": "artist",
+          "evidence": [
+            "docs/assets/data/icons.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/actions/archive-clear-local/archive-clear-local",
@@ -105727,7 +105736,6 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/preview-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         }
@@ -106828,10 +106836,17 @@
       "hasArtwork": true,
       "sha256": "c5625b0258dfdb78cc0cf86e7b5048dbcfabebc48c66c2ce5ab8cfb4e31277fe",
       "brands": [
+        "control-center",
         "artist",
         "artan-live"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json"
+          ]
+        },
         {
           "brand": "artist",
           "evidence": [
@@ -109799,7 +109814,6 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/preview-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         }
@@ -120455,9 +120469,16 @@
       "hasArtwork": true,
       "sha256": "0d2d10ebccb7862f2519d15b2a41d0b7e923ddd33d2ba258602fdb8d19ee1e89",
       "brands": [
+        "control-center",
         "neuroartan"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/preview-actions.json"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -129993,13 +130014,29 @@
       "hasArtwork": true,
       "sha256": "94f7062f3106f4379a3ab1de21e71afc2900792e0f7eb68b8d877eb799c8bd3b",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "artanrecords",
+        "artist"
       ],
       "usage": [
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/data/layers/website/profile/social-links.json"
+          ]
+        },
+        {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/artandavoodi/index.html",
+            "docs/assets/data/icons.json"
+          ]
+        },
+        {
+          "brand": "artist",
+          "evidence": [
+            "docs/assets/data/icons.json",
+            "docs/hub/index.html"
           ]
         }
       ]

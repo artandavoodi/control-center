@@ -1,6 +1,6 @@
 {
   "navigation":{"id":"previews","workspace":"local-development","label":"Local previews","description":"Browse registered repositories and launch website previews on your trusted Mac.","ownerOnly":true,"icon":"core/files/code/terminal.svg"},
-  "icons":{"connect":"core/devices/hardware/device.svg","run":"core/media/play/play.svg","preview":"core/actions/link/link.svg"},
+  "icons":{"connect":"layers/website/home/platform-menu/settings/connectors/platform-menue-settings-connectors-local-device.svg","run":"core/media/play/play.svg","preview":"core/actions/preview/preview.svg"},
   "brandParents":{"store":"artist"},
   "workspace":{"id":"local-development","label":"Local Development"},
   "brands":[{"id":"all","label":"All brands"},{"id":"neuroartan","label":"Neuroartan"},{"id":"artanrecords","label":"Artanrecords"},{"id":"artan","label":"Artan"},{"id":"artist","label":"Artan Davoodi"}]

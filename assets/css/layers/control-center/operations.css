@@ -113,6 +113,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-preview-result { flex-basis:100%; min-inline-size:0; }
 .control-center-preview-links,.control-center-preview-links a,.control-center-preview-address { display:flex; align-items:center; gap:var(--spacing-sm); }
 .control-center-preview-links { flex-wrap:wrap; gap:var(--spacing-lg); }
+.control-center-preview-links a { color:inherit; text-decoration:none; min-block-size:var(--control-height-md); align-self:end; }
 .control-center-preview-links label { flex:1; min-inline-size:0; }
 .control-center-preview-address input { inline-size:100%; min-inline-size:0; }
 .control-center-operations button.control-center-preview-copy { border:0; background:transparent; padding:0; flex:none; }
