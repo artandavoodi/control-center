@@ -109325,8 +109325,18 @@
       "category": "core/commerce",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/commerce/shopping/bag",
@@ -114260,7 +114270,9 @@
       "hasArtwork": false,
       "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c",
       "brands": [
-        "control-center"
+        "control-center",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -114268,6 +114280,12 @@
           "evidence": [
             "assets/data/control-center/chart-controls.json",
             "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -117138,8 +117156,18 @@
       "category": "layers/website",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "layers/website/content/media/gif",
