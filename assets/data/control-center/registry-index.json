@@ -103564,8 +103564,8 @@
         "create"
       ],
       "category": "core/actions",
-      "hasArtwork": false,
-      "sha256": "07d5a2a08583e9d4d7ef7adcf76d3ac4109e9b91c2e6dd44ca67b26cd63e9330",
+      "hasArtwork": true,
+      "sha256": "191f6a462e2a7fcb4e748c77d722ecb19034fcd1be83eca13024d17b771c60ab",
       "brands": [
         "control-center"
       ],
@@ -107293,8 +107293,8 @@
         "run"
       ],
       "category": "core/actions",
-      "hasArtwork": false,
-      "sha256": "7bed22abaf3976861f86d56b6e74ff489ba7a84b68d3cb46ac1b319e88bfa766",
+      "hasArtwork": true,
+      "sha256": "f98006d573988ac3eb86ab734de61cfca90334dc4c99c477db3bb410038a8563",
       "brands": [
         "control-center"
       ],
