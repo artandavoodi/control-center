@@ -1,5 +1,22 @@
 # Change Log
 
+## 2026-10-26 - Artist content, approved pricing and embedded billing foundation
+- Approved pricing: Studio EUR 0; Studio Pro EUR 12 monthly or EUR 120 annually; 14-day trial; explicit consent required for renewal. Prices are public, but paid checkout, recurring charges and paid feature activation remain disabled.
+- Added owner-only Gallery and Projects records, private image storage, explicit approved-profile publication and selected-image downloads. The tested foundation is applied to the shared project; existing Store data is unchanged. Original metadata is removed by Studio image re-encoding; public downloads require publication and bucket listings remain blocked.
+- Added a sandbox-only embedded card-setup service with verified identity, immutable provider-customer mappings, explicit storage consent and masked confirmation. It cannot create a charge or subscription. The test publishable key is configured and the user replaced the secret. Real browser verification exposed and corrected a missing authenticated preflight header; provider setup remains blocked because the configured sandbox account does not match the inspected Artanrecords test-mode account. No card setup, charge or subscription is claimed as complete.
+- Renamed the shared Supabase project display name from Artan Store to Artan; project identity, API URLs and data ownership are unchanged. The organization name is unchanged.
+- Verification: Studio source checks passed 49 tests; public pricing details and published portfolio rendering passed all 12 Chromium/WebKit desktop, tablet and mobile cases. Backend checks passed 15 tests, all 46 migrations and all 25 database isolation suites. Registry integrity verified 147 consumer aliases. A fresh full Studio browser run is in progress.
+- Corrected the missing public edit vector, disabled artist scroll interception inside the editor, made Studio header presentation transparent and kept design tools in a separate drawer without resizing the canvas. The drawer reuses the canonical Studio profile forms and their existing save/visibility rules; successful owner saves refresh the public preview.
+- Font choices remain limited to registered fonts; an unrestricted online-font catalogue, persistent design publication, complete custom-domain activation, live commerce and subscription charging remain unfinished.
+
+## 2026-10-26 - Shared visual engines and focused artist editor preview
+- Connected Studio to the original Neuroartan cinematic scene, wallpaper engine, hero shader, breathing circle and matte fragments through pinned source synchronization. Homepage layout rules are not imported into Studio; the background subset is generated from its canonical owner.
+- Corrected reduced-motion handling in the shared shader engine. Inactive cinematic presentation stops its animation; plain appearance modes retain disabled visual controls.
+- Added Workspace > Page editor, using the signed-in artist's approved public address rather than a second page template. Focus view hides Studio chrome; section-corner edit controls open design tools, with a return to the workspace.
+- Editor changes are preview-only: registered fonts, heading sizes, ribbon colour and existing-section visibility. Arbitrary markup, scripts and design values are not accepted. Publication, persistent design drafts and plan-based editor activation remain unfinished; this is not a complete site builder.
+- Subscription & billing uses the registered billing vector. Commercial terms were subsequently approved as recorded above; charges and renewal remain disabled pending verified checkout. No charge or Pro entitlement was created.
+- Verification: focused editor and shared appearance checks passed across Chromium/WebKit desktop, tablet and mobile; full Studio regression verification is in progress. Public preview-origin isolation and source checks passed.
+
 ## 2026-10-26 - Studio subscriptions, graphics and public search publication
 - Added a public Studio/Studio Pro/trial comparison using the existing partnership table and details dialog. Commercial terms remain unconfirmed and checkout stays disabled; the resubmitted commerce directive contains no price, currency, trial duration or paid-only feature specification.
 - Separated subscription billing settings from artist payout applications. Private provider-owned subscription evidence determines the Pro badge; artists cannot grant or extend their own subscription. No live subscription, card collection or recurring charge was created.
