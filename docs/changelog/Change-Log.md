@@ -1,5 +1,13 @@
 # Change Log
 
+## 2026-10-26 - Studio subscriptions, graphics and public search publication
+- Added a public Studio/Studio Pro/trial comparison using the existing partnership table and details dialog. Commercial terms remain unconfirmed and checkout stays disabled; the resubmitted commerce directive contains no price, currency, trial duration or paid-only feature specification.
+- Separated subscription billing settings from artist payout applications. Private provider-owned subscription evidence determines the Pro badge; artists cannot grant or extend their own subscription. No live subscription, card collection or recurring charge was created.
+- Expanded palette assignments to include artist logos, disabled conflicting selections and retained the five-colour maximum. Public display still requires explicit sharing; original artwork is unchanged.
+- Reused the canonical Neuroartan breathing and matte presentation in Studio; unsupported video/shader controls remain disabled and reduced-motion preferences are respected.
+- Added a repeatable public-page indexing audit, consistent Artanrecords site-name metadata and exclusion of the generic profile resolver from the sitemap. Google indexing/ranking remains outside platform control.
+- Verification: 162 Studio browser cases, 18 comparison/logo browser cases, 48 Studio source tests, 43 backend migrations and all 23 isolation suites passed. Live search submission and crawl status are tracked separately from local verification.
+
 ## 2026-10-26 - Internal payout applications replace artist provider handoffs
 - Studio now submits private payout applications without redirecting artists to Stripe; pending and review decisions use private Studio notifications.
 - Added a CEO-owner-only Control Center review queue. Requests for information and rejection are audited; approval requires server-owned provider evidence and cannot be granted by an artist.
