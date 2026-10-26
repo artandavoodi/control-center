@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-10-26 - Correct Studio direct list prices
+- Supersedes the earlier experimental Studio EUR 0 / Pro EUR 12 monthly or EUR 120 annual proposal. Canonical version 2: Studio EUR 9.99 monthly or EUR 99 annually; Studio Pro EUR 19.99 monthly or EUR 199 annually. Annual values are independent integer-cent prices.
+- The shared plan source maps active qualifying Silver partnerships to Studio and Gold/Platinum to Studio Pro. Prepared entitlement evaluation requires signed agreement evidence and validity dates; included access does not alter list price or authorize a separate charge. Actual partnership entitlement provisioning is not activated by tier selection.
+- Public comparison, partnership access guidance, Docs and Studio billing presentation use governed pricing mirrors. Recording allocations, commerce commissions and separately agreed services are unchanged. Checkout, tax-display decisions, subscription charging, grace/retention policy and automatic paid conversion remain gated.
+- Implementation and verification owners are recorded in Artanrecords planning/studio-pricing-correction.md. No invoices, paid grants or historical financial records were created or changed.
+
 ## 2026-10-26 - Correct default recording partnership allocations
 - Registered version 1 defaults in the canonical Artanrecords partnerships source: Silver 85% artist / 15% label, Gold 80% / 20%, Platinum 70% / 30%. Integer allocations must total 100; signed agreement snapshots remain authoritative and are not rewritten by default changes.
 - Preserved the explicit legal/accounting public disclosure gate. Commercial model approval does not silently clear publication review. Website, Docs and Studio share the same reference renderer and governed source mirror; public percentage presentation is prepared but disabled until both publication controls are approved.
