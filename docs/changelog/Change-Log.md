@@ -1,5 +1,13 @@
 # Change Log
 
+## 2026-10-26 - Pricing presentation, account appearance and editor controls
+- Simplified public plan captions and removed repeated launch-status labels; Monthly/Annual keyboard-accessible tabs switch the comparison while both prices remain in initial semantic HTML. Checkout availability is still communicated accurately, without enabling billing.
+- Fixed missing Settings icon paths and unrelated empty-icon fallbacks. Registered Gallery and artist-introduction slots now show dots pending artwork; Connections uses the registered link vector. Shared icon sizes are preserved. Durable icon-selection rules are recorded in Studio AGENTS.md and a local Artan icon-governance skill.
+- Added and applied private owner-only Studio appearance records after 47 migrations and all 26 database isolation suites passed. Theme, contrast, palette, custom colours and visual-effect preferences restore to signed-in devices. Failed account saves are reported rather than falsely confirmed.
+- Restored the theme-aware solid Studio header, removed repeated colour-assignment labels, added Gallery image-choice and storage guidance, and replaced editor overlay layout with an adjustable desktop split pane. Editor designs remain preview-only and font selection remains limited to registered typefaces.
+- Artist destination tabs begin leaving on downward scroll intent instead of waiting until the next section has arrived. Natural tablet/mobile scrolling and reduced-motion behavior remain preserved.
+- Verification: public pricing and artist-section tests passed on six browser/device configurations; Studio appearance, graphics, portfolio and editor tests passed, including authenticated preference restore/save and desktop drag resize. Studio source checks passed 49 tests; backend checks passed 15. No live charges, new financial permissions or public draft publication were enabled.
+
 ## 2026-10-26 - Correct Studio direct list prices
 - Supersedes the earlier experimental Studio EUR 0 / Pro EUR 12 monthly or EUR 120 annual proposal. Canonical version 2: Studio EUR 9.99 monthly or EUR 99 annually; Studio Pro EUR 19.99 monthly or EUR 199 annually. Annual values are independent integer-cent prices.
 - The shared plan source maps active qualifying Silver partnerships to Studio and Gold/Platinum to Studio Pro. Prepared entitlement evaluation requires signed agreement evidence and validity dates; included access does not alter list price or authorize a separate charge. Actual partnership entitlement provisioning is not activated by tier selection.
