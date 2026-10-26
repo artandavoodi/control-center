@@ -1,5 +1,13 @@
 # Change Log
 
+## 2026-10-26 - Internal payout applications replace artist provider handoffs
+- Studio now submits private payout applications without redirecting artists to Stripe; pending and review decisions use private Studio notifications.
+- Added a CEO-owner-only Control Center review queue. Requests for information and rejection are audited; approval requires server-owned provider evidence and cannot be granted by an artist.
+- Secure bank/tax intake, the trusted provider-evidence connector and live money movement remain unavailable. No financial declarations or provider agreements were accepted for the user.
+- Verified 150 Studio browser cases and the new review journey on desktop, tablet and mobile; database isolation covers cross-artist access and blocked self/unverified approval.
+- Full Control Center rerun passed 115 cases with two desktop-only skips. An initial mobile refresh run reported invalid navigation sizing; five targeted repeats passed, but the intermittent cause remains unresolved and is not described as fixed.
+- Supersedes the earlier hosted-onboarding direction below; existing provider mappings and Store data are preserved.
+
 ## 2026-10-26 — Sandbox onboarding acceptance
 - Verified the signed-in Studio handoff to Stripe-hosted Artanrecords sandbox onboarding for the owner-confirmed Croatian recipient country. Stopped before phone submission, terms acceptance and bank/identity entry; onboarding completion and live payouts are not claimed.
 - Countries come from the provider's country specification API, require explicit selection, and are validated server-side. New recipient creation and hosted links use Accounts v2; no legacy account-creation exception was enabled.

@@ -1,0 +1,5 @@
+{
+ "navigation":{"id":"payout-applications","workspace":"reviews","label":"Payout applications","ownerOnly":true,"icon":"core/commerce/finance/bank.svg"},
+ "queue":{"id":"payout-applications","label":"Payout applications","ownerOnly":true,"icon":"core/commerce/finance/bank.svg","table":"studio_payout_applications","displayField":"legal_name"},
+ "notice":"Private payout applications. CEO review is enabled; no other staff access is granted automatically. Approval requires separately recorded provider-verification evidence. This queue cannot create a payment account, move money or substitute company details for an artist's identity."
+}

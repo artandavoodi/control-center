@@ -23,7 +23,7 @@ async function backend(page,permissions,{owner=false,macOrigin=''}={}){
   else if(path.endsWith('/control_center_units'))body=[{id:records,parent_id:null,name:'Artanrecords',kind:'pillar',active:true,workspace_key:'artanrecords'},{id:neuro,parent_id:null,name:'Neuroartan',kind:'pillar',active:true,workspace_key:'neuroartan'},{id:department,parent_id:records,name:'Communication',kind:'department',active:true},{id:office,parent_id:department,name:'Press',kind:'office',active:true}];
   else if(path.endsWith('/control_center_create_unit')||path.endsWith('/control_center_rename_unit'))body=office;
   else if(path.includes('/storage/v1/object/sign/')){await route.fulfill({status:400,contentType:'application/json',body:'{"error":"not_found"}'});return;}
-  else if(path.endsWith('/studio_artist_handles')||path.endsWith('/studio_artist_applications'))body=[];
+  else if(path.endsWith('/studio_artist_handles')||path.endsWith('/studio_artist_applications')||path.endsWith('/studio_payout_applications'))body=[];
   else if(path.endsWith('/control_center_artist_audit')||path.endsWith('/control_center_assign_email'))body=[];
   else if(path.endsWith('/control_center_documents'))body=documents;
   else if(path.endsWith('/control_center_vacancies'))body=vacancies;
@@ -41,6 +41,13 @@ async function chooseContext(page,{function:mode,brand,department,office}={}){
  if(office)await dialog.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
 }
+test('CEO payout review stays internal and records a request for more information',async({page})=>{
+ await backend(page,['artists.read'],{owner:true});let pending=true;
+ await page.route('**/rest/v1/studio_payout_applications*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify([{account_id:id,legal_name:'Test Artist',recipient_type:'individual',registration_country:'HR',tax_residence_country:'HR',business_name:'',status:pending?'pending':'needs_information',decision_note:'',submitted_at:'2026-10-26T10:00:00Z'}])}));
+ await page.route('**/rest/v1/rpc/control_center_review_payout_application',async route=>{expect(route.request().postDataJSON()).toEqual({artist:id,decision:'request_information',note:'Please confirm the recipient details.'});pending=false;await route.fulfill({contentType:'application/json',body:'null'});});
+ await page.goto('/');await page.getByLabel('Email',{exact:true}).fill('staff@example.test');await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();await chooseContext(page,{function:'reviews'});await page.getByRole('navigation',{name:'Operations'}).getByRole('button',{name:'Payout applications',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Test Artist',exact:true})).toBeVisible();await page.getByLabel('Decision note',{exact:true}).fill('Please confirm the recipient details.');await page.getByRole('button',{name:'Record decision',exact:true}).click();await expect(page.getByText('needs_information',{exact:true})).toBeVisible();
+});
 test('local development offers all brands and launches only registered previews',async({page})=>{
  await backend(page,['artists.read'],{owner:true});
  await page.route('**/api/previews/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({repositories:[{id:'jobs',repository:'neuroartan-jobs',brand:'neuroartan',domains:['jobs.neuroartan.com'],strategy:'static',ready:false},{id:'records',repository:'artanrecords',brand:'artanrecords',domains:['artanrecords.com'],strategy:'static',ready:true},{id:'artist',brand:'artist',domains:['artandavoodi.com'],strategy:'static',ready:false},{id:'store',brand:'store',domains:['store.artandavoodi.com'],strategy:'static',ready:false}]})}));

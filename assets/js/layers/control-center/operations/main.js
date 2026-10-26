@@ -3,6 +3,10 @@ import config from '../../../../data/control-center/operations.json';
 import updateConfig from '../../../../data/control-center/update-actions.json';
 import {mountUpdates} from './updates.js';
 import previewConfig from '../../../../data/control-center/preview-actions.json';
+import payoutConfig from '../../../../data/control-center/payout-applications.json';
+import {mountPayoutApplications} from './payout-applications.js';
+config.navigation.push(payoutConfig.navigation);
+config.reviewQueues.push(payoutConfig.queue);
 import {mountPreviews} from './previews.js';
 import {isLocalMac,savedMacConnection,useMacConnection} from './mac-connection.js';
 import {createUpdateMonitor} from './update-monitor.js';
@@ -94,6 +98,8 @@ async function render(){
    await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){
    await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,onNavigate:navigate,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
+  }else if(panel==='payout-applications'){
+   await mountPayoutApplications({content,client,staff,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render()});
   }else if(panel==='usernames'||panel==='applications'){
    const handles=panel==='usernames';const response=await client.from(handles?'studio_artist_handles':'studio_artist_applications').select(handles?'account_id,requested_username,approved_username,status,notice,updated_at':'account_id,requested_tier,approved_tier,status,artist_note,decision_note,updated_at').order('updated_at',{ascending:true}).limit(100);if(response.error)throw Error('The review queue could not be loaded.');if(turn!==revision)return;
    content.innerHTML=response.data.length?response.data.map(row=>`<article class="control-center-review"><h3>${e(handles?row.requested_username:row.requested_tier+' requested')}</h3><p>${e(row.account_id)}</p><p>Status: ${e(row.status)}${row.approved_tier?' · Approved tier: '+e(row.approved_tier):''}</p><p>${e(handles?row.notice:row.artist_note)}</p>${row.status==='pending'&&hasPermission(staff,handles?'usernames.review':'tiers.review')?`<form data-review="${e(row.account_id)}">${!handles?`<label>Approved tier<select name="tier">${config.tiers.map(tier=>`<option>${e(tier)}</option>`).join('')}</select></label>`:''}<label>Decision note<textarea name="note" maxlength="${handles?500:2000}" required></textarea></label><button type="submit" name="decision" value="approve">Approve</button><button type="submit" name="decision" value="reject">Decline</button></form>`:''}</article>`).join(''):'<p>No requests in this queue.</p>';
@@ -105,8 +111,8 @@ async function render(){
    const actions=document.createElement('div');actions.className='control-center-update-primary';
    for(const [action,label] of Object.entries(updateConfig.primary).filter(([key])=>key!=='overview')){const button=document.createElement('button');button.type='button';button.innerHTML=icon(updateConfig.navigation.icon)+e(label);button.addEventListener('click',()=>navigate('updates',action));actions.append(button);}content.prepend(actions);
   }
-  if(turn===revision&&['overview','usernames','applications'].includes(panel)&&workspace.workspace_key==='artanrecords'&&hasPermission(staff,'artists.read')){
-   const queues=await Promise.all(config.reviewQueues.map(async queue=>{if(!queue.table)return queue;const result=await client.from(queue.table).select('account_id',{count:'exact',head:true}).eq('status','pending');if(result.error)throw Error('Review totals could not be loaded.');return {...queue,count:result.count||0};}));
+  if(turn===revision&&['overview','usernames','applications','payout-applications'].includes(panel)&&workspace.workspace_key==='artanrecords'&&hasPermission(staff,'artists.read')){
+   const queues=await Promise.all(config.reviewQueues.filter(queue=>!queue.ownerOnly||staff.is_owner).map(async queue=>{if(!queue.table)return queue;const result=await client.from(queue.table).select('account_id',{count:'exact',head:true}).eq('status','pending');if(result.error)throw Error('Review totals could not be loaded.');return {...queue,count:result.count||0};}));
    if(turn!==revision)return;
    const tabs=document.createElement('nav');tabs.className='control-center-review-tabs';tabs.setAttribute('aria-label','Artist review queues');tabs.innerHTML=queues.map(queue=>`<button type="button" data-queue="${queue.id}" aria-current="${queue.id===panel?'page':'false'}">${icon(queue.icon)}${e(queue.label)}${queue.table?` <span>${queue.count}</span>`:''}</button>`).join('');tabs.querySelectorAll('[data-queue]').forEach(button=>button.addEventListener('click',()=>navigate(button.dataset.queue)));content.prepend(tabs);
   }
