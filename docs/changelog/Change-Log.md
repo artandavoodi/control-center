@@ -1,5 +1,11 @@
 # Change Log
 
+## 2026-10-26 - Correct default recording partnership allocations
+- Registered version 1 defaults in the canonical Artanrecords partnerships source: Silver 85% artist / 15% label, Gold 80% / 20%, Platinum 70% / 30%. Integer allocations must total 100; signed agreement snapshots remain authoritative and are not rewritten by default changes.
+- Preserved the explicit legal/accounting public disclosure gate. Commercial model approval does not silently clear publication review. Website, Docs and Studio share the same reference renderer and governed source mirror; public percentage presentation is prepared but disabled until both publication controls are approved.
+- Recording shares do not become store commissions, subscription prices or actual financial balances. The correction does not establish a new Net Receipts definition, activate calculations, or create agreements. Existing software subscription terms are separate.
+- Audit and migration report: Artanrecords planning/partnership-pricing-audit.md. Source validation and consumer deterministic checks passed; focused browser verification is recorded separately after completion.
+
 ## 2026-10-26 - Artist content, approved pricing and embedded billing foundation
 - Approved pricing: Studio EUR 0; Studio Pro EUR 12 monthly or EUR 120 annually; 14-day trial; explicit consent required for renewal. Prices are public, but paid checkout, recurring charges and paid feature activation remain disabled.
 - Added owner-only Gallery and Projects records, private image storage, explicit approved-profile publication and selected-image downloads. The tested foundation is applied to the shared project; existing Store data is unchanged. Original metadata is removed by Studio image re-encoding; public downloads require publication and bucket listings remain blocked.
