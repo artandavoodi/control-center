@@ -1,5 +1,10 @@
 # Change Log
 
+## 2026-10-26 — Sandbox onboarding acceptance
+- Verified the signed-in Studio handoff to Stripe-hosted Artanrecords sandbox onboarding for the owner-confirmed Croatian recipient country. Stopped before phone submission, terms acceptance and bank/identity entry; onboarding completion and live payouts are not claimed.
+- Countries come from the provider's country specification API, require explicit selection, and are validated server-side. New recipient creation and hosted links use Accounts v2; no legacy account-creation exception was enabled.
+- Final Studio validation passed all 156 browser cases across Chromium/WebKit desktop, tablet and mobile, plus 47 source tests. Backend publication passed 40 migrations, all 21 SQL isolation suites and 11 Deno tests.
+
 ## 2026-10-25 — Private account settings, graphics and sandbox payout foundation
 - Studio private email and phone controls moved to Account security. Public profile saves no longer write or clear private contact numbers; verification remains provider-owned.
 - Owner-only colour assignments now select icon, header fade and header ribbon targets, preserving legacy defaults and explicit public-sharing consent. The additive hosted graphics migration is applied.
