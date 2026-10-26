@@ -1208,7 +1208,8 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "artanrecords"
       ]
     },
     {
@@ -9994,7 +9995,9 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "artanrecords",
+        "studio"
       ]
     },
     {
@@ -16148,8 +16151,8 @@
         "control-center",
         "neuroartan",
         "store",
-        "studio",
-        "artanrecords"
+        "artanrecords",
+        "studio"
       ]
     },
     {
@@ -104241,13 +104244,13 @@
           "brand": "artanrecords",
           "evidence": [
             "docs/assets/data/icons.json",
-            "docs/partnerships/index.html"
+            "docs/partnerships/index.html",
+            "docs/studio-plans/index.html"
           ]
         },
         {
           "brand": "studio",
           "evidence": [
-            "app/graphics.js",
             "content/account.json"
           ]
         },
@@ -104908,8 +104911,8 @@
       "sha256": "7e159858f866fb171948cffa2155e3a9cea3dc6669c3523e4c7ce4327dfd73d2",
       "brands": [
         "control-center",
-        "studio",
-        "artanrecords"
+        "artanrecords",
+        "studio"
       ],
       "usage": [
         {
@@ -104920,8 +104923,15 @@
           ]
         },
         {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/assets/data/artists/editor.json"
+          ]
+        },
+        {
           "brand": "studio",
           "evidence": [
+            "app/portfolio.js",
             "content/account.json"
           ]
         }
@@ -105729,8 +105739,18 @@
       "category": "core/actions",
       "hasArtwork": true,
       "sha256": "c7a99ce917d3d8b69756244f8387944b23a60027bdb65b065f4d1ec9d4f22329",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/actions/linked-accounts/linked-accounts",
@@ -107143,7 +107163,8 @@
         {
           "brand": "studio",
           "evidence": [
-            "app/platform-manifest.json"
+            "app/platform-manifest.json",
+            "content/account.json"
           ]
         },
         {
@@ -107333,7 +107354,7 @@
           "evidence": [
             "assets/data/control-center/operations.json",
             "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/shared/profile-media-editor.html.js"
+            "assets/js/layers/control-center/operations/payout-applications.js"
           ]
         },
         {
@@ -108776,13 +108797,21 @@
       "hasArtwork": true,
       "sha256": "6ec3ac84b48623ef7014a0f5fd4db024dc73623eb093cfc56ed1115c32e29aa4",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/fragments/layers/website/home/platform-menu/profile/subscription.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -108966,10 +108995,18 @@
       "hasArtwork": true,
       "sha256": "763f4ce77510fe2bacbfe6b3ad0fd89e60d51f737dd9a81cdc56dbf5b73ce9fc",
       "brands": [
+        "control-center",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/payout-applications.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "studio",
           "evidence": [
@@ -109309,8 +109346,18 @@
       "category": "core/commerce",
       "hasArtwork": true,
       "sha256": "0b821c1c55823384b12a32b40fd57354f6bf8686d860347af1dc5faff9336541",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/commerce/payments/crypto",
@@ -111053,9 +111100,19 @@
       ],
       "category": "core/identity",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "sha256": "f0f046a6dc89f8c70da1f120080d69c219bfcf48d0448b0bcef3186dbeb45944",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/identity/profile/user",
@@ -112107,9 +112164,19 @@
       ],
       "category": "core/media",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "sha256": "f0f046a6dc89f8c70da1f120080d69c219bfcf48d0448b0bcef3186dbeb45944",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/media/headphones/headphones",
@@ -130675,7 +130742,7 @@
           "evidence": [
             "docs/about/index.html",
             "docs/artandavoodi/index.html",
-            "docs/artists/index.html"
+            "docs/artist-websites/index.html"
           ]
         },
         {
@@ -130790,7 +130857,7 @@
           "evidence": [
             "docs/about/index.html",
             "docs/artandavoodi/index.html",
-            "docs/artists/index.html"
+            "docs/artist-websites/index.html"
           ]
         },
         {
