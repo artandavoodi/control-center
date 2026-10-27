@@ -83,7 +83,8 @@ export function createUpdateService({enabled=false,config,runner=path.join(direc
    jobs.set(id,job);running=id;
    persist(job).catch(()=>{job.historyWarning='Update history could not be saved on this computer.';});
    let child;
-   try{child=launch(process.execPath,[runner,...action.args],{cwd:path.dirname(runner),shell:false,detached:process.platform!=='win32',env:{...process.env,GIT_TERMINAL_PROMPT:'0'},stdio:['ignore','pipe','pipe']});}
+   const executionPath=[path.dirname(process.execPath),path.join(homedir(),'.deno/bin'),'/opt/homebrew/bin','/usr/local/bin',process.env.PATH].filter(Boolean).join(path.delimiter);
+   try{child=launch(process.execPath,[runner,...action.args],{cwd:path.dirname(runner),shell:false,detached:process.platform!=='win32',env:{...process.env,PATH:executionPath,GIT_TERMINAL_PROMPT:'0'},stdio:['ignore','pipe','pipe']});}
    catch(error){job.status='failed';job.finishedAt=new Date().toISOString();job.output=redactUpdateOutput(error.message||'The update process could not start.');job.problem='The update process could not start.';job.result=updateResult(job);await persist(job).catch(()=>{job.historyWarning='Update history could not be saved on this computer.';});running=null;await audit('failed').catch(()=>{});const {account:owner,...safe}=job;send(202,safe);return true;}
    const timer=setTimeout(()=>{try{if(process.platform!=='win32'&&child.pid)process.kill(-child.pid,'SIGTERM');else child.kill('SIGTERM');}catch{}job.problem='Time limit reached.';job.output+='\nTime limit reached. Review repository state before retrying.';},30*60*1000);
    let partial='';
