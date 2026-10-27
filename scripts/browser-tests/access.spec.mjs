@@ -123,6 +123,10 @@ test('owner update shortcuts show full scope and avatar stays square',async({pag
  expect(dimensions.width).toBe(dimensions.height);expect(dimensions.padding).toBe('0px');
  await page.getByRole('button',{name:'Update All',exact:true}).click();
  await expect(page.getByText('Update All covers 2 registered layers',{exact:true})).toBeVisible();
+ await expect(page.getByRole('tab',{name:'Updates',exact:true})).toHaveAttribute('aria-selected','true');
+ await expect(page.locator('[data-update-panel=terminal]')).toBeHidden();
+ const methodIcons=await page.locator('[data-update-document="00"] [data-run-update] img').evaluateAll(items=>items.map(item=>item.getAttribute('src')));
+ expect(new Set(methodIcons).size).toBe(3);
  await expect(page.getByRole('button',{name:'Synchronize, verify & publish',exact:true})).toHaveCount(2);
  await expect(page.getByRole('button',{name:'Inspect scope',exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Synchronize, verify & publish',exact:true}).first().click();
@@ -138,7 +142,7 @@ test('owner update shortcuts show full scope and avatar stays square',async({pag
  await review.getByRole('checkbox').check();
  expect((await review.getByRole('checkbox').boundingBox()).width).toBeLessThan(30);expect((await review.getByRole('checkbox').boundingBox()).height).toBeLessThan(30);
  await review.getByRole('button',{name:'Confirm publication',exact:true}).click();
- const result=page.locator('[data-update-document="00"] [data-update-job]');
+ const result=page.locator('[data-update-panel="terminal"] [data-update-job]');
  await expect(result).toBeVisible();
  await expect(result.locator('[data-update-state]')).toContainText('All');
  await expect(result.locator('[data-update-summary]')).toContainText('Update completed');

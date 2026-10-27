@@ -104031,12 +104031,20 @@
       "hasArtwork": true,
       "sha256": "ee2070bd7306eae4e561d26c72fbd521f5e85ad92b77dabc36c9ae59b6f6a0f9",
       "brands": [
+        "control-center",
         "neuroartan",
         "artanrecords",
         "studio",
         "artist"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/update-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -107044,9 +107052,17 @@
       "hasArtwork": true,
       "sha256": "629e26e5dd6ad50db4c0d6607976d9bef7a756b7440f77dea1e5e08a73df187f",
       "brands": [
+        "control-center",
         "neuroartan"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/update-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -107477,8 +107493,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/registry.js"
+            "assets/data/control-center/update-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
@@ -107894,8 +107910,18 @@
       "category": "core/actions",
       "hasArtwork": true,
       "sha256": "64ba0abb266047965a2d2cdcf45d7b68df906e1bc9b517b5d047c99b340472b4",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/update-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/actions/two-factor-auth/two-factor-auth",

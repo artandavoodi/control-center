@@ -60,6 +60,9 @@ html[data-theme-effective=dark] .control-center-update-primary img { filter:none
 @media(prefers-reduced-motion:reduce){.control-center-account-popover:popover-open { animation:none; }}
 .control-center-settings-tabs,.control-center-tour-actions { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block-end:var(--spacing-xl); }
 .control-center-settings-tabs [aria-pressed=false] { opacity:var(--opacity-muted); }
+.control-center-registry-tabs { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block:var(--spacing-lg); }
+.control-center-registry-tabs button { border:0; background:transparent; color:inherit; font:inherit; cursor:pointer; }
+.control-center-registry-tabs [aria-selected=false] { opacity:var(--opacity-muted); }
 .control-center-operations { position:relative; display:grid; flex:1; min-block-size:0; min-inline-size:0; grid-template-columns:var(--control-rail-width,var(--control-width-auth-max)) minmax(0,1fr); }
 @media(min-width:1025px) and (pointer:fine) and (prefers-reduced-motion:no-preference){.control-center-operations { transition:grid-template-columns var(--duration-fast) var(--interaction-ease-standard); }.control-center-rail-resize { transition:inset-inline-start var(--duration-fast) var(--interaction-ease-standard); }}
 .control-center-operations aside { min-inline-size:0; overflow:auto; padding:var(--spacing-lg); border-inline-end:var(--border-width-hairline) solid var(--control-center-border); }
