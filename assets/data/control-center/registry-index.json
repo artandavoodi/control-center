@@ -111586,6 +111586,23 @@
       ]
     },
     {
+      "id": "core/interface/navigation/button",
+      "path": "core/interface/navigation/button.svg",
+      "publicPath": "/registry/icons/public/assets/core/interface/navigation/button.svg",
+      "source": "registry/icons/source/core/interface/navigation/button.svg",
+      "tags": [
+        "core",
+        "interface",
+        "navigation",
+        "button"
+      ],
+      "category": "core/interface",
+      "hasArtwork": false,
+      "sha256": "4d83d68e1ca1e69a756ca1b36a5ed331760e904da73528b850e9fec96da67439",
+      "brands": [],
+      "usage": []
+    },
+    {
       "id": "core/interface/navigation/drop-down",
       "path": "core/interface/navigation/drop-down.svg",
       "publicPath": "/registry/icons/public/assets/core/interface/navigation/drop-down.svg",
@@ -111848,6 +111865,23 @@
       "category": "core/legal",
       "hasArtwork": false,
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "brands": [],
+      "usage": []
+    },
+    {
+      "id": "core/legal/policy/copyright",
+      "path": "core/legal/policy/copyright.svg",
+      "publicPath": "/registry/icons/public/assets/core/legal/policy/copyright.svg",
+      "source": "registry/icons/source/core/legal/policy/copyright.svg",
+      "tags": [
+        "core",
+        "legal",
+        "policy",
+        "copyright"
+      ],
+      "category": "core/legal",
+      "hasArtwork": false,
+      "sha256": "4d83d68e1ca1e69a756ca1b36a5ed331760e904da73528b850e9fec96da67439",
       "brands": [],
       "usage": []
     },

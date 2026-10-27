@@ -2147,6 +2147,12 @@
     "publicPath": "/registry/icons/public/assets/core/interface/cookies/cookies.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/interface/cookies/cookies.svg"
   },
+  "core/interface/navigation/button": {
+    "id": "core/interface/navigation/button",
+    "path": "core/interface/navigation/button.svg",
+    "publicPath": "/registry/icons/public/assets/core/interface/navigation/button.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/interface/navigation/button.svg"
+  },
   "core/interface/navigation/drop-down": {
     "id": "core/interface/navigation/drop-down",
     "path": "core/interface/navigation/drop-down.svg",
@@ -2218,6 +2224,12 @@
     "path": "core/legal/governance/governance.svg",
     "publicPath": "/registry/icons/public/assets/core/legal/governance/governance.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/legal/governance/governance.svg"
+  },
+  "core/legal/policy/copyright": {
+    "id": "core/legal/policy/copyright",
+    "path": "core/legal/policy/copyright.svg",
+    "publicPath": "/registry/icons/public/assets/core/legal/policy/copyright.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/legal/policy/copyright.svg"
   },
   "core/legal/policy/legal": {
     "id": "core/legal/policy/legal",
