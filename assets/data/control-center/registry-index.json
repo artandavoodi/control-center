@@ -104877,7 +104877,9 @@
       "hasArtwork": true,
       "sha256": "b6c19fb392e78d9ba3872426eb14f21974e47c47336a532eab5e9f9b4de11d85",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "artanrecords",
+        "studio"
       ],
       "usage": [
         {
@@ -104885,6 +104887,20 @@
           "evidence": [
             "docs/assets/fragments/layers/website/home/platform-menu/settings/home/index.html",
             "docs/assets/js/layers/website/home/platform-menu/settings/home/index.js"
+          ]
+        },
+        {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/assets/data/artists/editor.json"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "app/artist-navigation.js",
+            "app/editor-render.mjs",
+            "app/editor.js"
           ]
         }
       ]
@@ -109898,8 +109914,8 @@
         "desktop"
       ],
       "category": "core/devices",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
       "brands": [],
       "usage": []
     },
@@ -109948,8 +109964,8 @@
         "mobile"
       ],
       "category": "core/devices",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
       "brands": [],
       "usage": []
     },
@@ -109964,8 +109980,8 @@
         "tablet"
       ],
       "category": "core/devices",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
       "brands": [],
       "usage": []
     },
@@ -110138,8 +110154,8 @@
         "publish"
       ],
       "category": "core/editorial",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
       "brands": [
         "neuroartan"
       ],
@@ -113873,7 +113889,8 @@
         {
           "brand": "studio",
           "evidence": [
-            "app/platform-manifest.json"
+            "app/platform-manifest.json",
+            "content/account.json"
           ]
         },
         {
@@ -115120,8 +115137,8 @@
         "focus"
       ],
       "category": "core/productivity",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
       "brands": [],
       "usage": []
     },
