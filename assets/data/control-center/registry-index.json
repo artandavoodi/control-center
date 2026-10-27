@@ -111599,8 +111599,18 @@
       "category": "core/interface",
       "hasArtwork": false,
       "sha256": "4d83d68e1ca1e69a756ca1b36a5ed331760e904da73528b850e9fec96da67439",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/interface/navigation/drop-down",
@@ -111882,8 +111892,18 @@
       "category": "core/legal",
       "hasArtwork": false,
       "sha256": "4d83d68e1ca1e69a756ca1b36a5ed331760e904da73528b850e9fec96da67439",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/legal/policy/legal",
@@ -114575,8 +114595,18 @@
       "category": "core/navigation",
       "hasArtwork": true,
       "sha256": "b6556fc4501686d5d7f537a97e47e6ef4caf79737f76608a019e4cc500f43ab5",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/navigation/more/navigation-more",
