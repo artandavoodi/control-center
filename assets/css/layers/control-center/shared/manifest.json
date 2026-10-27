@@ -1,6 +1,6 @@
 {
   "source": "artandavoodi/website",
-  "revision": "de941f571ef7d46784c1cf389f2fab77f9fe7af6",
+  "revision": "3ecec75c75728f8fe306ca2948f6663c3f4a7f39",
   "files": {
     "themes.css": {
       "file": "docs/assets/css/core/02-foundation/themes.css",
@@ -8,7 +8,7 @@
     },
     "loaders.css": {
       "file": "docs/assets/css/core/03-primitives/loaders.css",
-      "sha256": "fee381014480ba1d6ab37dda0c36b1acd7f2e1f3683b4807c5a62c3f063ed102"
+      "sha256": "ed634b772b8f1ef3f1c4bbd7a46858fd59dd12a18d95170cc98aec450d9711ee"
     },
     "close-button.css": {
       "file": "docs/assets/css/core/04-systems/close-button.css",
@@ -64,7 +64,7 @@
     },
     "magnetic-navigation.js": {
       "file": "docs/assets/js/core/02-systems/magnetic-navigation.js",
-      "sha256": "9aab4752f6542dc30dd5a4d4e9c603c2d996e7fa3322b1e9b33e5741b4c4de85"
+      "sha256": "d4ea49568edc7f5d8e0348b745283e36da452384a15ae6637a667b4c320dd379"
     },
     "notifications.css": {
       "file": "docs/assets/css/core/04-systems/notifications.css",

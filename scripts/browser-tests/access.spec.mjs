@@ -102,6 +102,16 @@ test('saved Mac connection requires new-browser consent and is reused for online
  expect(await page.evaluate(()=>Object.keys(localStorage).some(key=>key.startsWith('control-center.mac-consent:98000000-0000-0000-0000-000000000001:')))).toBe(false);
  await page.reload();await expect(consent).toBeVisible();
 });
+test('navigation token measurement ignores temporary visual transforms',async({page})=>{
+ await enter(page,['artists.read']);
+ const width=await page.evaluate(async()=>{
+  const {bindMagneticNavigation}=await import('/assets/js/layers/control-center/operations/shared/magnetic-navigation.js');
+  const root=document.createElement('div'),shell=document.createElement('div'),rail=document.createElement('aside'),resize=document.createElement('div'),toggle=document.createElement('button');
+  root.style.transform='scale(0)';shell.dataset.rail='open';root.append(shell);shell.append(rail,resize,toggle);document.body.append(root);
+  try{bindMagneticNavigation({root,shell,rail,resize,toggle,onState:()=>{},readWidth:value=>value,saveWidth:()=>{},maximumToken:'--control-width-auth-max',minimumToken:'--layout-home-platform-primary-rail-width',widthProperty:'--test-rail-width',chevronProperty:'--test-chevron-opacity'});return parseFloat(shell.style.getPropertyValue('--test-rail-width'));}finally{root.remove();}
+ });
+ expect(width).toBeGreaterThan(0);
+});
 test('owner update shortcuts show full scope and avatar stays square',async({page})=>{
  await backend(page,['artists.read'],{owner:true});
  await page.route('**/api/updates/catalogue',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({layers:[{id:'control-center',domains:[]},{id:'store',domains:['store.artandavoodi.com']}],unconfiguredDomains:[],documents:[{id:'00',title:'All',methods:['publish','plan','check']},{id:'11',title:'Icons',methods:['publish','registry']}],jobs:[]})}));
