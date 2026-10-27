@@ -121,13 +121,16 @@ test('owner update shortcuts show full scope and avatar stays square',async({pag
  await expect(review).toBeVisible();
  await review.getByRole('button',{name:'Cancel',exact:true}).click();
  await expect(review).not.toBeVisible();
- await page.route('**/api/updates/jobs',async route=>{const body=route.request().postDataJSON();expect(body.confirmation).toBe('PUBLISH REVIEWED CHANGES');await route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})});});
- await page.route('**/api/updates/jobs/reviewed-test',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})}));
+ await page.route('**/api/updates/jobs',async route=>{const body=route.request().postDataJSON();expect(body.confirmation).toBe('PUBLISH REVIEWED CHANGES');await route.fulfill({status:202,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',document:'00',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})});});
+ await page.route('**/api/updates/jobs/reviewed-test',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({id:'reviewed-test',document:'00',title:'All',method:'publish',status:'succeeded',output:'Verified fixture publication'})}));
  await page.getByRole('button',{name:'Synchronize, verify & publish',exact:true}).first().click();
  await review.getByRole('checkbox').check();
  expect((await review.getByRole('checkbox').boundingBox()).width).toBeLessThan(30);expect((await review.getByRole('checkbox').boundingBox()).height).toBeLessThan(30);
  await review.getByRole('button',{name:'Confirm publication',exact:true}).click();
- await expect(page.getByText('All · publish · succeeded',{exact:true})).toBeVisible();
+ const result=page.locator('[data-update-document="00"] [data-update-job]');
+ await expect(result).toBeVisible();
+ await expect(result.locator('[data-update-state]')).toContainText('All');
+ await expect(result.locator('[data-update-summary]')).toContainText('Update completed');
  await page.screenshot({path:test.info().outputPath('update-actions.png')});
 });
 test('notifications route pending requests through permitted review screens',async({page})=>{
