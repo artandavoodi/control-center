@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+test.afterEach(async({page})=>{await page.unrouteAll({behavior:'wait'});});
 const id='98000000-0000-0000-0000-000000000001';
 const user={id,email:'staff@example.test',aud:'authenticated',role:'authenticated',app_metadata:{provider:'email'},user_metadata:{}};
 const token=[{alg:'HS256'},{sub:id,role:'authenticated',exp:Math.floor(Date.now()/1000)+3600},'test-only'].map(part=>Buffer.from(typeof part==='string'?part:JSON.stringify(part)).toString('base64url')).join('.');
