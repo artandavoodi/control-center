@@ -835,6 +835,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -103187,7 +103188,8 @@
       "brands": [
         "control-center",
         "neuroartan",
-        "artanrecords"
+        "artanrecords",
+        "studio"
       ]
     },
     {
@@ -107401,7 +107403,8 @@
         {
           "brand": "studio",
           "evidence": [
-            "app/platform-manifest.json"
+            "app/platform-manifest.json",
+            "content/account.json"
           ]
         }
       ]
@@ -109914,10 +109917,20 @@
         "desktop"
       ],
       "category": "core/devices",
-      "hasArtwork": true,
+      "hasArtwork": false,
       "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/devices/hardware/chip",
@@ -109964,10 +109977,20 @@
         "mobile"
       ],
       "category": "core/devices",
-      "hasArtwork": true,
+      "hasArtwork": false,
       "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/devices/tablet/tablet",
@@ -109980,10 +110003,20 @@
         "tablet"
       ],
       "category": "core/devices",
-      "hasArtwork": true,
+      "hasArtwork": false,
       "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/devices/wearable/watch",
@@ -110154,16 +110187,24 @@
         "publish"
       ],
       "category": "core/editorial",
-      "hasArtwork": true,
+      "hasArtwork": false,
       "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
       "brands": [
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/fragments/layers/website/home/platform-menu/workspace/public-surfaces.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -115137,10 +115178,20 @@
         "focus"
       ],
       "category": "core/productivity",
-      "hasArtwork": true,
+      "hasArtwork": false,
       "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/productivity/workspace/workspace",

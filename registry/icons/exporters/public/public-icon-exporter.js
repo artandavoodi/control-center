@@ -21,7 +21,7 @@ export function verifyAliasExports(){
  }
  return consumers.length;
 }
-const placeholder=svg=>!/<(?:path|rect|line|polygon|polyline|ellipse|use|image|text)\b/.test(svg)&&(!/<circle\b/.test(svg)||((svg.match(/<circle\b/g)||[]).length===1&&/<circle\b[^>]*\br="2"/.test(svg)));
+const placeholder=svg=>/data-artwork-status=["']pending["']/.test(svg)||(!/<(?:path|rect|line|polygon|polyline|ellipse|use|image|text)\b/.test(svg)&&(!/<circle\b/.test(svg)||((svg.match(/<circle\b/g)||[]).length===1&&/<circle\b[^>]*\br="2"/.test(svg))));
 export function assertPreservesSvgArtwork(incoming,existing,destination){if(placeholder(incoming)&&!placeholder(existing))throw Error('Icon artwork would be replaced by a placeholder: '+destination+'. Promote the artwork to its canonical source before synchronizing.');}
 function list(root){if(!fs.existsSync(root))return [];return fs.readdirSync(root,{withFileTypes:true}).filter(entry=>entry.name!=='.DS_Store').flatMap(entry=>{const file=path.join(root,entry.name);if(entry.isSymbolicLink())throw Error('Icon registry symlinks are not allowed: '+file);if(/(?: copy(?: \d+)?|[- ]copy| \d+|\(\d+\))\.svg$/i.test(entry.name))throw Error('Duplicate icon requires review: '+file);return entry.isDirectory()?list(file):[file];});}
 export function assertMirrorCanUpdate(incoming,existing,committed,destination){assertPreservesSvgArtwork(incoming,existing,destination);if(incoming!==existing&&!placeholder(existing)&&existing!==committed)throw Error('Edited icon mirror differs from its source: '+destination+'. Review and register the intended vector; no artwork was overwritten.');}

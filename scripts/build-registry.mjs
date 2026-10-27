@@ -13,7 +13,7 @@ for(const item of Object.values(manifest)){
  if(svg!==existing)throw Error('Canonical icon and deployment mirror differ: '+item.id+'. Review the source before building.');
  const nonCircle=/<(?:path|rect|line|polygon|polyline|ellipse|use|image|text)\b/.test(svg),circles=svg.match(/<circle\b/g)||[],dot=circles.length===1&&/<circle\b[^>]*\br="2"/.test(svg);
  const tags=[...new Set(item.id.split(/[\/-]/).concat(/plus|add|create/.test(item.id)?['add','plus','create']:[]))];
- icons.push({id:item.id,path:item.path,publicPath:'/registry/icons/public/assets/'+item.path,source,tags,category:item.id.split('/').slice(0,2).join('/'),hasArtwork:nonCircle||(circles.length>0&&!dot),sha256:createHash('sha256').update(svg).digest('hex')});
+ icons.push({id:item.id,path:item.path,publicPath:'/registry/icons/public/assets/'+item.path,source,tags,category:item.id.split('/').slice(0,2).join('/'),hasArtwork:! /data-artwork-status=["']pending["']/.test(svg)&&(nonCircle||(circles.length>0&&!dot)),sha256:createHash('sha256').update(svg).digest('hex')});
 }
 // Public registry metadata only; never expose compiler-local absolute source paths.
 const brands=await collectIconUsage(icons);
