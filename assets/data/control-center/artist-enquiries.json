@@ -1,0 +1,5 @@
+{
+ "navigation":{"id":"artist-enquiries","workspace":"reviews","label":"Public submissions","permission":"artists.read","icon":"core/communication/messaging/inbox.svg"},
+ "queue":{"id":"artist-enquiries","label":"Public submissions","permission":"artists.read","icon":"core/communication/messaging/inbox.svg","table":"artan_artist_enquiries","displayField":"artist_name","countField":"id","pendingStatus":"new"},
+ "notice":"Initial submissions from artists who may not have a Studio account. Selected streaming profiles are listening references, not verified ownership. A proposed tier does not sign an agreement or activate Studio access."
+}

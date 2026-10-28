@@ -105767,10 +105767,17 @@
       "hasArtwork": true,
       "sha256": "c7a99ce917d3d8b69756244f8387944b23a60027bdb65b065f4d1ec9d4f22329",
       "brands": [
+        "control-center",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "studio",
           "evidence": [
@@ -107527,7 +107534,9 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/assets/data/icons.json"
+            "docs/assets/data/icons.json",
+            "docs/collaborate/index.html",
+            "docs/for-artists/index.html"
           ]
         },
         {
@@ -107945,6 +107954,7 @@
         {
           "brand": "studio",
           "evidence": [
+            "app/release-submission.js",
             "content/account.json"
           ]
         }
@@ -109814,8 +109824,17 @@
       "category": "core/communication",
       "hasArtwork": true,
       "sha256": "33eed605502dd5211051a03d20fa19ed4d6377111966ec93f686cc4caee6b60b",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/communication/messaging/message",
@@ -126155,8 +126174,18 @@
       "category": "layers/website",
       "hasArtwork": false,
       "sha256": "4eb410024e0a832301e6cd289c1aa5ee6e4782a73248fbd2f6f247d045efaea4",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/release-submissions.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "layers/website/navigation/actions/neuroartan-office-dashboard",

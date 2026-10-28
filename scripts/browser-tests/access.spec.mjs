@@ -24,7 +24,7 @@ async function backend(page,permissions,{owner=false,macOrigin=''}={}){
   else if(path.endsWith('/control_center_units'))body=[{id:records,parent_id:null,name:'Artanrecords',kind:'pillar',active:true,workspace_key:'artanrecords'},{id:neuro,parent_id:null,name:'Neuroartan',kind:'pillar',active:true,workspace_key:'neuroartan'},{id:department,parent_id:records,name:'Communication',kind:'department',active:true},{id:office,parent_id:department,name:'Press',kind:'office',active:true}];
   else if(path.endsWith('/control_center_create_unit')||path.endsWith('/control_center_rename_unit'))body=office;
   else if(path.includes('/storage/v1/object/sign/')){await route.fulfill({status:400,contentType:'application/json',body:'{"error":"not_found"}'});return;}
-  else if(path.endsWith('/studio_artist_handles')||path.endsWith('/studio_artist_applications')||path.endsWith('/studio_payout_applications'))body=[];
+  else if(path.endsWith('/studio_artist_handles')||path.endsWith('/studio_artist_applications')||path.endsWith('/studio_payout_applications')||path.endsWith('/studio_release_submissions')||path.endsWith('/artan_artist_enquiries'))body=[];
   else if(path.endsWith('/control_center_artist_audit')||path.endsWith('/control_center_assign_email'))body=[];
   else if(path.endsWith('/control_center_documents'))body=documents;
   else if(path.endsWith('/control_center_vacancies'))body=vacancies;
@@ -42,6 +42,15 @@ async function chooseContext(page,{function:mode,brand,department,office}={}){
  if(office)await dialog.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
 }
+test('public artist enquiries keep proposed tiers separate from verified Studio approval',async({page})=>{
+ await backend(page,['artists.read','tiers.review'],{owner:true});let status='new',linked=null;const calls=[];
+ await page.route('**/rest/v1/artan_artist_enquiries*',route=>route.fulfill({json:[{id,artist_name:'Test artist',reply_email:'artist@example.test',payload:{name:'Artist',artist:'Test artist',email:'artist@example.test',message:'Private work'},profiles:[],status,proposed_tier:status==='offered'?'gold':null,decision_note:'',linked_account:linked,created_at:'2026-10-28T10:00:00Z',updated_at:'2026-10-28T10:00:00Z'}]}));
+ await page.route('**/rest/v1/rpc/artan_review_enquiry',async route=>{calls.push(route.request().postDataJSON());status='offered';await route.fulfill({json:null});});
+ await page.route('**/rest/v1/rpc/artan_link_enquiry',async route=>{calls.push(route.request().postDataJSON());linked=id;await route.fulfill({json:id});});
+ await page.goto('/');await page.getByLabel('Email',{exact:true}).fill(user.email);await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();await chooseContext(page,{function:'reviews'});await page.getByRole('navigation',{name:'Operations'}).getByRole('button',{name:'Public submissions',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Test artist',exact:true})).toBeVisible();const form=page.locator('[data-enquiry-decision]');await form.locator('[name=decision]').selectOption('offered');await form.locator('[name=tier]').selectOption('gold');await form.locator('[name=note]').fill('Propose Gold for this project.');page.once('dialog',dialog=>dialog.accept());await form.getByRole('button',{name:'Save decision',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Link verified Studio account',exact:true})).toBeVisible();expect(calls[0]).toEqual({enquiry:id,decision:'offered',tier:'gold',note:'Propose Gold for this project.'});page.once('dialog',dialog=>dialog.accept());await page.getByRole('button',{name:'Link verified Studio account',exact:true}).click();await expect(page.getByRole('button',{name:'Review Studio application',exact:true})).toBeVisible();expect(calls).toHaveLength(2);
+});
 test('CEO payout review stays internal and records a request for more information',async({page})=>{
  await backend(page,['artists.read'],{owner:true});let pending=true;
  await page.route('**/rest/v1/studio_payout_applications*',route=>route.fulfill({contentType:'application/json',body:JSON.stringify([{account_id:id,legal_name:'Test Artist',recipient_type:'individual',registration_country:'HR',tax_residence_country:'HR',business_name:'',status:pending?'pending':'needs_information',decision_note:'',submitted_at:'2026-10-26T10:00:00Z'}])}));
