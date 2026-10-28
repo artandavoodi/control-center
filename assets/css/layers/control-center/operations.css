@@ -119,7 +119,7 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-preview-links a { color:inherit; text-decoration:none; min-block-size:var(--control-height-md); align-self:end; }
 .control-center-preview-links label { flex:1; min-inline-size:0; }
 .control-center-preview-address input { inline-size:100%; min-inline-size:0; }
-.control-center-operations button.control-center-preview-copy { border:0; background:transparent; padding:0; flex:none; }
+.control-center-operations button:is(.control-center-preview-copy,.control-center-enquiry-copy) { border:0; background:transparent; padding:0; flex:none; }
 .control-center-preview-connection { display:flex; align-items:center; gap:var(--spacing-sm); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); padding-inline-end:var(--spacing-md); }
 .control-center-operations .control-center-preview-connection input { min-inline-size:0; inline-size:100%; border:0; background:transparent; }
 .control-center-preview-forget { --global-close-button-color:var(--status-danger-color); --global-close-button-hover-color:var(--status-danger-color); flex:none; }
@@ -218,7 +218,6 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-enquiry-field:has(textarea) { grid-column:1/-1; }
 .control-center-enquiry-value { display:flex; align-items:center; gap:var(--spacing-sm); min-inline-size:0; }
 .control-center-enquiry-value > input,.control-center-enquiry-value > textarea { flex:1; min-inline-size:0; width:100%; }
-.control-center-enquiry-copy { flex:none; padding:var(--spacing-sm); border:0; background:transparent; color:inherit; }
 [data-reply-draft] { display:grid; gap:var(--spacing-md); margin-block:var(--spacing-lg); }
 [data-reply-draft][hidden] { display:none; }
 @media(max-width:767px){.control-center-enquiry-fields{grid-template-columns:minmax(0,1fr);}}
