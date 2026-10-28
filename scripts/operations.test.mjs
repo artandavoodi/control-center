@@ -20,6 +20,10 @@ test('saved reply templates override defaults by scenario and newest valid recor
  const records=[{id:'old',tags:['reply-macro','macro-offered'],body:JSON.stringify({subject:'Old',body:'Old message'}),updated_at:'2026-01-01'},{id:'new',tags:['reply-macro','macro-offered'],body:JSON.stringify({subject:'New',body:'Hello {{artist}}'}),updated_at:'2026-02-01'},{id:'invalid',tags:['reply-macro','macro-offered'],body:'bad json',updated_at:'2026-03-01'}];
  const macros=resolveMacros(records);assert.equal(macros.find(item=>item.id==='offered').record.id,'new');assert.equal(macros.find(item=>item.id==='declined').record,undefined);
 });
+test('custom named templates are reusable without changing decision scenarios',()=>{
+ const macro=resolveMacros([{id:'custom',title:'Artist reply · More information',tags:['reply-macro','macro-custom-123'],body:JSON.stringify({subject:'Question for {{artist}}',body:'Hello {{name}}, please share a listening link.'})}]);
+ assert.equal(macro.length,5);assert.equal(macro.find(item=>item.id==='custom-123').label,'More information');
+});
 test('artist application and release submission use distinct registered pending artwork',async()=>{
  const operations=JSON.parse(await readFile(new URL('../assets/data/control-center/operations.json',import.meta.url),'utf8'));
  const applicationIcon=operations.navigation.find(item=>item.id==='applications').icon;

@@ -104541,6 +104541,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
+            "assets/js/layers/control-center/operations/communications.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },

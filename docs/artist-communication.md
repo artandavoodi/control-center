@@ -31,7 +31,10 @@ latest valid, accessible record is used. Supported fields are `{{name}}`,
 `{{artist}}`, `{{reference}}`, `{{tier}}` and `{{reply_email}}`.
 
 The four initial scenarios are Under review, Propose partnership, Decline and
-Close. A proposal is provisional, never an agreement, tier activation or release
+Close. Choose New template to add a named custom response. Custom templates are
+stored as private documents and can be selected in each submission's Reply
+template field. Choosing a decision suggests its matching template; preparing
+again asks before replacing an existing draft. A proposal is provisional, never an agreement, tier activation or release
 approval. Future communication channels can reuse the template resolver without
 duplicating these definitions. This foundation does not implement automated email
 delivery, a shared sent-mail ledger or a full ticketing service.

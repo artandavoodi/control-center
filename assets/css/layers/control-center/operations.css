@@ -206,10 +206,8 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-context-form h2 { margin:0; font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
 .control-center-context-form label { display:grid; gap:var(--spacing-sm); }
 .control-center-context-form :is(select,button:not(.global-close-button)) { font:inherit; min-block-size:var(--control-height-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background-color:var(--control-center-surface); color:inherit; padding:var(--spacing-sm) var(--spacing-md); }
-.control-center-organization-actions,.control-center-review-tabs { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block-end:var(--spacing-xl); }
-.control-center-organization-actions button,.control-center-review-tabs button { display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); cursor:pointer; }
-.control-center-review-tabs [aria-current=false] { opacity:var(--opacity-muted); }
-.control-center-review-tabs button { border:0; background:transparent; }
+.control-center-organization-actions { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block-end:var(--spacing-xl); }
+.control-center-organization-actions button { display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); cursor:pointer; }
 .control-center-operation-icon { flex:none; }
 .control-center-context-form > button[type=submit],.control-center-operations form > button,[data-create-document],[data-create-vacancy] { display:inline-flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
 .control-center-document-body { white-space:pre-wrap; overflow-wrap:anywhere; }
