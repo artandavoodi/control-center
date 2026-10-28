@@ -7,6 +7,27 @@ import {rankResults} from '../assets/js/layers/control-center/operations/search.
 import {registryReference,registryMatches,registryKinds} from '../assets/js/layers/control-center/operations/registry.js';
 import {roleBlueprint,renderRoleBlueprint,positionAssignments} from '../assets/js/layers/control-center/operations/roles.js';
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
+import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
+test('reply macros validate placeholders and never insert internal review notes',()=>{
+ assert.throws(()=>validateMacro({subject:'Hello\nBcc: other',body:'Message'}));
+ assert.throws(()=>validateMacro({subject:'Hello',body:'{{decision_note}}'}));
+ assert.throws(()=>validateMacro({subject:'Hello',body:'{{artist'}));
+ const row={id:'reference',artist_name:'Artist',payload:{name:'Person',email:'artist@example.test'},decision_note:'PRIVATE NOTE'};
+ for(const macro of resolveMacros()){const reply=composeReply(macro,row,'gold');assert.doesNotMatch(reply.subject+reply.body,/{{|PRIVATE NOTE/);assert.equal(reply.recipient,'artist@example.test');}
+ assert.match(composeReply(resolveMacros().find(item=>item.id==='offered'),row,'gold').body,/Gold partnership/);
+});
+test('saved reply templates override defaults by scenario and newest valid record',()=>{
+ const records=[{id:'old',tags:['reply-macro','macro-offered'],body:JSON.stringify({subject:'Old',body:'Old message'}),updated_at:'2026-01-01'},{id:'new',tags:['reply-macro','macro-offered'],body:JSON.stringify({subject:'New',body:'Hello {{artist}}'}),updated_at:'2026-02-01'},{id:'invalid',tags:['reply-macro','macro-offered'],body:'bad json',updated_at:'2026-03-01'}];
+ const macros=resolveMacros(records);assert.equal(macros.find(item=>item.id==='offered').record.id,'new');assert.equal(macros.find(item=>item.id==='declined').record,undefined);
+});
+test('artist application and release submission use distinct registered pending artwork',async()=>{
+ const operations=JSON.parse(await readFile(new URL('../assets/data/control-center/operations.json',import.meta.url),'utf8'));
+ const applicationIcon=operations.navigation.find(item=>item.id==='applications').icon;
+ const release=JSON.parse(await readFile(new URL('../assets/data/control-center/release-submissions.json',import.meta.url),'utf8'));
+ const index=JSON.parse(await readFile(new URL('../assets/data/control-center/registry-index.json',import.meta.url),'utf8'));
+ assert.notEqual(applicationIcon,release.navigation.icon);
+ for(const path of [applicationIcon,release.navigation.icon]){const source=await readFile(new URL('../registry/icons/source/'+path,import.meta.url),'utf8');assert.match(source,/data-artwork-status="pending"/);assert.match(source,/<circle/);assert.equal(source,await readFile(new URL('../registry/icons/public/assets/'+path,import.meta.url),'utf8'));assert.equal(index.icons.find(item=>item.path===path).hasArtwork,false);}
+});
 const config=JSON.parse(await readFile(new URL('../assets/data/control-center/operations.json',import.meta.url),'utf8'));
 test('position identity binds only verified ownership or a unique scoped management assignment',()=>{const roles=[{id:'store:chief-executive-officer',unit:null,level:'executive'},{id:'store:department:d',unit:'d',level:'department'},{id:'store:chief-technology-officer',unit:null,level:'executive'}];const rows=[{account_id:'ceo',is_owner:true,enabled:true},{account_id:'manager',unit_id:'d',authority_level:'department_manager',enabled:true},{account_id:'engineer',display_name:'Chief Technology Officer',authority_level:'staff',enabled:true}];const matches=positionAssignments(roles,rows);assert.equal(matches.get(roles[0].id).account_id,'ceo');assert.equal(matches.get(roles[1].id).account_id,'manager');assert.equal(matches.has(roles[2].id),false);assert.equal(positionAssignments(roles,[...rows,{account_id:'other',unit_id:'d',authority_level:'department_manager',enabled:true}]).has(roles[1].id),false);});
 test('position planning preserves documented roles without creating staff or approved appointments',()=>{const units=[{id:'d',parent_id:'b',kind:'department',name:'Governance',active:true},{id:'o',parent_id:'d',kind:'office',name:'Legal',active:true}];const roles=roleBlueprint({id:'b',workspace_key:'neuroartan'},units);assert.equal(roles.filter(role=>role.level==='executive').length,15);assert.equal(roles.find(role=>role.unit==='o').parent,'neuroartan:department:d');assert.equal(roles.find(role=>role.unit==='d').proposed,true);assert.equal(new Set(roles.map(role=>role.id)).size,roles.length);assert.match(renderRoleBlueprint(roles,value=>value,false),/proposed planning structure/);assert.doesNotMatch(renderRoleBlueprint(roles,value=>value,false),/data-role-draft/);assert.ok(roleBlueprint({id:'b',workspace_key:'store'},units).every(role=>role.proposed));});

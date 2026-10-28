@@ -1,0 +1,13 @@
+{
+  "navigation":{"id":"communications","workspace":"operations","label":"Communication","permissionAny":["documents.read","documents.write"],"icon":"core/communication/communication/communication.svg"},
+  "title":"Reply templates",
+  "description":"Reusable email templates for artist communication. Review each draft before sending. Saving a decision never sends an email.",
+  "tag":"reply-macro",
+  "tokens":["name","artist","reference","tier","reply_email"],
+  "macros":[
+    {"id":"under_review","label":"Under review","subject":"Your submission to Artanrecords · {{artist}}","body":"Hello {{name}},\n\nThank you for sharing {{artist}} with Artanrecords. Your submission is under review. We aim to respond within 14 working days of submission; this is a review target, not a guaranteed deadline.\n\nWe will contact you if we need more information. No partnership or release has been approved at this stage.\n\nSubmission reference: {{reference}}\n\nArtanrecords"},
+    {"id":"offered","label":"Propose partnership","subject":"A conversation about {{artist}} · Artanrecords","body":"Hello {{name}},\n\nThank you for sharing your work. We would like to discuss a {{tier}} partnership for {{artist}}.\n\nThis is a proposal for discussion, not a final agreement or confirmation of a release. Scope, responsibilities and financial terms must be reviewed and agreed in writing before work begins.\n\nPlease reply to discuss the next steps.\n\nSubmission reference: {{reference}}\n\nArtanrecords"},
+    {"id":"declined","label":"Decline","subject":"Your submission to Artanrecords · {{artist}}","body":"Hello {{name}},\n\nThank you for sharing {{artist}} with us and giving us the opportunity to listen. After reviewing this submission, we are not able to offer a partnership for this project.\n\nWe appreciate the time and care you put into your work and wish you well with its next steps.\n\nSubmission reference: {{reference}}\n\nArtanrecords"},
+    {"id":"closed","label":"Close","subject":"Your submission to Artanrecords · {{artist}}","body":"Hello {{name}},\n\nWe are writing to let you know that this submission for {{artist}} has been closed. If you believe we have missed relevant information, please reply with the reference below so we can check.\n\nClosing this submission does not establish or change a signed agreement.\n\nSubmission reference: {{reference}}\n\nArtanrecords"}
+  ]
+}

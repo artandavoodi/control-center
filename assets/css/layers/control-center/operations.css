@@ -213,6 +213,15 @@ html[data-theme-effective=light] :is(.control-center-operation-icon,.control-cen
 .control-center-operation-icon { flex:none; }
 .control-center-context-form > button[type=submit],.control-center-operations form > button,[data-create-document],[data-create-vacancy] { display:inline-flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
 .control-center-document-body { white-space:pre-wrap; overflow-wrap:anywhere; }
+.control-center-enquiry-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--spacing-lg); margin-block:var(--spacing-lg); }
+.control-center-enquiry-field { display:grid; gap:var(--spacing-sm); min-inline-size:0; }
+.control-center-enquiry-field:has(textarea) { grid-column:1/-1; }
+.control-center-enquiry-value { display:flex; align-items:center; gap:var(--spacing-sm); min-inline-size:0; }
+.control-center-enquiry-value > input,.control-center-enquiry-value > textarea { flex:1; min-inline-size:0; width:100%; }
+.control-center-enquiry-copy { flex:none; padding:var(--spacing-sm); border:0; background:transparent; color:inherit; }
+[data-reply-draft] { display:grid; gap:var(--spacing-md); margin-block:var(--spacing-lg); }
+[data-reply-draft][hidden] { display:none; }
+@media(max-width:767px){.control-center-enquiry-fields{grid-template-columns:minmax(0,1fr);}}
 [data-document-filter] { margin-block:var(--spacing-lg); }
 .control-center-registry-item { min-inline-size:0; overflow-wrap:anywhere; }
 .control-center-registry-filters { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr)); gap:var(--spacing-lg); margin-block:var(--spacing-lg); align-items:end; }

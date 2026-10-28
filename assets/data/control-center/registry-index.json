@@ -104467,9 +104467,9 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/js/layers/control-center/operations/artist-enquiries.js",
             "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/previews.js",
-            "assets/js/layers/control-center/operations/registry.js"
+            "assets/js/layers/control-center/operations/previews.js"
           ]
         },
         {
@@ -105775,6 +105775,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/js/layers/control-center/operations/artist-enquiries.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
@@ -107395,8 +107396,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/payout-applications.js"
+            "assets/js/layers/control-center/operations/artist-enquiries.js",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
@@ -109799,9 +109800,17 @@
       "hasArtwork": true,
       "sha256": "06e90cdfff737dfb98b30b368271ae8543ca793b10f063d2e0bdf319623e6186",
       "brands": [
+        "control-center",
         "neuroartan"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/artist-enquiries.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -109831,6 +109840,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/artist-enquiries.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         }
@@ -110976,6 +110986,33 @@
           "brand": "studio",
           "evidence": [
             "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/identity/artist-application/artist-application",
+      "path": "core/identity/artist-application/artist-application.svg",
+      "publicPath": "/registry/icons/public/assets/core/identity/artist-application/artist-application.svg",
+      "source": "registry/icons/source/core/identity/artist-application/artist-application.svg",
+      "tags": [
+        "core",
+        "identity",
+        "artist",
+        "application"
+      ],
+      "category": "core/identity",
+      "hasArtwork": false,
+      "sha256": "eac33cc1939ee4f483f0a88eb974e2c94bc477543f9a5f6d9d3c459a78866a65",
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/operations.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         }
       ]
@@ -112584,6 +112621,33 @@
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/fragments/layers/website/model/foundation/voice-training/model-voice-training.html"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/media/release-submission/release-submission",
+      "path": "core/media/release-submission/release-submission.svg",
+      "publicPath": "/registry/icons/public/assets/core/media/release-submission/release-submission.svg",
+      "source": "registry/icons/source/core/media/release-submission/release-submission.svg",
+      "tags": [
+        "core",
+        "media",
+        "release",
+        "submission"
+      ],
+      "category": "core/media",
+      "hasArtwork": false,
+      "sha256": "1308f741013f0e59eb4e2bec95cb8932d2699865a5a012b0089701ae231f3863",
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/release-submissions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         }
       ]
@@ -126174,18 +126238,8 @@
       "category": "layers/website",
       "hasArtwork": false,
       "sha256": "4eb410024e0a832301e6cd289c1aa5ee6e4782a73248fbd2f6f247d045efaea4",
-      "brands": [
-        "control-center"
-      ],
-      "usage": [
-        {
-          "brand": "control-center",
-          "evidence": [
-            "assets/data/control-center/release-submissions.json",
-            "assets/js/layers/control-center/operations/dist.js"
-          ]
-        }
-      ]
+      "brands": [],
+      "usage": []
     },
     {
       "id": "layers/website/navigation/actions/neuroartan-office-dashboard",
@@ -129941,7 +129995,7 @@
           "evidence": [
             "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html"
+            "docs/assets/js/layers/site/artist-discovery.js"
           ]
         },
         {
@@ -130159,7 +130213,7 @@
           "evidence": [
             "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html"
+            "docs/assets/js/layers/site/artist-discovery.js"
           ]
         },
         {

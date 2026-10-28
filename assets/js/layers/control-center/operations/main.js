@@ -9,6 +9,9 @@ import releaseConfig from '../../../../data/control-center/release-submissions.j
 import {mountReleaseSubmissions} from './release-submissions.js';
 import enquiryConfig from '../../../../data/control-center/artist-enquiries.json';
 import {mountArtistEnquiries} from './artist-enquiries.js';
+import communicationsConfig from '../../../../data/control-center/communications.json';
+import {mountCommunications} from './communications.js';
+config.navigation.push(communicationsConfig.navigation);
 config.navigation.push(enquiryConfig.navigation);config.reviewQueues.push(enquiryConfig.queue);
 config.navigation.push(releaseConfig.navigation);config.reviewQueues.push(releaseConfig.queue);
 config.navigation.push(payoutConfig.navigation);
@@ -106,6 +109,8 @@ async function render(){
    await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,onNavigate:navigate,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
   }else if(panel==='artist-enquiries'){
    await mountArtistEnquiries({content,client,staff,workspace,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render(),onNavigate:navigate});
+  }else if(panel==='communications'){
+   await mountCommunications({content,client,staff,workspace,context,units,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render()});
   }else if(panel==='release-submissions'){
    await mountReleaseSubmissions({content,client,staff,workspace,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render()});
   }else if(panel==='payout-applications'){
@@ -120,11 +125,6 @@ async function render(){
   if(turn===revision&&staff.is_owner&&['overview','registry'].includes(panel)){
    const actions=document.createElement('div');actions.className='control-center-update-primary';
    for(const [action,label] of Object.entries(updateConfig.primary).filter(([key])=>key!=='overview')){const button=document.createElement('button');button.type='button';button.innerHTML=icon(updateConfig.navigation.icon)+e(label);button.addEventListener('click',()=>navigate('updates',action));actions.append(button);}content.prepend(actions);
-  }
-  if(turn===revision&&['overview','usernames','applications','payout-applications','release-submissions','artist-enquiries'].includes(panel)&&workspace.workspace_key==='artanrecords'&&hasPermission(staff,'artists.read')){
-   const queues=await Promise.all(config.reviewQueues.filter(queue=>!queue.ownerOnly||staff.is_owner).map(async queue=>{if(!queue.table)return queue;const result=await client.from(queue.table).select(queue.countField||'account_id',{count:'exact',head:true}).eq('status',queue.pendingStatus||'pending');if(result.error)throw Error('Review totals could not be loaded.');return {...queue,count:result.count||0};}));
-   if(turn!==revision)return;
-   const tabs=document.createElement('nav');tabs.className='control-center-review-tabs';tabs.setAttribute('aria-label','Artist review queues');tabs.innerHTML=queues.map(queue=>`<button type="button" data-queue="${queue.id}" aria-current="${queue.id===panel?'page':'false'}">${icon(queue.icon)}${e(queue.label)}${queue.table?` <span>${queue.count}</span>`:''}</button>`).join('');tabs.querySelectorAll('[data-queue]').forEach(button=>button.addEventListener('click',()=>navigate(button.dataset.queue)));content.prepend(tabs);
   }
   if(turn===revision)root.querySelector('[data-operation-status]').textContent='';
  }catch(error){if(turn===revision)showError(error);}

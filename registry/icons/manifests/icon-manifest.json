@@ -2009,6 +2009,12 @@
     "publicPath": "/registry/icons/public/assets/core/identity/account/username.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/identity/account/username.svg"
   },
+  "core/identity/artist-application/artist-application": {
+    "id": "core/identity/artist-application/artist-application",
+    "path": "core/identity/artist-application/artist-application.svg",
+    "publicPath": "/registry/icons/public/assets/core/identity/artist-application/artist-application.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/identity/artist-application/artist-application.svg"
+  },
   "core/identity/brand/neuroartan/logo-plain": {
     "id": "core/identity/brand/neuroartan/logo-plain",
     "path": "core/identity/brand/neuroartan/logo-plain.svg",
@@ -2398,6 +2404,12 @@
     "path": "core/media/recording/record.svg",
     "publicPath": "/registry/icons/public/assets/core/media/recording/record.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/recording/record.svg"
+  },
+  "core/media/release-submission/release-submission": {
+    "id": "core/media/release-submission/release-submission",
+    "path": "core/media/release-submission/release-submission.svg",
+    "publicPath": "/registry/icons/public/assets/core/media/release-submission/release-submission.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/media/release-submission/release-submission.svg"
   },
   "core/media/transport/repeat": {
     "id": "core/media/transport/repeat",
