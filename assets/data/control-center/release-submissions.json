@@ -1,0 +1,5 @@
+{
+ "navigation":{"id":"release-submissions","workspace":"reviews","label":"Release submissions","permission":"artists.read","icon":"layers/website/navigation/actions/music-platforms.svg"},
+ "queue":{"id":"release-submissions","label":"Release submissions","permission":"artists.read","icon":"layers/website/navigation/actions/music-platforms.svg","table":"studio_release_submissions","displayField":"title","pendingStatus":"submitted"},
+ "notice":"Private submitted release versions. Review masters, artwork, metadata and the artist’s partnership preference. Acceptance here is not distribution, partnership approval, a signed contract or permission to charge."
+}

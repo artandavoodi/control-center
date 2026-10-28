@@ -5,6 +5,9 @@ import {mountUpdates} from './updates.js';
 import previewConfig from '../../../../data/control-center/preview-actions.json';
 import payoutConfig from '../../../../data/control-center/payout-applications.json';
 import {mountPayoutApplications} from './payout-applications.js';
+import releaseConfig from '../../../../data/control-center/release-submissions.json';
+import {mountReleaseSubmissions} from './release-submissions.js';
+config.navigation.push(releaseConfig.navigation);config.reviewQueues.push(releaseConfig.queue);
 config.navigation.push(payoutConfig.navigation);
 config.reviewQueues.push(payoutConfig.queue);
 import {mountPreviews} from './previews.js';
@@ -98,6 +101,8 @@ async function render(){
    await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){
    await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,onNavigate:navigate,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
+  }else if(panel==='release-submissions'){
+   await mountReleaseSubmissions({content,client,staff,workspace,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render()});
   }else if(panel==='payout-applications'){
    await mountPayoutApplications({content,client,staff,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render()});
   }else if(panel==='usernames'||panel==='applications'){
@@ -111,8 +116,8 @@ async function render(){
    const actions=document.createElement('div');actions.className='control-center-update-primary';
    for(const [action,label] of Object.entries(updateConfig.primary).filter(([key])=>key!=='overview')){const button=document.createElement('button');button.type='button';button.innerHTML=icon(updateConfig.navigation.icon)+e(label);button.addEventListener('click',()=>navigate('updates',action));actions.append(button);}content.prepend(actions);
   }
-  if(turn===revision&&['overview','usernames','applications','payout-applications'].includes(panel)&&workspace.workspace_key==='artanrecords'&&hasPermission(staff,'artists.read')){
-   const queues=await Promise.all(config.reviewQueues.filter(queue=>!queue.ownerOnly||staff.is_owner).map(async queue=>{if(!queue.table)return queue;const result=await client.from(queue.table).select('account_id',{count:'exact',head:true}).eq('status','pending');if(result.error)throw Error('Review totals could not be loaded.');return {...queue,count:result.count||0};}));
+  if(turn===revision&&['overview','usernames','applications','payout-applications','release-submissions'].includes(panel)&&workspace.workspace_key==='artanrecords'&&hasPermission(staff,'artists.read')){
+   const queues=await Promise.all(config.reviewQueues.filter(queue=>!queue.ownerOnly||staff.is_owner).map(async queue=>{if(!queue.table)return queue;const result=await client.from(queue.table).select('account_id',{count:'exact',head:true}).eq('status',queue.pendingStatus||'pending');if(result.error)throw Error('Review totals could not be loaded.');return {...queue,count:result.count||0};}));
    if(turn!==revision)return;
    const tabs=document.createElement('nav');tabs.className='control-center-review-tabs';tabs.setAttribute('aria-label','Artist review queues');tabs.innerHTML=queues.map(queue=>`<button type="button" data-queue="${queue.id}" aria-current="${queue.id===panel?'page':'false'}">${icon(queue.icon)}${e(queue.label)}${queue.table?` <span>${queue.count}</span>`:''}</button>`).join('');tabs.querySelectorAll('[data-queue]').forEach(button=>button.addEventListener('click',()=>navigate(button.dataset.queue)));content.prepend(tabs);
   }

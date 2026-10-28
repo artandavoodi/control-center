@@ -107930,7 +107930,9 @@
       "hasArtwork": true,
       "sha256": "64ba0abb266047965a2d2cdcf45d7b68df906e1bc9b517b5d047c99b340472b4",
       "brands": [
-        "control-center"
+        "control-center",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -107938,6 +107940,12 @@
           "evidence": [
             "assets/data/control-center/update-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
