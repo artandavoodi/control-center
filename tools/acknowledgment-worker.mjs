@@ -1,13 +1,27 @@
 import {createHmac,randomUUID} from 'node:crypto';
 import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
-import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {readFile,mkdir,writeFile,readdir,rename} from 'node:fs/promises';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {mailDirectory,loadICloudSettings,iCloudTransport} from './icloud-mail.mjs';
 import {validateMacro,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
 export const workerKeychainService='Artanrecords acknowledgment worker';
+
+// Reconcile receipts only: SMTP must never be repeated after acceptance.
+export async function reconcileAcknowledgments({queue,directory}){
+ let pending=0;
+ for(const file of await readdir(directory)){
+  if(!/^[0-9a-f-]{36}\.json$/.test(file))continue;
+  let receipt;try{receipt=JSON.parse(await readFile(path.join(directory,file),'utf8'));}catch{pending++;continue;}
+  if(receipt.status!=='accepted'||receipt.reconciled===true)continue;
+  try{const result=await queue({action:'accepted',lease:receipt.lease,reference:receipt.reference,provider_id:receipt.messageId});if(!result?.recorded)throw Error();
+   await writeFile(path.join(directory,file+'.tmp'),JSON.stringify({...receipt,reconciled:true}),{mode:0o600});await rename(path.join(directory,file+'.tmp'),path.join(directory,file));
+  }catch{pending++;}
+ }
+ return pending;
+}
 
 export function signedQueue(endpoint,secret,fetcher=fetch){
  const target=new URL(endpoint);if(target.protocol!=='https:'||!target.hostname.endsWith('.supabase.co')||target.pathname!=='/functions/v1/enquiry-acknowledgments'||target.search||target.hash||target.username||target.password)throw Error('Use the registered shared acknowledgment service.');
@@ -35,7 +49,7 @@ export async function processAcknowledgment({queue,account,transport=iCloudTrans
   if(!result.accepted?.some(value=>String(value).toLowerCase()===job.reply_email.toLowerCase()))throw Error('SMTP acceptance not confirmed.');
   const receipt={reference:job.id,lease,status:'accepted',messageId:String(result.messageId||''),date:new Date().toISOString()};
   await record(receipt);
-  for(let attempt=0;attempt<3;attempt++){try{const saved=await queue({action:'accepted',lease,reference:job.id,provider_id:receipt.messageId});if(!saved?.recorded)throw Error();return 'accepted';}catch{if(attempt===2)return 'receipt-pending';}}
+  for(let attempt=0;attempt<3;attempt++){try{const saved=await queue({action:'accepted',lease,reference:job.id,provider_id:receipt.messageId});if(!saved?.recorded)throw Error();await record({...receipt,reconciled:true});return 'accepted';}catch{if(attempt===2)return 'receipt-pending';}}
  }catch{
   // Never repeat SMTP after the durable begin transition, even after a lost response.
   if(started){try{await record({reference:job.id,lease,status:'uncertain',date:new Date().toISOString()});await queue({action:'hold',lease,reference:job.id});}catch{}return 'uncertain';}
@@ -49,8 +63,9 @@ async function main(){
  const queue=signedQueue(settings.endpoint,stdout.trim()),account=await loadICloudSettings(),logo=await readFile(new URL('../assets/brand/email-wordmark.png',import.meta.url));
  if(account.from!=='collaborate@artanrecords.com')throw Error('The approved artist-communication sender is required.');
  const directory=path.join(mailDirectory,'acknowledgments');await mkdir(directory,{recursive:true,mode:0o700});
- const record=async receipt=>{await writeFile(path.join(directory,receipt.reference+'.json'),JSON.stringify(receipt),{mode:0o600});};
+ const record=async receipt=>{const file=path.join(directory,receipt.reference+'.json');await writeFile(file+'.tmp',JSON.stringify(receipt),{mode:0o600});await rename(file+'.tmp',file);};
+ const healthFile=path.join(mailDirectory,'worker-health.json');
  let stopped=false;process.on('SIGTERM',()=>{stopped=true;});process.on('SIGINT',()=>{stopped=true;});
- do{try{const status=await processAcknowledgment({queue,account,logo,record});if(status!=='idle')console.log('Acknowledgment worker: '+status);}catch{console.error('Acknowledgment worker connection unavailable; queued applications remain private.');}if(process.argv.includes('--once')||stopped)break;await new Promise(resolve=>setTimeout(resolve,15000));}while(!stopped);
+ do{let state;try{const pendingReceipts=await reconcileAcknowledgments({queue,directory});const status=await processAcknowledgment({queue,account,logo,record});state={checkedAt:new Date().toISOString(),status,pendingReceipts};if(status!=='idle')console.log('Acknowledgment worker: '+status);}catch{state={checkedAt:new Date().toISOString(),status:'unavailable'};console.error('Acknowledgment worker connection unavailable; queued applications remain private.');}try{await writeFile(healthFile+'.tmp',JSON.stringify(state),{mode:0o600});await rename(healthFile+'.tmp',healthFile);}catch{console.error('Worker health could not be recorded.');}if(process.argv.includes('--once')||stopped)break;await new Promise(resolve=>setTimeout(resolve,15000));}while(!stopped);
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)main().catch(()=>{console.error('Acknowledgment worker setup is incomplete.');process.exitCode=1;});

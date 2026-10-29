@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {processAcknowledgment,signedQueue} from './acknowledgment-worker.mjs';
+import {processAcknowledgment,signedQueue,reconcileAcknowledgments} from './acknowledgment-worker.mjs';
+import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
 const job={id:'98400000-0000-4000-8000-000000000002',artist_name:'Artist',reply_email:'artist@example.test',payload:{name:'Person'},template:JSON.stringify({subject:'Received',body:'Thanks {{name}} · {{reference}}'})};
 const account={from:'collaborate@artanrecords.com',name:'Artanrecords'};
 test('worker sends only a durably claimed application and records acceptance',async()=>{
@@ -20,4 +23,13 @@ test('worker retries only receipt persistence, not SMTP, and holds invalid templ
 });
 test('worker has no SMTP activity for an empty queue and rejects noncanonical endpoints',async()=>{
  assert.equal(await processAcknowledgment({account,queue:async()=>null,transport:async()=>{throw Error('Do not connect');}}),'idle');assert.throws(()=>signedQueue('http://evil.test/','secret'));
+});
+test('receipt recovery settles accepted sends without SMTP or repeated completed work',async()=>{
+ const directory=await mkdtemp(path.join(tmpdir(),'ack-recovery-'));try{
+  const file=path.join(directory,job.id+'.json');await writeFile(file,JSON.stringify({reference:job.id,lease:job.id,status:'accepted',messageId:'receipt'}));let calls=0;
+  assert.equal(await reconcileAcknowledgments({directory,queue:async()=>{calls++;throw Error();}}),1);
+  assert.equal(await reconcileAcknowledgments({directory,queue:async value=>{calls++;assert.equal(value.action,'accepted');return {recorded:true};}}),0);
+  assert.equal(JSON.parse(await readFile(file,'utf8')).reconciled,true);
+  assert.equal(await reconcileAcknowledgments({directory,queue:async()=>{throw Error('Must not retry completed receipt');}}),0);assert.equal(calls,2);
+ }finally{await rm(directory,{recursive:true,force:true});}
 });
