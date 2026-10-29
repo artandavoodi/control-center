@@ -10,7 +10,7 @@ export function bindICloudReplies({dialog,row,client,staff,e,icon}){
  connectionIcon.style.maskImage=`url("${connectionImage.src}")`;connectionIcon.style.webkitMaskImage=connectionIcon.style.maskImage;
  verify.replaceChildren(connectionIcon,connectionLabel);
  const connectionState=checking=>{verify.dataset.connection=verified?'connected':'disconnected';verify.setAttribute('aria-busy',String(checking));connectionLabel.textContent=checking?settings.checkingLabel:verified?settings.connectedLabel:settings.setupLabel;};
- connectionState(false);
+ connectionState(false);status.hidden=true;
  const update=()=>{send.disabled=!verified||locked||busy||!subject.value.trim()||!body.value.trim();};
  async function request(action,{interactive=false,payload}={}){
   const base=await useMacConnection(client,{interactive}),{data,error}=await client.auth.getSession();if(error||!data.session)throw Error('Sign in again before connecting iCloud.');
@@ -18,12 +18,12 @@ export function bindICloudReplies({dialog,row,client,staff,e,icon}){
   if(!response.headers.get('content-type')?.includes('application/json'))throw Error('Enable the iCloud service on your private Mac after account setup.');
   const result=await response.json();return {response,result};
  }
- if(!staff.is_owner){verify.disabled=true;status.textContent='The owner must connect the iCloud sending account. You can still copy this draft.';}
- verify.onclick=async()=>{if(locked)return;verify.disabled=true;connectionState(true);status.textContent='Checking the private iCloud connection…';try{const capability=await request('capabilities',{interactive:true});if(!capability.response.ok)throw Error(capability.result.error||'iCloud setup is not complete.');const sender=capability.result.senders?.find(item=>item.address===settings.sender);if(!sender)throw Error('The approved Artanrecords sender is not configured.');const checked=await request('verify',{interactive:true});if(!checked.response.ok||checked.result.verified!==true)throw Error(checked.result.error||'iCloud could not authenticate.');from.innerHTML=`<option value="${e(sender.address)}">${e(sender.address)}</option>`;verified=true;status.textContent='Review your message before sending.';}catch(error){verified=false;from.innerHTML=`<option>${e(settings.sender)} · setup required</option>`;status.textContent=error.message||'The private iCloud connection is unavailable.';}finally{verify.disabled=false;connectionState(false);update();}};
+ if(!staff.is_owner){verify.disabled=true;status.hidden=false;status.textContent='The owner must connect the iCloud sending account. You can still copy this draft.';}
+ verify.onclick=async()=>{if(locked)return;verify.disabled=true;connectionState(true);status.hidden=true;status.textContent='';try{const capability=await request('capabilities',{interactive:true});if(!capability.response.ok)throw Error(capability.result.error||'iCloud setup is not complete.');const sender=capability.result.senders?.find(item=>item.address===settings.sender);if(!sender)throw Error('The approved Artanrecords sender is not configured.');const checked=await request('verify',{interactive:true});if(!checked.response.ok||checked.result.verified!==true)throw Error(checked.result.error||'iCloud could not authenticate.');from.innerHTML=`<option value="${e(sender.address)}">${e(sender.address)}</option>`;verified=true;}catch(error){verified=false;from.innerHTML=`<option>${e(settings.sender)} · setup required</option>`;status.hidden=false;status.textContent=error.message||'The private iCloud connection is unavailable.';}finally{verify.disabled=false;connectionState(false);update();}};
  dialog.addEventListener('input',update);dialog.addEventListener('change',update);
  send.onclick=async()=>{
   if(send.disabled||locked||busy)return;if(!window.confirm('Send this reply from '+settings.sender+' to '+row.reply_email+'?'))return;
-  busy=true;update();verify.disabled=true;status.textContent='Sending through iCloud…';
+  busy=true;update();verify.disabled=true;status.hidden=false;status.textContent='Sending through iCloud…';
   try{const {response,result}=await request('send',{payload:{enquiry:row.id,requestId,from:settings.sender,subject:subject.value,body:body.value}});
    if(result.status==='accepted'){locked=true;status.textContent='Accepted by iCloud for sending. Delivery is not yet confirmed. Reference: '+requestId;}
    else if(result.status==='uncertain'){locked=true;status.textContent='Sending is uncertain. Do not resend until this reference is checked: '+requestId;}
