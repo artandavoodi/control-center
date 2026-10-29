@@ -4,7 +4,7 @@ export function bindICloudReplies({dialog,row,client,staff,e,icon}){
  const mount=dialog.querySelector('[data-icloud-reply]');
  mount.innerHTML=`<label>From<select data-icloud-from disabled><option>${e(settings.sender)} · setup required</option></select></label><div class="control-center-action-row"><button type="button" data-icloud-verify>${icon(settings.icons.connect)}${e(settings.setupLabel)}</button><button type="button" class="control-center-primary-action" data-icloud-send disabled>${icon(settings.icons.send)}${e(settings.sendLabel)}</button></div><p role="status" data-icloud-status>iCloud sends through your private Mac connection. No Google sender is used.</p>`;
  const from=mount.querySelector('select'),verify=mount.querySelector('[data-icloud-verify]'),send=mount.querySelector('[data-icloud-send]'),status=mount.querySelector('[data-icloud-status]'),subject=dialog.querySelector('[name=subject]'),body=dialog.querySelector('[name=body]');
- let verified=false,locked=false,busy=false,requestId=crypto.randomUUID();
+ let verified=false,locked=false,busy=false,connecting=false,requestId=crypto.randomUUID();
  const connectionImage=verify.querySelector('img'),connectionIcon=document.createElement('span'),connectionLabel=document.createElement('span');
  connectionIcon.className='control-center-operation-icon ui-icon-mask';connectionIcon.setAttribute('aria-hidden','true');
  connectionIcon.style.maskImage=`url("${connectionImage.src}")`;connectionIcon.style.webkitMaskImage=connectionIcon.style.maskImage;
@@ -19,7 +19,8 @@ export function bindICloudReplies({dialog,row,client,staff,e,icon}){
   const result=await response.json();return {response,result};
  }
  if(!staff.is_owner){verify.disabled=true;status.hidden=false;status.textContent='The owner must connect the iCloud sending account. You can still copy this draft.';}
- verify.onclick=async()=>{if(locked)return;verify.disabled=true;connectionState(true);status.hidden=true;status.textContent='';try{const capability=await request('capabilities',{interactive:true});if(!capability.response.ok)throw Error(capability.result.error||'iCloud setup is not complete.');const sender=capability.result.senders?.find(item=>item.address===settings.sender);if(!sender)throw Error('The approved Artanrecords sender is not configured.');const checked=await request('verify',{interactive:true});if(!checked.response.ok||checked.result.verified!==true)throw Error(checked.result.error||'iCloud could not authenticate.');from.innerHTML=`<option value="${e(sender.address)}">${e(sender.address)}</option>`;verified=true;}catch(error){verified=false;from.innerHTML=`<option>${e(settings.sender)} · setup required</option>`;status.hidden=false;status.textContent=error.message||'The private iCloud connection is unavailable.';}finally{verify.disabled=false;connectionState(false);update();}};
+ const connect=async(interactive=false)=>{if(locked||busy||connecting||!staff.is_owner)return;connecting=true;verified=false;update();verify.disabled=true;connectionState(true);status.hidden=true;status.textContent='';try{const capability=await request('capabilities',{interactive});if(!capability.response.ok)throw Error(capability.result.error||'iCloud setup is not complete.');const sender=capability.result.senders?.find(item=>item.address===settings.sender);if(!sender)throw Error('The approved Artanrecords sender is not configured.');const checked=await request('verify',{interactive});if(!checked.response.ok||checked.result.verified!==true)throw Error(checked.result.error||'iCloud could not authenticate.');from.innerHTML=`<option value="${e(sender.address)}">${e(sender.address)}</option>`;verified=true;}catch(error){verified=false;from.innerHTML=`<option>${e(settings.sender)} · setup required</option>`;status.hidden=false;status.textContent=error.message||'The private iCloud connection is unavailable.';}finally{connecting=false;verify.disabled=false;connectionState(false);update();}};
+ verify.onclick=()=>connect(true);
  dialog.addEventListener('input',update);dialog.addEventListener('change',update);
  send.onclick=async()=>{
   if(send.disabled||locked||busy)return;if(!window.confirm('Send this reply from '+settings.sender+' to '+row.reply_email+'?'))return;
@@ -31,4 +32,5 @@ export function bindICloudReplies({dialog,row,client,staff,e,icon}){
   }catch{locked=true;status.textContent='The result could not be confirmed. Do not resend until this reference is checked: '+requestId;}
   finally{busy=false;verify.disabled=locked;subject.readOnly=locked;body.readOnly=locked;update();}
  };
+ return ()=>connect(false);
 }
