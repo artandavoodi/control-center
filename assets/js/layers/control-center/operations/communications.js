@@ -2,6 +2,7 @@ import settings from '../../../../data/control-center/communications.json' with 
 import {writableUnits,unitOptions,saveRecord} from './records-common.js';
 import {brandedEmail} from './email-template.js';
 import {mountAcknowledgments} from './acknowledgments.js';
+import {mountMailHealth} from './mail-health.js';
 
 export function validateMacro(value){
  if(!value||typeof value.subject!=='string'||typeof value.body!=='string'||!value.subject.trim()||!value.body.trim()||value.subject.length>200||value.body.length>12000||/[\r\n]/.test(value.subject))throw Error('Enter a subject of up to 200 characters and a message of up to 12,000 characters.');
@@ -48,4 +49,5 @@ export async function mountCommunications({content,client,staff,workspace,contex
  };
  draw();showPreview();form.dataset.active=choice.value;
  const automation=document.createElement('section');automation.className='control-center-email-preview';content.append(automation);mountAcknowledgments({mount:automation,client,staff,e,icon}).catch(()=>{automation.textContent='Automatic acknowledgment status is unavailable.';});
+ const health=document.createElement('section');health.className='control-center-email-preview';content.append(health);mountMailHealth({mount:health,client,staff,e,icon});
 }

@@ -23,7 +23,7 @@ export function bindICloudReplies({dialog,row,client,staff,e,icon}){
  verify.onclick=()=>connect(true);
  dialog.addEventListener('input',update);dialog.addEventListener('change',update);
  send.onclick=async()=>{
-  if(send.disabled||locked||busy)return;if(!window.confirm('Send this reply from '+settings.sender+' to '+row.reply_email+'?'))return;
+  if(send.disabled||locked||busy)return;if(!window.confirm('Send this reply?\nFrom: Artanrecords <'+settings.sender+'>\nTo: '+row.reply_email+'\nSubject: '+subject.value+'\n\nOnly the message shown in this draft will be sent. This cannot be recalled.'))return;
   busy=true;update();verify.disabled=true;status.hidden=false;status.textContent='Sending through iCloud…';
   try{const {response,result}=await request('send',{payload:{enquiry:row.id,requestId,from:settings.sender,subject:subject.value,body:body.value}});
    if(result.status==='accepted'){locked=true;status.textContent='Accepted by iCloud for sending. Delivery is not yet confirmed. Reference: '+requestId;}

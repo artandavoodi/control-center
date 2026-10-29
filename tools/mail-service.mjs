@@ -5,9 +5,11 @@ import {verifyUpdateOwner} from './update-service.mjs';
 import {validateTrustedConnection,allowTrustedCors} from './trusted-connection.mjs';
 import {mailDirectory,loadICloudSettings,iCloudTransport} from './icloud-mail.mjs';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
+import {domainMailHealth,mailReceipts,workerHealth} from './mail-health.mjs';
 const uuid=value=>/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value||'');
 export function validateReply(value){
  if(!value||!uuid(value.enquiry)||!uuid(value.requestId)||typeof value.subject!=='string'||!value.subject.trim()||value.subject.length>300||/[\r\n\x00-\x1f]/.test(value.subject)||typeof value.body!=='string'||!value.body.trim()||value.body.length>16000||/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(value.body))throw Error('Enter a valid submission, subject and reply.');
+ if(/{{|}}/.test(value.subject+value.body))throw Error('Resolve all template fields before sending.');
  return {enquiry:value.enquiry,requestId:value.requestId,subject:value.subject.trim(),body:value.body.trim(),from:String(value.from||'')};
 }
 async function bodyOf(request){let body='';for await(const chunk of request){body+=chunk;if(Buffer.byteLength(body)>24000)throw Error('Reply too large.');}return validateReply(JSON.parse(body));}
@@ -27,6 +29,10 @@ export function createMailService({enabled=false,config,authorize=verifyUpdateOw
   let actor,token;
   try{const origin=validateTrustedConnection(request,{remoteOrigin,action:'mail'});allowTrustedCors(response,origin);if(request.method==='OPTIONS'){response.writeHead(204).end();return true;}token=request.headers.authorization?.match(/^Bearer (.+)$/)?.[1];actor=await authorize(token,config);}catch{return send(403,{error:'A trusted connection and active owner account are required.'});}
   let account;try{account=await settings();}catch{return send(503,{error:'The iCloud account and its private Keychain password need setup.'});}
+  if(url.pathname==='/api/mail/health'&&request.method==='GET'){
+   try{return send(200,{sender:{name:account.name,address:account.from},domain:await domainMailHealth(),worker:await workerHealth(path.join(mailDirectory,'worker-health.json')),receipts:await mailReceipts({directory,acknowledgments:path.join(mailDirectory,'acknowledgments'),actor})});}
+   catch{return send(503,{error:'Communication health could not be loaded.'});}
+  }
   if(url.pathname==='/api/mail/capabilities'&&request.method==='GET')return send(200,{provider:'iCloud',senders:[{address:account.from,name:account.name}],configured:true,requiresVerification:true});
   if(url.pathname==='/api/mail/verify'&&request.method==='POST'){
    let smtp;try{smtp=await transport(account);await smtp.verify();return send(200,{verified:true,from:account.from,notice:'SMTP authentication verified. Sender-address acceptance still requires a test send.'});}catch{return send(503,{error:'iCloud could not verify this account. Check the private connection and app-specific password.'});}finally{smtp?.close();}
