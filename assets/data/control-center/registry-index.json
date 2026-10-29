@@ -104472,7 +104472,7 @@
           "evidence": [
             "assets/js/layers/control-center/operations/artist-enquiries.js",
             "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/previews.js"
+            "assets/js/layers/control-center/operations/enquiry-reply.js"
           ]
         },
         {
@@ -107089,6 +107089,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/mail.json",
             "assets/data/control-center/update-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
@@ -107370,6 +107371,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/mail.json",
             "assets/data/control-center/preview-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
@@ -107656,6 +107658,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/mail.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
@@ -112573,6 +112576,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/mail.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         }
@@ -114621,7 +114625,7 @@
       ],
       "category": "core/navigation",
       "hasArtwork": false,
-      "sha256": "600017791b60ee1b2414c83624c33817cd3f4671451668184882bfef7644cb5c",
+      "sha256": "a886e26597d7b4b1dc39e37ad800a27da5031b3cd5523fbada77403360d722e6",
       "brands": [
         "control-center",
         "studio",
@@ -121207,6 +121211,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/mail.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
