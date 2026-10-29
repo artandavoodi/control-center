@@ -7,7 +7,8 @@
     "dev:preview": "node server.mjs --preview",
     "dev:operations": "node server.mjs --updates --previews",
     "build": "node scripts/build-operations.mjs",
-    "test:operations": "node --test scripts/operations.test.mjs tools/update-service.test.mjs tools/preview-service.test.mjs",
+    "test:operations": "node --test scripts/operations.test.mjs tools/update-service.test.mjs tools/preview-service.test.mjs tools/mail-service.test.mjs tools/acknowledgment-worker.test.mjs",
+    "test:published": "CONTROL_TEST_ARTIFACT=1 playwright test --config scripts/browser-tests/config.mjs -g 'notifications route|Communication saves'",
     "test:browser": "playwright test --config scripts/browser-tests/config.mjs",
     "sync:icons": "node registry/icons/sync-icons.js",
     "sync:tokens": "node registry/tokens/sync-tokens.js",
@@ -17,7 +18,8 @@
     "icons:guard": "node /Users/artan/Documents/Neuroartan/tools/icon-governance/guard-icons.mjs"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.117.3"
+    "@supabase/supabase-js": "^2.117.3",
+    "nodemailer": "10.2.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.0",

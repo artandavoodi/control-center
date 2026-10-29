@@ -58054,6 +58054,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -58072,6 +58073,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -58152,6 +58154,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -107646,9 +107649,16 @@
       "hasArtwork": true,
       "sha256": "bc5efe561b79e7cd7f6475f37bd62e057eb33ce8ba239ebe11df4fa525094e52",
       "brands": [
+        "control-center",
         "neuroartan"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -112555,9 +112565,18 @@
       ],
       "category": "core/media",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "sha256": "445ce413170fb6325307cdbeb87945cd4c4f9137b5167b39d42a864da1d861a1",
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/media/play/play",
@@ -121181,9 +121200,16 @@
       "hasArtwork": true,
       "sha256": "f78281a54fc50307caf499b8dd50738654085838fc0fb4766f6964623819c48c",
       "brands": [
+        "control-center",
         "neuroartan"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -129986,12 +130012,20 @@
       "hasArtwork": true,
       "sha256": "365264bcf032a1acb6f18554cf7d34b1b2a75f7e571848629173bbfd0e1cadbb",
       "brands": [
+        "control-center",
         "artanrecords",
         "studio",
         "artist",
         "artan-live"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/artist-enquiries.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "artanrecords",
           "evidence": [
@@ -130204,12 +130238,20 @@
       "hasArtwork": true,
       "sha256": "bd1ca6cb3af69550651f91f674dfcfc381edf9e9f636b86378cbfe5793c33033",
       "brands": [
+        "control-center",
         "artanrecords",
         "studio",
         "artist",
         "artan-live"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/artist-enquiries.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "artanrecords",
           "evidence": [

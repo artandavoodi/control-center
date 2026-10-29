@@ -8,6 +8,13 @@ import {registryReference,registryMatches,registryKinds} from '../assets/js/laye
 import {roleBlueprint,renderRoleBlueprint,positionAssignments} from '../assets/js/layers/control-center/operations/roles.js';
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
+import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
+test('received acknowledgment is editable and branded emails escape applicant markup',()=>{
+ const received=resolveMacros().find(item=>item.id==='received');assert.match(received.body,/14 working days/);
+ const html=brandedEmail({subject:'<script>test</script>',body:'Hello <img onerror="attack">\n\nThank you.'});
+ assert.doesNotMatch(html,/<script>|<img onerror/);assert.match(html,/&lt;img/);assert.match(html,/collaborate@artanrecords.com/);assert.match(html,/email-wordmark.png/);
+ const saved=resolveMacros([{id:'receipt',tags:['reply-macro','macro-received'],body:JSON.stringify({subject:'Received',body:'Thanks {{name}}'})}]);assert.equal(saved.find(item=>item.id==='received').subject,'Received');
+});
 test('reply macros validate placeholders and never insert internal review notes',()=>{
  assert.throws(()=>validateMacro({subject:'Hello\nBcc: other',body:'Message'}));
  assert.throws(()=>validateMacro({subject:'Hello',body:'{{decision_note}}'}));
@@ -22,7 +29,7 @@ test('saved reply templates override defaults by scenario and newest valid recor
 });
 test('custom named templates are reusable without changing decision scenarios',()=>{
  const macro=resolveMacros([{id:'custom',title:'Artist reply · More information',tags:['reply-macro','macro-custom-123'],body:JSON.stringify({subject:'Question for {{artist}}',body:'Hello {{name}}, please share a listening link.'})}]);
- assert.equal(macro.length,5);assert.equal(macro.find(item=>item.id==='custom-123').label,'More information');
+ assert.equal(macro.length,resolveMacros().length+1);assert.equal(macro.find(item=>item.id==='custom-123').label,'More information');
 });
 test('artist application and release submission use distinct registered pending artwork',async()=>{
  const operations=JSON.parse(await readFile(new URL('../assets/data/control-center/operations.json',import.meta.url),'utf8'));

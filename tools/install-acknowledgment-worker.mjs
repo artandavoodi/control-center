@@ -1,0 +1,15 @@
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {homedir} from 'node:os';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+import {mailDirectory} from './icloud-mail.mjs';
+if(process.platform!=='darwin')throw Error('Install only on the trusted Mac.');
+await readFile(path.join(mailDirectory,'worker.json'));
+const root=fileURLToPath(new URL('../',import.meta.url)),label='live.artan.acknowledgments',logs=path.join(homedir(),'Library/Logs/Artan'),file=path.join(homedir(),'Library/LaunchAgents',label+'.plist');
+const xml=value=>String(value).replace(/[<>&"']/g,char=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[char]));
+await mkdir(logs,{recursive:true,mode:0o700});await mkdir(path.dirname(file),{recursive:true});
+await writeFile(file,`<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>Label</key><string>${label}</string><key>ProgramArguments</key><array><string>${xml(process.execPath)}</string><string>${xml(path.join(root,'tools/acknowledgment-worker.mjs'))}</string></array><key>WorkingDirectory</key><string>${xml(root)}</string><key>RunAtLoad</key><true/><key>KeepAlive</key><true/><key>ThrottleInterval</key><integer>30</integer><key>StandardOutPath</key><string>${xml(path.join(logs,'acknowledgments.log'))}</string><key>StandardErrorPath</key><string>${xml(path.join(logs,'acknowledgments-error.log'))}</string></dict></plist>`,{mode:0o600});
+execFileSync('plutil',['-lint',file],{stdio:'inherit'});
+execFileSync('launchctl',['bootstrap','gui/'+process.getuid(),file],{stdio:'inherit'});
+console.log('Acknowledgments run independently of the browser while this Mac is online and signed in.');

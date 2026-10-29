@@ -2,5 +2,8 @@
  "navigation":{"id":"artist-enquiries","workspace":"reviews","label":"Public submissions","permission":"artists.read","icon":"core/communication/messaging/inbox.svg"},
  "queue":{"id":"artist-enquiries","label":"Public submissions","permission":"artists.read","icon":"core/communication/messaging/inbox.svg","table":"artan_artist_enquiries","displayField":"artist_name","countField":"id","pendingStatus":"new"},
  "fields":{"name":"Name","artist":"Artist or project","email":"Reply email","purpose":"Submission type","website":"Website","social":"Social profile","listening":"Listening link","message":"Message","reference":"Submission reference"},
- "notice":"Review the artist’s work and prepare a personal reply. Streaming profiles are listening references, not verified ownership. A proposed tier does not sign an agreement or activate Studio access."
+ "copyFields":["email","social","website","listening"],
+ "providers":{"spotify":{"label":"Spotify","icon":"layers/website/social/platforms/spotify.svg"},"apple":{"label":"Apple Music","icon":"layers/website/social/platforms/apple-music.svg"}},
+ "statuses":{"new":{"label":"New","tone":"new"},"under_review":{"label":"Under review","tone":"review"},"offered":{"label":"Partnership proposed","tone":"reviewed"},"declined":{"label":"Declined","tone":"declined"},"closed":{"label":"Closed","tone":"closed"}},
+ "tabs":[{"id":"under_review","label":"Under review","statuses":["new","under_review"]},{"id":"reviewed","label":"Reviewed","statuses":["offered"]},{"id":"declined","label":"Declined","statuses":["declined"]},{"id":"closed","label":"Closed","statuses":["closed"]},{"id":"history","label":"History"}]
 }

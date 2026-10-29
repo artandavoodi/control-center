@@ -108,7 +108,7 @@ async function render(){
   }else if(panel==='organization'||panel==='staff'){
    await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,onNavigate:navigate,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
   }else if(panel==='artist-enquiries'){
-   await mountArtistEnquiries({content,client,staff,workspace,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render(),onNavigate:navigate});
+   await mountArtistEnquiries({content,client,staff,workspace,e,icon,action:requestedAction,isCurrent:()=>turn===revision,onSaved:()=>render(),onNavigate:navigate});
   }else if(panel==='communications'){
    await mountCommunications({content,client,staff,workspace,context,units,e,icon,isCurrent:()=>turn===revision,onSaved:()=>render()});
   }else if(panel==='release-submissions'){

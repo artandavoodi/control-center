@@ -9,12 +9,13 @@ const origin=privatePreviewOrigin(process.argv[2]);
 if(!origin)throw Error('Provide the Mac private HTTPS origin.');
 const root=fileURLToPath(new URL('../',import.meta.url)),label='live.artan.control-center',logs=path.join(homedir(),'Library/Logs/Artan');
 const destination=path.join(homedir(),'Library/LaunchAgents',label+'.plist');
+const mail=process.argv.includes('--mail')?'<string>--mail</string>':'';
 const xml=value=>String(value).replace(/[<>&"']/g,char=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[char]));
 const plist=`<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
 <key>Label</key><string>${label}</string>
-<key>ProgramArguments</key><array><string>${xml(process.execPath)}</string><string>${xml(path.join(root,'server.mjs'))}</string><string>--updates</string><string>--previews</string></array>
+<key>ProgramArguments</key><array><string>${xml(process.execPath)}</string><string>${xml(path.join(root,'server.mjs'))}</string><string>--updates</string><string>--previews</string>${mail}</array>
 <key>WorkingDirectory</key><string>${xml(root)}</string>
 <key>EnvironmentVariables</key><dict><key>CONTROL_PREVIEW_PRIVATE_ORIGIN</key><string>${xml(origin)}</string><key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
 <key>RunAtLoad</key><true/><key>KeepAlive</key><true/>
