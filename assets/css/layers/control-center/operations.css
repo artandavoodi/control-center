@@ -90,7 +90,7 @@ html[data-theme-effective=dark] .control-center-update-primary img { filter:none
 .control-center-operations aside nav { display:grid; gap:var(--spacing-sm); margin-block:var(--spacing-xl); }
 .control-center-operations aside nav section { display:grid; gap:var(--spacing-sm); margin-block-end:var(--spacing-md); }
 .control-center-operations aside nav h2 { font-size:var(--text-caption-size); color:var(--text-secondary-color); font-weight:var(--font-weight-medium); }
-.control-center-app .control-center-operations aside button { display:flex; align-items:center; gap:var(--spacing-sm); padding-inline:calc((var(--control-height-md) - var(--icon-size-sm)) / 2); border:0; background:transparent; text-align:start; cursor:pointer; }
+.control-center-app .control-center-operations aside button { display:flex; align-items:center; justify-content:flex-start; gap:var(--spacing-sm); padding-inline:calc((var(--control-height-md) - var(--icon-size-sm)) / 2); border:0; background:transparent; text-align:start; cursor:pointer; }
 .control-center-rail-resize { display:none; }
 @media(min-width:1025px) and (pointer:fine){.control-center-rail-resize { display:block; position:absolute; inset-block:0; inset-inline-start:calc(var(--control-rail-width,var(--control-width-auth-max)) - var(--spacing-xs)); inline-size:var(--spacing-sm); cursor:col-resize; touch-action:none; z-index:var(--z-above); }.control-center-app[data-rail=closed] .control-center-rail-resize { inset-inline-start:calc(var(--control-height-md) + var(--spacing-lg)*2 - var(--spacing-xs)); }.control-center-rail-resize:focus-visible { outline:var(--border-width-hairline) solid currentColor; }}
 .control-center-operations aside [aria-current=false] { opacity:var(--opacity-muted); }
