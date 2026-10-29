@@ -17045,6 +17045,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -58077,6 +58078,7 @@
         "neuroartan",
         "store",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
@@ -58155,7 +58157,9 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ]
     },
     {
@@ -105771,9 +105775,7 @@
       "hasArtwork": true,
       "sha256": "c7a99ce917d3d8b69756244f8387944b23a60027bdb65b065f4d1ec9d4f22329",
       "brands": [
-        "control-center",
-        "studio",
-        "artanrecords"
+        "control-center"
       ],
       "usage": [
         {
@@ -105781,12 +105783,6 @@
           "evidence": [
             "assets/js/layers/control-center/operations/artist-enquiries.js",
             "assets/js/layers/control-center/operations/dist.js"
-          ]
-        },
-        {
-          "brand": "studio",
-          "evidence": [
-            "content/account.json"
           ]
         }
       ]
@@ -107083,7 +107079,9 @@
       "sha256": "629e26e5dd6ad50db4c0d6607976d9bef7a756b7440f77dea1e5e08a73df187f",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -107100,6 +107098,12 @@
             "docs/assets/fragments/layers/website/home/platform-menu/settings/changelog/index.html",
             "docs/assets/fragments/layers/website/home/platform-menu/settings/connectors/index.html",
             "docs/assets/fragments/layers/website/home/platform-menu/settings/general/index.html"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -121205,7 +121209,9 @@
       "sha256": "f78281a54fc50307caf499b8dd50738654085838fc0fb4766f6964623819c48c",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
         {
@@ -121221,6 +121227,12 @@
             "docs/assets/data/platform/home-platform-shell.json",
             "docs/assets/js/layers/website/home/platform-menu/home/shortcut-registry.js",
             "docs/assets/js/layers/website/model/foundation/memory-foundation/model-memory-foundation.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
