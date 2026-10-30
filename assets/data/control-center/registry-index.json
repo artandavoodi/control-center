@@ -59412,7 +59412,9 @@
         "y"
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
-      "brands": []
+      "brands": [
+        "neuroartan"
+      ]
     },
     {
       "id": "toast-padding-x",
@@ -59424,7 +59426,9 @@
         "x"
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
-      "brands": []
+      "brands": [
+        "neuroartan"
+      ]
     },
     {
       "id": "toast-radius",
@@ -59435,7 +59439,9 @@
         "radius"
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
-      "brands": []
+      "brands": [
+        "neuroartan"
+      ]
     },
     {
       "id": "toast-border-width",
@@ -59447,7 +59453,9 @@
         "width"
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
-      "brands": []
+      "brands": [
+        "neuroartan"
+      ]
     },
     {
       "id": "toast-shadow",
@@ -59458,7 +59466,9 @@
         "shadow"
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
-      "brands": []
+      "brands": [
+        "neuroartan"
+      ]
     },
     {
       "id": "toast-success-bg",
@@ -110243,8 +110253,8 @@
         "publish"
       ],
       "category": "core/editorial",
-      "hasArtwork": false,
-      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
+      "hasArtwork": true,
+      "sha256": "49104630dd2fc6b84bea3fac696ca9d447bd081a459ae35eb9d1020adbf2692a",
       "brands": [
         "neuroartan",
         "studio",
@@ -111850,6 +111860,87 @@
       "sha256": "f3b314f84231f766434b22eb2b2ffb2dced0800692554d6d63cf206dc1f54514",
       "brands": [],
       "usage": []
+    },
+    {
+      "id": "core/interface/themes/gold",
+      "path": "core/interface/themes/gold.svg",
+      "publicPath": "/registry/icons/public/assets/core/interface/themes/gold.svg",
+      "source": "registry/icons/source/core/interface/themes/gold.svg",
+      "tags": [
+        "core",
+        "interface",
+        "themes",
+        "gold"
+      ],
+      "category": "core/interface",
+      "hasArtwork": false,
+      "sha256": "ffe270f5f235b4ccd4b5794a2bc2129b8de21c5077c483d0c4158983ceca792a",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/interface/themes/platinum",
+      "path": "core/interface/themes/platinum.svg",
+      "publicPath": "/registry/icons/public/assets/core/interface/themes/platinum.svg",
+      "source": "registry/icons/source/core/interface/themes/platinum.svg",
+      "tags": [
+        "core",
+        "interface",
+        "themes",
+        "platinum"
+      ],
+      "category": "core/interface",
+      "hasArtwork": false,
+      "sha256": "60cdaeb06edb9681c189fd1fc1fda5068d9b948824eebddd1ab812002cdb7a6c",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/interface/themes/silver",
+      "path": "core/interface/themes/silver.svg",
+      "publicPath": "/registry/icons/public/assets/core/interface/themes/silver.svg",
+      "source": "registry/icons/source/core/interface/themes/silver.svg",
+      "tags": [
+        "core",
+        "interface",
+        "themes",
+        "silver"
+      ],
+      "category": "core/interface",
+      "hasArtwork": false,
+      "sha256": "f2a2354aaa6003e4a4d80532125ff77d8d1af385d5f739d648e0f6e18111a45d",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/legal/compliance/audit",

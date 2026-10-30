@@ -2,6 +2,8 @@
  * Neuroartan Icon Synchronization Pipeline
  * Canonical SVG propagation authority.
  */
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 
 import { iconCompiler }
 from "./compiler/icon-compiler.js";
@@ -50,6 +52,8 @@ console.log(
   swiftIconExporter.export()
 );
 
-console.log(
-  "\n[Icon Synchronization Complete]\n"
-);
+// Standalone deployment verifies this snapshot without access to sibling repositories.
+execFileSync(process.execPath,[fileURLToPath(new URL('../../scripts/build-registry.mjs',import.meta.url))],{
+  cwd:fileURLToPath(new URL('../../',import.meta.url)),stdio:'inherit'
+});
+console.log("\n[Icon Synchronization Complete]\n");
