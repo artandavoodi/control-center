@@ -2195,6 +2195,24 @@
     "publicPath": "/registry/icons/public/assets/core/interface/status/raw.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/interface/status/raw.svg"
   },
+  "core/interface/themes/gold": {
+    "id": "core/interface/themes/gold",
+    "path": "core/interface/themes/gold.svg",
+    "publicPath": "/registry/icons/public/assets/core/interface/themes/gold.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/interface/themes/gold.svg"
+  },
+  "core/interface/themes/platinum": {
+    "id": "core/interface/themes/platinum",
+    "path": "core/interface/themes/platinum.svg",
+    "publicPath": "/registry/icons/public/assets/core/interface/themes/platinum.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/interface/themes/platinum.svg"
+  },
+  "core/interface/themes/silver": {
+    "id": "core/interface/themes/silver",
+    "path": "core/interface/themes/silver.svg",
+    "publicPath": "/registry/icons/public/assets/core/interface/themes/silver.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/interface/themes/silver.svg"
+  },
   "core/legal/compliance/audit": {
     "id": "core/legal/compliance/audit",
     "path": "core/legal/compliance/audit.svg",

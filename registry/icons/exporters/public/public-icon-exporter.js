@@ -45,9 +45,11 @@ class PublicIconExporter{
    for(const alias of consumers.filter(alias=>alias.source===relative)){
     const repository=path.resolve(controlRoot,'..',alias.repository),destination=path.join(repository,alias.file);
     if(!fs.existsSync(path.join(repository,'.git')))throw Error('Registered icon consumer is unavailable: '+alias.repository);
-    const existing=fs.readFileSync(destination,'utf8');
-    const old=spawnSync('git',['show','HEAD:'+alias.file],{cwd:repository,encoding:'utf8',timeout:15000,maxBuffer:8*1024*1024});
-    assertMirrorCanUpdate(incoming,existing,old.status===0?old.stdout:null,destination);
+    if(fs.existsSync(destination)){
+     const existing=fs.readFileSync(destination,'utf8');
+     const old=spawnSync('git',['show','HEAD:'+alias.file],{cwd:repository,encoding:'utf8',timeout:15000,maxBuffer:8*1024*1024});
+     assertMirrorCanUpdate(incoming,existing,old.status===0?old.stdout:null,destination);
+    }
     transfers.push({source,destination,alias});
    }
   }
@@ -61,7 +63,7 @@ class PublicIconExporter{
     const record=manifest.files.find(record=>record.file===alias.file);if(record){record.sha256=sha256;record.sourceRepository='artandavoodi/control-center';record.sourceFile='registry/icons/source/'+alias.source;delete record.sourceCommit;}
    }else{
     const key=alias.repository==='artanrecords-studio'?path.basename(alias.file,'.svg'):alias.file.replace(/^web\/shared\//,'');
-    if(Object.hasOwn(manifest.files,key))manifest.files[key]=sha256;
+    manifest.files[key]=sha256;
     if(alias.repository==='artanrecords-studio')manifest.available[key]=!placeholder(fs.readFileSync(transfer.source,'utf8'));
    }
   }
