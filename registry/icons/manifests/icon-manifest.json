@@ -1655,6 +1655,24 @@
     "publicPath": "/registry/icons/public/assets/core/commerce/subscriptions/cancel-subscription.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/subscriptions/cancel-subscription.svg"
   },
+  "core/commerce/subscriptions/partnership-gold": {
+    "id": "core/commerce/subscriptions/partnership-gold",
+    "path": "core/commerce/subscriptions/partnership-gold.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/subscriptions/partnership-gold.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/subscriptions/partnership-gold.svg"
+  },
+  "core/commerce/subscriptions/partnership-platinum": {
+    "id": "core/commerce/subscriptions/partnership-platinum",
+    "path": "core/commerce/subscriptions/partnership-platinum.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/subscriptions/partnership-platinum.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/subscriptions/partnership-platinum.svg"
+  },
+  "core/commerce/subscriptions/partnership-silver": {
+    "id": "core/commerce/subscriptions/partnership-silver",
+    "path": "core/commerce/subscriptions/partnership-silver.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/subscriptions/partnership-silver.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/subscriptions/partnership-silver.svg"
+  },
   "core/commerce/subscriptions/plan": {
     "id": "core/commerce/subscriptions/plan",
     "path": "core/commerce/subscriptions/plan.svg",
@@ -1804,6 +1822,12 @@
     "path": "core/editorial/formatting/underline.svg",
     "publicPath": "/registry/icons/public/assets/core/editorial/formatting/underline.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/editorial/formatting/underline.svg"
+  },
+  "core/editorial/layout-tools/design-tools": {
+    "id": "core/editorial/layout-tools/design-tools",
+    "path": "core/editorial/layout-tools/design-tools.svg",
+    "publicPath": "/registry/icons/public/assets/core/editorial/layout-tools/design-tools.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/editorial/layout-tools/design-tools.svg"
   },
   "core/editorial/layout-tools/layers": {
     "id": "core/editorial/layout-tools/layers",
