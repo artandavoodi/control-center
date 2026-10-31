@@ -9421,8 +9421,8 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "neuroartan",
-        "studio",
         "artanrecords",
+        "studio",
         "artist",
         "artan-live"
       ]
