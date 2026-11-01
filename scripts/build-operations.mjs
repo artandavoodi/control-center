@@ -1,8 +1,10 @@
-import {build} from 'esbuild';
-import {mkdir,copyFile,rm,readFile,writeFile} from 'node:fs/promises';
+import {build as bundle} from 'esbuild';
+import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {dirname,posix} from 'node:path';
+import {posix} from 'node:path';
 import {execFileSync} from 'node:child_process';
+import {publishOutput,writeIfChanged} from './publish-output.mjs';
+async function build(options){const result=await bundle({...options,write:false});for(const file of result.outputFiles)await writeIfChanged(file.path,file.contents);}
 execFileSync(process.execPath,['scripts/sync-account.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/sync-design.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/build-registry.mjs'],{stdio:'inherit'});
@@ -12,7 +14,7 @@ await build({entryPoints:['assets/js/layers/control-center/operations/theme.js']
 const config=JSON.parse(await readFile('assets/data/control-center/operations.json','utf8'));
 // Publish only the staff client and its explicit public dependencies, never the repository.
 const files=['index.html','CNAME','assets/js/layers/control-center/operations/dist.js','assets/js/layers/control-center/operations/theme-init.js','assets/css/layers/control-center/operations.css','assets/css/layers/control-center/shared/themes.css','assets/css/layers/control-center/shared/loaders.css','assets/css/layers/control-center/shared/close-button.css','assets/data/control-center/registry-index.json',...Object.values(JSON.parse(await readFile('registry/icons/manifests/icon-manifest.json','utf8'))).map(item=>'registry/icons/public/assets/'+item.path),'assets/css/layers/control-center/00-orchestrator/00-control-center-all.css','registry/tokens/manifests/control-center.tokens.css',...Object.values(config.chrome).map(path=>'registry/icons/public/assets/'+path),...config.navigation.map(item=>'registry/icons/public/assets/'+item.icon),...config.accountMenu.map(item=>'registry/icons/public/assets/'+item.icon)];
-await rm('_site',{recursive:true,force:true});
+const output=publishOutput('_site');
 files.push('assets/css/layers/control-center/shared/toggle.css','assets/css/layers/control-center/shared/toast.css','assets/css/layers/control-center/shared/profile-media-action.css','assets/brand/email-wordmark.png');
 files.push(...['profile-media-editor.css','icons.css','slider.css','buttons.css','utilities.css'].map(name=>'assets/css/layers/control-center/shared/'+name));
 // An allowlisted stylesheet owns its local imports; publish the complete dependency tree.
@@ -45,7 +47,7 @@ for(const file of files){
  if(file==='index.html')continue;
  if(file.endsWith('.css')){
   const asset=await stylesheet(file);shell=shell.replace('./'+file,'./'+asset.destination);
-  await mkdir(dirname('_site/'+asset.destination),{recursive:true});await writeFile('_site/'+asset.destination,asset.css);continue;
+  await output.write(asset.destination,asset.css);continue;
  }
  let destination=file;
  if(file==='assets/js/layers/control-center/operations/dist.js'||file==='assets/js/layers/control-center/operations/theme-init.js'){
@@ -53,6 +55,7 @@ for(const file of files){
   destination=file.replace(/\.(js|css)$/,`-${digest}.$1`);
   shell=shell.replace('./'+file,'./'+destination);
  }
- await mkdir(dirname('_site/'+destination),{recursive:true});await copyFile(file,'_site/'+destination);
+ await output.write(destination,await readFile(file));
 }
-await writeFile('_site/index.html',shell);
+await output.write('index.html',shell);
+await output.prune();

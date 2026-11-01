@@ -7,7 +7,7 @@
     "dev:preview": "node server.mjs --preview",
     "dev:operations": "node server.mjs --updates --previews",
     "build": "node scripts/build-operations.mjs",
-    "test:operations": "node --test scripts/operations.test.mjs tools/update-service.test.mjs tools/preview-service.test.mjs tools/mail-service.test.mjs tools/acknowledgment-worker.test.mjs",
+    "test:operations": "node --test scripts/operations.test.mjs scripts/publish-output.test.mjs tools/update-service.test.mjs tools/preview-service.test.mjs tools/mail-service.test.mjs tools/acknowledgment-worker.test.mjs",
     "test:published": "CONTROL_TEST_ARTIFACT=1 playwright test --config scripts/browser-tests/config.mjs -g 'notifications route|Communication saves'",
     "test:browser": "playwright test --config scripts/browser-tests/config.mjs",
     "sync:icons": "node registry/icons/sync-icons.js",
