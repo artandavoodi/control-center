@@ -105308,6 +105308,7 @@
       "brands": [
         "control-center",
         "neuroartan",
+        "artanrecords",
         "artist",
         "artan-live"
       ],
@@ -105325,6 +105326,12 @@
             "docs/assets/fragments/layers/website/home/shell/home-search-shell.html",
             "docs/assets/fragments/layers/website/model/foundation/source-vault/model-source-vault.html",
             "docs/assets/fragments/layers/website/model/management/model-management.html"
+          ]
+        },
+        {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -106893,6 +106900,7 @@
       "sha256": "c5625b0258dfdb78cc0cf86e7b5048dbcfabebc48c66c2ce5ab8cfb4e31277fe",
       "brands": [
         "control-center",
+        "artanrecords",
         "artist",
         "artan-live"
       ],
@@ -106902,6 +106910,12 @@
           "evidence": [
             "assets/data/control-center/preview-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -107201,8 +107215,8 @@
       "brands": [
         "control-center",
         "neuroartan",
-        "studio",
         "artanrecords",
+        "studio",
         "artist"
       ],
       "usage": [
@@ -107220,6 +107234,12 @@
             "docs/assets/fragments/layers/website/home/platform-menu/settings/general/index.html",
             "docs/assets/fragments/layers/website/home/platform-menu/workspace/continuity-actions.html",
             "docs/assets/fragments/layers/website/home/shell/home-search-shell.html"
+          ]
+        },
+        {
+          "brand": "artanrecords",
+          "evidence": [
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -109195,6 +109215,34 @@
       "usage": []
     },
     {
+      "id": "core/commerce/finance/revenue-shares",
+      "path": "core/commerce/finance/revenue-shares.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/finance/revenue-shares.svg",
+      "source": "registry/icons/source/core/commerce/finance/revenue-shares.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "finance",
+        "revenue",
+        "shares"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "fde9a4a500799db08880d69745de0df6ed996b1bf4b145395994294934e2af2c",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
       "id": "core/commerce/finance/valuation",
       "path": "core/commerce/finance/valuation.svg",
       "publicPath": "/registry/icons/public/assets/core/commerce/finance/valuation.svg",
@@ -109520,6 +109568,2199 @@
       "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
       "brands": [],
       "usage": []
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-accept",
+      "path": "core/commerce/revenue-shares/shares-accept.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-accept.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-accept.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "accept"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "9409fd4568b0e8319551f295c5c01e0d6f3c547925bf99f723dfe72641747632",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-agreement",
+      "path": "core/commerce/revenue-shares/shares-agreement.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-agreement.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-agreement.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "agreement"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "3dd89ccffc349b971291d6b803aedddf202023bc1f9a362eeb8f844adf08d85f",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-amend",
+      "path": "core/commerce/revenue-shares/shares-amend.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-amend.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-amend.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "amend"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "d3b794841b480520e323f3c1cceaead44baa6a74980adcefb44d06e4cc235796",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-archive",
+      "path": "core/commerce/revenue-shares/shares-archive.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-archive.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-archive.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "archive"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "372335ad2c2e2e2d5958b7eda4bf103e9f9a1247ebed3e3e5d92edc7b79d43ea",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-basis",
+      "path": "core/commerce/revenue-shares/shares-basis.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-basis.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-basis.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "basis"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "ca0a024386b94083e50e70a2ec8c29779a7dd133239dbc2b8ab9f20f39dd10a0",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-contributor",
+      "path": "core/commerce/revenue-shares/shares-contributor.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-contributor.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-contributor.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "contributor"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "250dcee44bc7f74ea0abaf5207ae07d9a97fdfb56efad0b0886ad96deb8905b4",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-decline",
+      "path": "core/commerce/revenue-shares/shares-decline.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-decline.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-decline.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "decline"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "024afeab0fb3af2c8442546e7dedcee6a4162526d3f3c3f653b3b03300c494bd",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-history",
+      "path": "core/commerce/revenue-shares/shares-history.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-history.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-history.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "history"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "3e54c2b646cc1276b56fd815f1ddb2cf782ea49389b0dd3f828d7678c3cad51d",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-invitation",
+      "path": "core/commerce/revenue-shares/shares-invitation.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-invitation.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-invitation.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "invitation"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "78b95e6a9657cffc2100c8892fc660baee6202ac1f5f34f598bf95010679d805",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-project",
+      "path": "core/commerce/revenue-shares/shares-project.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-project.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-project.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "project"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "a2cb754945606e5829ff1b56df4698436884d1710a648ccfbaff30bd452ead9e",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-proposal",
+      "path": "core/commerce/revenue-shares/shares-proposal.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-proposal.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-proposal.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "proposal"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "1c741cf013b21e737fbfb7e7f55c45b9da848b98919562756adf0c772a47d3e4",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-release",
+      "path": "core/commerce/revenue-shares/shares-release.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-release.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-release.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "release"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "4e2ee2d1ee4bb9b02bbaabc6ee048e23fa0036ae9e88b83fc0461faa17f9ab3d",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-a_and_r",
+      "path": "core/commerce/revenue-shares/shares-role-a_and_r.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-a_and_r.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-a_and_r.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "a_and_r"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "9d7ff434d96303696dda4a42ad4be55cda518bcf7ba2124afce9d3d006d881f2",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-adaptation",
+      "path": "core/commerce/revenue-shares/shares-role-adaptation.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-adaptation.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-adaptation.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "adaptation"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "7ecabf9c033b470e5bcd4a154d5144a60d4d704abfa6143023ad02e5d8c016d5",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-additional_producer",
+      "path": "core/commerce/revenue-shares/shares-role-additional_producer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-additional_producer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-additional_producer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "additional_producer",
+        "add",
+        "plus",
+        "create"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "3f08e3805c352d98e64f447d60543efee6ef203530f2b66ff2029719d8674ee0",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-animator",
+      "path": "core/commerce/revenue-shares/shares-role-animator.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-animator.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-animator.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "animator"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "2432dc570c6d834eb7829b583dae45036537c84ef362db5357d8f674e8bb07ee",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-arranger",
+      "path": "core/commerce/revenue-shares/shares-role-arranger.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-arranger.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-arranger.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "arranger"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "aec6bad17a1e272cf48b17af83d06b6b3fbe62679adc84f71a2942d49645de05",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-art_director",
+      "path": "core/commerce/revenue-shares/shares-role-art_director.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-art_director.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-art_director.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "art_director"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "0c4102c099c36c87144f0b7c8a4ae1ee83a105204c27f5f6d2fc8d2c86321c12",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-artwork_artist",
+      "path": "core/commerce/revenue-shares/shares-role-artwork_artist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-artwork_artist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-artwork_artist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "artwork_artist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "7b217cb59f27f32cabebf02382b723618a3ddd430cfdbe9a83dd294b38d5095b",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-assistant_engineer",
+      "path": "core/commerce/revenue-shares/shares-role-assistant_engineer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-assistant_engineer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-assistant_engineer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "assistant_engineer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "cea3b8b80cc3ffdc9b5d4d04f20cc88ef50f7a5bade78f5bf6c65e30667b0433",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-background_vocalist",
+      "path": "core/commerce/revenue-shares/shares-role-background_vocalist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-background_vocalist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-background_vocalist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "background_vocalist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "1b9b9424449093aa209ff26fe6143a394dd30ab22f0f22429616b401378cf7a9",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-bassist",
+      "path": "core/commerce/revenue-shares/shares-role-bassist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-bassist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-bassist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "bassist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "8b3784f57379ca94c4faf8326feeb8cb1ba2cddf5c79272a39c2cc243764f49b",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-cellist",
+      "path": "core/commerce/revenue-shares/shares-role-cellist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-cellist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-cellist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "cellist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "6f0a16b8eaf16f31f47dcd40e385226a9e88d7d65b6818e766d317c8b10dc0a0",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-co_producer",
+      "path": "core/commerce/revenue-shares/shares-role-co_producer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-co_producer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-co_producer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "co_producer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "b04ecccc164e63d1996f7fac49d4e88dbbe2c66a5a7ca3d09bb0d405676ccd78",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-composer",
+      "path": "core/commerce/revenue-shares/shares-role-composer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-composer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-composer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "composer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "d9e94d5e2ec8f96b3dafa5138e351281966e5f720225c5149f2f67b92f1907a7",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-conductor",
+      "path": "core/commerce/revenue-shares/shares-role-conductor.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-conductor.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-conductor.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "conductor"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "785ad2469fc2c8e850d858a44626e2d58c75fa03e5c5e2211e04219fc44423f4",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-cover_designer",
+      "path": "core/commerce/revenue-shares/shares-role-cover_designer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-cover_designer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-cover_designer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "cover_designer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "436c561dc93966e30cb6cb62518a091ee4a5823d47ca3d18842d9b3a751209ff",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-creative_director",
+      "path": "core/commerce/revenue-shares/shares-role-creative_director.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-creative_director.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-creative_director.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "creative_director"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "eec5eb2060371d052b84e4d446f6eac28d8fd20b6296c5aa22a0c9191962a589",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-custom",
+      "path": "core/commerce/revenue-shares/shares-role-custom.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-custom.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-custom.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "custom"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "633cba4cd38f40f5a860be1626c1071086c885a0932ea3ba6c13efa8a251f401",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-dj",
+      "path": "core/commerce/revenue-shares/shares-role-dj.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-dj.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-dj.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "dj"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "5efef5b06a35098f53ea408baf2aa3ae5be3e9c0f029bbc9aaba29d310371873",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-drummer",
+      "path": "core/commerce/revenue-shares/shares-role-drummer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-drummer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-drummer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "drummer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "cc6d7a541d33f6cd44fedbe7983dd04d8f0a8ca483f8199116a8a4013beb72ee",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-engineering",
+      "path": "core/commerce/revenue-shares/shares-role-engineering.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-engineering.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-engineering.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "engineering"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "5f287e7947c6c78bdee5a2b39a7b807d90ae4c472a97dfc119d3e75fc87d6440",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-ensemble",
+      "path": "core/commerce/revenue-shares/shares-role-ensemble.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-ensemble.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-ensemble.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "ensemble"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "22d813bc710158aaa2ced9768153465ca632dc2581b3f6c107bb00ee80796a7d",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-executive_producer",
+      "path": "core/commerce/revenue-shares/shares-role-executive_producer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-executive_producer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-executive_producer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "executive_producer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "604b0593b8c75e0908ba068eaf48d82100984794fae2fd0f203d402e8b9108d9",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-featured_artist",
+      "path": "core/commerce/revenue-shares/shares-role-featured_artist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-featured_artist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-featured_artist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "featured_artist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "25ed2f6adfd35ec2a53852a9e209103401b739a9954ec673e4e647654281d722",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-filmmaker",
+      "path": "core/commerce/revenue-shares/shares-role-filmmaker.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-filmmaker.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-filmmaker.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "filmmaker"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "f6a1d352f2bbe3d244114041a89623c0cfb601f97a85011d961676acfc4fdb86",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-graphic_designer",
+      "path": "core/commerce/revenue-shares/shares-role-graphic_designer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-graphic_designer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-graphic_designer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "graphic_designer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "611e632537daebe66690a246475a81236b2e785a786970c04a57bbc187e3d6b6",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-guitarist",
+      "path": "core/commerce/revenue-shares/shares-role-guitarist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-guitarist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-guitarist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "guitarist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "018aead597d65aef95ca125f3c897bf8d39420224d6d38ac01a3abf33dee3a26",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-illustrator",
+      "path": "core/commerce/revenue-shares/shares-role-illustrator.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-illustrator.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-illustrator.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "illustrator"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "dd3d265e2972623d26dca2969555605bc2097c79bcc6ea780091afdece2f49f2",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-immersive_mixing_engineer",
+      "path": "core/commerce/revenue-shares/shares-role-immersive_mixing_engineer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-immersive_mixing_engineer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-immersive_mixing_engineer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "immersive_mixing_engineer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "7353953c40be0883dece89b91b567dea74c3a3afd1d786550a9f6f431d4344fd",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-instrumentalist",
+      "path": "core/commerce/revenue-shares/shares-role-instrumentalist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-instrumentalist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-instrumentalist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "instrumentalist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "77634b18fffca73610703a7681115ea56fc3ca9f4026df8f6c00987b7aff47a7",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-keyboardist",
+      "path": "core/commerce/revenue-shares/shares-role-keyboardist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-keyboardist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-keyboardist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "keyboardist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "bf62770d57bc3bc21908c46a97e8bc521b3c393352ba71460ceafa8fa0a28301",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-lyricist",
+      "path": "core/commerce/revenue-shares/shares-role-lyricist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-lyricist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-lyricist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "lyricist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "d8a12ccdcc9e8d0b42e5783e50c870f8ea53568431711250c93dff222c952bc0",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-manager",
+      "path": "core/commerce/revenue-shares/shares-role-manager.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-manager.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-manager.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "manager"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "7db370243282a52c4f41f68f45f35ee295b0205de474fe3eae1bb0a58ae3dd80",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-mastering_engineer",
+      "path": "core/commerce/revenue-shares/shares-role-mastering_engineer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-mastering_engineer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-mastering_engineer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "mastering_engineer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "08871784bd223a769b1465f209b8bcd760a62d6ae00d852f68817bff3dcd1891",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-mixing_engineer",
+      "path": "core/commerce/revenue-shares/shares-role-mixing_engineer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-mixing_engineer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-mixing_engineer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "mixing_engineer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "3d4e40cf3d7c9a33056f024656e0f828061dbb3f2f06f49f2a01e9d348cb25d3",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-orchestrator",
+      "path": "core/commerce/revenue-shares/shares-role-orchestrator.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-orchestrator.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-orchestrator.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "orchestrator"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "b3aaecb7e53ee8aaf4d1306cfb3ad69a07d3494381905418d73ca447e4825c1d",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-percussionist",
+      "path": "core/commerce/revenue-shares/shares-role-percussionist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-percussionist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-percussionist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "percussionist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "3bd4c516bb371af1e446d4a5aff0a018a1a3f12ae57e1cfd98e3875b7b91de3e",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-performance",
+      "path": "core/commerce/revenue-shares/shares-role-performance.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-performance.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-performance.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "performance"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "6985b7e0a04970e12659640852148f9498548605ea22bbd5d8932c0bad112034",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-photographer",
+      "path": "core/commerce/revenue-shares/shares-role-photographer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-photographer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-photographer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "photographer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "aebc8085c1e1ff60f22526e4cbbe7fc7b3c9edc74afd6a79639a82b4f0fdfc27",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-pianist",
+      "path": "core/commerce/revenue-shares/shares-role-pianist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-pianist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-pianist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "pianist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "387de409f6c87ba30d74298fd2b5f7727d4ecf081a88187c13e65d493da91615",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-primary_artist",
+      "path": "core/commerce/revenue-shares/shares-role-primary_artist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-primary_artist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-primary_artist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "primary_artist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "204cfbc835ff2c79fbb9c0b4544c4e46696b61214e1a724aed55697a2ab79ac6",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-producer",
+      "path": "core/commerce/revenue-shares/shares-role-producer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-producer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-producer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "producer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "b71b0e7bc342df97ab3b698191a3182b899481479e712d4500be1d8991976d58",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-project_manager",
+      "path": "core/commerce/revenue-shares/shares-role-project_manager.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-project_manager.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-project_manager.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "project_manager"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "5fdac7a4ca3f80a6a40ee141f6eb81c37134cbfff5d87e4d00eb61095a3f5387",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-recording_engineer",
+      "path": "core/commerce/revenue-shares/shares-role-recording_engineer.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-recording_engineer.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-recording_engineer.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "recording_engineer"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "4db033c6e29fcece4cf211127c03a400a4542ca636e568406d48878ec2308110",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-songwriter",
+      "path": "core/commerce/revenue-shares/shares-role-songwriter.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-songwriter.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-songwriter.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "songwriter"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "52a4d5dfc190dd08954c633bc1735ac511235c5567ea5900d0ac59b80c794b65",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-video_director",
+      "path": "core/commerce/revenue-shares/shares-role-video_director.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-video_director.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-video_director.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "video_director"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "429ae35555e1e77a56640a6ed7966cfc5c22e241aa01e65d242e4799db708c7f",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-violinist",
+      "path": "core/commerce/revenue-shares/shares-role-violinist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-violinist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-violinist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "violinist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "b1a92ee37a3a6f6d3a6df3581e63353681035ce2059f87309d8d9661521ee04b",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-violist",
+      "path": "core/commerce/revenue-shares/shares-role-violist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-violist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-violist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "violist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "0e80b67f2e11736b502e3cbffa01e8d3a4effe4bc28aa74f7df76b26622bd309",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-role-vocalist",
+      "path": "core/commerce/revenue-shares/shares-role-vocalist.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-vocalist.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-vocalist.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "role",
+        "vocalist"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "bea125b9f73f423c6849e9d4b53ffec88dfc3e26a9ff9fe07f019c68f3f25546",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-accepted",
+      "path": "core/commerce/revenue-shares/shares-status-accepted.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-accepted.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-accepted.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "accepted"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "2f205848bde4c5b8d21218a069e4ecc00b3e1b3535e1862795d08968b137e46d",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-archived",
+      "path": "core/commerce/revenue-shares/shares-status-archived.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-archived.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-archived.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "archived"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "f938f8c59fc98db08cd3a20771d46845d75d2c1949bc24296503f16567f748de",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-awaiting_execution",
+      "path": "core/commerce/revenue-shares/shares-status-awaiting_execution.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-awaiting_execution.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-awaiting_execution.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "awaiting_execution"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "ef8ab6bcc85a580923d9a25dad92084c82c0f91502fd4c11d4f7fbfd98b159a0",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-cancelled",
+      "path": "core/commerce/revenue-shares/shares-status-cancelled.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-cancelled.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-cancelled.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "cancelled"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "6dcb5cbf596ed6330243934b334797561555c1c752ae19d4a31b030bfcf74526",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-change_requested",
+      "path": "core/commerce/revenue-shares/shares-status-change_requested.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-change_requested.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-change_requested.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "change_requested"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "15defadb733b966e3a9c503e00eb810836445109e90f002988fef5d0ccd2644f",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-counter_requested",
+      "path": "core/commerce/revenue-shares/shares-status-counter_requested.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-counter_requested.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-counter_requested.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "counter_requested"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "71e8d6dea19d9d430561c3ed773b07a02a94671a785b19a5abdf4edbf8cdbbe8",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-draft",
+      "path": "core/commerce/revenue-shares/shares-status-draft.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-draft.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-draft.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "draft"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "6fa55c45d4a5f9e90079650144d65e870803e755c9f418f40280589e30f880cf",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-expired",
+      "path": "core/commerce/revenue-shares/shares-status-expired.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-expired.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-expired.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "expired"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "73eca7ea1ac9f27e78fb49b2cbf1916d2fe13009fac0fc4bb7e6a041fd919d11",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-invited",
+      "path": "core/commerce/revenue-shares/shares-status-invited.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-invited.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-invited.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "invited"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "8fc831b19807a75131fd067b30c244da454ef3c3e9b68c94ea2057be453968ea",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-ready",
+      "path": "core/commerce/revenue-shares/shares-status-ready.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-ready.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-ready.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "ready"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "82361b3d35a0ffe5b067ec643ce6d29db26fef759efe008e8dbb57092e3c767b",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-rejected",
+      "path": "core/commerce/revenue-shares/shares-status-rejected.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-rejected.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-rejected.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "rejected"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "9792f68cf4c17c506ea4904e5ccd2806b760b3669dbad0cc9b0aa94ab39942bc",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-sent",
+      "path": "core/commerce/revenue-shares/shares-status-sent.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-sent.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-sent.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "sent"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "b4c6b4f198a26a06f3840fa05103798fae0b086730dcdccbcceb68c12c146e22",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-under_review",
+      "path": "core/commerce/revenue-shares/shares-status-under_review.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-under_review.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-under_review.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "under_review"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "ceccdd17bab8f68b16cc1ab7258629aee85cef23abf3f459e9b0febfb91339f2",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-status-viewed",
+      "path": "core/commerce/revenue-shares/shares-status-viewed.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-viewed.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-status-viewed.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "status",
+        "viewed"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "d43589b8bae3a56322503614ef041f456573b647021a4861b9e518e60ad7c785",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-track",
+      "path": "core/commerce/revenue-shares/shares-track.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-track.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-track.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "track"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "cb75291c837be75b2c2300572503a30c75b898b08a612510ea6213fd266e22cd",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core/commerce/revenue-shares/shares-work",
+      "path": "core/commerce/revenue-shares/shares-work.svg",
+      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-work.svg",
+      "source": "registry/icons/source/core/commerce/revenue-shares/shares-work.svg",
+      "tags": [
+        "core",
+        "commerce",
+        "revenue",
+        "shares",
+        "work"
+      ],
+      "category": "core/commerce",
+      "hasArtwork": false,
+      "sha256": "f70b1c16641dbcf7ab6edc6adf3e9cc379b8671ac194223febba495ef1196938",
+      "brands": [
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/commerce/shopping/bag",

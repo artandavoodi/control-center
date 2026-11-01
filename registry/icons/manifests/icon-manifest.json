@@ -1511,6 +1511,12 @@
     "publicPath": "/registry/icons/public/assets/core/commerce/finance/price.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/finance/price.svg"
   },
+  "core/commerce/finance/revenue-shares": {
+    "id": "core/commerce/finance/revenue-shares",
+    "path": "core/commerce/finance/revenue-shares.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/finance/revenue-shares.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/finance/revenue-shares.svg"
+  },
   "core/commerce/finance/valuation": {
     "id": "core/commerce/finance/valuation",
     "path": "core/commerce/finance/valuation.svg",
@@ -1606,6 +1612,462 @@
     "path": "core/commerce/payments/wallet.svg",
     "publicPath": "/registry/icons/public/assets/core/commerce/payments/wallet.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/payments/wallet.svg"
+  },
+  "core/commerce/revenue-shares/shares-accept": {
+    "id": "core/commerce/revenue-shares/shares-accept",
+    "path": "core/commerce/revenue-shares/shares-accept.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-accept.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-accept.svg"
+  },
+  "core/commerce/revenue-shares/shares-agreement": {
+    "id": "core/commerce/revenue-shares/shares-agreement",
+    "path": "core/commerce/revenue-shares/shares-agreement.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-agreement.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-agreement.svg"
+  },
+  "core/commerce/revenue-shares/shares-amend": {
+    "id": "core/commerce/revenue-shares/shares-amend",
+    "path": "core/commerce/revenue-shares/shares-amend.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-amend.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-amend.svg"
+  },
+  "core/commerce/revenue-shares/shares-archive": {
+    "id": "core/commerce/revenue-shares/shares-archive",
+    "path": "core/commerce/revenue-shares/shares-archive.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-archive.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-archive.svg"
+  },
+  "core/commerce/revenue-shares/shares-basis": {
+    "id": "core/commerce/revenue-shares/shares-basis",
+    "path": "core/commerce/revenue-shares/shares-basis.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-basis.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-basis.svg"
+  },
+  "core/commerce/revenue-shares/shares-contributor": {
+    "id": "core/commerce/revenue-shares/shares-contributor",
+    "path": "core/commerce/revenue-shares/shares-contributor.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-contributor.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-contributor.svg"
+  },
+  "core/commerce/revenue-shares/shares-decline": {
+    "id": "core/commerce/revenue-shares/shares-decline",
+    "path": "core/commerce/revenue-shares/shares-decline.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-decline.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-decline.svg"
+  },
+  "core/commerce/revenue-shares/shares-history": {
+    "id": "core/commerce/revenue-shares/shares-history",
+    "path": "core/commerce/revenue-shares/shares-history.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-history.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-history.svg"
+  },
+  "core/commerce/revenue-shares/shares-invitation": {
+    "id": "core/commerce/revenue-shares/shares-invitation",
+    "path": "core/commerce/revenue-shares/shares-invitation.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-invitation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-invitation.svg"
+  },
+  "core/commerce/revenue-shares/shares-project": {
+    "id": "core/commerce/revenue-shares/shares-project",
+    "path": "core/commerce/revenue-shares/shares-project.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-project.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-project.svg"
+  },
+  "core/commerce/revenue-shares/shares-proposal": {
+    "id": "core/commerce/revenue-shares/shares-proposal",
+    "path": "core/commerce/revenue-shares/shares-proposal.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-proposal.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-proposal.svg"
+  },
+  "core/commerce/revenue-shares/shares-release": {
+    "id": "core/commerce/revenue-shares/shares-release",
+    "path": "core/commerce/revenue-shares/shares-release.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-release.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-release.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-a_and_r": {
+    "id": "core/commerce/revenue-shares/shares-role-a_and_r",
+    "path": "core/commerce/revenue-shares/shares-role-a_and_r.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-a_and_r.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-a_and_r.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-adaptation": {
+    "id": "core/commerce/revenue-shares/shares-role-adaptation",
+    "path": "core/commerce/revenue-shares/shares-role-adaptation.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-adaptation.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-adaptation.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-additional_producer": {
+    "id": "core/commerce/revenue-shares/shares-role-additional_producer",
+    "path": "core/commerce/revenue-shares/shares-role-additional_producer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-additional_producer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-additional_producer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-animator": {
+    "id": "core/commerce/revenue-shares/shares-role-animator",
+    "path": "core/commerce/revenue-shares/shares-role-animator.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-animator.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-animator.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-arranger": {
+    "id": "core/commerce/revenue-shares/shares-role-arranger",
+    "path": "core/commerce/revenue-shares/shares-role-arranger.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-arranger.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-arranger.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-art_director": {
+    "id": "core/commerce/revenue-shares/shares-role-art_director",
+    "path": "core/commerce/revenue-shares/shares-role-art_director.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-art_director.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-art_director.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-artwork_artist": {
+    "id": "core/commerce/revenue-shares/shares-role-artwork_artist",
+    "path": "core/commerce/revenue-shares/shares-role-artwork_artist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-artwork_artist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-artwork_artist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-assistant_engineer": {
+    "id": "core/commerce/revenue-shares/shares-role-assistant_engineer",
+    "path": "core/commerce/revenue-shares/shares-role-assistant_engineer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-assistant_engineer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-assistant_engineer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-background_vocalist": {
+    "id": "core/commerce/revenue-shares/shares-role-background_vocalist",
+    "path": "core/commerce/revenue-shares/shares-role-background_vocalist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-background_vocalist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-background_vocalist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-bassist": {
+    "id": "core/commerce/revenue-shares/shares-role-bassist",
+    "path": "core/commerce/revenue-shares/shares-role-bassist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-bassist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-bassist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-cellist": {
+    "id": "core/commerce/revenue-shares/shares-role-cellist",
+    "path": "core/commerce/revenue-shares/shares-role-cellist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-cellist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-cellist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-co_producer": {
+    "id": "core/commerce/revenue-shares/shares-role-co_producer",
+    "path": "core/commerce/revenue-shares/shares-role-co_producer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-co_producer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-co_producer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-composer": {
+    "id": "core/commerce/revenue-shares/shares-role-composer",
+    "path": "core/commerce/revenue-shares/shares-role-composer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-composer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-composer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-conductor": {
+    "id": "core/commerce/revenue-shares/shares-role-conductor",
+    "path": "core/commerce/revenue-shares/shares-role-conductor.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-conductor.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-conductor.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-cover_designer": {
+    "id": "core/commerce/revenue-shares/shares-role-cover_designer",
+    "path": "core/commerce/revenue-shares/shares-role-cover_designer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-cover_designer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-cover_designer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-creative_director": {
+    "id": "core/commerce/revenue-shares/shares-role-creative_director",
+    "path": "core/commerce/revenue-shares/shares-role-creative_director.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-creative_director.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-creative_director.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-custom": {
+    "id": "core/commerce/revenue-shares/shares-role-custom",
+    "path": "core/commerce/revenue-shares/shares-role-custom.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-custom.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-custom.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-dj": {
+    "id": "core/commerce/revenue-shares/shares-role-dj",
+    "path": "core/commerce/revenue-shares/shares-role-dj.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-dj.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-dj.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-drummer": {
+    "id": "core/commerce/revenue-shares/shares-role-drummer",
+    "path": "core/commerce/revenue-shares/shares-role-drummer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-drummer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-drummer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-engineering": {
+    "id": "core/commerce/revenue-shares/shares-role-engineering",
+    "path": "core/commerce/revenue-shares/shares-role-engineering.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-engineering.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-engineering.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-ensemble": {
+    "id": "core/commerce/revenue-shares/shares-role-ensemble",
+    "path": "core/commerce/revenue-shares/shares-role-ensemble.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-ensemble.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-ensemble.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-executive_producer": {
+    "id": "core/commerce/revenue-shares/shares-role-executive_producer",
+    "path": "core/commerce/revenue-shares/shares-role-executive_producer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-executive_producer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-executive_producer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-featured_artist": {
+    "id": "core/commerce/revenue-shares/shares-role-featured_artist",
+    "path": "core/commerce/revenue-shares/shares-role-featured_artist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-featured_artist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-featured_artist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-filmmaker": {
+    "id": "core/commerce/revenue-shares/shares-role-filmmaker",
+    "path": "core/commerce/revenue-shares/shares-role-filmmaker.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-filmmaker.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-filmmaker.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-graphic_designer": {
+    "id": "core/commerce/revenue-shares/shares-role-graphic_designer",
+    "path": "core/commerce/revenue-shares/shares-role-graphic_designer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-graphic_designer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-graphic_designer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-guitarist": {
+    "id": "core/commerce/revenue-shares/shares-role-guitarist",
+    "path": "core/commerce/revenue-shares/shares-role-guitarist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-guitarist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-guitarist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-illustrator": {
+    "id": "core/commerce/revenue-shares/shares-role-illustrator",
+    "path": "core/commerce/revenue-shares/shares-role-illustrator.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-illustrator.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-illustrator.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-immersive_mixing_engineer": {
+    "id": "core/commerce/revenue-shares/shares-role-immersive_mixing_engineer",
+    "path": "core/commerce/revenue-shares/shares-role-immersive_mixing_engineer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-immersive_mixing_engineer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-immersive_mixing_engineer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-instrumentalist": {
+    "id": "core/commerce/revenue-shares/shares-role-instrumentalist",
+    "path": "core/commerce/revenue-shares/shares-role-instrumentalist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-instrumentalist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-instrumentalist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-keyboardist": {
+    "id": "core/commerce/revenue-shares/shares-role-keyboardist",
+    "path": "core/commerce/revenue-shares/shares-role-keyboardist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-keyboardist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-keyboardist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-lyricist": {
+    "id": "core/commerce/revenue-shares/shares-role-lyricist",
+    "path": "core/commerce/revenue-shares/shares-role-lyricist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-lyricist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-lyricist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-manager": {
+    "id": "core/commerce/revenue-shares/shares-role-manager",
+    "path": "core/commerce/revenue-shares/shares-role-manager.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-manager.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-manager.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-mastering_engineer": {
+    "id": "core/commerce/revenue-shares/shares-role-mastering_engineer",
+    "path": "core/commerce/revenue-shares/shares-role-mastering_engineer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-mastering_engineer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-mastering_engineer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-mixing_engineer": {
+    "id": "core/commerce/revenue-shares/shares-role-mixing_engineer",
+    "path": "core/commerce/revenue-shares/shares-role-mixing_engineer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-mixing_engineer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-mixing_engineer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-orchestrator": {
+    "id": "core/commerce/revenue-shares/shares-role-orchestrator",
+    "path": "core/commerce/revenue-shares/shares-role-orchestrator.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-orchestrator.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-orchestrator.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-percussionist": {
+    "id": "core/commerce/revenue-shares/shares-role-percussionist",
+    "path": "core/commerce/revenue-shares/shares-role-percussionist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-percussionist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-percussionist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-performance": {
+    "id": "core/commerce/revenue-shares/shares-role-performance",
+    "path": "core/commerce/revenue-shares/shares-role-performance.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-performance.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-performance.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-photographer": {
+    "id": "core/commerce/revenue-shares/shares-role-photographer",
+    "path": "core/commerce/revenue-shares/shares-role-photographer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-photographer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-photographer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-pianist": {
+    "id": "core/commerce/revenue-shares/shares-role-pianist",
+    "path": "core/commerce/revenue-shares/shares-role-pianist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-pianist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-pianist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-primary_artist": {
+    "id": "core/commerce/revenue-shares/shares-role-primary_artist",
+    "path": "core/commerce/revenue-shares/shares-role-primary_artist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-primary_artist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-primary_artist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-producer": {
+    "id": "core/commerce/revenue-shares/shares-role-producer",
+    "path": "core/commerce/revenue-shares/shares-role-producer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-producer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-producer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-project_manager": {
+    "id": "core/commerce/revenue-shares/shares-role-project_manager",
+    "path": "core/commerce/revenue-shares/shares-role-project_manager.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-project_manager.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-project_manager.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-recording_engineer": {
+    "id": "core/commerce/revenue-shares/shares-role-recording_engineer",
+    "path": "core/commerce/revenue-shares/shares-role-recording_engineer.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-recording_engineer.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-recording_engineer.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-songwriter": {
+    "id": "core/commerce/revenue-shares/shares-role-songwriter",
+    "path": "core/commerce/revenue-shares/shares-role-songwriter.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-songwriter.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-songwriter.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-video_director": {
+    "id": "core/commerce/revenue-shares/shares-role-video_director",
+    "path": "core/commerce/revenue-shares/shares-role-video_director.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-video_director.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-video_director.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-violinist": {
+    "id": "core/commerce/revenue-shares/shares-role-violinist",
+    "path": "core/commerce/revenue-shares/shares-role-violinist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-violinist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-violinist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-violist": {
+    "id": "core/commerce/revenue-shares/shares-role-violist",
+    "path": "core/commerce/revenue-shares/shares-role-violist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-violist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-violist.svg"
+  },
+  "core/commerce/revenue-shares/shares-role-vocalist": {
+    "id": "core/commerce/revenue-shares/shares-role-vocalist",
+    "path": "core/commerce/revenue-shares/shares-role-vocalist.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-vocalist.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-vocalist.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-accepted": {
+    "id": "core/commerce/revenue-shares/shares-status-accepted",
+    "path": "core/commerce/revenue-shares/shares-status-accepted.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-accepted.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-accepted.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-archived": {
+    "id": "core/commerce/revenue-shares/shares-status-archived",
+    "path": "core/commerce/revenue-shares/shares-status-archived.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-archived.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-archived.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-awaiting_execution": {
+    "id": "core/commerce/revenue-shares/shares-status-awaiting_execution",
+    "path": "core/commerce/revenue-shares/shares-status-awaiting_execution.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-awaiting_execution.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-awaiting_execution.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-cancelled": {
+    "id": "core/commerce/revenue-shares/shares-status-cancelled",
+    "path": "core/commerce/revenue-shares/shares-status-cancelled.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-cancelled.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-cancelled.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-change_requested": {
+    "id": "core/commerce/revenue-shares/shares-status-change_requested",
+    "path": "core/commerce/revenue-shares/shares-status-change_requested.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-change_requested.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-change_requested.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-counter_requested": {
+    "id": "core/commerce/revenue-shares/shares-status-counter_requested",
+    "path": "core/commerce/revenue-shares/shares-status-counter_requested.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-counter_requested.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-counter_requested.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-draft": {
+    "id": "core/commerce/revenue-shares/shares-status-draft",
+    "path": "core/commerce/revenue-shares/shares-status-draft.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-draft.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-draft.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-expired": {
+    "id": "core/commerce/revenue-shares/shares-status-expired",
+    "path": "core/commerce/revenue-shares/shares-status-expired.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-expired.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-expired.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-invited": {
+    "id": "core/commerce/revenue-shares/shares-status-invited",
+    "path": "core/commerce/revenue-shares/shares-status-invited.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-invited.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-invited.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-ready": {
+    "id": "core/commerce/revenue-shares/shares-status-ready",
+    "path": "core/commerce/revenue-shares/shares-status-ready.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-ready.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-ready.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-rejected": {
+    "id": "core/commerce/revenue-shares/shares-status-rejected",
+    "path": "core/commerce/revenue-shares/shares-status-rejected.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-rejected.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-rejected.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-sent": {
+    "id": "core/commerce/revenue-shares/shares-status-sent",
+    "path": "core/commerce/revenue-shares/shares-status-sent.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-sent.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-sent.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-under_review": {
+    "id": "core/commerce/revenue-shares/shares-status-under_review",
+    "path": "core/commerce/revenue-shares/shares-status-under_review.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-under_review.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-under_review.svg"
+  },
+  "core/commerce/revenue-shares/shares-status-viewed": {
+    "id": "core/commerce/revenue-shares/shares-status-viewed",
+    "path": "core/commerce/revenue-shares/shares-status-viewed.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-status-viewed.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-status-viewed.svg"
+  },
+  "core/commerce/revenue-shares/shares-track": {
+    "id": "core/commerce/revenue-shares/shares-track",
+    "path": "core/commerce/revenue-shares/shares-track.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-track.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-track.svg"
+  },
+  "core/commerce/revenue-shares/shares-work": {
+    "id": "core/commerce/revenue-shares/shares-work",
+    "path": "core/commerce/revenue-shares/shares-work.svg",
+    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-work.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-work.svg"
   },
   "core/commerce/shopping/bag": {
     "id": "core/commerce/shopping/bag",
