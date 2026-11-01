@@ -9,6 +9,11 @@ import {iconTargets,iconRepositories} from '../../../propagation/icon-targets.js
 const sourceRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../source');
 const controlRoot=path.resolve(sourceRoot,'../../..');
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
+export function copyRegisteredSvg(source,destination){
+ const bytes=fs.readFileSync(source);
+ if(fs.existsSync(destination)&&fs.readFileSync(destination).equals(bytes))return false;
+ fs.copyFileSync(source,destination);return true;
+}
 function registeredAliases(){
  const account=JSON.parse(fs.readFileSync(path.resolve(controlRoot,'../artanrecords-studio/content/account.json'),'utf8'));
  return [...aliases,...Object.entries({placeholder:account.placeholderIcon,...account.icons}).map(([name,source])=>({repository:'artanrecords-studio',file:'app/icons/'+name+'.svg',source}))];
@@ -67,8 +72,8 @@ class PublicIconExporter{
     if(alias.repository==='artanrecords-studio')manifest.available[key]=!placeholder(fs.readFileSync(transfer.source,'utf8'));
    }
   }
-  for(const {source,destination} of transfers){fs.mkdirSync(path.dirname(destination),{recursive:true});fs.copyFileSync(source,destination);if(digest(fs.readFileSync(source))!==digest(fs.readFileSync(destination)))throw Error('Icon transfer verification failed: '+destination);}
-  for(const [file,manifest] of manifests)fs.writeFileSync(file,JSON.stringify(manifest,null,2)+'\n');
+  for(const {source,destination} of transfers){fs.mkdirSync(path.dirname(destination),{recursive:true});copyRegisteredSvg(source,destination);if(digest(fs.readFileSync(source))!==digest(fs.readFileSync(destination)))throw Error('Icon transfer verification failed: '+destination);}
+  for(const [file,manifest] of manifests){const json=JSON.stringify(manifest,null,2)+'\n';if(!fs.existsSync(file)||fs.readFileSync(file,'utf8')!==json)fs.writeFileSync(file,json);}
   return {registered:paths.length,targets:Object.keys(iconTargets).length,aliases:transfers.filter(transfer=>transfer.alias).length};
  }
  export(){
