@@ -110460,35 +110460,6 @@
       ]
     },
     {
-      "id": "core/commerce/revenue-shares/shares-role-engineering",
-      "path": "core/commerce/revenue-shares/shares-role-engineering.svg",
-      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-engineering.svg",
-      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-engineering.svg",
-      "tags": [
-        "core",
-        "commerce",
-        "revenue",
-        "shares",
-        "role",
-        "engineering"
-      ],
-      "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "5f287e7947c6c78bdee5a2b39a7b807d90ae4c472a97dfc119d3e75fc87d6440",
-      "brands": [
-        "studio",
-        "artanrecords"
-      ],
-      "usage": [
-        {
-          "brand": "studio",
-          "evidence": [
-            "content/account.json"
-          ]
-        }
-      ]
-    },
-    {
       "id": "core/commerce/revenue-shares/shares-role-ensemble",
       "path": "core/commerce/revenue-shares/shares-role-ensemble.svg",
       "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-ensemble.svg",
@@ -110939,35 +110910,6 @@
       "category": "core/commerce",
       "hasArtwork": false,
       "sha256": "3bd4c516bb371af1e446d4a5aff0a018a1a3f12ae57e1cfd98e3875b7b91de3e",
-      "brands": [
-        "studio",
-        "artanrecords"
-      ],
-      "usage": [
-        {
-          "brand": "studio",
-          "evidence": [
-            "content/account.json"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "core/commerce/revenue-shares/shares-role-performance",
-      "path": "core/commerce/revenue-shares/shares-role-performance.svg",
-      "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-performance.svg",
-      "source": "registry/icons/source/core/commerce/revenue-shares/shares-role-performance.svg",
-      "tags": [
-        "core",
-        "commerce",
-        "revenue",
-        "shares",
-        "role",
-        "performance"
-      ],
-      "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "6985b7e0a04970e12659640852148f9498548605ea22bbd5d8932c0bad112034",
       "brands": [
         "studio",
         "artanrecords"

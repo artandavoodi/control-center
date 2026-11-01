@@ -1799,12 +1799,6 @@
     "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-drummer.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-drummer.svg"
   },
-  "core/commerce/revenue-shares/shares-role-engineering": {
-    "id": "core/commerce/revenue-shares/shares-role-engineering",
-    "path": "core/commerce/revenue-shares/shares-role-engineering.svg",
-    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-engineering.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-engineering.svg"
-  },
   "core/commerce/revenue-shares/shares-role-ensemble": {
     "id": "core/commerce/revenue-shares/shares-role-ensemble",
     "path": "core/commerce/revenue-shares/shares-role-ensemble.svg",
@@ -1900,12 +1894,6 @@
     "path": "core/commerce/revenue-shares/shares-role-percussionist.svg",
     "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-percussionist.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-percussionist.svg"
-  },
-  "core/commerce/revenue-shares/shares-role-performance": {
-    "id": "core/commerce/revenue-shares/shares-role-performance",
-    "path": "core/commerce/revenue-shares/shares-role-performance.svg",
-    "publicPath": "/registry/icons/public/assets/core/commerce/revenue-shares/shares-role-performance.svg",
-    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/commerce/revenue-shares/shares-role-performance.svg"
   },
   "core/commerce/revenue-shares/shares-role-photographer": {
     "id": "core/commerce/revenue-shares/shares-role-photographer",
