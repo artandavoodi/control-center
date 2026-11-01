@@ -2,7 +2,7 @@ import http from 'node:http';
 import {readFile,realpath,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {loadPreviewRegistry} from './preview-registry.mjs';
-const entry=(await loadPreviewRegistry()).find(item=>item.id===process.argv[2]&&item.strategy==='static');
+const entry=(await loadPreviewRegistry(undefined,{id:process.argv[2]})).find(item=>item.id===process.argv[2]&&item.strategy==='static');
 if(!entry)throw Error('Choose a registered static preview.');
 const root=await realpath(path.resolve(entry.directory,entry.publicRoot));
 const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.avif':'image/avif','.woff':'font/woff','.woff2':'font/woff2','.xml':'application/xml','.txt':'text/plain','.mp3':'audio/mpeg','.mp4':'video/mp4','.pdf':'application/pdf','.ico':'image/x-icon','.webmanifest':'application/manifest+json'};

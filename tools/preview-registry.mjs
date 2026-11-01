@@ -6,10 +6,12 @@ import {promisify} from 'node:util';
 const execute=promisify(execFile);
 const prompts=path.join(homedir(),'Documents/Neuroartan/I/04 - Infrastructure/06 - Platform Infrastructure/01 - Standards & Governance/04 - Prompts');
 export const previewRegistryFile=path.join(prompts,'04 - Local Development/runtime/previews.json');
-export async function loadPreviewRegistry(file=previewRegistryFile){
+export function selectPreviewEntries(registry,id){return id===undefined?registry.repositories:registry.repositories.filter(entry=>entry.id===id);}
+export async function loadPreviewRegistry(file=previewRegistryFile,{id}={}){
  const registry=JSON.parse(await readFile(file,'utf8'));
  const layers=JSON.parse(await readFile(path.join(prompts,'02 - Update/runtime/layers.json'),'utf8')).layers;
- return Promise.all(registry.repositories.map(async entry=>{
+ const entries=selectPreviewEntries(registry,id);
+ return Promise.all(entries.map(async entry=>{
   const layer=layers.find(item=>item.id===entry.layer);
   const item={...entry,domains:entry.domains||layer?.domains||[],directory:layer?path.join(homedir(),layer.path):null,publicRoot:layer?.publicRoot};
   if(!entry.strategy)return item;

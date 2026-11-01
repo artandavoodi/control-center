@@ -5,12 +5,18 @@ import {mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {createPreviewService,validatePreviewConnection} from './preview-service.mjs';
-import {publicPreviewEntry} from './preview-registry.mjs';
+import {publicPreviewEntry,selectPreviewEntries} from './preview-registry.mjs';
 import {privatePreviewOrigin} from '../assets/js/layers/control-center/operations/previews.js';
 const entries=[{id:'jobs',repository:'neuroartan-jobs',brand:'neuroartan',domains:['jobs.neuroartan.com'],directory:'/private/checkout',publicRoot:'docs',strategy:'static',port:8927},{id:'vault',domains:[],reason:'Private vault'}];
 function request(method='GET',route='/api/previews/catalogue',headers={}){return {method,url:route,headers:{host:'127.0.0.1:8894',origin:'http://127.0.0.1:8894','x-control-center-action':'previews',authorization:'Bearer test',...headers}};}
 async function call(service,req){const response={headers:{},setHeader(name,value){this.headers[name]=value;},writeHead(code,headers={}){this.code=code;Object.assign(this.headers,headers);return this;},end(body){this.body=body?JSON.parse(body):null;}};await service(req,response,new URL(req.url,'http://127.0.0.1'));return response;}
 test('private paths never leave the preview registry',()=>{assert.equal(publicPreviewEntry(entries[0]).directory,undefined);assert.equal(publicPreviewEntry(entries[0]).publicRoot,undefined);});
+test('a preview worker selects its own registration before touching other checkouts',()=>{
+ const registry={repositories:[entries[0],{id:'offloaded',strategy:'static',layer:'unavailable'}]};
+ assert.deepEqual(selectPreviewEntries(registry,'jobs'),[entries[0]]);
+ assert.deepEqual(selectPreviewEntries(registry,'missing'),[]);
+ assert.equal(selectPreviewEntries(registry).length,2);
+});
 test('reject cross-origin and DNS rebinding requests',()=>{
  for(const headers of [{origin:'https://evil.test'},{host:'evil.test:8894'},{'x-control-center-action':'updates'},{origin:'https://control.artan.live'}])assert.throws(()=>validatePreviewConnection(request('POST','/',headers)));
  assert.equal(validatePreviewConnection(request()),'http://127.0.0.1:8894');
