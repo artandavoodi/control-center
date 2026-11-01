@@ -109227,8 +109227,8 @@
         "shares"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "fde9a4a500799db08880d69745de0df6ed996b1bf4b145395994294934e2af2c",
+      "hasArtwork": true,
+      "sha256": "56ad9d01d471a73c358e0751ec597a7c755c673b27d38f2fa8fe92a4bf3aad0a",
       "brands": [
         "studio",
         "artanrecords"
@@ -109582,8 +109582,8 @@
         "accept"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "9409fd4568b0e8319551f295c5c01e0d6f3c547925bf99f723dfe72641747632",
+      "hasArtwork": true,
+      "sha256": "b3aa54519604624725c0c4cc5c9278c881a10f1ca10c024a32504d90903d30f4",
       "brands": [
         "studio",
         "artanrecords"
@@ -109610,8 +109610,8 @@
         "agreement"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "3dd89ccffc349b971291d6b803aedddf202023bc1f9a362eeb8f844adf08d85f",
+      "hasArtwork": true,
+      "sha256": "36d0100c5885750b9c22af39ddf7faf04251d9b0697e9489535c6ffe17ac4534",
       "brands": [
         "studio",
         "artanrecords"
@@ -109638,8 +109638,8 @@
         "amend"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "d3b794841b480520e323f3c1cceaead44baa6a74980adcefb44d06e4cc235796",
+      "hasArtwork": true,
+      "sha256": "283edf161c34b87e1b2358595058cca9d35274a3fee3984e331d1d271e288ace",
       "brands": [
         "studio",
         "artanrecords"
@@ -114770,8 +114770,8 @@
         "gallery"
       ],
       "category": "core/media",
-      "hasArtwork": false,
-      "sha256": "f0f046a6dc89f8c70da1f120080d69c219bfcf48d0448b0bcef3186dbeb45944",
+      "hasArtwork": true,
+      "sha256": "5310db29008674d635b5cc102dcf99d17148284b837e7af2bc1bd007d087ba91",
       "brands": [
         "studio",
         "artanrecords"
@@ -114813,7 +114813,7 @@
       ],
       "category": "core/media",
       "hasArtwork": true,
-      "sha256": "4375c1baa33f12fb7bb800ad31339fa51f516b317a6f2394e890e0eb40ae3aa6",
+      "sha256": "80d28badd07bf10c534bb4aa27cb4407119298e09a36886c5dfe1dac2805d95d",
       "brands": [
         "control-center",
         "neuroartan",
