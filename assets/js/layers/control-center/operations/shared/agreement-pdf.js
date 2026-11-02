@@ -13,7 +13,11 @@ export async function agreementPdf({envelope,version,signatures,events}){
   const input=String(value??'').replaceAll('\t','    ');
   for(const char of input)if(char!=='\n'&&!supported.has(char.codePointAt(0)))throw Error('This document contains characters the PDF font cannot display. No incomplete PDF was downloaded.');
   for(const paragraph of input.split('\n')){
-   let line='';for(const char of paragraph){const candidate=line+char;if(font.widthOfTextAtSize(candidate,size)>width-margin*2&&line){draw(line,size);line=char;}else line=candidate;}draw(line,size);
+   let line='';for(const word of paragraph.split(/(\s+)/)){
+    if(font.widthOfTextAtSize(line+word,size)>width-margin*2&&line){draw(line.trimEnd(),size);line='';}
+    const token=line?word:word.trimStart();
+    for(const char of token){if(font.widthOfTextAtSize(line+char,size)>width-margin*2&&line){draw(line,size);line='';}line+=char;}
+   }draw(line,size);
   }
  }
  function draw(line,size){if(y<margin+35)next();page.drawText(line,{x:margin,y,font,size,color:ink});y-=lineHeight;}

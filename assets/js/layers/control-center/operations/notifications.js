@@ -22,13 +22,13 @@ export function mountNotifications({root,client,config,monitor,nav,workspaces,e,
   renderNotificationFeed(feed,{items,history,onHistory:value=>{history=value;render();},onRead:async item=>{
    if(item.kind==='update')await monitor.markRead(item.id);
    else{readReviews.add(item.id);writeView('readReviewNotices',[...readReviews].slice(-200));render();}
-  },onOpen:item=>{popover.hidePopover();if(item.kind==='update'){writeView('updateJob',item.id);onNavigate('updates');}else onNavigate(item.panel);}});
+  },onOpen:item=>{popover.hidePopover();if(item.kind==='update'){writeView('updateJob',item.id);onNavigate('updates');}else onNavigate(item.panel,item.action||'');}});
   if(queueError){const error=document.createElement('p');error.setAttribute('role','status');error.textContent='Review requests could not be checked. Open the queues to retry.';feed.append(error);}
  }
  async function refresh(){
   if(!button.isConnected||busy)return;busy=true;
   try{
-   pending=(await Promise.all(queues.map(async queue=>{const result=await client.from(queue.table).select(queue.displayField+',updated_at').eq('status',queue.pendingStatus||'pending').order('updated_at',{ascending:false}).limit(50);if(result.error)throw Error();return (result.data||[]).map(row=>({id:queue.id+':'+row[queue.displayField]+':'+row.updated_at,kind:'review',panel:queue.id,title:queue.displayRecord===false?queue.label:row[queue.displayField]||queue.label,message:queue.displayRecord===false?'Open Agreements to review the private record.':queue.label,status:'pending',createdAt:row.updated_at,openLabel:'View review queue'}));}))).flat();
+   pending=(await Promise.all(queues.map(async queue=>{const result=await client.from(queue.table).select(queue.displayField+',updated_at').eq('status',queue.pendingStatus||'pending').order('updated_at',{ascending:false}).limit(50);if(result.error)throw Error();return (result.data||[]).map(row=>({id:queue.id+':'+row[queue.displayField]+':'+row.updated_at,kind:'review',panel:queue.id,action:queue.action||'',title:queue.displayRecord===false?queue.label:row[queue.displayField]||queue.label,message:queue.displayRecord===false?'Open Agreements to review the private record.':queue.label,status:'pending',createdAt:row.updated_at,openLabel:'View review queue'}));}))).flat();
    if(!button.isConnected)return;
    for(const item of pending)reviewHistory.set(item.id,item);while(reviewHistory.size>200)reviewHistory.delete(reviewHistory.keys().next().value);writeView('reviewNoticeHistory',[...reviewHistory.values()]);queueError=false;render();
   }catch{queueError=true;render();}finally{busy=false;}

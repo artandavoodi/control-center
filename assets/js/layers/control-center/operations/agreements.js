@@ -14,9 +14,9 @@ export async function mountAgreements(options){
   button.onclick=()=>{content.dataset.agreementTab=id;for(const [key,item] of panels){item.panel.hidden=key!==id;item.button.setAttribute('aria-selected',String(key===id));item.button.tabIndex=key===id?0:-1;}};
   button.onkeydown=event=>{const buttons=[...navigation.children],index=buttons.indexOf(button),next=event.key==='ArrowRight'?(index+1)%buttons.length:event.key==='ArrowLeft'?(index+buttons.length-1)%buttons.length:event.key==='Home'?0:event.key==='End'?buttons.length-1:null;if(next!==null){event.preventDefault();buttons[next].click();buttons[next].focus();}};return panel;
  };
- const inventory=addPanel('drafts','Drafts');inventory.setAttribute('aria-label','Agreement inventory');
+ const inventory=addPanel('drafts',labels.tabs.drafts);inventory.setAttribute('aria-label','Agreement inventory');
  const drafts=await mountDocuments({...options,content:inventory,agreementOnly:true});if(!isCurrent())return;
- const intake=addPanel('details','Contract details');intake.className='control-center-review';
+ const intake=addPanel('details',labels.tabs.details);intake.className='control-center-review';
  const writable=staff.permissions.includes('documents.write'),scope=writableUnits(units,workspace,staff);
  intake.innerHTML=`<h2>Contract details</h2><p>Request details from an artist with an existing Studio application. The artist confirms them in Studio; authorized reviewers receive the submitted version here. Review does not sign a contract or activate a tier.</p>${writable?`<form data-intake-request><label>Artist Studio account ID<input name="artist" required pattern="[0-9a-fA-F-]{36}" autocomplete="off"></label><label>Responsible department or office<select name="unit" required>${unitOptions(scope,e)}</select></label><label>Message to the artist<textarea name="message" maxlength="2000"></textarea></label><button type="submit">${icon('core/files/document/document.svg')}Request contract details</button><p role="status"></p></form>`:''}<p role="status" data-intake-load></p><div data-intake-records></div>`;
  const requestForm=intake.querySelector('[data-intake-request]'),status=intake.querySelector('[data-intake-load]'),results=intake.querySelector('[data-intake-records]');
@@ -42,5 +42,5 @@ export async function mountAgreements(options){
   }
   status.textContent=response.data.length?'':'No contract details requested yet.';
  }catch{status.textContent='The private contract-details service is not available. No request or review was saved.';}
- if(!isCurrent())return;const rehearsals=addPanel('signing','Signing & archive');await mountSigningRehearsals({root:rehearsals,client,role:'label',workspaceId:workspace.id,canWrite:row=>writable&&scope.some(unit=>unit.id===row.unit_id),labels:rehearsalLabels,icons:{refresh:icon('core/actions/refresh/refresh.svg'),sign:icon('core/legal/contracts/signature.svg'),review:icon('core/actions/check/check.svg'),archive:icon('core/commerce/revenue-shares/shares-archive.svg'),download:icon('core/actions/download/download.svg')}});(panels.get(content.dataset.agreementTab)||panels.get('drafts')).button.click();
+ if(!isCurrent())return;const rehearsals=addPanel('signing',labels.tabs.signing);await mountSigningRehearsals({root:rehearsals,client,role:'label',workspaceId:workspace.id,canWrite:row=>writable&&scope.some(unit=>unit.id===row.unit_id),labels:rehearsalLabels,icons:{refresh:icon('core/actions/refresh/refresh.svg'),sign:icon('core/legal/contracts/signature.svg'),review:icon('core/actions/check/check.svg'),archive:icon('core/commerce/revenue-shares/shares-archive.svg'),download:icon('core/actions/download/download.svg')}});(panels.get(content.dataset.agreementTab)||panels.get('drafts')).button.click();
 }
