@@ -33,9 +33,15 @@ send an email, and this intake does not sign a contract or activate a tier.
 
 Draft import currently accepts plain text and Markdown, not PDF/Word attachments.
 Legal party details, rights, dates, term, territory, payment conditions and legal
-review must be completed before issuance. Authenticated signing, fixed-version
-offers, countersigning and the executed-document archive remain unimplemented;
-the Studio signing preview is non-binding. Final tier approval now requires the
+review must be completed before issuance. Production signing, binding offers and
+the executed-document archive remain disabled. A separate non-binding rehearsal
+runs a test-details request, review, immutable invitation, per-section initials,
+bounded PNG uploads for artist and label, final review and an archived JSON record.
+It reuses the common agreement-version authority, hashes images server-side,
+preserves the real legal-details request, and cannot grant access or approve a tier.
+Both surfaces consume the committed shared rehearsal controls; Studio verifies
+its snapshot before building. No PDF signing, qualified signature or delivery
+email is claimed. Final tier approval requires the
 existing server-verified signed-agreement evidence for the matching active tier.
 
 ### Local Development

@@ -9420,6 +9420,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "artanrecords",
         "studio",
@@ -104060,6 +104061,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/update-actions.json",
+            "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
@@ -104483,9 +104485,9 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/artist-enquiries.js",
-            "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/enquiry-reply.js"
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
@@ -104871,9 +104873,25 @@
       "hasArtwork": true,
       "sha256": "4c4504dfa8bb47b16dc7d8e733a65610f25cb14dbf12187716ca838ff67a8b69",
       "brands": [
+        "control-center",
+        "studio",
+        "artanrecords",
         "artan-live"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        },
         {
           "brand": "artan-live",
           "evidence": [
@@ -107112,7 +107130,7 @@
           "evidence": [
             "assets/data/control-center/mail.json",
             "assets/data/control-center/update-actions.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/agreements.js"
           ]
         },
         {
@@ -107692,6 +107710,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/mail.json",
+            "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
@@ -109668,10 +109687,18 @@
       "hasArtwork": false,
       "sha256": "372335ad2c2e2e2d5958b7eda4bf103e9f9a1247ebed3e3e5d92edc7b79d43ea",
       "brands": [
+        "control-center",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "studio",
           "evidence": [
@@ -111889,8 +111916,8 @@
         "gold"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "51d011cd24a2a9fb0877436279d5fd66cd5270a7a81dc5bd38c29b4026088985",
+      "hasArtwork": true,
+      "sha256": "d5893ddc1f1979311491ebe15505f058da220181151a1c563ac3f4e06c474699",
       "brands": [
         "studio",
         "artanrecords"
@@ -111917,8 +111944,8 @@
         "platinum"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "ca62cd9e881c02dab42ad2eb23ea47bd4e704d2f0bf11715345e5e1658d5133e",
+      "hasArtwork": true,
+      "sha256": "71e9e2e1d65f69f5102027808c5296ee2f006bfca87f105bf6e45a6f571b3752",
       "brands": [
         "studio",
         "artanrecords"
@@ -111945,8 +111972,8 @@
         "silver"
       ],
       "category": "core/commerce",
-      "hasArtwork": false,
-      "sha256": "3ba7377810db2d70746b94618cfec1695e111acad24dc9fd586e70c51f65a411",
+      "hasArtwork": true,
+      "sha256": "c2828d422466a50508569d6f1dce5a6a3fb65fcbbab1cba95c311241c07678ad",
       "brands": [
         "studio",
         "artanrecords"
@@ -112747,7 +112774,7 @@
           "evidence": [
             "assets/data/control-center/operations.json",
             "assets/data/control-center/update-actions.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/agreements.js"
           ]
         },
         {
@@ -114292,6 +114319,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/agreements.json",
             "assets/js/layers/control-center/operations/dist.js",
             "assets/js/layers/control-center/operations/search.js"
           ]
@@ -114317,9 +114345,27 @@
       ],
       "category": "core/legal",
       "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
-      "brands": [],
-      "usage": []
+      "sha256": "e92c03d8bc4c3ad0a50653d901a3be7abc0fee5da4aebd13dac1974dce35bc53",
+      "brands": [
+        "control-center",
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/legal/governance/authority",
@@ -117755,8 +117801,8 @@
         "focus"
       ],
       "category": "core/productivity",
-      "hasArtwork": false,
-      "sha256": "a4192dc106f53f25ac5987d2d6f6e6d6099a87379557c044a4ffd33e1501c727",
+      "hasArtwork": true,
+      "sha256": "f9284f352929c32bed5e4a1ff0d9f8d37a3547faf542fc0f51f14065f9a1064b",
       "brands": [
         "studio",
         "artanrecords"
@@ -133195,7 +133241,7 @@
       ],
       "category": "system/cv",
       "hasArtwork": true,
-      "sha256": "58dda772f07ad1f17aa83e5a42d00783e852886013773b1d1952dae6897202ef",
+      "sha256": "e4a278070d7ec73620c2a83016d3d892cf87fafdf5fd4acb062cb4694dbf5379",
       "brands": [
         "artan-live"
       ],

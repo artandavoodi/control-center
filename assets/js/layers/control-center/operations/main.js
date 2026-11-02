@@ -36,6 +36,7 @@ import agreementsConfig from '../../../../data/control-center/agreements.json';
 import {mountAgreements} from './agreements.js';
 config.navigation.push(agreementsConfig.navigation);
 config.reviewQueues.push(agreementsConfig.queue);
+config.reviewQueues.push(agreementsConfig.signatureQueue);
 config.search.categories.push(agreementsConfig.searchCategory);
 import {mountVacancies} from './vacancies.js';
 import {assetUrl} from './assets.js';
