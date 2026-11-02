@@ -48,8 +48,10 @@ not connected. Final tier approval requires the
 existing server-verified signed-agreement evidence for the matching active tier.
 
 Offered signing tasks open automatically. The guided reader follows the fixed
-section order, requires initials before advancing and reveals signature capture
-only at the final step. Continue scrolls to the next section; reduced motion
+section order and requires all initials before submission. Signature preparation
+is always reachable without completing initials first. The label can prepare its
+signature while waiting, but recording remains blocked until the artist signs.
+Continue scrolls to the next section; reduced motion
 uses immediate navigation. All sections remain visible in one continuous document.
 Open document enters a full-screen native dialog; closing it preserves unsent input.
 The top toolbar downloads the evidence PDF or renders it locally with PDF.js,

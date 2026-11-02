@@ -6,8 +6,8 @@
 .agreement-rehearsal code { overflow-wrap:anywhere; }
 .agreement-rehearsal form { margin-block:var(--spacing-xl); }
 .agreement-rehearsal form > button,.agreement-rehearsal > button { display:inline-flex; align-items:center; justify-content:center; gap:var(--spacing-sm); }
-.agreement-rehearsal form { display:grid; gap:var(--spacing-lg); }
-.agreement-rehearsal form label:not(.studio-sharing) { display:grid; gap:var(--spacing-sm); }
+.agreement-rehearsal form:not([hidden]) { display:grid; gap:var(--spacing-lg); }
+.agreement-rehearsal form label:not(.studio-sharing):not([hidden]) { display:grid; gap:var(--spacing-sm); }
 .agreement-rehearsal-card > summary::marker { color:var(--status-warning-color); }
 .agreement-rehearsal-card[data-state=archived] > summary::marker,.agreement-rehearsal-card[data-state=reviewed] > summary::marker { color:var(--status-success-color); }
 .agreement-next-step { margin-block:var(--spacing-md); }
