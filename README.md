@@ -22,7 +22,7 @@ take their allocations from the committed Artanrecords commercial register via
 `node scripts/sync-agreements.mjs --sync`; do not edit the generated snapshot.
 
 First request contract details for a verified Studio applicant. The artist uses
-**Studio > Agreements > Contract details**, confirms the existing account email,
+**Studio > Agreements > Legal identity**, confirms the existing account email,
 and enters personal or company contracting details. A saved address can be copied
 only for the artist to check. Birthplace, birth date, identity documents and bank
 or tax information are not collected by this form. Submitted corrections create

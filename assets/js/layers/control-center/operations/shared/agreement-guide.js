@@ -21,6 +21,7 @@ export function signingGuide({body,form,version,labels}){
  const valid=index=>inputs[index].checkValidity()&&inputs[index].value.trim().length>0;
  const firstMissing=()=>inputs.findIndex((_,index)=>!valid(index));
  function render(scroll=false){
+  if(step===panels.length){const missing=firstMissing();if(missing>=0)step=missing;}
   panels.forEach((panel,index)=>panel.hidden=!showFull&&step!==index);final.hidden=step!==panels.length||showFull;previous.disabled=step===0;next.hidden=step===panels.length;next.disabled=step<panels.length&&!valid(step);progress.value=step+1;
   message.textContent=step<panels.length?labels.section.replace('{current}',step+1).replace('{total}',panels.length):labels.final;full.textContent=showFull?labels.guided:labels.full;full.setAttribute('aria-pressed',String(showFull));
   if(scroll){const target=step<panels.length?panels[step]:final;target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});(step<panels.length?inputs[step]:form.elements.signer).focus({preventScroll:true});}
