@@ -62,6 +62,13 @@ names come from the reviewed immutable intake version, not an editable alias.
 Submitted signatures cannot be edited. Legal-identity corrections require a
 reviewer to close and reissue the identity request, preserving the earlier record.
 
+HEIC/HEIF signature photos are converted locally with the pinned `heic-to` CSP
+decoder (LGPL-3.0, https://github.com/hoppergee/heic-to); no conversion service is
+contacted. The original photo is not stored: only the reviewed, cropped PNG is
+submitted with signing consent. Existing 10 MB, 20-megapixel and normalized PNG
+limits still apply. Control Center checks the artist-signed queue every 15 seconds
+while visible and when its notification feed opens; the notice opens Signing & archive.
+
 ### Local Development
 
 Owners can choose **Local Development** alongside Design systems, then **All brands** or a specific brand. Run `npm run dev:operations` on the trusted Mac to enable registered preview launches. The private inventory is resolved from the local governance vault; it is never deployed in the public client. Only websites with registered custom domains are listed. Archived, private-governance and non-website repositories remain in the private inventory, not the interface. Preview launches never publish changes, replace occupied ports or accept browser-supplied commands.
