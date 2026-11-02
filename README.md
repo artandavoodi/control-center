@@ -36,12 +36,15 @@ Legal party details, rights, dates, term, territory, payment conditions and lega
 review must be completed before issuance. Production signing, binding offers and
 the executed-document archive remain disabled. A separate non-binding rehearsal
 runs a test-details request, review, immutable invitation, per-section initials,
-bounded PNG uploads for artist and label, final review and an archived JSON record.
+bounded PNG signature records for artist and label, final review and a readable PDF copy.
 It reuses the common agreement-version authority, hashes images server-side,
 preserves the real legal-details request, and cannot grant access or approve a tier.
 Both surfaces consume the committed shared rehearsal controls; Studio verifies
-its snapshot before building. No PDF signing, qualified signature or delivery
-email is claimed. Final tier approval requires the
+its snapshot before building. Drawn signatures and raster uploads are cropped on
+the user's device with a reviewable preview and optional light-background removal.
+The PDF includes the fixed terms, verified signature images, initials and activity;
+it is not a cryptographic PDF signature or qualified signature. Delivery email is
+not connected. Final tier approval requires the
 existing server-verified signed-agreement evidence for the matching active tier.
 
 ### Local Development

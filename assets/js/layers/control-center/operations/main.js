@@ -110,7 +110,7 @@ async function render(){
   }else if(panel==='previews'){
    await mountPreviews({content,client,staff,workspace,context,e,icon,isCurrent:()=>turn===revision});
   }else if(panel==='documents'||panel==='vacancies'||panel==='agreements'){
-   await (panel==='documents'?mountDocuments:panel==='agreements'?mountAgreements:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
+   await (panel==='documents'?mountDocuments:panel==='agreements'?mountAgreements:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>{if(turn!==revision)return;if(panel==='agreements')pendingAction=content.dataset.agreementTab||'';return render();}});
   }else if(panel==='organization'||panel==='staff'){
    await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,onNavigate:navigate,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
   }else if(panel==='artist-enquiries'){
