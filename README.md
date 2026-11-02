@@ -50,7 +50,12 @@ existing server-verified signed-agreement evidence for the matching active tier.
 Offered signing tasks open automatically. The guided reader follows the fixed
 section order, requires initials before advancing and reveals signature capture
 only at the final step. Continue scrolls to the next section; reduced motion
-uses immediate navigation. Full-document reading remains available. Artist signer
+uses immediate navigation. All sections remain visible in one continuous document.
+Open document enters a full-screen native dialog; closing it preserves unsent input.
+The top toolbar downloads the evidence PDF or renders it locally with PDF.js,
+without an external viewer or document upload. Signature capture has Draw, Type
+and Upload modes in a separate dialog; choosing an image does not submit consent.
+Scrive is a UX reference only, not an integration or storage destination. Artist signer
 names come from the reviewed immutable intake version, not an editable alias.
 Submitted signatures cannot be edited. Legal-identity corrections require a
 reviewer to close and reissue the identity request, preserving the earlier record.

@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {posix} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {publishOutput,writeIfChanged} from './publish-output.mjs';
-async function build(options){const result=await bundle({...options,loader:{'.ttf':'binary'},write:false});for(const file of result.outputFiles)await writeIfChanged(file.path,file.contents);}
+async function build(options){const result=await bundle({...options,loader:{'.ttf':'binary'},plugins:[{name:'pdf-worker-source',setup(build){build.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}],write:false});for(const file of result.outputFiles)await writeIfChanged(file.path,file.contents);}
 execFileSync(process.execPath,['scripts/sync-account.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/sync-agreements.mjs'],{stdio:'inherit'});
 execFileSync(process.execPath,['scripts/sync-design.mjs'],{stdio:'inherit'});
