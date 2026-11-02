@@ -1,0 +1,8 @@
+{
+ "navigation":{"id":"agreements","workspace":"operations","label":"Agreements","description":"Private contract drafts, requested legal details and review.","permissionAll":["documents.read","documents.confidential"],"icon":"core/legal/contracts/contract.svg"},
+ "queue":{"id":"agreements","label":"Contract details ready for review","table":"studio_agreement_intake_requests","displayField":"id","pendingStatus":"submitted"},
+ "searchCategory":{"id":"agreements","label":"Agreements"},
+ "states":{"awaiting_details":"Awaiting artist details","submitted":"Ready for review","needs_changes":"Correction requested","approved":"Details reviewed for drafting","closed":"Closed"},
+ "studioUrl":"https://studio.artanrecords.com/agreements/#contract-details",
+ "fields":{"recipient_type":"Contracting type","legal_name":"Legal name","artist_name":"Artist name","company_name":"Registered company","registration_number":"Registration number","signatory_name":"Authorized signer","signatory_capacity":"Signing authority","address_line1":"Address","address_line2":"Address line 2","city":"City","postal_code":"Postal code","country_code":"Country"}
+}

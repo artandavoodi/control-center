@@ -9,6 +9,21 @@ import {roleBlueprint,renderRoleBlueprint,positionAssignments} from '../assets/j
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
+import {createPartnershipDraft,fillReviewedArtistDetails} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+test('reviewed artist details fill only recipient placeholders, not the label or commercial terms',()=>{
+ const draft=createPartnershipDraft('gold'),filled=fillReviewedArtistDetails(draft.body,{recipient_type:'individual',legal_name:'Synthetic Legal Name',artist_name:'Artist',address_line1:'1 Test Street',city:'Test City',country_code:'HR'});
+ assert.match(filled,/Synthetic Legal Name/);assert.match(filled,/Artist 80%; Artanrecords 20%/);assert.match(filled,/\[label legal name - required\]/);assert.doesNotMatch(filled,/\[artist legal name - required\]/);
+ const company=fillReviewedArtistDetails(draft.body,{recipient_type:'company',company_name:'Synthetic Company',signatory_name:'Authorized Person',registration_number:'TEST-1',signatory_capacity:'Director'});assert.match(company,/Synthetic Company/);assert.match(company,/Authorized Person \(Director\)/);
+});
+test('agreement templates use canonical allocations and never claim execution',()=>{
+ for(const tier of ['silver','gold','platinum']){const draft=createPartnershipDraft(tier);assert.match(draft.body,/NOT ISSUED FOR SIGNATURE/);assert.match(draft.body,/LEGAL REVIEW REQUIRED/);assert.match(draft.body,/\[legal review - required\]/);assert.match(draft.body,/Signature: \[reserved for the authenticated artist signer\]/);assert.ok(draft.tags.includes('agreement'));}
+ assert.match(createPartnershipDraft('silver').body,/Artist 85%; Artanrecords 15%/);assert.match(createPartnershipDraft('gold').body,/Artist 80%; Artanrecords 20%/);assert.match(createPartnershipDraft('platinum').body,/Artist 70%; Artanrecords 30%/);assert.throws(()=>createPartnershipDraft('unknown'));
+});
+test('agreement navigation requires every confidential document permission',()=>{
+ const config={navigation:[{id:'agreements',permissionAll:['documents.read','documents.confidential']}]};
+ assert.equal(permittedNavigation(config,{enabled:true,permissions:['documents.read']}).length,0);
+ assert.equal(permittedNavigation(config,{enabled:true,permissions:['documents.read','documents.confidential']}).length,1);
+});
 test('received acknowledgment is editable and branded emails escape applicant markup',()=>{
  const received=resolveMacros().find(item=>item.id==='received');assert.match(received.body,/14 working days/);
  const html=brandedEmail({subject:'<script>test</script>',body:'Hello <img onerror="attack">\n\nThank you.'});

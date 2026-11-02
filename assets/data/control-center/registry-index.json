@@ -29184,7 +29184,6 @@
         "neuroartan",
         "store",
         "artanrecords",
-        "studio",
         "artist",
         "artan-live"
       ]
@@ -113869,7 +113868,7 @@
         {
           "brand": "studio",
           "evidence": [
-            "app/main.js",
+            "app/studio.css",
             "content/account.json"
           ]
         }
@@ -114285,10 +114284,18 @@
       "hasArtwork": true,
       "sha256": "ccdf28240ac7d5b21c6127226a83d4fca91f772b05306545dbdb1ea4565ae107",
       "brands": [
+        "control-center",
         "studio",
         "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/search.js"
+          ]
+        },
         {
           "brand": "studio",
           "evidence": [

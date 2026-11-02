@@ -12,6 +12,32 @@ The shared close control is a checksum-verified snapshot of the website owner fi
 
 ## Staff console
 
+### Agreements
+
+The Artanrecords Operations workspace has a dedicated **Agreements** inventory,
+separate from general documents, email templates and payout/tax applications.
+It reuses the private document authority, requires confidential-document access,
+and preserves agreement classification when records are edited. Tier templates
+take their allocations from the committed Artanrecords commercial register via
+`node scripts/sync-agreements.mjs --sync`; do not edit the generated snapshot.
+
+First request contract details for a verified Studio applicant. The artist uses
+**Studio > Agreements > Contract details**, confirms the existing account email,
+and enters personal or company contracting details. A saved address can be copied
+only for the artist to check. Birthplace, birth date, identity documents and bank
+or tax information are not collected by this form. Submitted corrections create
+immutable versions; scoped reviewers can request corrections or approve the exact
+submitted version for drafting. Approval can prefill recipient placeholders in a
+draft and records the source version and digest. Copying the Studio link does not
+send an email, and this intake does not sign a contract or activate a tier.
+
+Draft import currently accepts plain text and Markdown, not PDF/Word attachments.
+Legal party details, rights, dates, term, territory, payment conditions and legal
+review must be completed before issuance. Authenticated signing, fixed-version
+offers, countersigning and the executed-document archive remain unimplemented;
+the Studio signing preview is non-binding. Final tier approval now requires the
+existing server-verified signed-agreement evidence for the matching active tier.
+
 ### Local Development
 
 Owners can choose **Local Development** alongside Design systems, then **All brands** or a specific brand. Run `npm run dev:operations` on the trusted Mac to enable registered preview launches. The private inventory is resolved from the local governance vault; it is never deployed in the public client. Only websites with registered custom domains are listed. Archived, private-governance and non-website repositories remain in the private inventory, not the interface. Preview launches never publish changes, replace occupied ports or accept browser-supplied commands.

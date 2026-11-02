@@ -32,6 +32,11 @@ import {normalizeContext} from './context.js';
 import {mountDevelopment} from './development.js';
 import {mountRegistry} from './registry.js';
 import {mountDocuments} from './documents.js';
+import agreementsConfig from '../../../../data/control-center/agreements.json';
+import {mountAgreements} from './agreements.js';
+config.navigation.push(agreementsConfig.navigation);
+config.reviewQueues.push(agreementsConfig.queue);
+config.search.categories.push(agreementsConfig.searchCategory);
 import {mountVacancies} from './vacancies.js';
 import {assetUrl} from './assets.js';
 import {setTheme} from './theme.js';
@@ -103,8 +108,8 @@ async function render(){
    await mountUpdates({content,monitor:updateMonitor,staff,e,icon,isCurrent:()=>turn===revision,action:requestedAction});
   }else if(panel==='previews'){
    await mountPreviews({content,client,staff,workspace,context,e,icon,isCurrent:()=>turn===revision});
-  }else if(panel==='documents'||panel==='vacancies'){
-   await (panel==='documents'?mountDocuments:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
+  }else if(panel==='documents'||panel==='vacancies'||panel==='agreements'){
+   await (panel==='documents'?mountDocuments:panel==='agreements'?mountAgreements:mountVacancies)({content,client,staff,workspace,context,units,e,icon,config,isCurrent:()=>turn===revision,action:requestedAction,onSaved:()=>turn===revision?render():undefined});
   }else if(panel==='organization'||panel==='staff'){
    await mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units,action:requestedAction,onNavigate:navigate,manage:panel==='staff',isCurrent:()=>turn===revision,onSaved:async()=>{await refreshRegistry();context=normalizeContext(context,units,workspace);await render();}});
   }else if(panel==='artist-enquiries'){

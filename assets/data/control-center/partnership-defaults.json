@@ -1,0 +1,27 @@
+{
+  "source": "artandavoodi/artanrecords",
+  "revision": "d26c1441c0221c72d8a4500c3564c4d6de8a3866",
+  "file": "docs/assets/data/partnerships.json",
+  "sourceSha256": "9a4d7cd3d705be4d3625566e7454bbd5d1dd64ffaf3ef8e75f44cddc30926140",
+  "commercialTermsVersion": 1,
+  "items": [
+    {
+      "id": "silver",
+      "name": "Silver",
+      "artistShare": 85,
+      "labelShare": 15
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "artistShare": 80,
+      "labelShare": 20
+    },
+    {
+      "id": "platinum",
+      "name": "Platinum",
+      "artistShare": 70,
+      "labelShare": 30
+    }
+  ]
+}
