@@ -47,6 +47,14 @@ it is not a cryptographic PDF signature or qualified signature. Delivery email i
 not connected. Final tier approval requires the
 existing server-verified signed-agreement evidence for the matching active tier.
 
+Offered signing tasks open automatically. The guided reader follows the fixed
+section order, requires initials before advancing and reveals signature capture
+only at the final step. Continue scrolls to the next section; reduced motion
+uses immediate navigation. Full-document reading remains available. Artist signer
+names come from the reviewed immutable intake version, not an editable alias.
+Submitted signatures cannot be edited. Legal-identity corrections require a
+reviewer to close and reissue the identity request, preserving the earlier record.
+
 ### Local Development
 
 Owners can choose **Local Development** alongside Design systems, then **All brands** or a specific brand. Run `npm run dev:operations` on the trusted Mac to enable registered preview launches. The private inventory is resolved from the local governance vault; it is never deployed in the public client. Only websites with registered custom domains are listed. Archived, private-governance and non-website repositories remain in the private inventory, not the interface. Preview launches never publish changes, replace occupied ports or accept browser-supplied commands.

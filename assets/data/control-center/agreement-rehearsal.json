@@ -4,6 +4,7 @@
  "states":{"offered":"Ready for artist signature","artist_signed":"Waiting for label signature","label_signed":"Ready for final review","reviewed":"Ready to archive","archived":"Archived"},
  "nextSteps":{"offered":"Artist action: open this document, read every section and record your signature.","artist_signed":"Waiting for the label to review and add its signature.","label_signed":"Label action: review this fixed document and both signature records.","reviewed":"Label action: archive the reviewed record.","archived":"No signature is required. This non-binding record is complete."},
  "open":"Open document",
+ "guide":{"navigation":"Guided document review","previous":"Previous section","next":"Initial and continue","full":"Read full document","guided":"Return to guided view","progress":"Signing progress","section":"Section {current} of {total}. Read this section, then enter your initials to continue.","final":"Final step. Review your locked signer name, draw or upload your signature, then confirm submission."},
  "name":"Signer name",
  "upload":"Upload signature image",
  "consent":"I reviewed this fixed version and understand this is a non-binding test, not a contract signature.",
