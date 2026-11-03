@@ -469,6 +469,15 @@ test('agreement drafts import text and preview safely without issuing or signing
  await page.getByRole('button',{name:'Documents & tags',exact:true}).click();await expect(page.getByRole('heading',{name:'Silver agreement — test draft',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Create agreement draft',exact:true})).toHaveCount(0);
  await page.getByRole('button',{name:'Search workspace',exact:true}).click();const search=page.getByRole('dialog');await search.getByRole('searchbox').fill('Silver agreement');await search.getByRole('button',{name:'Agreements',exact:true}).click();await search.getByRole('button',{name:/Silver agreement — test draft confidential/}).click();await expect(page.getByRole('heading',{name:'Agreements',exact:true})).toBeVisible();
 });
+test('contract artist search binds an explicit account and clears selection when edited',async({page})=>{
+ await page.goto('/');await page.evaluate(async()=>{
+  const {bindArtistPicker}=await import('/assets/js/layers/control-center/operations/artist-picker.js'),labels=(await fetch('/assets/data/control-center/agreements.json').then(response=>response.json())).artistSearch;
+  const form=document.createElement('form');form.innerHTML='<label>Artist<input name="artist"></label>';document.body.replaceChildren(form);window.artistSearchCalls=[];
+  bindArtistPicker({form,workspace:{id:'workspace'},labels,icon:'',isCurrent:()=>true,client:{rpc:async(name,args)=>{window.artistSearchCalls.push({name,args});return {data:[{account_id:'artist-id',artist_name:'Searchable Artist',username:'searchable',partnership:'silver',application_status:'approved',submission_references:['submission-reference']}]};}}});
+ });
+ const input=page.getByRole('combobox',{name:'Find artist',exact:true});await input.fill('submission-reference');const result=page.getByRole('option',{name:'Searchable Artist @searchable · silver · approved',exact:true});await expect(result).toBeVisible();await input.press('ArrowDown');await expect(result).toBeFocused();await result.press('Enter');await expect(page.locator('[name=artist]')).toHaveValue('artist-id');await expect(page.getByRole('status')).toHaveText('Linked submission: submission-reference');
+ await input.fill('someone else');await expect(page.locator('[name=artist]')).toHaveValue('');await page.getByRole('button',{name:'Clear artist search',exact:true}).click();await expect(input).toHaveValue('');await expect(page.locator('[name=artist]')).toHaveValue('');expect(await page.evaluate(()=>window.artistSearchCalls[0])).toEqual({name:'control_center_search_artists',args:{search_text:'submission-reference',brand:'workspace'}});
+});
 test('contract details requests and review stay separate from signing and activation',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);let rows=[],review;
  await page.route('**/rest/v1/studio_agreement_intake_requests*',route=>route.fulfill({json:rows}));

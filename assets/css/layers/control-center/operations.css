@@ -242,6 +242,13 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-review-status[data-tone=reviewed]::before { background:var(--status-success-color); }
 .control-center-review-status[data-tone=declined]::before { background:var(--status-error-color); }
 .control-center-dialog-header { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); margin-block-end:var(--spacing-xl); }
+.control-center-artist-search { display:grid; gap:var(--spacing-md); }
+.control-center-artist-search > .control-center-search-field { margin-block:0; }
+.control-center-artist-search > p { margin-block:0; }
+.control-center-artist-search > [role=status]:empty,.control-center-artist-search > [role=listbox]:empty { display:none; }
+.control-center-artist-search [role=listbox] { display:grid; gap:var(--spacing-sm); }
+.control-center-artist-search [role=option] { display:grid; gap:var(--spacing-xs); text-align:start; justify-items:start; }
+.control-center-artist-search input::-webkit-search-cancel-button { -webkit-appearance:none; }
 .control-center-reply-fields { display:grid; gap:var(--spacing-lg); }
 @media(max-width:767px){.control-center-decision-form{grid-template-columns:minmax(0,1fr);}}
 .control-center-enquiry-value { display:flex; align-items:center; gap:var(--spacing-sm); min-inline-size:0; }
