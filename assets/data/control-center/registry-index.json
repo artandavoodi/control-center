@@ -112519,8 +112519,8 @@
         "design"
       ],
       "category": "core/editorial",
-      "hasArtwork": false,
-      "sha256": "0df10571321c0b5729542ac474d2c9add3f3f19b4dc839b1a1fd7ecc75a74c07",
+      "hasArtwork": true,
+      "sha256": "9c089cb66e6e1cf5560203c2c9046e25b06a655ddecf31f604d0e2accf2844e3",
       "brands": [
         "studio",
         "artanrecords"
@@ -114018,8 +114018,8 @@
         "button"
       ],
       "category": "core/interface",
-      "hasArtwork": false,
-      "sha256": "4d83d68e1ca1e69a756ca1b36a5ed331760e904da73528b850e9fec96da67439",
+      "hasArtwork": true,
+      "sha256": "a863e748b93b37748ae49d308ec7fa1c3cc740e0bf88cd62bbdfffa07ac37c8d",
       "brands": [
         "studio",
         "artanrecords"
@@ -114351,8 +114351,8 @@
         "signature"
       ],
       "category": "core/legal",
-      "hasArtwork": false,
-      "sha256": "e92c03d8bc4c3ad0a50653d901a3be7abc0fee5da4aebd13dac1974dce35bc53",
+      "hasArtwork": true,
+      "sha256": "2fcdb69d4add385b52dd7a2c5426e177b9db97c6240a7d049a2c07f40137c894",
       "brands": [
         "control-center",
         "studio",
@@ -114419,8 +114419,8 @@
         "copyright"
       ],
       "category": "core/legal",
-      "hasArtwork": false,
-      "sha256": "4d83d68e1ca1e69a756ca1b36a5ed331760e904da73528b850e9fec96da67439",
+      "hasArtwork": true,
+      "sha256": "c41b7d3c6c12616292fab74333452185859ffe770a19ab8f4b3734ae987573b7",
       "brands": [
         "studio",
         "artanrecords"
@@ -117074,8 +117074,8 @@
         "location"
       ],
       "category": "core/navigation",
-      "hasArtwork": false,
-      "sha256": "a886e26597d7b4b1dc39e37ad800a27da5031b3cd5523fbada77403360d722e6",
+      "hasArtwork": true,
+      "sha256": "e0be8fb6744a581c8104f4a5a9faa3757117fc4f1d80a881b61b3a58abbbc0f5",
       "brands": [
         "control-center",
         "studio",
