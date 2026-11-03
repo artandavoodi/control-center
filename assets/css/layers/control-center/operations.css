@@ -18,7 +18,16 @@
 .control-center-access [role=status] { line-height:var(--line-height-body); }
 [hidden] { display:none !important; }
 .control-center-boot { min-block-size:100svh; display:grid; place-items:center; background:var(--bg-color); color:var(--text-color); --loader-circle-color:var(--text-color); }
-.control-center-access form,.control-center-operations form { display:grid; gap:var(--spacing-md); max-inline-size:var(--reading-width-md); }
+.control-center-access form { display:grid; gap:var(--spacing-md); max-inline-size:var(--reading-width-md); }
+.control-center-operations form { display:grid; gap:var(--spacing-lg); inline-size:100%; min-inline-size:0; max-inline-size:none; }
+.control-center-operations form > button { justify-self:start; }
+.control-center-operations label { min-inline-size:0; }
+.control-center-operations label > :is(input:not([type=checkbox]):not([type=radio]),textarea,select) { box-sizing:border-box; inline-size:100%; min-inline-size:0; }
+.control-center-document-inventory { display:grid; gap:var(--spacing-lg); min-inline-size:0; }
+.control-center-document-inventory > :is(p,label) { margin:0; }
+.control-center-document-inventory > button { justify-self:start; }
+.control-center-document-inventory [data-document-editor] { display:grid; gap:var(--spacing-lg); padding-block:var(--spacing-xl); border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
+.control-center-document-inventory [data-document-editor] > h2 { margin:0; }
 .control-center-access form { inline-size:100%; }
 .control-center-access > h2 { font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
 .control-center-access > p { line-height:var(--line-height-body); }
@@ -102,6 +111,26 @@ img.control-center-operation-icon { filter:var(--layout-home-featured-functions-
 html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-center-service-logo) { filter:var(--layout-home-featured-functions-card-icon-filter-light); }
 .control-center-operation-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:var(--spacing-lg); }
 .control-center-operation-grid section,.control-center-review { padding-block:var(--spacing-lg); overflow-wrap:anywhere; }
+.control-center-review { display:grid; gap:var(--spacing-lg); align-content:start; }
+.control-center-review > :is(h2,h3,p,form) { margin-block:0; }
+.control-center-review > form { margin-block-start:var(--spacing-md); }
+.control-center-account-requests { display:grid; gap:var(--spacing-lg); }
+.control-center-account-requests > :is(h2,p) { margin:0; }
+.control-center-account-requests .control-center-review > h4 { margin:0; font-size:var(--font-size-base); font-weight:var(--font-weight-medium); }
+.control-center-request-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--spacing-lg); margin:0; }
+.control-center-request-facts > div { display:grid; gap:var(--spacing-xs); min-inline-size:0; }
+.control-center-request-facts dt { color:var(--text-secondary-color); font-size:var(--text-caption-size); }
+.control-center-request-facts dd { margin:0; overflow-wrap:anywhere; }
+@media(max-width:767px){.control-center-request-facts{grid-template-columns:minmax(0,1fr);}}
+.control-center-operations .control-center-account-request-review { inline-size:100%; gap:var(--spacing-lg); padding-block-start:var(--spacing-xl); border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
+.control-center-account-request-review :is(select,textarea) { box-sizing:border-box; inline-size:100%; min-inline-size:0; }
+.control-center-account-request-review textarea { resize:vertical; }
+.control-center-account-request-review > button { justify-self:start; }
+.control-center-account-request-review [role=status]:empty { display:none; }
+.control-center-operations .control-center-account-request-review .control-center-operation-check { display:flex; align-items:flex-start; gap:var(--spacing-sm); }
+.control-center-account-request-review .control-center-operation-check input { padding:0; min-block-size:0; margin:0; flex:none; }
+.control-center-operations .control-center-account-request-review button[data-decision=declined] { background:var(--status-error-color); color:var(--color-white); }
+.control-center-operations .control-center-account-request-review button[data-decision=approved] { background:var(--status-success-color); color:var(--color-white); }
 .control-center-review + .control-center-review,[data-operation-content] > section + section { border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-service-logo { display:block; inline-size:100%; max-inline-size:var(--layout-home-platform-rail-width); block-size:var(--control-height-md); object-fit:contain; object-position:left center; filter:var(--layout-home-featured-functions-card-icon-filter-dark); }
 .control-center-appearance { border:0; padding:0; margin-block:var(--spacing-lg); display:grid; gap:var(--spacing-sm); }

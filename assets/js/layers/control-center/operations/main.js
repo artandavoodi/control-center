@@ -37,6 +37,8 @@ import {mountAgreements} from './agreements.js';
 config.navigation.push(agreementsConfig.navigation);
 config.reviewQueues.push(agreementsConfig.queue);
 config.reviewQueues.push(agreementsConfig.signatureQueue);
+import accountRequestsConfig from '../../../../data/control-center/account-requests.json';
+config.reviewQueues.push(accountRequestsConfig.queue);
 config.search.categories.push(agreementsConfig.searchCategory);
 import {mountVacancies} from './vacancies.js';
 import {assetUrl} from './assets.js';

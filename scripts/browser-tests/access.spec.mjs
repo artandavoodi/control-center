@@ -29,6 +29,8 @@ async function backend(page,permissions,{owner=false,macOrigin=''}={}){
   else if(path.endsWith('/control_center_artist_audit')||path.endsWith('/control_center_assign_email'))body=[];
   else if(path.endsWith('/control_center_documents'))body=documents;
   else if(path.endsWith('/control_center_contract_portal_ready'))body=false;
+  else if(path.endsWith('/control_center_account_request_owner'))body=owner;
+  else if(path.endsWith('/studio_account_change_requests'))body=[];
   else if(path.endsWith('/studio_contract_invitations'))body=[];
   else if(path.endsWith('/studio_agreement_intake_requests')||path.endsWith('/studio_agreement_intake_versions')||path.endsWith('/studio_agreement_envelopes'))body=[];
   else if(path.endsWith('/artan_acknowledgment_summary'))body={enabled:acknowledgments,last_poll_at:null,queued:0,accepted:0,held:0};
@@ -477,6 +479,28 @@ test('contract artist search binds an explicit account and clears selection when
  });
  const input=page.getByRole('combobox',{name:'Find artist',exact:true});await input.fill('submission-reference');const result=page.getByRole('option',{name:'Searchable Artist @searchable · silver · approved',exact:true});await expect(result).toBeVisible();await input.press('ArrowDown');await expect(result).toBeFocused();await result.press('Enter');await expect(page.locator('[name=artist]')).toHaveValue('artist-id');await expect(page.getByRole('status')).toHaveText('Linked submission: submission-reference');
  await input.fill('someone else');await expect(page.locator('[name=artist]')).toHaveValue('');await page.getByRole('button',{name:'Clear artist search',exact:true}).click();await expect(input).toHaveValue('');await expect(page.locator('[name=artist]')).toHaveValue('');expect(await page.evaluate(()=>window.artistSearchCalls[0])).toEqual({name:'control_center_search_artists',args:{search_text:'submission-reference',brand:'workspace'}});
+});
+test('agreement inventory and editing share full-width fields and token spacing',async({page})=>{
+ await enter(page,['documents.read','documents.write','documents.confidential']);
+ await page.getByRole('button',{name:'Agreements',exact:true}).click();
+ const inventory=page.getByRole('tabpanel',{name:'Drafts',exact:true});
+ const create=inventory.getByRole('button',{name:'Create agreement draft',exact:true});
+ const search=inventory.getByRole('searchbox');
+ const createBox=await create.boundingBox(),searchBox=await search.boundingBox();
+ expect(searchBox.y).toBeGreaterThan(createBox.y+createBox.height);
+ await create.click();
+ const editor=inventory.locator('[data-document-editor]'),form=editor.locator('form');
+ const formBox=await form.boundingBox(),editorBox=await editor.boundingBox();
+ expect(Math.abs(formBox.width-editorBox.width)).toBeLessThan(2);
+ const fields=form.locator('input:not([type=file]),textarea,select');
+ for(const field of await fields.all()){
+  const box=await field.boundingBox();expect(Math.abs(box.width-formBox.width)).toBeLessThan(2);
+ }
+ expect(await page.locator('[data-operation-content]').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+});
+test('account request review is explicit and cannot pretend to fulfil deletion',async({page})=>{
+ await page.goto('/');await page.evaluate(async()=>{const {mountAccountRequests}=await import('/assets/js/layers/control-center/operations/account-requests.js');window.reviewCalls=[];await mountAccountRequests({root:document.body,isCurrent:()=>true,onSaved:()=>{},client:{rpc:async(name,args)=>{if(name==='control_center_account_request_owner')return {data:true};window.reviewCalls.push({name,args});return {data:null};},from:()=>({select:()=>({order:()=>({limit:async()=>({data:[{id:'request-id',account_id:'artist-id',kind:'studio_deletion',reason:'Please review removal of eligible Studio data.',status:'submitted',updated_at:'2026-11-03T12:00:00Z',review_note:''}]})})})})}});});
+ await expect(page.getByText('Approval does not delete data, revoke access or terminate a contract.',{exact:false})).toBeVisible();await page.getByLabel('Review decision',{exact:true}).selectOption('approved');await page.getByLabel('Review note',{exact:true}).fill('Review accepted; fulfilment still needs a protected retention review.');await page.getByRole('button',{name:'Save decision',exact:true}).click();expect(await page.evaluate(()=>window.reviewCalls)).toEqual([]);await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Save decision',exact:true}).click();expect(await page.evaluate(()=>window.reviewCalls)).toEqual([{name:'control_center_review_account_change',args:{request:'request-id',expected_updated:'2026-11-03T12:00:00Z',decision:'approved',note:'Review accepted; fulfilment still needs a protected retention review.'}}]);
 });
 test('contract details requests and review stay separate from signing and activation',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);let rows=[],review;

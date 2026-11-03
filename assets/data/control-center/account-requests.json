@@ -1,0 +1,10 @@
+{
+ "title":"Account and agreement requests",
+ "artist":"Artist","username":"Username","partnership":"Active partnership","reference":"Request reference","account":"Account ID","reason":"Artist's request","savedNote":"Recorded review","unresolvedArtist":"Artist details unavailable — verify the account ID",
+ "notice":"Check the artist and request, then record your decision. Approval does not delete data, revoke access or terminate a contract.",
+ "kinds":{"studio_deletion":"Studio data deletion","contract_termination":"Contract termination","onboarding_reset":"Restart artist onboarding"},
+ "statuses":{"submitted":"Submitted","under_review":"Under review","approved":"Approved for handling — action pending","declined":"Declined","withdrawn":"Withdrawn"},
+ "queue":{"id":"agreements","label":"Account request received","table":"studio_account_change_requests","displayField":"id","displayRecord":false,"pendingStatus":"submitted","action":"requests"},
+ "decision":"Review decision","reviewError":"The review was not recorded. Refresh before retrying.",
+ "review":"Save decision","note":"Review note","confirm":"I verified the artist and request. This decision does not remove data or end an agreement.","empty":"No account requests.","unavailable":"Account requests are unavailable or require the active owner."
+}

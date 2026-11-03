@@ -5,17 +5,19 @@ import rehearsalLabels from '../../../../data/control-center/agreement-rehearsal
 import {mountSigningRehearsals} from './shared/agreement-rehearsal.js';
 import {mountContractInvitations} from './contract-invitations.js';
 import {bindArtistPicker} from './artist-picker.js';
+import {mountAccountRequests} from './account-requests.js';
 export async function mountAgreements(options){
  const {content,client,staff,workspace,context,units,e,icon,isCurrent,onSaved}=options;
  if(workspace.workspace_key!=='artanrecords'){content.textContent='Choose Artanrecords to manage artist agreements.';return;}
  const navigation=document.createElement('nav');navigation.className='control-center-registry-tabs';navigation.setAttribute('role','tablist');navigation.setAttribute('aria-label','Agreements');content.replaceChildren(navigation);
  const panels=new Map();
- if(['drafts','invitations','details','signing'].includes(options.action))content.dataset.agreementTab=options.action;
+ if(['drafts','invitations','details','signing','requests'].includes(options.action))content.dataset.agreementTab=options.action;
  const addPanel=(id,title)=>{
   const panel=document.createElement('section'),button=document.createElement('button');panel.hidden=true;panel.id='agreement-panel-'+id;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby','agreement-tab-'+id);button.type='button';button.id='agreement-tab-'+id;button.setAttribute('role','tab');button.setAttribute('aria-controls',panel.id);button.setAttribute('aria-selected','false');button.tabIndex=-1;button.textContent=title;navigation.append(button);content.append(panel);panels.set(id,{panel,button});
   button.onclick=()=>{content.dataset.agreementTab=id;for(const [key,item] of panels){item.panel.hidden=key!==id;item.button.setAttribute('aria-selected',String(key===id));item.button.tabIndex=key===id?0:-1;}};
   button.onkeydown=event=>{const buttons=[...navigation.children],index=buttons.indexOf(button),next=event.key==='ArrowRight'?(index+1)%buttons.length:event.key==='ArrowLeft'?(index+buttons.length-1)%buttons.length:event.key==='Home'?0:event.key==='End'?buttons.length-1:null;if(next!==null){event.preventDefault();buttons[next].click();buttons[next].focus();}};return panel;
  };
+ const requests=addPanel('requests',labels.tabs.requests);await mountAccountRequests({root:requests,client,isCurrent,onSaved,workspaceId:workspace.id});if(!isCurrent())return;
  const inventory=addPanel('drafts',labels.tabs.drafts);inventory.setAttribute('aria-label','Agreement inventory');
  const drafts=await mountDocuments({...options,content:inventory,agreementOnly:true});if(!isCurrent())return;
  const writable=staff.permissions.includes('documents.write'),scope=writableUnits(units,workspace,staff);

@@ -1,6 +1,7 @@
 import {parseTags,writableUnits,unitOptions,saveRecord} from './records-common.js';
 import {partnershipDrafts,createPartnershipDraft,fillReviewedArtistDetails} from './agreement-templates.js';
 export async function mountDocuments({content,client,staff,workspace,context,units,e,icon,config,isCurrent,onSaved,action,agreementOnly=false}){
+ content.classList.add('control-center-document-inventory');
  let query=client.from('control_center_documents').select('id,unit_id,title,body,classification,tags,updated_at').eq('workspace_id',workspace.id);
  query=agreementOnly?query.contains('tags',['agreement']):query.not('tags','cs','{agreement}');
  const response=await query.order('updated_at',{ascending:false}).limit(200);
