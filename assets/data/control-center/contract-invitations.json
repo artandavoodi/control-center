@@ -1,0 +1,10 @@
+{
+ "title":"Invitations",
+ "description":"Invite a reviewed applicant to verify their email and provide requested legal details without opening Studio.",
+ "url":"https://studio.artanrecords.com/invitation/",
+ "create":"Create private invitation",
+ "unavailable":"Invitation setup is not enabled. Authentication isolation and verification-code email delivery must be tested first.",
+ "subject":"Your private Artanrecords agreement invitation",
+ "body":"Please open your private invitation to verify this email address and provide the requested legal details.\n\n{url}\n\nThis invitation expires on {expiry}. It does not activate Studio access, a subscription or a partnership. Do not forward this link.",
+ "created":"Invitation created, not sent. Review the email draft below before sending through iCloud. The private link is shown only in this draft; revoke and replace the invitation if it is lost."
+}

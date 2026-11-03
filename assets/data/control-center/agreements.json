@@ -2,7 +2,7 @@
  "navigation":{"id":"agreements","workspace":"operations","label":"Agreements","description":"Private contract drafts, requested legal details and review.","permissionAll":["documents.read","documents.confidential"],"icon":"core/legal/contracts/contract.svg"},
  "queue":{"id":"agreements","label":"Contract details ready for review","table":"studio_agreement_intake_requests","displayField":"id","displayRecord":false,"pendingStatus":"submitted","action":"details"},
  "signatureQueue":{"id":"agreements","label":"Artist signature received","table":"studio_agreement_envelopes","displayField":"id","displayRecord":false,"pendingStatus":"artist_signed","action":"signing"},
- "tabs":{"drafts":"Drafts","details":"Contract details","signing":"Signing & archive"},
+ "tabs":{"drafts":"Drafts","invitations":"Invitations","details":"Contract details","signing":"Signing & archive"},
  "searchCategory":{"id":"agreements","label":"Agreements"},
  "states":{"awaiting_details":"Awaiting artist details","submitted":"Ready for review","needs_changes":"Correction requested","approved":"Details reviewed for drafting","closed":"Closed"},
  "studioUrl":"https://studio.artanrecords.com/agreements/#contract-details",
