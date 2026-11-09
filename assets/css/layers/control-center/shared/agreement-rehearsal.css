@@ -29,7 +29,7 @@ details[open] > summary > .agreement-disclosure-icon { transform:rotate(180deg);
 .agreement-signature-tools > [role=status]:empty { display:none; }
 .agreement-signature-tools input[type=file] { inline-size:100%; min-inline-size:0; font:inherit; color:inherit; }
 .agreement-signature-tools input[type=file]::file-selector-button { font:inherit; color:inherit; background:var(--control-bg-hover); border:var(--border-width-hairline) solid var(--control-center-border,var(--cv-border)); border-radius:var(--account-field-radius,var(--panel-radius-unified)); padding:var(--spacing-sm) var(--spacing-md); margin-inline-end:var(--spacing-md); cursor:pointer; }
-[data-signature-step]:not([hidden]) { display:grid; gap:var(--spacing-lg); padding-block:var(--spacing-xl); border-block-start:var(--border-width-hairline) solid var(--control-center-border,var(--cv-border)); }
+[data-signature-step]:not([hidden]) { display:grid; gap:var(--spacing-lg); padding-block:var(--spacing-lg); }
 [data-signature-step] > label:not(.studio-sharing) { display:grid; gap:var(--spacing-sm); }
 [data-signature-step] > .studio-sharing { display:flex; align-items:flex-start; gap:var(--spacing-sm); }
 [data-signature-step] > .studio-sharing input { flex:none; inline-size:var(--icon-size-sm); block-size:var(--icon-size-sm); margin:0; }
