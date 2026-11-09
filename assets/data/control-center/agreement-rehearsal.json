@@ -1,5 +1,6 @@
 {
  "title":"Documents",
+ "viewerTitle":"Agreement",
  "notice":"Non-binding documents. These records do not execute a contract or activate a partnership.",
  "states":{"offered":"Ready for artist signature","artist_signed":"Waiting for label signature","label_signed":"Ready for final review","reviewed":"Ready to archive","archived":"Archived"},
  "nextSteps":{"offered":"Artist action: open this document, read every section and record your signature.","artist_signed":"Waiting for the label to review and add its signature.","label_signed":"Label action: review this fixed document and both signature records.","reviewed":"Label action: archive the reviewed record.","archived":"No signature is required. This non-binding record is complete."},
