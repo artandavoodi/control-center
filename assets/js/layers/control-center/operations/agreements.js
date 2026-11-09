@@ -11,6 +11,8 @@ export async function mountAgreements(options){
  if(workspace.workspace_key!=='artanrecords'){content.textContent='Choose Artanrecords to manage artist agreements.';return;}
  const navigation=document.createElement('nav');navigation.className='control-center-registry-tabs';navigation.setAttribute('role','tablist');navigation.setAttribute('aria-label','Agreements');content.replaceChildren(navigation);
  const panels=new Map();
+ const invitationReference=/^invitations:([0-9a-fA-F-]{36})$/.exec(options.action||'')?.[1];
+ if(invitationReference)content.dataset.agreementTab='invitations';
  if(['drafts','invitations','details','signing','requests'].includes(options.action))content.dataset.agreementTab=options.action;
  const addPanel=(id,title)=>{
   const panel=document.createElement('section'),button=document.createElement('button');panel.hidden=true;panel.id='agreement-panel-'+id;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby','agreement-tab-'+id);button.type='button';button.id='agreement-tab-'+id;button.setAttribute('role','tab');button.setAttribute('aria-controls',panel.id);button.setAttribute('aria-selected','false');button.tabIndex=-1;button.textContent=title;navigation.append(button);content.append(panel);panels.set(id,{panel,button});
@@ -22,6 +24,7 @@ export async function mountAgreements(options){
  const drafts=await mountDocuments({...options,content:inventory,agreementOnly:true});if(!isCurrent())return;
  const writable=staff.permissions.includes('documents.write'),scope=writableUnits(units,workspace,staff);
  const invitations=addPanel('invitations',labels.tabs.invitations);await mountContractInvitations({root:invitations,client,staff,workspace,scope,e,icon});if(!isCurrent())return;
+ if(invitationReference){const field=invitations.querySelector('[name=enquiry]');if(field)field.value=invitationReference;}
  const intake=addPanel('details',labels.tabs.details);intake.className='control-center-review';
  intake.innerHTML=`<h2>Contract details</h2><p>Request details from an artist with an existing Studio application. The artist confirms them in Studio; authorized reviewers receive the submitted version here. Review does not sign a contract or activate a tier.</p>${writable?`<form data-intake-request><label>Artist Studio account ID<input name="artist" required pattern="[0-9a-fA-F-]{36}" autocomplete="off"></label><label>Responsible department or office<select name="unit" required>${unitOptions(scope,e)}</select></label><label>Message to the artist<textarea name="message" maxlength="2000"></textarea></label><button type="submit">${icon('core/files/document/document.svg')}Request contract details</button><p role="status"></p></form>`:''}<p role="status" data-intake-load></p><div data-intake-records></div>`;
  const requestForm=intake.querySelector('[data-intake-request]'),status=intake.querySelector('[data-intake-load]'),results=intake.querySelector('[data-intake-records]');

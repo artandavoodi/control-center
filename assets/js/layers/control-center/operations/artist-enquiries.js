@@ -36,6 +36,12 @@ export async function mountArtistEnquiries({content,client,staff,workspace,e,ico
    const row=rows.find(item=>item.id===article.dataset.enquiry),form=article.querySelector('[data-enquiry-decision]');
    if(form){form.elements.decision.value=row.status==='new'?'under_review':row.status;form.elements.tier.value=row.proposed_tier||'silver';}
    bindEnquiryReply({article,row,macros,e,icon,onNavigate,canReadTemplates,error:macroError,client,staff});
+   if(row.status==='offered'&&staff.permissions.includes('documents.write')){
+    const next=document.createElement('button');next.type='button';next.dataset.inviteApplicant='';
+    next.innerHTML=icon('core/actions/send/send.svg')+e(labels.invite);
+    next.onclick=()=>onNavigate('agreements','invitations:'+row.id);
+    article.querySelector('[data-reply-open]').parentElement.append(next);
+   }
   }
   for(const form of results.querySelectorAll('[data-enquiry-decision]'))form.onsubmit=async event=>{event.preventDefault();if(!window.confirm('Save this decision? This does not send an email or approve an agreement.'))return;form.inert=true;try{const saved=await client.rpc('artan_review_enquiry',{enquiry:form.dataset.enquiryDecision,decision:form.elements.decision.value,tier:form.elements.tier.value,note:form.elements.note.value});if(saved.error)throw Error('The decision was not saved. Recheck your permission and the current status.');onNavigate('artist-enquiries',labels.tabs.find(tab=>tab.statuses?.includes(form.elements.decision.value))?.id||'under_review');}catch(error){form.inert=false;form.querySelector('[role=status]').textContent=error.message;}};
   for(const button of results.querySelectorAll('[data-link-enquiry]'))button.onclick=async()=>{if(!window.confirm('Link the Studio account with this verified reply email? Tier approval remains separate.'))return;button.disabled=true;const linked=await client.rpc('artan_link_enquiry',{enquiry:button.dataset.linkEnquiry});if(linked.error){button.disabled=false;button.parentElement.querySelector('[data-link-status]').textContent=linked.error.message;}else onNavigate('artist-enquiries','reviewed');};

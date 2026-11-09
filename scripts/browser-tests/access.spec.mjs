@@ -522,6 +522,16 @@ test('label can prepare initials and signature while recording stays blocked bef
  await root.getByRole('button',{name:'Edit signature',exact:true}).click();await root.getByRole('radio',{name:'Upload',exact:true}).check();await root.locator('[name=signature]').setInputFiles(new URL('./signature-sample.heic',import.meta.url).pathname);await expect(root.getByAltText('Signature preview')).toBeVisible({timeout:20000});await root.getByRole('button',{name:'Use signature',exact:true}).click();
  await root.locator('[data-rehearsal-signature]').evaluate(form=>form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true})));expect(attempts).toBe(0);const close=root.getByRole('button',{name:'Close document',exact:true});await expect(close).toHaveClass('global-close-button');await expect(close.locator('.global-close-button__line')).toHaveCount(2);await expect(close).toHaveText('');await close.click();await root.getByRole('button',{name:'Open document',exact:true}).click();await expect(root.locator('[name=initial-1]')).toHaveValue('TL');await expect(root.getByRole('button',{name:'Edit signature',exact:true})).toBeVisible();
 });
+test('reviewed Silver submission carries its reference into the private invitation without sending',async({page})=>{
+ await enter(page,['artists.read','tiers.review','documents.read','documents.write','documents.confidential']);let creations=0;
+ await page.route('**/rest/v1/artan_artist_enquiries*',route=>route.fulfill({json:[{id,artist_name:'Silver applicant',reply_email:'artist@example.test',payload:{artist:'Silver applicant'},profiles:[],status:'offered',proposed_tier:'silver',created_at:'2026-11-09T10:00:00Z'}]}));
+ await page.route('**/rest/v1/rpc/control_center_contract_portal_ready',route=>route.fulfill({json:true}));
+ await page.route('**/rest/v1/rpc/control_center_create_contract_invitation',route=>{creations++;return route.fulfill({json:null});});
+ await chooseContext(page,{function:'reviews'});await page.getByRole('navigation',{name:'Operations'}).getByRole('button',{name:'Public submissions',exact:true}).click();
+ await page.getByRole('tab',{name:'Reviewed 1',exact:true}).click();await page.getByRole('button',{name:'Prepare private invitation',exact:true}).click();
+ await expect(page.getByRole('tab',{name:'Invitations',exact:true})).toHaveAttribute('aria-selected','true');
+ await expect(page.locator('[data-create-invitation] [name=enquiry]')).toHaveValue(id);expect(creations).toBe(0);
+});
 test('contract invitations prepare a recipient-bound iCloud draft without sending or granting Studio access',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);let created;
  await page.route('**/rest/v1/rpc/control_center_contract_portal_ready',route=>route.fulfill({json:true}));await page.route('**/rest/v1/studio_contract_invitations*',route=>route.fulfill({json:[]}));

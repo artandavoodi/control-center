@@ -107878,7 +107878,7 @@
           "evidence": [
             "assets/data/control-center/mail.json",
             "assets/js/layers/control-center/operations/agreements.js",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/artist-enquiries.js"
           ]
         },
         {
@@ -109477,9 +109477,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
-            "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html"
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -113455,7 +113453,7 @@
           "evidence": [
             "docs/404.html",
             "docs/about/index.html",
-            "docs/artandavoodi/index.html"
+            "docs/artandavoodi/concerts/index.html"
           ]
         },
         {
@@ -117001,7 +116999,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/assets/fragments/layers/website/cookie/cookie-consent.html"
           ]
@@ -132678,7 +132675,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/assets/js/layers/site/artist-discovery.js"
           ]
@@ -132765,9 +132761,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
-            "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html"
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -132818,7 +132812,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json"
           ]
         },
@@ -132904,7 +132897,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/assets/js/layers/site/artist-discovery.js"
           ]
@@ -132956,9 +132948,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
-            "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html"
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -133008,7 +132998,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json"
           ]
         },
@@ -133070,9 +133059,7 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
-            "docs/assets/data/icons.json",
-            "docs/releases/dream/index.html"
+            "docs/assets/data/icons.json"
           ]
         },
         {
@@ -133121,7 +133108,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json"
           ]
         },
@@ -133593,7 +133579,6 @@
         {
           "brand": "artanrecords",
           "evidence": [
-            "docs/artandavoodi/index.html",
             "docs/assets/data/icons.json",
             "docs/contact/index.html"
           ]
@@ -133685,8 +133670,8 @@
           "brand": "artanrecords",
           "evidence": [
             "docs/about/index.html",
-            "docs/artandavoodi/index.html",
-            "docs/artist-websites/index.html"
+            "docs/artist-websites/index.html",
+            "docs/artists/index.html"
           ]
         },
         {
@@ -133800,8 +133785,8 @@
           "brand": "artanrecords",
           "evidence": [
             "docs/about/index.html",
-            "docs/artandavoodi/index.html",
-            "docs/artist-websites/index.html"
+            "docs/artist-websites/index.html",
+            "docs/artists/index.html"
           ]
         },
         {
