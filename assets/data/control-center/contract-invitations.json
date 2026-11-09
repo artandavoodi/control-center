@@ -6,5 +6,7 @@
  "unavailable":"Invitation setup is not enabled. Authentication isolation and verification-code email delivery must be tested first.",
  "subject":"Your private Artanrecords agreement invitation",
  "body":"Please open your private invitation to verify this email address and provide the requested legal details.\n\n{url}\n\nThis invitation expires on {expiry}. It does not activate Studio access, a subscription or a partnership. Do not forward this link.",
- "created":"Invitation created, not sent. Review the email draft below before sending through iCloud. The private link is shown only in this draft; revoke and replace the invitation if it is lost."
+ "created":"Invitation created, not sent. Review the email draft below before sending through iCloud. The private link is shown only in this draft; revoke and replace the invitation if it is lost.",
+ "accepted":"Invitation accepted by iCloud for sending. Awaiting recipient email verification; inbox delivery is not yet confirmed. Do not send a duplicate.",
+ "uncertain":"The invitation sending result is uncertain. Check its receipt before trying again; a second email could create a duplicate."
 }
