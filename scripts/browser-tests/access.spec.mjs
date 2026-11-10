@@ -481,13 +481,14 @@ test('contract artist search binds an explicit account and clears selection when
 });
 test('agreement search and navigation retain one clear control without field or sidebar borders',async({page})=>{
  await enter(page,['artists.read','documents.read','documents.write','documents.confidential']);await page.route('**/rpc/control_center_search_artists',route=>route.fulfill({json:[]}));
- const navigation=page.getByRole('button',{name:'Agreements',exact:true});await expect(navigation).toHaveCSS('border-top-width','0px');await expect(navigation).toHaveCSS('border-bottom-width','0px');await navigation.click();await page.getByRole('tab',{name:'Contract details',exact:true}).click();
+ const navigation=page.getByRole('button',{name:'Agreements',exact:true});expect(await navigation.evaluate(button=>button.getBoundingClientRect().height>=parseFloat(getComputedStyle(button).minBlockSize)&&getComputedStyle(button).minBlockSize!=='0px')).toBe(true);await expect(navigation).toHaveCSS('border-top-width','0px');await expect(navigation).toHaveCSS('border-bottom-width','0px');await navigation.click();await page.getByRole('tab',{name:'Contract details',exact:true}).click();
  const input=page.getByRole('combobox',{name:'Find artist',exact:true});await input.fill('Example');await expect(input).toHaveCSS('border-bottom-width','0px');const clear=page.getByRole('button',{name:'Clear artist search',exact:true});await expect(clear).toBeVisible();await expect(clear.locator('.global-close-button__line')).toHaveCount(2);const within=await clear.evaluate(button=>{const b=button.getBoundingClientRect(),f=button.parentElement.getBoundingClientRect();return b.left>=f.left&&b.right<=f.right;});expect(within).toBe(true);await clear.click();await expect(input).toHaveValue('');await expect(clear).toBeHidden();
 });
 test('agreement inventory and editing share full-width fields and token spacing',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);
  await page.getByRole('button',{name:'Agreements',exact:true}).click();
  const inventory=page.getByRole('tabpanel',{name:'Drafts',exact:true});
+ await expect(inventory).toHaveCSS('border-top-width','0px');
  const create=inventory.getByRole('button',{name:'Create agreement draft',exact:true});
  const search=inventory.getByRole('searchbox');
  const createBox=await create.boundingBox(),searchBox=await search.boundingBox();
