@@ -106854,14 +106854,30 @@
       "hasArtwork": true,
       "sha256": "a036f509a4871cb2c837f0160ef25262acc6f45c1b6fa8cc9c53b80b652ea65c",
       "brands": [
+        "control-center",
         "neuroartan",
+        "studio",
+        "artanrecords",
         "artan-live"
       ],
       "usage": [
         {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/js/layers/website/home/shell/home-search-shell.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         },
         {
