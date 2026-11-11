@@ -1,3 +1,4 @@
+import {signatureInput} from './shared/agreement-signature.js';
 import labels from '../../../../data/control-center/agreements.json' with {type:'json'};
 import {mountDocuments} from './documents.js';
 import {writableUnits,unitOptions} from './records-common.js';
@@ -14,12 +15,13 @@ export async function mountAgreements(options){
  const detailReference=/^details:([0-9a-fA-F-]{36})$/.exec(options.action||'')?.[1];if(detailReference){content.dataset.agreementTab='details';content.dataset.agreementRequest=detailReference;}
  const invitationReference=/^invitations:([0-9a-fA-F-]{36})$/.exec(options.action||'')?.[1];
  if(invitationReference)content.dataset.agreementTab='invitations';
- if(['drafts','invitations','details','signing','requests'].includes(options.action))content.dataset.agreementTab=options.action;
+ if(['drafts','invitations','details','signing','requests','signatures'].includes(options.action))content.dataset.agreementTab=options.action;
  const addPanel=(id,title)=>{
   const panel=document.createElement('section'),button=document.createElement('button');panel.hidden=true;panel.id='agreement-panel-'+id;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby','agreement-tab-'+id);button.type='button';button.id='agreement-tab-'+id;button.setAttribute('role','tab');button.setAttribute('aria-controls',panel.id);button.setAttribute('aria-selected','false');button.tabIndex=-1;button.textContent=title;navigation.append(button);content.append(panel);panels.set(id,{panel,button});
   button.onclick=()=>{content.dataset.agreementTab=id;for(const [key,item] of panels){item.panel.hidden=key!==id;item.button.setAttribute('aria-selected',String(key===id));item.button.tabIndex=key===id?0:-1;}};
   button.onkeydown=event=>{const buttons=[...navigation.children],index=buttons.indexOf(button),next=event.key==='ArrowRight'?(index+1)%buttons.length:event.key==='ArrowLeft'?(index+buttons.length-1)%buttons.length:event.key==='Home'?0:event.key==='End'?buttons.length-1:null;if(next!==null){event.preventDefault();buttons[next].click();buttons[next].focus();}};return panel;
  };
+ const signaturesPanel=addPanel('signatures',labels.tabs.signatures);const signatureForm=document.createElement('form');signatureForm.innerHTML='<label>'+e(rehearsalLabels.signatureLibrary.title)+'<input type="file" name="signature"></label>';signatureForm.onsubmit=event=>event.preventDefault();signaturesPanel.append(signatureForm);signatureInput(signatureForm,{client,libraryLabels:rehearsalLabels.signatureLibrary});
  const requests=addPanel('requests',labels.tabs.requests);await mountAccountRequests({root:requests,client,isCurrent,onSaved,workspaceId:workspace.id});if(!isCurrent())return;
  const inventory=addPanel('drafts',labels.tabs.drafts);inventory.setAttribute('aria-label','Agreement inventory');
  const drafts=await mountDocuments({...options,content:inventory,agreementOnly:true});if(!isCurrent())return;
