@@ -52185,6 +52185,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -52222,6 +52223,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -103407,7 +103409,6 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
-        "control-center",
         "neuroartan",
         "store",
         "artanrecords",

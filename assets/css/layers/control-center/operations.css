@@ -33,7 +33,7 @@
 .control-center-access > p { line-height:var(--line-height-body); }
 .control-center-access > button { align-self:flex-start; }
 .control-center-access label,.control-center-operations :where(label) { display:grid; gap:var(--spacing-sm); }
-.control-center-access input,.control-center-operations :where(input:not([type=radio]):not([type=checkbox]):not(:where(.control-center-search-field input)),textarea,select,button:not(.global-close-button,.ui-toggle,.control-center-photo-action,[role=tab]):not(:where(aside button))) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
+.control-center-operations :where(button:not(.global-close-button,.ui-toggle,.control-center-photo-action,[role=tab]):not(:where(aside button))) { font:inherit; min-block-size:var(--control-height-md); padding:var(--spacing-sm) var(--spacing-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--control-center-surface); color:inherit; max-inline-size:100%; }
 .control-center-app { block-size:100svh; display:flex; flex-direction:column; }
 .control-center-app-header { display:flex; flex:none; align-items:center; gap:var(--spacing-md); min-block-size:var(--control-height-lg); padding:var(--spacing-md) var(--spacing-lg); border-block-end:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-app-header > button { display:grid; place-items:center; min-inline-size:var(--control-height-md); min-block-size:var(--control-height-md); border:0; background:transparent; cursor:pointer; }
@@ -52,7 +52,7 @@ html[data-theme-effective=light] .control-center-header-wordmark { filter:var(--
 .control-center-notifications:popover-open { animation:control-center-account-enter var(--duration-fast) ease-out; }
 .control-center-notifications p,.control-center-notifications button span { color:var(--text-secondary-color); font-size:var(--text-caption-size); }
 .control-center-app-header :is([data-search-open],.control-center-notification-trigger) { position:relative; inline-size:var(--control-height-md); block-size:var(--control-height-md); padding:0; }
-.control-center-operations textarea { resize:vertical; max-inline-size:100%; }
+.control-center-app textarea { resize:none; max-inline-size:100%; }
 .control-center-account-trigger { flex-shrink:0; aspect-ratio:1; overflow:hidden; }
 .control-center-update-primary { display:flex; flex-wrap:wrap; gap:var(--spacing-md); margin-block-end:var(--spacing-xl); }
 .control-center-operations .control-center-update-primary button { display:flex; align-items:center; gap:var(--spacing-sm); border:0; background:var(--text-color); color:var(--bg-color); cursor:pointer; }
@@ -122,13 +122,13 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-request-facts dt { color:var(--text-secondary-color); font-size:var(--text-caption-size); }
 .control-center-request-facts dd { margin:0; overflow-wrap:anywhere; }
 .control-center-document-terms { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr)); gap:var(--spacing-lg); padding-block-start:var(--spacing-lg); }
+[data-required-terms] h4 { margin:0; font:inherit; font-weight:var(--font-weight-medium); }
 .control-center-template-picker > button { margin-block-start:var(--spacing-md); margin-inline-end:var(--spacing-md); }
 [data-intake-version] details[open] > summary { margin-block-end:var(--spacing-lg); }
 [data-intake-version] details > p { margin-block:var(--spacing-lg); }
 @media(max-width:767px){.control-center-request-facts{grid-template-columns:minmax(0,1fr);}}
 .control-center-operations .control-center-account-request-review { inline-size:100%; gap:var(--spacing-lg); padding-block-start:var(--spacing-xl); border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-account-request-review :is(select,textarea) { box-sizing:border-box; inline-size:100%; min-inline-size:0; }
-.control-center-account-request-review textarea { resize:vertical; }
 .control-center-account-request-review > button { justify-self:start; }
 .control-center-account-request-review [role=status]:empty { display:none; }
 .control-center-operations .control-center-account-request-review .control-center-operation-check { display:flex; align-items:flex-start; gap:var(--spacing-sm); }
@@ -243,7 +243,7 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-context-form header { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-context-form h2 { margin:0; font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
 .control-center-context-form label { display:grid; gap:var(--spacing-sm); }
-.control-center-context-form :is(select,button:not(.global-close-button)) { font:inherit; min-block-size:var(--control-height-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background-color:var(--control-center-surface); color:inherit; padding:var(--spacing-sm) var(--spacing-md); }
+.control-center-context-form button:not(.global-close-button) { font:inherit; min-block-size:var(--control-height-md); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background-color:var(--control-center-surface); color:inherit; padding:var(--spacing-sm) var(--spacing-md); }
 .control-center-organization-actions { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block-end:var(--spacing-xl); }
 .control-center-organization-actions button { display:flex; align-items:center; justify-content:center; gap:var(--spacing-sm); cursor:pointer; }
 .control-center-operation-icon { flex:none; }
@@ -314,7 +314,9 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-search-field input { flex:1; inline-size:0; min-inline-size:0; min-block-size:var(--control-height-lg); border:0; padding:var(--spacing-sm) 0; background:transparent; color:inherit; font-size:var(--font-size-lg); }
 .control-center-search-field input::-webkit-search-cancel-button { appearance:none; }
 .control-center-search-field input:focus-visible { outline:none; }
-.control-center-app :is(input,textarea,select):focus-visible { outline:none; border-color:var(--field-border-focus); }
+.control-center-access input,.control-center-app :where(input:not([type=radio]):not([type=checkbox]):not([type=range]):not([type=color]):not([type=file]):not([type=button]):not([type=submit]):not(:where(.control-center-search-field input)),textarea,select) { box-sizing:border-box; font:inherit; min-block-size:var(--account-field-height); padding:var(--spacing-sm) var(--account-field-padding-x); border:0; border-radius:var(--account-field-radius); background:var(--field-bg); color:var(--control-text-unified); max-inline-size:100%; outline:none; box-shadow:none; }
+.control-center-access input:is(:hover,:focus,:focus-visible),.control-center-app :where(input:not([type=radio]):not([type=checkbox]):not([type=range]):not([type=color]):not([type=file]):not([type=button]):not([type=submit]):not(:where(.control-center-search-field input)),textarea,select):is(:hover,:focus,:focus-visible) { border:0; outline:none; box-shadow:none; background:var(--field-bg); color:var(--control-text-unified); }
+.control-center-access label:has(input:focus-visible),.control-center-app label:has(> :is(input,textarea,select):focus-visible) { text-decoration:underline; text-decoration-thickness:var(--border-width-hairline); text-underline-offset:var(--spacing-xs); }
 .control-center-app button:not(.global-close-button):focus-visible { outline:var(--focus-ring-width) solid var(--focus-ring-soft-color); outline-offset:var(--focus-ring-offset); }
 html,body,.control-center-app,.control-center-app * { scrollbar-width:none; }
 html::-webkit-scrollbar,body::-webkit-scrollbar,.control-center-app::-webkit-scrollbar,.control-center-app *::-webkit-scrollbar { display:none; }
