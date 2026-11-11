@@ -121,6 +121,8 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-request-facts > div { display:grid; gap:var(--spacing-xs); min-inline-size:0; }
 .control-center-request-facts dt { color:var(--text-secondary-color); font-size:var(--text-caption-size); }
 .control-center-request-facts dd { margin:0; overflow-wrap:anywhere; }
+[data-intake-version] details[open] > summary { margin-block-end:var(--spacing-lg); }
+[data-intake-version] details > p { margin-block:var(--spacing-lg); }
 @media(max-width:767px){.control-center-request-facts{grid-template-columns:minmax(0,1fr);}}
 .control-center-operations .control-center-account-request-review { inline-size:100%; gap:var(--spacing-lg); padding-block-start:var(--spacing-xl); border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-account-request-review :is(select,textarea) { box-sizing:border-box; inline-size:100%; min-inline-size:0; }
