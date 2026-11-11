@@ -1,6 +1,9 @@
 import defaults from '../../../../data/control-center/partnership-defaults.json' with {type:'json'};
 import template from '../../../../data/control-center/agreement-template.json' with {type:'json'};
 export const partnershipDrafts=defaults.items;
+export const requiredAgreementFields=body=>[...new Set([...String(body).matchAll(/\[([a-z ]+) - required\]/g)].map(match=>match[1]))];
+export const agreementFieldSection=key=>template.sections.find(section=>section.text.includes('{{'+key.replaceAll(' ','_')+'}}'))?.title||'Other required terms';
+export const isPartnershipTemplate=row=>partnershipDrafts.some(item=>row.tags.includes('partnership-'+item.id)&&row.body===createPartnershipDraft(item.id).body);
 export function createPartnershipDraft(tier){
  const item=defaults.items.find(item=>item.id===tier);if(!item)throw Error('Choose a registered partnership');
  const values={tier:item.name,artist_share:item.artistShare,label_share:item.labelShare,commercial_version:defaults.commercialTermsVersion};

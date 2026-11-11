@@ -9,7 +9,7 @@ import {roleBlueprint,renderRoleBlueprint,positionAssignments} from '../assets/j
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
-import {createPartnershipDraft,fillReviewedArtistDetails} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate} from '../assets/js/layers/control-center/operations/agreement-templates.js';
 test('reviewed artist details fill only recipient placeholders, not the label or commercial terms',()=>{
  const draft=createPartnershipDraft('gold'),filled=fillReviewedArtistDetails(draft.body,{recipient_type:'individual',legal_name:'Synthetic Legal Name',artist_name:'Artist',address_line1:'1 Test Street',city:'Test City',country_code:'HR'});
  assert.match(filled,/Synthetic Legal Name/);assert.match(filled,/Artist 80%; Artanrecords 20%/);assert.match(filled,/\[label legal name - required\]/);assert.doesNotMatch(filled,/\[artist legal name - required\]/);
@@ -19,6 +19,7 @@ test('agreement templates use canonical allocations and never claim execution',(
  for(const tier of ['silver','gold','platinum']){const draft=createPartnershipDraft(tier);assert.match(draft.body,/NOT ISSUED FOR SIGNATURE/);assert.match(draft.body,/LEGAL REVIEW REQUIRED/);assert.match(draft.body,/\[legal review - required\]/);assert.match(draft.body,/Signature: \[reserved for the authenticated artist signer\]/);assert.ok(draft.tags.includes('agreement'));}
  assert.match(createPartnershipDraft('silver').body,/Artist 85%; Artanrecords 15%/);assert.match(createPartnershipDraft('gold').body,/Artist 80%; Artanrecords 20%/);assert.match(createPartnershipDraft('platinum').body,/Artist 70%; Artanrecords 30%/);assert.throws(()=>createPartnershipDraft('unknown'));
 });
+test('required terms are deduplicated and templates are identified by exact canonical content',()=>{const draft=createPartnershipDraft('silver');const fields=requiredAgreementFields(draft.body);assert.equal(fields.filter(key=>key==='label legal name').length,1);assert.ok(fields.includes('term'));assert.equal(isPartnershipTemplate(draft),true);assert.equal(isPartnershipTemplate({...draft,body:draft.body+'\nArtist-specific draft'}),false);assert.deepEqual(requiredAgreementFields('No required placeholders'),[]);});
 test('agreement navigation requires every confidential document permission',()=>{
  const config={navigation:[{id:'agreements',permissionAll:['documents.read','documents.confidential']}]};
  assert.equal(permittedNavigation(config,{enabled:true,permissions:['documents.read']}).length,0);
