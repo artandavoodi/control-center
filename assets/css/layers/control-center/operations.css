@@ -26,8 +26,15 @@
 .control-center-document-inventory { display:grid; gap:var(--spacing-lg); min-inline-size:0; }
 .control-center-document-inventory > :is(p,label) { margin:0; }
 .control-center-document-inventory > button { justify-self:start; }
-.control-center-document-inventory [data-document-editor] { display:grid; gap:var(--spacing-lg); padding-block:var(--spacing-xl); border-block-start:var(--border-width-hairline) solid var(--control-center-border); }
+.control-center-document-inventory [data-document-editor] { display:grid; gap:var(--spacing-lg); margin:0; padding:0; }
 .control-center-document-inventory [data-document-editor] > h2 { margin:0; }
+.control-center-document-inventory.is-editing > :not([data-document-editor],dialog) { display:none; }
+.control-center-contract-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
+.control-center-contract-header h2 { margin:0; font-size:var(--font-size-lg); }
+.control-center-contract-actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-md); }
+.control-center-contract-actions [role=status] { margin:0; }
+.control-center-contract-terms,.control-center-contract-fields { display:grid; gap:var(--spacing-md); min-inline-size:0; }
+.control-center-contract-terms > :is(h3,p),.control-center-contract-fields h4 { margin:0; }
 .control-center-access form { inline-size:100%; }
 .control-center-access > h2 { font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
 .control-center-access > p { line-height:var(--line-height-body); }
@@ -307,7 +314,7 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-motion-preview { display:inline-block; transition-property:opacity; transition-timing-function:var(--interaction-ease-standard); }
 .control-center-motion-preview:is(:hover,:focus-visible) { opacity:var(--opacity-muted); }
 @media(prefers-reduced-motion:reduce){.control-center-motion-preview { transition:none; }}
-[data-document-editor],[data-vacancy-editor] { margin-block-start:var(--spacing-xl); padding-block-start:var(--spacing-xl); }
+[data-vacancy-editor] { margin-block-start:var(--spacing-xl); padding-block-start:var(--spacing-xl); }
 .control-center-search > header { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-search h2 { font-size:var(--font-size-lg); font-weight:var(--font-weight-medium); }
 .control-center-search-field { display:flex; align-items:center; gap:var(--spacing-md); margin-block:var(--spacing-xl); border-block-end:var(--border-width-hairline) solid var(--control-center-border); }

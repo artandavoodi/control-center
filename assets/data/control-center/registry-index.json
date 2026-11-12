@@ -104949,14 +104949,30 @@
       "hasArtwork": true,
       "sha256": "19939f6f11e3c970c3e8a89740c7b8099e6a5cfe4719aad565f270dedb40ec13",
       "brands": [
-        "neuroartan"
+        "control-center",
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
             "docs/assets/js/layers/website/profile/private/posts/profile-posts.js",
             "docs/assets/js/layers/website/profile/private/thoughts/profile-thought-stream-panel.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
           ]
         }
       ]
@@ -105425,8 +105441,26 @@
       "category": "core/actions",
       "hasArtwork": true,
       "sha256": "d525fd4e61d73bcc19b4ee7b747473edc24b2abd5d67a07c4c6907550684d4cf",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center",
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/actions/featured-functions-controls/featured-functions-controls",
@@ -107907,9 +107941,9 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/agreements.json",
             "assets/data/control-center/mail.json",
-            "assets/js/layers/control-center/operations/agreements.js",
-            "assets/js/layers/control-center/operations/artist-enquiries.js"
+            "assets/js/layers/control-center/operations/agreements.js"
           ]
         },
         {
@@ -109891,6 +109925,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/agreements.json",
             "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
@@ -113144,9 +113179,9 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/agreements.json",
             "assets/data/control-center/operations.json",
-            "assets/data/control-center/update-actions.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/data/control-center/update-actions.json"
           ]
         },
         {
@@ -113468,6 +113503,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/agreements.json",
             "assets/data/control-center/update-actions.json",
             "assets/js/layers/control-center/operations/dist.js"
           ]
@@ -113822,8 +113858,18 @@
       "category": "core/identity",
       "hasArtwork": true,
       "sha256": "e903f06966120c5b20c611d47dde1fb40c8d7f615bb5bc811f3e665b07f33052",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/agreements.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/identity/profile/users",
@@ -114564,6 +114610,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/agreements.json",
             "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
