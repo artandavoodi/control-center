@@ -1,6 +1,11 @@
 import defaults from '../../../../data/control-center/partnership-defaults.json' with {type:'json'};
 import template from '../../../../data/control-center/agreement-template.json' with {type:'json'};
 export const partnershipDrafts=defaults.items;
+export const proposedTermsNotice=template.proposalDefaults.notice;
+export function proposedAgreementTerms(tier){
+ const item=defaults.items.find(item=>item.id===tier);if(!item)return {};
+ return Object.fromEntries(Object.entries({...template.proposalDefaults.common,...template.proposalDefaults.tiers[tier]}).map(([key,value])=>[key,'PROPOSED FOR REVIEW: '+value.replaceAll('{{studio_plan}}',item.includedStudioPlan)]));
+}
 export const requiredAgreementFields=body=>[...new Set([...String(body).matchAll(/\[([a-z ]+) - required\]/g)].map(match=>match[1]))];
 export const agreementFieldSection=key=>template.sections.find(section=>section.text.includes('{{'+key.replaceAll(' ','_')+'}}'))?.title||'Other required terms';
 export const isPartnershipTemplate=row=>partnershipDrafts.some(item=>row.tags.includes('partnership-'+item.id)&&row.body===createPartnershipDraft(item.id).body);

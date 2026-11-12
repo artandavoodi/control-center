@@ -9,7 +9,20 @@ import {roleBlueprint,renderRoleBlueprint,positionAssignments} from '../assets/j
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
-import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate,proposedAgreementTerms} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+test('all tier starting terms are editable proposals and never invent parties or approval',()=>{
+ for(const tier of ['silver','gold','platinum']){
+  const terms=proposedAgreementTerms(tier);assert.equal(Object.keys(terms).length,13);
+  for(const value of Object.values(terms)){assert.match(value,/^PROPOSED FOR REVIEW:/);assert.ok(value.length<=4000);}
+  for(const key of ['label details','recordings','governing law','legal review','artist legal name'])assert.equal(terms[key],undefined);
+  assert.match(terms.rights,/non-exclusive/);assert.match(terms.term,/no automatic renewal/);
+ }
+ assert.notEqual(proposedAgreementTerms('silver').services,proposedAgreementTerms('gold').services);
+ assert.notEqual(proposedAgreementTerms('gold').services,proposedAgreementTerms('platinum').services);
+ assert.match(proposedAgreementTerms('silver')['studio access'],/The Studio workspace/);
+ for(const tier of ['gold','platinum'])assert.match(proposedAgreementTerms(tier)['studio access'],/The Studio Pro workspace/);
+ assert.deepEqual(proposedAgreementTerms('unknown'),{});
+});
 test('reviewed artist details fill only recipient placeholders, not the label or commercial terms',()=>{
  const draft=createPartnershipDraft('gold'),filled=fillReviewedArtistDetails(draft.body,{recipient_type:'individual',legal_name:'Synthetic Legal Name',artist_name:'Artist',address_line1:'1 Test Street',city:'Test City',country_code:'HR'});
  assert.match(filled,/Synthetic Legal Name/);assert.match(filled,/Artist 80%; Artanrecords 20%/);assert.match(filled,/\[label legal name - required\]/);assert.doesNotMatch(filled,/\[artist legal name - required\]/);

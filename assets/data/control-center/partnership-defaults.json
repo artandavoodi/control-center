@@ -1,27 +1,32 @@
 {
   "source": "artandavoodi/artanrecords",
-  "revision": "d26c1441c0221c72d8a4500c3564c4d6de8a3866",
+  "revision": "695fe30ca8df478ba924ca915968bdc91f46df43",
   "file": "docs/assets/data/partnerships.json",
   "sourceSha256": "9a4d7cd3d705be4d3625566e7454bbd5d1dd64ffaf3ef8e75f44cddc30926140",
+  "plansFile": "docs/assets/data/studio-plans.json",
+  "plansSha256": "2efa5a820fc1983b842e1ba4ff148501a784b15e278a0223aa88e9f02b66d3c7",
   "commercialTermsVersion": 1,
   "items": [
     {
       "id": "silver",
       "name": "Silver",
       "artistShare": 85,
-      "labelShare": 15
+      "labelShare": 15,
+      "includedStudioPlan": "Studio"
     },
     {
       "id": "gold",
       "name": "Gold",
       "artistShare": 80,
-      "labelShare": 20
+      "labelShare": 20,
+      "includedStudioPlan": "Studio Pro"
     },
     {
       "id": "platinum",
       "name": "Platinum",
       "artistShare": 70,
-      "labelShare": 30
+      "labelShare": 30,
+      "includedStudioPlan": "Studio Pro"
     }
   ]
 }
