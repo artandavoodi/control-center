@@ -1,6 +1,6 @@
 {
   "source": "artandavoodi/website",
-  "revision": "3ecec75c75728f8fe306ca2948f6663c3f4a7f39",
+  "revision": "7479f07bc6c34f2288a365b8b4f5b732949664e3",
   "files": {
     "themes.css": {
       "file": "docs/assets/css/core/02-foundation/themes.css",
@@ -36,7 +36,7 @@
     },
     "icons.css": {
       "file": "docs/assets/css/core/03-primitives/icons.css",
-      "sha256": "01ff955dfdbe0f0e9565096d2b099648b66033810c2e56685f52fca380877774"
+      "sha256": "c3999d9f3b87439f4d38f275081f4115a3ab240a1ec9ac626362d932d4bfe043"
     },
     "slider.css": {
       "file": "docs/assets/css/core/03-primitives/slider.css",
@@ -52,11 +52,11 @@
     },
     "toast.js": {
       "file": "docs/assets/js/core/02-systems/toast.js",
-      "sha256": "96f80c43c2616a68abe67336f14fc577f32dcf986a6382658d091001fb4919da"
+      "sha256": "51a4f785b1120ff62833238855abea855911801b20c5cc40cae68cf9c41b205f"
     },
     "toast.css": {
       "file": "docs/assets/css/core/04-systems/toast.css",
-      "sha256": "07f55c5c1674c4ca1e98956a0aa7608605d324358db37eb49388506572e431a9"
+      "sha256": "90404fe7ee55287b487ad9cd0254914a4253db126cc4ce35f751d566a0c618ec"
     },
     "notification-feed.js": {
       "file": "docs/assets/js/core/02-systems/notification-feed.js",
@@ -68,7 +68,7 @@
     },
     "notifications.css": {
       "file": "docs/assets/css/core/04-systems/notifications.css",
-      "sha256": "57985e09f5fc774f4d5678b92192dcedbf24efc3feac5a7824ab10bf5f309780"
+      "sha256": "7b637949e0cf48f67340ee15b9e2c8cb1de0086a3cb67d735ba39a6a51d1f1aa"
     },
     "toggle.css": {
       "file": "docs/assets/css/core/03-primitives/toggle.css",
