@@ -10433,6 +10433,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10447,6 +10448,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10476,6 +10478,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10505,6 +10508,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10519,6 +10523,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10533,6 +10538,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10548,6 +10554,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -10562,6 +10569,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -15846,6 +15854,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -15864,6 +15873,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21419,6 +21429,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21441,6 +21452,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21463,6 +21475,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21485,6 +21498,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21666,6 +21680,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21686,6 +21701,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21706,6 +21722,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -21727,6 +21744,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -106911,6 +106929,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/js/layers/control-center/operations/agreement-editor.js",
             "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
@@ -107810,7 +107829,7 @@
           "evidence": [
             "assets/data/control-center/operations.json",
             "assets/data/control-center/update-actions.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/artist-details-navigation.js"
           ]
         },
         {
@@ -113179,9 +113198,9 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/agreements.json",
             "assets/data/control-center/operations.json",
-            "assets/data/control-center/update-actions.json"
+            "assets/data/control-center/update-actions.json",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {
@@ -116707,6 +116726,7 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/js/layers/control-center/operations/agreement-editor.js",
             "assets/js/layers/control-center/operations/agreements.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
@@ -116736,6 +116756,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
+            "assets/js/layers/control-center/operations/agreement-editor.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         }

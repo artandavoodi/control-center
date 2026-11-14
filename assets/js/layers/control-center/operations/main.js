@@ -60,7 +60,7 @@ let staff=null,user=null,panel='overview',revision=0,recovering=false,workspaces
 async function refreshRegistry(){
  const [brands,registry]=await Promise.all([client.rpc('control_center_workspaces'),client.from('control_center_units').select('id,parent_id,kind,name,active,workspace_key').order('name')]);
  if(brands.error||registry.error)throw Error('Your workspace directory could not be loaded.');
- workspaces=brands.data||[];units=registry.data||[];
+ workspaces=(brands.data||[]).filter(brand=>config.brandWorkspaceKeys.includes(brand.workspace_key));units=registry.data||[];
 }
 const access=createAccess({client,root,config,e,onAuthenticated:loadAccess,onReset:()=>{finishLoading();recovering=true;staff=null;user=null;}});
 function signin(message=''){updateMonitor?.stop();updateMonitor=null;finishLoading();stopUsage();staff=null;user=null;recovering=false;access.signin(message);}

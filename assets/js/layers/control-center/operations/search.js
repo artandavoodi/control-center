@@ -1,6 +1,7 @@
 import {descendants} from './context.js';
 import {permittedFunctions} from './access.js';
 import {loadRegistry} from './registry.js';
+import {bindSearchField} from './search-field.js';
 export function rankResults(records,query,category='all'){
  const normalize=value=>String(value||'').normalize('NFKD').replace(/\p{M}/gu,'').toLowerCase();
  const text=normalize(query).replace(/(^|\s)(?:#|tag:)/g,'$1').trim(),words=text.split(/\s+/).filter(Boolean);
@@ -12,6 +13,7 @@ export function mountSearch({root,config,client,staff,nav,workspace,context,unit
  dialog.innerHTML=`<section class="control-center-search"><header><h2>${e(config.search.title)}</h2><button type="button" class="global-close-button" data-search-close aria-label="Close search"></button></header><label class="control-center-search-field">${icon(config.chrome.search)}<input type="search" aria-label="Search workspace" placeholder="${e(config.search.placeholder)}" autocomplete="off" maxlength="200"></label><p class="control-center-field-note">${e(config.search.description)}</p><div class="control-center-search-tabs" role="group" aria-label="Search categories">${categories.filter(category=>category.id!=='reviews'||(workspace.workspace_key==='artanrecords'&&staff.permissions.includes('artists.read'))).filter(category=>category.id!=='decisions'||staff.permissions.includes('audit.read')).filter(category=>category.id!=='documents'||staff.permissions.includes('documents.read')).filter(category=>category.id!=='vacancies'||staff.permissions.includes('jobs.read')).map(category=>`<button type="button" data-search-category="${e(category.id)}" aria-pressed="${category.id==='all'}">${e(category.label)}</button>`).join('')}</div><p role="status" data-search-status></p><div data-search-results></div></section>`;
  const field=dialog.querySelector('input'),output=dialog.querySelector('[data-search-results]'),status=dialog.querySelector('[role=status]');let category='all',records=[],errors=[],loaded=false,revision=0;
  const scope=descendants(units,context.office||context.department||workspace.id);
+ bindSearchField(field.closest('.control-center-search-field'),{clearLabel:'Clear workspace search'});
  function draw(){const rows=rankResults(records,field.value,category);status.textContent=[loaded?`${rows.length} results${rows.length===50?' · refine your search for more precise results':''}`:'Loading workspace records…',...errors].join(' ');output.innerHTML=rows.map((row,index)=>`<button type="button" data-search-result="${index}">${icon(row.icon)}<span><strong>${e(row.title)}</strong><span>${e(row.detail)}</span></span></button>`).join('');output.querySelectorAll('[data-search-result]').forEach(button=>button.addEventListener('click',()=>{dialog.close();const row=rows[Number(button.dataset.searchResult)];onNavigate(row.panel,row.action);}));}
  async function load(){
   const turn=++revision;errors=[];records=nav.map(item=>({title:item.label,detail:item.description||'',category:'tools',panel:item.id,icon:item.icon}));

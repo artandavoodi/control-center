@@ -1,0 +1,12 @@
+import {bindSearchField} from './search-field.js';
+export function bindDetailsNavigation({intake,results,requestForm,icon,onSelect}){
+ const directory=document.createElement('section'),label=document.createElement('label'),field=document.createElement('span'),search=document.createElement('input'),clear=document.createElement('button'),list=document.createElement('div');
+ label.textContent='Find artist details';search.type='search';search.placeholder='Artist name, username, email or account reference';search.setAttribute('aria-label','Find artist details');
+ directory.className='control-center-artist-directory';list.className='control-center-artist-results';field.className='control-center-search-field';field.innerHTML=icon('core/actions/search/search.svg');clear.type='button';clear.className='global-close-button';clear.setAttribute('aria-label','Clear details search');clear.hidden=true;field.append(search,clear);label.append(field);directory.append(label,list);results.before(directory);
+ const entries=[...results.querySelectorAll('[data-intake-id]')];
+ const render=()=>{list.replaceChildren();const query=search.value.trim().toLocaleLowerCase();clear.hidden=!search.value;for(const article of entries){if(query&&!article.textContent.toLocaleLowerCase().includes(query))continue;const button=document.createElement('button'),name=document.createElement('strong'),state=document.createElement('span');button.type='button';button.className='control-center-artist-result';name.textContent=article.dataset.artistName||article.dataset.artistAccount;state.textContent=article.querySelector('h3').textContent;button.append(name,document.createTextNode(' '),state);button.onclick=()=>onSelect(article.dataset.intakeId);list.append(button);}if(!list.children.length){const empty=document.createElement('p');empty.textContent='No matching artist details.';list.append(empty);}};
+ search.oninput=render;bindSearchField(field,{clearLabel:'Clear details search'});
+ let create;if(requestForm){create=document.createElement('button');create.type='button';create.innerHTML=icon('core/files/document/document.svg')+'Request details';create.onclick=()=>{requestForm.hidden=!requestForm.hidden;if(!requestForm.hidden)requestForm.querySelector('input:not([type=hidden])')?.focus();};directory.before(create);}
+ render();
+ return id=>{directory.hidden=Boolean(id);if(create)create.hidden=Boolean(id);if(requestForm)requestForm.hidden=true;for(const article of entries)article.hidden=!id||article.dataset.intakeId!==id;};
+}
