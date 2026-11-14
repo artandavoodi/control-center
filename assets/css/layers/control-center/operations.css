@@ -262,7 +262,7 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-enquiry-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--spacing-lg); margin-block:var(--spacing-lg); }
 .control-center-enquiry-field { display:grid; gap:var(--spacing-sm); min-inline-size:0; }
 .control-center-enquiry-field:has(textarea) { grid-column:1/-1; }
-.control-center-app :is(button,a):has(> .control-center-operation-icon) { display:inline-flex; align-items:center; gap:var(--spacing-sm); }
+.control-center-operations :is(button,a):has(> .control-center-operation-icon) { display:inline-flex; align-items:center; gap:var(--spacing-sm); }
 .control-center-action-row { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-md); margin-block:var(--spacing-lg); }
 .control-center-inline-action { display:inline-flex; align-items:center; gap:var(--spacing-sm); }
 .control-center-enquiry { padding-block:var(--spacing-xl); }
