@@ -9389,6 +9389,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -107235,8 +107236,8 @@
         "print"
       ],
       "category": "core/actions",
-      "hasArtwork": false,
-      "sha256": "e12059ce8e2de342f5d92213581641c5021c69effc241edc3eae4e30bf835c57",
+      "hasArtwork": true,
+      "sha256": "afbdf1a4c156cff359d3b4ce528ed34ed0307112d6276bd9f6f6875f7fe22847",
       "brands": [],
       "usage": []
     },
@@ -108271,7 +108272,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/update-actions.json",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/documents.js"
           ]
         },
         {
@@ -119645,8 +119647,8 @@
         "careers"
       ],
       "category": "layers/jobs",
-      "hasArtwork": false,
-      "sha256": "4eb410024e0a832301e6cd289c1aa5ee6e4782a73248fbd2f6f247d045efaea4",
+      "hasArtwork": true,
+      "sha256": "90d3fc37a93a0c7d88ec01cfb89968f0b6325a761e002d19a7b94e4c3e0f108c",
       "brands": [],
       "usage": []
     },
