@@ -345,6 +345,20 @@ test('header search uses one concise prompt without explanatory copy',async({pag
  await expect(page.locator('main > header > p')).toHaveCount(0);
  await search.getByRole('button',{name:'Close search',exact:true}).click();
 });
+test('workspace search fills the viewport and scrolls results independently',async({page})=>{
+ await enter(page,['artists.read']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'Search your workspace',exact:true});
+ const geometry=await dialog.evaluate(element=>{const rect=element.getBoundingClientRect();return {x:rect.x,y:rect.y,width:rect.width,height:rect.height,viewportWidth:innerWidth,viewportHeight:innerHeight};});
+ expect(geometry.x).toBe(0);expect(geometry.y).toBe(0);expect(geometry.width).toBe(geometry.viewportWidth);expect(geometry.height).toBe(geometry.viewportHeight);
+ const results=dialog.locator('[data-search-results]'),tabs=dialog.locator('.control-center-search-tabs'),field=dialog.getByRole('searchbox');
+ await expect(results.getByRole('button').first()).toBeVisible();
+ const before={tabs:await tabs.boundingBox(),field:await field.boundingBox()};
+ await results.evaluate(element=>{element.scrollTop=element.scrollHeight;});
+ expect(await tabs.boundingBox()).toEqual(before.tabs);expect(await field.boundingBox()).toEqual(before.field);
+ expect(await results.evaluate(element=>getComputedStyle(element).overflowY)).toBe('auto');
+ expect(await tabs.evaluate(element=>parseFloat(getComputedStyle(element).borderBottomWidth))).toBeGreaterThan(0);
+ await page.keyboard.press('Escape');await expect(dialog).not.toBeVisible();await expect(page.getByRole('button',{name:'Search workspace',exact:true})).toBeFocused();
+});
 test('header search focuses immediately, filters permitted records and restores focus',async({page})=>{
  await enter(page,['artists.read']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Search your workspace',exact:true});const input=dialog.getByRole('searchbox',{name:'Search workspace',exact:true});await expect(input).toBeFocused();await input.fill('Communication');await expect(dialog.locator('[data-search-results]').getByRole('button',{name:'Communication department',exact:true})).toBeVisible();await input.fill('Staff & offices');await expect(dialog.locator('[data-search-results]').getByRole('button')).toHaveCount(0);await input.fill('My account');await dialog.locator('[data-search-results]').getByRole('button').click();await expect(page.getByRole('heading',{name:'My account',exact:true})).toBeVisible();await page.getByRole('button',{name:'Search workspace',exact:true}).click();await page.getByRole('button',{name:'Close search',exact:true}).click();await expect(page.getByRole('button',{name:'Search workspace',exact:true})).toBeFocused();expect(await page.locator('body').evaluate(el=>el.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('.control-center-header-wordmark')).toHaveAttribute('alt','Artanrecords');
 });
