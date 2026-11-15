@@ -6,6 +6,14 @@ import {normalizeContext,descendants,contextualNavigation} from '../assets/js/la
 import {rankResults} from '../assets/js/layers/control-center/operations/search.js';
 import {registryReference,registryMatches,registryKinds} from '../assets/js/layers/control-center/operations/registry.js';
 import {roleBlueprint,renderRoleBlueprint,positionAssignments} from '../assets/js/layers/control-center/operations/roles.js';
+test('every active department and office has a manager reporting through an executive',()=>{
+ const departments=['Brand','Communication','Governance','Infrastructure','Knowledge & Research','Operations'];
+ const units=departments.flatMap((name,index)=>[{id:'department-'+index,parent_id:'brand',kind:'department',name,active:true},{id:'office-'+index,parent_id:'department-'+index,kind:'office',name:name+' office',active:true}]);
+ for(const workspace_key of ['artanrecords','neuroartan']){
+  const roles=roleBlueprint({id:'brand',workspace_key},units);
+  for(const unit of units){const manager=roles.find(role=>role.unit===unit.id);assert.ok(manager);assert.match(manager.title,/manager$/);const parent=roles.find(role=>role.id===manager.parent);assert.ok(parent);assert.equal(parent.level,unit.kind==='department'?'executive':'department');}
+ }
+});
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';

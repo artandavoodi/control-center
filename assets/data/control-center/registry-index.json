@@ -116733,9 +116733,9 @@
         {
           "brand": "control-center",
           "evidence": [
+            "assets/data/control-center/chart-controls.json",
             "assets/js/layers/control-center/operations/agreement-editor.js",
-            "assets/js/layers/control-center/operations/agreements.js",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/agreements.js"
           ]
         }
       ]

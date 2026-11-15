@@ -390,9 +390,11 @@ test('team explorer keeps equal cards and opens position details separately',asy
  const sizes=await visible.locator('article').evaluateAll(cards=>cards.map(card=>({width:card.getBoundingClientRect().width,height:card.getBoundingClientRect().height})));
  expect(new Set(sizes.map(size=>Math.round(size.width))).size).toBe(1);
  expect(new Set(sizes.map(size=>Math.round(size.height))).size).toBe(1);
- await expect(explorer.locator('[data-assigned=true] .control-center-position-state')).toHaveText('Assigned');
+ await expect(explorer.locator('[data-assigned=true] .control-center-position-state')).toHaveAttribute('aria-label','Assigned');
+ await expect(explorer.locator('.control-center-position-state').first()).toHaveText('');
+ await expect(explorer.locator('.control-center-tree-you')).toHaveCount(0);
  await expect(explorer.locator('[data-assigned=false] .control-center-person-open strong').first()).toHaveText('');
- expect(await explorer.locator('[data-assigned=true] .control-center-position-state i').evaluate(el=>getComputedStyle(el).backgroundColor)).not.toBe(await explorer.locator('[data-assigned=false] .control-center-position-state i').first().evaluate(el=>getComputedStyle(el).backgroundColor));
+ expect(await explorer.locator('[data-assigned=true] .control-center-position-state').evaluate(el=>getComputedStyle(el).backgroundColor)).not.toBe(await explorer.locator('[data-assigned=false] .control-center-position-state').first().evaluate(el=>getComputedStyle(el).backgroundColor));
  await visible.locator('[data-assigned=false] [data-role-open]').first().click();
  const details=page.getByRole('dialog',{name:'Position details',exact:true});await expect(details).toBeVisible();
  await expect(details.locator('.global-close-button__line')).toHaveCount(2);
@@ -419,19 +421,27 @@ test('team explorer navigates one reporting level and department views without c
  const explorer=page.getByRole('region',{name:'Team explorer',exact:true}),cards=explorer.locator('.control-center-team-cards > li:not([hidden])');
  await expect(explorer).toBeVisible();
  const initial=await cards.count();expect(initial).toBeGreaterThan(1);
- await explorer.getByRole('button',{name:'View team: Chief Communications Officer',exact:true}).click();
+ await explorer.getByRole('button',{name:'Open Chief Communications Officer',exact:true}).click();
  await expect(explorer.locator('[data-team-manager] [data-tree-role]')).toHaveText('Chief Communications Officer');
  await expect(explorer.getByRole('navigation',{name:'Reporting path'}).getByRole('button')).toHaveCount(2);
  expect(await cards.count()).toBeLessThan(initial);
- await explorer.getByRole('navigation',{name:'Reporting path'}).getByRole('button',{name:'Chief Executive Officer',exact:true}).click();
+ await explorer.getByRole('button',{name:'Open Communication department manager',exact:true}).click();
+ await expect(explorer.getByRole('button',{name:'Open Press office manager',exact:true})).toBeVisible();
+ await explorer.getByRole('button',{name:'Open Press office manager',exact:true}).click();
+ await expect(page.getByRole('dialog',{name:'Position details',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Close position details',exact:true}).click();
+ await explorer.getByRole('button',{name:'Back',exact:true}).click();
+ await expect(explorer.locator('[data-team-manager] [data-tree-role]')).toHaveText('Chief Communications Officer');
+ await explorer.getByRole('button',{name:'Back',exact:true}).click();
  await expect(cards).toHaveCount(initial);
- await explorer.getByRole('button',{name:'Departments',exact:true}).click();
- const department=explorer.getByRole('combobox',{name:'Department',exact:true});await expect(department).toBeVisible();
- await department.selectOption('Operations');await expect(explorer.locator('[data-team-breadcrumbs]')).toBeHidden();
- expect(await cards.evaluateAll(items=>items.every(item=>item.dataset.positionDepartment==='Operations'))).toBe(true);
+ await expect(explorer.getByRole('button',{name:'Back',exact:true})).toBeDisabled();
+ await explorer.getByRole('button',{name:'Directory',exact:true}).click();
+ await expect(explorer).toHaveAttribute('data-view','directory');
+ await expect(cards).toHaveCount(initial);
+ await explorer.getByRole('button',{name:'Overview',exact:true}).click();
+ await expect(explorer).toHaveAttribute('data-view','chart');
  await explorer.getByRole('button',{name:'Find me',exact:true}).click();
- await expect(department).toBeHidden();await expect(explorer.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();
- await expect(explorer.locator('[aria-current=true] .control-center-tree-you')).toHaveAttribute('aria-label','Your position');
+ await expect(explorer.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();
  expect(await explorer.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
 });
 test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
@@ -520,7 +530,7 @@ test('all governed tier templates and the general agreement load their own draft
 test('tier starting terms are prefilled without inventing identity or approval',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);page.on('dialog',dialog=>dialog.accept());await page.getByRole('button',{name:'Agreements',exact:true}).click();await expect(page.getByRole('tablist',{name:'Agreements',exact:true}).getByRole('tab')).toHaveCount(4);await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');
  let previous='';for(const tier of ['silver','gold','platinum']){await form.locator('[data-agreement-template]').selectOption(tier);await expect(form.locator('[data-term-key="term"]')).toHaveValue(/PROPOSED FOR REVIEW: Twelve months/);const services=await form.locator('[data-term-key="services"]').inputValue();expect(services).not.toBe(previous);previous=services;for(const key of ['label details','recordings','governing law','legal review'])await expect(form.locator('[data-term-key="'+key+'"]')).toHaveValue('');}
- await expect(form.getByRole('button',{name:'Apply terms to draft',exact:true})).toHaveCount(0);await expect(form.getByRole('button',{name:'Save changes',exact:true})).toHaveCount(1);await expect(form.getByRole('combobox',{name:'Assigned department or office',exact:true})).toHaveCount(0);await expect(form.locator('[data-term-group]:visible')).toHaveCount(1);await form.getByRole('button',{name:'Next section',exact:true}).click();await expect(form.getByRole('heading',{name:'2. Covered recordings and services',exact:true})).toBeVisible();await form.screenshot({path:'/tmp/contracts-editor-'+test.info().project.name+'.png'});
+ await expect(form.getByRole('button',{name:'Apply terms to draft',exact:true})).toHaveCount(0);await expect(form.getByRole('button',{name:'Save changes',exact:true})).toHaveCount(1);await expect(form.getByRole('combobox',{name:'Assigned department or office',exact:true})).toHaveCount(0);await expect(form.locator('[data-term-group]:visible')).toHaveCount(1);await form.getByRole('button',{name:'Next section',exact:true}).click();await expect(form.getByRole('heading',{name:'Artist information',exact:true})).toBeVisible();await form.screenshot({path:'/tmp/contracts-editor-'+test.info().project.name+'.png'});
 });
 test('brand picker excludes the independent store without changing stored records',async({page})=>{
  await backend(page,['documents.read'],{owner:true});
@@ -538,10 +548,10 @@ test('contract autosave failures retain edits and do not report success',async({
  await enter(page,['documents.read','documents.write','documents.confidential']);await page.route('**/rest/v1/rpc/control_center_save_document_draft',route=>route.fulfill({status:409,json:{code:'40001',message:'This draft changed elsewhere.'}}));await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');await form.locator('[name=title]').fill('Preserve this draft');await expect(form.getByRole('status')).toContainText('This draft changed elsewhere.');await expect(form.locator('[name=title]')).toHaveValue('Preserve this draft');await expect(form.getByRole('status')).not.toContainText('Draft saved');
 });
 test('saved contract terms and section navigation survive a full refresh',async({page})=>{
- await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');await form.getByLabel('Label legal name',{exact:true}).fill('Retained Label');await form.getByLabel('Label authorized signer',{exact:true}).fill('Retained Signer');await expect(form.getByRole('status')).toHaveText('Draft saved to your account.');await page.reload();const restored=page.locator('[data-document-editor] form');await expect(restored.getByLabel('Label legal name',{exact:true})).toHaveValue('Retained Label');await expect(restored.getByLabel('Label authorized signer',{exact:true})).toHaveValue('Retained Signer');await expect(restored.getByRole('navigation',{name:'Contract sections'})).toBeVisible();await restored.getByRole('button',{name:'Next section',exact:true}).click();await expect(restored.getByRole('heading',{name:'2. Covered recordings and services',exact:true})).toBeVisible();
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');await form.getByLabel('Label legal name',{exact:true}).fill('Retained Label');await form.getByLabel('Label authorized signer',{exact:true}).fill('Retained Signer');await expect(form.getByRole('status')).toHaveText('Draft saved to your account.');await page.reload();const restored=page.locator('[data-document-editor] form');await expect(restored.getByLabel('Label legal name',{exact:true})).toHaveValue('Retained Label');await expect(restored.getByLabel('Label authorized signer',{exact:true})).toHaveValue('Retained Signer');await expect(restored.getByRole('navigation',{name:'Contract sections'})).toBeVisible();await restored.getByRole('button',{name:'Next section',exact:true}).click();await expect(restored.getByRole('heading',{name:'Artist information',exact:true})).toBeVisible();
 });
 test('contract section arrows sit below the fields with shared icon controls',async({page})=>{
- await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');const nav=form.getByRole('navigation',{name:'Contract sections'});await expect(nav).toHaveCSS('justify-content','center');await expect(nav.getByRole('button',{name:'Previous section',exact:true})).toHaveText('');await expect(nav.getByRole('button',{name:'Next section',exact:true})).toHaveText('');expect(await nav.evaluate(node=>node===node.parentElement.lastElementChild)).toBe(true);await nav.getByRole('button',{name:'Next section',exact:true}).click();await expect(form.getByRole('heading',{name:'2. Covered recordings and services',exact:true})).toBeVisible();
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');const nav=form.getByRole('navigation',{name:'Contract sections'});await expect(nav).toHaveCSS('justify-content','center');await expect(nav.getByRole('button',{name:'Previous section',exact:true})).toHaveText('');await expect(nav.getByRole('button',{name:'Next section',exact:true})).toHaveText('');expect(await nav.evaluate(node=>node===node.parentElement.lastElementChild)).toBe(true);await nav.getByRole('button',{name:'Next section',exact:true}).click();await expect(form.getByRole('heading',{name:'Artist information',exact:true})).toBeVisible();
 });
 test('notifications use the global close control and account actions align left',async({page})=>{
  await enter(page,['documents.read','artists.read']);await page.route('**/rest/v1/studio_artist_handles*',route=>route.fulfill({json:[{requested_username:'fixture.artist',updated_at:'2026-11-14T10:00:00Z'}]}));await page.getByRole('button',{name:'Account menu',exact:true}).click();
