@@ -35,7 +35,7 @@
 .control-center-contract-header h2 { margin:0; font-size:var(--font-size-lg); }
 .control-center-contract-actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-md); }
 .control-center-contract-actions [role=status] { margin:0; }
-.control-center-contract-navigation { display:flex; align-items:center; justify-content:center; gap:var(--spacing-md); margin-block-start:var(--spacing-lg); }
+.control-center-contract-navigation { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:var(--spacing-md); margin-block-start:var(--spacing-lg); }
 .control-center-contract-navigation p { margin:0; font-size:var(--text-caption-size); }
 .control-center-contract-import { display:flex; align-items:center; gap:var(--spacing-md); margin-block:var(--spacing-md); }
 .control-center-contract-terms,.control-center-contract-fields { display:grid; gap:var(--spacing-md); min-inline-size:0; }
