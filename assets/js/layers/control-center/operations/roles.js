@@ -48,15 +48,16 @@ export function mountTreeBranches(root,{icon=()=>'',onDraft=()=>{}}={}){
   const top=cards.find(card=>!card.dataset.positionParent)?.dataset.positionId||'';
   let mode='chart',selected=top;
   const name=card=>card.querySelector('[data-tree-role]').textContent;
-  const overview=document.createElement('button'),directory=document.createElement('button'),back=document.createElement('button'),find=document.createElement('button');
+  const layout=document.createElement('button'),back=document.createElement('button'),find=document.createElement('button');
   toolbar.className='control-center-team-tools';toolbar.setAttribute('role','group');toolbar.setAttribute('aria-label','Organization views');
-  overview.type=directory.type=back.type=find.type='button';overview.innerHTML=icon(controls.compact)+'Overview';directory.innerHTML=icon(controls.diagram)+'Directory';back.innerHTML=icon(controls.back)+'Back';find.innerHTML=icon(controls.findMe)+'Find me';
-  toolbar.append(overview,directory,back,find);
+  for(const button of [layout,back,find]){button.type='button';button.className='ui-icon-button ui-hover-tooltip';}
+  back.innerHTML=icon(controls.back);back.setAttribute('aria-label','Back');back.dataset.label='Back';find.innerHTML=icon(controls.findMe);find.setAttribute('aria-label','Find me');find.dataset.label='Find me';
+  toolbar.append(layout,back,find);
   const current=cards.find(card=>card.querySelector('[aria-current=true]'));find.hidden=!current;
   function draw(focus=false){
-   view.dataset.view=mode;overview.setAttribute('aria-pressed',String(mode==='chart'));directory.setAttribute('aria-pressed',String(mode==='directory'));breadcrumbs.replaceChildren();
+   view.dataset.view=mode;const nextLabel=mode==='chart'?'Directory view':'Chart view';layout.innerHTML=icon(mode==='chart'?controls.diagram:controls.compact);layout.setAttribute('aria-label',nextLabel);layout.dataset.label=nextLabel;breadcrumbs.replaceChildren();
    const manager=cards.find(card=>card.dataset.positionId===selected),children=cards.filter(card=>card.dataset.positionParent===selected),visible=[manager,...children].filter(Boolean);
-   back.disabled=!manager?.dataset.positionParent;
+   back.hidden=!manager?.dataset.positionParent;
    cards.forEach(card=>{card.hidden=!visible.includes(card);delete card.dataset.teamManager;});
    if(manager){
     manager.dataset.teamManager='true';list.prepend(manager);
@@ -67,7 +68,7 @@ export function mountTreeBranches(root,{icon=()=>'',onDraft=()=>{}}={}){
    }
    if(focus)manager?.querySelector('[data-role-open]')?.focus();
   }
-  overview.onclick=()=>{mode='chart';selected=top;draw();};directory.onclick=()=>{mode='directory';draw();};
+  layout.onclick=()=>{mode=mode==='chart'?'directory':'chart';draw();};
   back.onclick=()=>{const parent=cards.find(card=>card.dataset.positionId===selected)?.dataset.positionParent;if(parent){selected=parent;draw(true);}};
   find.onclick=()=>{selected=current.dataset.positionId;draw(true);};
   view.querySelectorAll('[data-role-open]').forEach(button=>{button.removeAttribute('aria-haspopup');button.onclick=()=>{const card=button.closest('[data-position-id]'),hasReports=cards.some(item=>item.dataset.positionParent===card.dataset.positionId);if(hasReports&&selected!==card.dataset.positionId){selected=card.dataset.positionId;draw(true);}else showDetails(button);};});

@@ -434,15 +434,19 @@ test('team explorer navigates one reporting level and department views without c
  await expect(explorer.locator('[data-team-manager] [data-tree-role]')).toHaveText('Chief Communications Officer');
  await explorer.getByRole('button',{name:'Back',exact:true}).click();
  await expect(cards).toHaveCount(initial);
- await expect(explorer.getByRole('button',{name:'Back',exact:true})).toBeDisabled();
- await explorer.getByRole('button',{name:'Directory',exact:true}).click();
+ await expect(explorer.getByRole('button',{name:'Back',exact:true})).toBeHidden();
+ await explorer.getByRole('button',{name:'Directory view',exact:true}).click();
  await expect(explorer).toHaveAttribute('data-view','directory');
  await expect(cards).toHaveCount(initial);
- await explorer.getByRole('button',{name:'Overview',exact:true}).click();
+ await explorer.getByRole('button',{name:'Chart view',exact:true}).click();
  await expect(explorer).toHaveAttribute('data-view','chart');
  await explorer.getByRole('button',{name:'Find me',exact:true}).click();
  await expect(explorer.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();
  expect(await explorer.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
+ const toggle=explorer.getByRole('button',{name:'Directory view',exact:true});await expect(toggle).toHaveText('');await expect(toggle).toHaveClass(/ui-hover-tooltip/);await expect(toggle).toHaveCSS('border-top-color','rgba(0, 0, 0, 0)');
+ await page.getByRole('button',{name:'Organization directory',exact:true}).click();
+ const inventory=page.getByRole('dialog',{name:'Organization directory',exact:true});await expect(inventory).toBeVisible();await expect(inventory.getByRole('heading',{name:'Pillars, departments and offices',exact:true})).toBeVisible();await expect(inventory.locator('.global-close-button__line')).toHaveCount(2);
+ await page.getByRole('button',{name:'Close organization directory',exact:true}).click();await expect(inventory).toBeHidden();
 });
 test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
  await enter(page,['artists.read']);
