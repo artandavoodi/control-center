@@ -8,6 +8,10 @@ export function normalizeContext(value,units,workspace){
  const office=units.find(unit=>unit.id===value.office&&unit.kind==='office'&&unit.parent_id===department?.id&&unit.active);
  return {function:value.function||'operations',...(['design','local-development'].includes(value.function)&&value.allBrands===true?{allBrands:true}:{}),department:department?.id||'',office:office?.id||''};
 }
+export function contextualNavigation(config,nav,workspace,context,units){
+ const department=units.find(unit=>unit.id===context.department),office=units.find(unit=>unit.id===context.office);
+ return nav.filter(item=>{const rule=config.navigationScope?.[item.id];if(!rule)return true;if(rule.brands&&!rule.brands.includes(workspace.workspace_key))return false;if(!department||context.allBrands)return true;return rule.locations.some(location=>location.department===department.name&&(!office||!location.offices||location.offices.includes(office.name)));});
+}
 export function mountContextPicker({root,config,nav,workspaces,workspace,context,units,e,icon,onApply}){
  const dialog=root.querySelector('[data-context-dialog]');
  const functions=config.workspaces.filter(group=>nav.some(item=>item.workspace===group.id));

@@ -15,14 +15,14 @@ export async function savedMacConnection(client){
 function browserKey(id,origin){return 'control-center.mac-consent:'+id+':'+origin;}
 function hasConsent(id,origin){try{return localStorage.getItem(browserKey(id,origin))==='yes'||sessionStorage.getItem(browserKey(id,origin))==='yes';}catch{return false;}}
 export function requestBrowserConsent(){return new Promise(resolve=>{
- const mount=document.querySelector('.control-center-operations [data-operation-content]'),trigger=document.activeElement;
+ const mount=document.querySelector('.control-center-app'),trigger=document.activeElement;
  if(!mount){resolve(null);return;}
  const dialog=document.createElement('dialog');dialog.className='control-center-context-dialog';dialog.setAttribute('aria-label','Use your private Mac connection');
  dialog.innerHTML='<form class="control-center-context-form"><header><h2>Use your private Mac connection?</h2><button type="button" class="global-close-button" aria-label="Close connection confirmation"></button></header><p>Only continue on a browser you control. This lets Control Center contact your saved Mac after sign-in. It does not verify this device or replace owner permissions and private-network access.</p><label class="control-center-confirm-choice"><input name="remember" type="checkbox">Remember this browser</label><div class="control-center-organization-actions"><button type="button" data-cancel>Not now</button><button type="submit">Continue</button></div></form>';
  const finish=value=>{dialog.close();dialog.remove();if(trigger?.isConnected)trigger.focus();resolve(value);};
  dialog.querySelector('.global-close-button').addEventListener('click',()=>finish(null));dialog.querySelector('[data-cancel]').addEventListener('click',()=>finish(null));dialog.addEventListener('cancel',event=>{event.preventDefault();finish(null);});
  dialog.querySelector('form').addEventListener('submit',event=>{event.preventDefault();finish({remember:dialog.querySelector('input').checked});});
- mount.append(dialog);dialog.showModal();
+ mount.append(dialog);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);dialog.showModal();
 });}
 export async function useMacConnection(client,{interactive=false,origin}={}){
  if(isLocalMac())return '';

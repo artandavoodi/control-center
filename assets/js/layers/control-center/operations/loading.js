@@ -1,4 +1,8 @@
 let timer;
+export function focusWhenReady(target){
+ if(!target)return;const root=target.closest('[data-operation-content]'),focus=()=>{if(target.isConnected&&!target.closest('[hidden]'))target.focus();};
+ if(root?.hidden)root.addEventListener('control-center:ready',focus,{once:true});else focus();
+}
 export function finishLoading(){clearTimeout(timer);}
 export function showLoading(root){
  finishLoading();

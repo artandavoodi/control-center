@@ -37,7 +37,7 @@ async function backend(page,permissions,{owner=false,macOrigin=''}={}){
   else if(path.endsWith('/artan_acknowledgment_summary'))body={enabled:acknowledgments,last_poll_at:null,queued:0,accepted:0,held:0};
   else if(path.endsWith('/artan_set_acknowledgments')){acknowledgments=route.request().postDataJSON().active;body=null;}
   else if(path.endsWith('/control_center_vacancies'))body=vacancies;
-  else if(path.endsWith('/control_center_save_document')){const value=route.request().postDataJSON();const row={id:'93000000-0000-0000-0000-000000000001',unit_id:value.unit,title:value.document_title,body:value.document_body,classification:value.classification_name,tags:value.labels};documents.splice(0,documents.length,row);body=row.id;}
+  else if(path.endsWith('/control_center_save_document')||path.endsWith('/control_center_save_document_draft')){const value=route.request().postDataJSON();const row={id:value.record_id||'93000000-0000-0000-0000-000000000001',unit_id:value.unit,title:value.document_title,body:value.document_body,classification:value.classification_name,tags:value.labels,updated_at:new Date().toISOString(),draft_state:value.document_state||null};documents.splice(0,documents.length,row);body=path.endsWith('_draft')?{id:row.id,updated_at:row.updated_at}:row.id;}
   else if(path.endsWith('/control_center_save_vacancy')){const value=route.request().postDataJSON();const row={id:'93000000-0000-0000-0000-000000000002',unit_id:value.unit,title:value.job_title,slug:value.job_slug,description:value.job_description,location:value.job_location,employment_type:value.job_type,application_url:value.apply_url,status:'draft',tags:value.labels};vacancies.splice(0,vacancies.length,row);body=row.id;}
   else throw Error('Unexpected endpoint '+path);
   await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(body)});
@@ -47,8 +47,8 @@ async function chooseContext(page,{function:mode,brand,department,office}={}){
  await page.getByRole('button',{name:'Choose workspace',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Choose workspace'});
  if(brand)await dialog.getByRole('combobox',{name:'Brand',exact:true}).selectOption(brand);
  if(mode)await dialog.getByRole('combobox',{name:'Workspace',exact:true}).selectOption(mode);
- if(department)await dialog.getByRole('combobox',{name:'Department',exact:true}).selectOption(department);
- if(office)await dialog.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);
+ if(department!==undefined)await dialog.getByRole('combobox',{name:'Department',exact:true}).selectOption(department);
+ if(office!==undefined)await dialog.getByRole('combobox',{name:'Office',exact:true}).selectOption(office);
  await dialog.getByRole('button',{name:'Open workspace',exact:true}).click();
 }
 test('public artist enquiries keep proposed tiers separate from verified Studio approval',async({page})=>{
@@ -336,6 +336,15 @@ test('development feed deduplicates commit identities and reports protected sour
 for(const mode of ['light','dark'])test(`refresh loader uses saved ${mode} appearance before staff access resolves`,async({page})=>{
  await page.addInitScript(value=>localStorage.setItem('control-center.appearance',value),mode);await enter(page,['artists.read']);let release;const gate=new Promise(resolve=>release=resolve);await page.route('**/auth/v1/user',async route=>{await gate;await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(user)});});await page.reload({waitUntil:'domcontentloaded'});await expect(page.getByRole('status',{name:'Loading Control Center',exact:true})).toBeVisible();await expect(page.locator('html')).toHaveAttribute('data-theme',mode);expect(await page.locator('.control-center-boot').evaluate(el=>getComputedStyle(el).backgroundColor)).toBe(mode==='dark'?'rgb(0, 0, 0)':'rgb(255, 255, 255)');expect(await page.locator('.ui-loader-circle').evaluate(el=>getComputedStyle(el).getPropertyValue('--loader-circle-color').trim())).toBe(mode==='dark'?'#ffffff':'#000000');release();await expect(page.getByRole('navigation',{name:'Operations',exact:true})).toBeVisible();
 });
+test('header search uses one concise prompt without explanatory copy',async({page})=>{
+ await enter(page,['artists.read']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();
+ const search=page.getByRole('dialog',{name:'Search your workspace',exact:true});
+ await expect(search.getByRole('heading',{name:'Search',exact:true})).toBeVisible();
+ await expect(search.getByPlaceholder('Search your workspace',{exact:true})).toBeVisible();
+ await expect(search.locator('.control-center-field-note')).toHaveCount(0);
+ await expect(page.locator('main > header > p')).toHaveCount(0);
+ await search.getByRole('button',{name:'Close search',exact:true}).click();
+});
 test('header search focuses immediately, filters permitted records and restores focus',async({page})=>{
  await enter(page,['artists.read']);await page.getByRole('button',{name:'Search workspace',exact:true}).click();const dialog=page.getByRole('dialog',{name:'Search your workspace',exact:true});const input=dialog.getByRole('searchbox',{name:'Search workspace',exact:true});await expect(input).toBeFocused();await input.fill('Communication');await expect(dialog.locator('[data-search-results]').getByRole('button',{name:'Communication department',exact:true})).toBeVisible();await input.fill('Staff & offices');await expect(dialog.locator('[data-search-results]').getByRole('button')).toHaveCount(0);await input.fill('My account');await dialog.locator('[data-search-results]').getByRole('button').click();await expect(page.getByRole('heading',{name:'My account',exact:true})).toBeVisible();await page.getByRole('button',{name:'Search workspace',exact:true}).click();await page.getByRole('button',{name:'Close search',exact:true}).click();await expect(page.getByRole('button',{name:'Search workspace',exact:true})).toBeFocused();expect(await page.locator('body').evaluate(el=>el.scrollWidth<=innerWidth)).toBe(true);await expect(page.locator('.control-center-header-wordmark')).toHaveAttribute('alt','Artanrecords');
 });
@@ -371,34 +380,23 @@ test('global design categories preserve IDs and copy through the registered acti
  const close=page.getByRole('button',{name:'Close workspace picker',exact:true});
  expect(await close.evaluate(el=>getComputedStyle(el).borderTopWidth)).toBe('0px');
 });
-test('brand selection restores its wordmark and positions prepare unsaved vacancy forms',async({page})=>{
+test('team explorer keeps equal cards and opens position details separately',async({page})=>{
  await enter(page,['artists.read','jobs.read','jobs.write'],{owner:true});
- await chooseContext(page,{function:'design',brand:'all'});
- await expect(page.locator('.control-center-header-brand')).toHaveText('All brands');
  await chooseContext(page,{function:'operations',brand:neuro});
- await expect(page.locator('.control-center-header-wordmark')).toHaveAttribute('alt','Neuroartan');
  await page.getByRole('button',{name:'Organization',exact:true}).click();
- await expect(page.getByRole('heading',{name:'Positions & reporting plan',exact:true})).toBeVisible();
- const chart=page.getByRole('region',{name:'Position reporting chart',exact:true});
- await expect(chart.locator('.control-center-tree-avatar')).toHaveCount(await chart.locator('.control-center-person').count());
- const compactWidth=await chart.evaluate(el=>el.scrollWidth);
- const centered=await chart.evaluate(el=>{const box=el.querySelector('.control-center-org-tree > li > article').getBoundingClientRect(),frame=el.getBoundingClientRect();return Math.abs((box.left+box.right)/2-(frame.left+frame.right)/2);});
- expect(centered).toBeLessThan(3);
- const layout=page.getByRole('button',{name:'Compact layout Position reporting chart',exact:true});
- await expect(layout).toHaveAttribute('aria-pressed','true');
- await expect(layout.locator('img')).toHaveAttribute('src',/layout\/grid\.svg/);
- expect(await layout.evaluate(el=>getComputedStyle(el).borderTopWidth)).toBe('0px');
- await layout.click();await expect(layout).toHaveAttribute('aria-pressed','false');
- await expect(layout.locator('img')).toHaveAttribute('src',/layout\/columns\.svg/);
- expect(await chart.evaluate(el=>el.scrollWidth)).toBeGreaterThan(compactWidth);
- await layout.click();await expect(layout).toHaveAttribute('aria-pressed','true');
- const branch=chart.locator('[data-tree-branch]').first();
- await branch.click();await expect(branch).toHaveAttribute('aria-expanded','false');
- await expect(chart.locator('.control-center-org-tree > li > ol')).toBeHidden();
- await branch.click();await expect(branch).toHaveAttribute('aria-expanded','true');
- const plan=page.locator('section').filter({has:page.getByRole('heading',{name:'Positions & reporting plan',exact:true})}).last();
- await plan.getByText('Role details',{exact:true}).first().click();
- await plan.getByRole('button',{name:'Prepare vacancy draft',exact:true}).first().click();
+ const explorer=page.getByRole('region',{name:'Team explorer',exact:true}),visible=explorer.locator('.control-center-team-cards > li:not([hidden])');
+ await expect(explorer).toBeVisible();
+ await expect(explorer.locator('.control-center-chart-edges')).toHaveCount(0);
+ const sizes=await visible.locator('article').evaluateAll(cards=>cards.map(card=>({width:card.getBoundingClientRect().width,height:card.getBoundingClientRect().height})));
+ expect(new Set(sizes.map(size=>Math.round(size.width))).size).toBe(1);
+ expect(new Set(sizes.map(size=>Math.round(size.height))).size).toBe(1);
+ await expect(explorer.locator('[data-assigned=true] .control-center-position-state')).toHaveText('Assigned');
+ await expect(explorer.locator('[data-assigned=false] .control-center-person-open strong').first()).toHaveText('');
+ expect(await explorer.locator('[data-assigned=true] .control-center-position-state i').evaluate(el=>getComputedStyle(el).backgroundColor)).not.toBe(await explorer.locator('[data-assigned=false] .control-center-position-state i').first().evaluate(el=>getComputedStyle(el).backgroundColor));
+ await visible.locator('[data-assigned=false] [data-role-open]').first().click();
+ const details=page.getByRole('dialog',{name:'Position details',exact:true});await expect(details).toBeVisible();
+ await expect(details.locator('.global-close-button__line')).toHaveCount(2);
+ await details.getByRole('button',{name:'Prepare vacancy draft',exact:true}).click();
  await expect(page.locator('[data-vacancy-editor]')).toBeVisible();
  await expect(page.getByRole('textbox',{name:'Job title',exact:true})).not.toHaveValue('');
  await expect(page.getByText(/Nothing has been saved or published/)).toBeVisible();
@@ -416,21 +414,25 @@ test('registered component previews expose stable IDs and functional selection c
  const toggle=page.getByRole('switch',{name:'Preview toggle switch',exact:true});
  await expect(toggle).toHaveAttribute('aria-checked','false');await toggle.click();await expect(toggle).toHaveAttribute('aria-checked','true');
 });
-test('chart zoom simplifies details and keeps the signed-in staff assignment identifiable',async({page})=>{
+test('team explorer navigates one reporting level and department views without connector lines',async({page})=>{
  await enter(page,['artists.read'],{owner:true});await page.getByRole('button',{name:'Organization',exact:true}).click();
- const chart=page.getByRole('region',{name:'Position reporting chart',exact:true}),tools=page.getByRole('group',{name:'Position reporting chart controls',exact:true});
- await expect(page.getByRole('heading',{name:'Reporting structure',exact:true})).toHaveCount(0);
- await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toHaveAttribute('aria-label','Your position');
- await tools.getByRole('button',{name:'Zoom out Position reporting chart',exact:true}).click();
- await tools.getByRole('button',{name:'Zoom out Position reporting chart',exact:true}).click();
- await expect(tools.locator('output')).toHaveText('70%');
- await expect(chart.locator('.control-center-org-tree')).toHaveAttribute('data-density','compact');
- await expect(chart.locator('[aria-current=true] .control-center-tree-you')).toBeVisible();
- await expect(tools.getByRole('button',{name:'Find me',exact:true}).locator('img')).toHaveCount(1);
- await tools.getByRole('button',{name:'Find me',exact:true}).click();
- await tools.getByRole('button',{name:'Reset view',exact:true}).click();
- await expect(tools.locator('output')).toHaveText('100%');
- await expect(chart.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();
+ const explorer=page.getByRole('region',{name:'Team explorer',exact:true}),cards=explorer.locator('.control-center-team-cards > li:not([hidden])');
+ await expect(explorer).toBeVisible();
+ const initial=await cards.count();expect(initial).toBeGreaterThan(1);
+ await explorer.getByRole('button',{name:'View team: Chief Communications Officer',exact:true}).click();
+ await expect(explorer.locator('[data-team-manager] [data-tree-role]')).toHaveText('Chief Communications Officer');
+ await expect(explorer.getByRole('navigation',{name:'Reporting path'}).getByRole('button')).toHaveCount(2);
+ expect(await cards.count()).toBeLessThan(initial);
+ await explorer.getByRole('navigation',{name:'Reporting path'}).getByRole('button',{name:'Chief Executive Officer',exact:true}).click();
+ await expect(cards).toHaveCount(initial);
+ await explorer.getByRole('button',{name:'Departments',exact:true}).click();
+ const department=explorer.getByRole('combobox',{name:'Department',exact:true});await expect(department).toBeVisible();
+ await department.selectOption('Operations');await expect(explorer.locator('[data-team-breadcrumbs]')).toBeHidden();
+ expect(await cards.evaluateAll(items=>items.every(item=>item.dataset.positionDepartment==='Operations'))).toBe(true);
+ await explorer.getByRole('button',{name:'Find me',exact:true}).click();
+ await expect(department).toBeHidden();await expect(explorer.locator('[aria-current=true] .control-center-tree-avatar')).toBeVisible();
+ await expect(explorer.locator('[aria-current=true] .control-center-tree-you')).toHaveAttribute('aria-label','Your position');
+ expect(await explorer.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
 });
 test('color swatches have a theme outline and motion close previews remain borderless',async({page})=>{
  await enter(page,['artists.read']);
@@ -463,9 +465,9 @@ test('agreement drafts import text and preview safely without issuing or signing
  for(const [tier,allocation] of [['silver','Artist 85%; Artanrecords 15%'],['gold','Artist 80%; Artanrecords 20%'],['platinum','Artist 70%; Artanrecords 30%']]){page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption(tier);expect(await form.locator('[name=body]').inputValue()).toContain(allocation);}
  await form.getByRole('button',{name:'Edit full text',exact:true}).click();const text='SILVER AGREEMENT — TEST DRAFT\n\nFor review only. <img src=x onerror=alert(1)>',upload=form.locator('input[type=file]');
  page.once('dialog',dialog=>dialog.accept());await upload.setInputFiles({name:'silver-test.txt',mimeType:'text/plain',buffer:Buffer.from(text)});await expect(form.locator('[name=body]')).toHaveValue(text);
- await form.getByRole('textbox',{name:'Title',exact:true}).fill('Silver agreement — test draft');await form.getByRole('button',{name:'Preview contract',exact:true}).click();
+ await form.getByRole('textbox',{name:'Title',exact:true}).fill('Silver agreement — test draft');await form.getByRole('button',{name:'Return to contract',exact:true}).click();await form.getByRole('button',{name:'Preview contract',exact:true}).click();
  const preview=page.getByRole('dialog',{name:'Silver agreement — test draft',exact:true});await expect(preview).toBeVisible();await expect(preview.locator('[data-document-preview-body]')).toHaveText(text);await expect(preview.locator('img')).toHaveCount(0);await preview.getByRole('button',{name:'Close document preview',exact:true}).click();
- await form.getByRole('button',{name:'Save changes',exact:true}).click();await expect(page.getByRole('heading',{name:'Silver agreement — test draft',exact:true})).toBeVisible();await page.getByRole('button',{name:'Open contract',exact:true}).click();await form.getByRole('button',{name:'Preview contract',exact:true}).click();const reader=page.getByRole('dialog',{name:'Silver agreement — test draft',exact:true});await expect(reader.locator('.control-center-document-body')).toHaveText(text);await expect(reader).toHaveClass('agreement-focus');const bounds=await reader.boundingBox();expect(bounds.width).toBe(page.viewportSize().width);await reader.getByRole('button',{name:'Close document preview',exact:true}).click();
+ await form.getByRole('button',{name:'Save changes',exact:true}).click();await expect(form.getByRole('status')).toHaveText('Draft saved to your account.');await form.getByRole('button',{name:'Close contract',exact:true}).click();await expect(page.getByRole('heading',{name:'Silver agreement — test draft',exact:true})).toBeVisible();await page.getByRole('button',{name:'Open contract',exact:true}).click();await form.getByRole('button',{name:'Preview contract',exact:true}).click();const reader=page.getByRole('dialog',{name:'Silver agreement — test draft',exact:true});await expect(reader.locator('.control-center-document-body')).toHaveText(text);await expect(reader).toHaveClass('agreement-focus');const bounds=await reader.boundingBox();expect(bounds.width).toBe(page.viewportSize().width);await reader.getByRole('button',{name:'Close document preview',exact:true}).click();
  await form.getByRole('button',{name:'Edit full text',exact:true}).click();await expect(form.locator('[name=body]')).toHaveValue(text);
  await upload.setInputFiles({name:'agreement.pdf',mimeType:'application/pdf',buffer:Buffer.from('%PDF-1.7')});await expect(form.getByRole('status')).toHaveText('Choose a .txt or .md document smaller than 200 KB.');await expect(form.locator('[name=body]')).toHaveValue(text);
  await page.getByRole('button',{name:'Documents & tags',exact:true}).click();await expect(page.getByRole('heading',{name:'Silver agreement — test draft',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'New contract',exact:true})).toHaveCount(0);
@@ -505,7 +507,7 @@ test('agreement inventory and editing share full-width fields and token spacing'
  expect(await page.locator('[data-operation-content]').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
 });
 test('tier terms form prepares a draft but never sends or signs it',async({page})=>{
- await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');await expect(form.getByRole('heading',{name:'Terms',exact:true})).toBeVisible();await form.getByLabel('Label legal name',{exact:true}).fill('Synthetic label party');await form.getByLabel('Label authorized signer',{exact:true}).fill('Synthetic signer');await expect(form.getByRole('button',{name:'Apply terms to draft',exact:true})).toHaveCount(0);await form.getByRole('button',{name:'Save changes',exact:true}).click();await page.getByRole('button',{name:'Open contract',exact:true}).click();expect(await form.locator('[name=body]').inputValue()).toContain('Label contracting party: Synthetic label party');await expect(form.getByText(/Real-contract issuing is not enabled yet/)).toBeVisible();await expect(page.getByRole('button',{name:'Send for signature',exact:true})).toHaveCount(0);
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');await expect(form.getByRole('heading',{name:'Terms',exact:true})).toBeVisible();await form.getByLabel('Label legal name',{exact:true}).fill('Synthetic label party');await form.getByLabel('Label authorized signer',{exact:true}).fill('Synthetic signer');await expect(form.getByRole('button',{name:'Apply terms to draft',exact:true})).toHaveCount(0);await form.getByRole('button',{name:'Save changes',exact:true}).click();await expect(form.getByRole('status')).toHaveText('Draft saved to your account.');await form.getByRole('button',{name:'Close contract',exact:true}).click();await page.getByRole('button',{name:'Open contract',exact:true}).click();await expect(form.getByLabel('Label legal name',{exact:true})).toHaveValue('Synthetic label party');await form.getByRole('button',{name:'Preview contract',exact:true}).click();await expect(page.locator('[data-document-preview-body]:visible')).toContainText('Label contracting party: Synthetic label party');await page.getByRole('button',{name:'Close document preview',exact:true}).click();await expect(form.getByText(/Real-contract issuing is not enabled yet/)).toBeVisible();await expect(page.getByRole('button',{name:'Send for signature',exact:true})).toHaveCount(0);
 });
 test('Control Center fields keep their shared neutral border without focus decoration',async({page})=>{
  await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');await expect(form.locator('[data-required-terms] details')).toHaveCount(0);
@@ -525,6 +527,21 @@ test('brand picker excludes the independent store without changing stored record
  await page.route('**/rest/v1/rpc/control_center_workspaces',route=>route.fulfill({json:[{id:records,name:'Artanrecords',workspace_key:'artanrecords'},{id:neuro,name:'Neuroartan',workspace_key:'neuroartan'},{id:'store-id',name:'Artan Store',workspace_key:'store'}]}));
  await page.goto('/');await page.getByLabel('Email',{exact:true}).fill(user.email);await page.getByRole('button',{name:'Continue',exact:true}).click();await page.getByLabel('Password',{exact:true}).fill('not-a-real-password');await page.getByRole('button',{name:'Sign in',exact:true}).click();await page.getByRole('button',{name:'Choose workspace',exact:true}).click();
  const picker=page.getByRole('dialog',{name:'Choose workspace'}).getByRole('combobox',{name:'Brand',exact:true});await expect(picker.locator('option')).toHaveText(['All brands','Artanrecords','Neuroartan']);
+});
+test('legal and recruitment offices show only relevant permitted tools',async({page})=>{
+ await enter(page,['documents.read','documents.write','documents.confidential','jobs.read']);const recruiting='98000000-0000-0000-0003-000000000099',operations='98000000-0000-0000-0002-000000000099';await page.route('**/rest/v1/control_center_units*',route=>route.fulfill({json:[{id:records,parent_id:null,name:'Artanrecords',kind:'pillar',active:true,workspace_key:'artanrecords'},{id:department,parent_id:records,name:'Governance',kind:'department',active:true},{id:office,parent_id:department,name:'Legal & contracts',kind:'office',active:true},{id:operations,parent_id:records,name:'Operations',kind:'department',active:true},{id:recruiting,parent_id:operations,name:'Recruitment',kind:'office',active:true}]}));await page.reload();await chooseContext(page,{function:'operations',department,office});const rail=page.getByRole('navigation',{name:'Operations',exact:true});await expect(rail.getByRole('button',{name:'Agreements',exact:true})).toBeVisible();await expect(rail.getByRole('button',{name:'Job vacancies',exact:true})).toHaveCount(0);await chooseContext(page,{function:'operations',department:operations,office:recruiting});await expect(rail.getByRole('button',{name:'Job vacancies',exact:true})).toBeVisible();await expect(rail.getByRole('button',{name:'Agreements',exact:true})).toHaveCount(0);await chooseContext(page,{function:'operations',department:''});await expect(rail.getByRole('button',{name:'Job vacancies',exact:true})).toBeVisible();await expect(rail.getByRole('button',{name:'Agreements',exact:true})).toBeVisible();
+});
+test('contract text mode returns through global close and account drafts survive refresh',async({page})=>{
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');await form.locator('[name=title]').fill('Persistent private draft');await form.getByRole('button',{name:'Edit full text',exact:true}).click();await expect(form.getByRole('button',{name:'Preview contract',exact:true})).toBeHidden();await expect(form.getByRole('button',{name:'Save changes',exact:true})).toBeHidden();await expect(form.locator('[data-required-terms]')).toBeHidden();await expect(form.locator('input[type=file]')).toBeHidden();await expect(form.getByRole('button',{name:'Import text',exact:true})).toBeVisible();await form.locator('[name=body]').fill('A private, unapproved draft retained for review.');await form.getByRole('button',{name:'Return to contract',exact:true}).click();await expect(form.locator('[data-contract-text]')).toBeHidden();await expect(form.getByRole('button',{name:'Save changes',exact:true})).toBeVisible();await expect(form.getByRole('status')).toHaveText('Draft saved to your account.');await page.reload();await expect(page.locator('[data-document-editor] [name=title]')).toHaveValue('Persistent private draft');await expect(page.locator('[data-document-editor] [name=body]')).toHaveValue('A private, unapproved draft retained for review.');
+});
+test('contract autosave failures retain edits and do not report success',async({page})=>{
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.route('**/rest/v1/rpc/control_center_save_document_draft',route=>route.fulfill({status:409,json:{code:'40001',message:'This draft changed elsewhere.'}}));await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');await form.locator('[name=title]').fill('Preserve this draft');await expect(form.getByRole('status')).toContainText('This draft changed elsewhere.');await expect(form.locator('[name=title]')).toHaveValue('Preserve this draft');await expect(form.getByRole('status')).not.toContainText('Draft saved');
+});
+test('saved contract terms and section navigation survive a full refresh',async({page})=>{
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');await form.getByLabel('Label legal name',{exact:true}).fill('Retained Label');await form.getByLabel('Label authorized signer',{exact:true}).fill('Retained Signer');await expect(form.getByRole('status')).toHaveText('Draft saved to your account.');await page.reload();const restored=page.locator('[data-document-editor] form');await expect(restored.getByLabel('Label legal name',{exact:true})).toHaveValue('Retained Label');await expect(restored.getByLabel('Label authorized signer',{exact:true})).toHaveValue('Retained Signer');await expect(restored.getByRole('navigation',{name:'Contract sections'})).toBeVisible();await restored.getByRole('button',{name:'Next section',exact:true}).click();await expect(restored.getByRole('heading',{name:'2. Covered recordings and services',exact:true})).toBeVisible();
+});
+test('contract section arrows sit below the fields with shared icon controls',async({page})=>{
+ await enter(page,['documents.read','documents.write','documents.confidential']);await page.getByRole('button',{name:'Agreements',exact:true}).click();await page.getByRole('button',{name:'New contract',exact:true}).click();const form=page.locator('[data-document-editor] form');page.once('dialog',dialog=>dialog.accept());await form.locator('[data-agreement-template]').selectOption('silver');const nav=form.getByRole('navigation',{name:'Contract sections'});await expect(nav).toHaveCSS('justify-content','center');await expect(nav.getByRole('button',{name:'Previous section',exact:true})).toHaveText('');await expect(nav.getByRole('button',{name:'Next section',exact:true})).toHaveText('');expect(await nav.evaluate(node=>node===node.parentElement.lastElementChild)).toBe(true);await nav.getByRole('button',{name:'Next section',exact:true}).click();await expect(form.getByRole('heading',{name:'2. Covered recordings and services',exact:true})).toBeVisible();
 });
 test('notifications use the global close control and account actions align left',async({page})=>{
  await enter(page,['documents.read','artists.read']);await page.route('**/rest/v1/studio_artist_handles*',route=>route.fulfill({json:[{requested_username:'fixture.artist',updated_at:'2026-11-14T10:00:00Z'}]}));await page.getByRole('button',{name:'Account menu',exact:true}).click();

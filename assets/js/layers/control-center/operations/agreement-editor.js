@@ -6,8 +6,8 @@ export function bindContractSections(section,icon){
  const groups=[...section.querySelectorAll('[data-term-group]')];
  if(!groups.length)return;
  const navigation=document.createElement('nav'),previous=document.createElement('button'),next=document.createElement('button'),progress=document.createElement('p');
- navigation.className='control-center-contract-actions';navigation.setAttribute('aria-label','Contract sections');
- previous.type=next.type='button';previous.className=next.className='ui-button';previous.innerHTML=icon('core/navigation/direction/arrow-left.svg')+'Previous';next.innerHTML=icon('core/navigation/direction/arrow-right.svg')+'Next section';progress.setAttribute('aria-live','polite');navigation.append(previous,progress,next);section.prepend(navigation);
+ navigation.className='control-center-contract-navigation';navigation.setAttribute('aria-label','Contract sections');
+ previous.type=next.type='button';previous.className=next.className='ui-icon-button ui-hover-tooltip';previous.setAttribute('aria-label','Previous section');next.setAttribute('aria-label','Next section');previous.dataset.label='Previous section';next.dataset.label='Next section';previous.innerHTML=icon('core/navigation/direction/arrow-left.svg');next.innerHTML=icon('core/navigation/direction/arrow-right.svg');progress.setAttribute('aria-live','polite');navigation.append(previous,progress,next);section.append(navigation);
  let current=0;
  const show=()=>{groups.forEach((group,index)=>group.hidden=index!==current);progress.textContent=`Section ${current+1} of ${groups.length}`;previous.disabled=current===0;next.disabled=current===groups.length-1;};
  previous.onclick=()=>{current--;show();};next.onclick=()=>{current++;show();};show();

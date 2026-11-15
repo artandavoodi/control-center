@@ -28,7 +28,8 @@ import {createAccess} from './auth.js';
 import {mountProfile} from './profile.js';
 import {mountOrganization} from './organization.js';
 import {mountWorkspace,readWorkspacePreference,rememberWorkspace} from './workspace.js';
-import {normalizeContext} from './context.js';
+import {flushDraftSaves,discardDraftSaves} from './draft-save.js';
+import {normalizeContext,contextualNavigation} from './context.js';
 import {mountDevelopment} from './development.js';
 import {mountRegistry} from './registry.js';
 import {mountDocuments} from './documents.js';
@@ -88,11 +89,11 @@ async function loadAccess(){
 }
 async function render(){
  finishLoading();
- const turn=++revision,requestedAction=pendingAction;pendingAction='';const nav=permittedNavigation(config,staff).filter(item=>item.workspace!=='reviews'||workspace.workspace_key==='artanrecords');if(!nav.some(item=>item.id===panel))panel='overview';
+ const turn=++revision,requestedAction=pendingAction;pendingAction='';const nav=contextualNavigation(config,permittedNavigation(config,staff),workspace,context,units).filter(item=>item.workspace!=='reviews'||workspace.workspace_key==='artanrecords');if(!nav.some(item=>item.id===panel))panel='overview';if(!nav.some(item=>item.workspace===context.function))context.function='operations';
  if(!nav.some(item=>item.workspace===context.function)){context.function='operations';}
  writeView('navigation',{workspace:workspace.id,context,panel});
- const navigate=(id,action='')=>{const item=permittedNavigation(config,staff).find(item=>item.id===id);if(!item)return;if(item.workspace==='reviews'){const records=workspaces.find(item=>item.workspace_key==='artanrecords');if(!records)return;workspace=records;context=normalizeContext({function:'reviews'},units,workspace);rememberWorkspace('workspace',workspace.id);}if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;pendingAction=action;render().catch(showError);};
- mountWorkspace({root,config,staff,user,client,updateMonitor,nav,pickerNav:permittedNavigation(config,staff),panel,e,icon,workspaces,workspace,context,units,onContext:value=>{const selected=workspaces.find(item=>item.id===value.workspace);if(!selected)return;workspace=selected;context=normalizeContext(value,units,workspace);rememberWorkspace('workspace',workspace.id);rememberWorkspace('context',JSON.stringify(context));panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';render().catch(showError);},onNavigate:navigate,onSignout:async()=>{updateMonitor?.stop();stopUsage();++revision;root.replaceChildren();await client.auth.signOut({scope:'local'});signin();}});
+ const navigate=async(id,action='')=>{if(!await flushDraftSaves(root))return;const item=permittedNavigation(config,staff).find(item=>item.id===id);if(!item)return;if(!contextualNavigation(config,[item],workspace,context,units).length)context=normalizeContext({function:item.workspace},units,workspace);if(item.workspace==='reviews'){const records=workspaces.find(item=>item.workspace_key==='artanrecords');if(!records)return;workspace=records;context=normalizeContext({function:'reviews'},units,workspace);rememberWorkspace('workspace',workspace.id);}if(config.workspaces.some(group=>group.id===item.workspace)){context.function=item.workspace;rememberWorkspace('context',JSON.stringify(context));}panel=id;pendingAction=action;render().catch(showError);};
+ mountWorkspace({root,config,staff,user,client,updateMonitor,nav,pickerNav:permittedNavigation(config,staff),panel,e,icon,workspaces,workspace,context,units,onContext:async value=>{if(!await flushDraftSaves(root))return;const selected=workspaces.find(item=>item.id===value.workspace);if(!selected)return;workspace=selected;context=normalizeContext(value,units,workspace);rememberWorkspace('workspace',workspace.id);rememberWorkspace('context',JSON.stringify(context));panel=context.function==='operations'?'overview':permittedNavigation(config,staff).find(item=>item.workspace===context.function)?.id||'overview';render().catch(showError);},onNavigate:navigate,onSignout:async()=>{if(!await flushDraftSaves(root)){if(!window.confirm('This draft is not saved. Sign out and discard its unsaved changes?'))return;discardDraftSaves(root);}updateMonitor?.stop();stopUsage();++revision;root.replaceChildren();await client.auth.signOut({scope:'local'});signin();}});
  const content=root.querySelector('[data-operation-content]');
  try{
   if(panel==='overview'){
@@ -134,7 +135,7 @@ async function render(){
    const actions=document.createElement('div');actions.className='control-center-update-primary';
    for(const [action,label] of Object.entries(updateConfig.primary).filter(([key])=>key!=='overview')){const button=document.createElement('button');button.type='button';button.innerHTML=icon(updateConfig.navigation.icon)+e(label);button.addEventListener('click',()=>navigate('updates',action));actions.append(button);}content.prepend(actions);
   }
-  if(turn===revision)root.querySelector('[data-operation-status]').textContent='';
+  if(turn===revision){const status=root.querySelector('[data-operation-status]');status.textContent='';status.removeAttribute('aria-label');const content=root.querySelector('[data-operation-content]');content.hidden=false;content.dispatchEvent(new Event('control-center:ready'));}
  }catch(error){if(turn===revision)showError(error);}
 }
 function showError(error){const status=root.querySelector('[data-operation-status]');if(status)status.textContent=error.message;}

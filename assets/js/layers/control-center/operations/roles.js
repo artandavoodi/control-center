@@ -1,6 +1,5 @@
 import source from '../../../../data/control-center/roles.json' with {type:'json'};
 import controls from '../../../../data/control-center/chart-controls.json' with {type:'json'};
-import {mountChartConnectors} from './chart-connectors.js';
 const departments={
  'chief-brand-aesthetic-officer':'Brand','chief-communications-officer':'Communication',
  'chief-risk-ethics-officer':'Governance','general-counsel':'Governance','corporate-secretary':'Governance',
@@ -30,28 +29,47 @@ export function mergeStaffPositions(roles,rows){
  return {roles:result,assignments};
 }
 export function renderRoleBlueprint(roles,e,canDraft,assignments=new Map(),currentId=''){
- function branch(role,seen=new Set()){
-  if(seen.has(role.id))return '';const next=new Set([...seen,role.id]),children=roles.filter(item=>item.parent===role.id);
-  const person=assignments.get(role.id);
-  return `<li><article class="control-center-person"${person?` data-person-id="${e(person.account_id)}"${person.account_id===currentId?' aria-current="true"':''}`:''}>${person?`<strong>${e(person.display_name||'Staff member')}</strong><span data-tree-role>${e(role.title)}</span>`:`<strong>${e(role.title)}</strong><span>Unassigned · ${role.proposed?'Proposed':'Documented'} position</span>`}<details><summary>Role details</summary><p>${e(role.summary)}</p><p>${person?'Verified staff assignment. Reporting links in this plan remain proposed.':'No appointment implied.'}</p>${role.publicUrl&&!role.proposed?`<a href="${e(role.publicUrl)}" target="_blank" rel="noopener">Read role description</a>`:''}${canDraft?`<button type="button" data-role-draft="${e(role.id)}">Prepare vacancy draft</button>`:''}</details>${children.length?`<button type="button" data-tree-branch aria-expanded="true">${children.length} direct reports</button>`:''}</article>${children.length?`<ol>${children.map(child=>branch(child,next)).join('')}</ol>`:''}</li>`;
- }
- return `<p>Position planning is separate from staff access. Reporting lines below are a proposed planning structure; an appointment or permission is never created here.</p><p class="control-center-field-note">Read from top to bottom. Each connected branch reports to the position above it. Scroll sideways to explore; select direct reports to collapse a branch.</p><div class="control-center-tree-viewport" tabindex="0" role="region" aria-label="Position reporting chart"><ol class="control-center-org-tree">${roles.filter(role=>!role.parent).map(role=>branch(role)).join('')}</ol></div>`;
+ const cards=roles.map(role=>{
+  const person=assignments.get(role.id),count=roles.filter(item=>item.parent===role.id).length;
+  return `<li data-position-id="${e(role.id)}" data-position-parent="${e(role.parent||'')}" data-position-department="${e(role.department||'Other')}"><article class="control-center-person" data-assigned="${Boolean(person)}"${person?` data-person-id="${e(person.account_id)}"${person.account_id===currentId?' aria-current="true"':''}`:''}><button type="button" class="control-center-person-open" data-role-open aria-haspopup="dialog" aria-label="${e('Open '+role.title)}"><strong>${person?e(person.display_name||'Staff member'):''}</strong><span data-tree-role>${e(role.title)}</span><span class="control-center-position-state"><i aria-hidden="true"></i>${person?'Assigned':'Unassigned'}</span></button><template data-role-details><h2>${e(role.title)}</h2>${person?`<p>${e(person.display_name||'Staff member')}</p>`:''}<p>${e(role.summary)}</p><p>${person?'Verified staff assignment. Reporting links remain proposed.':'Unassigned position. No appointment implied.'}</p><p>${count} direct ${count===1?'report':'reports'}</p>${role.publicUrl&&!role.proposed?`<a href="${e(role.publicUrl)}" target="_blank" rel="noopener">Read role description</a>`:''}${canDraft&&!person?`<button type="button" data-role-draft="${e(role.id)}">Prepare vacancy draft</button>`:''}</template>${count?`<button type="button" data-team-open aria-label="${e('View team: '+role.title)}">${count} direct ${count===1?'report':'reports'}</button>`:'<span class="control-center-position-reports">No direct reports</span>'}</article></li>`;
+ }).join('');
+ return `<p class="control-center-field-note">Proposed reporting plan.</p><section class="control-center-team-explorer" aria-label="Team explorer"><div data-team-toolbar></div><nav data-team-breadcrumbs aria-label="Reporting path"></nav><p data-team-summary role="status"></p><ul class="control-center-team-cards">${cards}</ul></section>`;
 }
-export function mountTreeBranches(root,{icon=()=>''}={}){
- root.querySelectorAll('[data-tree-branch]').forEach(button=>button.addEventListener('click',()=>{const children=button.closest('li').querySelector(':scope > ol');if(!children)return;children.hidden=!children.hidden;button.setAttribute('aria-expanded',String(!children.hidden));}));
- root.querySelectorAll('.control-center-tree-viewport').forEach(view=>{
-  const chart=view.querySelector('.control-center-org-tree'),name=view.getAttribute('aria-label');let level=4;
-  const updateEdges=mountChartConnectors(view);
-  chart.querySelectorAll('li > ol > li').forEach(item=>{const manager=item.parentElement.closest('li')?.querySelector(':scope > article'),card=item.querySelector(':scope > article');if(!manager||!card)return;const label=document.createElement('span');label.className='control-center-tree-parent';label.textContent='Reports to '+(manager.querySelector('[data-tree-role]')||manager.querySelector('strong')).textContent;card.append(label);});
-  const steps=[.4,.55,.7,.85,1,1.15,1.3];
-  const toolbar=document.createElement('div');toolbar.className='control-center-chart-tools';toolbar.setAttribute('role','group');toolbar.setAttribute('aria-label',name+' controls');
-  toolbar.innerHTML=`<button type="button" data-zoom-out aria-label="Zoom out ${name}" title="Zoom out">${icon(controls.zoomOut)}</button><output aria-live="polite">100%</output><button type="button" data-zoom-in aria-label="Zoom in ${name}" title="Zoom in">${icon(controls.zoomIn)}</button><button type="button" data-zoom-reset aria-label="Reset view" title="Reset view">${icon(controls.reset)}</button>${chart.querySelector('[aria-current=true]')?`<button type="button" data-find-me aria-label="Find me" title="Find me">${icon(controls.findMe)}</button>`:''}`;view.before(toolbar);
-  function locate(){const target=chart.querySelector('[aria-current=true]')||chart.querySelector('.control-center-person');if(!target)return;const rect=target.getBoundingClientRect(),frame=view.getBoundingClientRect();view.scrollLeft+=rect.left-frame.left-(view.clientWidth-rect.width)/2;view.scrollTop+=rect.top-frame.top;}
-  function update(next){const center=(view.scrollLeft+view.clientWidth/2)/Math.max(1,view.scrollWidth);level=Math.max(0,Math.min(steps.length-1,next));chart.style.zoom=String(steps[level]);chart.dataset.density=steps[level]<=.7?'compact':'full';toolbar.querySelector('output').textContent=Math.round(steps[level]*100)+'%';toolbar.querySelector('[data-zoom-out]').disabled=level===0;toolbar.querySelector('[data-zoom-in]').disabled=level===steps.length-1;view.scrollLeft=center*view.scrollWidth-view.clientWidth/2;}
-  const layout=document.createElement('button');layout.type='button';layout.setAttribute('aria-label','Compact layout '+name);chart.dataset.layout=chart.querySelectorAll('.control-center-person').length>6?'compact':'diagram';function syncLayout(){layout.setAttribute('aria-pressed',String(chart.dataset.layout==='compact'));layout.innerHTML=icon(controls[chart.dataset.layout]);layout.title=chart.dataset.layout==='compact'?'Switch to wide diagram':'Switch to compact layout';}syncLayout();toolbar.append(layout);layout.addEventListener('click',()=>{chart.dataset.layout=chart.dataset.layout==='compact'?'diagram':'compact';syncLayout();update(4);locate();});
-  toolbar.querySelector('[data-zoom-out]').addEventListener('click',()=>update(level-1));toolbar.querySelector('[data-zoom-in]').addEventListener('click',()=>update(level+1));toolbar.querySelector('[data-zoom-reset]').addEventListener('click',()=>{update(4);locate();});
-  toolbar.querySelector('[data-find-me]')?.addEventListener('click',()=>{const current=chart.querySelector('[aria-current=true]');for(let parent=current?.closest('li')?.parentElement;parent&&parent!==chart;parent=parent.parentElement){if(parent.tagName==='OL'){parent.hidden=false;parent.parentElement.querySelector(':scope > article [data-tree-branch]')?.setAttribute('aria-expanded','true');}}locate();});
-  const current=chart.querySelector('[aria-current=true]');if(current){const badge=document.createElement('span');badge.className='control-center-tree-you';badge.setAttribute('role','img');badge.setAttribute('aria-label','Your position');badge.title='Your position';(current.querySelector('[data-tree-role]')||current).prepend(badge);}
-  view.addEventListener('click',updateEdges);view.addEventListener('toggle',updateEdges,true);requestAnimationFrame(()=>{if(view.isConnected){locate();updateEdges();}});
+export function mountTreeBranches(root,{icon=()=>'',onDraft=()=>{}}={}){
+ const dialog=document.createElement('dialog');dialog.className='control-center-position-dialog';dialog.setAttribute('aria-label','Position details');dialog.innerHTML='<section><header><button type="button" class="global-close-button" aria-label="Close position details"></button></header><div data-position-content></div></section>';root.append(dialog);
+ window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);
+ let opener;
+ dialog.querySelector('button').onclick=()=>dialog.close();dialog.addEventListener('close',()=>opener?.focus());
+ root.querySelectorAll('[data-role-open]').forEach(button=>button.addEventListener('click',()=>{opener=button;const target=dialog.querySelector('[data-position-content]');target.replaceChildren(button.closest('article').querySelector('template').content.cloneNode(true));target.querySelector('[data-role-draft]')?.addEventListener('click',event=>{dialog.close();onDraft(event.currentTarget.dataset.roleDraft);});dialog.showModal();}));
+ root.querySelectorAll('.control-center-team-explorer').forEach(view=>{
+  const list=view.querySelector('ul'),cards=[...list.children],toolbar=view.querySelector('[data-team-toolbar]'),breadcrumbs=view.querySelector('[data-team-breadcrumbs]'),summary=view.querySelector('[data-team-summary]');
+  let mode='team',selected=cards.find(card=>!card.dataset.positionParent)?.dataset.positionId||'';
+  const name=card=>card.querySelector('[data-tree-role]').textContent;
+  const teams=document.createElement('button'),departments=document.createElement('button'),find=document.createElement('button'),filter=document.createElement('select'),filterLabel=document.createElement('label');
+  toolbar.className='control-center-team-tools';toolbar.setAttribute('role','group');toolbar.setAttribute('aria-label','Organization views');
+  teams.type=departments.type=find.type='button';teams.innerHTML=icon(controls.compact)+'Team explorer';departments.innerHTML=icon(controls.diagram)+'Departments';find.innerHTML=icon(controls.findMe)+'Find me';
+  filterLabel.textContent='Department';filterLabel.append(filter);
+  for(const value of [...new Set(cards.map(card=>card.dataset.positionDepartment))].sort()){const option=document.createElement('option');option.value=option.textContent=value;filter.append(option);}
+  toolbar.append(teams,departments,find,filterLabel);
+  const current=cards.find(card=>card.querySelector('[aria-current=true]'));find.hidden=!current;
+  function draw(focus=false){
+   teams.setAttribute('aria-pressed',String(mode==='team'));departments.setAttribute('aria-pressed',String(mode==='department'));filterLabel.hidden=mode!=='department';breadcrumbs.replaceChildren();breadcrumbs.hidden=mode!=='team';
+   const manager=cards.find(card=>card.dataset.positionId===selected);
+   const visible=mode==='team'?cards.filter(card=>card===manager||card.dataset.positionParent===selected):cards.filter(card=>card.dataset.positionDepartment===filter.value);
+   cards.forEach(card=>{card.hidden=!visible.includes(card);delete card.dataset.teamManager;});
+   if(mode==='team'&&manager){
+    manager.dataset.teamManager='true';list.prepend(manager);
+    const path=[],seen=new Set();let item=manager;
+    while(item&&!seen.has(item)){seen.add(item);path.unshift(item);item=cards.find(card=>card.dataset.positionId===item.dataset.positionParent);}
+    path.forEach((card,index)=>{const button=document.createElement('button');button.type='button';button.textContent=name(card);if(index===path.length-1)button.setAttribute('aria-current','page');button.onclick=()=>{selected=card.dataset.positionId;draw(true);};breadcrumbs.append(button);});
+    summary.textContent=(visible.length-1)+' direct '+(visible.length===2?'report':'reports');
+   }else summary.textContent=visible.length+' positions';
+   if(focus)(manager?.querySelector('[data-role-open]')||visible[0]?.querySelector('[data-role-open]'))?.focus();
+  }
+  teams.onclick=()=>{mode='team';draw();};departments.onclick=()=>{mode='department';draw();};filter.onchange=()=>draw();
+  find.onclick=()=>{mode='team';selected=current.dataset.positionId;draw(true);};
+  view.querySelectorAll('[data-team-open]').forEach(button=>button.onclick=()=>{mode='team';selected=button.closest('[data-position-id]').dataset.positionId;draw(true);});
+  if(current){const badge=document.createElement('span');badge.className='control-center-tree-you';badge.setAttribute('role','img');badge.setAttribute('aria-label','Your position');badge.title='Your position';current.querySelector('[data-tree-role]').prepend(badge);}
+  draw();
  });
 }

@@ -7,8 +7,20 @@ export function proposedAgreementTerms(tier){
  return Object.fromEntries(Object.entries({...template.proposalDefaults.common,...template.proposalDefaults.tiers[tier]}).map(([key,value])=>[key,'PROPOSED FOR REVIEW: '+value.replaceAll('{{studio_plan}}',item.includedStudioPlan)]));
 }
 export const requiredAgreementFields=body=>[...new Set([...String(body).matchAll(/\[([a-z ]+) - required\]/g)].map(match=>match[1]))];
-export const agreementFieldSection=key=>template.sections.find(section=>section.text.includes('{{'+key.replaceAll(' ','_')+'}}'))?.title||'Other required terms';
+export const agreementFieldSection=key=>template.editorGroups.find(group=>group.fields.includes(key))?.title||template.sections.find(section=>section.text.includes('{{'+key.replaceAll(' ','_')+'}}'))?.title||'Other required terms';
 export const isPartnershipTemplate=row=>partnershipDrafts.some(item=>row.tags.includes('partnership-'+item.id)&&row.body===createPartnershipDraft(item.id).body);
+export function recoverAgreementDraftState(row){
+ const tier=partnershipDrafts.find(item=>row?.tags?.includes('partnership-'+item.id))?.id;if(!tier)return null;
+ const original=createPartnershipDraft(tier).body,keys=[],escape=value=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ let pattern='',cursor=0;
+ // Recover only an exact governed template; custom text is never rewritten.
+ for(const match of original.matchAll(/\[([a-z ]+) - required\]/g)){pattern+=escape(original.slice(cursor,match.index));const previous=keys.indexOf(match[1]);if(previous<0){keys.push(match[1]);pattern+='([\\s\\S]{0,4000}?)';}else pattern+='\\'+(previous+1);cursor=match.index+match[0].length;}
+ pattern+=escape(original.slice(cursor));const source=/\n\nContract details source: [0-9a-f-]{36}\nDetails digest: [0-9a-f]{64}$/.exec(row.body)?.[0]||'';
+ const values=new RegExp('^'+pattern+escape(source)+'$').exec(row.body);if(!values)return null;
+ const fields=Object.fromEntries(keys.map((key,index)=>[key,values[index+1]==='['+key+' - required]'?'':values[index+1]]));let rendered=original+source;
+ for(const [key,value]of Object.entries(fields))if(value.trim())rendered=rendered.replaceAll('['+key+' - required]',value.trim());if(rendered!==row.body)return null;
+ return {schemaVersion:1,preservePunctuation:true,templateBody:original+source,fields};
+}
 export function createPartnershipDraft(tier){
  const item=defaults.items.find(item=>item.id===tier);if(!item)throw Error('Choose a registered partnership');
  const values={tier:item.name,artist_share:item.artistShare,label_share:item.labelShare,commercial_version:defaults.commercialTermsVersion};

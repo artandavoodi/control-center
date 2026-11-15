@@ -1,3 +1,4 @@
+import {focusWhenReady} from './loading.js';
 import {descendants} from './context.js';
 import {roleBlueprint,renderRoleBlueprint,mountTreeBranches,mergeStaffPositions} from './roles.js';
 export async function mountOrganization({content,client,staff,user,config,e,icon,workspace,workspaces,context,units:registry,isCurrent,onSaved,onNavigate,action}){
@@ -17,17 +18,17 @@ export async function mountOrganization({content,client,staff,user,config,e,icon
  const merged=mergeStaffPositions(positions,directoryRows.filter(row=>!context.department||scope.has(row.unit_id)||row.is_owner));
  const positionSection=document.createElement('section');positionSection.className='control-center-review';positionSection.innerHTML='<h3>Positions & reporting plan</h3>'+renderRoleBlueprint(merged.roles,e,staff.permissions.includes('jobs.write'),merged.assignments,user.id);
  positionSection.querySelectorAll('[data-role-draft]').forEach(button=>button.addEventListener('click',()=>onNavigate?.('vacancies','role:'+button.dataset.roleDraft)));
- content.append(positionSection);
- mountTreeBranches(content,{icon});
+ content.prepend(positionSection);
+ mountTreeBranches(content,{icon,onDraft:id=>onNavigate?.('vacancies','role:'+id)});
  // Only the current user's private photo is requested; staff photos are not made public.
- content.querySelectorAll('.control-center-person').forEach(card=>{const fallback=document.createElement('span');fallback.className='control-center-tree-avatar';fallback.innerHTML=icon('core/identity/profile/profile.svg');card.prepend(fallback);});
+ content.querySelectorAll('.control-center-person').forEach(card=>{const fallback=document.createElement('span');fallback.className='control-center-tree-avatar';if(card.dataset.assigned==='true')fallback.innerHTML=icon('core/identity/profile/profile.svg');card.querySelector('[data-role-open]').prepend(fallback);});
  const currentPhotos=content.querySelectorAll('.control-center-person[aria-current=true] .control-center-tree-avatar');
  if(currentPhotos.length)client.storage.from('control-center-photos').createSignedUrl(user.id+'/photo',300).then(result=>{if(!isCurrent())return;const url=result.data?.signedUrl||user.user_metadata?.avatar_url;if(typeof url!=='string'||!/^https:\/\//.test(url))return;currentPhotos.forEach(fallback=>{const image=document.createElement('img');image.alt='Your profile photo';image.className='control-center-tree-avatar';image.onload=()=>{if(isCurrent())fallback.replaceWith(image);};image.src=url;});});
  toolbar.innerHTML=unitKinds.map(kind=>`<button type="button" data-add-unit="${kind.id}">${icon(config.chrome[kind.id==='pillar'?'organization':kind.id==='department'?'addDepartment':kind.id])}${e(kind.id==='pillar'?'Add organization':'Add '+kind.label.toLowerCase())}</button>`).join('')+(staff.permissions.includes('staff.manage')?`<button type="button" data-add-staff>${icon(config.chrome.create)}Add staff member</button>`:'')+(unitKinds.length?`<button type="button" data-rename-unit>${icon(config.chrome.editUnit)}Edit organizational unit</button>`:'');
  if(toolbar.children.length)content.prepend(toolbar);
  // Context narrows the view; server-side branch checks still authorize every write.
  content.querySelectorAll('.control-center-unit-directory details').forEach(details=>{if(context.department&&details.dataset.unitId!==context.department)details.hidden=true;else if(context.department)details.open=true;if(context.office)details.querySelectorAll('li').forEach(li=>{li.hidden=li.dataset.unitId!==context.office;});});
- function show(selector){content.querySelectorAll('[data-staff-editor],[data-unit-editor],[data-rename-editor]').forEach(section=>section.hidden=!section.matches(selector));const section=content.querySelector(selector);section?.scrollIntoView({block:'start',behavior:'auto'});section?.querySelector('input,select')?.focus();}
+ function show(selector){content.querySelectorAll('[data-staff-editor],[data-unit-editor],[data-rename-editor]').forEach(section=>section.hidden=!section.matches(selector));const section=content.querySelector(selector);section?.scrollIntoView({block:'start',behavior:'auto'});focusWhenReady(section?.querySelector('input,select'));}
  const create=content.querySelector('[data-unit-create]');
  function parentOptions(){const kind=create.elements.kind.value;const parents=units.filter(unit=>unit.active&&unit.kind===(kind==='office'?'department':'pillar'));create.elements.parent.innerHTML=kind==='pillar'?'<option value="">No parent</option>':parents.map(unit=>`<option value="${e(unit.id)}">${e(unitLabel(unit))}</option>`).join('');create.elements.parent.disabled=kind==='pillar';create.elements.parent.required=kind!=='pillar';if(kind==='office'&&context.department)create.elements.parent.value=context.department;}
  create?.elements.kind.addEventListener('change',parentOptions);

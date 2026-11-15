@@ -1,6 +1,11 @@
 {
  "title":"{{tier}} recording partnership agreement",
  "notice":"WORKING DRAFT - LEGAL REVIEW REQUIRED - NOT ISSUED FOR SIGNATURE",
+ "editorGroups":[
+  {"title":"Label information","fields":["label legal name","label details","label signatory","label capacity"]},
+  {"title":"Artist information","fields":["artist legal name","artist name","artist details"]},
+  {"title":"Dates","fields":["effective date","term"]}
+ ],
  "proposalDefaults":{
   "version":1,
   "status":"proposed-not-approved",
