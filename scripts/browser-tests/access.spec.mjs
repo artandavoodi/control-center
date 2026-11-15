@@ -398,7 +398,8 @@ test('team explorer keeps equal cards and opens position details separately',asy
  await expect(explorer.locator('.control-center-position-state').first()).toHaveText('');
  await expect(explorer.locator('.control-center-tree-you')).toHaveCount(0);
  await expect(explorer.locator('.control-center-tree-avatar img')).toHaveCount(await explorer.locator('.control-center-person').count());
- await expect(explorer.locator('[data-assigned=false] .control-center-person-open strong').first()).toHaveText('');
+ await expect(explorer.locator('[data-assigned=false] .control-center-person-open strong').first()).toHaveText('Name');
+ await expect(explorer.locator('[data-assigned=false] .control-center-person-open strong').first()).toHaveCSS('opacity','1');
  expect(await explorer.locator('[data-assigned=true] .control-center-position-state').evaluate(el=>getComputedStyle(el).backgroundColor)).not.toBe(await explorer.locator('[data-assigned=false] .control-center-position-state').first().evaluate(el=>getComputedStyle(el).backgroundColor));
  await visible.locator('[data-assigned=false] [data-role-open]').first().click();
  const details=page.getByRole('dialog',{name:'Position details',exact:true});await expect(details).toBeVisible();

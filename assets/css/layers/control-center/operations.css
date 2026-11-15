@@ -220,7 +220,7 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-person { display:grid; grid-template-rows:minmax(0,1fr) var(--control-height-sm); gap:var(--spacing-sm); padding:var(--spacing-md); margin:0; inline-size:100%; block-size:calc(var(--control-height-lg) * 4); box-sizing:border-box; border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); text-align:center; background:var(--bg-color); }
 .control-center-operations .control-center-person-open { display:grid; grid-template-rows:var(--control-height-md) minmax(0,1fr); align-items:center; justify-items:center; gap:var(--spacing-xs); inline-size:100%; min-block-size:0; padding:0; border:0; background:transparent; color:inherit; text-align:center; cursor:pointer; }
 .control-center-person-identity { display:grid; grid-template-rows:var(--spacing-lg) minmax(0,1fr); justify-items:center; gap:var(--spacing-xs); align-self:stretch; min-inline-size:0; max-inline-size:100%; }
-.control-center-person-open strong { min-block-size:var(--text-body-size); align-self:start; }
+.control-center-person-open strong { min-block-size:var(--text-body-size); align-self:start; color:var(--text-color); opacity:var(--state-opacity-selected); }
 .control-center-person-open [data-tree-role] { display:flex; justify-content:center; align-items:flex-start; gap:var(--spacing-xs); font-size:var(--text-body-size); line-height:var(--line-height-body-tight); align-self:start; min-inline-size:0; max-inline-size:100%; }
 .control-center-person-open [data-role-title] { min-inline-size:0; text-align:start; }
 .control-center-position-state,.control-center-position-reports { font-size:var(--text-caption-size); }
@@ -238,7 +238,6 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-team-explorer[data-view=directory] .control-center-person { grid-template-columns:1fr auto; grid-template-rows:auto; align-items:center; block-size:calc(var(--control-height-lg) * 2); }
 .control-center-team-explorer[data-view=directory] .control-center-person-open { grid-template-columns:var(--control-height-md) minmax(0,1fr); grid-template-rows:auto; text-align:start; justify-items:start; column-gap:var(--spacing-md); }
 .control-center-team-explorer[data-view=directory] .control-center-person-identity { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
-.control-center-team-explorer[data-view=directory] .control-center-person-identity strong:empty { display:none; }
 .control-center-team-explorer[data-view=directory] .control-center-team-cards > li[data-team-manager] > article { inline-size:100%; }
 .control-center-unit-directory { display:grid; gap:var(--spacing-xl); grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr)); }
 .control-center-unit-directory details { padding-block:var(--spacing-md); }
