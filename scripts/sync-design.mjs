@@ -8,6 +8,7 @@ sources['profile-media-editor.html.js']='docs/assets/fragments/layers/website/pr
 sources['profile-media-editor.css']='docs/assets/css/layers/website/ui/profile-media-editor.css';
 sources['profile-media-action.css']='docs/assets/css/core/03-primitives/profile-media-action.css';
 sources['icons.css']='docs/assets/css/core/03-primitives/icons.css';
+sources['overlays.css']='docs/assets/css/core/03-primitives/overlays.css';
 sources['slider.css']='docs/assets/css/core/03-primitives/slider.css';
 sources['buttons.css']='docs/assets/css/core/03-primitives/buttons.css';
 sources['utilities.css']='docs/assets/css/core/02-foundation/utilities.css';

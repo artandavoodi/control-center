@@ -1757,6 +1757,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -11274,6 +11275,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan",
         "store",
         "artanrecords"
@@ -85264,7 +85266,9 @@
         "size"
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
-      "brands": []
+      "brands": [
+        "control-center"
+      ]
     },
     {
       "id": "text-caption-size",
@@ -103877,6 +103881,34 @@
       ]
     },
     {
+      "id": "core/actions/add-organization/add-organization",
+      "path": "core/actions/add-organization/add-organization.svg",
+      "publicPath": "/registry/icons/public/assets/core/actions/add-organization/add-organization.svg",
+      "source": "registry/icons/source/core/actions/add-organization/add-organization.svg",
+      "tags": [
+        "core",
+        "actions",
+        "add",
+        "organization",
+        "plus",
+        "create"
+      ],
+      "category": "core/actions",
+      "hasArtwork": false,
+      "sha256": "9855246efa65388bb5f5e34f59ec44c3af344bf1451858e073f9f5d9cbfaf06d",
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/operations.json"
+          ]
+        }
+      ]
+    },
+    {
       "id": "core/actions/add-style-sample/add-style-sample",
       "path": "core/actions/add-style-sample/add-style-sample.svg",
       "publicPath": "/registry/icons/public/assets/core/actions/add-style-sample/add-style-sample.svg",
@@ -116733,9 +116765,9 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/data/control-center/chart-controls.json",
             "assets/js/layers/control-center/operations/agreement-editor.js",
-            "assets/js/layers/control-center/operations/agreements.js"
+            "assets/js/layers/control-center/operations/agreements.js",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         }
       ]
@@ -116812,12 +116844,20 @@
       "hasArtwork": true,
       "sha256": "78d015c37800e318e22b1afbafdc0f0d5a561e90646ad55d9475898f08cb43d6",
       "brands": [
+        "control-center",
         "neuroartan",
         "artanrecords",
         "studio",
         "artist"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/chart-controls.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [

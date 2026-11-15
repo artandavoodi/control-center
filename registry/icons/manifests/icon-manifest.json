@@ -119,6 +119,12 @@
     "publicPath": "/registry/icons/public/assets/core/actions/add-memory-source/add-memory-source.svg",
     "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/add-memory-source/add-memory-source.svg"
   },
+  "core/actions/add-organization/add-organization": {
+    "id": "core/actions/add-organization/add-organization",
+    "path": "core/actions/add-organization/add-organization.svg",
+    "publicPath": "/registry/icons/public/assets/core/actions/add-organization/add-organization.svg",
+    "sourcePath": "/Users/artan/Documents/Neuroartan/control-center/registry/icons/source/core/actions/add-organization/add-organization.svg"
+  },
   "core/actions/add-style-sample/add-style-sample": {
     "id": "core/actions/add-style-sample/add-style-sample",
     "path": "core/actions/add-style-sample/add-style-sample.svg",

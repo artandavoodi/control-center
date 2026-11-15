@@ -1,5 +1,5 @@
 {
- "back":"core/navigation/direction/arrow-left.svg",
+ "back":"core/navigation/direction/back.svg",
  "zoomOut":"core/actions/visibility/zoom-out.svg",
  "zoomIn":"core/actions/visibility/zoom-in.svg",
  "reset":"core/actions/reset/reset.svg",

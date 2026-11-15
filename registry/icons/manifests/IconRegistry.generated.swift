@@ -21,6 +21,7 @@ enum DSCIconRegistry {
   static let core_actions_add_evaluation_add_evaluation = "core/actions/add-evaluation/add-evaluation"
   static let core_actions_add_local_entry_add_local_entry = "core/actions/add-local-entry/add-local-entry"
   static let core_actions_add_memory_source_add_memory_source = "core/actions/add-memory-source/add-memory-source"
+  static let core_actions_add_organization_add_organization = "core/actions/add-organization/add-organization"
   static let core_actions_add_style_sample_add_style_sample = "core/actions/add-style-sample/add-style-sample"
   static let core_actions_add_voice_sample_add_voice_sample = "core/actions/add-voice-sample/add-voice-sample"
   static let core_actions_agent_thread_list_agent_thread_list = "core/actions/agent-thread-list/agent-thread-list"

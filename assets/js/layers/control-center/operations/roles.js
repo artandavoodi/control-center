@@ -33,7 +33,7 @@ export function mergeStaffPositions(roles,rows){
 export function renderRoleBlueprint(roles,e,canDraft,assignments=new Map(),currentId=''){
  const cards=roles.map(role=>{
   const person=assignments.get(role.id),count=roles.filter(item=>item.parent===role.id).length;
-  return `<li data-position-id="${e(role.id)}" data-position-parent="${e(role.parent||'')}" data-position-department="${e(role.department||'Other')}"><article class="control-center-person" data-assigned="${Boolean(person)}"${person?` data-person-id="${e(person.account_id)}"${person.account_id===currentId?' aria-current="true"':''}`:''}><button type="button" class="control-center-person-open" data-role-open aria-haspopup="dialog" aria-label="${e('Open '+role.title)}"><strong>${person?e(person.display_name||'Staff member'):''}</strong><span data-tree-role><i class="control-center-position-state" role="img" aria-label="${person?'Assigned':'Unassigned'}"></i>${e(role.title)}</span></button><template data-role-details><h2>${e(role.title)}</h2>${person?`<p>${e(person.display_name||'Staff member')}</p>`:''}<p>${e(role.summary)}</p><p>${person?'Verified staff assignment. Reporting links remain proposed.':'Unassigned position. No appointment implied.'}</p><p>${count} direct ${count===1?'report':'reports'}</p>${role.publicUrl&&!role.proposed?`<a href="${e(role.publicUrl)}" target="_blank" rel="noopener">Read role description</a>`:''}${canDraft&&!person?`<button type="button" data-role-draft="${e(role.id)}">Prepare vacancy draft</button>`:''}</template>${count?`<button type="button" data-team-open aria-label="${e('View team: '+role.title)}">${count} direct ${count===1?'report':'reports'}</button>`:'<span class="control-center-position-reports">No direct reports</span>'}</article></li>`;
+  return `<li data-position-id="${e(role.id)}" data-position-parent="${e(role.parent||'')}" data-position-department="${e(role.department||'Other')}"><article class="control-center-person" data-assigned="${Boolean(person)}"${person?` data-person-id="${e(person.account_id)}"${person.account_id===currentId?' aria-current="true"':''}`:''}><button type="button" class="control-center-person-open" data-role-open aria-haspopup="dialog" aria-label="${e('Open '+role.title)}"><span class="control-center-person-identity"><strong>${person?e(person.display_name||'Staff member'):''}</strong><span data-tree-role><i class="control-center-position-state" role="img" aria-label="${person?'Assigned':'Unassigned'}"></i><span data-role-title>${e(role.title)}</span></span></span></button><template data-role-details><h2>${e(role.title)}</h2>${person?`<p>${e(person.display_name||'Staff member')}</p>`:''}<p>${e(role.summary)}</p><p>${person?'Verified staff assignment. Reporting links remain proposed.':'Unassigned position. No appointment implied.'}</p><p>${count} direct ${count===1?'report':'reports'}</p>${role.publicUrl&&!role.proposed?`<a href="${e(role.publicUrl)}" target="_blank" rel="noopener">Read role description</a>`:''}${canDraft&&!person?`<button type="button" data-role-draft="${e(role.id)}">Prepare vacancy draft</button>`:''}</template>${count?`<button type="button" data-team-open aria-label="${e('View team: '+role.title)}">View team · ${count}</button>`:'<span class="control-center-position-reports">No direct reports</span>'}</article></li>`;
  }).join('');
  return `<p class="control-center-field-note">Proposed reporting plan.</p><section class="control-center-team-explorer" aria-label="Team explorer"><div data-team-toolbar></div><nav data-team-breadcrumbs aria-label="Reporting path"></nav><p data-team-summary role="status"></p><ul class="control-center-team-cards">${cards}</ul></section>`;
 }
@@ -50,20 +50,21 @@ export function mountTreeBranches(root,{icon=()=>'',onDraft=()=>{}}={}){
   const name=card=>card.querySelector('[data-tree-role]').textContent;
   const layout=document.createElement('button'),back=document.createElement('button'),find=document.createElement('button');
   toolbar.className='control-center-team-tools';toolbar.setAttribute('role','group');toolbar.setAttribute('aria-label','Organization views');
-  for(const button of [layout,back,find]){button.type='button';button.className='ui-icon-button ui-hover-tooltip';}
+  for(const button of [layout,back,find]){button.type='button';button.className='ui-icon-button ui-hover-tooltip';button.dataset.hoverSurface='none';}
+  back.classList.remove('ui-hover-tooltip');layout.dataset.tooltipPosition='top';find.dataset.tooltipPosition='top';
   back.innerHTML=icon(controls.back);back.setAttribute('aria-label','Back');back.dataset.label='Back';find.innerHTML=icon(controls.findMe);find.setAttribute('aria-label','Find me');find.dataset.label='Find me';
-  toolbar.append(layout,back,find);
+  toolbar.append(layout,find);
   const current=cards.find(card=>card.querySelector('[aria-current=true]'));find.hidden=!current;
   function draw(focus=false){
    view.dataset.view=mode;const nextLabel=mode==='chart'?'Directory view':'Chart view';layout.innerHTML=icon(mode==='chart'?controls.diagram:controls.compact);layout.setAttribute('aria-label',nextLabel);layout.dataset.label=nextLabel;breadcrumbs.replaceChildren();
    const manager=cards.find(card=>card.dataset.positionId===selected),children=cards.filter(card=>card.dataset.positionParent===selected),visible=[manager,...children].filter(Boolean);
-   back.hidden=!manager?.dataset.positionParent;
+   back.hidden=!manager?.dataset.positionParent;breadcrumbs.append(back);
    cards.forEach(card=>{card.hidden=!visible.includes(card);delete card.dataset.teamManager;});
    if(manager){
     manager.dataset.teamManager='true';list.prepend(manager);
     const path=[],seen=new Set();let item=manager;
     while(item&&!seen.has(item)){seen.add(item);path.unshift(item);item=cards.find(card=>card.dataset.positionId===item.dataset.positionParent);}
-    path.forEach((card,index)=>{const button=document.createElement('button');button.type='button';button.textContent=name(card);if(index===path.length-1)button.setAttribute('aria-current','page');button.onclick=()=>{selected=card.dataset.positionId;draw(true);};breadcrumbs.append(button);});
+    path.forEach((card,index)=>{if(index){const separator=document.createElement('span');separator.textContent='/';separator.setAttribute('aria-hidden','true');breadcrumbs.append(separator);}const button=document.createElement('button');button.type='button';button.textContent=name(card);if(index===path.length-1)button.setAttribute('aria-current','page');button.onclick=()=>{selected=card.dataset.positionId;draw(true);};breadcrumbs.append(button);});
     summary.textContent=(selected===top?'Executive overview · ':'')+children.length+' direct '+(children.length===1?'report':'reports');
    }
    if(focus)manager?.querySelector('[data-role-open]')?.focus();
@@ -71,7 +72,7 @@ export function mountTreeBranches(root,{icon=()=>'',onDraft=()=>{}}={}){
   layout.onclick=()=>{mode=mode==='chart'?'directory':'chart';draw();};
   back.onclick=()=>{const parent=cards.find(card=>card.dataset.positionId===selected)?.dataset.positionParent;if(parent){selected=parent;draw(true);}};
   find.onclick=()=>{selected=current.dataset.positionId;draw(true);};
-  view.querySelectorAll('[data-role-open]').forEach(button=>{button.removeAttribute('aria-haspopup');button.onclick=()=>{const card=button.closest('[data-position-id]'),hasReports=cards.some(item=>item.dataset.positionParent===card.dataset.positionId);if(hasReports&&selected!==card.dataset.positionId){selected=card.dataset.positionId;draw(true);}else showDetails(button);};});
+  view.querySelectorAll('[data-role-open]').forEach(button=>{button.setAttribute('aria-haspopup','dialog');button.onclick=()=>showDetails(button);});
   view.querySelectorAll('[data-team-open]').forEach(button=>button.onclick=()=>{selected=button.closest('[data-position-id]').dataset.positionId;draw(true);});
   draw();
  });
