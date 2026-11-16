@@ -19,3 +19,10 @@ test('PDF export refuses mismatched document or image evidence',async()=>{
  await assert.rejects(agreementPdf({...record,logoBytes,signatures:[{...record.signatures[0],document_sha256:'b'.repeat(64)}]}),/does not match/);
  await assert.rejects(agreementPdf({...record,logoBytes,signatures:[{...record.signatures[0],image_sha256:'b'.repeat(64)}]}),/verification failed/);
 });
+test('real document PDFs require the registered execution kind and retain both signature images',async()=>{
+ const logoBytes=await readFile('assets/brand/email-wordmark.png'),envelope={...record.envelope,rehearsal:false},version={...record.version,terms:{...record.version.terms,kind:'artist_partnership_execution_v1'}};
+ await assert.rejects(agreementPdf({...record,envelope,logoBytes}),/Unrecognized real document/);
+ const bytes=await agreementPdf({...record,envelope,version,logoBytes,signatures:[record.signatures[0],{...record.signatures[0],signer_role:'label',display_name:'Synthetic Label'}]});
+ const pdf=await PDFDocument.load(bytes);assert.equal(pdf.getTitle(),version.terms.title);assert.ok(pdf.getPageCount()>3);
+ assert.ok(pdf.context.enumerateIndirectObjects().filter(([,object])=>object instanceof PDFRawStream&&object.dict.get(PDFName.of('Subtype'))===PDFName.of('Image')).length>=2);
+});

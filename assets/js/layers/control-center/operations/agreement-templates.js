@@ -2,6 +2,7 @@ import defaults from '../../../../data/control-center/partnership-defaults.json'
 import template from '../../../../data/control-center/agreement-template.json' with {type:'json'};
 export const partnershipDrafts=defaults.items;
 export const proposedTermsNotice=template.proposalDefaults.notice;
+export const agreementEditorSections=template.editorGroups.map(group=>group.title);
 export function proposedAgreementTerms(tier){
  const item=defaults.items.find(item=>item.id===tier);if(!item)return {};
  return Object.fromEntries(Object.entries({...template.proposalDefaults.common,...template.proposalDefaults.tiers[tier]}).map(([key,value])=>[key,'PROPOSED FOR REVIEW: '+value.replaceAll('{{studio_plan}}',item.includedStudioPlan)]));
