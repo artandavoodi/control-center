@@ -33,9 +33,14 @@
 .control-center-document-inventory.is-editing > :not([data-document-editor],dialog) { display:none; }
 .control-center-contract-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-contract-header h2 { margin:0; font-size:var(--font-size-lg); }
-.control-center-artist-context-header { position:sticky; inset-block-start:0; z-index:var(--z-above); background:var(--bg-color); padding-block:var(--spacing-md); margin-block-end:var(--spacing-lg); }
+.control-center-artist-context-header { padding-block:var(--spacing-md); margin-block-end:var(--spacing-lg); }
 .control-center-contract-actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-md); }
 .control-center-contract-actions [role=status] { margin:0; }
+.control-center-document-menu { position:relative; }
+.control-center-document-menu summary { list-style:none; cursor:pointer; }
+.control-center-document-menu summary::-webkit-details-marker { display:none; }
+.control-center-document-menu [role=menu] { position:absolute; inset-inline-end:0; inset-block-start:100%; z-index:var(--z-above); display:grid; gap:var(--spacing-sm); padding:var(--spacing-md); inline-size:max-content; max-inline-size:calc(100vw - var(--spacing-lg) * 2); background:var(--bg-color); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); }
+.control-center-document-menu [role=menuitem] { text-align:start; }
 .control-center-contract-navigation { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:var(--spacing-md); margin-block-start:var(--spacing-lg); }
 .control-center-contract-navigation p { margin:0; font-size:var(--text-caption-size); }
 .control-center-contract-import { display:flex; align-items:center; gap:var(--spacing-md); margin-block:var(--spacing-md); }
@@ -86,6 +91,7 @@ html[data-theme-effective=dark] .control-center-update-primary img { filter:none
 .control-center-settings-tabs,.control-center-tour-actions { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block-end:var(--spacing-xl); }
 .control-center-settings-tabs [aria-pressed=false] { opacity:var(--opacity-muted); }
 .control-center-registry-tabs { display:flex; flex-wrap:wrap; gap:var(--spacing-sm); margin-block:var(--spacing-lg); }
+.control-center-agreement-tabs { margin-block:var(--spacing-md); padding-block-end:var(--spacing-sm); border-block-end:var(--border-width-hairline) solid var(--control-center-border); }
 .control-center-registry-tabs button { border:0; background:transparent; color:inherit; font:inherit; padding:var(--spacing-sm) var(--spacing-md); min-block-size:var(--control-height-md); cursor:pointer; }
 .control-center-registry-tabs [aria-selected=false] { opacity:var(--opacity-muted); }
 .control-center-operations { position:relative; display:grid; flex:1; min-block-size:0; min-inline-size:0; grid-template-columns:var(--control-rail-width,var(--control-width-auth-max)) minmax(0,1fr); }
@@ -278,7 +284,8 @@ html[data-theme-effective=light] :is(img.control-center-operation-icon,.control-
 .control-center-decision-note,.control-center-decision-form > [role=status] { grid-column:1/-1; }
 .control-center-decision-form > button { justify-self:start; }
 .control-center-operations button.control-center-primary-action { background:var(--color-primary1); color:var(--color-white); border:0; }
-.control-center-operations .control-center-primary-action > .control-center-operation-icon { filter:brightness(0) invert(1); }
+.control-center-operations button.control-center-success-action { background:var(--status-success-color); color:var(--color-white); border:0; }
+.control-center-operations :is(.control-center-primary-action,.control-center-success-action) > .control-center-operation-icon { filter:brightness(0) invert(1); }
 .control-center-enquiry-tabs { display:flex; flex-wrap:wrap; gap:var(--spacing-md); padding-block-end:var(--spacing-lg); }
 .control-center-enquiry-tabs > button { border:0; background:transparent; opacity:var(--opacity-muted); }
 .control-center-enquiry-tabs > [aria-selected=true] { opacity:1; }

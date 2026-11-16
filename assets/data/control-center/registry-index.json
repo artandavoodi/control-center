@@ -106596,9 +106596,16 @@
       "hasArtwork": true,
       "sha256": "1ddd2be660be5d672df86973e4a9ca339e9e3d91bda2d60df9e8e5252cae3fdb",
       "brands": [
+        "control-center",
         "neuroartan"
       ],
       "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
         {
           "brand": "neuroartan",
           "evidence": [
@@ -114689,8 +114696,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/agreements.json",
-            "assets/js/layers/control-center/operations/agreement-issuance.js",
-            "assets/js/layers/control-center/operations/agreements.js"
+            "assets/js/layers/control-center/operations/agreement-editor.js",
+            "assets/js/layers/control-center/operations/agreement-issuance.js"
           ]
         },
         {

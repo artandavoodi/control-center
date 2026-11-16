@@ -41,7 +41,7 @@ test('contract review explains blockers before offering an exact-version confirm
  await page.goto('/');await page.evaluate(async()=>{
   const {mountAgreementIssuance}=await import('/__agreement-issuance-test.js');
   document.body.innerHTML='<dialog open><section data-issue></section></dialog>';
-  const record={id:'fixture',title:'Fixture draft',body:'Working terms',artist_intake_version_id:'version',unit_id:'unit',tags:['partnership-silver'],draft_state:{fields:{'legal review':'PENDING — NO APPROVAL RECORDED'}}};
+  const record={id:'fixture',title:'Fixture draft',body:'Working terms',artist_intake_version_id:'version',unit_id:'unit',tags:['partnership-silver'],draft_state:{fields:{'legal review':'PENDING — NO APPROVAL RECORDED','effective date':'2026-01-15','expiry date':'2027-01-15'}}};
   let sameParty=false,enabled=false;window.issueCalls=[];
   const client={rpc:async(name)=>{window.issueCalls.push(name);return {data:enabled};},from(){const query={select(){return query;},eq(){return query;},single:async()=>({data:{id:'intake',account_id:sameParty?'label':'artist'}})};return query;}};
   window.renderIssuance=async stage=>{if(stage>0){record.title='Fixture final agreement';record.draft_state.fields['legal review']='Independent reviewer approval for fixture version';}sameParty=stage===1;enabled=stage===3;await mountAgreementIssuance({root:document.querySelector('[data-issue]'),dialog:document.querySelector('dialog'),client,staff:{account_id:'label'},workspace:{id:'brand'},record,e:String,icon:()=>'',isCurrent:()=>true});};

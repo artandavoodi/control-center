@@ -1,6 +1,7 @@
 {
  "title":"{{tier}} recording partnership agreement",
  "notice":"WORKING DRAFT - LEGAL REVIEW REQUIRED - NOT ISSUED FOR SIGNATURE",
+ "dates":{"starts":"Effective from","ends":"Expires on","choose":"Select both dates to calculate the duration.","invalid":"Choose an expiry date after the effective date.","summary":"Effective from {start}; expires on {end}. Total duration: {duration}.","units":{"year":["year","years"],"month":["month","months"],"day":["day","days"]}},
  "editorGroups":[
   {"title":"Label information","fields":["label legal name","label details","label signatory","label capacity"]},
   {"title":"Artist information","fields":["artist legal name","artist name","artist details"]},
@@ -19,7 +20,7 @@
   ],
   "common":{
    "effective date":"The date on which the second party signs the final fixed agreement. No backdating or exploitation licence before both parties sign.",
-   "term":"Twelve months from the effective date, with no automatic renewal. Any extension requires written agreement by both parties. Previously incurred reporting and payment duties survive expiry. This duration is a proposed business choice requiring approval.",
+   "term":"The selected effective and expiry dates define the duration. There is no automatic renewal. Any extension requires written agreement by both parties. Previously incurred reporting and payment duties survive expiry.",
    "territory":"Worldwide, limited to the territories and listening services approved in the release schedule and legally available through the selected distribution provider.",
    "rights":"The artist retains master ownership. A non-exclusive licence permits distribution, delivery, reproduction and necessary use of approved artwork, metadata, name and release material solely to administer and promote the recordings in Schedule A during the term. Sublicensing is limited to necessary distribution and listening-service partners. Publishing, songwriting, merchandising, live performance, sync licensing, AI training and unrelated recordings are excluded unless separately agreed. No new exploitation is authorized after licence expiry, except separately agreed migration handling and accounting for previously generated receipts.",
    "deductions":"No upfront base distribution fee, undisclosed administration fee or automatic recoupment. Deduct only documented distributor or listening-service commissions, attributable refunds and reversals, and legally required withholding from covered receipts, without double-counting amounts already netted by the payer. Any additional artist-paid or recoupable expense requires prior written approval of its amount, cap and treatment. Label-funded non-recoupable costs do not reduce the artist allocation. The written offer must identify the selected distributor's actual charges before acceptance.",

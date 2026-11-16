@@ -1,5 +1,6 @@
 import {bindICloudReplies} from './icloud-replies.js';
 import labels from '../../../../data/control-center/agreements.json' with {type:'json'};
+import {agreementDateSummary} from './agreement-dates.js';
 
 // Issuing is separate from saving, PDF preview, email delivery and final access approval.
 export async function mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued}){
@@ -19,12 +20,15 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
  if(result.error||!result.data){status.textContent=copy.recipientRequired;return;}
  const intake=result.data,tier=record.tags.find(tag=>/^partnership-(silver|gold|platinum)$/.test(tag))?.slice('partnership-'.length);
  if(!tier||intake.account_id===staff.account_id){status.textContent=copy.partiesRequired;return;}
+ if(fields&&!agreementDateSummary(fields['effective date'],fields['expiry date'])){status.textContent=copy.dateError;return;}
  const ready=await client.rpc('control_center_agreement_execution_ready',{brand:workspace.id,unit:record.unit_id});
  if(!stillCurrent())return;
  if(ready.error||ready.data!==true){status.textContent=copy.unavailable;return;}
  const form=document.createElement('form');form.className='control-center-issue-form';
  form.innerHTML=`<h3>${e(copy.title)}</h3><p>${e(copy.boundary)}</p><label>${e(copy.signer)}<input name="signer" required maxlength="160"></label><div class="control-center-field-pair"><label>${e(copy.starts)}<input name="starts" type="date" required></label><label>${e(copy.ends)}<input name="ends" type="date" required></label></div><label>${e(copy.review)}<textarea name="review" required minlength="20" maxlength="2000" rows="3"></textarea></label><label class="control-center-operation-check"><input name="confirmed" type="checkbox" required><span>${e(copy.confirm)}</span></label><button type="submit" class="control-center-primary-action">${icon('core/legal/contracts/signature.svg')}${e(copy.issue)}</button><p role="status"></p>`;
- form.elements.review.value=fields?.['legal review']||'';form.elements.signer.value=fields?.['label signatory']||'';root.append(form);status.textContent='';
+ form.elements.review.value=fields?.['legal review']||'';form.elements.signer.value=fields?.['label signatory']||'';
+ if(fields){form.elements.starts.value=fields['effective date'];form.elements.ends.value=fields['expiry date'];form.elements.starts.readOnly=form.elements.ends.readOnly=true;}
+ root.append(form);status.textContent='';
  form.onsubmit=async event=>{
   event.preventDefault();if(!form.reportValidity())return;
   const message=form.querySelector('[role=status]');
