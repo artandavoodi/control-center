@@ -1,4 +1,5 @@
 {
+ "finalizationAction":"Confirm, finalize and send to signing",
  "navigation":{"id":"agreements","workspace":"operations","label":"Agreements","description":"","permissionAll":["documents.read","documents.confidential"],"icon":"core/legal/contracts/contract.svg"},
  "queue":{"id":"agreements","label":"Contract details ready for review","table":"studio_agreement_intake_requests","displayField":"id","displayRecord":false,"pendingStatus":"submitted","action":"details","focusRecord":true},
  "signatureQueue":{"id":"agreements","label":"Artist signature received","table":"studio_agreement_envelopes","displayField":"id","displayRecord":false,"pendingStatus":"artist_signed","action":"signing","focusAccount":true},

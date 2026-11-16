@@ -26,3 +26,8 @@ test('real document PDFs require the registered execution kind and retain both s
  const pdf=await PDFDocument.load(bytes);assert.equal(pdf.getTitle(),version.terms.title);assert.ok(pdf.getPageCount()>3);
  assert.ok(pdf.context.enumerateIndirectObjects().filter(([,object])=>object instanceof PDFRawStream&&object.dict.get(PDFName.of('Subtype'))===PDFName.of('Image')).length>=2);
 });
+test('draft exports contain only the working document and reject signature evidence',async()=>{
+ const draft={envelope:{...record.envelope,status:'draft',rehearsal:false},version:{terms:{kind:'agreement_draft_v1',title:'Working agreement draft',body:'Only draft text. This has not been issued or signed.'}},signatures:[],events:[],logoBytes:await readFile('assets/brand/email-wordmark.png')};
+ const pdf=await PDFDocument.load(await agreementPdf(draft));assert.equal(pdf.getPageCount(),1);assert.equal(pdf.getTitle(),'Working agreement draft');
+ await assert.rejects(agreementPdf({...draft,signatures:record.signatures}),/cannot include signing evidence/);
+});

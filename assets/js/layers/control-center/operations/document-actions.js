@@ -1,13 +1,14 @@
-export function bindDocumentActions({form,icon,onAction}){
+export function bindDocumentActions({form,icon,onAction,onPrint,onExport}){
  const close=form.querySelector('[data-document-cancel]');if(!close)return;
- const menu=document.createElement('details'),trigger=document.createElement('summary'),items=document.createElement('div');
- menu.className='control-center-document-menu';trigger.className='ui-icon-button';trigger.setAttribute('aria-label','More contract options');trigger.innerHTML=icon('core/actions/more-vertical/more-vertical.svg');items.setAttribute('role','menu');items.setAttribute('aria-label','Contract options');menu.append(trigger,items);close.before(menu);
- for(const [action,title]of [['draft-archived','Archive draft'],['draft-trash','Delete draft']]){
-  const button=document.createElement('button');button.type='button';button.setAttribute('role','menuitem');button.textContent=title;
-  button.onclick=async()=>{menu.open=false;await onAction(action);};items.append(button);
+ const trigger=document.createElement('button'),panel=document.createElement('dialog');trigger.type='button';trigger.className='ui-icon-button';trigger.setAttribute('aria-label','More contract options');trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-expanded','false');trigger.innerHTML=icon('core/actions/more-vertical/more-vertical.svg');close.before(trigger);
+ panel.className='control-center-contract-options';panel.setAttribute('aria-label','Contract options');panel.innerHTML='<header class="control-center-dialog-header"><h2>Contract options</h2><button type="button" class="global-close-button" aria-label="Close contract options"></button></header><div role="menu" aria-label="Contract actions"></div><p role="status"></p>';form.append(panel);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(panel);
+ const items=panel.querySelector('[role=menu]'),status=panel.querySelector('[role=status]');
+ for(const [action,title,path]of [['print','Print','core/actions/print/print.svg'],['pdf','Export PDF','core/actions/download/download.svg'],['draft-archived','Archive draft',null],['draft-trash','Delete draft','core/actions/delete/delete.svg']]){
+  const button=document.createElement('button');button.type='button';button.setAttribute('role','menuitem');button.className='control-center-inline-action';button.innerHTML=(path?icon(path):'<span class="control-center-operation-icon control-center-pending-artwork" data-artwork-status="pending" aria-hidden="true"></span>')+title;
+  button.onclick=async()=>{status.textContent='';try{if(action==='print'){await onPrint();return;}if(action==='pdf'){button.disabled=true;await onExport();status.textContent='Draft PDF exported. This does not sign or send the contract.';return;}panel.close();await onAction(action);}catch(error){status.textContent=error.message||'The action could not be completed.';}finally{button.disabled=false;}};items.append(button);
  }
- menu.addEventListener('keydown',event=>{if(event.key==='Escape'){menu.open=false;trigger.focus();}});
- menu.addEventListener('toggle',()=>{if(menu.open)items.querySelector('button')?.focus();});
+ trigger.onclick=()=>{panel.showModal();trigger.setAttribute('aria-expanded','true');items.querySelector('button')?.focus();};panel.querySelector('[aria-label="Close contract options"]').onclick=()=>panel.close();panel.addEventListener('close',()=>{trigger.setAttribute('aria-expanded','false');trigger.focus();});
+ items.addEventListener('keydown',event=>{const buttons=[...items.querySelectorAll('button')],index=buttons.indexOf(document.activeElement);const next=event.key==='ArrowDown'?(index+1)%buttons.length:event.key==='ArrowUp'?(index+buttons.length-1)%buttons.length:event.key==='Home'?0:event.key==='End'?buttons.length-1:null;if(next!==null){event.preventDefault();buttons[next].focus();}});
 }
 
 export async function mountDraftArchive({root,client,workspaceId,accountId,canWrite,e,onSaved}){

@@ -12,5 +12,6 @@ export function bindContractSections(section,icon,{onReview=()=>{},onSend=()=>{}
  const send=document.createElement('button');send.type='button';send.className='ui-button control-center-success-action';send.innerHTML=icon('core/legal/contracts/signature.svg')+'Send to signing';send.onclick=onSend;navigation.append(review,send);
  let current=0;
  const show=()=>{groups.forEach((group,index)=>group.hidden=index!==current);progress.textContent=`Section ${current+1} of ${groups.length}`;previous.disabled=current===0;next.hidden=current===groups.length-1;review.hidden=send.hidden=current!==groups.length-1;};
- previous.onclick=()=>{current--;show();};next.onclick=()=>{current++;show();};show();
+ previous.onclick=()=>{current--;show();};next.onclick=()=>{current++;show();};
+ section.addEventListener('contract:reveal-field',event=>{const input=section.querySelector('[data-term-key="'+event.detail+'"]'),index=groups.findIndex(group=>group.contains(input));if(index<0)return;current=index;show();input.focus();});show();
 }

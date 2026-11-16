@@ -105156,7 +105156,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/js/layers/control-center/operations/agreements.js",
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/document-actions.js"
           ]
         },
         {
@@ -105254,6 +105255,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
+            "assets/js/layers/control-center/operations/agreement-issuance.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         },
@@ -106603,7 +106605,8 @@
         {
           "brand": "control-center",
           "evidence": [
-            "assets/js/layers/control-center/operations/dist.js"
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/document-actions.js"
           ]
         },
         {
@@ -107297,8 +107300,18 @@
       "category": "core/actions",
       "hasArtwork": true,
       "sha256": "afbdf1a4c156cff359d3b4ce528ed34ed0307112d6276bd9f6f6875f7fe22847",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/js/layers/control-center/operations/dist.js",
+            "assets/js/layers/control-center/operations/document-actions.js"
+          ]
+        }
+      ]
     },
     {
       "id": "core/actions/products-index/products-index",
@@ -107769,8 +107782,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/operations.json",
-            "assets/js/layers/control-center/operations/artist-enquiries.js",
-            "assets/js/layers/control-center/operations/communications.js"
+            "assets/js/layers/control-center/operations/agreement-issuance.js",
+            "assets/js/layers/control-center/operations/artist-enquiries.js"
           ]
         },
         {
@@ -114660,8 +114673,8 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/agreements.json",
-            "assets/js/layers/control-center/operations/dist.js",
-            "assets/js/layers/control-center/operations/search.js"
+            "assets/js/layers/control-center/operations/agreement-issuance.js",
+            "assets/js/layers/control-center/operations/dist.js"
           ]
         },
         {

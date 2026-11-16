@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test';
 import {build} from 'esbuild';
 import {readFile} from 'node:fs/promises';
 const issuanceBundle=await build({entryPoints:['assets/js/layers/control-center/operations/agreement-issuance.js'],bundle:true,format:'esm',write:false});
+const documentBundle=await build({entryPoints:['assets/js/layers/control-center/operations/documents.js'],bundle:true,format:'esm',write:false,loader:{'.ttf':'binary','.css':'text'},plugins:[{name:'pdf-worker-source',setup(builder){builder.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}]});
 const signingBundle=await build({entryPoints:['assets/js/layers/control-center/operations/shared/agreement-rehearsal.js'],bundle:true,format:'esm',write:false,loader:{'.ttf':'binary'},plugins:[{name:'pdf-worker-source',setup(builder){builder.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}]});
 
 test('agreement directory separates general tools from one artist workspace',async({page})=>{
@@ -9,7 +10,7 @@ test('agreement directory separates general tools from one artist workspace',asy
  await page.evaluate(async()=>{
   const {mountAgreementWorkspace}=await import('/assets/js/layers/control-center/operations/agreement-workspace.js');
   document.body.innerHTML='<div class="control-center-app"><div class="control-center-operations"><main><header><h1>Agreements</h1></header><div data-test-workspace data-operation-content></div></main></div></div>';
-  const requests=[{id:'request-a',account_id:'artist-a',workspace_id:'brand',current_version_id:'version-a',status:'approved',rehearsal:false},{id:'request-b',account_id:'artist-b',workspace_id:'brand',current_version_id:'version-b',status:'submitted',rehearsal:false}];
+  const requests=[{id:'request-a',account_id:'artist-a',workspace_id:'brand',current_version_id:'version-a',status:'approved',rehearsal:false,updated_at:'2026-11-15T00:00:00Z'},{id:'request-b',account_id:'artist-b',workspace_id:'brand',current_version_id:'version-b',status:'submitted',rehearsal:false,updated_at:'2026-11-16T00:00:00Z'}];
   const versions=[{id:'version-a',request_id:'request-a',details:{artist_name:'First Artist',legal_name:'First Legal Name'},reply_email:'first@example.test'},{id:'version-b',request_id:'request-b',details:{artist_name:'Second Artist'},reply_email:'second@example.test'}];
   const client={rpc:async()=>({data:false}),from(table){let rows=table==='studio_agreement_intake_requests'?requests:table==='studio_agreement_intake_versions'?versions:[];const query={select(){return query;},eq(key,value){rows=rows.filter(row=>row[key]===value);return query;},in(key,values){rows=rows.filter(row=>values.includes(row[key]));return query;},order(){return query;},limit(){return query;},single:async()=>({data:rows[0]}),then(resolve){return Promise.resolve({data:rows}).then(resolve);}};return query;}};
   const icon=path=>'<img class="control-center-operation-icon" alt="" src="/registry/icons/public/assets/'+path+'">';
@@ -19,7 +20,8 @@ test('agreement directory separates general tools from one artist workspace',asy
    if(options.artistAccount==='artist-a')await new Promise(resolve=>{window.finishArtistMount=resolve;});
   });
  });
- await expect(page.getByRole('tab',{name:'Artist details',exact:true})).toBeVisible();
+ await expect(page.getByRole('searchbox',{name:'Find agreement artist',exact:true})).toBeVisible();await expect(page.getByRole('tab')).toHaveCount(0);
+ const names=page.locator('.control-center-artist-result strong');await expect(names).toHaveText(['Second Artist','First Artist']);await page.getByLabel('Sort by',{exact:true}).selectOption('az');await expect(names).toHaveText(['First Artist','Second Artist']);await page.getByLabel('Sort by',{exact:true}).selectOption('za');await expect(names).toHaveText(['Second Artist','First Artist']);await page.getByLabel('Sort by',{exact:true}).selectOption('oldest');await expect(names).toHaveText(['First Artist','Second Artist']);await page.getByLabel('Status',{exact:true}).selectOption('approved');await expect(names).toHaveText(['First Artist']);await page.getByLabel('Status',{exact:true}).selectOption('');
  const tools=page.getByRole('navigation',{name:'Agreement tools'});
  await expect(tools.getByRole('button',{name:'My signatures'})).toBeVisible();await expect(tools.getByRole('button',{name:'Invitations'})).toBeVisible();await expect(tools.getByRole('button',{name:'Account requests'})).toHaveCount(0);
  await expect(page.getByRole('tab',{name:'Contracts'})).toHaveCount(0);
@@ -43,20 +45,34 @@ test('contract review explains blockers before offering an exact-version confirm
   document.body.innerHTML='<dialog open><section data-issue></section></dialog>';
   const record={id:'fixture',title:'Fixture draft',body:'Working terms',artist_intake_version_id:'version',unit_id:'unit',tags:['partnership-silver'],draft_state:{fields:{'legal review':'PENDING — NO APPROVAL RECORDED','effective date':'2026-01-15','expiry date':'2027-01-15'}}};
   let sameParty=false,enabled=false;window.issueCalls=[];
-  const client={rpc:async(name)=>{window.issueCalls.push(name);return {data:enabled};},from(){const query={select(){return query;},eq(){return query;},single:async()=>({data:{id:'intake',account_id:sameParty?'label':'artist'}})};return query;}};
-  window.renderIssuance=async stage=>{if(stage>0){record.title='Fixture final agreement';record.draft_state.fields['legal review']='Independent reviewer approval for fixture version';}sameParty=stage===1;enabled=stage===3;await mountAgreementIssuance({root:document.querySelector('[data-issue]'),dialog:document.querySelector('dialog'),client,staff:{account_id:'label'},workspace:{id:'brand'},record,e:String,icon:()=>'',isCurrent:()=>true});};
+  const client={rpc:async(name,args)=>{window.issueCalls.push(name);if(name==='control_center_issue_agreement'){window.issuedArguments=args;return {data:'fixed-envelope'};}return {data:enabled};},from(){const query={select(){return query;},eq(){return query;},single:async()=>({data:{id:'intake',account_id:sameParty?'label':'artist'}})};return query;}};
+  window.renderIssuance=async stage=>{if(stage>0){record.title='Fixture final agreement';record.draft_state.fields['legal review']='Independent reviewer approval for fixture version';}sameParty=stage===1;enabled=stage===3;await mountAgreementIssuance({root:document.querySelector('[data-issue]'),dialog:document.querySelector('dialog'),client,staff:{account_id:'label'},workspace:{id:'brand'},record,e:String,icon:()=>'',isCurrent:()=>true,onResolve:()=>{},onSaveReview:async note=>{record.draft_state.fields['legal review']=note;window.reviewSaved=note;return record;}});};
   await window.renderIssuance(0);
  });
- await expect(page.getByRole('status')).toContainText('Prepare the final text and record legal approval');expect(await page.evaluate(()=>window.issueCalls)).toEqual([]);
- await page.evaluate(()=>window.renderIssuance(1));await expect(page.getByRole('status')).toContainText('Confirm separate artist and label signers');
- await page.evaluate(()=>window.renderIssuance(2));await expect(page.getByRole('status')).toContainText('Real contract issuing is not enabled');await expect(page.getByRole('button',{name:'Confirm fixed contract'})).toHaveCount(0);
- await page.evaluate(()=>window.renderIssuance(3));await expect(page.getByRole('button',{name:'Confirm fixed contract'})).toBeVisible();
+ await expect(page.getByText('Legal approval has not been recorded for this version.',{exact:true})).toBeVisible();await expect(page.getByText('The text is a working draft. Editing or saving it does not record legal approval.',{exact:true})).toBeVisible();
+ await expect(page.locator('.control-center-signing-checks')).toHaveCSS('list-style-type','none');
+ await page.getByRole('button',{name:'Review legal approval'}).click();
+ await page.getByLabel('Reviewer and decision',{exact:true}).fill('Synthetic independent reviewer approved fixture text version one.');
+ await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Save review'}).click();
+ await expect(page.getByText('Legal approval has not been recorded for this version.',{exact:true})).toHaveCount(0);
+ expect(await page.evaluate(()=>window.reviewSaved)).toBe('Synthetic independent reviewer approved fixture text version one.');
+ await page.evaluate(()=>window.renderIssuance(1));await expect(page.getByText('Confirm separate artist and label signers before issuing this agreement.',{exact:true})).toBeVisible();
+ await page.evaluate(()=>window.renderIssuance(2));await expect(page.getByText('Real contract issuing is not enabled. This preview has not been sent.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Confirm, finalize and send to signing'})).toBeDisabled();
+ await page.evaluate(()=>window.renderIssuance(3));await expect(page.getByRole('button',{name:'Confirm, finalize and send to signing'})).toBeEnabled();
  expect(await page.evaluate(()=>window.issueCalls.every(name=>name==='control_center_agreement_execution_ready'))).toBe(true);
+ page.on('dialog',dialog=>dialog.accept());
+ await page.getByLabel('Label signer legal name',{exact:true}).fill('Fixture Label');
+ await page.getByRole('checkbox').check();
+ await page.getByRole('button',{name:'Confirm, finalize and send to signing'}).click();
+ await expect(page.getByRole('button',{name:'Add label signature'})).toBeVisible();
+ expect(await page.evaluate(()=>window.issuedArguments)).toMatchObject({document:'fixture',intake:'intake',tier:'silver',label_signer:'label',confirmed:true,starts_on:'2026-01-15',ends_on:'2027-01-15'});
+ expect(await page.evaluate(()=>window.issueCalls.filter(name=>name==='control_center_issue_agreement').length)).toBe(1);
 });
 
 test('artist contract inventory excludes documents belonging to a different intake',async({page})=>{
+ await page.route('**/__agreement-document-test.js',route=>route.fulfill({contentType:'application/javascript',body:documentBundle.outputFiles[0].text}));
  await page.goto('/');await page.evaluate(async()=>{
-  const {mountDocuments}=await import('/assets/js/layers/control-center/operations/documents.js');
+  const {mountDocuments}=await import('/__agreement-document-test.js');
   document.body.innerHTML='<div class="control-center-app"><main><div data-documents></div></main></div>';
   const first='aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',second='bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb';
   const rows=[{id:'one',artist_account_id:'artist-a',artist_intake_version_id:first,title:'First artist contract',tags:['agreement','draft'],classification:'confidential',body:'First artist terms without editable ownership markers'},{id:'two',artist_account_id:'artist-b',artist_intake_version_id:second,title:'Second artist contract',tags:['agreement','draft'],classification:'confidential',body:'Second artist terms'}];
