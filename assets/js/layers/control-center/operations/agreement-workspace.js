@@ -51,9 +51,9 @@ export async function mountAgreementWorkspace(options,mountArtist){
   selected.replaceChildren();selected.dataset.artistAccount=row.account_id;selected.hidden=false;directory.hidden=true;directoryTabs.hidden=true;
   const header=document.createElement('header'),body=document.createElement('section');header.className='control-center-contract-header control-center-artist-context-header';
   header.innerHTML=`<h2>${e(row.artist_name)}</h2><button type="button" class="global-close-button" aria-label="Exit artist"></button>`;
-  selected.append(header,body);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(header);
+  const loading=document.createElement('span');loading.className='ui-loader-circle';loading.setAttribute('role','status');loading.setAttribute('aria-label','Loading artist agreements');
+  body.hidden=true;body.inert=true;body.setAttribute('aria-busy','true');selected.append(header,loading,body);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(header);
   header.querySelector('button').onclick=async()=>{if(!(await flushDraftSaves(body)))return;++selectionTurn;writeView('agreementArtist','');selected.replaceChildren();selected.hidden=true;delete selected.dataset.artistAccount;directory.hidden=false;directoryTabs.hidden=false;directoryTabs.scrollIntoView({block:'start'});input.focus({preventScroll:true});};
-  body.innerHTML='<span class="ui-loader-circle" role="status" aria-label="Loading artist agreements"></span>';
   const active=()=>isCurrent()&&turn===selectionTurn;
   try{
    const intake=await client.from('studio_agreement_intake_requests').select('id,account_id,status,current_version_id,rehearsal').eq('workspace_id',workspace.id).eq('account_id',row.account_id).order('updated_at',{ascending:false}).limit(200);
@@ -64,8 +64,8 @@ export async function mountAgreementWorkspace(options,mountArtist){
    const current=real.find(item=>item.status==='approved'),version=versions.data.find(item=>item.id===current?.current_version_id);
    writeView('agreementArtist',row.account_id);
    await mountArtist({...options,action:/^(signing|archive|drafts|requests):/.exec(options.action||'')?.[1]||options.action,content:body,artistAccount:row.account_id,artistName:row.artist_name,artistVersionIds:versions.data.map(item=>item.id),artistDetailsVersion:version,isCurrent:active});
-   if(active())header.scrollIntoView({block:'start'});
-  }catch{if(active())body.textContent='This artist workspace could not be opened. No contract was changed.';}
+   if(active()){loading.remove();body.hidden=false;body.inert=false;body.removeAttribute('aria-busy');header.scrollIntoView({block:'start'});}
+  }catch{if(active()){loading.remove();body.hidden=false;body.inert=false;body.removeAttribute('aria-busy');body.textContent='This artist workspace could not be opened. No contract was changed.';}}
  }
  input.addEventListener('input',()=>{clearTimeout(timer);const query=input.value.trim(),turn=++revision;const local=entries.filter(row=>Object.values(row).join(' ').toLocaleLowerCase().includes(query.toLocaleLowerCase()));draw(local);if(query.length<2||!staff.permissions.includes('artists.read'))return;
   timer=setTimeout(async()=>{const response=await client.rpc('control_center_search_artists',{search_text:query,brand:workspace.id});if(turn!==revision||!isCurrent()||directory.hidden)return;if(response.error){status.textContent='Search is unavailable. Existing requests remain listed.';return;}const rows=[...local];for(const row of response.data||[])if(!rows.some(item=>item.account_id===row.account_id))rows.push(row);draw(rows);},200);

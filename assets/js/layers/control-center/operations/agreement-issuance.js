@@ -8,9 +8,6 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
  const status=document.createElement('p');status.setAttribute('role','status');root.append(status);
  if(!record){status.textContent=copy.saveFirst;return;}
  const stillCurrent=()=>root.isConnected&&dialog.open&&isCurrent();
- const ready=await client.rpc('control_center_agreement_execution_ready',{brand:workspace.id,unit:record.unit_id});
- if(!stillCurrent())return;
- if(ready.error||ready.data!==true){status.textContent=copy.unavailable;return;}
  const reference=record.artist_intake_version_id;
  const fields=record.draft_state?.fields;
  if(!reference||(fields&&(/pending|no approval|not approved|proposed/i.test(fields['legal review']||'')||!fields['legal review']?.trim()))||/\bdraft\b/i.test(record.title)
@@ -22,6 +19,9 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
  if(result.error||!result.data){status.textContent=copy.recipientRequired;return;}
  const intake=result.data,tier=record.tags.find(tag=>/^partnership-(silver|gold|platinum)$/.test(tag))?.slice('partnership-'.length);
  if(!tier||intake.account_id===staff.account_id){status.textContent=copy.partiesRequired;return;}
+ const ready=await client.rpc('control_center_agreement_execution_ready',{brand:workspace.id,unit:record.unit_id});
+ if(!stillCurrent())return;
+ if(ready.error||ready.data!==true){status.textContent=copy.unavailable;return;}
  const form=document.createElement('form');form.className='control-center-issue-form';
  form.innerHTML=`<h3>${e(copy.title)}</h3><p>${e(copy.boundary)}</p><label>${e(copy.signer)}<input name="signer" required maxlength="160"></label><div class="control-center-field-pair"><label>${e(copy.starts)}<input name="starts" type="date" required></label><label>${e(copy.ends)}<input name="ends" type="date" required></label></div><label>${e(copy.review)}<textarea name="review" required minlength="20" maxlength="2000" rows="3"></textarea></label><label class="control-center-operation-check"><input name="confirmed" type="checkbox" required><span>${e(copy.confirm)}</span></label><button type="submit" class="control-center-primary-action">${icon('core/legal/contracts/signature.svg')}${e(copy.issue)}</button><p role="status"></p>`;
  form.elements.review.value=fields?.['legal review']||'';form.elements.signer.value=fields?.['label signatory']||'';root.append(form);status.textContent='';
