@@ -5,6 +5,20 @@ const issuanceBundle=await build({entryPoints:['assets/js/layers/control-center/
 const documentBundle=await build({entryPoints:['assets/js/layers/control-center/operations/documents.js'],bundle:true,format:'esm',write:false,loader:{'.ttf':'binary','.css':'text'},plugins:[{name:'pdf-worker-source',setup(builder){builder.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}]});
 const signingBundle=await build({entryPoints:['assets/js/layers/control-center/operations/shared/agreement-rehearsal.js'],bundle:true,format:'esm',write:false,loader:{'.ttf':'binary'},plugins:[{name:'pdf-worker-source',setup(builder){builder.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}]});
 
+test('shared review checklist confirms only saved decisions and preserves evidence-only steps',async({page})=>{
+ const source=await readFile('assets/js/layers/control-center/operations/shared/review-checklist.js','utf8');await page.route('**/__review-checklist.js',route=>route.fulfill({contentType:'application/javascript',body:source}));await page.goto('/');
+ await page.evaluate(async()=>{
+  const {renderReviewChecklist}=await import('/__review-checklist.js');document.body.innerHTML='<main class="control-center-app"><section class="control-center-operations"><ul data-checklist></ul><p role="status"></p></section></main>';window.confirmSaved=false;window.reviewOpened=0;
+  const steps=[{id:'evidence',label:'Verified document version',state:'blocked'},{id:'review',label:'I confirm the reviewed hiring terms',state:'pending',onConfirm:async()=>window.confirmSaved,action:{label:'Review hiring terms',run:()=>{window.reviewOpened++;}}}];
+  renderReviewChecklist(document.querySelector('[data-checklist]'),{steps,onError:error=>{document.querySelector('[role=status]').textContent=error.message;}});
+  try{renderReviewChecklist(document.querySelector('[data-checklist]'),{steps:[steps[0],steps[0]]});}catch{window.duplicateRejected=true;}
+ });
+ expect(await page.evaluate(()=>window.duplicateRejected)).toBe(true);await expect(page.getByRole('checkbox',{name:'Verified document version'})).toBeDisabled();
+ const confirm=page.getByRole('checkbox',{name:'I confirm the reviewed hiring terms'});await confirm.click();await expect(confirm).not.toBeChecked();await expect(page.getByRole('status')).toHaveText('The confirmation was not saved.');
+ await page.evaluate(()=>window.confirmSaved=true);await confirm.check();await expect(confirm).toBeChecked();await expect(page.locator('[data-review-step=review]')).toHaveAttribute('data-state','complete');
+ await page.getByRole('button',{name:'Review hiring terms'}).click();expect(await page.evaluate(()=>window.reviewOpened)).toBe(1);await expect(page.locator('[data-checklist]')).toHaveCSS('list-style-type','none');
+});
+
 test('agreement directory separates general tools from one artist workspace',async({page})=>{
  await page.goto('/');
  await page.evaluate(async()=>{
@@ -50,14 +64,14 @@ test('contract review explains blockers before offering an exact-version confirm
   await window.renderIssuance(0);
  });
  await expect(page.getByText('Legal approval has not been recorded for this version.',{exact:true})).toBeVisible();await expect(page.getByText('The text is a working draft. Editing or saving it does not record legal approval.',{exact:true})).toBeVisible();
- await expect(page.locator('.control-center-signing-checks')).toHaveCSS('list-style-type','none');
+ await expect(page.locator('.control-center-review-checklist')).toHaveCSS('list-style-type','none');
  await page.getByRole('button',{name:'Review legal approval'}).click();
  await page.getByLabel('Reviewer and decision',{exact:true}).fill('Synthetic independent reviewer approved fixture text version one.');
  await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Save review'}).click();
  await expect(page.getByText('Legal approval has not been recorded for this version.',{exact:true})).toHaveCount(0);
  expect(await page.evaluate(()=>window.reviewSaved)).toBe('Synthetic independent reviewer approved fixture text version one.');
  await expect(page.getByRole('checkbox',{name:'Review note saved',exact:true})).toBeChecked();await page.getByRole('button',{name:'Prepare final text',exact:true}).click();expect(await page.evaluate(()=>window.preparedFinal)).toBe(true);await expect(page.getByRole('button',{name:'Prepare final text',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Confirm, finalize and send to signing'})).toBeDisabled();
- await page.evaluate(()=>window.renderIssuance(1));await expect(page.getByText('Confirm separate artist and label signers before issuing this agreement.',{exact:true})).toBeVisible();
+ await page.evaluate(()=>window.renderIssuance(1));await expect(page.getByText('The artist and label signer use the same account. A different authorized label signer is required before issuing.',{exact:true})).toBeVisible();
  await page.evaluate(()=>window.renderIssuance(2));await expect(page.getByText('Real contract issuing is not enabled. This preview has not been sent.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Confirm, finalize and send to signing'})).toBeDisabled();
  await page.evaluate(()=>window.renderIssuance(3));await expect(page.getByRole('button',{name:'Confirm, finalize and send to signing'})).toBeEnabled();
  expect(await page.evaluate(()=>window.issueCalls.every(name=>name==='control_center_agreement_execution_ready'))).toBe(true);

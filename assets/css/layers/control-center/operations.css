@@ -40,10 +40,10 @@
 .control-center-app .control-center-contract-options button[role=menuitem] { display:flex; align-items:center; justify-content:flex-start; gap:var(--spacing-md); text-align:start; inline-size:100%; border:0; background:transparent; }
 .control-center-pending-artwork { display:grid; place-items:center; }
 .control-center-pending-artwork::before { content:''; inline-size:var(--spacing-xs); block-size:var(--spacing-xs); border-radius:var(--radius-circle); background:currentColor; }
-.control-center-signing-checks { display:grid; gap:var(--spacing-lg); list-style:none; padding:0; }
-.control-center-signing-checks > li { display:grid; gap:var(--spacing-sm); justify-items:start; }
-.control-center-signing-checks .control-center-operation-check { margin:0; }
-.control-center-signing-checks input:checked { accent-color:var(--status-success-color); }
+.control-center-review-checklist { display:grid; gap:var(--spacing-lg); list-style:none; padding:0; }
+.control-center-review-checklist > li { display:grid; gap:var(--spacing-sm); justify-items:start; }
+.control-center-review-checklist .control-center-operation-check { margin:0; }
+.control-center-review-checklist input:checked { accent-color:var(--status-success-color); }
 [data-contract-issuance] { display:grid; gap:var(--spacing-lg); justify-items:start; }
 [data-contract-issuance] > :is(p,h3,ul) { margin:0; }
 [data-contract-issuance] > [role=status]:empty { display:none; }

@@ -24,6 +24,7 @@ test('final text preparation preserves tier templates and requires resolved revi
   const state={schemaVersion:1,templateBody:template.body,fields};let body=template.body;for(const [key,value]of Object.entries(fields))body=body.replaceAll('['+key+' - required]',value);
   const record={...template,title:template.title+' · draft',body,draft_state:state},final=prepareFinalAgreement(record);
   assert.doesNotMatch(final.title,/draft/i);assert.doesNotMatch(final.body,/WORKING DRAFT|\bdraft\b/i);assert.match(final.body,/reserved for the authenticated artist signer/);assert.equal(JSON.stringify(template),original);assert.deepEqual(final.draft_state.fields,fields);
+  assert.equal(prepareFinalAgreement({...record,title:'Silver agreement · Draft Artist · draft'}).title,'Silver agreement · Draft Artist');
   assert.throws(()=>prepareFinalAgreement({...record,body:body+'\nPROPOSED FOR REVIEW: unresolved'}),/Resolve/);
   assert.throws(()=>prepareFinalAgreement({...record,draft_state:{...state,fields:{...fields,'legal review':'PENDING — NO APPROVAL RECORDED'}}}),/actual legal review/);
  }

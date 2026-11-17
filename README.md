@@ -14,6 +14,19 @@ The shared close control is a checksum-verified snapshot of the website owner fi
 
 ### Agreements
 
+#### Reusable Review Checklist
+
+`operations/shared/review-checklist.js` owns the reusable review-step renderer.
+Workflow owners provide stable step IDs, labels, registered icons, evidence states
+(`pending`, `complete`, `blocked`), review actions and optional confirmation callbacks.
+The shared stylesheet owns alignment, spacing and status colors. A confirmation
+becomes checked only after its callback confirms a successful save; failed saves
+restore its previous state. Evidence-only checks cannot be manually overridden.
+Artist text completion is tied to the saved content digest, not a browser click.
+Hiring, partnership and investment workflows must supply their own scoped storage,
+permissions, review requirements and server-side issuing authority; the component
+does not grant access, execute a contract or constitute legal approval.
+
 The Artanrecords Operations workspace has a dedicated **Agreements** inventory,
 separate from general documents, email templates and payout/tax applications.
 It reuses the private document authority, requires confidential-document access,

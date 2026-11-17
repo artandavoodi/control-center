@@ -45,5 +45,5 @@ export function prepareFinalAgreement(record){
  const draft_state={...state,templateBody:clean(state.templateBody)};delete draft_state.text_saved_sha256;
  let body=draft_state.templateBody;
  for(const [key,value]of Object.entries(state.fields))if(value.trim())body=body.replaceAll('['+key+' - required]',state.preservePunctuation?value.trim():value.trim().replace(/\.$/,''));
- return {title:record.title.replace(/\s*[·—-]\s*draft\s*$/i,'').replace(/\bdraft\b/gi,'agreement'),body,draft_state};
+ return {title:record.title.replace(/\s*[·—-]\s*draft\s*$/i,''),body,draft_state};
 }

@@ -113964,6 +113964,7 @@
           "brand": "control-center",
           "evidence": [
             "assets/data/control-center/agreements.json",
+            "assets/js/layers/control-center/operations/agreement-issuance.js",
             "assets/js/layers/control-center/operations/dist.js"
           ]
         }
