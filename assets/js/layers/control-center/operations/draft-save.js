@@ -1,3 +1,7 @@
+export async function draftTextDigest(text){
+ const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
+ return Array.from(new Uint8Array(bytes),byte=>byte.toString(16).padStart(2,'0')).join('');
+}
 export async function flushDraftSaves(root){
  const requests=[];for(const form of root.querySelectorAll('[data-draft-save]'))form.dispatchEvent(new CustomEvent('control-center:before-leave',{detail:{waitUntil:request=>requests.push(request)}}));
  return (await Promise.all(requests)).every(result=>result===true);

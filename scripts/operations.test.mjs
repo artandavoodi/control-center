@@ -17,7 +17,17 @@ test('every active department and office has a manager reporting through an exec
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
-import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate,proposedAgreementTerms,recoverAgreementDraftState} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate,proposedAgreementTerms,recoverAgreementDraftState,prepareFinalAgreement} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+test('final text preparation preserves tier templates and requires resolved reviewed terms',()=>{
+ for(const tier of ['silver','gold','platinum']){
+  const template=createPartnershipDraft(tier),original=JSON.stringify(template),fields=Object.fromEntries(requiredAgreementFields(template.body).map(key=>[key,'Confirmed fixture '+key]));fields['legal review']='Synthetic reviewer approved this exact isolated fixture.';
+  const state={schemaVersion:1,templateBody:template.body,fields};let body=template.body;for(const [key,value]of Object.entries(fields))body=body.replaceAll('['+key+' - required]',value);
+  const record={...template,title:template.title+' · draft',body,draft_state:state},final=prepareFinalAgreement(record);
+  assert.doesNotMatch(final.title,/draft/i);assert.doesNotMatch(final.body,/WORKING DRAFT|\bdraft\b/i);assert.match(final.body,/reserved for the authenticated artist signer/);assert.equal(JSON.stringify(template),original);assert.deepEqual(final.draft_state.fields,fields);
+  assert.throws(()=>prepareFinalAgreement({...record,body:body+'\nPROPOSED FOR REVIEW: unresolved'}),/Resolve/);
+  assert.throws(()=>prepareFinalAgreement({...record,draft_state:{...state,fields:{...fields,'legal review':'PENDING — NO APPROVAL RECORDED'}}}),/actual legal review/);
+ }
+});
 test('completed governed drafts recover editable fields without changing their text',()=>{
  const draft=createPartnershipDraft('silver'),keys=requiredAgreementFields(draft.body);let body=draft.body;for(const key of keys)body=body.replaceAll('['+key+' - required]','Synthetic '+key+'.');const restored=recoverAgreementDraftState({...draft,body});assert.ok(restored);assert.equal(restored.fields['label legal name'],'Synthetic label legal name.');let rendered=restored.templateBody;for(const [key,value]of Object.entries(restored.fields))rendered=rendered.replaceAll('['+key+' - required]',value);assert.equal(rendered,body);assert.equal(recoverAgreementDraftState({...draft,body:body.replace('1. Parties and authority','Custom negotiated heading')}),null);
 });

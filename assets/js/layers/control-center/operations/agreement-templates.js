@@ -34,3 +34,16 @@ export function fillReviewedArtistDetails(body,details){
  const values={'artist legal name':company?details.company_name:details.legal_name,'artist name':details.artist_name,'artist details':address+(company?'; registration '+details.registration_number+'; authorized signer '+details.signatory_name+' ('+details.signatory_capacity+')':'; contracting personally')};
  return body.replace(/\[(artist legal name|artist name|artist details) - required\]/g,(match,key)=>values[key]||match);
 }
+
+// Prepare only this artist's structured copy; governed starting templates stay unchanged.
+export function prepareFinalAgreement(record){
+ const state=record?.draft_state,review=state?.fields?.['legal review']?.trim();
+ if(!state?.templateBody||!state.fields)throw Error('Use the structured contract terms before preparing final text.');
+ if(!review||review.length<20||/pending|no approval|not approved|proposed/i.test(review))throw Error('Record the actual legal review before preparing final text.');
+ if(requiredAgreementFields(record.body).length||/PROPOSED FOR (REVIEW|CONFIRMATION)|PENDING[^\n]*NO APPROVAL/i.test(record.body))throw Error('Resolve the required and proposed terms before preparing final text.');
+ const clean=value=>value.replace(template.notice,'').replace(/\bdraft\b/gi,'agreement').replace(/\bProposed (?=(Silver|Gold|Platinum) allocation:)/g,'').replace(/^\s*\n+/,'');
+ const draft_state={...state,templateBody:clean(state.templateBody)};delete draft_state.text_saved_sha256;
+ let body=draft_state.templateBody;
+ for(const [key,value]of Object.entries(state.fields))if(value.trim())body=body.replaceAll('['+key+' - required]',state.preservePunctuation?value.trim():value.trim().replace(/\.$/,''));
+ return {title:record.title.replace(/\s*[·—-]\s*draft\s*$/i,'').replace(/\bdraft\b/gi,'agreement'),body,draft_state};
+}
