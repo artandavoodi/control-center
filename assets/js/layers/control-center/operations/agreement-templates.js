@@ -3,11 +3,22 @@ import template from '../../../../data/control-center/agreement-template.json' w
 export const partnershipDrafts=defaults.items;
 export const proposedTermsNotice=template.proposalDefaults.notice;
 export const agreementEditorSections=template.editorGroups.map(group=>group.title);
+export function labelReviewContent(record){
+ return JSON.stringify({artist:record.artist_account_id||null,intake:record.artist_intake_version_id||null,fields:['label legal name','label details','label signatory','label capacity'].map(key=>[key,record.draft_state?.fields?.[key]||''])});
+}
 export function proposedAgreementTerms(tier){
  const item=defaults.items.find(item=>item.id===tier);if(!item)return {};
  return Object.fromEntries(Object.entries({...template.proposalDefaults.common,...template.proposalDefaults.tiers[tier]}).map(([key,value])=>[key,'PROPOSED FOR REVIEW: '+value.replaceAll('{{studio_plan}}',item.includedStudioPlan)]));
 }
 export const requiredAgreementFields=body=>[...new Set([...String(body).matchAll(/\[([a-z ]+) - required\]/g)].map(match=>match[1]))];
+export function unresolvedAgreementTerms(record){
+ const fields=record?.draft_state?.fields||{};
+ return [...new Set([...requiredAgreementFields(record?.body),...Object.entries(fields).filter(([key,value])=>key!=='legal review'&&/PROPOSED FOR (REVIEW|CONFIRMATION)|PENDING[^\n]*NO APPROVAL/i.test(value)).map(([key])=>key)])];
+}
+export function confirmProposedAgreementTerms(fields){
+ if(Object.values(fields).some(value=>!String(value).trim()))throw Error('Complete the missing contract fields before confirming the terms.');
+ return Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,key==='legal review'?value:value.replace(/^PROPOSED FOR (REVIEW|CONFIRMATION):\s*/i,'')]));
+}
 export const agreementFieldSection=key=>template.editorGroups.find(group=>group.fields.includes(key))?.title||template.sections.find(section=>section.text.includes('{{'+key.replaceAll(' ','_')+'}}'))?.title||'Other required terms';
 export const isPartnershipTemplate=row=>partnershipDrafts.some(item=>row.tags.includes('partnership-'+item.id)&&row.body===createPartnershipDraft(item.id).body);
 export function recoverAgreementDraftState(row){

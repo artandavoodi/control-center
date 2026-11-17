@@ -3,6 +3,7 @@ import labels from '../../../../data/control-center/agreements.json' with {type:
 import {agreementDateSummary} from './agreement-dates.js';
 import {draftTextDigest} from './draft-save.js';
 import {renderReviewChecklist} from './shared/review-checklist.js';
+import {labelReviewContent,requiredAgreementFields} from './agreement-templates.js';
 
 // Issuing is separate from saving, PDF preview, email delivery and final access approval.
 export async function mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal}){
@@ -14,7 +15,8 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
  const reference=record.artist_intake_version_id;
  const fields=record.draft_state?.fields;
  const blockers=[];
- const textSaved=record.draft_state?.text_saved_sha256===await draftTextDigest(record.body);
+ const labelSaved=record.draft_state?.label_saved_sha256===await draftTextDigest(labelReviewContent(record));
+ if(fields&&Object.hasOwn(fields,'label legal name')&&!labelSaved)blockers.push({message:'Review and save the label details for this copy.',action:'Review label details',field:'label signatory'});
  if(fields&&(/pending|no approval|not approved|proposed/i.test(fields['legal review']||'')||!fields['legal review']?.trim()))blockers.push({message:'Legal approval has not been recorded for this version.',action:'Review legal approval',field:'legal review'});
  if(/\bdraft\b/i.test(record.title)||/WORKING DRAFT|NOT ISSUED FOR SIGNATURE|NON-BINDING REHEARSAL|current Studio preview is non-binding/i.test(record.body))blockers.push({message:'The text is a working draft. Editing or saving it does not record legal approval.',action:'Edit document text',field:'text'});
  if(!blockers.some(item=>item.field==='text')&&/\[[^\]]+ - required\]|PENDING[^\n]*NO APPROVAL|PROPOSED FOR (REVIEW|CONFIRMATION)/i.test(record.body))blockers.push({message:'Required or proposed terms remain unresolved in the document.',action:'Review contract terms',field:'text'});
@@ -27,24 +29,26 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
  const sameName=fields&&normalize(fields['label signatory'])&&normalize(fields['label signatory'])===normalize(fields['artist legal name']);
  if(!tier)blockers.push({message:'Select the partnership tier before issuing this agreement.',system:true});
  if(intake?.account_id===staff.account_id)blockers.push({message:'The artist and label signer use the same account. A different authorized label signer is required before issuing.',system:true});
- else if(sameName)blockers.push({message:copy.partiesRequired,action:'Review label identity',field:'label signatory'});
- if(fields&&!agreementDateSummary(fields['effective date'],fields['expiry date']))blockers.push({message:copy.dateError,action:'Select contract dates',field:'effective date'});
+ else if(sameName)blockers.push({message:copy.partiesRequired,system:true});
+ if(fields&&!agreementDateSummary(fields['effective date'],fields['expiry date'])&&!blockers.some(item=>item.field==='effective date'))blockers.push({message:copy.dateError,action:'Select contract dates',field:'effective date'});
  const ready=await client.rpc('control_center_agreement_execution_ready',{brand:workspace.id,unit:record.unit_id});
  if(!stillCurrent())return;
  if(ready.error||ready.data!==true)blockers.push({message:copy.unavailable,system:true});
  if(blockers.length){
   const heading=document.createElement('h3'),list=document.createElement('ul'),steps=[];heading.textContent='Before signing';
   if(fields?.['legal review']?.trim()&&!blockers.some(item=>item.field==='legal review'))steps.push({id:'legal-review',state:'complete',label:'Review note saved'});
-  if(textSaved&&!blockers.some(item=>item.field==='text'))steps.push({id:'text',state:'complete',label:'Text saved'});
-  for(const [index,blocker]of blockers.filter(item=>!item.system).entries()){
-   const saved=blocker.field==='text'&&textSaved;
-   steps.push({id:blocker.field?.replaceAll(' ','-')||'check-'+index,state:saved?'complete':'blocked',label:saved?'Text saved. Final terms and approval are still required before issuing.':blocker.message,icon:blocker.field==='legal review'?'core/legal/contracts/contract.svg':blocker.field==='label signatory'?'core/identity/profile/user.svg':'core/actions/edit/edit.svg',action:blocker.field&&onResolve?{label:blocker.action,run:()=>{if(blocker.field==='legal review'&&onSaveReview){mountLegalReview();return;}dialog.close();onResolve(blocker.field);}}:null});
+  if(labelSaved)steps.push({id:'label-signatory',state:'complete',label:'Label details saved'});
+  const reviewBlockers=blockers.filter(item=>!item.system&&['label signatory','legal review'].includes(item.field));
+  for(const [index,blocker]of reviewBlockers.entries()){
+   steps.push({id:blocker.field.replaceAll(' ','-'),state:'blocked',label:blocker.message,icon:blocker.field==='legal review'?'core/legal/contracts/contract.svg':'core/identity/profile/user.svg',action:onResolve?{label:blocker.action,run:()=>{if(blocker.field==='legal review'&&onSaveReview){mountLegalReview();return;}dialog.close();onResolve(blocker.field);}}:null});
   }
   renderReviewChecklist(list,{steps,icon,onError:error=>{status.textContent=error.message;}});
   const finalize=document.createElement('button');finalize.type='button';finalize.className='control-center-primary-action';finalize.disabled=true;finalize.innerHTML=icon('core/legal/contracts/signature.svg')+e(labels.finalizationAction);finalize.setAttribute('aria-describedby','contract-finalization-blockers');list.id='contract-finalization-blockers';
-  status.textContent='Nothing has been sent. Complete the items below to enable finalization.';if(list.children.length)root.append(heading,list);
-  if(onPrepareFinal&&blockers.some(item=>item.field==='text')){const prepare=document.createElement('button');prepare.type='button';prepare.className='control-center-success-action';prepare.innerHTML=icon('core/legal/contracts/contract.svg')+'Prepare final text';prepare.onclick=async()=>{prepare.disabled=true;try{record=await onPrepareFinal();await mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal});}catch(error){status.textContent=error.message||'Final text could not be prepared. Nothing has been sent.';prepare.disabled=false;}};root.append(prepare);}
-  for(const unavailable of blockers.filter(item=>item.system)){const notice=document.createElement('p');notice.textContent=unavailable.message;root.append(notice);}root.append(finalize);return;
+  status.textContent='Nothing has been sent.';if(list.children.length)root.append(heading,list);
+  const missing=requiredAgreementFields(record.body).filter(key=>key!=='legal review'),dates=blockers.find(item=>item.field==='effective date');
+  if(missing.length||dates){const fix=document.createElement('button');fix.type='button';fix.innerHTML=icon('core/actions/edit/edit.svg')+'Complete contract';fix.onclick=()=>{dialog.close();onResolve?.(missing[0]||'effective date');};root.append(fix);}
+  if(onPrepareFinal&&!missing.length&&blockers.every(item=>item.field==='text')){finalize.disabled=false;finalize.onclick=async()=>{finalize.disabled=true;try{record=await onPrepareFinal();await mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal});}catch(error){status.textContent=error.message||'The contract could not be prepared. Nothing has been sent.';finalize.disabled=false;}};}
+  for(const unavailable of blockers.filter(item=>item.system||!item.field)){const notice=document.createElement('p');notice.textContent=unavailable.message;root.append(notice);}root.append(finalize);return;
  }
  function mountLegalReview(){
   const review=document.createElement('form');review.className='control-center-issue-form';

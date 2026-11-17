@@ -17,7 +17,17 @@ test('every active department and office has a manager reporting through an exec
 import {assertPreservesSvgArtwork,publicIconExporter} from '../registry/icons/exporters/public/public-icon-exporter.js';
 import {validateMacro,resolveMacros,composeReply} from '../assets/js/layers/control-center/operations/communications.js';
 import {brandedEmail} from '../assets/js/layers/control-center/operations/email-template.js';
-import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate,proposedAgreementTerms,recoverAgreementDraftState,prepareFinalAgreement} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+import {createPartnershipDraft,fillReviewedArtistDetails,requiredAgreementFields,isPartnershipTemplate,proposedAgreementTerms,recoverAgreementDraftState,prepareFinalAgreement,unresolvedAgreementTerms,confirmProposedAgreementTerms} from '../assets/js/layers/control-center/operations/agreement-templates.js';
+test('explicit terms confirmation retains values and does not invent legal approval',()=>{
+ const fields={rights:'PROPOSED FOR REVIEW: Non-exclusive','label details':'PROPOSED FOR CONFIRMATION: Individual','legal review':'PENDING — NO APPROVAL RECORDED'};
+ assert.deepEqual(confirmProposedAgreementTerms(fields),{rights:'Non-exclusive','label details':'Individual','legal review':'PENDING — NO APPROVAL RECORDED'});
+ assert.match(fields.rights,/PROPOSED/);assert.throws(()=>confirmProposedAgreementTerms({rights:''}),/Complete/);
+});
+test('preparation identifies exact unresolved fields without accepting proposal defaults',()=>{
+ const record={body:'[territory - required]',draft_state:{fields:{territory:'',term:'PROPOSED FOR REVIEW: one year','legal review':'PENDING — NO APPROVAL RECORDED',rights:'Confirmed by owner'}}};
+ assert.deepEqual(unresolvedAgreementTerms(record),['territory','term']);
+ assert.deepEqual(unresolvedAgreementTerms({body:'Confirmed terms',draft_state:{fields:{term:'One year'}}}),[]);
+});
 test('final text preparation preserves tier templates and requires resolved reviewed terms',()=>{
  for(const tier of ['silver','gold','platinum']){
   const template=createPartnershipDraft(tier),original=JSON.stringify(template),fields=Object.fromEntries(requiredAgreementFields(template.body).map(key=>[key,'Confirmed fixture '+key]));fields['legal review']='Synthetic reviewer approved this exact isolated fixture.';
