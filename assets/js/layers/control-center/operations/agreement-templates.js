@@ -17,7 +17,7 @@ export function unresolvedAgreementTerms(record){
 }
 export function confirmProposedAgreementTerms(fields){
  if(Object.values(fields).some(value=>!String(value).trim()))throw Error('Complete the missing contract fields before confirming the terms.');
- return Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,key==='legal review'?value:value.replace(/^PROPOSED FOR (REVIEW|CONFIRMATION):\s*/i,'')]));
+ return Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,key==='legal review'?value:value.replace(/^PROPOSED FOR (REVIEW|CONFIRMATION)(?: AND LEGAL REVIEW)?:\s*/i,'')]));
 }
 export const agreementFieldSection=key=>template.editorGroups.find(group=>group.fields.includes(key))?.title||template.sections.find(section=>section.text.includes('{{'+key.replaceAll(' ','_')+'}}'))?.title||'Other required terms';
 export const isPartnershipTemplate=row=>partnershipDrafts.some(item=>row.tags.includes('partnership-'+item.id)&&row.body===createPartnershipDraft(item.id).body);

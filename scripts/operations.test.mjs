@@ -22,6 +22,7 @@ test('explicit terms confirmation retains values and does not invent legal appro
  const fields={rights:'PROPOSED FOR REVIEW: Non-exclusive','label details':'PROPOSED FOR CONFIRMATION: Individual','legal review':'PENDING — NO APPROVAL RECORDED'};
  assert.deepEqual(confirmProposedAgreementTerms(fields),{rights:'Non-exclusive','label details':'Individual','legal review':'PENDING — NO APPROVAL RECORDED'});
  assert.match(fields.rights,/PROPOSED/);assert.throws(()=>confirmProposedAgreementTerms({rights:''}),/Complete/);
+ assert.equal(confirmProposedAgreementTerms({'governing law':'PROPOSED FOR CONFIRMATION AND LEGAL REVIEW: Croatian law.'})['governing law'],'Croatian law.');
 });
 test('preparation identifies exact unresolved fields without accepting proposal defaults',()=>{
  const record={body:'[territory - required]',draft_state:{fields:{territory:'',term:'PROPOSED FOR REVIEW: one year','legal review':'PENDING — NO APPROVAL RECORDED',rights:'Confirmed by owner'}}};

@@ -47,7 +47,9 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
   status.textContent='Nothing has been sent.';if(list.children.length)root.append(heading,list);
   const missing=requiredAgreementFields(record.body).filter(key=>key!=='legal review'),dates=blockers.find(item=>item.field==='effective date');
   if(missing.length||dates){const fix=document.createElement('button');fix.type='button';fix.innerHTML=icon('core/actions/edit/edit.svg')+'Complete contract';fix.onclick=()=>{dialog.close();onResolve?.(missing[0]||'effective date');};root.append(fix);}
-  if(onPrepareFinal&&!missing.length&&blockers.every(item=>item.field==='text')){finalize.disabled=false;finalize.onclick=async()=>{finalize.disabled=true;try{record=await onPrepareFinal();await mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal});}catch(error){status.textContent=error.message||'The contract could not be prepared. Nothing has been sent.';finalize.disabled=false;}};}
+  const textPending=blockers.some(item=>item.field==='text'),sendingBlocked=blockers.some(item=>item.system||!item.field);
+  if(!textPending){status.textContent=labels.finalizedTextStatus;finalize.innerHTML=icon('core/legal/contracts/signature.svg')+e(labels.sendFinalAction);}
+  if(onPrepareFinal&&tier&&!missing.length&&textPending&&blockers.every(item=>item.system||item.field==='text')){finalize.disabled=false;if(sendingBlocked)finalize.innerHTML=icon('core/legal/contracts/contract.svg')+e(labels.finalizeTextAction);finalize.onclick=async()=>{finalize.disabled=true;try{record=await onPrepareFinal();await mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal});}catch(error){status.textContent=error.message||'The contract could not be prepared. Nothing has been sent.';finalize.disabled=false;}};}
   for(const unavailable of blockers.filter(item=>item.system||!item.field)){const notice=document.createElement('p');notice.textContent=unavailable.message;root.append(notice);}root.append(finalize);return;
  }
  function mountLegalReview(){
