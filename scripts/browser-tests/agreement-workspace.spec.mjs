@@ -21,6 +21,7 @@ test('shared review checklist confirms only saved decisions and preserves eviden
 
 test('agreement directory separates general tools from one artist workspace',async({page})=>{
  await page.goto('/');
+ await page.waitForFunction(()=>Boolean(window.NeuroartanCloseButtons?.normalizeCloseButtonPrimitive));
  await page.evaluate(async()=>{
   const {mountAgreementWorkspace}=await import('/assets/js/layers/control-center/operations/agreement-workspace.js');
   document.body.innerHTML='<div class="control-center-app"><div class="control-center-operations"><main><header><h1>Agreements</h1></header><div data-test-workspace data-operation-content></div></main></div></div>';
@@ -133,8 +134,12 @@ test('real signing starts with the label and exposes sending only after its sign
  await page.getByRole('button',{name:'Open document',exact:true}).click();
  await expect(page.getByRole('button',{name:'Send to artist',exact:true})).toHaveCount(0);
  const dialog=page.getByRole('dialog',{name:'Synthetic signing fixture',exact:true});
+ await expect(dialog.locator(':scope > header')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-document-toolbar')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-reading-guide')).not.toHaveCSS('border-bottom-width','0px');
+ await expect(dialog.locator('[data-document-read]')).toHaveAttribute('aria-current','step');await dialog.locator('[data-document-initials]').click();await expect(dialog.locator('[data-document-initials]')).toHaveAttribute('aria-current','step');
+ await expect(dialog.locator('[data-guide-next]')).toHaveCSS('color','rgb(255, 255, 255)');expect(await dialog.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
  await expect(dialog.getByLabel('Signer name',{exact:true})).toHaveValue('Synthetic Label');
  await dialog.getByLabel('Your initials',{exact:true}).fill('SL');await dialog.getByRole('button',{name:'Initial and continue',exact:true}).click();
+ await expect(dialog.locator('[data-document-sign]')).toHaveAttribute('aria-current','step');
  await dialog.getByRole('button',{name:'Add signature',exact:true}).click();await page.getByRole('radio',{name:'Type',exact:true}).check();await page.getByLabel('Type your signature',{exact:true}).fill('SYNTHETIC ONLY');await page.getByRole('button',{name:'Use signature',exact:true}).click();
  await dialog.getByRole('checkbox',{name:/I have read this fixed agreement/}).check();await dialog.getByRole('button',{name:'Sign agreement',exact:true}).click();
  await expect(page.getByRole('button',{name:'Send to artist',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Approve and activate Studio',exact:true})).toHaveCount(0);
