@@ -127,7 +127,9 @@ test('scroll guidance follows the visible section without recording initials',as
  });
  const dialog=page.getByRole('dialog'),status=dialog.locator('.agreement-guide-header [role=status]');await expect(status).toHaveText('Section 1 of 2');await expect(dialog.locator('.agreement-guide-arrow')).toHaveCSS('mask-image',/scroll-down.svg/);
  await dialog.locator('[data-guide-section="2"]').evaluate(el=>el.scrollIntoView({block:'start'}));await expect(status).toHaveText('Section 2 of 2');expect(await page.evaluate(()=>window.scrollGuide.complete())).toBe(false);await expect(dialog.locator('[name=initial-2]')).toHaveValue('');
- await dialog.getByRole('button',{name:'Guided document review',exact:true}).click();await expect(status).toHaveText('Section 1 of 2');await expect(dialog.locator('[name=initial-1]')).toHaveValue('');await expect(dialog.locator('.agreement-guide-follow')).toHaveAttribute('data-direction','down');
+ const follow=dialog.locator('.agreement-guide-follow');await follow.click();await expect(status).toHaveText('Signature');await expect(follow).toHaveAttribute('data-direction','up');await expect(follow).toHaveAttribute('data-label','Back: Section 2 of 2');await follow.click();await expect(status).toHaveText('Section 2 of 2');
+ await dialog.locator('[data-guide-section="1"]').evaluate(el=>el.scrollIntoView({block:'start'}));await expect(status).toHaveText('Section 1 of 2');await expect(follow).toHaveAttribute('data-label','Next: Section 2 of 2');await follow.hover();await expect.poll(()=>follow.evaluate(el=>getComputedStyle(el,'::after').opacity)).toBe('1');await follow.click();await expect(status).toHaveText('Section 2 of 2');
+ await expect(dialog.locator('[name=initial-1]')).toHaveValue('');await expect(dialog.locator('[name=initial-2]')).toHaveValue('');expect(await page.evaluate(()=>window.scrollGuide.complete())).toBe(false);await page.evaluate(()=>window.scrollGuide.focusPending());await expect(status).toHaveText('Section 1 of 2');
 });
 
 test('real signing starts with the label and exposes sending only after its signature',async({page})=>{
