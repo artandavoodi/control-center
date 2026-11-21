@@ -11162,6 +11162,7 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
+        "control-center",
         "neuroartan"
       ]
     },
@@ -16733,7 +16734,6 @@
       ],
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
-        "control-center",
         "neuroartan",
         "store",
         "artanrecords",
@@ -114425,8 +114425,26 @@
       "category": "core/interface",
       "hasArtwork": true,
       "sha256": "815bceeb8c49424c83ba9474756220e8f86d70b8f72d2e9ae6a2931a6ce7cdf1",
-      "brands": [],
-      "usage": []
+      "brands": [
+        "control-center",
+        "studio",
+        "artanrecords"
+      ],
+      "usage": [
+        {
+          "brand": "control-center",
+          "evidence": [
+            "assets/data/control-center/agreement-rehearsal.json",
+            "assets/js/layers/control-center/operations/dist.js"
+          ]
+        },
+        {
+          "brand": "studio",
+          "evidence": [
+            "content/account.json"
+          ]
+        }
+      ]
     },
     {
       "id": "core/interface/response/response",
