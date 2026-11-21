@@ -11163,7 +11163,9 @@
       "source": "registry/tokens/manifests/runtime-tokens.json",
       "brands": [
         "control-center",
-        "neuroartan"
+        "neuroartan",
+        "studio",
+        "artanrecords"
       ]
     },
     {
@@ -114441,7 +114443,8 @@
         {
           "brand": "studio",
           "evidence": [
-            "content/account.json"
+            "content/account.json",
+            "content/agreement-rehearsal.json"
           ]
         }
       ]
