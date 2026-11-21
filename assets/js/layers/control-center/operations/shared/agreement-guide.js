@@ -24,7 +24,7 @@ export function signingGuide({body,form,version,labels,arrow=''}){
  const scrollRoot=body.closest('dialog')||document.scrollingElement;
  const valid=index=>/^[A-Za-z]{1,8}$/.test(inputs[index].value.trim());
  const firstMissing=()=>inputs.findIndex((_,index)=>!valid(index));
- const viewLine=()=>header.getBoundingClientRect().bottom+parseFloat(getComputedStyle(header).paddingBlockEnd||0);
+ const viewLine=()=>header.getBoundingClientRect().bottom+2*parseFloat(getComputedStyle(header).paddingBlockEnd||0);
  const arrowTarget=()=>step===panels.length?panels.length-1:Math.round(panels[step].getBoundingClientRect().top)<=Math.round(viewLine())?Math.min(step+1,panels.length):step;
  function render(scroll=false){
   panels.forEach((panel,index)=>{panel.hidden=false;panel.dataset.guideActive=String(step===index);const stamp=panel.querySelector('.agreement-section-initials');stamp.hidden=!valid(index);stamp.textContent=valid(index)?labels.initialed.replace('{initials}',inputs[index].value):'';});final.hidden=false;previous.disabled=step===0;next.hidden=step===panels.length;next.disabled=step<panels.length&&!/^[A-Za-z]{1,8}$/.test(initials.value.trim());
@@ -35,6 +35,7 @@ export function signingGuide({body,form,version,labels,arrow=''}){
  }
  next.onclick=()=>{if(step<panels.length&&/^[A-Za-z]{1,8}$/.test(initials.value.trim())){inputs[step].value=initials.value.trim();step++;if(step===panels.length&&firstMissing()>=0)step=firstMissing();render(true);}else initials.reportValidity();};previous.onclick=()=>{if(step){step--;render(true);}};
  const focusPending=()=>{step=firstMissing()<0?panels.length:firstMissing();render(true);};full.onclick=()=>{step=arrowTarget();render(true);};
+ full.addEventListener('pointerenter',()=>render());full.addEventListener('focus',()=>render());
  initials.addEventListener('input',()=>render());initials.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();next.click();}});
  let frame=0;const syncScroll=()=>{if(!form.isConnected){scrollRoot?.removeEventListener('scroll',syncScroll);return;}if(frame)return;frame=requestAnimationFrame(()=>{frame=0;const line=viewLine();let visible=0;for(const [index,panel]of panels.entries())if(Math.round(panel.getBoundingClientRect().top)<=Math.round(line))visible=index;const atEnd=Math.ceil(scrollRoot.scrollTop+scrollRoot.clientHeight)>=scrollRoot.scrollHeight;step=final.getBoundingClientRect().top<=line||atEnd?panels.length:visible;render();});};
  scrollRoot?.addEventListener('scroll',syncScroll,{passive:true});
