@@ -50,7 +50,18 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
   const textPending=blockers.some(item=>item.field==='text'),sendingBlocked=blockers.some(item=>item.system||!item.field);
   if(!textPending){status.textContent=labels.finalizedTextStatus;finalize.innerHTML=icon('core/legal/contracts/signature.svg')+e(labels.sendFinalAction);}
   if(onPrepareFinal&&tier&&!missing.length&&textPending&&blockers.every(item=>item.system||item.field==='text')){finalize.disabled=false;if(sendingBlocked)finalize.innerHTML=icon('core/legal/contracts/contract.svg')+e(labels.finalizeTextAction);finalize.onclick=async()=>{finalize.disabled=true;try{record=await onPrepareFinal();await mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal});}catch(error){status.textContent=error.message||'The contract could not be prepared. Nothing has been sent.';finalize.disabled=false;}};}
-  for(const unavailable of blockers.filter(item=>item.system||!item.field)){const notice=document.createElement('p');notice.textContent=unavailable.message;root.append(notice);}root.append(finalize);return;
+  for(const unavailable of blockers.filter(item=>item.system||!item.field)){const notice=document.createElement('p');notice.textContent=unavailable.message;root.append(notice);}root.append(finalize);
+  if(!textPending&&intake&&tier&&!missing.length&&blockers.every(item=>item.system)){
+   finalize.hidden=true;
+   const verification=labels.signingVerification,form=document.createElement('form');form.className='control-center-issue-form';
+   form.innerHTML=`<p>${e(verification.notice)}</p><label class="control-center-operation-check"><input type="checkbox" name="confirmed" required><span>${e(verification.confirm)}</span></label><button type="submit" class="control-center-success-action">${icon('core/legal/contracts/signature.svg')}${e(verification.action)}</button><p role="status"></p>`;
+   root.append(form);form.onsubmit=async event=>{event.preventDefault();if(!form.reportValidity())return;form.inert=true;const message=form.querySelector('[role=status]');message.innerHTML='<span class="ui-loader-circle" aria-label="Creating signing verification"></span>';try{
+    const result=await client.rpc('control_center_create_signing_verification',{document:record.id,expected_updated_at:record.updated_at,artist:intake.account_id,confirmed:form.elements.confirmed.checked});
+    if(result.error||!result.data)throw Error(result.error?.message||verification.error);
+    message.textContent=verification.created;dialog.close();await onIssued?.(result.data,{verification:true});
+   }catch(error){message.textContent=error.message||verification.error;form.inert=false;}};
+  }
+  return;
  }
  function mountLegalReview(){
   const review=document.createElement('form');review.className='control-center-issue-form';
@@ -82,11 +93,11 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
 }
 
 export async function prepareAgreementEmail({root,client,staff,envelope,e,icon}){
- const copy=labels.issuance,dialog=document.createElement('dialog');dialog.className='control-center-reply-dialog';dialog.setAttribute('aria-label',copy.emailTitle);
+ const copy=envelope.rehearsal?{...labels.issuance,...labels.verificationEmail}:labels.issuance,dialog=document.createElement('dialog');dialog.className='control-center-reply-dialog';dialog.setAttribute('aria-label',copy.emailTitle);
  dialog.innerHTML=`<header class="control-center-dialog-header"><h2>${e(copy.emailTitle)}</h2><button type="button" class="global-close-button" aria-label="Close signing invitation"></button></header><p role="status"></p><section data-contract-mail></section>`;
  root.append(dialog);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);dialog.querySelector('button').onclick=()=>dialog.close();dialog.showModal();
  const status=dialog.querySelector('[role=status]');status.innerHTML='<span class="ui-loader-circle" aria-label="Preparing invitation"></span>';
- const link=await client.rpc('control_center_agreement_signing_link',{envelope:envelope.id});
+ const link=await client.rpc(envelope.rehearsal?'control_center_signing_verification_link':'control_center_agreement_signing_link',{envelope:envelope.id});
  if(!dialog.isConnected)return;
  if(link.error||!link.data?.token){status.textContent=copy.linkError;return;}
  const url=new URL(labels.studioUrl);url.hash=new URLSearchParams({token:link.data.token}).toString();

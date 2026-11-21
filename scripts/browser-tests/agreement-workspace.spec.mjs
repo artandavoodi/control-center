@@ -59,8 +59,8 @@ test('contract review explains blockers before offering an exact-version confirm
   document.body.innerHTML='<dialog open><section data-issue></section></dialog>';
   const record={id:'fixture',title:'Fixture draft',body:'Working terms',artist_intake_version_id:'version',unit_id:'unit',tags:['partnership-silver'],draft_state:{fields:{'legal review':'PENDING — NO APPROVAL RECORDED','effective date':'2026-01-15','expiry date':'2027-01-15'}}};
   let sameParty=false,enabled=false;window.issueCalls=[];
-  const client={rpc:async(name,args)=>{window.issueCalls.push(name);if(name==='control_center_issue_agreement'){window.issuedArguments=args;return {data:'fixed-envelope'};}return {data:enabled};},from(){const query={select(){return query;},eq(){return query;},single:async()=>({data:{id:'intake',account_id:sameParty?'label':'artist'}})};return query;}};
-  window.renderIssuance=async stage=>{if(stage>0){record.title=stage===4?'Fixture draft':'Fixture final agreement';record.draft_state.fields['legal review']='Independent reviewer approval for fixture version';}sameParty=stage===1;enabled=stage>=3;await mountAgreementIssuance({root:document.querySelector('[data-issue]'),dialog:document.querySelector('dialog'),client,staff:{account_id:'label'},workspace:{id:'brand'},record,e:String,icon:()=>'',isCurrent:()=>true,onResolve:()=>{},onPrepareFinal:async()=>{record.title='Fixture final agreement';window.preparedFinal=true;return record;},onSaveReview:async note=>{record.draft_state.fields['legal review']=note;window.reviewSaved=note;return record;}});};
+  const client={rpc:async(name,args)=>{window.issueCalls.push(name);if(name==='control_center_create_signing_verification'){window.verificationArguments=args;return window.verificationError?{error:{message:'Source changed. Refresh before continuing.'}}:{data:'verification-envelope'};}if(name==='control_center_issue_agreement'){window.issuedArguments=args;return {data:'fixed-envelope'};}return {data:enabled};},from(){const query={select(){return query;},eq(){return query;},single:async()=>({data:{id:'intake',account_id:sameParty?'label':'artist'}})};return query;}};
+  window.renderIssuance=async stage=>{if(stage>0){record.title=stage===4?'Fixture draft':'Fixture final agreement';record.draft_state.fields['legal review']='Independent reviewer approval for fixture version';}sameParty=stage===1;enabled=stage>=3;await mountAgreementIssuance({root:document.querySelector('[data-issue]'),dialog:document.querySelector('dialog'),client,staff:{account_id:'label'},workspace:{id:'brand'},record,e:String,icon:()=>'',isCurrent:()=>true,onIssued:id=>{window.signingDestination=id;},onResolve:()=>{},onPrepareFinal:async()=>{record.title='Fixture final agreement';window.preparedFinal=true;return record;},onSaveReview:async note=>{record.draft_state.fields['legal review']=note;window.reviewSaved=note;return record;}});};
   await window.renderIssuance(0);
  });
  await expect(page.getByText('Legal approval has not been recorded for this version.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Prepare final text',exact:true})).toHaveCount(0);
@@ -70,9 +70,13 @@ test('contract review explains blockers before offering an exact-version confirm
  await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Save review'}).click();
  await expect(page.getByText('Legal approval has not been recorded for this version.',{exact:true})).toHaveCount(0);
  expect(await page.evaluate(()=>window.reviewSaved)).toBe('Synthetic independent reviewer approved fixture text version one.');
- await expect(page.getByRole('checkbox',{name:'Review note saved',exact:true})).toBeChecked();await expect(page.getByRole('button',{name:'Prepare final text',exact:true})).toHaveCount(0);await page.getByRole('button',{name:'Finalize contract',exact:true}).click();expect(await page.evaluate(()=>window.preparedFinal)).toBe(true);await expect(page.getByRole('status')).toHaveText('Contract text finalized. Nothing has been sent.');await expect(page.getByRole('button',{name:'Send to signing',exact:true})).toBeDisabled();expect(await page.evaluate(()=>window.issueCalls.includes('control_center_issue_agreement'))).toBe(false);
+ await expect(page.getByRole('checkbox',{name:'Review note saved',exact:true})).toBeChecked();await expect(page.getByRole('button',{name:'Prepare final text',exact:true})).toHaveCount(0);await page.getByRole('button',{name:'Finalize contract',exact:true}).click();expect(await page.evaluate(()=>window.preparedFinal)).toBe(true);await expect(page.getByRole('status').first()).toHaveText('Contract text finalized. Nothing has been sent.');await expect(page.getByRole('button',{name:'Send to signing',exact:true})).toHaveCount(0);expect(await page.evaluate(()=>window.issueCalls.includes('control_center_issue_agreement'))).toBe(false);
  await page.evaluate(()=>window.renderIssuance(1));await expect(page.getByText('The artist and label signer use the same account. A different authorized label signer is required before issuing.',{exact:true})).toBeVisible();
- await page.evaluate(()=>window.renderIssuance(2));await expect(page.getByText('Real contract issuing is not enabled. This preview has not been sent.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Send to signing',exact:true})).toBeDisabled();
+ await page.evaluate(()=>window.renderIssuance(2));await expect(page.getByText('Real contract issuing is not enabled. This preview has not been sent.',{exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Send to signing',exact:true})).toHaveCount(0);
+ const verify=page.getByRole('button',{name:'Create signing verification',exact:true});await verify.click();expect(await page.evaluate(()=>window.verificationArguments)).toBeUndefined();
+ await page.getByRole('checkbox',{name:'I authorize this non-binding signing verification for the selected artist.',exact:true}).check();await page.evaluate(()=>{window.verificationError=true;});await verify.click();await expect(page.getByRole('status').last()).toHaveText('Source changed. Refresh before continuing.');await expect(verify).toBeEnabled();
+ await page.evaluate(()=>{window.verificationError=false;});await verify.click();await expect(page.getByRole('dialog')).toHaveCount(0);expect(await page.evaluate(()=>window.verificationArguments)).toMatchObject({document:'fixture',artist:'artist',confirmed:true});expect(await page.evaluate(()=>window.signingDestination)).toBe('verification-envelope');
+ await page.evaluate(()=>{document.querySelector('dialog').showModal();window.issueCalls=[];});
  await page.evaluate(()=>window.renderIssuance(4));await page.getByRole('button',{name:'Confirm, finalize and send to signing'}).click();expect(await page.evaluate(()=>window.preparedFinal)).toBe(true);await expect(page.getByRole('button',{name:'Prepare final text',exact:true})).toHaveCount(0);
  await page.evaluate(()=>window.renderIssuance(3));await expect(page.getByRole('button',{name:'Confirm, finalize and send to signing'})).toBeEnabled();
  expect(await page.evaluate(()=>window.issueCalls.every(name=>name==='control_center_agreement_execution_ready'))).toBe(true);
@@ -83,6 +87,22 @@ test('contract review explains blockers before offering an exact-version confirm
  await expect(page.getByRole('button',{name:'Add label signature'})).toBeVisible();
  expect(await page.evaluate(()=>window.issuedArguments)).toMatchObject({document:'fixture',intake:'intake',tier:'silver',label_signer:'label',confirmed:true,starts_on:'2026-01-15',ends_on:'2027-01-15'});
  expect(await page.evaluate(()=>window.issueCalls.filter(name=>name==='control_center_issue_agreement').length)).toBe(1);
+});
+
+test('verification invitation uses the themed workspace and shared blurred backdrop',async({page})=>{
+ await page.route('**/__agreement-issuance-test.js',route=>route.fulfill({contentType:'application/javascript',body:issuanceBundle.outputFiles[0].text}));
+ await page.goto('/');await page.evaluate(async()=>{
+  const {prepareAgreementEmail}=await import('/__agreement-issuance-test.js');
+  document.body.innerHTML='<div class="control-center-app"><div class="control-center-operations"></div></div>';
+  window.mailCalls=[];
+  await prepareAgreementEmail({root:document.querySelector('.control-center-operations'),client:{rpc:async(name,args)=>{window.mailCalls.push({name,args});return {data:{token:'a'.repeat(64),enquiry:'fixture-enquiry',recipient_email:'artist@example.test',expires_at:'2027-01-01T00:00:00Z'}};}},staff:{is_owner:false},envelope:{id:'verification',rehearsal:true},e:String,icon:()=>'<img class="control-center-operation-icon" src="/registry/icons/public/assets/core/actions/send/send.svg" alt="">'});
+ });
+ const dialog=page.getByRole('dialog',{name:'Signing verification invitation',exact:true});await expect(dialog).toBeVisible();
+ await expect(page.locator('.control-center-operations > .control-center-reply-dialog')).toBeVisible();
+ const backdrop=await dialog.evaluate(el=>({blur:getComputedStyle(el,'::backdrop').backdropFilter,background:getComputedStyle(el).backgroundColor,color:getComputedStyle(el).color}));
+ expect(backdrop.blur).toMatch(/^blur\(/);expect(backdrop.background).not.toBe('rgba(0, 0, 0, 0)');expect(backdrop.color).not.toBe(backdrop.background);
+ await expect(dialog.getByRole('textbox',{name:'Subject',exact:true})).toHaveValue('Your Artanrecords signing verification');await expect(dialog.getByRole('textbox',{name:'Message',exact:true})).toHaveValue(/does not execute a contract/);
+ expect(await page.evaluate(()=>window.mailCalls)).toEqual([{name:'control_center_signing_verification_link',args:{envelope:'verification'}}]);await dialog.getByRole('button',{name:'Close signing invitation',exact:true}).click();await expect(dialog).not.toBeVisible();
 });
 
 test('artist contract inventory excludes documents belonging to a different intake',async({page})=>{
