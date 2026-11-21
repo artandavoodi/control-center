@@ -119,6 +119,17 @@ test('artist contract inventory excludes documents belonging to a different inta
  await expect(page.getByRole('heading',{name:'First artist contract'})).toBeVisible();await expect(page.getByRole('heading',{name:'Second artist contract'})).toHaveCount(0);
 });
 
+test('scroll guidance follows the visible section without recording initials',async({page})=>{
+ await page.goto('/');await page.evaluate(async()=>{
+  const {signingGuide}=await import('/assets/js/layers/control-center/operations/shared/agreement-guide.js');const labels=(await fetch('/assets/data/control-center/agreement-rehearsal.json').then(r=>r.json())).guide;
+  document.body.innerHTML='<dialog open class="agreement-focus"><header><h2>Scroll fixture</h2></header><section data-envelope-content><div class="agreement-rehearsal-document"></div><form><label>First<input name="initial-1"></label><label>Second<input name="initial-2"></label><label>Signer name<input name="signer" value="Fixture" readonly></label></form></section></dialog>';
+  const body=document.querySelector('[data-envelope-content]');window.scrollGuide=signingGuide({body,form:body.querySelector('form'),version:{terms:{body:'1. First\n'+('Read this fixture paragraph.\n'.repeat(70))+'\n2. Second\n'+('Read this other fixture paragraph.\n'.repeat(70)),section_titles:['1. First','2. Second']}},labels,arrow:'<img alt="" src="/registry/icons/public/assets/core/interface/navigation/scroll-down.svg">'});
+ });
+ const dialog=page.getByRole('dialog'),status=dialog.locator('.agreement-guide-header [role=status]');await expect(status).toHaveText('Section 1 of 2');await expect(dialog.locator('.agreement-guide-arrow')).toHaveCSS('mask-image',/scroll-down.svg/);
+ await dialog.locator('[data-guide-section="2"]').evaluate(el=>el.scrollIntoView({block:'start'}));await expect(status).toHaveText('Section 2 of 2');expect(await page.evaluate(()=>window.scrollGuide.complete())).toBe(false);await expect(dialog.locator('[name=initial-2]')).toHaveValue('');
+ await dialog.getByRole('button',{name:'Guided document review',exact:true}).click();await expect(status).toHaveText('Section 1 of 2');await expect(dialog.locator('[name=initial-1]')).toHaveValue('');await expect(dialog.locator('.agreement-guide-follow')).toHaveAttribute('data-direction','down');
+});
+
 test('real signing starts with the label and exposes sending only after its signature',async({page})=>{
  await page.route('**/__agreement-signing-test.js',route=>route.fulfill({contentType:'application/javascript',body:signingBundle.outputFiles[0].text}));
  await page.goto('/');await page.evaluate(async()=>{
@@ -134,12 +145,12 @@ test('real signing starts with the label and exposes sending only after its sign
  await page.getByRole('button',{name:'Open document',exact:true}).click();
  await expect(page.getByRole('button',{name:'Send to artist',exact:true})).toHaveCount(0);
  const dialog=page.getByRole('dialog',{name:'Synthetic signing fixture',exact:true});
- await expect(dialog.locator(':scope > header')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-document-toolbar')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-reading-guide')).not.toHaveCSS('border-bottom-width','0px');
- await expect(dialog.locator('[data-document-read]')).toHaveAttribute('aria-current','step');await dialog.locator('[data-document-initials]').click();await expect(dialog.locator('[data-document-initials]')).toHaveAttribute('aria-current','step');
+ await expect(dialog.locator(':scope > header')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-document-toolbar')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-reading-guide')).toHaveCount(0);
+ await expect(dialog.locator('.agreement-guide-header')).toHaveCSS('position','sticky');await expect(dialog.locator('.agreement-guide-controls [name=review_initials]')).toBeVisible();
  await expect(dialog.locator('[data-guide-next]')).toHaveCSS('color','rgb(255, 255, 255)');expect(await dialog.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
  await expect(dialog.getByLabel('Signer name',{exact:true})).toHaveValue('Synthetic Label');
  await dialog.getByLabel('Your initials',{exact:true}).fill('SL');await dialog.getByRole('button',{name:'Initial and continue',exact:true}).click();
- await expect(dialog.locator('[data-document-sign]')).toHaveAttribute('aria-current','step');
+ await expect(dialog.locator('.agreement-guide-header')).toContainText('Review complete.');
  await dialog.getByRole('button',{name:'Add signature',exact:true}).click();await page.getByRole('radio',{name:'Type',exact:true}).check();await page.getByLabel('Type your signature',{exact:true}).fill('SYNTHETIC ONLY');await page.getByRole('button',{name:'Use signature',exact:true}).click();
  await dialog.getByRole('checkbox',{name:/I have read this fixed agreement/}).check();await dialog.getByRole('button',{name:'Sign agreement',exact:true}).click();
  await expect(page.getByRole('button',{name:'Send to artist',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Approve and activate Studio',exact:true})).toHaveCount(0);

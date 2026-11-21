@@ -16,7 +16,7 @@ export async function mountAgreements(options){
  return mountAgreementWorkspace(options,mountArtistAgreements);
 }
 export async function mountArtistAgreements(options){
- const mountSigningRehearsals=parameters=>mountSigningRecords({...parameters,accountId:options.artistAccount,icons:{...parameters.icons,send:options.icon('core/actions/send/send.svg')},onSend:envelope=>prepareAgreementEmail({root:parameters.root,client:options.client,staff:options.staff,envelope,e:options.e,icon:options.icon})});
+ const mountSigningRehearsals=parameters=>mountSigningRecords({...parameters,accountId:options.artistAccount,icons:{...parameters.icons,guide:options.icon(rehearsalLabels.guideArrow),send:options.icon('core/actions/send/send.svg')},onSend:envelope=>prepareAgreementEmail({root:parameters.root,client:options.client,staff:options.staff,envelope,e:options.e,icon:options.icon})});
  const {content,client,staff,workspace,context,units,e,icon,isCurrent,onSaved}=options;
  if(workspace.workspace_key!=='artanrecords'){content.textContent='Choose Artanrecords to manage artist agreements.';return;}
  if(options.artistAccount&&!content.dataset.agreementTab)content.dataset.agreementTab=readView('agreementStage:'+options.artistAccount,'details');
