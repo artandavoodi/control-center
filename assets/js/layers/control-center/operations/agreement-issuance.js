@@ -93,18 +93,24 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
 }
 
 export async function prepareAgreementEmail({root,client,staff,envelope,e,icon}){
- const copy=envelope.rehearsal?{...labels.issuance,...labels.verificationEmail}:labels.issuance,dialog=document.createElement('dialog');dialog.className='control-center-reply-dialog';dialog.setAttribute('aria-label',copy.emailTitle);
- dialog.innerHTML=`<header class="control-center-dialog-header"><h2>${e(copy.emailTitle)}</h2><button type="button" class="global-close-button" aria-label="Close signing invitation"></button></header><p role="status"></p><section data-contract-mail></section>`;
- root.append(dialog);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);dialog.querySelector('button').onclick=()=>dialog.close();dialog.showModal();
- const status=dialog.querySelector('[role=status]');status.innerHTML='<span class="ui-loader-circle" aria-label="Preparing invitation"></span>';
+ const copy=envelope.rehearsal?{...labels.issuance,...labels.verificationEmail}:labels.issuance;
+ const {dialog,status,mail}=createAgreementEmailDialog({root,title:copy.emailTitle,e});status.innerHTML='<span class="ui-loader-circle" aria-label="Preparing invitation"></span>';
  const link=await client.rpc(envelope.rehearsal?'control_center_signing_verification_link':'control_center_agreement_signing_link',{envelope:envelope.id});
  if(!dialog.isConnected)return;
  if(link.error||!link.data?.token){status.textContent=copy.linkError;return;}
  const url=new URL(labels.studioUrl);url.hash=new URLSearchParams({token:link.data.token}).toString();
- const mail=dialog.querySelector('[data-contract-mail]');mail.className='control-center-issue-form';
- mail.innerHTML=`<label>${e(copy.to)}<input readonly value="${e(link.data.recipient_email)}"></label><label>${e(copy.subjectLabel)}<input name="subject" maxlength="300"></label><label>${e(copy.messageLabel)}<textarea name="body" maxlength="16000" rows="8"></textarea></label><div data-icloud-reply></div>`;
+ mail.querySelector('[name=recipient]').value=link.data.recipient_email;mail.hidden=false;
  mail.querySelector('[name=subject]').value=copy.subject;mail.querySelector('[name=body]').value=copy.body.replace('{url}',url.href).replace('{expiry}',new Date(link.data.expires_at).toLocaleString());
  status.textContent=copy.issued;
  const connect=bindICloudReplies({dialog:mail,row:{id:link.data.enquiry,reply_email:link.data.recipient_email},client,staff,e,icon});
  mail.addEventListener('icloud:accepted',()=>{status.textContent=copy.emailAccepted;});mail.addEventListener('icloud:uncertain',()=>{status.textContent=copy.emailUncertain;});connect();
+}
+
+export function createAgreementEmailDialog({root,title,name=title,closeLabel='Close signing invitation',e}){
+ const host=root?.closest('.control-center-operations')||root?.querySelector('.control-center-operations');
+ if(!host)throw Error('Open the invitation from the Control Center workspace.');
+ const copy=labels.issuance,dialog=document.createElement('dialog');dialog.className='control-center-reply-dialog';dialog.setAttribute('aria-label',name);
+ dialog.innerHTML=`<header class="control-center-dialog-header"><h2>${e(title)}</h2><button type="button" class="global-close-button" aria-label="${e(closeLabel)}"></button></header><p role="status"></p><section class="control-center-issue-form" data-contract-mail hidden><label>${e(copy.to)}<input name="recipient" readonly></label><label>${e(copy.subjectLabel)}<input name="subject" maxlength="300"></label><label>${e(copy.messageLabel)}<textarea name="body" maxlength="16000" rows="8"></textarea></label><div data-icloud-reply></div></section>`;
+ host.append(dialog);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);dialog.querySelector('button').onclick=()=>dialog.close();dialog.showModal();
+ return {dialog,status:dialog.querySelector('[role=status]'),mail:dialog.querySelector('[data-contract-mail]')};
 }

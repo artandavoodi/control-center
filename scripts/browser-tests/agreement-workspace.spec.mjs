@@ -94,7 +94,7 @@ test('verification invitation uses the themed workspace and shared blurred backd
  await page.route('**/__agreement-issuance-test.js',route=>route.fulfill({contentType:'application/javascript',body:issuanceBundle.outputFiles[0].text}));
  await page.goto('/');await page.evaluate(async()=>{
   const {prepareAgreementEmail}=await import('/__agreement-issuance-test.js');
-  document.body.innerHTML='<div class="control-center-app"><div class="control-center-operations"></div></div>';
+  document.body.innerHTML='<div class="control-center-app"><div class="control-center-operations"><section class="agreement-rehearsal" data-signing-root></section></div></div>';
   window.mailCalls=[];
   await prepareAgreementEmail({root:document.querySelector('.control-center-operations'),client:{rpc:async(name,args)=>{window.mailCalls.push({name,args});return {data:{token:'a'.repeat(64),enquiry:'fixture-enquiry',recipient_email:'artist@example.test',expires_at:'2027-01-01T00:00:00Z'}};}},staff:{is_owner:false},envelope:{id:'verification',rehearsal:true},e:String,icon:()=>'<img class="control-center-operation-icon" src="/registry/icons/public/assets/core/actions/send/send.svg" alt="">'});
  });
@@ -102,8 +102,15 @@ test('verification invitation uses the themed workspace and shared blurred backd
  await expect(page.locator('.control-center-operations > .control-center-reply-dialog')).toBeVisible();
  const backdrop=await dialog.evaluate(el=>({blur:getComputedStyle(el,'::backdrop').backdropFilter,background:getComputedStyle(el).backgroundColor,color:getComputedStyle(el).color}));
  expect(backdrop.blur).toMatch(/^blur\(/);expect(backdrop.background).not.toBe('rgba(0, 0, 0, 0)');expect(backdrop.color).not.toBe(backdrop.background);
+ const approvedStyle=await dialog.evaluate(el=>({padding:getComputedStyle(el).padding,width:getComputedStyle(el).width,gap:getComputedStyle(el.querySelector('[data-contract-mail]')).gap,field:getComputedStyle(el.querySelector('input')).backgroundColor,rows:el.querySelector('textarea').rows}));
  await expect(dialog.getByRole('textbox',{name:'Subject',exact:true})).toHaveValue('Your Artanrecords signing verification');await expect(dialog.getByRole('textbox',{name:'Message',exact:true})).toHaveValue(/does not execute a contract/);
  expect(await page.evaluate(()=>window.mailCalls)).toEqual([{name:'control_center_signing_verification_link',args:{envelope:'verification'}}]);await dialog.getByRole('button',{name:'Close signing invitation',exact:true}).click();await expect(dialog).not.toBeVisible();
+ await page.evaluate(async()=>{
+  const {prepareAgreementEmail}=await import('/__agreement-issuance-test.js');await prepareAgreementEmail({root:document.querySelector('[data-signing-root]'),client:{rpc:async(name,args)=>{window.mailCalls.push({name,args});return {data:{token:'b'.repeat(64),enquiry:'fixture-enquiry',recipient_email:'artist@example.test',expires_at:'2027-01-01T00:00:00Z'}};}},staff:{is_owner:false},envelope:{id:'signed-contract',rehearsal:false},e:String,icon:()=>'<img class="control-center-operation-icon" src="/registry/icons/public/assets/core/actions/send/send.svg" alt="">'});
+ });
+ const real=page.getByRole('dialog',{name:'Signing invitation',exact:true});await expect(real).toBeVisible();await expect(real.locator('..')).toHaveClass('control-center-operations');await expect(page.locator('[data-signing-root] dialog')).toHaveCount(0);
+ expect(await real.evaluate(el=>({padding:getComputedStyle(el).padding,width:getComputedStyle(el).width,gap:getComputedStyle(el.querySelector('[data-contract-mail]')).gap,field:getComputedStyle(el.querySelector('input')).backgroundColor,rows:el.querySelector('textarea').rows}))).toEqual(approvedStyle);
+ await expect(real.getByRole('textbox',{name:'Subject',exact:true})).toHaveValue('Your Artanrecords agreement is ready to sign');expect(await page.evaluate(()=>window.mailCalls.at(-1))).toEqual({name:'control_center_agreement_signing_link',args:{envelope:'signed-contract'}});
 });
 
 test('artist contract inventory excludes documents belonging to a different intake',async({page})=>{
