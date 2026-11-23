@@ -1,0 +1,21 @@
+import {test,expect} from '@playwright/test';
+import {build} from 'esbuild';
+import {readFile} from 'node:fs/promises';
+const bundle=await build({entryPoints:['assets/js/layers/control-center/operations/artist-details-actions.js'],bundle:true,write:false,format:'esm',loader:{'.ttf':'binary','.css':'text'},plugins:[{name:'pdf-worker',setup(builder){builder.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}]});
+
+test('artist corrections use the shared menu and preserve the submitted version',async({page})=>{
+ await page.route('**/__details-actions.js',route=>route.fulfill({contentType:'application/javascript',body:bundle.outputFiles[0].text}));await page.goto('/');
+ await page.evaluate(async()=>{
+  const {artistDetailsActions}=await import('/__details-actions.js'),{bindRecordOptions}=await import('/assets/js/layers/control-center/operations/shared/record-options.js');
+  document.body.innerHTML='<div class="control-center-app"><div class="control-center-operations"><header><h2>Synthetic Artist</h2><button class="global-close-button" aria-label="Exit artist"></button></header></div></div>';
+  const host=document.querySelector('.control-center-operations'),version={id:'synthetic-version',version_number:1,confirmed_at:'2026-11-01T12:00:00Z',reply_email:'artist@example.test',details:{recipient_type:'individual',username:'synthetic.artist',legal_name:'Original Legal Name',artist_name:'Synthetic Artist',address_line1:'1 Synthetic Street',address_line2:'',city:'Synthetic City',postal_code:'00000',country_code:'HR',phone:'',date_of_birth:''}};
+  window.originalDetails=JSON.stringify(version.details);window.originalVersion=version;window.savedDetails=0;
+  const actions=artistDetailsActions({host,row:{id:'synthetic-request',status:'approved',rehearsal:false},version,client:{rpc:async(name,args)=>{window.detailsCall={name,args};return window.detailsFailure?{error:{message:'This version changed. Reload before editing.'}}:{data:'new-version'};}},icon:()=>'',canWrite:true,onSaved:async()=>window.savedDetails++});
+  bindRecordOptions({host,before:host.querySelector('button'),icon:()=>'',title:'Artist options',triggerLabel:'More artist options',actions:[{label:'Edit details',icon:'edit',run:actions.edit},{label:'Export details PDF',icon:'download',close:false,run:actions.export},{label:'Print details',icon:'print',close:false,run:actions.print}]});
+ });
+ await page.getByRole('button',{name:'More artist options',exact:true}).click();await expect(page.getByRole('dialog',{name:'Artist options',exact:true})).toHaveCSS('backdrop-filter','none');await page.getByRole('menuitem',{name:'Edit details',exact:true}).click();
+ const editor=page.getByRole('dialog',{name:'Edit artist details',exact:true});await expect(editor).toBeVisible();await expect(editor.getByLabel('Legal name',{exact:true})).toHaveValue('Original Legal Name');await expect(editor.getByLabel('Requested username',{exact:true})).toHaveCount(0);
+ expect(await editor.getByLabel('Country',{exact:true}).locator('option').count()).toBeGreaterThan(240);await editor.getByLabel('Legal name',{exact:true}).fill('Corrected Legal Name');await editor.getByLabel('Reason for correction',{exact:true}).fill('Artist confirmed the legal-name correction by phone.');
+ await page.evaluate(()=>window.detailsFailure=true);await editor.getByRole('button',{name:'Save changes',exact:true}).click();await expect(editor.getByRole('status')).toHaveText('This version changed. Reload before editing.');expect(await page.evaluate(()=>window.savedDetails)).toBe(0);
+ await page.evaluate(()=>window.detailsFailure=false);await editor.getByRole('button',{name:'Save changes',exact:true}).click();await expect(editor).toHaveCount(0);expect(await page.evaluate(()=>window.detailsCall)).toMatchObject({name:'control_center_correct_agreement_details',args:{request:'synthetic-request',expected_version:'synthetic-version',payload:{legal_name:'Corrected Legal Name',recipient_type:'individual',username:'synthetic.artist'},confirmed:true}});expect(await page.evaluate(()=>JSON.stringify(window.originalVersion.details)===window.originalDetails)).toBe(true);expect(await page.evaluate(()=>window.savedDetails)).toBe(1);
+});

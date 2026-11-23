@@ -2,10 +2,12 @@ import {renderNotificationFeed} from './shared/notification-feed.js';
 import labels from '../../../../data/control-center/update-actions.json' with {type:'json'};
 import {readView,writeView} from './view-state.js';
 export function mountNotifications({root,client,config,monitor,nav,workspaces,e,icon,onNavigate}){
- const header=root.querySelector('.control-center-app-header'),button=document.createElement('button'),popover=document.createElement('div'),feed=document.createElement('div');
- button.type='button';button.className='control-center-notification-trigger';button.setAttribute('aria-label','Notifications');button.setAttribute('aria-haspopup','dialog');button.setAttribute('popovertarget','control-notifications');button.innerHTML=icon('core/system/notifications/bell.svg')+'<span class="system-notification-badge" data-notification-count hidden></span>';
- popover.id='control-notifications';popover.className='control-center-notifications';popover.setAttribute('popover','auto');popover.setAttribute('role','dialog');popover.setAttribute('aria-label','Notifications');
- const heading=document.createElement('h2'),toolbar=document.createElement('header'),close=document.createElement('button');heading.textContent='Notifications';toolbar.className='control-center-notification-header';close.type='button';close.className='global-close-button';close.setAttribute('aria-label','Close notifications');toolbar.append(heading,close);popover.append(toolbar,feed);header.append(button,popover);window.NeuroartanCloseButtons.initCloseButtonPrimitive(toolbar);close.onclick=()=>{popover.hidePopover();button.focus();};
+ const header=root.querySelector('.control-center-app-header'),button=document.createElement('button'),dialog=document.createElement('dialog'),feed=document.createElement('div');
+ button.type='button';button.className='control-center-notification-trigger';button.setAttribute('aria-label','Notifications');button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-controls','control-notifications');button.innerHTML=icon('core/system/notifications/bell.svg')+'<span class="system-notification-badge" data-notification-count hidden></span>';
+ dialog.id='control-notifications';dialog.className='control-center-notifications';dialog.setAttribute('aria-label','Notifications');
+ const heading=document.createElement('h2'),toolbar=document.createElement('header'),close=document.createElement('button');heading.textContent='Notifications';toolbar.className='control-center-notification-header';close.type='button';close.className='global-close-button';close.setAttribute('aria-label','Close notifications');toolbar.append(heading,close);dialog.append(toolbar,feed);header.append(button);header.parentElement.append(dialog);window.NeuroartanCloseButtons.initCloseButtonPrimitive(toolbar);close.onclick=()=>dialog.close();
+ button.addEventListener('click',()=>{dialog.showModal();void refresh();});
+ dialog.addEventListener('close',()=>button.focus({preventScroll:true}));
  const queues=workspaces.some(workspace=>workspace.workspace_key==='artanrecords')?config.reviewQueues.filter(queue=>queue.table&&nav.some(item=>item.id===queue.id)):[];
  const readReviews=new Set(readView('readReviewNotices',[])),reviewHistory=new Map(readView('reviewNoticeHistory',[]).map(item=>[item.id,item]));
  let pending=[],busy=false,history=false,queueError=false;
@@ -22,7 +24,7 @@ export function mountNotifications({root,client,config,monitor,nav,workspaces,e,
   renderNotificationFeed(feed,{items,history,onHistory:value=>{history=value;render();},onRead:async item=>{
    if(item.kind==='update')await monitor.markRead(item.id);
    else{readReviews.add(item.id);writeView('readReviewNotices',[...readReviews].slice(-200));render();}
-  },onOpen:item=>{popover.hidePopover();if(item.kind==='update'){writeView('updateJob',item.id);onNavigate('updates');}else onNavigate(item.panel,item.action||'');}});
+  },onOpen:item=>{dialog.close();if(item.kind==='update'){writeView('updateJob',item.id);onNavigate('updates');}else onNavigate(item.panel,item.action||'');}});
   if(queueError){const error=document.createElement('p');error.setAttribute('role','status');error.textContent='Review requests could not be checked. Open the queues to retry.';feed.append(error);}
  }
  async function refresh(){
@@ -33,7 +35,6 @@ export function mountNotifications({root,client,config,monitor,nav,workspaces,e,
    for(const item of pending)reviewHistory.set(item.id,item);while(reviewHistory.size>200)reviewHistory.delete(reviewHistory.keys().next().value);writeView('reviewNoticeHistory',[...reviewHistory.values()]);queueError=false;render();
   }catch{queueError=true;render();}finally{busy=false;}
  }
- popover.addEventListener('beforetoggle',event=>{if(event.newState==='open')refresh();});
  monitor?.subscribe(()=>{if(!button.isConnected)return false;while(monitor.takeNotice()){}render();});
  render();refresh();
  const poll=()=>setTimeout(async()=>{if(!button.isConnected)return;if(document.visibilityState==='visible')await refresh();poll();},15000);poll();

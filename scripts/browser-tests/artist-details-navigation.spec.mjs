@@ -1,4 +1,7 @@
 import {test,expect} from '@playwright/test';
+import {build} from 'esbuild';
+import {readFile} from 'node:fs/promises';
+const bundle=await build({entryPoints:['assets/js/layers/control-center/operations/agreements.js'],bundle:true,format:'esm',write:false,loader:{'.ttf':'binary','.css':'text'},plugins:[{name:'pdf-worker-source',setup(builder){builder.onLoad({filter:/pdf\.worker\.mjs$/},async args=>({contents:await readFile(args.path,'utf8'),loader:'text'}));}}]});
 test('artist details search isolates a selected record and clears safely',async({page})=>{
  await page.goto('/');await page.evaluate(async()=>{
  const {bindDetailsNavigation}=await import('/assets/js/layers/control-center/operations/artist-details-navigation.js');
@@ -6,4 +9,29 @@ test('artist details search isolates a selected record and clears safely',async(
  const results=document.querySelector('[data-results]');const show=bindDetailsNavigation({intake:document.querySelector('main'),results,requestForm:document.querySelector('form'),icon:path=>'<img class="control-center-operation-icon" src="/registry/icons/public/assets/'+path+'" alt="">',onSelect:id=>show(id)});show('');
  });
  await expect(page.locator('article:visible')).toHaveCount(0);await expect(page.getByRole('button',{name:'First Artist Ready for review'})).toHaveCSS('border-top-width','0px');await expect(page.getByRole('button',{name:'First Artist Ready for review'})).toHaveCSS('background-color','rgba(0, 0, 0, 0)');await page.getByRole('searchbox').fill('first@example.test');await expect(page.getByRole('button',{name:'Clear details search'}).locator('.global-close-button__line')).toHaveCount(2);await expect(page.getByRole('button',{name:'Clear details search'})).toHaveAttribute('data-close-button-primitive-bound','true');await expect(page.getByRole('button',{name:'Second Artist Closed'})).toHaveCount(0);await page.getByRole('button',{name:'Clear details search'}).click();await expect(page.getByRole('button',{name:'Second Artist Closed'})).toBeVisible();await page.getByRole('button',{name:'First Artist Ready for review'}).click();await expect(page.locator('article:visible')).toHaveCount(1);await expect(page.locator('[data-intake-id=one]')).toBeVisible();await expect(page.locator('form')).toBeHidden();
+});
+
+test('artist workspace opens correction from its shared options and keeps the submitted source immutable',async({page})=>{
+ await page.route('**/__artist-workspace.js',route=>route.fulfill({contentType:'application/javascript',body:bundle.outputFiles[0].text}));await page.goto('/');
+ await page.evaluate(async()=>{
+  const {mountAgreements}=await import('/__artist-workspace.js');
+  document.body.innerHTML='<div class="control-center-app"><main class="control-center-operations"><header><h1>Agreements</h1></header><div data-workspace></div></main></div>';
+  const version={id:'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',request_id:'request',version_number:1,confirmed_at:'2026-11-01T12:00:00Z',reply_email:'artist@example.test',details_digest:'digest',details:{recipient_type:'individual',username:'fixture.artist',legal_name:'Original Legal Name',artist_name:'Fixture Artist',address_line1:'1 Fixture Street',city:'Zagreb',postal_code:'10000',country_code:'HR'}};
+  const request={id:'request',account_id:'artist',workspace_id:'brand',unit_id:'brand',status:'approved',current_version_id:version.id,rehearsal:false,artist_message:''};window.originalVersion=version;window.sourceSnapshot=JSON.stringify(version);window.corrections=[];window.saved=0;
+  const client={rpc:async(name,args)=>{
+   if(name==='control_center_agreement_artist_directory')return {data:{items:[{account_id:'artist',request_id:'request',artist_name:'Fixture Artist',status:'approved',updated_at:version.confirmed_at,archived:false}],next_cursor:null}};
+   if(name==='signature_library_list')return {data:[]};
+   if(name==='control_center_contract_portal_ready')return {data:false};
+   if(name==='control_center_founder_access_status')return {data:{account_id:'artist',email:version.reply_email,active:false}};
+   if(name==='control_center_correct_agreement_details'){window.corrections.push(args);return window.rejectCorrection?{error:{message:'The source version changed. Reload before correcting.'}}:{data:'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb'};}
+   throw Error('Unexpected RPC: '+name);
+  },from(table){let rows=table==='studio_agreement_intake_requests'?[request]:table==='studio_agreement_intake_versions'?[version]:[];const query={select(){return query;},eq(key,value){rows=rows.filter(row=>row[key]===value);return query;},in(key,values){rows=rows.filter(row=>values.includes(row[key]));return query;},contains(){return query;},or(){return query;},order(){return query;},limit(){return query;},single:async()=>({data:rows[0]}),then(resolve){return Promise.resolve({data:rows}).then(resolve);}};return query;}};
+  const config=await fetch('/assets/data/control-center/operations.json').then(response=>response.json());
+  await mountAgreements({content:document.querySelector('[data-workspace]'),client,staff:{is_owner:true,permissions:['documents.read','documents.write','documents.confidential']},workspace:{id:'brand',workspace_key:'artanrecords'},context:{},units:[{id:'brand',kind:'pillar',active:true}],config,e:String,icon:()=>'',isCurrent:()=>true,onSaved:async()=>window.saved++});
+ });
+ await page.getByRole('button',{name:'Fixture Artist',exact:true}).click();await expect(page.getByRole('tab',{name:'Artist details',exact:true})).toBeVisible();await expect(page.getByRole('tab',{name:'Account requests',exact:true})).toHaveCount(0);
+ await page.getByRole('button',{name:'More artist options',exact:true}).click();await expect(page.getByRole('menuitem')).toHaveText(['Edit details','Print details','Export details PDF','Studio access','Archive artist']);await page.getByRole('menuitem',{name:'Edit details',exact:true}).click();
+ const editor=page.getByRole('dialog',{name:'Edit artist details',exact:true});await expect(editor.getByLabel('Legal name',{exact:true})).toHaveValue('Original Legal Name');await editor.getByLabel('Legal name',{exact:true}).fill('Corrected Legal Name');await editor.getByRole('button',{name:'Save changes',exact:true}).click();expect(await page.evaluate(()=>window.corrections)).toEqual([]);await expect(editor).toBeVisible();
+ await editor.getByLabel('Reason for correction',{exact:true}).fill('Artist confirmed the spelling correction.');await page.evaluate(()=>window.rejectCorrection=true);await editor.getByRole('button',{name:'Save changes',exact:true}).click();await expect(editor.getByRole('status')).toHaveText('The source version changed. Reload before correcting.');expect(await page.evaluate(()=>window.saved)).toBe(0);
+ await page.evaluate(()=>window.rejectCorrection=false);await editor.getByRole('button',{name:'Save changes',exact:true}).click();await expect(editor).toHaveCount(0);expect(await page.evaluate(()=>window.corrections.at(-1))).toMatchObject({request:'request',expected_version:'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',payload:{legal_name:'Corrected Legal Name',username:'fixture.artist'},reason:'Artist confirmed the spelling correction.',confirmed:true});expect(await page.evaluate(()=>JSON.stringify(window.originalVersion))).toBe(await page.evaluate(()=>window.sourceSnapshot));expect(await page.evaluate(()=>window.saved)).toBe(1);
 });

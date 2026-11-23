@@ -1,15 +1,24 @@
 import {bindICloudReplies} from './icloud-replies.js';
 import labels from '../../../../data/control-center/agreements.json' with {type:'json'};
+import signingLabels from '../../../../data/control-center/agreement-rehearsal.json' with {type:'json'};
 import {agreementDateSummary} from './agreement-dates.js';
 import {draftTextDigest} from './draft-save.js';
 import {renderReviewChecklist} from './shared/review-checklist.js';
 import {labelReviewContent,requiredAgreementFields} from './agreement-templates.js';
 
+export async function findExistingAgreementEnvelope({client,sourceDocumentId,workspaceId,accountId}){
+ if(!sourceDocumentId||!workspaceId||!accountId)return null;
+ const found=await client.from('studio_agreement_envelopes').select('id,status,source_document_id,account_id,workspace_id,rehearsal').eq('source_document_id',sourceDocumentId).eq('workspace_id',workspaceId).eq('account_id',accountId).eq('rehearsal',false).order('created_at',{ascending:false}).limit(1).maybeSingle();
+ if(found.error)throw Error(signingLabels.existingUnavailable);
+ const envelope=found.data;
+ return envelope?.rehearsal===false&&envelope.source_document_id===sourceDocumentId&&envelope.account_id===accountId&&envelope.workspace_id===workspaceId?envelope:null;
+}
+
 // Issuing is separate from saving, PDF preview, email delivery and final access approval.
 export async function mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal}){
  const copy=labels.issuance;
  root.replaceChildren();
- const status=document.createElement('p');status.setAttribute('role','status');status.innerHTML='<span class="ui-loader-circle" aria-label="Checking contract"></span>';root.append(status);
+ const status=document.createElement('p');status.className='agreement-loading-status';status.setAttribute('role','status');status.innerHTML='<span class="ui-loader-circle" aria-label="Checking contract"></span>';root.append(status);
  if(!record){status.textContent=copy.saveFirst;return;}
  const stillCurrent=()=>root.isConnected&&dialog.open&&isCurrent();
  const reference=record.artist_intake_version_id;
@@ -25,6 +34,12 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
  if(!stillCurrent())return;
  if(reference&&(result.error||!result.data))blockers.push({message:copy.recipientRequired});
  const intake=result.data,tier=record.tags.find(tag=>/^partnership-(silver|gold|platinum)$/.test(tag))?.slice('partnership-'.length);
+ const artistId=record.artist_account_id||intake?.account_id;
+ const existingEnvelope=()=>findExistingAgreementEnvelope({client,sourceDocumentId:record.id,workspaceId:workspace.id,accountId:artistId});
+ const showExisting=envelope=>{
+  const state=document.createElement('p'),open=document.createElement('button');status.textContent=signingLabels.sentToSigning;state.textContent=signingLabels.execution.states[envelope.status]||envelope.status;open.type='button';open.className='ui-button';open.innerHTML=icon('core/legal/contracts/signature.svg')+e(signingLabels.openSigningRecord);open.onclick=()=>{dialog.close();onIssued?.(envelope.id);};root.replaceChildren(status,state,open);
+ };
+ try{const existing=await existingEnvelope();if(!stillCurrent())return;if(existing){showExisting(existing);return;}}catch(error){if(stillCurrent())status.textContent=error.message;return;}
  const normalize=value=>String(value||'').normalize('NFKC').trim().toLocaleLowerCase().replace(/\s+/g,' ');
  const sameName=fields&&normalize(fields['label signatory'])&&normalize(fields['label signatory'])===normalize(fields['artist legal name']);
  if(!tier)blockers.push({message:'Select the partnership tier before issuing this agreement.',system:true});
@@ -51,16 +66,6 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
   if(!textPending){status.textContent=labels.finalizedTextStatus;finalize.innerHTML=icon('core/legal/contracts/signature.svg')+e(labels.sendFinalAction);}
   if(onPrepareFinal&&tier&&!missing.length&&textPending&&blockers.every(item=>item.system||item.field==='text')){finalize.disabled=false;if(sendingBlocked)finalize.innerHTML=icon('core/legal/contracts/contract.svg')+e(labels.finalizeTextAction);finalize.onclick=async()=>{finalize.disabled=true;try{record=await onPrepareFinal();await mountAgreementIssuance({root,dialog,client,staff,workspace,record,e,icon,isCurrent,onIssued,onResolve,onSaveReview,onPrepareFinal});}catch(error){status.textContent=error.message||'The contract could not be prepared. Nothing has been sent.';finalize.disabled=false;}};}
   for(const unavailable of blockers.filter(item=>item.system||!item.field)){const notice=document.createElement('p');notice.textContent=unavailable.message;root.append(notice);}root.append(finalize);
-  if(!textPending&&intake&&tier&&!missing.length&&blockers.every(item=>item.system)){
-   finalize.hidden=true;
-   const verification=labels.signingVerification,form=document.createElement('form');form.className='control-center-issue-form';
-   form.innerHTML=`<p>${e(verification.notice)}</p><label class="control-center-operation-check"><input type="checkbox" name="confirmed" required><span>${e(verification.confirm)}</span></label><button type="submit" class="control-center-success-action">${icon('core/legal/contracts/signature.svg')}${e(verification.action)}</button><p role="status"></p>`;
-   root.append(form);form.onsubmit=async event=>{event.preventDefault();if(!form.reportValidity())return;form.inert=true;const message=form.querySelector('[role=status]');message.innerHTML='<span class="ui-loader-circle" aria-label="Creating signing verification"></span>';try{
-    const result=await client.rpc('control_center_create_signing_verification',{document:record.id,expected_updated_at:record.updated_at,artist:intake.account_id,confirmed:form.elements.confirmed.checked});
-    if(result.error||!result.data)throw Error(result.error?.message||verification.error);
-    message.textContent=verification.created;dialog.close();await onIssued?.(result.data,{verification:true});
-   }catch(error){message.textContent=error.message||verification.error;form.inert=false;}};
-  }
   return;
  }
  function mountLegalReview(){
@@ -88,7 +93,10 @@ export async function mountAgreementIssuance({root,dialog,client,staff,workspace
    if(issued.error||!issued.data)throw Error(copy.issueError);
    form.hidden=true;status.textContent=copy.issued;
    const next=document.createElement('button');next.type='button';next.className='ui-button';next.innerHTML=icon('core/legal/contracts/signature.svg')+e(copy.addLabelSignature);next.onclick=()=>{dialog.close();onIssued?.(issued.data);};root.append(next);
-  }catch(error){message.textContent=error.message||copy.issueError;form.inert=false;}
+  }catch(error){
+   try{const existing=await existingEnvelope();if(!stillCurrent())return;if(existing){showExisting(existing);return;}}catch{message.textContent=signingLabels.existingUnavailable;form.inert=false;return;}
+   if(stillCurrent()){message.textContent=error.message||copy.issueError;form.inert=false;}
+  }
  };
 }
 

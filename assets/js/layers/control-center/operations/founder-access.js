@@ -1,14 +1,14 @@
 import labels from '../../../../data/control-center/founder-access.json' with {type:'json'};
 
-export function mountFounderAccess({root,client,isCurrent,workspaceId,accountId,icon=()=>''}){
+export function mountFounderAccess({root,client,isCurrent,workspaceId,accountId,icon=()=>'',embedded=false}){
  if(!accountId)return;
- const open=document.createElement('button');open.type='button';open.className='ui-button';open.innerHTML=icon('core/identity/account/account.svg');open.append(document.createTextNode(labels.open));root.append(open);
+ const open=document.createElement('button');open.type='button';open.className='ui-button';open.innerHTML=icon('core/identity/account/account.svg');open.append(document.createTextNode(labels.open));if(!embedded)root.append(open);
  open.onclick=async()=>{
   const dialog=document.createElement('dialog');dialog.className='agreement-focus';dialog.setAttribute('aria-label',labels.title);
   const header=document.createElement('header'),title=document.createElement('h2'),close=document.createElement('button'),body=document.createElement('section'),status=document.createElement('p');
   header.className='control-center-dialog-header';title.textContent=labels.title;close.type='button';close.className='global-close-button';close.setAttribute('aria-label',labels.close);header.append(title,close);body.className='control-center-issue-form';body.dataset.envelopeContent='';status.setAttribute('role','status');status.innerHTML='<span class="ui-loader-circle" aria-label="Loading access"></span>';body.append(status);dialog.append(header,body);root.append(dialog);
-  window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{dialog.remove();open.focus();},{once:true});dialog.showModal();
-  const current=()=>isCurrent()&&dialog.isConnected&&dialog.open;
+  if(embedded){root.replaceChildren(body);dialog.remove();}else{window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);close.onclick=()=>dialog.close();dialog.addEventListener('close',()=>{dialog.remove();open.focus();},{once:true});dialog.showModal();}
+  const current=()=>isCurrent()&&body.isConnected&&(embedded||dialog.open);
   try{
    const response=await client.rpc('control_center_founder_access_status',{artist:accountId,brand:workspaceId});
    if(!current())return;if(response.error||response.data?.account_id!==accountId||!response.data.email)throw Error();
@@ -28,4 +28,5 @@ export function mountFounderAccess({root,client,isCurrent,workspaceId,accountId,
    const link=document.createElement('a');link.className='ui-button';link.textContent=labels.studio;link.href=['localhost','127.0.0.1'].includes(location.hostname)?labels.localStudioUrl:labels.studioUrl;link.target='_blank';link.rel='noopener';body.append(link);
   }catch{if(current())status.textContent=labels.unavailable;}
  };
+ if(embedded)return open.onclick();
 }

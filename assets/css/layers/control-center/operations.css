@@ -20,6 +20,7 @@
 [hidden] { display:none !important; }
 .control-center-boot { min-block-size:100svh; display:grid; place-items:center; background:var(--bg-color); color:var(--text-color); --loader-circle-color:var(--text-color); }
 [data-operation-status]:has(.ui-loader-circle) { display:grid; place-items:center; padding-block:var(--spacing-2xl); --loader-circle-color:var(--text-color); }
+.control-center-artist-loading { display:grid; place-items:center; inline-size:100%; min-block-size:50dvh; --loader-circle-color:var(--text-color); }
 .control-center-access form { display:grid; gap:var(--spacing-md); max-inline-size:var(--reading-width-md); }
 .control-center-operations form { display:grid; gap:var(--spacing-lg); inline-size:100%; min-inline-size:0; max-inline-size:none; }
 .control-center-operations form > button { justify-self:start; }
@@ -34,6 +35,8 @@
 .control-center-contract-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-contract-header h2 { margin:0; font-size:var(--font-size-lg); }
 .control-center-artist-context-header { padding-block:var(--spacing-md); margin-block-end:var(--spacing-lg); }
+.control-center-agreement-pane-header { margin-block-end:var(--spacing-lg); }
+.control-center-agreement-pane-header > .control-center-contract-actions { margin-inline-start:auto; }
 .control-center-contract-actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-md); }
 .control-center-contract-actions [role=status] { margin:0; }
 .control-center-contract-options [role=menu] { display:grid; gap:var(--spacing-sm); }
@@ -71,9 +74,7 @@ html[data-theme-effective=light] .control-center-header-wordmark { filter:var(--
 .control-center-account-trigger > img { inline-size:100%; block-size:100%; object-fit:cover; border-radius:inherit; }
 .control-center-account-trigger > img { min-inline-size:100%; max-inline-size:100%; min-block-size:100%; max-block-size:100%; object-position:center; }
 .control-center-account-trigger > [data-account-fallback] { display:grid; place-items:center; inline-size:100%; block-size:100%; background:var(--control-center-surface); }
-.control-center-notifications { position:fixed; inset:auto var(--spacing-lg) auto auto; top:calc(var(--control-height-lg) + var(--spacing-lg) * 2); inline-size:min(var(--reading-width-md),calc(100vw - var(--spacing-lg) * 2)); max-block-size:65svh; overflow:auto; margin:0; padding:var(--spacing-lg); border:var(--border-width-hairline) solid var(--control-center-border); border-radius:var(--panel-radius-unified); background:var(--bg-color); color:var(--text-color); box-shadow:var(--shadow-medium); }
 .control-center-notifications > button { display:grid; justify-items:start; text-align:start; inline-size:100%; gap:var(--spacing-sm); padding-block:var(--spacing-md); border:0; background:transparent; color:inherit; cursor:pointer; }
-.control-center-notifications:popover-open { animation:control-center-account-enter var(--duration-fast) ease-out; }
 .control-center-notification-header { display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-lg); margin-block-end:var(--spacing-lg); }
 .control-center-notification-header h2 { margin:0; }
 .control-center-notifications p,.control-center-notifications button span { color:var(--text-secondary-color); font-size:var(--text-caption-size); }
