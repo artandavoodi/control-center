@@ -1,7 +1,7 @@
 import {bindRecordOptions} from './shared/record-options.js';
 export function bindDocumentActions({form,icon,onAction,onPrint,onExport,extraActions=()=>[]}){
  const close=form.querySelector('[data-document-cancel]');if(!close)return;
- return bindRecordOptions({host:form,before:close,icon,title:'Contract options',triggerLabel:'More contract options',actions:()=>[
+ return bindRecordOptions({host:form,before:close,icon,title:'Contract options',triggerLabel:'More',actions:()=>[
   {label:'Print',icon:'core/actions/print/print.svg',close:false,run:onPrint},
   {label:'Export PDF',icon:'core/actions/download/download.svg',close:false,run:async()=>{await onExport();return 'Draft PDF exported. This does not sign or send the contract.';}},
   {label:'Archive draft',run:()=>onAction('draft-archived')},

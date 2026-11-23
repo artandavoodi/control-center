@@ -77,6 +77,9 @@ export async function mountAgreementWorkspace(options,mountArtist){
      const id=body.dataset.agreementTab,panel=body.querySelector(':scope > #agreement-panel-'+id);
      if(!panel||panel.hidden)return;
      if(menu.panel.open)menu.panel.close();
+     const previous=controls.parentElement,oldRefresh=controls.querySelector('[data-rehearsal-refresh]');
+     if(previous&&oldRefresh)previous.insertBefore(oldRefresh,controls.nextSibling);
+     const refresh=panel.querySelector(':scope > [data-rehearsal-refresh]');if(refresh)menu.trigger.before(refresh);
      if(id==='details')title.remove();else{title.textContent=labels.tabs[id];controls.prepend(title);}panel.prepend(controls);
      controls.hidden=id==='drafts'&&panel.classList.contains('is-editing');
     };

@@ -26,8 +26,9 @@
 .control-center-operations form > button { justify-self:start; }
 .control-center-operations label { min-inline-size:0; }
 .control-center-operations label > :is(input:not([type=checkbox]):not([type=radio]),textarea,select) { box-sizing:border-box; inline-size:100%; min-inline-size:0; }
-.control-center-document-inventory { display:grid; gap:var(--spacing-lg); min-inline-size:0; }
-.control-center-document-inventory > :is(p,label) { margin:0; }
+.control-center-document-inventory,.control-center-agreement-panel { display:grid; gap:var(--spacing-lg); min-inline-size:0; align-content:start; }
+.control-center-document-inventory > :is(p,label),.control-center-agreement-panel > :is(p,h2) { margin:0; }
+.control-center-agreement-panel > [role=status]:empty { display:none; }
 .control-center-document-inventory > button { justify-self:start; }
 .control-center-document-inventory [data-document-editor] { display:grid; gap:var(--spacing-lg); margin:0; padding:0; }
 .control-center-document-inventory [data-document-editor] > h2 { margin:0; }
@@ -35,7 +36,6 @@
 .control-center-contract-header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--spacing-lg); }
 .control-center-contract-header h2 { margin:0; font-size:var(--font-size-lg); }
 .control-center-artist-context-header { padding-block:var(--spacing-md); margin-block-end:var(--spacing-lg); }
-.control-center-agreement-pane-header { margin-block-end:var(--spacing-lg); }
 .control-center-agreement-pane-header > .control-center-contract-actions { margin-inline-start:auto; }
 .control-center-contract-actions { display:flex; flex-wrap:wrap; align-items:center; gap:var(--spacing-md); }
 .control-center-contract-actions [role=status] { margin:0; }

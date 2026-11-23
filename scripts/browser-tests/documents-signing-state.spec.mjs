@@ -95,7 +95,7 @@ test('failed existing-record lookup blocks issuance until a successful reopen',a
 });
 
 test('editor options deduplicate print and export and editing events bubble after class changes',async({page})=>{
- await openLastSection(page);await page.getByRole('button',{name:'More contract options',exact:true}).click();
+ await openLastSection(page);await page.getByRole('button',{name:'More',exact:true}).click();
  await expect(page.getByRole('menuitem',{name:'Print',exact:true})).toHaveCount(1);
  await expect(page.getByRole('menuitem',{name:'Export PDF',exact:true})).toHaveCount(1);
  await expect(page.getByRole('menuitem',{name:'Print details',exact:true})).toHaveCount(0);
