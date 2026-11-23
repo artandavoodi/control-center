@@ -6,7 +6,7 @@ import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 
 const bundled=await build({entryPoints:['assets/js/layers/control-center/operations/shared/agreement-pdf.js'],bundle:true,write:false,format:'esm',platform:'browser',loader:{'.ttf':'binary'}});
-const {agreementPdf}=await import('data:text/javascript;base64,'+Buffer.from(bundled.outputFiles[0].contents).toString('base64'));
+const {agreementPdf,agreementTitle}=await import('data:text/javascript;base64,'+Buffer.from(bundled.outputFiles[0].contents).toString('base64'));
 const image='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5W16UAAAAASUVORK5CYII=';
 const digest='a'.repeat(64),record={envelope:{id:'synthetic-document',status:'archived',created_at:'2026-11-02T10:00:00Z'},version:{version_number:1,terms_digest:digest,terms:{title:'Agreement – review copy',body:Array.from({length:100},(_,i)=>`Section ${i+1}. Café: immutable terms for review.`).join('\n\n')}},signatures:[{signer_role:'artist',display_name:'Synthetic Artist',document_sha256:digest,image_sha256:createHash('sha256').update(Buffer.from(image,'base64')).digest('hex'),image_base64:image,section_initials:{1:'SA'},recorded_at:'2026-11-02T10:10:00Z'}],events:[{action:'archived',created_at:'2026-11-02T10:20:00Z'}]};
 test('PDF evidence copy embeds a readable multi-page document and verified signature image',async()=>{
@@ -30,4 +30,17 @@ test('draft exports contain only the working document and reject signature evide
  const draft={envelope:{...record.envelope,status:'draft',rehearsal:false},version:{terms:{kind:'agreement_draft_v1',title:'Working agreement draft',body:'Only draft text. This has not been issued or signed.'}},signatures:[],events:[],logoBytes:await readFile('assets/brand/email-wordmark.png')};
  const pdf=await PDFDocument.load(await agreementPdf(draft));assert.equal(pdf.getPageCount(),1);assert.equal(pdf.getTitle(),'Working agreement draft');
  await assert.rejects(agreementPdf({...draft,signatures:record.signatures}),/cannot include signing evidence/);
+});
+test('private artist details export is separate from contract signing evidence',async()=>{
+ const details={envelope:{id:'private-details',rehearsal:false,status:'submitted',created_at:'2026-11-23T10:00:00Z'},version:{version_number:1,terms:{kind:'artist_details_record_v1',title:'Artist details',notice:'Private artist details',body:'Legal name: Synthetic Artist\nCity: Zagreb'}},signatures:[],events:[],logoBytes:await readFile('assets/brand/email-wordmark.png')};
+ const pdf=await PDFDocument.load(await agreementPdf(details));
+ assert.equal(pdf.getTitle(),'Artist details');assert.equal(pdf.getPageCount(),1);
+ await assert.rejects(agreementPdf({...details,signatures:record.signatures}),/cannot contain contract signatures/);
+});
+test('verification titles stay readable without changing stored terms and prepared images remain previews',async()=>{
+ const version={...record.version,terms:{...record.version.terms,title:'Signing verification · Silver agreement',verification_source_intake:'synthetic-source'}};
+ assert.equal(agreementTitle(version),'Silver agreement');assert.equal(version.terms.title,'Signing verification · Silver agreement');
+ const pdf=await PDFDocument.load(await agreementPdf({...record,version,signatures:[],preparedSignature:image,logoBytes:await readFile('assets/brand/email-wordmark.png')}));
+ assert.equal(pdf.getTitle(),'Silver agreement');assert.ok(pdf.context.enumerateIndirectObjects().filter(([,object])=>object instanceof PDFRawStream&&object.dict.get(PDFName.of('Subtype'))===PDFName.of('Image')).length>=2);
+ assert.equal(record.signatures.length,1);
 });
