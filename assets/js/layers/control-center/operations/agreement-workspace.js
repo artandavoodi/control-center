@@ -27,7 +27,7 @@ export async function mountAgreementWorkspace(options,mountArtist){
  }
  const signatures=globalPanels.get('signatures').panel,form=document.createElement('form');
  form.innerHTML='<label>'+e(signingLabels.signatureLibrary.title)+'<input type="file" name="signature"></label>';form.onsubmit=event=>event.preventDefault();signatures.append(form);
- signatureInput(form,{client,libraryLabels:signingLabels.signatureLibrary,icons:{add:icon(options.config.chrome.create),edit:icon(options.config.chrome.edit),save:icon(options.config.chrome.save),use:icon(labels.tabIcons.signatures),default:icon('core/actions/favorite/favorite.svg'),archive:icon('core/actions/delete/delete.svg')}});
+ signatureInput(form,{client,libraryLabels:signingLabels.signatureLibrary,icons:{clear:icon('core/actions/reset/reset.svg'),add:icon(options.config.chrome.create),edit:icon(options.config.chrome.edit),save:icon(options.config.chrome.save),use:icon(labels.tabIcons.signatures),default:icon('core/actions/favorite/favorite.svg'),archive:icon('core/actions/delete/delete.svg')}});
  await mountContractInvitations({root:globalPanels.get('invitations').panel,client,staff,workspace,scope:writableUnits(options.units,workspace,staff),e,icon});
  if(!isCurrent())return;
  const input=directory.querySelector('input'),status=directory.querySelector('[role=status]'),results=directory.querySelector('.control-center-artist-results');
