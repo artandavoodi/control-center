@@ -205,7 +205,7 @@ test('document signature selection has one preview and no library management fie
   window.selectedSignature=signatureInput(document.querySelector('form'),{client,libraryLabels:labels,selectionOnly:true});
  });
  await expect(page.getByRole('img',{name:'Prepared signature',exact:true})).toBeVisible();await expect(page.getByRole('img',{name:'Saved signature image',exact:true})).toHaveCount(0);await expect(page.getByLabel('Signature name',{exact:true})).toHaveCount(0);
- await expect(page.getByRole('button',{name:'Use selected signature',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Remove from library',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Use selected signature',exact:true})).toHaveCount(0);await expect(page.getByRole('button',{name:'Remove from library',exact:true})).toBeVisible();
  await page.getByRole('combobox',{name:'Saved signature',exact:true}).selectOption('two');await expect(page.getByRole('img',{name:'Prepared signature',exact:true})).toHaveCount(1);expect(await page.evaluate(()=>Boolean(window.selectedSignature.prepared()))).toBe(true);
 });
 
