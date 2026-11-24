@@ -226,7 +226,7 @@ test('real signing starts with the label and exposes sending only after its sign
  await page.getByRole('button',{name:'Open document',exact:true}).click();
  await expect(page.getByRole('button',{name:'Send to artist',exact:true})).toHaveCount(0);
  const dialog=page.getByRole('dialog',{name:'Synthetic signing fixture',exact:true});
- await expect(dialog.locator(':scope > header')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-document-toolbar')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-reading-guide')).toHaveCount(0);
+ await expect(dialog.locator(':scope > header')).toHaveCSS('border-bottom-style','solid');await expect(dialog.locator('.agreement-document-toolbar')).toHaveCSS('border-bottom-width','0px');await expect(dialog.locator('.agreement-reading-guide')).toHaveCount(0);
  await expect(dialog.locator('.agreement-guide-header')).toHaveCSS('position','sticky');await expect(dialog.locator('.agreement-guide-controls [name=review_initials]')).toBeVisible();
  await expect(dialog.locator('[data-guide-next]')).toHaveCSS('color','rgb(255, 255, 255)');expect(await dialog.evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
  await expect(dialog.getByLabel('Signer name (record label)',{exact:true})).toHaveValue('Synthetic Label');

@@ -29,7 +29,7 @@ for(const role of ['label','artist'])test(`flat ${role} inventory keeps verifica
  await expect(page.locator('.agreement-document-summary h4').first()).toHaveText('Dated document version-0');
  await expect(page.locator('.agreement-document-summary time').first()).toHaveAttribute('datetime','2026-11-15T10:00:00Z');
  for(const state of Object.values(labels.execution.states))await expect(page.getByText(state,{exact:false}).first()).toBeVisible();
- await expect(page.locator('.agreement-verification-history')).toContainText(labels.verificationNotice);
+ await expect(page.locator('.agreement-verification-history')).not.toContainText(labels.verificationNotice);
  expect(await page.evaluate(()=>window.inventoryReads.some(read=>/signatures|events/.test(read.table)))).toBe(false);
  await page.locator('.agreement-rehearsal-card').nth(4).getByRole('button',{name:'Open document',exact:true}).click();
  await expect(page.getByRole('dialog')).toBeVisible();
