@@ -1,0 +1,10 @@
+{
+ "title":"Studio access email",
+ "prepare":"Generate setup code",
+ "notice":"Create a one-time setup code for the approved artist. It lets them choose their shared Artan Store and Studio account password.",
+ "subject":"Your Artanrecords Studio access is ready",
+ "body":"Your signed agreement has been approved and your Studio access is ready.\n\nUsername: {username}\nOne-time setup code: {code}\n\nOpen Studio setup:\n{url}\n\nEnter the code, then choose and confirm your own password. The code expires and can be used once. A newer code replaces an older one.\n\nThis sets your shared Artan Store and Studio account password. Never share your code or password.\n\nArtanrecords",
+ "ready":"Review the recipient and message, then send the email.",
+ "failed":"The access email could not be prepared. Check the approved access and retry after two minutes.",
+ "sent":"Email accepted by iCloud. Delivery is not yet confirmed."
+}
