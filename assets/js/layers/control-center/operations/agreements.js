@@ -17,7 +17,7 @@ export async function mountAgreements(options){
  return mountAgreementWorkspace(options,mountArtistAgreements);
 }
 export async function mountArtistAgreements(options){
- const mountSigningRehearsals=parameters=>mountSigningRecords({...parameters,accountId:options.artistAccount,icons:{...parameters.icons,close:options.icon('core/actions/close/close.svg'),clear:options.icon('core/actions/reset/reset.svg'),print:options.icon('core/actions/print/print.svg'),guide:options.icon(rehearsalLabels.guideArrow),send:options.icon('core/actions/send/send.svg')},onSend:envelope=>prepareAgreementEmail({root:parameters.root,client:options.client,staff:options.staff,envelope,e:options.e,icon:options.icon})});
+ const mountSigningRehearsals=parameters=>mountSigningRecords({...parameters,accountId:options.artistAccount,icons:{...parameters.icons,confirmation:options.icon('core/actions/help/help.svg'),close:options.icon('core/actions/close/close.svg'),clear:options.icon('core/actions/reset/reset.svg'),print:options.icon('core/actions/print/print.svg'),guide:options.icon(rehearsalLabels.guideArrow),send:options.icon('core/actions/send/send.svg')},onSend:envelope=>prepareAgreementEmail({root:parameters.root,client:options.client,staff:options.staff,envelope,e:options.e,icon:options.icon})});
  const {content,client,staff,workspace,context,units,e,icon,isCurrent,onSaved}=options;
  if(workspace.workspace_key!=='artanrecords'){content.textContent='Choose Artanrecords to manage artist agreements.';return;}
  if(options.artistAccount&&!content.dataset.agreementTab)content.dataset.agreementTab=readView('agreementStage:'+options.artistAccount,'details');
