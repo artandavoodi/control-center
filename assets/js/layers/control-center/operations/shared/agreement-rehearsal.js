@@ -67,7 +67,7 @@ export async function mountSigningRehearsals({root,client,role,accountId,workspa
       // The receipt replaces reader content; it is not a second stacked dialog.
       const restore=()=>{delete body.dataset.confirmationOpen;receipt.hidden=true;};
       showReceipt=()=>{body.dataset.confirmationOpen='true';receipt.hidden=false;receiptTitle.focus();focus.scrollTop=0;};
-      back.onclick=()=>{restore();close.focus();focus.scrollTop=0;};done.onclick=()=>focus.close();reopen.onclick=showReceipt;focus.addEventListener('close',restore);actions.append(back,done);receipt.append(receiptTitle,receiptMessage,actions);body.append(receipt);
+      const returnToDocument=()=>{restore();close.focus();focus.scrollTop=0;};back.onclick=done.onclick=returnToDocument;close.onclick=()=>body.dataset.confirmationOpen?returnToDocument():focus.close();focus.addEventListener('cancel',event=>{if(body.dataset.confirmationOpen){event.preventDefault();returnToDocument();}});reopen.onclick=showReceipt;focus.addEventListener('close',restore);actions.append(back,done);receipt.append(receiptTitle,receiptMessage,actions);body.append(receipt);
       if(envelope.status==='artist_signed')toolbar.append(reopen);
      }
      if(!root.isConnected||dialog!==focus||!focus.open)return;
