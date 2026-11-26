@@ -6,7 +6,16 @@ import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 
 const bundled=await build({entryPoints:['assets/js/layers/control-center/operations/shared/agreement-pdf.js'],bundle:true,write:false,format:'esm',platform:'browser',loader:{'.ttf':'binary'}});
-const {agreementPdf,agreementTitle}=await import('data:text/javascript;base64,'+Buffer.from(bundled.outputFiles[0].contents).toString('base64'));
+const {agreementPdf,agreementTitle,agreementSigningVersion}=await import('data:text/javascript;base64,'+Buffer.from(bundled.outputFiles[0].contents).toString('base64'));
+test('signing positions resolve from exact-version evidence without changing the issued body',()=>{
+ const title='11. Signature positions - not yet signed',body=title+'\nFOR THE LABEL\nSignature: [reserved for the authenticated label signer]\nServer-recorded signature date: [not signed]\n\nFOR THE ARTIST\nSignature: [reserved for the authenticated artist signer]\nServer-recorded signature date: [not signed]\n\nFINAL CONTROL CENTER REVIEW\nFinal confirmation: [not confirmed]';
+ const version={terms_digest:'digest',terms:{kind:'artist_partnership_execution_v1',body,section_titles:[title]}};
+ const row={signer_role:'label',display_name:'Synthetic Label',recorded_at:'2026-11-26T10:00:00Z',document_sha256:'digest'};
+ const shown=agreementSigningVersion(version,[row]);assert.equal(version.terms.body,body);assert.equal(shown.terms.section_titles[0],'11. Signature positions');
+ assert.match(shown.terms.body,/Signature: recorded for Synthetic Label/);assert.match(shown.terms.body,/Server-recorded signature date: 2026-11-26T10:00:00Z/);assert.match(shown.terms.body,/FOR THE ARTIST\nSignature: \[reserved/);
+ const complete=agreementSigningVersion(version,[row,{...row,signer_role:'artist',display_name:'Synthetic Artist'}]);assert.doesNotMatch(complete.terms.body,/\[not signed\]/);assert.match(complete.terms.body,/Signature: recorded for Synthetic Artist/);
+ assert.throws(()=>agreementSigningVersion(version,[{...row,document_sha256:'other'}]),/does not match/);
+});
 const image='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO5W16UAAAAASUVORK5CYII=';
 const digest='a'.repeat(64),record={envelope:{id:'synthetic-document',status:'archived',created_at:'2026-11-02T10:00:00Z'},version:{version_number:1,terms_digest:digest,terms:{title:'Agreement – review copy',body:Array.from({length:100},(_,i)=>`Section ${i+1}. Café: immutable terms for review.`).join('\n\n')}},signatures:[{signer_role:'artist',display_name:'Synthetic Artist',document_sha256:digest,image_sha256:createHash('sha256').update(Buffer.from(image,'base64')).digest('hex'),image_base64:image,section_initials:{1:'SA'},recorded_at:'2026-11-02T10:10:00Z'}],events:[{action:'archived',created_at:'2026-11-02T10:20:00Z'}]};
 test('PDF evidence copy embeds a readable multi-page document and verified signature image',async()=>{
