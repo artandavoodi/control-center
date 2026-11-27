@@ -1,5 +1,8 @@
 {
  "title":"Studio access email",
+ "setupPending":"Awaiting password setup",
+ "setupComplete":"Password setup completed",
+ "codeRequested":"Latest code request",
  "prepare":"Generate setup code",
  "notice":"Create a one-time setup code for the approved artist. It lets them choose their shared Artan Store and Studio account password.",
  "subject":"Your Artanrecords Studio access is ready",
