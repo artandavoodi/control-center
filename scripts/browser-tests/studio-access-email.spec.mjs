@@ -15,11 +15,14 @@ test('archived read-only contract can prepare access without reopening signature
 test('access email requires explicit preparation and keeps the verified recipient locked',async({page})=>{
  await page.route('**/__access-email.js',route=>route.fulfill({contentType:'application/javascript',body:bundle.outputFiles[0].text}));
  await page.goto('/');await page.evaluate(async()=>{
-  const {prepareStudioAccessEmail}=await import('/__access-email.js');window.accessCalls=[];document.body.innerHTML='<main class="control-center-operations"></main>';
-  await prepareStudioAccessEmail({root:document.body,staff:{},envelope:{id:'approved'},e:String,icon:()=>'',client:{functions:{invoke:async(name,args)=>{window.accessCalls.push({name,args});return {data:{recipient_email:'artist@example.test',username:'artist',enquiry:'submission',code:'12345678',setup_url:'https://studio.artanrecords.com/account/?flow=studio-access'}};}}}});
+  const {prepareStudioAccessEmail}=await import('/__access-email.js');window.accessCalls=[];document.body.innerHTML='<main class="control-center-operations"></main>';window.accessPending=new Promise(resolve=>{window.finishAccessPreparation=resolve;});
+  await prepareStudioAccessEmail({root:document.body,staff:{},envelope:{id:'approved'},e:String,icon:()=>'',client:{functions:{invoke:async(name,args)=>{window.accessCalls.push({name,args});await window.accessPending;return {data:{recipient_email:'artist@example.test',username:'artist',enquiry:'submission',code:'12345678',setup_url:'https://studio.artanrecords.com/account/?flow=studio-access'}};}}}});
  });
  expect(await page.evaluate(()=>window.accessCalls)).toEqual([]);
  await page.getByRole('button',{name:'Generate setup code'}).click();
+ const loading=page.locator('.agreement-loading-status:has(.ui-loader-circle)');await expect(loading).toHaveCSS('display','grid');await expect(loading).toHaveCSS('place-items','center');
+ expect(await loading.evaluate(node=>{const box=node.getBoundingClientRect(),spinner=node.firstElementChild.getBoundingClientRect();return Math.abs((box.left+box.right-spinner.left-spinner.right)/2)<1&&Math.abs((box.top+box.bottom-spinner.top-spinner.bottom)/2)<1;})).toBe(true);
+ await page.evaluate(()=>window.finishAccessPreparation());
  await expect(page.locator('[name=recipient]')).toHaveValue('artist@example.test');await expect(page.locator('[name=recipient]')).toHaveAttribute('readonly','');
  await expect(page.locator('[name=body]')).toHaveValue(/Username: artist\nOne-time setup code: 12345678/);
  expect(await page.evaluate(()=>window.accessCalls)).toEqual([{name:'studio-access-email',args:{body:{envelope:'approved'}}}]);

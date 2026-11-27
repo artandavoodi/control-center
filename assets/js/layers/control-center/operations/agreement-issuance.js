@@ -120,5 +120,6 @@ export function createAgreementEmailDialog({root,title,name=title,closeLabel='Cl
  const copy=labels.issuance,dialog=document.createElement('dialog');dialog.className='control-center-reply-dialog';dialog.setAttribute('aria-label',name);
  dialog.innerHTML=`<header class="control-center-dialog-header"><h2>${e(title)}</h2><button type="button" class="global-close-button" aria-label="${e(closeLabel)}"></button></header><p role="status"></p><section class="control-center-issue-form" data-contract-mail hidden><label>${e(copy.to)}<input name="recipient" readonly></label><label>${e(copy.subjectLabel)}<input name="subject" maxlength="300"></label><label>${e(copy.messageLabel)}<textarea name="body" maxlength="16000" rows="8"></textarea></label><div data-icloud-reply></div></section>`;
  host.append(dialog);window.NeuroartanCloseButtons?.initCloseButtonPrimitive(dialog);dialog.querySelector('button').onclick=()=>dialog.close();dialog.showModal();
- return {dialog,status:dialog.querySelector('[role=status]'),mail:dialog.querySelector('[data-contract-mail]')};
+ const status=dialog.querySelector('[role=status]');status.className='agreement-loading-status';
+ return {dialog,status,mail:dialog.querySelector('[data-contract-mail]')};
 }
